@@ -3,23 +3,23 @@ import { siteDetails } from "./siteDetails";
 
 export const faqs: IFAQ[] = [
     {
-        question: `Is ${siteDetails.siteName} secure?`,
-        answer: 'Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.',
+        question: 'How does the AI actually work for fire safety contractors?',
+        answer: 'Our AI analyzes customer emails to extract job requirements, reads equipment data from photos, and converts engineer voice descriptions into structured compliance documentation. It learns from every job to improve accuracy and suggests next actions based on patterns.',
     },
     {
-        question: `Can I use ${siteDetails.siteName} on multiple devices?`,
-        answer: 'Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.',
+        question: 'What makes SmartField different from Uptick or ServiceTitan?',
+        answer: 'While others digitize manual processes, we eliminate them entirely through AI automation. Instead of engineers filling forms, our AI captures data from photos and voice. Instead of office staff building quotes, AI generates them automatically.',
     },
     {
-        question: 'Can I connect all my bank accounts?',
-        answer: `Yes! ${siteDetails.siteName} supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`
+        question: 'How accurate is the AI data capture?',
+        answer: 'Our AI achieves 95%+ accuracy in data extraction from photos and voice descriptions. The system continuously learns from your specific workflows and improves over time. All AI-generated content is validated before certificates are issued.'
     },
     {
-        question: 'Do I need any financial expertise to use the investing features?',
-        answer: 'Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.',
+        question: 'What about data security and compliance?',
+        answer: 'All data is encrypted and stored securely. Our AI ensures 100% compliance with fire safety regulations by validating all requirements before certificates are issued. We maintain complete audit trails for regulatory compliance.',
     },
     {
-        question: 'What if I need help using the app?',
-        answer: 'Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.'
+        question: 'How does the pilot program work?',
+        answer: 'The 6-month pilot includes dedicated development team, weekly progress reviews, custom workflow configuration, and preferential pricing for 2 years. Limited to 3 pilot customers with full development partnership and risk-free trial.'
     }
 ];

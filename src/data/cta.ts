@@ -1,6 +1,6 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Transform Your Finances',
-    subheading: 'Your journey to financial freedom starts here. Download Finwise today and take the first step towards a brighter financial future!',
+    heading: 'Ready to Lead the AI Revolution in Fire Safety?',
+    subheading: 'Join us as a founding pilot customer and help shape the future of intelligent field operations management. Limited to 3 pilot customers with full development partnership.',
     appStoreUrl: '#',
     googlePlayUrl: '#'
 }

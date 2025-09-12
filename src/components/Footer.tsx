@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 </div>
             </div>
             <div className="mt-8 md:text-center text-foreground-accent px-6">
-                <p>Copyright &copy; {new Date().getFullYear()} OpsWise. All rights reserved.</p>
+                <p>Copyright &copy; {new Date().getFullYear()} Opscel Ltd. Registered in England and Wales. All rights reserved.</p>
             </div>
         </footer>
     );

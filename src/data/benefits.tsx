@@ -1,70 +1,70 @@
-import { FiBarChart2, FiBriefcase, FiDollarSign, FiLock, FiPieChart, FiShield, FiTarget, FiTrendingUp, FiUser } from "react-icons/fi";
+import { FiBarChart2, FiBriefcase, FiCamera, FiMessageCircle, FiTarget, FiTrendingUp, FiUser, FiZap } from "react-icons/fi";
 
 import { IBenefit } from "@/types"
 
 export const benefits: IBenefit[] = [
     {
-        title: "Smart Budgeting",
-        description: "Take the guesswork out of managing your money. Our AI-powered budgeting tool adapts to your lifestyle and helps you stay on track.",
+        title: "Intelligent Data Capture",
+        description: "AI analyzes customer emails, extracts job requirements, and captures data from photos and voice. Engineers describe work conversationally - AI structures the data automatically.",
         bullets: [
             {
-                title: "Intelligent Categorization",
-                description: "Automatically sorts your transactions for crystal-clear insights.",
-                icon: <FiBarChart2 size={26} />
+                title: "Smart Query Processing",
+                description: "Transforms customer emails into structured job requirements, site details, and equipment specifications automatically.",
+                icon: <FiMessageCircle size={26} />
             },
             {
-                title: "Customizable Goals",
-                description: "Set and track financial objectives that matter to you.",
-                icon: <FiTarget size={26} />
+                title: "Visual Intelligence",
+                description: "Reads equipment data, compliance dates, and condition assessments from photos - eliminating 90% of manual data entry.",
+                icon: <FiCamera size={26} />
             },
             {
-                title: "Predictive Analysis",
-                description: "Get ahead of your finances with spending forecasts and alerts.",
-                icon: <FiTrendingUp size={26} />
+                title: "Conversational Capture",
+                description: "Engineers describe work naturally: 'Replaced faulty RCD, tested circuits' becomes structured compliance documentation.",
+                icon: <FiUser size={26} />
             }
         ],
         imageSrc: "/images/mockup-1.webp"
     },
     {
-        title: "Seamless Investing",
-        description: "Start building wealth today, no financial degree required. Finwise makes investing accessible and straightforward.",
+        title: "Automated Documentation",
+        description: "Certificates, quotes, and invoices generated automatically with AI validation. No manual review needed - compliance guaranteed every time.",
         bullets: [
             {
-                title: "Micro-Investing",
-                description: "Begin with as little as $1 and watch your money grow.",
-                icon: <FiDollarSign size={26} />
+                title: "Instant Documentation",
+                description: "Certificates, quotes, and invoices generated automatically with AI validation. No manual review needed.",
+                icon: <FiZap size={26} />
             },
             {
-                title: "Expert Portfolios",
-                description: "Choose from investment strategies tailored to your risk tolerance.",
+                title: "Auto-Validation",
+                description: "AI ensures all compliance requirements are met before certificates are issued - zero regulatory oversights.",
                 icon: <FiBriefcase size={26} />
             },
             {
-                title: "Real-Time Performance",
-                description: "Track your investments with easy-to-understand metrics and visuals.",
-                icon: <FiPieChart size={26} />
+                title: "Predictive Prompts",
+                description: "AI suggests next actions based on job type, equipment found, and historical patterns.",
+                icon: <FiTarget size={26} />
             }
         ],
         imageSrc: "/images/mockup-2.webp"
     },
     {
-        title: "Bank-Grade Security",
-        description: "Your financial data deserves the best protection. Rest easy knowing Finwise employs cutting-edge security measures.",
+        title: "Revenue Intelligence",
+        description: "Identifies upselling opportunities and maintenance requirements automatically, increasing revenue per job by 30% through AI-powered insights.",
         bullets: [
             {
-                title: "Military-Grade Encryption",
-                description: "Your information is safeguarded with the highest level of encryption.",
-                icon: <FiLock size={26} />
+                title: "Revenue Optimization",
+                description: "Identifies upselling opportunities and maintenance requirements automatically, increasing revenue per job by 30%.",
+                icon: <FiTrendingUp size={26} />
             },
             {
-                title: "Biometric Authentication",
-                description: "Access your account securely with fingerprint or facial recognition.",
-                icon: <FiUser size={26} />
+                title: "Performance Analytics",
+                description: "AI learns from every job completed, continuously improving workflow efficiency and business insights.",
+                icon: <FiBarChart2 size={26} />
             },
             {
-                title: "Real-Time Fraud Detection",
-                description: "Our system constantly monitors for suspicious activity to keep your money safe.",
-                icon: <FiShield size={26} />
+                title: "Continuous Learning",
+                description: "System gets smarter with every job completed, adapting to your specific workflows and improving performance over time.",
+                icon: <FiTarget size={26} />
             }
         ],
         imageSrc: "/images/mockup-1.webp"

@@ -19,8 +19,8 @@ const HomePage: React.FC = () => {
 
         <Section
           id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
+          title="Pilot Program & Pricing"
+          description="Partnership approach with committed fire safety contractors to validate and refine AI capabilities."
         >
           <Pricing />
         </Section>
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
         <Section
           id="testimonials"
           title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
+          description="Hear from fire safety contractors who are leading the AI revolution in field operations."
         >
           <Testimonials />
         </Section>

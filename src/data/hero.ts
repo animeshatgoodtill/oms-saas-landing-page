@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'Smart, Secure, Simple Financial Management',
-    subheading: 'From effortless budgeting to real-time investment insights, Finwise puts you in control of your money like never before',
+    heading: 'The First AI-Native Operations Management Platform',
+    subheading: 'While existing platforms manage workflows, SmartField CRM intelligently automates them. Reduce engineer paperwork by 75%, accelerate certificate turnaround by 60%, and capture 40% more revenue opportunities.',
     centerImageSrc: '/images/hero-mockup.webp',
 }

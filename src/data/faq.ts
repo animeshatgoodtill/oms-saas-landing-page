@@ -6,7 +6,7 @@ export const faqs: IFAQ[] = [
         answer: 'Our AI analyzes customer emails to extract job requirements, reads equipment data from photos, and converts engineer voice descriptions into structured compliance documentation. It learns from every job to improve accuracy and suggests next actions based on patterns.',
     },
     {
-        question: 'What makes SmartField different from Uptick or ServiceTitan?',
+        question: 'What makes Opscel different from Uptick or ServiceTitan?',
         answer: 'While others digitize manual processes, we eliminate them entirely through AI automation. Instead of engineers filling forms, our AI captures data from photos and voice. Instead of office staff building quotes, AI generates them automatically.',
     },
     {

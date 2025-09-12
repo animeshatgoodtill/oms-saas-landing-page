@@ -11,7 +11,7 @@ export const testimonials: ITestimonial[] = [
     {
         name: 'Sarah Williams',
         role: 'Operations Manager at SecureTech Electrical',
-        message: `SmartField's intelligent data capture is revolutionary. Engineers simply describe what they've done conversationally, and the AI structures it into perfect compliance documentation. We've accelerated our certificate turnaround by 60%.`,
+        message: `Opscel's intelligent data capture is revolutionary. Engineers simply describe what they've done conversationally, and the AI structures it into perfect compliance documentation. We've accelerated our certificate turnaround by 60%.`,
         avatar: '/images/testimonial-2.webp',
     },
     {

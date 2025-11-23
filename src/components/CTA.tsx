@@ -1,8 +1,5 @@
 import { ctaDetails } from "@/data/cta"
 
-import AppStoreButton from "./AppStoreButton"
-import PlayStoreButton from "./PlayStoreButton"
-
 const CTA: React.FC = () => {
     return (
         <section id="cta" className="mt-10 mb-5 lg:my-20">
@@ -17,10 +14,27 @@ const CTA: React.FC = () => {
 
                         <p className="mx-auto max-w-xl md:px-5">{ctaDetails.subheading}</p>
 
-                        <div className="mt-4 flex flex-col sm:flex-row items-center sm:gap-4">
-                        <AppStoreButton />
-                        <PlayStoreButton />
+                        <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+                            <a
+                                href="https://app.opscel.com/handler/sign-up"
+                                className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors"
+                            >
+                                Join Pilot Program
+                            </a>
+                            <a
+                                href="mailto:hello@opscel.com?subject=Demo Request"
+                                className="border border-white/30 hover:border-white/60 text-white px-8 py-3 rounded-full font-medium transition-colors"
+                            >
+                                Book Demo
+                            </a>
                         </div>
+
+                        <p className="text-sm text-white/60 mt-6">
+                            Questions? Email us at{" "}
+                            <a href="mailto:hello@opscel.com" className="underline hover:text-white">
+                                hello@opscel.com
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

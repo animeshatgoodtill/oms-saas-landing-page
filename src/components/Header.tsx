@@ -30,7 +30,7 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
+                    <ul className="hidden md:flex space-x-6 items-center">
                         {menuItems.map(item => (
                             <li key={item.text}>
                                 <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
@@ -39,9 +39,20 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors">
+                            <a
+                                href="https://app.opscel.com/handler/sign-in"
+                                className="text-foreground hover:text-foreground-accent transition-colors"
+                            >
+                                Sign In
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://app.opscel.com/handler/sign-up"
+                                className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
+                            >
                                 Get Started
-                            </Link>
+                            </a>
                         </li>
                     </ul>
 
@@ -85,9 +96,22 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
-                                Start Free Trial
-                            </Link>
+                            <a
+                                href="https://app.opscel.com/handler/sign-in"
+                                className="text-foreground hover:text-primary block"
+                                onClick={toggleMenu}
+                            >
+                                Sign In
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://app.opscel.com/handler/sign-up"
+                                className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit"
+                                onClick={toggleMenu}
+                            >
+                                Get Started
+                            </a>
                         </li>
                     </ul>
                 </div>

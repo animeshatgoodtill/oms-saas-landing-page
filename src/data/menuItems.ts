@@ -10,7 +10,11 @@ export const menuItems: IMenuItem[] = [
         url: "#pricing"
     },
     {
-        text: "Testimonials",
-        url: "#testimonials"
+        text: "About",
+        url: "/about"
+    },
+    {
+        text: "Support",
+        url: "/support"
     }
 ];

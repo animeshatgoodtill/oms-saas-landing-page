@@ -3,6 +3,8 @@ import { IMenuItem, ISocials } from "@/types";
 export const footerDetails: {
     subheading: string;
     quickLinks: IMenuItem[];
+    companyLinks: IMenuItem[];
+    legalLinks: IMenuItem[];
     email: string;
     telephone: string;
     socials: ISocials;
@@ -20,18 +22,46 @@ export const footerDetails: {
         {
             text: "Testimonials",
             url: "#testimonials"
+        },
+        {
+            text: "FAQs",
+            url: "#faq"
         }
     ],
-    email: 'hi@opscel.com',
-    telephone: '+1 (123) 456-7890',
+    companyLinks: [
+        {
+            text: "About Us",
+            url: "/about"
+        },
+        {
+            text: "Contact",
+            url: "/contact"
+        },
+        {
+            text: "Support",
+            url: "/support"
+        }
+    ],
+    legalLinks: [
+        {
+            text: "Privacy Policy",
+            url: "/privacy"
+        },
+        {
+            text: "Terms of Service",
+            url: "/terms"
+        },
+        {
+            text: "Cookie Policy",
+            url: "/cookies"
+        }
+    ],
+    email: 'hello@opscel.com',
+    telephone: '+44 (0)20 1234 5678',
     socials: {
-        // github: 'https://github.com',
-        // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
-        facebook: 'https://facebook.com',
-        // youtube: 'https://youtube.com',
-        linkedin: 'https://www.linkedin.com',
-        // threads: 'https://www.threads.net',
-        instagram: 'https://www.instagram.com',
+        // twitter: 'https://twitter.com/opscel',
+        // facebook: 'https://facebook.com/opscel',
+        linkedin: 'https://www.linkedin.com/company/opscel',
+        // instagram: 'https://www.instagram.com/opscel',
     }
 }

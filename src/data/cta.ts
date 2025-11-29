@@ -1,6 +1,6 @@
 export const ctaDetails = {
-    heading: 'Ready to Lead the AI Revolution in Fire Safety?',
-    subheading: 'Join us as a founding pilot customer and help shape the future of intelligent field operations management. Limited to 3 pilot customers with full development partnership.',
+    heading: 'Try OpsCel Free for 90 Days',
+    subheading: 'See if OpsCel works for your business with zero risk. Full access to everything, cancel anytime. Join contractors already saving 10+ hours per week on admin.',
     appStoreUrl: '#',
     googlePlayUrl: '#'
 }

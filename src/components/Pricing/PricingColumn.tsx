@@ -12,22 +12,22 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }: Props) => {
     const { name, price, features } = tier;
 
     return (
-        <div className={clsx("w-full max-w-sm mx-auto bg-white rounded-xl border border-gray-200 lg:max-w-full", { "shadow-lg": highlight })}>
-            <div className="p-6 border-b border-gray-200 rounded-t-xl">
+        <div className={clsx("w-full max-w-sm mx-auto bg-card rounded-xl border border-border lg:max-w-full", { "shadow-lg": highlight })}>
+            <div className="p-6 border-b border-border rounded-t-xl">
                 <h3 className="text-2xl font-semibold mb-4">{name}</h3>
                 <p className="text-3xl md:text-5xl font-bold mb-6">
-                    <span className={clsx({ "text-secondary": highlight })}>
+                    <span className={clsx("font-mono", { "text-secondary": highlight })}>
                         {typeof price === 'number' ? `$${price}` : price}
                     </span>
-                    {typeof price === 'number' && <span className="text-lg font-normal text-gray-600">/mo</span>}
+                    {typeof price === 'number' && <span className="text-lg font-normal text-muted-foreground">/mo</span>}
                 </p>
-                <button className={clsx("w-full py-3 px-4 rounded-full transition-colors", { "bg-primary hover:bg-primary-accent": highlight, "bg-hero-background hover:bg-gray-200": !highlight })}>
+                <button className={clsx("w-full py-3 px-4 rounded-full transition-all duration-mechanical ease-mechanical", { "bg-primary text-primary-foreground hover:bg-primary-accent": highlight, "bg-muted hover:bg-muted/80": !highlight })}>
                     Get Started
                 </button>
             </div>
             <div className="p-6 mt-1">
-                <p className="font-bold mb-0">FEATURES</p>
-                <p className="text-foreground-accent mb-5">Everything in basic, plus...</p>
+                <p className="font-heading uppercase tracking-wide text-sm mb-0">Features</p>
+                <p className="text-muted-foreground mb-5">Everything in basic, plus...</p>
                 <ul className="space-y-4 mb-8">
                     {features.map((feature, index) => (
                         <li key={index} className="flex items-center">

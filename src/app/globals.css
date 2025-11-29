@@ -3,14 +3,32 @@
 @tailwind utilities;
 
 :root {
+  /* Base colors */
   --background: #ffffff;
   --foreground: #171717;
   --primary: #FED835;
+  --primary-foreground: #000000;
   --secondary: #304fff;
 
+  /* Legacy accent colors (keeping for compatibility) */
   --primary-accent: #e5c230;
   --foreground-accent: #454545;
   --hero-background: #F3F3F5;
+
+  /* Trades design system - Surfaces */
+  --card: #ffffff;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --border: #e5e5e5;
+
+  /* Trades design system - Status indicators */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --error: #dc2626;
+  --destructive: #dc2626;
+
+  /* Design system settings */
+  --radius: 0.75rem;
 }
 
 html {
@@ -88,4 +106,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .legal-content strong {
   @apply text-foreground font-semibold;
+}
+
+/* Trades design system - Button press feedback */
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+a[role="button"]:active,
+.btn:active {
+  transform: translateY(1px);
 }

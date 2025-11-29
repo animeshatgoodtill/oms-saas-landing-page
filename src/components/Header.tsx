@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                         <li>
                             <a
                                 href="https://app.opscel.com/handler/sign-in"
-                                className="text-foreground hover:text-foreground-accent transition-colors"
+                                className="text-foreground hover:text-foreground-accent transition-all duration-mechanical ease-mechanical"
                             >
                                 Sign In
                             </a>
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
                         <li>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
+                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full transition-all duration-mechanical ease-mechanical"
                             >
                                 Get Started
                             </a>
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
                         <li>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit"
+                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-5 py-2 rounded-full block w-fit transition-all duration-mechanical ease-mechanical"
                                 onClick={toggleMenu}
                             >
                                 Get Started

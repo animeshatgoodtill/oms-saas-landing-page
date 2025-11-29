@@ -29,14 +29,14 @@ const FeaturesPage: React.FC = () => {
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
               <div className="flex items-start gap-4 mb-8">
-                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center text-foreground flex-shrink-0">
+                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center text-foreground flex-shrink-0">
                   {category.icon}
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
                     {category.title}
                   </h2>
-                  <p className="text-lg text-foreground-accent">
+                  <p className="text-lg text-muted-foreground">
                     {category.description}
                   </p>
                 </div>
@@ -47,12 +47,12 @@ const FeaturesPage: React.FC = () => {
                 {category.features.map((feature, featureIndex) => (
                   <div
                     key={featureIndex}
-                    className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-mechanical ease-mechanical"
                   >
                     <h3 className="text-lg font-semibold text-foreground mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-foreground-accent leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -76,13 +76,13 @@ const FeaturesPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="https://app.opscel.com/handler/sign-up"
-                className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors"
+                className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
               >
                 Start Free Trial
               </Link>
               <Link
                 href="/#pricing"
-                className="border border-foreground/30 hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-colors"
+                className="border border-border hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
               >
                 View Pricing
               </Link>

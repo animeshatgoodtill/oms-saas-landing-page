@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'The First AI-Native Operations Management Platform',
-    subheading: 'While existing platforms manage workflows, Opscel intelligently automates them. Reduce engineer paperwork by 75%, accelerate certificate turnaround by 60%, and capture 40% more revenue opportunities.',
+    heading: 'From Job Complete to Invoice in Minutes, Not Days',
+    subheading: 'Your engineers finish the job at 3pm but the certificate doesn\'t go out until next Tuesday. That\'s 5 days of delayed payment, frustrated customers, and revenue sitting in limbo. OpsCel changes that—built for electrical, fire safety, plumbing, HVAC, and maintenance contractors across the UK.',
     centerImageSrc: '/images/hero-mockup.webp',
 }

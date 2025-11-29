@@ -1,12 +1,12 @@
 export const siteDetails = {
-    siteName: 'Opscel',
+    siteName: 'OpsCel',
     siteUrl: 'https://opscel.com/',
     metadata: {
-        title: 'Opscel - AI-Native Operations Management for Fire Safety Contractors',
-        description: 'The first AI-native operations management platform for fire safety & electrical contractors. Reduce engineer paperwork by 75%, accelerate certificate turnaround by 60%, and capture 40% more revenue opportunities.',
+        title: 'OpsCel - Job Management Software for UK Trade Contractors',
+        description: 'Stop losing money to paperwork. OpsCel helps electrical, fire safety, plumbing, HVAC, and maintenance contractors get certificates out faster, reduce admin by 75%, and capture more revenue. Try free for 90 days.',
     },
     language: 'en-us',
     locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "Opscel"
+    siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // or use a string for the logo e.g. "OpsCel"
     googleAnalyticsId: '', // e.g. G-XXXXXXX,
 }

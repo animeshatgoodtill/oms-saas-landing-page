@@ -71,7 +71,7 @@ const FeaturesPage: React.FC = () => {
               Try Every Feature Free for 90 Days
             </h2>
             <p className="text-foreground-accent mb-8">
-              No limitations, no "trial version." See if OpsCel works for your business with zero risk.
+              No limitations, no &ldquo;trial version.&rdquo; See if OpsCel works for your business with zero risk.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

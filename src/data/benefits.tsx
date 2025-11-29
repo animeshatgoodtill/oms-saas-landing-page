@@ -1,4 +1,4 @@
-import { FiBarChart2, FiBriefcase, FiCamera, FiMessageCircle, FiTarget, FiTrendingUp, FiUser, FiZap } from "react-icons/fi";
+import { FiBriefcase, FiCamera, FiMessageCircle, FiTarget, FiTrendingUp, FiUser, FiZap } from "react-icons/fi";
 
 import { IBenefit } from "@/types"
 

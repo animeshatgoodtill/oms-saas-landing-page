@@ -14,14 +14,6 @@ export const metadata: Metadata = {
 const FeaturesPage: React.FC = () => {
   return (
     <>
-      {/* Load SVG Sprite */}
-      <object
-        data="/icons/features-sprite.svg"
-        type="image/svg+xml"
-        style={{ position: 'absolute', width: 0, height: 0 }}
-        aria-hidden="true"
-      />
-
       <PageHeader
         title={featuresPageDetails.title}
         description={featuresPageDetails.description}

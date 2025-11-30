@@ -44,23 +44,20 @@ const FeaturesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Features Grid - Stripe Style */}
-              <div className="grid md:grid-cols-2 gap-8 mt-12">
+              {/* Features Grid - Clean Stripe Style */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-12">
                 {category.features.map((feature, featureIndex) => (
-                  <div
-                    key={featureIndex}
-                    className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-mechanical ease-mechanical group"
-                  >
-                    {/* Icon on top - Stripe style */}
-                    <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-mechanical">
+                  <div key={featureIndex}>
+                    {/* Icon - Large and prominent */}
+                    <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
                       <svg className="w-10 h-10">
                         <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">
+                    <h3 className="text-lg font-bold text-foreground mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-base">
+                    <p className="text-muted-foreground leading-relaxed text-sm">
                       {feature.description}
                     </p>
                   </div>

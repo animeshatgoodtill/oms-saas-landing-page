@@ -28,42 +28,39 @@ const FeaturesPage: React.FC = () => {
           <Container>
             <div className="max-w-6xl mx-auto">
               {/* Category Header */}
-              <div className="flex items-start gap-4 mb-8">
-                <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center text-foreground flex-shrink-0">
-                  <svg className="w-10 h-10">
+              <div className="flex items-start gap-6 mb-12">
+                <div className="w-20 h-20 bg-primary/15 rounded-2xl flex items-center justify-center text-foreground flex-shrink-0">
+                  <svg className="w-14 h-14">
                     <use href={`/icons/features-sprite.svg#${category.iconId}`} />
                   </svg>
                 </div>
                 <div>
-                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
                     {category.title}
                   </h2>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-xl text-muted-foreground">
                     {category.description}
                   </p>
                 </div>
               </div>
 
-              {/* Features Grid */}
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
+              {/* Features Grid - Stripe Style */}
+              <div className="grid md:grid-cols-2 gap-8 mt-12">
                 {category.features.map((feature, featureIndex) => (
                   <div
                     key={featureIndex}
-                    className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-mechanical ease-mechanical"
+                    className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-mechanical ease-mechanical group"
                   >
-                    <div className="flex items-start gap-4 mb-3">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-7 h-7">
-                          <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground mb-2">
-                          {feature.title}
-                        </h3>
-                      </div>
+                    {/* Icon on top - Stripe style */}
+                    <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-mechanical">
+                      <svg className="w-10 h-10">
+                        <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
+                      </svg>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed pl-16">
+                    <h3 className="text-xl font-bold text-foreground mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-base">
                       {feature.description}
                     </p>
                   </div>

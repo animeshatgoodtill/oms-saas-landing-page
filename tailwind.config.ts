@@ -8,15 +8,39 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ["Manrope", "sans-serif"],
+        body: ["Source Sans 3", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "var(--primary)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
         secondary: "var(--secondary)",
+        card: "var(--card)",
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        border: "var(--border)",
+        success: "var(--success)",
+        warning: "var(--warning)",
+        error: "var(--error)",
+        destructive: "var(--destructive)",
 
         "primary-accent": "var(--primary-accent)",
         "foreground-accent": "var(--foreground-accent)",
         "hero-background": "var(--hero-background)",
+      },
+      transitionDuration: {
+        mechanical: "150ms",
+      },
+      transitionTimingFunction: {
+        mechanical: "cubic-bezier(0.25, 0.1, 0.25, 1)",
       },
     },
   },

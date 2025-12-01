@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
-import { FaFingerprint } from 'react-icons/fa';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
@@ -13,7 +13,13 @@ const Footer: React.FC = () => {
                 {/* Brand Column */}
                 <div className="sm:col-span-2 lg:col-span-2">
                     <Link href="/" className="flex items-center gap-2">
-                        <FaFingerprint className="min-w-fit w-5 h-5 md:w-7 md:h-7" />
+                        <Image
+                            src="/images/opscel-logo.png"
+                            alt="OpsCel Logo"
+                            width={28}
+                            height={28}
+                            className="min-w-fit"
+                        />
                         <h3 className="manrope text-xl font-semibold cursor-pointer">
                             {siteDetails.siteName}
                         </h3>

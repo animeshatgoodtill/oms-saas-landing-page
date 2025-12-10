@@ -51,3 +51,21 @@ export interface ISocials {
     x?: string;
     [key: string]: string | undefined;
 }
+
+export interface IFeatureDetailSection {
+    title: string;
+    description: string;
+    imageSrc?: string;
+    bullets?: string[];
+}
+
+export interface IFeatureDetail {
+    slug: string;
+    title: string;
+    subtitle: string;
+    heroDescription: string;
+    iconId: string;
+    sections: IFeatureDetailSection[];
+    ctaText: string;
+    ctaUrl: string;
+}

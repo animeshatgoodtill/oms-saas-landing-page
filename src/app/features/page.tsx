@@ -34,13 +34,24 @@ const FeaturesPage: React.FC = () => {
                     <use href={`/icons/features-sprite.svg#${category.iconId}`} />
                   </svg>
                 </div>
-                <div>
+                <div className="flex-1">
                   <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
                     {category.title}
                   </h2>
-                  <p className="text-xl text-muted-foreground">
+                  <p className="text-xl text-muted-foreground mb-4">
                     {category.description}
                   </p>
+                  {category.detailSlug && (
+                    <Link
+                      href={`/features/${category.detailSlug}`}
+                      className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 font-medium transition-colors"
+                    >
+                      Learn More
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
               </div>
 

@@ -2,6 +2,7 @@ export interface IFeatureCategory {
     title: string;
     description: string;
     iconId: string; // SVG sprite icon ID
+    detailSlug?: string; // Optional link to detailed feature page
     features: IFeatureDetail[];
 }
 
@@ -48,6 +49,7 @@ export const featureCategories: IFeatureCategory[] = [
         title: "Instant Documentation",
         description: "Stop waiting days for certificates. Generate compliant documentation the moment the job's done.",
         iconId: "icon-certificate",
+        detailSlug: "job-sheets",
         features: [
             {
                 title: "Same-Day Certificates",

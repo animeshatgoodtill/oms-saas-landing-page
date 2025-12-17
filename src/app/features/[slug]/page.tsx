@@ -1,12 +1,9 @@
-'use client';
-
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
-import { Disclosure } from '@headlessui/react';
-import { FiChevronDown } from 'react-icons/fi';
 
 import Container from '@/components/Container';
+import FAQAccordion from '@/components/FAQAccordion';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
 
 interface FeatureDetailPageProps {
@@ -278,29 +275,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-4">
-                {feature.faq.map((item, index) => (
-                  <Disclosure key={index}>
-                    {({ open }) => (
-                      <div className="border border-border rounded-lg overflow-hidden">
-                        <Disclosure.Button className="flex justify-between items-center w-full px-6 py-4 text-left bg-card hover:bg-muted transition-colors">
-                          <span className="font-semibold text-foreground pr-8">
-                            {item.question}
-                          </span>
-                          <FiChevronDown
-                            className={`w-5 h-5 text-muted-foreground transition-transform flex-shrink-0 ${
-                              open ? 'transform rotate-180' : ''
-                            }`}
-                          />
-                        </Disclosure.Button>
-                        <Disclosure.Panel className="px-6 py-4 bg-muted/50 text-muted-foreground">
-                          {item.answer}
-                        </Disclosure.Panel>
-                      </div>
-                    )}
-                  </Disclosure>
-                ))}
-              </div>
+              <FAQAccordion faqs={feature.faq} />
             </div>
           </Container>
         </section>

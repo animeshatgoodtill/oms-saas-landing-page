@@ -14,6 +14,39 @@ export interface IFeatureDetail {
 
 export const featureCategories: IFeatureCategory[] = [
     {
+        title: "Dashboard & Insights",
+        description: "Your business at a glance. See what needs attention, who's available, and what's converting—all before your first coffee.",
+        iconId: "icon-activity-log",
+        detailSlug: "dashboard",
+        features: [
+            {
+                title: "Jobs Needing Attention",
+                description: "Never let work slip through the cracks. See overdue jobs, missing certificates, and stalled quotes prioritised by urgency.",
+                iconId: "icon-deficiency-log"
+            },
+            {
+                title: "Team Utilisation Bars",
+                description: "Know who's slammed and who's got capacity in one glance. Green, amber, red—assign emergency calls to the right person instantly.",
+                iconId: "icon-user-roles"
+            },
+            {
+                title: "Quote Pipeline & Conversion",
+                description: "Watch quotes move from sent to signed. See conversion percentages and spot where deals are stalling before competition swoops in.",
+                iconId: "icon-price-tag"
+            },
+            {
+                title: "4-Week Trend Sparklines",
+                description: "Every stat card shows a trend line. See if jobs are trending up or completions are slowing—without opening a single report.",
+                iconId: "icon-activity-log"
+            },
+            {
+                title: "Lightning Fast Loading",
+                description: "Critical data loads in under half a second. Because waiting for dashboards is time you could spend running your business.",
+                iconId: "icon-smart-prompt"
+            }
+        ]
+    },
+    {
         title: "Mobile Field Service",
         description: "Your engineers work on-site, not at a desk. Give them tools that work the way they do.",
         iconId: "icon-gps-checkin",
@@ -49,7 +82,7 @@ export const featureCategories: IFeatureCategory[] = [
         title: "Instant Documentation",
         description: "Stop waiting days for certificates. Generate compliant documentation the moment the job's done.",
         iconId: "icon-certificate",
-        detailSlug: "job-sheets",
+        detailSlug: "certificates",
         features: [
             {
                 title: "Same-Day Certificates",

@@ -109,3 +109,38 @@ export interface IFeatureDetail {
         company: string;
     };
 }
+
+// Documentation types
+export interface IDocSection {
+    id: string;
+    title: string;
+    content?: string;
+    subsections?: IDocSubsection[];
+    table?: IDocTable;
+}
+
+export interface IDocSubsection {
+    title: string;
+    content: string;
+    bullets?: string[];
+    table?: IDocTable;
+    steps?: IDocStep[];
+}
+
+export interface IDocTable {
+    headers: string[];
+    rows: string[][];
+}
+
+export interface IDocStep {
+    step: string;
+    description: string;
+}
+
+export interface IDocGuide {
+    slug: string;
+    title: string;
+    description: string;
+    lastUpdated: string;
+    sections: IDocSection[];
+}

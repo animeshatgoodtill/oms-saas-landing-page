@@ -64,14 +64,22 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
               {feature.heroDescription}
             </p>
 
-            {/* CTA Button */}
-            <div className="mt-8">
+            {/* CTA Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href={feature.ctaUrl}
-                className="inline-block bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
+                className="inline-block bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical text-center"
               >
                 {feature.ctaText}
               </Link>
+              {feature.slug === 'certificates' && (
+                <Link
+                  href="/docs/certificates"
+                  className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical text-center"
+                >
+                  View Complete User Guide
+                </Link>
+              )}
             </div>
           </div>
         </Container>

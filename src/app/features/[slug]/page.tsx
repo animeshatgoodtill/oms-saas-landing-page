@@ -1,10 +1,12 @@
-import { Metadata } from 'next';
+'use client';
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { Disclosure } from '@headlessui/react';
+import { FiChevronDown } from 'react-icons/fi';
 
 import Container from '@/components/Container';
-import { siteDetails } from '@/data/siteDetails';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
 
 interface FeatureDetailPageProps {
@@ -19,22 +21,6 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({
     slug,
   }));
-}
-
-// Generate metadata for each feature page
-export async function generateMetadata({ params }: FeatureDetailPageProps): Promise<Metadata> {
-  const feature = getFeatureBySlug(params.slug);
-
-  if (!feature) {
-    return {
-      title: `Feature Not Found | ${siteDetails.siteName}`,
-    };
-  }
-
-  return {
-    title: `${feature.title} | ${siteDetails.siteName}`,
-    description: feature.heroDescription,
-  };
 }
 
 const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
@@ -94,8 +80,115 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
         </Container>
       </section>
 
-      {/* Feature Sections */}
-      {feature.sections.map((section, index) => (
+      {/* Feature Highlights Grid */}
+      {feature.featureHighlights && feature.featureHighlights.length > 0 && (
+        <section className="py-16 md:py-24">
+          <Container>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {feature.featureHighlights.map((highlight, index) => (
+                  <div key={index} className="text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10">
+                        <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      {highlight.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {highlight.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* How It Works Steps */}
+      {feature.howItWorksSteps && feature.howItWorksSteps.length > 0 && (
+        <section className="py-16 md:py-24 bg-hero-background">
+          <Container>
+            <div className="max-w-5xl mx-auto">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+                How It Works
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {feature.howItWorksSteps.map((step, index) => (
+                  <div key={index} className="text-center">
+                    <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-2xl">
+                      {step.stepNumber}
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Persona Benefits */}
+      {feature.personaBenefits && feature.personaBenefits.length > 0 && (
+        <section className="py-16 md:py-24">
+          <Container>
+            <div className="max-w-6xl mx-auto">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+                Key Benefits
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {feature.personaBenefits.map((persona, index) => (
+                  <div key={index} className="bg-card border border-border rounded-xl p-6">
+                    <h3 className="text-xl font-bold text-foreground mb-4">
+                      For {persona.persona}
+                    </h3>
+                    <ul className="space-y-3">
+                      {persona.benefits.map((benefit, benefitIndex) => (
+                        <li key={benefitIndex} className="flex items-start gap-2">
+                          <BsFillCheckCircleFill className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                          <span className="text-muted-foreground text-sm">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Stats Block */}
+      {feature.stats && feature.stats.length > 0 && (
+        <section className="py-16 md:py-24 bg-foreground text-background">
+          <Container>
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-8 text-center">
+                {feature.stats.map((stat, index) => (
+                  <div key={index}>
+                    <div className="font-mono text-5xl md:text-6xl font-bold text-primary mb-3">
+                      {stat.value}
+                    </div>
+                    <p className="text-lg opacity-90">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Legacy Feature Sections (for backward compatibility) */}
+      {feature.sections && feature.sections.map((section, index) => (
         <section
           key={index}
           className={`py-16 md:py-24 ${index % 2 === 1 ? 'bg-hero-background' : ''}`}
@@ -136,22 +229,104 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
         </section>
       ))}
 
+      {/* Comparison Table */}
+      {feature.comparison && feature.comparison.length > 0 && (
+        <section className="py-16 md:py-24 bg-hero-background">
+          <Container>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
+                What Makes OpsCel Different?
+              </h2>
+              <div className="overflow-x-auto mt-8">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b-2 border-border">
+                      <th className="text-left py-4 px-4 font-bold text-foreground">Feature</th>
+                      <th className="text-center py-4 px-4 font-bold text-foreground">OpsCel</th>
+                      <th className="text-center py-4 px-4 font-bold text-foreground">Others</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {feature.comparison.map((row, index) => (
+                      <tr key={index} className="border-b border-border">
+                        <td className="py-4 px-4 text-muted-foreground">{row.feature}</td>
+                        <td className="py-4 px-4 text-center">
+                          {row.opscel ? (
+                            <span className="text-secondary text-2xl">✓</span>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
+                          )}
+                        </td>
+                        <td className="py-4 px-4 text-center text-muted-foreground">
+                          {row.others === 'Yes' ? '✓' : row.others === 'No' ? '—' : row.others}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* FAQ Section */}
+      {feature.faq && feature.faq.length > 0 && (
+        <section className="py-16 md:py-24">
+          <Container>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-4">
+                {feature.faq.map((item, index) => (
+                  <Disclosure key={index}>
+                    {({ open }) => (
+                      <div className="border border-border rounded-lg overflow-hidden">
+                        <Disclosure.Button className="flex justify-between items-center w-full px-6 py-4 text-left bg-card hover:bg-muted transition-colors">
+                          <span className="font-semibold text-foreground pr-8">
+                            {item.question}
+                          </span>
+                          <FiChevronDown
+                            className={`w-5 h-5 text-muted-foreground transition-transform flex-shrink-0 ${
+                              open ? 'transform rotate-180' : ''
+                            }`}
+                          />
+                        </Disclosure.Button>
+                        <Disclosure.Panel className="px-6 py-4 bg-muted/50 text-muted-foreground">
+                          {item.answer}
+                        </Disclosure.Panel>
+                      </div>
+                    )}
+                  </Disclosure>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-foreground text-background">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-              See It in Action—90 Days Free
+              Ready to Win More Work?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              No credit card required. Full access to every feature. See if OpsCel works for your business with zero risk.
+            <p className="text-xl mb-2 opacity-90">
+              {feature.slug === 'quotations'
+                ? 'Quotations is available on Business and Pro plans.'
+                : 'Available on all plans.'}
+            </p>
+            <p className="text-lg mb-8 opacity-75">
+              No credit card required. Full access to every feature. 90-day free trial.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href={feature.ctaUrl}
                 className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
               >
-                Start Free Trial
+                {feature.ctaText}
               </Link>
               <Link
                 href="/features"

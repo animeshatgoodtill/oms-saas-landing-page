@@ -2,12 +2,14 @@ import { IFeatureDetail } from '@/types';
 import { jobSheetsDetail } from './job-sheets';
 import { quotationsDetail } from './quotations';
 import { certificatesDetail } from './certificates';
+import { dashboardDetail } from './dashboard';
 
 // Export all feature details
 export const featureDetails: IFeatureDetail[] = [
     jobSheetsDetail,
     quotationsDetail,
     certificatesDetail,
+    dashboardDetail,
 ];
 
 // Helper function to get feature by slug

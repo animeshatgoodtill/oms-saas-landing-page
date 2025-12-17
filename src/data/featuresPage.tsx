@@ -133,6 +133,39 @@ export const featureCategories: IFeatureCategory[] = [
         ]
     },
     {
+        title: "Quotations & Estimates",
+        description: "Stop losing quotes in email threads. Send professional, interactive quotes with Good-Better-Best pricing that customers can accept online.",
+        iconId: "icon-price-tag",
+        detailSlug: "quotations",
+        features: [
+            {
+                title: "Good-Better-Best Pricing",
+                description: "Give customers three options in one quote. They pick their budget, you win the job instead of losing to cheaper competitors.",
+                iconId: "icon-price-tag"
+            },
+            {
+                title: "Customer Acceptance Portal",
+                description: "Customer clicks link, views quote on phone, signs with finger, accepts in 90 seconds. No PDFs, no printing, no confusion.",
+                iconId: "icon-signature"
+            },
+            {
+                title: "Automatic Follow-Ups",
+                description: "System sends reminders at 3, 7, and 14 days if customer hasn't responded. You never forget to follow up.",
+                iconId: "icon-smart-prompt"
+            },
+            {
+                title: "Quote Analytics",
+                description: "See acceptance rates, response times, conversion funnel, and which pricing tiers win most often.",
+                iconId: "icon-activity-log"
+            },
+            {
+                title: "Convert to Job in One Click",
+                description: "Customer accepts, you click Convert, job appears in schedule with all details. No retyping.",
+                iconId: "icon-job-workflow"
+            }
+        ]
+    },
+    {
         title: "Asset & Equipment Tracking",
         description: "For businesses that service equipment—fire panels, distribution boards, emergency lighting—track what you maintain, when it was last serviced, what needs attention.",
         iconId: "icon-track-equipment",

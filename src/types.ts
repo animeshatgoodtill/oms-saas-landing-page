@@ -59,13 +59,53 @@ export interface IFeatureDetailSection {
     bullets?: string[];
 }
 
+export interface IFeatureHighlight {
+    iconId: string;
+    title: string;
+    description: string;
+}
+
+export interface IHowItWorksStep {
+    stepNumber: number;
+    title: string;
+    description: string;
+}
+
+export interface IPersonaBenefit {
+    persona: string;
+    benefits: string[];
+}
+
+export interface IStatBlock {
+    value: string;
+    label: string;
+}
+
+export interface IComparisonRow {
+    feature: string;
+    opscel: boolean;
+    others: 'Yes' | 'No' | 'Some';
+}
+
 export interface IFeatureDetail {
     slug: string;
     title: string;
     subtitle: string;
     heroDescription: string;
     iconId: string;
-    sections: IFeatureDetailSection[];
+    sections?: IFeatureDetailSection[];
     ctaText: string;
     ctaUrl: string;
+    // Enhanced sections (optional)
+    featureHighlights?: IFeatureHighlight[];
+    howItWorksSteps?: IHowItWorksStep[];
+    personaBenefits?: IPersonaBenefit[];
+    stats?: IStatBlock[];
+    comparison?: IComparisonRow[];
+    faq?: IFAQ[];
+    testimonial?: {
+        quote: string;
+        author: string;
+        company: string;
+    };
 }

@@ -49,7 +49,7 @@ export const featureCategories: IFeatureCategory[] = [
         title: "Instant Documentation",
         description: "Stop waiting days for certificates. Generate compliant documentation the moment the job's done.",
         iconId: "icon-certificate",
-        detailSlug: "job-sheets",
+        detailSlug: "certificates",
         features: [
             {
                 title: "Same-Day Certificates",

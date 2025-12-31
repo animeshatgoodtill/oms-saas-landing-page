@@ -1,15 +1,29 @@
 import { IFeatureDetail } from '@/types';
-import { jobSheetsDetail } from './job-sheets';
-import { quotationsDetail } from './quotations';
-import { certificatesDetail } from './certificates';
 import { dashboardDetail } from './dashboard';
+import { fieldServiceDetail } from './field-service';
+import { jobsDetail } from './jobs';
+import { customersDetail } from './customers';
+import { certificatesDetail } from './certificates';
+import { quotationsDetail } from './quotations';
+import { invoicingDetail } from './invoicing';
+import { assetsDetail } from './assets';
+import { dataImportDetail } from './data-import';
+import { teamDetail } from './team';
+import { templatesDetail } from './templates';
 
-// Export all feature details
+// Export all feature details (ordered by typical user workflow)
 export const featureDetails: IFeatureDetail[] = [
-    jobSheetsDetail,
-    quotationsDetail,
-    certificatesDetail,
     dashboardDetail,
+    fieldServiceDetail,
+    jobsDetail,
+    customersDetail,
+    certificatesDetail,
+    quotationsDetail,
+    invoicingDetail,
+    assetsDetail,
+    dataImportDetail,
+    teamDetail,
+    templatesDetail,
 ];
 
 // Helper function to get feature by slug

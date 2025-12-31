@@ -34,6 +34,21 @@ export const dashboardDetail: IFeatureDetail = {
             description: 'A calendar that actually fits on your screen. See the week ahead, click any day to drill down, and know exactly what\'s scheduled for today.'
         },
         {
+            iconId: 'icon-deficiency-log',
+            title: 'Defects Awaiting Quotes',
+            description: 'C1/C2 defects found during EICR inspections need remedial quotes. See which observations are waiting for pricing—one click creates the quote with pre-filled details.'
+        },
+        {
+            iconId: 'icon-service-history',
+            title: 'Jobs by Type Visualization',
+            description: 'See your workload distribution at a glance. Donut chart shows proportion of inspections, installations, and maintenance—helping you balance team skills and scheduling.'
+        },
+        {
+            iconId: 'icon-user-roles',
+            title: 'Engineer Performance Leaderboard',
+            description: 'Business tier only: See which engineers complete most jobs, maintain fastest response times, and generate highest revenue. Healthy competition, data-driven recognition.'
+        },
+        {
             iconId: 'icon-smart-prompt',
             title: 'Lightning Fast Loading',
             description: 'Critical data loads in under half a second. Charts and analytics load in parallel without blocking your view. Because waiting for dashboards is time wasted.'
@@ -47,6 +62,11 @@ export const dashboardDetail: IFeatureDetail = {
             iconId: 'icon-smart-customer',
             title: 'Smart Setup for New Users',
             description: 'No empty dashboards, no confusion. New accounts get a guided checklist that walks through setup step by step—so you\'re operational, not overwhelmed.'
+        },
+        {
+            iconId: 'icon-compliance-shield',
+            title: 'Role-Based Widget Visibility',
+            description: 'Engineers see their jobs. Office managers see team capacity. Business owners see revenue trends. Everyone sees what they need, nothing they don\'t.'
         }
     ],
 

@@ -3,6 +3,7 @@ import { IMenuItem, ISocials } from "@/types";
 export const footerDetails: {
     subheading: string;
     quickLinks: IMenuItem[];
+    resourcesLinks: IMenuItem[];
     companyLinks: IMenuItem[];
     legalLinks: IMenuItem[];
     email: string;
@@ -13,7 +14,7 @@ export const footerDetails: {
     quickLinks: [
         {
             text: "Features",
-            url: "/#features"
+            url: "/features"
         },
         {
             text: "Pricing",
@@ -26,6 +27,20 @@ export const footerDetails: {
         {
             text: "FAQs",
             url: "/#faq"
+        }
+    ],
+    resourcesLinks: [
+        {
+            text: "All Features",
+            url: "/features"
+        },
+        {
+            text: "Certificate Guide",
+            url: "/docs/certificates"
+        },
+        {
+            text: "Customer Portal Guide",
+            url: "/docs/customer-portal"
         }
     ],
     companyLinks: [

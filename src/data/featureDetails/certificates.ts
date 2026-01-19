@@ -2,206 +2,186 @@ import { IFeatureDetail } from '@/types';
 
 export const certificatesDetail: IFeatureDetail = {
     slug: 'certificates',
-    title: 'Compliant Certificates in Minutes, Not Hours',
-    subtitle: 'OpsCel Certificates Module',
-    heroDescription: 'Generate professional BS 7671, BS 5839, and MCS-compliant certificates directly from completed jobs. No more paperwork delays, no more compliance headaches.',
-    iconId: 'icon-certificate',
+    title: 'The Only System That Knows BS 7671 Table 41.4 by Heart',
+    subtitle: 'OpsCel Compliance Certificate System',
+    heroDescription: 'This isn&apos;t just digital forms—it&apos;s the industry&apos;s first compliance document system that enforces BS 7671, BS 5839, and MCS standards before certificates can be issued. Auto-lookup Zs limits, validate test results, capture GPS-tagged signatures, and maintain immutable audit trails. Your engineers can&apos;t accidentally issue a non-compliant certificate.',
+    iconId: 'icon-compliance-shield',
 
     featureHighlights: [
         {
-            iconId: 'icon-job-workflow',
-            title: 'Auto-Population from Jobs',
-            description: 'Certificate forms pre-fill with customer details, site address, and contractor credentials. Your engineers start 50% done.'
-        },
-        {
-            iconId: 'icon-signature',
-            title: 'Mobile-First Design',
-            description: 'Complete certificates on-site from any tablet or phone. No more scribbled notes to type up later.'
-        },
-        {
             iconId: 'icon-compliance-shield',
-            title: 'Built-In Validation',
-            description: 'Can\'t issue a certificate with missing test results or unsigned declarations. The system catches errors before they become compliance issues.'
-        },
-        {
-            iconId: 'icon-certificate',
-            title: 'Professional PDFs',
-            description: 'One-click PDF generation matching official BS 7671 and industry model forms. Ready to email or print.'
-        },
-        {
-            iconId: 'icon-auto-backup',
-            title: 'Automatic Document Filing',
-            description: 'Issued certificates auto-file to the job record and site compliance folder. No manual uploading required.'
-        },
-        {
-            iconId: 'icon-smart-customer',
-            title: 'Customer Portal',
-            description: 'Clients receive a secure link to view and download their certificates. Track when they\'ve acknowledged receipt.'
-        },
-        {
-            iconId: 'icon-maintenance-schedule',
-            title: 'Retest Tracking',
-            description: 'EICR due in 5 years? Fire alarm service due in 6 months? OpsCel tracks inspection intervals so you know when retests are due.'
+            title: 'BS 7671 Zs Auto-Lookup & Validation',
+            description: 'Engineer enters Zs = 1.2Ω for B32 MCB? System auto-looks up BS 7671 Table 41.4 limit (1.37Ω), applies temperature correction (×0.8 = 1.10Ω), shows status: ⚠️ WARNING (compliant but close to limit). Margin: -0.10Ω. No manual table lookups, no calculator needed.'
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Defect-to-Quote Pipeline',
-            description: 'Found C1/C2 observations during an EICR? Generate a remedial quotation directly from the inspection findings.'
+            title: 'Prevents Non-Compliant Certificates',
+            description: 'Can&apos;t issue EIC with IR <1MΩ. Can&apos;t issue EICR with C1/C2 observations marked "Satisfactory". Can&apos;t issue Solar PV with Voc/Isc >5% deviation. System enforces regulations—engineers can&apos;t bypass validation.'
+        },
+        {
+            iconId: 'icon-activity-log',
+            title: 'Immutable Audit Trail',
+            description: 'Every certificate tracks who changed status, when, and why. Voiding requires written reason (stored permanently). Can&apos;t delete, only void. Superseding creates linked chain. For legal/insurance: complete chain of custody proving what was tested, by whom, and when.'
+        },
+        {
+            iconId: 'icon-signature',
+            title: 'GPS-Tagged Digital Signatures with Forensic Evidence',
+            description: 'Captures GPS coordinates (proves engineer on-site), IP address, exact timestamp, device info, signature image. BS 7671 EIC requires 3 signatures (Designer, Constructor, Inspector)—system enforces all three before issue. Dispute-proof documentation.'
+        },
+        {
+            iconId: 'icon-deficiency-log',
+            title: 'Defect-to-Remediation Tracking',
+            description: 'EICR C2 defect recorded → £450 quote generated → Job #1234 created → Minor Works remediation cert issued (linked back to original EICR). Track defects from discovery through completion. Prove to insurers/regulators you followed up.'
+        },
+        {
+            iconId: 'icon-smart-customer',
+            title: 'Customer Acknowledgment Portal',
+            description: 'Secure token-based access (no login needed). Customer views certificate, downloads PDF, digitally acknowledges receipt. Timestamp of viewing/acknowledging tracked in database. Can&apos;t claim "never received cert"—you have proof they viewed it on [date].'
+        },
+        {
+            iconId: 'icon-job-workflow',
+            title: 'Job → Certificate Auto-Population',
+            description: 'Customer details, site address, equipment serial numbers, contractor credentials—all pre-filled from job record. Engineers start 50% done. No double data entry between job management and certificates.'
+        },
+        {
+            iconId: 'icon-compliance-shield',
+            title: '9 Certificate Types, All Standards-Compliant',
+            description: 'EIC, EICR, Minor Works (BS 7671:2018+A2:2022). Fire Alarm Service/Commissioning (BS 5839-1:2025). Emergency Lighting (BS 5266-1:2016). PAT (IET Code 5th Ed). Solar PV (BS EN 62446-1:2016, MCS). Extinguisher (BS 5306-3:2017). Every type matches official model forms.'
+        },
+        {
+            iconId: 'icon-maintenance-schedule',
+            title: 'Retest Interval Tracking',
+            description: 'EICR due in 5 years? Fire alarm service due in 6 months? System tracks inspection intervals per certificate type. Dashboard flags upcoming retests. Never miss compliance deadline or recurring revenue opportunity.'
+        },
+        {
+            iconId: 'icon-signature',
+            title: 'Multi-Party Signature Enforcement',
+            description: 'BS 7671 certificates require Designer, Constructor, Inspector signatures. System won&apos;t allow issue without all required parties signing. Each signature captures GPS, timestamp, device. Complete accountability for who certified what.'
         }
     ],
 
     howItWorksSteps: [
         {
             stepNumber: 1,
-            title: 'Complete Your Job',
-            description: 'Mark the job as complete in OpsCel. All customer, site, and job details are captured automatically.'
+            title: 'Job Complete, Certificate Pre-Filled',
+            description: 'Mark job complete. Create certificate—customer details, site address, equipment serial numbers, contractor credentials all auto-populate from job record. Engineers start 50% done.'
         },
         {
             stepNumber: 2,
-            title: 'Create Certificate',
-            description: 'Select the certificate type. Form fields pre-populate from the job—contractor details, installation address, supply characteristics.'
+            title: 'Enter Test Results with Auto-Validation',
+            description: 'Add circuits with Zs, IR, RCD trip times. System auto-looks up BS 7671 Table 41.4 limits, applies temperature correction, shows pass/fail status with margins. Fire certs validate zone counts and device tests. Solar PV checks Voc/Isc within ±5% expected values.'
         },
         {
             stepNumber: 3,
-            title: 'Add Test Results',
-            description: 'Enter your test results directly into the form. For electrical certificates, add circuits with Zs, IR, RCD trip times. For fire safety, record devices tested and any defects found.'
+            title: 'Log Defects (EICR)',
+            description: 'Found C1/C2 observations? Log defects with photos, severity ratings. System automatically marks EICR as "Unsatisfactory" if C1/C2 present. Generate remedial quote directly from defects. Track remediation job to completion.'
         },
         {
             stepNumber: 4,
-            title: 'Sign & Issue',
-            description: 'Add digital signatures. The system validates all required fields are complete before allowing issue. Certificate number assigned automatically.'
+            title: 'Sign with GPS-Tagged Signatures',
+            description: 'Add required signatures (Designer, Constructor, Inspector for BS 7671 certs). Each signature captures GPS coordinates, IP address, timestamp, device info. System validates all required fields complete before allowing issue. Certificate number auto-assigned.'
         },
         {
             stepNumber: 5,
-            title: 'Customer Delivery',
-            description: 'Share the secure portal link with your client. They can view the certificate, download the PDF, and acknowledge receipt—all tracked in OpsCel.'
+            title: 'Customer Portal Delivery & Acknowledgment',
+            description: 'Share secure portal link (no login needed). Customer views certificate, downloads PDF, digitally acknowledges receipt. System tracks viewing/acknowledgment timestamps. Complete proof of delivery for disputes.'
         }
     ],
 
     personaBenefits: [
         {
-            persona: 'Electrical Contractors',
+            persona: 'Business Owners',
             benefits: [
-                'No more Word templates for EIC, EICR, and Minor Works certificates',
-                'Test results validate automatically before issue',
-                'BS 7671:2018+A2:2022 compliant model forms',
-                'Complete certificates on-site from tablet or phone',
-                'Never miss a mandatory field or signature'
+                'Reduce liability—certificates validated against BS 7671/BS 5839 before issue, engineers can&apos;t bypass limits',
+                'Prove compliance—complete audit trail with GPS-tagged signatures for insurance claims and HSE investigations',
+                'Save time—auto-populate certificates from job data, no double entry',
+                'Track remediation—defect-to-quote pipeline ensures C1/C2 observations don&apos;t fall through cracks',
+                'Customer acknowledgment proof—can&apos;t claim "never received cert", you have timestamp evidence',
+                'Unified platform—CRM + Jobs + Compliance certs in one system, not three separate tools'
             ]
         },
         {
-            persona: 'Fire Safety Companies',
+            persona: 'Compliance Officers',
             benefits: [
-                'BS 5839-1 and BS 5266-1 compliant service certificates',
-                'Cut admin time from 45 minutes to 10 minutes per site',
-                '6-monthly service reminders tracked automatically',
-                'Device test results captured digitally',
-                'Emergency lighting duration tests logged and validated'
+                'Enforced standards—engineers can&apos;t bypass Zs limits or skip required fields, system blocks non-compliant issue',
+                'Audit-ready—every certificate has status history showing who created/edited/issued/voided and when',
+                'Immutable records—voiding requires written reason, can&apos;t delete certificates, complete chain of custody',
+                'Multi-party signatures—BS 7671 certs enforce Designer/Constructor/Inspector signatures with GPS/timestamp',
+                'Customer portal tracking—digital acknowledgment with viewing timestamps for proof of delivery',
+                'Retest tracking—EICR/Fire Alarm service intervals flagged automatically, never miss compliance deadline'
             ]
         },
         {
-            persona: 'Solar Installers',
+            persona: 'Field Engineers',
             benefits: [
-                'MCS MIS 3002 and BS EN 62446-1 compliant commissioning certificates',
-                'String test results and equipment serial numbers tracked',
-                'DNO G98/G99 notification status integrated',
-                'Performance estimates calculated automatically',
-                'All MCS-required data in one place'
+                'Auto-lookups—no more flipping through BS 7671 Table 41.4, system knows Zs limits by MCB type/rating',
+                'Pass/fail guidance—enter Zs = 1.2Ω, system shows limit 1.37Ω, corrected 1.10Ω, status: ⚠️ WARNING with margin',
+                'Mobile-first—complete certificates on-site from tablet/phone, no evening paperwork',
+                'Draft mode—save partial work, complete later, no lost data if signal drops',
+                'GPS signatures—sign on-site, GPS proves you were there, dispute-proof documentation',
+                'Defect logging—take photo of faulty RCD, log C2, remedial quote generates automatically'
             ]
         }
     ],
 
     stats: [
         {
-            value: '50%',
-            label: 'Form fields pre-populated from job data'
+            value: '5 standards',
+            label: 'BS 7671, BS 5839-1, BS 5266-1, BS EN 62446-1, MCS enforced automatically'
         },
         {
-            value: 'Minutes',
-            label: 'To issue a compliant certificate, not hours'
+            value: 'GPS+IP+Time',
+            label: 'Forensic evidence captured per signature—proves engineer on-site'
         },
         {
-            value: '100%',
-            label: 'Compliant with BS 7671, BS 5839, and MCS standards'
-        }
-    ],
-
-    sections: [
-        {
-            title: 'Certificate Types We Support',
-            description: 'OpsCel covers every certificate type you need for electrical, fire safety, and renewable energy work across the UK.',
-            bullets: [
-                'Electrical Installation Certificate (EIC) - New installations, rewires, consumer unit replacements',
-                'Electrical Installation Condition Report (EICR) - Periodic inspections, landlord safety checks',
-                'Minor Works Certificate - Additional sockets, light fittings, small alterations',
-                'PAT Test Certificate - Portable appliance testing',
-                'Fire Alarm Service Certificate (BS 5839-1:2017) - Routine maintenance, 6-monthly service',
-                'Fire Alarm Commissioning Certificate (BS 5839-1:2017) - New system installations',
-                'Emergency Lighting Test Certificate (BS 5266-1:2016) - Monthly/annual duration tests',
-                'Extinguisher Service Certificate (BS 5306-3:2017) - Annual extinguisher inspections',
-                'Solar PV Commissioning Certificate (BS EN 62446-1:2016) - New solar installations, MCS compliance'
-            ]
-        },
-        {
-            title: 'Compliance You Can Trust',
-            description: 'OpsCel certificates match official British Standards model forms exactly. Every mandatory field, every required signature, every test result—where it should be.',
-            bullets: [
-                'BS 7671:2018+A2:2022 - Electrical certificates match IET model forms exactly',
-                'BS 5839-1:2017 & BS 5266-1:2016 - Fire safety certificates follow British Standards requirements',
-                'MCS MIS 3002 & BS EN 62446-1 - Solar PV certificates capture all MCS-required data',
-                'Complete audit trail - Know who created, edited, issued, or voided any certificate and when',
-                'Digital signatures with timestamps for legal compliance',
-                'Certificate numbering system prevents duplicates'
-            ]
-        },
-        {
-            title: 'Built for the Field',
-            description: 'Your engineers work on-site, not at a desk. OpsCel certificates are designed for tablets and phones, with fast data entry and offline capability.',
-            bullets: [
-                'Mobile-friendly interface with large touch targets',
-                'Dropdowns for common values - select instead of type',
-                'Copy previous circuit data to speed up multi-circuit certificates',
-                'Auto-calculate expected test result ranges',
-                'Access from any device with a web browser',
-                'Complete certificates on-site or back at the office',
-                'No app installation required'
-            ]
+            value: 'Immutable',
+            label: 'Audit trail—can&apos;t delete certs, voiding requires written reason, complete chain of custody'
         }
     ],
 
     comparison: [
         {
-            feature: 'Auto-populate from job data',
+            feature: 'BS 7671 Zs auto-lookup (Table 41.4 + temp correction)',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Mobile-first design for field use',
+            feature: 'Pass/fail validation (prevents non-compliant certs)',
+            opscel: true,
+            others: 'Basic'
+        },
+        {
+            feature: 'Job → Certificate auto-fill (no double entry)',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Multi-party signatures (Designer/Constructor/Inspector)',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Built-in validation before issue',
+            feature: 'GPS-tagged signatures (forensic evidence)',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Customer portal access',
+            feature: 'Immutable audit trail (can&apos;t delete, voiding requires reason)',
+            opscel: true,
+            others: 'Basic'
+        },
+        {
+            feature: 'Defect → Quote → Job → Remediation cert pipeline',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Retest interval tracking',
+            feature: 'Customer acknowledgment portal (proof of delivery)',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Defect-to-quote integration',
-            opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Unlimited certificates included',
+            feature: 'CRM + Jobs + Certs unified (not 3 separate tools)',
             opscel: true,
             others: 'No'
         }
@@ -209,28 +189,28 @@ export const certificatesDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'Do certificates meet regulatory requirements?',
-            answer: 'Yes. Our electrical certificates match BS 7671:2018+A2:2022 model forms. Fire safety certificates comply with BS 5839-1 and BS 5266-1. Solar PV certificates meet BS EN 62446-1 and MCS requirements. Every mandatory field is validated before you can issue.'
+            question: 'How does BS 7671 Zs auto-lookup work?',
+            answer: 'When you enter a Zs reading for a circuit, OpsCel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.37Ω limit, corrected to 1.10Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
         },
         {
-            question: 'Can I use my company branding?',
-            answer: 'Yes. Your company logo, name, and registration details appear on every certificate. Configure your branding once in settings and it applies to all certificate types automatically.'
+            question: 'What prevents engineers from issuing non-compliant certificates?',
+            answer: 'System enforces regulations before allowing issue. Can&apos;t issue EIC with IR <1MΩ (BS 7671 minimum). Can&apos;t issue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can&apos;t issue Solar PV with Voc/Isc >5% deviation from expected. Can&apos;t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can&apos;t bypass validation—system blocks non-compliant issue.'
         },
         {
-            question: 'What about certificates for existing jobs?',
-            answer: 'You can create certificates for any job in the system, whether it was completed today or last month. The certificate will pull data from the job record and you add the test results and signatures.'
+            question: 'What forensic evidence is captured with digital signatures?',
+            answer: 'Every signature captures: GPS coordinates (proves engineer was on-site), IP address (network evidence), exact timestamp (when signed), device info (which phone/tablet), signature image (visual confirmation). For BS 7671 certificates requiring 3 signatures (Designer, Constructor, Inspector), each party&apos;s signature captures all this data. In disputes or insurance claims, you have complete proof of who signed what, where they were, and when it happened.'
         },
         {
-            question: 'Can customers access certificates without creating an account?',
-            answer: 'Yes. Customers receive a secure link—no login required. They can view and download certificates immediately. You can track when they\'ve accessed the certificate in the system.'
+            question: 'Can customers claim they never received a certificate?',
+            answer: 'No. Customer portal tracks digital acknowledgment with timestamps. You send secure link (no login needed), customer views certificate, downloads PDF, and digitally acknowledges receipt. System stores: date/time they viewed certificate, date/time they acknowledged, IP address, device used. You have complete proof of delivery. If customer claims "never received", you show them viewing timestamp and acknowledgment record.'
+        },
+        {
+            question: 'How does defect-to-remediation tracking work for EICRs?',
+            answer: 'EICR inspection finds C2 defect (e.g., faulty RCD). Log defect with photo and severity. System automatically marks EICR as "Unsatisfactory" (can&apos;t mark "Satisfactory" with C1/C2 present). Generate remedial quote directly from defect (£450 quote created). Customer accepts, office creates Job #1234 for remediation. Engineer completes work, issues Minor Works certificate. Minor Works cert links back to original EICR defect. Complete audit trail from discovery through remediation. Proves to insurers/regulators you followed up.'
         },
         {
             question: 'What happens if I need to void a certificate?',
-            answer: 'Issued certificates can be voided with a reason. The original is retained for audit purposes with a clear "VOIDED" status. This maintains compliance with record-keeping requirements while preventing the voided certificate from being used.'
-        },
-        {
-            question: 'Do you support Part P notifications?',
-            answer: 'Part P notifications are separate from certificates. We recommend using your registered competent person scheme\'s portal for Part P submissions. OpsCel generates the certificates that accompany your Part P work.'
+            answer: 'Voiding requires written reason (stored permanently in database). Original certificate retained with clear "VOIDED" status—can&apos;t delete, only void. If you issue superseding certificate, system creates linked chain showing original → voided → replacement. Complete chain of custody for audits. Status history tracks who voided it, when, why, from which IP/device. Maintains compliance with record-keeping requirements while preventing voided certificate from being used.'
         }
     ],
 

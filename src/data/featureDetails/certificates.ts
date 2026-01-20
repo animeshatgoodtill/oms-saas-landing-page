@@ -148,7 +148,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             feature: 'Pass/fail validation (prevents non-compliant certs)',
             opscel: true,
-            others: 'Basic'
+            others: 'Some'
         },
         {
             feature: 'Job → Certificate auto-fill (no double entry)',
@@ -168,7 +168,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             feature: 'Immutable audit trail (can&apos;t delete, voiding requires reason)',
             opscel: true,
-            others: 'Basic'
+            others: 'Some'
         },
         {
             feature: 'Defect → Quote → Job → Remediation cert pipeline',

@@ -41,6 +41,10 @@ export const footerDetails: {
         {
             text: "Customer Portal Guide",
             url: "/docs/customer-portal"
+        },
+        {
+            text: "Defects to Quotes Guide",
+            url: "/docs/defects-to-quotation"
         }
     ],
     companyLinks: [

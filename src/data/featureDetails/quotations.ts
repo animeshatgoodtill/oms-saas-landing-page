@@ -30,8 +30,8 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Defect-to-Quote Pipeline',
-            description: 'Engineer flags an issue on site, office gets a draft quote ready to send. Nothing falls through the cracks.'
+            title: 'Bundled Remedial Quotes',
+            description: 'Engineer logs 5 defects? Create one professional quote, not five separate ones. All issues grouped by job with severity badges (Critical/Major/Minor). Customer gets one clear proposal, you get 5x faster quoting.'
         },
         {
             iconId: 'icon-activity-log',
@@ -106,7 +106,7 @@ export const quotationsDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Defect-to-quote pipeline',
+            feature: 'Bundled remedial quotes (multiple defects → 1 quote)',
             opscel: true,
             others: 'No'
         },
@@ -146,8 +146,8 @@ export const quotationsDetail: IFeatureDetail = {
             answer: 'You create up to 3 pricing tiers (e.g., Essential, Standard, Premium) with different inclusions. Customers see them side-by-side and choose the option that fits their needs. Contractors using tiered pricing typically see 2-3x higher average ticket values.'
         },
         {
-            question: 'How does the defect-to-quote feature work?',
-            answer: 'When an engineer finds an issue during a job, they tick "Quote required" on the defect. A draft quote appears on the office dashboard, pre-filled with customer details and defect information. Office staff review, add pricing, and send.'
+            question: 'How do bundled remedial quotes work?',
+            answer: 'Engineer logs multiple defects on a job and flags them for quoting. Office dashboard shows one job card (not separate defects) with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Create Quote" once to generate one bundled quote with all defects itemized professionally. Customer receives one clear proposal instead of five confusing emails. 5x faster than creating individual quotes per defect. See the Defects to Quotation guide for full walkthrough.'
         },
         {
             question: 'Will I know when customers view my quote?',

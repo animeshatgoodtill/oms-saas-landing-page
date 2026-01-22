@@ -45,6 +45,14 @@ export const footerDetails: {
         {
             text: "Defects to Quotes Guide",
             url: "/docs/defects-to-quotation"
+        },
+        {
+            text: "Invoicing Guide",
+            url: "/docs/invoicing"
+        },
+        {
+            text: "Accounting Integration Guide",
+            url: "/docs/accounting-integration"
         }
     ],
     companyLinks: [

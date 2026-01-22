@@ -6,6 +6,7 @@ import { customersDetail } from './customers';
 import { certificatesDetail } from './certificates';
 import { quotationsDetail } from './quotations';
 import { invoicingDetail } from './invoicing';
+import { accountingIntegrationDetail } from './accounting-integration';
 import { assetsDetail } from './assets';
 import { dataImportDetail } from './data-import';
 import { teamDetail } from './team';
@@ -21,6 +22,7 @@ export const featureDetails: IFeatureDetail[] = [
     certificatesDetail,
     quotationsDetail,
     invoicingDetail,
+    accountingIntegrationDetail,
     customerPortalDetail,
     assetsDetail,
     dataImportDetail,

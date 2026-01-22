@@ -2,174 +2,154 @@ import { IFeatureDetail } from '@/types';
 
 export const invoicingDetail: IFeatureDetail = {
     slug: 'invoicing',
-    title: 'From Job Complete to Invoice in Minutes, Not Days',
-    subtitle: 'OpsCel Invoicing & Xero Integration',
-    heroDescription: 'The job\'s done, the customer signed off, the certificate\'s issued. Why are you still waiting days to invoice? OpsCel auto-generates invoices from completed jobs, posts to Xero, and tracks payments—so you get paid faster.',
+    title: 'From Job Complete to Invoice Sent in Seconds',
+    subtitle: 'Stop chasing paperwork. Get paid faster.',
+    heroDescription: 'OpsCel automatically creates invoices from your completed jobs with parts, labour, and all the details already filled in. One-click invoice creation. Automatic deposit handling. Smart tax calculation. Direct sync to Xero and QuickBooks.',
     iconId: 'icon-price-tag',
 
     featureHighlights: [
         {
             iconId: 'icon-job-workflow',
-            title: 'Job-to-Invoice Workflow',
-            description: 'Job completes, certificate generates, invoice creates automatically. Parts used, labour hours, visit duration—all pre-filled. Review, adjust if needed, send. 2 minutes instead of 20.'
+            title: 'One-Click Invoice Creation',
+            description: 'Your engineer finishes a job, logs parts used, and records their time. Back in the office, you click one button and the invoice is ready—customer details, site address, parts, labour, everything included. No more re-typing. No more mistakes. No more delays.'
         },
         {
             iconId: 'icon-price-tag',
-            title: 'Xero Accounting Integration',
-            description: 'OAuth connection to Xero (account-level setup, not per-company). Invoices post automatically with line items, customer details, tax codes. Payment webhooks sync status back to OpsCel.'
-        },
-        {
-            iconId: 'icon-stripe-payments',
-            title: 'Stripe Deposit Payments',
-            description: 'Require deposits for large jobs or new customers. Generate payment link, customer pays via Stripe, funds tracked in OpsCel. Payment confirmation triggers job start or equipment order.'
+            title: 'Automatic Deposit Handling',
+            description: 'When a customer accepts a quote with a deposit, OpsCel automatically creates the deposit invoice. When you invoice the final job, the deposit is already accounted for. The complete paper trail from quote to final payment—handled automatically.'
         },
         {
             iconId: 'icon-service-history',
-            title: 'Parts & Labour Auto-Calculation',
-            description: 'Parts added during job? Logged. Labour hours recorded via GPS check-in/out? Tracked. Invoice line items generate automatically with quantities, descriptions, unit prices. No manual entry.'
+            title: 'Smart Tax Calculation',
+            description: 'Set tax rates at the product level, category level, or business level. OpsCel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+        },
+        {
+            iconId: 'icon-xero',
+            title: 'Direct to Your Accounting Software',
+            description: 'Post invoices directly to Xero or QuickBooks with one click. Customer records sync automatically. Payment status updates flow back to OpsCel. No double entry. No reconciliation headaches. No missed payments.'
         },
         {
             iconId: 'icon-smart-prompt',
-            title: 'Invoice Templates with Branding',
-            description: 'Upload your logo, set brand colors, customize footer text. Invoice PDFs match your company branding. Professional appearance without design skills.'
+            title: 'Professional PDF Generation',
+            description: 'Invoice pre-filled with all job details. Parts auto-populated from engineer\'s list. Labour calculated automatically (hours × your rate). Professional invoices with your branding sent to customers in one click.'
         },
         {
             iconId: 'icon-activity-log',
-            title: 'Payment Status Tracking',
-            description: 'See which invoices are paid, pending, overdue. Xero webhooks update payment status in real-time. No logging into two systems to check if Dave finally paid.'
-        },
-        {
-            iconId: 'icon-maintenance-schedule',
-            title: 'Multi-Visit Invoice Consolidation',
-            description: 'Job required three visits? Consolidate all visits into one invoice or split by visit. Customer prefers itemized? Generate separate invoices per visit. Flexible billing options.'
-        },
-        {
-            iconId: 'icon-price-tag',
-            title: 'Tax Code Auto-Assignment',
-            description: 'UK VAT (20%), reduced rate (5%), zero-rated—Xero tax codes map automatically based on service type. Compliant invoices without tax code lookups.'
-        },
-        {
-            iconId: 'icon-service-history',
-            title: 'Invoice History Per Customer',
-            description: 'Customer history tab shows all invoices—paid, pending, overdue. See total invoiced, average job value, payment reliability. Know before quoting if they pay on time.'
-        },
-        {
-            iconId: 'icon-smart-customer',
-            title: 'Credit Note Support',
-            description: 'Need to refund a job or adjust invoice? Create credit notes that post to Xero. Maintains accurate accounting records and customer balance.'
+            title: 'Complete Status Tracking',
+            description: 'Draft, Posted, Paid, Partial—see invoice status at a glance. Know exactly what\'s outstanding. Overdue alerts ensure you never miss a late payment. Real-time sync with Xero/QuickBooks keeps everything current.'
         }
     ],
 
     howItWorksSteps: [
         {
             stepNumber: 1,
-            title: 'Complete Job',
-            description: 'Engineer checks out, customer signs, certificate generates. System calculates job duration, parts used, labour hours.'
+            title: 'Complete the Job',
+            description: 'Your engineer marks the job complete in the field app, logging time and parts used. All details captured automatically.'
         },
         {
             stepNumber: 2,
-            title: 'Review Auto-Generated Invoice',
-            description: 'Invoice draft appears with pre-filled line items (parts, labour, visit charges). Office reviews, adjusts quantities or prices if needed.'
+            title: 'Create Invoice',
+            description: 'Click "Create Invoice" on the job. Review the pre-filled details—customer info, parts, labour, tax—adjust if needed, send.'
         },
         {
             stepNumber: 3,
-            title: 'Post to Xero',
-            description: 'Click "Post to Xero". Invoice creates in Xero with customer details, line items, tax codes. OpsCel stores Xero invoice ID for tracking.'
-        },
-        {
-            stepNumber: 4,
-            title: 'Track Payment',
-            description: 'Customer pays invoice in Xero. Xero webhook notifies OpsCel. Invoice status updates to "Paid" automatically. No manual reconciliation.'
+            title: 'Get Paid',
+            description: 'Customer receives professional invoice. Payment syncs to your accounting software automatically. Status updates in real-time.'
         }
     ],
 
     personaBenefits: [
         {
-            persona: 'Office Managers',
+            persona: 'Office Staff',
             benefits: [
-                'Job completion triggers invoice creation—no manual data entry',
-                'Parts and labour hours auto-populate from job records',
-                'Xero integration syncs invoices and payment status automatically',
-                'See which customers pay on time before scheduling more work',
-                'Multi-visit jobs consolidate into one invoice or split as needed',
-                'Credit notes post to Xero for refunds or adjustments'
+                'Invoice pre-filled with all job details—customer info, site address, parts, labour',
+                'Engineer\'s parts list becomes line items automatically',
+                'Labour calculated from hours × your rate—done instantly',
+                'Send professional PDF invoice to customer in one click',
+                'Status tracking shows Draft, Posted, Paid, Partial at a glance',
+                'No double entry with Xero/QuickBooks integration'
             ]
         },
         {
             persona: 'Business Owners',
             benefits: [
-                'Get paid faster—invoice same day job completes, not next week',
-                'Stripe deposits reduce no-show risk for large jobs',
-                'Payment tracking shows cash flow without logging into Xero',
-                'Invoice history per customer shows payment reliability',
-                'Branded invoice templates maintain professional appearance',
-                'Xero webhooks eliminate manual payment reconciliation'
+                '90% faster invoice creation vs manual entry',
+                'Deposit invoices auto-create when quotes accepted—get paid upfront',
+                'Know exactly what\'s outstanding with payment tracking',
+                'Real-time sync with accounting software—no reconciliation headaches',
+                'Overdue alerts ensure you never miss a late payment',
+                'Same day invoicing instead of end-of-week catch-up'
             ]
         },
         {
             persona: 'Field Engineers',
             benefits: [
-                'Complete job, signature captured, invoice generates—no extra steps',
-                'Parts logged during job auto-appear on invoice',
-                'GPS check-in/out calculates labour hours accurately',
-                'Customer sees professional branded invoice immediately'
+                'Complete job and log time/parts in field app',
+                'Parts selections auto-populate invoice with correct prices',
+                'No paperwork to chase—everything flows digitally',
+                'Customer receives professional branded invoice immediately'
             ]
         }
     ],
 
     stats: [
         {
-            value: '2 minutes',
-            label: 'Invoice review and send time vs. 20 minutes manual entry'
+            value: '90% faster',
+            label: 'Invoice creation vs manual entry'
+        },
+        {
+            value: 'Zero',
+            label: 'Double-entry with accounting integration'
         },
         {
             value: 'Same day',
-            label: 'Invoice sent—job completes, certificate issues, invoice creates'
-        },
-        {
-            value: 'Real-time',
-            label: 'Payment status syncs from Xero via webhooks automatically'
+            label: 'Invoicing instead of end-of-week'
         }
     ],
 
     comparison: [
         {
-            feature: 'Job-to-invoice workflow (auto-generation)',
+            feature: 'One-click invoice creation from completed jobs',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Xero accounting integration (OAuth + webhooks)',
+            feature: 'Automatic deposit handling (quote deposits → final invoice)',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Smart tax calculation (product/category/business level)',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Stripe deposit payment links',
-            opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Parts & labour auto-calculation from job data',
-            opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Multi-visit invoice consolidation',
-            opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Real-time payment status sync (webhooks)',
-            opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Invoice history per customer with payment reliability',
+            feature: 'Xero and QuickBooks integration',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Credit note support posting to Xero',
+            feature: 'Parts auto-populated from field app',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Labour auto-calculated from engineer time logs',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Professional PDF generation with branding',
+            opscel: true,
+            others: 'Yes'
+        },
+        {
+            feature: 'Real-time payment status sync',
+            opscel: true,
+            others: 'Some'
+        },
+        {
+            feature: 'Overdue payment alerts',
             opscel: true,
             others: 'Some'
         }
@@ -177,28 +157,28 @@ export const invoicingDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'How does Xero integration work?',
-            answer: 'One-time OAuth connection at account level (not per-company). When you post an invoice from OpsCel, it creates in Xero with customer details, line items, and tax codes. Xero webhooks notify OpsCel when payments are received, updating invoice status automatically. No duplicate data entry.'
+            question: 'Can I customise my invoice template?',
+            answer: 'Yes. Add your logo, company details, payment terms, and bank details. Your invoices look professional and match your brand.'
         },
         {
-            question: 'Can I edit invoices before sending?',
-            answer: 'Yes. Auto-generated invoices are drafts. You can adjust line item quantities, prices, descriptions, or add/remove items before posting to Xero. Once posted to Xero, edit in Xero directly (OpsCel syncs changes via webhooks).'
+            question: 'What if I need to change something before sending?',
+            answer: 'Invoices start as drafts. Edit anything you need—line items, prices, notes—before sending.'
         },
         {
-            question: 'What if a customer needs a deposit?',
-            answer: 'Create a deposit invoice, generate Stripe payment link, send to customer. They pay via Stripe (card or bank transfer). Payment confirmation appears in OpsCel and Xero. Use for large jobs, new customers, or equipment pre-orders.'
+            question: 'How does the deposit handling work?',
+            answer: 'When a quote with a deposit is accepted, OpsCel creates the deposit invoice automatically. The final invoice shows the deposit as already paid. Complete paper trail from quote to final payment—handled automatically.'
         },
         {
-            question: 'How are parts and labour calculated?',
-            answer: 'Parts logged during job (product catalog + quantities) auto-populate invoice line items. Labour hours calculated from GPS check-in/out times or manually adjusted. Multi-engineer jobs sum all engineer hours. Total job duration logged for billing verification.'
+            question: 'Which accounting software do you integrate with?',
+            answer: 'Xero and QuickBooks Online. Invoices post directly, customers sync automatically, and payment status updates flow back to OpsCel. No double entry, no reconciliation headaches.'
         },
         {
-            question: 'Can I invoice multiple visits separately?',
-            answer: 'Yes. Multi-visit jobs let you consolidate all visits into one invoice or generate separate invoices per visit. Customer prefers itemized billing? Split by visit. Prefer one total? Consolidate. Flexible per job.'
+            question: 'Can I invoice for jobs that didn\'t come from a quote?',
+            answer: 'Absolutely. Create invoices from any completed job, or create manual invoices for ad-hoc work. The system is flexible for all billing scenarios.'
         },
         {
-            question: 'What tax codes are supported?',
-            answer: 'OpsCel maps to Xero tax codes—UK VAT (20%), reduced rate (5%), zero-rated, exempt. Set default tax code per service type (e.g., residential solar gets 0%, commercial gets 20%). Tax codes sync to Xero invoices automatically.'
+            question: 'How are tax rates applied?',
+            answer: 'Set tax rates at the product level, category level, or business level. OpsCel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
         }
     ],
 

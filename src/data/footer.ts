@@ -3,6 +3,7 @@ import { IMenuItem, ISocials } from "@/types";
 export const footerDetails: {
     subheading: string;
     quickLinks: IMenuItem[];
+    featureLinks: IMenuItem[];
     resourcesLinks: IMenuItem[];
     companyLinks: IMenuItem[];
     legalLinks: IMenuItem[];
@@ -29,10 +30,64 @@ export const footerDetails: {
             url: "/#faq"
         }
     ],
+    featureLinks: [
+        {
+            text: "Dashboard & Insights",
+            url: "/features/dashboard"
+        },
+        {
+            text: "Field Service App",
+            url: "/features/field-service"
+        },
+        {
+            text: "Jobs & Scheduling",
+            url: "/features/jobs"
+        },
+        {
+            text: "Customer Management",
+            url: "/features/customers"
+        },
+        {
+            text: "Digital Certificates",
+            url: "/features/certificates"
+        },
+        {
+            text: "Quotes & Estimates",
+            url: "/features/quotations"
+        },
+        {
+            text: "Invoicing",
+            url: "/features/invoicing"
+        },
+        {
+            text: "Accounting Integration",
+            url: "/features/accounting-integration"
+        },
+        {
+            text: "Customer Portal",
+            url: "/features/customer-portal"
+        },
+        {
+            text: "Asset Management",
+            url: "/features/assets"
+        },
+        {
+            text: "Team Management",
+            url: "/features/team"
+        },
+        {
+            text: "Data Import",
+            url: "/features/data-import"
+        },
+        {
+            text: "Templates & Branding",
+            url: "/features/templates"
+        }
+    ],
     resourcesLinks: [
         {
-            text: "All Features",
-            url: "/features"
+            text: "Documentation",
+            url: "/docs"
         },
         {
             text: "Certificate Guide",
@@ -51,7 +106,7 @@ export const footerDetails: {
             url: "/docs/invoicing"
         },
         {
-            text: "Accounting Integration Guide",
+            text: "Accounting Guide",
             url: "/docs/accounting-integration"
         }
     ],

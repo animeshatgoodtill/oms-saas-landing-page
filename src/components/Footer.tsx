@@ -9,7 +9,7 @@ import { getPlatformIconByName } from '@/utils';
 const Footer: React.FC = () => {
     return (
         <footer className="bg-hero-background text-foreground py-10">
-            <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-8 gap-10">
+            <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10">
                 {/* Brand Column */}
                 <div className="sm:col-span-2 lg:col-span-2">
                     <Link href="/" className="flex items-center gap-2">
@@ -61,10 +61,10 @@ const Footer: React.FC = () => {
                     </ul>
                 </div>
 
-                {/* Feature Links - Takes 2 columns */}
-                <div className="lg:col-span-2">
+                {/* Feature Links - Single column */}
+                <div>
                     <h4 className="text-lg font-semibold mb-4">Features</h4>
-                    <ul className="text-foreground-accent space-y-2 grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                    <ul className="text-foreground-accent space-y-2">
                         {footerDetails.featureLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>

@@ -4,7 +4,7 @@ export const certificatesDetail: IFeatureDetail = {
     slug: 'certificates',
     title: 'The Only System That Knows BS 7671 Table 41.4 by Heart',
     subtitle: 'OpsCel Compliance Certificate System',
-    heroDescription: 'This isn&apos;t just digital forms—it&apos;s the industry&apos;s first compliance document system that enforces BS 7671, BS 5839, and MCS standards before certificates can be issued. Auto-lookup Zs limits, validate test results, capture GPS-tagged signatures, and maintain immutable audit trails. Your engineers can&apos;t accidentally issue a non-compliant certificate.',
+    heroDescription: 'This isn\'t just digital forms—it\'s the industry\'s first compliance document system that enforces BS 7671, BS 5839, and MCS standards before certificates can be issued. Auto-lookup Zs limits, validate test results, capture GPS-tagged signatures, and maintain immutable audit trails. Your engineers can\'t accidentally issue a non-compliant certificate.',
     iconId: 'icon-compliance-shield',
 
     featureHighlights: [
@@ -16,12 +16,12 @@ export const certificatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-deficiency-log',
             title: 'Prevents Non-Compliant Certificates',
-            description: 'Can&apos;t issue EIC with IR <1MΩ. Can&apos;t issue EICR with C1/C2 observations marked "Satisfactory". Can&apos;t issue Solar PV with Voc/Isc >5% deviation. System enforces regulations—engineers can&apos;t bypass validation.'
+            description: 'Can\'t issue EIC with IR <1MΩ. Can\'t issue EICR with C1/C2 observations marked "Satisfactory". Can\'t issue Solar PV with Voc/Isc >5% deviation. System enforces regulations—engineers can\'t bypass validation.'
         },
         {
             iconId: 'icon-activity-log',
             title: 'Immutable Audit Trail',
-            description: 'Every certificate tracks who changed status, when, and why. Voiding requires written reason (stored permanently). Can&apos;t delete, only void. Superseding creates linked chain. For legal/insurance: complete chain of custody proving what was tested, by whom, and when.'
+            description: 'Every certificate tracks who changed status, when, and why. Voiding requires written reason (stored permanently). Can\'t delete, only void. Superseding creates linked chain. For legal/insurance: complete chain of custody proving what was tested, by whom, and when.'
         },
         {
             iconId: 'icon-signature',
@@ -36,7 +36,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-customer',
             title: 'Customer Acknowledgment Portal',
-            description: 'Secure token-based access (no login needed). Customer views certificate, downloads PDF, digitally acknowledges receipt. Timestamp of viewing/acknowledging tracked in database. Can&apos;t claim "never received cert"—you have proof they viewed it on [date].'
+            description: 'Secure token-based access (no login needed). Customer views certificate, downloads PDF, digitally acknowledges receipt. Timestamp of viewing/acknowledging tracked in database. Can\'t claim "never received cert"—you have proof they viewed it on [date].'
         },
         {
             iconId: 'icon-job-workflow',
@@ -56,7 +56,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-signature',
             title: 'Multi-Party Signature Enforcement',
-            description: 'BS 7671 certificates require Designer, Constructor, Inspector signatures. System won&apos;t allow issue without all required parties signing. Each signature captures GPS, timestamp, device. Complete accountability for who certified what.'
+            description: 'BS 7671 certificates require Designer, Constructor, Inspector signatures. System won\'tallow issue without all required parties signing. Each signature captures GPS, timestamp, device. Complete accountability for who certified what.'
         }
     ],
 
@@ -92,20 +92,20 @@ export const certificatesDetail: IFeatureDetail = {
         {
             persona: 'Business Owners',
             benefits: [
-                'Reduce liability—certificates validated against BS 7671/BS 5839 before issue, engineers can&apos;t bypass limits',
+                'Reduce liability—certificates validated against BS 7671/BS 5839 before issue, engineers can\'tbypass limits',
                 'Prove compliance—complete audit trail with GPS-tagged signatures for insurance claims and HSE investigations',
                 'Save time—auto-populate certificates from job data, no double entry',
-                'Track remediation—defect-to-quote pipeline ensures C1/C2 observations don&apos;t fall through cracks',
-                'Customer acknowledgment proof—can&apos;t claim "never received cert", you have timestamp evidence',
+                'Track remediation—defect-to-quote pipeline ensures C1/C2 observations don\'tfall through cracks',
+                'Customer acknowledgment proof—can\'tclaim "never received cert", you have timestamp evidence',
                 'Unified platform—CRM + Jobs + Compliance certs in one system, not three separate tools'
             ]
         },
         {
             persona: 'Compliance Officers',
             benefits: [
-                'Enforced standards—engineers can&apos;t bypass Zs limits or skip required fields, system blocks non-compliant issue',
+                'Enforced standards—engineers can\'tbypass Zs limits or skip required fields, system blocks non-compliant issue',
                 'Audit-ready—every certificate has status history showing who created/edited/issued/voided and when',
-                'Immutable records—voiding requires written reason, can&apos;t delete certificates, complete chain of custody',
+                'Immutable records—voiding requires written reason, can\'tdelete certificates, complete chain of custody',
                 'Multi-party signatures—BS 7671 certs enforce Designer/Constructor/Inspector signatures with GPS/timestamp',
                 'Customer portal tracking—digital acknowledgment with viewing timestamps for proof of delivery',
                 'Retest tracking—EICR/Fire Alarm service intervals flagged automatically, never miss compliance deadline'
@@ -135,7 +135,7 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             value: 'Immutable',
-            label: 'Audit trail—can&apos;t delete certs, voiding requires written reason, complete chain of custody'
+            label: 'Audit trail—can\'tdelete certs, voiding requires written reason, complete chain of custody'
         }
     ],
 
@@ -166,7 +166,7 @@ export const certificatesDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Immutable audit trail (can&apos;t delete, voiding requires reason)',
+            feature: 'Immutable audit trail (can\'tdelete, voiding requires reason)',
             opscel: true,
             others: 'Some'
         },
@@ -194,11 +194,11 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             question: 'What prevents engineers from issuing non-compliant certificates?',
-            answer: 'System enforces regulations before allowing issue. Can&apos;t issue EIC with IR <1MΩ (BS 7671 minimum). Can&apos;t issue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can&apos;t issue Solar PV with Voc/Isc >5% deviation from expected. Can&apos;t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can&apos;t bypass validation—system blocks non-compliant issue.'
+            answer: 'System enforces regulations before allowing issue. Can\'tissue EIC with IR <1MΩ (BS 7671 minimum). Can\'tissue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can\'tissue Solar PV with Voc/Isc >5% deviation from expected. Can\'tskip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can\'tbypass validation—system blocks non-compliant issue.'
         },
         {
             question: 'What forensic evidence is captured with digital signatures?',
-            answer: 'Every signature captures: GPS coordinates (proves engineer was on-site), IP address (network evidence), exact timestamp (when signed), device info (which phone/tablet), signature image (visual confirmation). For BS 7671 certificates requiring 3 signatures (Designer, Constructor, Inspector), each party&apos;s signature captures all this data. In disputes or insurance claims, you have complete proof of who signed what, where they were, and when it happened.'
+            answer: 'Every signature captures: GPS coordinates (proves engineer was on-site), IP address (network evidence), exact timestamp (when signed), device info (which phone/tablet), signature image (visual confirmation). For BS 7671 certificates requiring 3 signatures (Designer, Constructor, Inspector), each party\'ssignature captures all this data. In disputes or insurance claims, you have complete proof of who signed what, where they were, and when it happened.'
         },
         {
             question: 'Can customers claim they never received a certificate?',
@@ -206,11 +206,11 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             question: 'How does defect-to-remediation tracking work for EICRs?',
-            answer: 'EICR inspection finds C2 defect (e.g., faulty RCD). Log defect with photo and severity. System automatically marks EICR as "Unsatisfactory" (can&apos;t mark "Satisfactory" with C1/C2 present). Generate remedial quote directly from defect (£450 quote created). Customer accepts, office creates Job #1234 for remediation. Engineer completes work, issues Minor Works certificate. Minor Works cert links back to original EICR defect. Complete audit trail from discovery through remediation. Proves to insurers/regulators you followed up.'
+            answer: 'EICR inspection finds C2 defect (e.g., faulty RCD). Log defect with photo and severity. System automatically marks EICR as "Unsatisfactory" (can\'tmark "Satisfactory" with C1/C2 present). Generate remedial quote directly from defect (£450 quote created). Customer accepts, office creates Job #1234 for remediation. Engineer completes work, issues Minor Works certificate. Minor Works cert links back to original EICR defect. Complete audit trail from discovery through remediation. Proves to insurers/regulators you followed up.'
         },
         {
             question: 'What happens if I need to void a certificate?',
-            answer: 'Voiding requires written reason (stored permanently in database). Original certificate retained with clear "VOIDED" status—can&apos;t delete, only void. If you issue superseding certificate, system creates linked chain showing original → voided → replacement. Complete chain of custody for audits. Status history tracks who voided it, when, why, from which IP/device. Maintains compliance with record-keeping requirements while preventing voided certificate from being used.'
+            answer: 'Voiding requires written reason (stored permanently in database). Original certificate retained with clear "VOIDED" status—can\'tdelete, only void. If you issue superseding certificate, system creates linked chain showing original → voided → replacement. Complete chain of custody for audits. Status history tracks who voided it, when, why, from which IP/device. Maintains compliance with record-keeping requirements while preventing voided certificate from being used.'
         }
     ],
 

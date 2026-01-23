@@ -32,8 +32,8 @@ export const footerDetails: {
     ],
     featureLinks: [
         {
-            text: "Dashboard & Insights",
-            url: "/features/dashboard"
+            text: "Digital Certificates",
+            url: "/features/certificates"
         },
         {
             text: "Field Service App",
@@ -42,14 +42,6 @@ export const footerDetails: {
         {
             text: "Jobs & Scheduling",
             url: "/features/jobs"
-        },
-        {
-            text: "Customer Management",
-            url: "/features/customers"
-        },
-        {
-            text: "Digital Certificates",
-            url: "/features/certificates"
         },
         {
             text: "Quotes & Estimates",
@@ -66,22 +58,6 @@ export const footerDetails: {
         {
             text: "Customer Portal",
             url: "/features/customer-portal"
-        },
-        {
-            text: "Asset Management",
-            url: "/features/assets"
-        },
-        {
-            text: "Team Management",
-            url: "/features/team"
-        },
-        {
-            text: "Data Import",
-            url: "/features/data-import"
-        },
-        {
-            text: "Templates & Branding",
-            url: "/features/templates"
         }
     ],
     resourcesLinks: [

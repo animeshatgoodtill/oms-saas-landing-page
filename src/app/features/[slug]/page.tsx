@@ -236,7 +236,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                       </p>
                     </div>
                     {/* Arrow connector */}
-                    {index < feature.howItWorksSteps.length - 1 && (
+                    {index < (feature.howItWorksSteps?.length ?? 0) - 1 && (
                       <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary/50 text-2xl">
                         →
                       </div>

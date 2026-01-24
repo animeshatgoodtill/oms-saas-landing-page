@@ -33,45 +33,22 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-white overflow-hidden">
         <Container>
           <div className="max-w-7xl mx-auto">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-12 animate-fade-in">
-              <Link href="/" className="hover:text-foreground transition-colors">
-                Home
-              </Link>
-              <span>/</span>
-              <Link href="/features" className="hover:text-foreground transition-colors">
-                Features
-              </Link>
-              <span>/</span>
-              <span className="text-foreground">{feature.title}</span>
-            </div>
-
             {/* Split Layout: Content Left, Image Right */}
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Left: Content */}
               <div className="relative z-10">
-                {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 rounded-full mb-6 animate-fade-in-up stagger-1">
-                  <svg className="w-5 h-5 text-secondary">
-                    <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
-                  </svg>
-                  <span className="text-secondary font-semibold text-sm uppercase tracking-wide">
-                    {feature.subtitle}
-                  </span>
-                </div>
-
                 {/* Heading */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight animate-fade-in-up stagger-2">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight animate-fade-in-up stagger-1">
                   {feature.title}
                 </h1>
 
                 {/* Description */}
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-fade-in-up stagger-3">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-fade-in-up stagger-2">
                   {feature.heroDescription}
                 </p>
 
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-4">
+                <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
                   <Link
                     href={feature.ctaUrl}
                     className="inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:shadow-2xl px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl hover:scale-105"
@@ -90,7 +67,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
               </div>
 
               {/* Right: Hero Image/Mockup */}
-              <div className="relative animate-fade-in-up stagger-4">
+              <div className="relative animate-fade-in-up stagger-3">
                 <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
                   {/* Placeholder mockup */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -137,14 +114,6 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                   >
                     {/* Content */}
                     <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} animate-fade-in-up`}>
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 rounded-full mb-4">
-                        <svg className="w-4 h-4 text-secondary">
-                          <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
-                        </svg>
-                        <span className="text-secondary font-semibold text-xs uppercase tracking-wide">
-                          Feature {index + 1}
-                        </span>
-                      </div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                         {highlight.title}
                       </h3>

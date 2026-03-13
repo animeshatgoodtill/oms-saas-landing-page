@@ -9,24 +9,26 @@ export const companyDetails = {
   // === LEGAL INFORMATION ===
   registeredName: 'Opscel Limited',                    // Full legal name as registered with Companies House
   tradingName: 'Opscel',                               // Brand/trading name
-  companiesHouseNumber: '12345678',                    // 8-digit Companies House number
+  companiesHouseNumber: '17090049',                    // 8-digit Companies House number
   incorporationYear: '2024',                           // Year company was incorporated
 
-  // === REGISTERED ADDRESS (for legal documents) ===
+  // === REGISTERED ADDRESS ===
+  // Not displayed publicly - SaaS company, no public address
   registeredAddress: {
-    line1: '123 Innovation Street',
-    line2: 'Floor 3',                                  // Optional - set to '' if not needed
-    city: 'London',
-    postcode: 'EC1A 1BB',
+    line1: '',
+    line2: '',
+    city: '',
+    postcode: '',
     country: 'United Kingdom',
   },
 
-  // === BUSINESS ADDRESS (for contact page - can be same as registered) ===
+  // === BUSINESS ADDRESS ===
+  // Not displayed publicly
   businessAddress: {
-    line1: '123 Innovation Street',
-    line2: 'Floor 3',
-    city: 'London',
-    postcode: 'EC1A 1BB',
+    line1: '',
+    line2: '',
+    city: '',
+    postcode: '',
     country: 'United Kingdom',
   },
 
@@ -35,7 +37,7 @@ export const companyDetails = {
     generalEmail: 'hello@opscel.com',
     supportEmail: 'support@opscel.com',
     privacyEmail: 'privacy@opscel.com',
-    phone: '+44 (0)20 1234 5678',                      // Set to '' if you prefer email-only
+    phone: '',                                           // Email-only contact
     supportHours: 'Monday - Friday, 9:00 AM - 5:30 PM GMT',
   },
 

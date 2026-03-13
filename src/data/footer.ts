@@ -115,7 +115,7 @@ export const footerDetails: {
         }
     ],
     email: 'hello@opscel.com',
-    telephone: '+44 (0)20 1234 5678',
+    telephone: '',
     socials: {
         // twitter: 'https://twitter.com/opscel',
         // facebook: 'https://facebook.com/opscel',

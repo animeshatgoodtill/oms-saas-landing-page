@@ -3,6 +3,8 @@ import { IMenuItem, ISocials } from "@/types";
 export const footerDetails: {
     subheading: string;
     quickLinks: IMenuItem[];
+    featureLinks: IMenuItem[];
+    resourcesLinks: IMenuItem[];
     companyLinks: IMenuItem[];
     legalLinks: IMenuItem[];
     email: string;
@@ -13,7 +15,7 @@ export const footerDetails: {
     quickLinks: [
         {
             text: "Features",
-            url: "/#features"
+            url: "/features"
         },
         {
             text: "Pricing",
@@ -26,6 +28,62 @@ export const footerDetails: {
         {
             text: "FAQs",
             url: "/#faq"
+        }
+    ],
+    featureLinks: [
+        {
+            text: "Digital Certificates",
+            url: "/features/certificates"
+        },
+        {
+            text: "Field Service App",
+            url: "/features/field-service"
+        },
+        {
+            text: "Jobs & Scheduling",
+            url: "/features/jobs"
+        },
+        {
+            text: "Quotes & Estimates",
+            url: "/features/quotations"
+        },
+        {
+            text: "Invoicing",
+            url: "/features/invoicing"
+        },
+        {
+            text: "Accounting Integration",
+            url: "/features/accounting-integration"
+        },
+        {
+            text: "Customer Portal",
+            url: "/features/customer-portal"
+        }
+    ],
+    resourcesLinks: [
+        {
+            text: "Documentation",
+            url: "/docs"
+        },
+        {
+            text: "Certificate Guide",
+            url: "/docs/certificates"
+        },
+        {
+            text: "Customer Portal Guide",
+            url: "/docs/customer-portal"
+        },
+        {
+            text: "Defects to Quotes Guide",
+            url: "/docs/defects-to-quotation"
+        },
+        {
+            text: "Invoicing Guide",
+            url: "/docs/invoicing"
+        },
+        {
+            text: "Accounting Guide",
+            url: "/docs/accounting-integration"
         }
     ],
     companyLinks: [
@@ -57,7 +115,7 @@ export const footerDetails: {
         }
     ],
     email: 'hello@opscel.com',
-    telephone: '+44 (0)20 1234 5678',
+    telephone: '',
     socials: {
         // twitter: 'https://twitter.com/opscel',
         // facebook: 'https://facebook.com/opscel',

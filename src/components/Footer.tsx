@@ -9,20 +9,17 @@ import { getPlatformIconByName } from '@/utils';
 const Footer: React.FC = () => {
     return (
         <footer className="bg-hero-background text-foreground py-10">
-            <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+            <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-10">
                 {/* Brand Column */}
                 <div className="sm:col-span-2 lg:col-span-2">
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.png"
-                            alt="OpsCel Logo"
-                            width={28}
+                            src="/images/opscel-logo.svg"
+                            alt="Opscel"
+                            width={130}
                             height={28}
-                            className="min-w-fit"
+                            className="h-7 w-auto"
                         />
-                        <h3 className="manrope text-xl font-semibold cursor-pointer">
-                            {siteDetails.siteName}
-                        </h3>
                     </Link>
                     <p className="mt-3.5 text-foreground-accent max-w-sm">
                         {footerDetails.subheading}
@@ -54,6 +51,30 @@ const Footer: React.FC = () => {
                     <h4 className="text-lg font-semibold mb-4">Product</h4>
                     <ul className="text-foreground-accent space-y-2">
                         {footerDetails.quickLinks.map(link => (
+                            <li key={link.text}>
+                                <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Feature Links - Single column */}
+                <div>
+                    <h4 className="text-lg font-semibold mb-4">Features</h4>
+                    <ul className="text-foreground-accent space-y-2">
+                        {footerDetails.featureLinks.map(link => (
+                            <li key={link.text}>
+                                <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Resources Links */}
+                <div>
+                    <h4 className="text-lg font-semibold mb-4">Resources</h4>
+                    <ul className="text-foreground-accent space-y-2">
+                        {footerDetails.resourcesLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
                             </li>

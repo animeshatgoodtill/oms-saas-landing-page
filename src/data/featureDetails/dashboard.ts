@@ -35,8 +35,8 @@ export const dashboardDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Defects Awaiting Quotes',
-            description: 'C1/C2 defects found during EICR inspections need remedial quotes. See which observations are waiting for pricing—one click creates the quote with pre-filled details.'
+            title: 'Jobs Pending Remedial Quotes',
+            description: 'Engineer logged 5 defects? Dashboard shows one job card with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Create Quote" to bundle all defects into one professional quote. 5x faster than individual quotes. Jobs with Critical defects appear first for prioritization.'
         },
         {
             iconId: 'icon-service-history',

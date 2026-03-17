@@ -10,32 +10,18 @@
 |-------|---------------------|------------|
 | Registered Company Name | Opscel Limited | |
 | Trading Name | Opscel | |
-| Companies House Number | 12345678 | |
+| Companies House Number | ~~12345678~~ | ✅ 17090049 |
 | Year Incorporated | 2024 | |
 
 ---
 
-## 2. REGISTERED ADDRESS (for legal documents)
+## 2. REGISTERED ADDRESS
 
-| Field | Current Placeholder | Your Value |
-|-------|---------------------|------------|
-| Address Line 1 | 123 Innovation Street | |
-| Address Line 2 | Floor 3 | |
-| City | London | |
-| Postcode | EC1A 1BB | |
-| Country | United Kingdom | |
+✅ **Removed** - Not displayed publicly (SaaS product, no public address needed)
 
----
+## 3. BUSINESS/CONTACT ADDRESS
 
-## 3. BUSINESS/CONTACT ADDRESS (can be same as registered)
-
-| Field | Current Placeholder | Your Value |
-|-------|---------------------|------------|
-| Address Line 1 | 123 Innovation Street | |
-| Address Line 2 | Floor 3 | |
-| City | London | |
-| Postcode | EC1A 1BB | |
-| Country | United Kingdom | |
+✅ **Removed** - Not displayed publicly
 
 ---
 
@@ -43,10 +29,10 @@
 
 | Field | Current Placeholder | Your Value |
 |-------|---------------------|------------|
-| General Email | hello@opscel.com | |
-| Support Email | support@opscel.com | |
-| Privacy/DPO Email | privacy@opscel.com | |
-| Phone Number | +44 (0)20 1234 5678 | |
+| General Email | hello@opscel.com | ✅ Confirmed |
+| Support Email | support@opscel.com | ✅ Confirmed |
+| Privacy/DPO Email | privacy@opscel.com | ⏳ Pending |
+| Phone Number | +44 (0)20 1234 5678 | ✅ Removed (email-only) |
 | Support Hours | Monday - Friday, 9:00 AM - 5:30 PM GMT | |
 
 > **Note**: Leave phone blank if you prefer email-only contact.

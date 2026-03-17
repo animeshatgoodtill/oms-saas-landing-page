@@ -13,11 +13,11 @@ const Footer: React.FC = () => {
                 <div className="sm:col-span-2 lg:col-span-2">
                     <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.svg"
+                            src="/images/opscel-logo.png"
                             alt="Opscel"
-                            width={150}
-                            height={45}
-                            className="h-11 w-auto"
+                            width={300}
+                            height={90}
+                            className="h-22 w-auto"
                         />
                     </Link>
                     <p className="mt-3.5 text-foreground-accent max-w-sm">

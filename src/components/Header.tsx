@@ -7,7 +7,6 @@ import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3, HiChevronDown } from 'react-icons/hi2';
 
 import Container from './Container';
-import { siteDetails } from '@/data/siteDetails';
 import { menuItems } from '@/data/menuItems';
 
 const Header: React.FC = () => {
@@ -32,9 +31,9 @@ const Header: React.FC = () => {
                         <Image
                             src="/images/opscel-logo.svg"
                             alt="Opscel"
-                            width={140}
-                            height={32}
-                            className="h-8 w-auto"
+                            width={160}
+                            height={48}
+                            className="h-12 w-auto"
                             priority
                         />
                     </Link>

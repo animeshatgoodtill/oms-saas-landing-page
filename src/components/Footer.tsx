@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 
-import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
 import { getPlatformIconByName } from '@/utils';
 
@@ -16,9 +15,9 @@ const Footer: React.FC = () => {
                         <Image
                             src="/images/opscel-logo.svg"
                             alt="Opscel"
-                            width={130}
-                            height={28}
-                            className="h-7 w-auto"
+                            width={150}
+                            height={45}
+                            className="h-11 w-auto"
                         />
                     </Link>
                     <p className="mt-3.5 text-foreground-accent max-w-sm">

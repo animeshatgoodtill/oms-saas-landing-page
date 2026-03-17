@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import Container from '@/components/Container';
@@ -336,9 +337,11 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
               {/* Image if provided */}
               {section.imageSrc && (
                 <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
-                  <img
+                  <Image
                     src={section.imageSrc}
                     alt={section.title}
+                    width={1200}
+                    height={800}
                     className="w-full h-auto"
                   />
                 </div>

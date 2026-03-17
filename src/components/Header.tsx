@@ -31,9 +31,9 @@ const Header: React.FC = () => {
                         <Image
                             src="/images/opscel-logo.svg"
                             alt="Opscel"
-                            width={140}
-                            height={32}
-                            className="h-8 w-auto"
+                            width={160}
+                            height={48}
+                            className="h-12 w-auto"
                             priority
                         />
                     </Link>

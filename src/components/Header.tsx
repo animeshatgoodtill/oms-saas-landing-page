@@ -28,17 +28,15 @@ const Header: React.FC = () => {
             <Container className="!px-0">
                 <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.png"
-                            alt="OpsCel Logo"
-                            width={32}
+                            src="/images/opscel-logo.svg"
+                            alt="Opscel"
+                            width={140}
                             height={32}
-                            className="min-w-fit"
+                            className="h-8 w-auto"
+                            priority
                         />
-                        <span className="manrope text-xl font-semibold text-foreground cursor-pointer">
-                            {siteDetails.siteName}
-                        </span>
                     </Link>
 
                     {/* Desktop Menu */}

@@ -123,7 +123,20 @@ const Footer: React.FC = () => {
             {/* Bottom Bar */}
             <div className="mt-10 pt-6 border-t border-gray-200 max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-foreground-accent">
-                    <p>&copy; {new Date().getFullYear()} Opscel Ltd. Registered in England and Wales. All rights reserved.</p>
+                    <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+                        <p>&copy; {new Date().getFullYear()} Opscel Ltd. Registered in England and Wales. All rights reserved.</p>
+                        {footerDetails.icoRegistrationNumber && (
+                            <a
+                                href={`https://ico.org.uk/ESDWebPages/Entry/${footerDetails.icoRegistrationNumber}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-foreground transition-colors flex items-center gap-1"
+                                title="ICO Data Protection Registration"
+                            >
+                                <span>ICO Registration: {footerDetails.icoRegistrationNumber}</span>
+                            </a>
+                        )}
+                    </div>
                     <div className="hidden lg:flex items-center gap-6">
                         {footerDetails.email && (
                             <a href={`mailto:${footerDetails.email}`} className="hover:text-foreground transition-colors">

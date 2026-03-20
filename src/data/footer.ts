@@ -10,6 +10,7 @@ export const footerDetails: {
     email: string;
     telephone: string;
     socials: ISocials;
+    icoRegistrationNumber: string;
 } = {
     subheading: "The first AI-native operations management platform for fire safety & electrical contractors.",
     quickLinks: [
@@ -121,5 +122,6 @@ export const footerDetails: {
         // facebook: 'https://facebook.com/opscel',
         linkedin: 'https://www.linkedin.com/company/opscel',
         // instagram: 'https://www.instagram.com/opscel',
-    }
+    },
+    icoRegistrationNumber: 'ZC105961'
 }

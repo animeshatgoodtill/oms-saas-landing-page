@@ -1,7 +1,7 @@
 "use client"
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { productFeatures } from "@/data/productFeatures";
 import ProductFeatureItem from "./ProductFeatureItem";
 
@@ -13,13 +13,6 @@ const ProductFeatures: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // Calculate which image should be shown based on scroll position
-  const imageIndex = useTransform(
-    scrollYProgress,
-    productFeatures.map((_, i) => i / (productFeatures.length - 1)),
-    productFeatures.map((_, i) => i)
-  );
-
   return (
     <div ref={containerRef} className="relative" id="product-features">
       {/* Desktop: Sticky mockup container */}
@@ -27,40 +20,42 @@ const ProductFeatures: React.FC = () => {
         <div className="sticky top-0 h-screen pointer-events-none">
           <div className="absolute inset-0 flex items-center justify-end pr-8 lg:pr-16">
             <div className="relative w-full max-w-2xl">
-              {productFeatures.map((feature, index) => (
-                <motion.div
-                  key={feature.id}
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{
-                    opacity: useTransform(
-                      scrollYProgress,
-                      [
-                        (index - 0.5) / (productFeatures.length - 1),
-                        index / (productFeatures.length - 1),
-                        (index + 0.5) / (productFeatures.length - 1)
-                      ],
-                      [0, 1, 0]
-                    )
-                  }}
-                >
-                  <div
-                    className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    style={{
-                      transform: "perspective(1000px) rotateY(-8deg) rotateX(2deg)",
-                      transformStyle: "preserve-3d"
-                    }}
+              {productFeatures.map((feature, index) => {
+                const opacity = useTransform(
+                  scrollYProgress,
+                  [
+                    Math.max(0, (index - 0.5) / (productFeatures.length - 1)),
+                    index / (productFeatures.length - 1),
+                    Math.min(1, (index + 0.5) / (productFeatures.length - 1))
+                  ],
+                  [0, 1, 0]
+                );
+
+                return (
+                  <motion.div
+                    key={feature.id}
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{ opacity }}
                   >
-                    <Image
-                      src={feature.imageSrc}
-                      alt={feature.imageAlt}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto"
-                      quality={95}
-                    />
-                  </div>
-                </motion.div>
-              ))}
+                    <div
+                      className="relative rounded-2xl overflow-hidden shadow-2xl"
+                      style={{
+                        transform: "perspective(1000px) rotateY(-8deg) rotateX(2deg)",
+                        transformStyle: "preserve-3d"
+                      }}
+                    >
+                      <Image
+                        src={feature.imageSrc}
+                        alt={feature.imageAlt}
+                        width={800}
+                        height={600}
+                        className="w-full h-auto"
+                        quality={95}
+                      />
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>

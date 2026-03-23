@@ -228,3 +228,39 @@ a[role="button"]:active,
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Product Features sticky scroll section */
+#product-features {
+  position: relative;
+  will-change: transform;
+}
+
+/* Smooth scrolling for product features */
+@media (min-width: 1024px) {
+  #product-features .sticky {
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* 3D perspective for mockups */
+.mockup-3d {
+  transform: perspective(1200px) rotateY(-10deg) rotateX(3deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mockup-3d:hover {
+  transform: perspective(1200px) rotateY(-5deg) rotateX(1deg) scale(1.02);
+}
+
+/* Diagonal stripe pattern for backgrounds */
+.stripe-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 12px,
+    rgba(255, 255, 255, 0.03) 12px,
+    rgba(255, 255, 255, 0.03) 24px
+  );
+}

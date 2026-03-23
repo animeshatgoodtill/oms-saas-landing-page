@@ -1,9 +1,10 @@
 "use client"
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 import { productFeatures } from "@/data/productFeatures";
 import ProductFeatureItem from "./ProductFeatureItem";
+import MockupLayer from "./MockupLayer";
 
 const ProductFeatures: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,19 +14,6 @@ const ProductFeatures: React.FC = () => {
     offset: ["start start", "end end"]
   });
 
-  // Pre-calculate opacity transforms for each feature (must be outside map)
-  const opacityTransforms = productFeatures.map((_, index) =>
-    useTransform(
-      scrollYProgress,
-      [
-        Math.max(0, (index - 0.5) / (productFeatures.length - 1)),
-        index / (productFeatures.length - 1),
-        Math.min(1, (index + 0.5) / (productFeatures.length - 1))
-      ],
-      [0, 1, 0]
-    )
-  );
-
   return (
     <div ref={containerRef} className="relative" id="product-features">
       {/* Desktop: Sticky mockup container */}
@@ -34,28 +22,13 @@ const ProductFeatures: React.FC = () => {
           <div className="absolute inset-0 flex items-center justify-end pr-8 lg:pr-16">
             <div className="relative w-full max-w-2xl">
               {productFeatures.map((feature, index) => (
-                <motion.div
+                <MockupLayer
                   key={feature.id}
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{ opacity: opacityTransforms[index] }}
-                >
-                  <div
-                    className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    style={{
-                      transform: "perspective(1000px) rotateY(-8deg) rotateX(2deg)",
-                      transformStyle: "preserve-3d"
-                    }}
-                  >
-                    <Image
-                      src={feature.imageSrc}
-                      alt={feature.imageAlt}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto"
-                      quality={95}
-                    />
-                  </div>
-                </motion.div>
+                  feature={feature}
+                  index={index}
+                  total={productFeatures.length}
+                  scrollYProgress={scrollYProgress}
+                />
               ))}
             </div>
           </div>

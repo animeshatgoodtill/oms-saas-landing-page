@@ -1,15 +1,13 @@
 "use client"
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { useRef } from "react";
 import { IProductFeature } from "@/data/productFeatures";
 
 interface Props {
   feature: IProductFeature;
-  index: number;
 }
 
-const ProductFeatureItem: React.FC<Props> = ({ feature, index }) => {
+const ProductFeatureItem: React.FC<Props> = ({ feature }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({

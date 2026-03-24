@@ -4,7 +4,6 @@ import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
 import Logos from "@/components/Logos";
 import Benefits from "@/components/Benefits/Benefits";
-import ProductFeatures from "@/components/ProductFeatures/ProductFeatures";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Stats from "@/components/Stats";
@@ -15,9 +14,6 @@ const HomePage: React.FC = () => {
     <>
       <Hero />
       <Logos />
-
-      {/* Product Features - Sticky Scroll Section */}
-      <ProductFeatures />
 
       <Container>
         <Benefits />

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <!-- ICO Logo - Official Information Commissioner's Office branding -->
+  <defs>
+    <style>
+      .ico-text { fill: #003D5C; font-family: 'Arial', sans-serif; font-weight: 700; }
+      .ico-subtitle { fill: #003D5C; font-family: 'Arial', sans-serif; font-weight: 400; }
+    </style>
+  </defs>
+
+  <!-- "ico." text -->
+  <text x="50" y="150" class="ico-text" font-size="120">ico.</text>
+
+  <!-- "Information Commissioner's Office" subtitle -->
+  <text x="50" y="200" class="ico-subtitle" font-size="32">Information Commissioner's Office</text>
+</svg>

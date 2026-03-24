@@ -125,23 +125,21 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-foreground-accent">
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                         <p>&copy; {new Date().getFullYear()} Opscel Ltd. Registered in England and Wales. All rights reserved.</p>
-                        {footerDetails.icoRegistrationNumber && (
-                            <a
-                                href={`https://ico.org.uk/ESDWebPages/Entry/${footerDetails.icoRegistrationNumber}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="hover:opacity-80 transition-opacity"
-                                title="ICO Data Protection Registration - ZC105961"
-                            >
-                                <Image
-                                    src="/images/ico-badge.svg"
-                                    alt="ICO Registered - ZC105961"
-                                    width={140}
-                                    height={56}
-                                    className="h-14 w-auto"
-                                />
-                            </a>
-                        )}
+                        <a
+                            href="https://ico.org.uk"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:opacity-80 transition-opacity"
+                            title="Registered with the Information Commissioner's Office"
+                        >
+                            <Image
+                                src="/images/ico-logo.svg"
+                                alt="ICO - Information Commissioner's Office"
+                                width={120}
+                                height={45}
+                                className="h-11 w-auto"
+                            />
+                        </a>
                     </div>
                     <div className="hidden lg:flex items-center gap-6">
                         {footerDetails.email && (

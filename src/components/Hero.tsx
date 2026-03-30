@@ -44,11 +44,14 @@ const Hero: React.FC = () => {
 
                     {/* Right Column - Hero Image */}
                     <div className="relative lg:h-[600px] flex items-center justify-center">
-                        <img
+                        <Image
                             src={heroDetails.heroImageSrc}
+                            width={1371}
+                            height={1600}
+                            unoptimized={true}
+                            priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
                             className="relative z-10 w-full h-auto max-w-2xl mx-auto"
-                            loading="eager"
                         />
                     </div>
                 </div>

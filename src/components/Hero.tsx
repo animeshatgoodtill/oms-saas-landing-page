@@ -48,7 +48,8 @@ const Hero: React.FC = () => {
                             src={heroDetails.heroImageSrc}
                             width={1371}
                             height={1600}
-                            unoptimized={true}
+                            quality={95}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 672px"
                             priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
                             className="relative z-10 w-full h-auto max-w-2xl mx-auto"

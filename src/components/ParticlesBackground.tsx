@@ -30,17 +30,17 @@ const ParticlesBackground: React.FC = () => {
         window.addEventListener('resize', updateSize);
 
         // Create particles
-        const particleCount = 50;
+        const particleCount = 80;
         const particles: Particle[] = [];
 
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5,
-                opacity: Math.random() * 0.5 + 0.2,
+                size: Math.random() * 4 + 2,
+                speedX: (Math.random() - 0.5) * 0.8,
+                speedY: (Math.random() - 0.5) * 0.8,
+                opacity: Math.random() * 0.6 + 0.3,
             });
         }
 
@@ -62,7 +62,7 @@ const ParticlesBackground: React.FC = () => {
                 // Draw particle
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(48, 77, 255, ${particle.opacity})`;
+                ctx.fillStyle = `rgba(254, 216, 53, ${particle.opacity})`;
                 ctx.fill();
             });
 
@@ -73,12 +73,12 @@ const ParticlesBackground: React.FC = () => {
                     const dy = p1.y - p2.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 150) {
+                    if (distance < 200) {
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(48, 77, 255, ${0.1 * (1 - distance / 150)})`;
-                        ctx.lineWidth = 1;
+                        ctx.strokeStyle = `rgba(254, 216, 53, ${0.2 * (1 - distance / 200)})`;
+                        ctx.lineWidth = 1.5;
                         ctx.stroke();
                     }
                 });
@@ -98,7 +98,7 @@ const ParticlesBackground: React.FC = () => {
         <canvas
             ref={canvasRef}
             className="absolute inset-0 -z-10"
-            style={{ opacity: 0.6 }}
+            style={{ opacity: 0.8 }}
         />
     );
 };

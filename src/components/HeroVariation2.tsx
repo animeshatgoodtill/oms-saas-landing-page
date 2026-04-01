@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
 import ParticlesBackground from './ParticlesBackground';
+import AnimatedGradientBackground from './AnimatedGradientBackground';
 
 const HeroVariation2: React.FC = () => {
     return (
@@ -13,10 +14,11 @@ const HeroVariation2: React.FC = () => {
             {/* Particles Background */}
             <ParticlesBackground />
 
-            {/* Base Background Pattern */}
-            <div className="absolute left-0 top-0 bottom-0 -z-20 w-full">
-                <div className="absolute inset-0 h-full w-full bg-hero-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]">
-                </div>
+            {/* Animated Gradient Background */}
+            <AnimatedGradientBackground />
+
+            {/* Base Background */}
+            <div className="absolute left-0 top-0 bottom-0 -z-20 w-full bg-hero-background">
             </div>
 
             {/* Stripe-style two-column layout */}
@@ -49,7 +51,7 @@ const HeroVariation2: React.FC = () => {
                     {/* Right Column - Hero Image */}
                     <div className="relative lg:h-[600px] flex items-center justify-center">
                         <Image
-                            src={heroDetails.heroImageSrc}
+                            src={heroDetails.centerImageSrc}
                             width={1371}
                             height={1600}
                             quality={95}

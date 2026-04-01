@@ -30,7 +30,7 @@ const ParticlesBackground: React.FC = () => {
         window.addEventListener('resize', updateSize);
 
         // Create particles
-        const particleCount = 80;
+        const particleCount = 160;
         const particles: Particle[] = [];
 
         for (let i = 0; i < particleCount; i++) {

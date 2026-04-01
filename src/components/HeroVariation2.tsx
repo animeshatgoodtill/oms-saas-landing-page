@@ -51,7 +51,7 @@ const HeroVariation2: React.FC = () => {
                     {/* Right Column - Hero Image */}
                     <div className="relative lg:h-[600px] flex items-center justify-center">
                         <Image
-                            src={heroDetails.heroImageSrc}
+                            src={heroDetails.centerImageSrc}
                             width={1371}
                             height={1600}
                             quality={95}

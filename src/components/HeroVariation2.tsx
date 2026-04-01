@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
 import ParticlesBackground from './ParticlesBackground';
+import AnimatedGradientBackground from './AnimatedGradientBackground';
 
 const HeroVariation2: React.FC = () => {
     return (
@@ -13,7 +14,10 @@ const HeroVariation2: React.FC = () => {
             {/* Particles Background */}
             <ParticlesBackground />
 
-            {/* Solid Background */}
+            {/* Animated Gradient Background */}
+            <AnimatedGradientBackground />
+
+            {/* Base Background */}
             <div className="absolute left-0 top-0 bottom-0 -z-20 w-full bg-hero-background">
             </div>
 

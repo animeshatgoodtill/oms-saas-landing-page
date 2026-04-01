@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import HeroVariation2 from "@/components/HeroVariation2";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
@@ -9,10 +9,10 @@ import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
 
-const HomePage: React.FC = () => {
+const Variation2Page: React.FC = () => {
   return (
     <>
-      <Hero />
+      <HeroVariation2 />
       <Logos />
 
       <Container>
@@ -37,11 +37,11 @@ const HomePage: React.FC = () => {
         <FAQ />
 
         <Stats />
-        
+
         <CTA />
       </Container>
     </>
   );
 };
 
-export default HomePage;
+export default Variation2Page;

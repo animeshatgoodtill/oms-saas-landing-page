@@ -2,15 +2,19 @@ import React from 'react';
 import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
+import AnimatedGradientBackground from './AnimatedGradientBackground';
 
-const Hero: React.FC = () => {
+const HeroVariation1: React.FC = () => {
     return (
         <section
             id="hero"
             className="relative pb-16 pt-32 md:pt-40 px-5 overflow-hidden"
         >
-            {/* Background Pattern */}
-            <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
+            {/* Animated Gradient Background */}
+            <AnimatedGradientBackground />
+
+            {/* Base Background Pattern */}
+            <div className="absolute left-0 top-0 bottom-0 -z-20 w-full">
                 <div className="absolute inset-0 h-full w-full bg-hero-background bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]">
                 </div>
             </div>
@@ -61,4 +65,4 @@ const Hero: React.FC = () => {
     );
 };
 
-export default Hero;
+export default HeroVariation1;

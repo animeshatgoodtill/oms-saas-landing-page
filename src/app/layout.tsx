@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
-    apple: '/images/opscel-favicon.png',
+    apple: '/images/opscel-favicon.webp',
   },
   openGraph: {
     title: siteDetails.metadata.title,

@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
                 <div className="sm:col-span-2 lg:col-span-2">
                     <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.png"
+                            src="/images/opscel-logo.webp"
                             alt="Opscel"
                             width={300}
                             height={90}

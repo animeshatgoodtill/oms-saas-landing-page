@@ -46,13 +46,13 @@ const Hero: React.FC = () => {
                     <div className="relative lg:h-[600px] flex items-center justify-center">
                         <Image
                             src={heroDetails.heroImageSrc}
-                            width={472}
-                            height={500}
+                            width={672}
+                            height={800}
                             quality={95}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 550px"
+                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 672px"
                             priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
-                            className="relative z-10 w-full h-auto max-w-[550px] mx-auto"
+                            className="relative z-10 w-full h-auto max-w-2xl mx-auto"
                         />
                     </div>
                 </div>

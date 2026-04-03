@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative pb-16 pt-32 md:pt-40 px-5 overflow-hidden"
+            className="relative pb-8 pt-24 md:pt-32 px-5 overflow-hidden min-h-[calc(100vh-80px)]"
         >
             {/* Particles Background */}
             <ParticlesBackground />
@@ -22,8 +22,8 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Stripe-style two-column layout */}
-            <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="max-w-7xl mx-auto h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
                     {/* Left Column - Content */}
                     <div className="text-left">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
@@ -49,16 +49,16 @@ const Hero: React.FC = () => {
                     </div>
 
                     {/* Right Column - Hero Image */}
-                    <div className="relative lg:h-[600px] flex items-center justify-center">
+                    <div className="relative flex items-center justify-center lg:justify-end">
                         <Image
                             src={heroDetails.heroImageSrc}
-                            width={944}
+                            width={950}
                             height={1000}
-                            quality={95}
-                            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 550px"
+                            quality={100}
+                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 475px"
                             priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
-                            className="relative z-10 w-full h-auto max-w-[550px] mx-auto"
+                            className="relative z-10 w-full h-auto max-w-[400px] lg:max-w-[475px] mx-auto lg:mx-0"
                         />
                     </div>
                 </div>

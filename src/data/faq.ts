@@ -2,35 +2,27 @@ import { IFAQ } from "@/types";
 
 export const faqs: IFAQ[] = [
     {
-        question: 'What happens during the 90-day trial?',
-        answer: 'You get full access to everything—unlimited jobs, all features, mobile app, the works. No limitations, no "trial version." If OpsCel doesn\'t work for your business, cancel anytime before day 90 and pay nothing. We require a credit card upfront, but you won\'t be charged until the trial ends.',
-    },
-    {
         question: 'Is this for my type of business?',
-        answer: 'OpsCel is built specifically for electrical, fire safety, plumbing, HVAC, and general maintenance contractors in the UK. Each industry gets compliance forms, equipment lists, and workflows designed for that trade. If you do periodic testing, installations, or maintenance work, OpsCel handles it.',
+        answer: 'OpsCel is built for UK fire safety and electrical contractors — businesses registered with BAFE, NICEIC, ECA, or FIA. If your engineers issue BS 5839 or BS 7671 certificates, this is built for you. We\'re expanding to security, HVAC, and renewables next.',
     },
     {
         question: 'Will my engineers actually use it?',
-        answer: 'Yes—because it makes their lives easier, not harder. They take photos and speak into their phone instead of filling out forms. Most engineers prefer it after their first job because they get home earlier. The ones who resist usually come around when they see their mates finishing paperwork in 15 minutes instead of an hour.',
+        answer: 'It\'s a web app that works on any phone or tablet — no App Store download, works offline. Engineers fill in job details on-site while they\'re still there, not from memory at 9pm. The system turns their input into certificates, quotes, and invoices.',
     },
     {
         question: 'How quickly can we get set up?',
-        answer: 'Most teams are running jobs through OpsCel within a day. Import your customer list, add your engineers, send them the mobile app link. Start with one or two engineers, see how it goes, then roll it out to the rest of the team. No consultants, no lengthy onboarding process.',
+        answer: 'Import your customers, addresses, and assets from a CSV. Set up your team and certificate branding. Most contractors are scheduling jobs within a week.',
     },
     {
-        question: 'What if we outgrow our plan?',
-        answer: 'Upgrade anytime with one click. Your data stays exactly where it is, billing adjusts automatically, and your team gets access to the new features immediately. Same thing if you need to downgrade—no penalties, no hassle.',
-    },
-    {
-        question: 'Is our data secure?',
-        answer: 'Bank-level encryption, UK-based servers, full audit trails for compliance. Your customer data, job records, and certificates are more secure with us than they are in your filing cabinet or spreadsheets. We take this seriously—it\'s your business on the line.',
+        question: 'What happens during the 90-day trial?',
+        answer: 'Full access to everything on your plan. No credit card required to start. Cancel anytime, no questions asked.',
     },
     {
         question: 'Do you integrate with Xero or QuickBooks?',
-        answer: 'Not yet, but it\'s on the roadmap for early 2026. For now, you can export invoices and import them into your accounting software. It\'s one extra step, but most customers find the time saved elsewhere more than makes up for it.',
+        answer: 'Xero is live now — invoices sync automatically. QuickBooks is on the roadmap.',
     },
     {
-        question: 'What if we need help?',
-        answer: 'Email support for all plans, usually answered within a few hours. Business plan customers also get phone support. Most questions are simple ("How do I...?") and we respond fast. If something\'s broken, we fix it immediately—your business depends on this working.',
+        question: 'Is our data secure?',
+        answer: 'Every contractor company\'s data is fully isolated. We use row-level security so your customers, jobs, and certificates are never accessible to anyone else.',
     }
 ];

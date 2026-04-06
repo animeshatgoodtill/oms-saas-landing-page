@@ -1,6 +1,6 @@
 export const ctaDetails = {
-    heading: 'Try OpsCel Free for 90 Days',
-    subheading: 'See if OpsCel works for your business with zero risk. Full access to everything, cancel anytime. Join contractors already saving 10+ hours per week on admin.',
+    heading: 'See if it fits.',
+    subheading: 'Start a 90-day free trial with full access — no card required. Or book a 15-minute demo and we\'ll walk through a real certificate workflow on a call.',
     appStoreUrl: '#',
     googlePlayUrl: '#'
 }

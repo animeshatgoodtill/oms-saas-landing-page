@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'From Job Complete to Invoice in Minutes, Not Days',
-    subheading: 'Your engineers finish the job at 3pm but the certificate doesn\'t go out until next Tuesday. That\'s 5 days of delayed payment, frustrated customers, and revenue sitting in limbo. OpsCel changes that—built for electrical, fire safety, plumbing, HVAC, and maintenance contractors across the UK.',
+    heading: 'The operating system for fire safety and electrical contractors.',
+    subheading: 'Manage customers, schedule engineers, quote, deliver, capture follow-on work, and invoice — all from one system with compliance certificates and a customer portal built in. Your engineers focus on the work. The admin takes care of itself.',
     heroImageSrc: '/images/fire-safety-engineer-mobile-deficiencies-app.webp',
 }

@@ -3,6 +3,16 @@ import Image from 'next/image';
 import { testimonials } from '@/data/testimonials';
 
 const Testimonials: React.FC = () => {
+    // Handle single pilot message display
+    if (testimonials.length === 1 && !testimonials[0].name) {
+        return (
+            <div className="text-center max-w-2xl mx-auto">
+                <p className="text-lg text-foreground-accent">{testimonials[0].message}</p>
+            </div>
+        );
+    }
+
+    // Regular testimonials grid for multiple testimonials
     return (
         <div className="grid gap-14 max-w-lg w-full mx-auto lg:gap-8 lg:grid-cols-3 lg:max-w-full">
             {testimonials.map((testimonial, index) => (

@@ -6,14 +6,14 @@ import Benefits from "@/components/Benefits/Benefits";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import CTA from "@/components/CTA";
-import ProblemStrip from "@/components/ProblemStrip";
+import CapabilityGrid from "@/components/CapabilityGrid";
 import FeatureShowcase from "@/components/FeatureShowcase";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
-      <ProblemStrip />
+      <CapabilityGrid />
       <FeatureShowcase />
 
       <Container>

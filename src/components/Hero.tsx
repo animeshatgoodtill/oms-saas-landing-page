@@ -26,6 +26,9 @@ const Hero: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
                     {/* Left Column - Content */}
                     <div className="text-left">
+                        <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">
+                            {heroDetails.categoryLine}
+                        </p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                             {heroDetails.heading}
                         </h1>
@@ -34,16 +37,16 @@ const Hero: React.FC = () => {
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
                             <a
-                                href="https://app.opscel.com/handler/sign-up"
+                                href="mailto:hello@opscel.com?subject=Demo Request"
                                 className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
-                                Join Pilot Program
+                                Watch a demo
                             </a>
                             <a
-                                href="mailto:hello@opscel.com?subject=Demo Request"
+                                href="https://app.opscel.com/handler/sign-up"
                                 className="border border-foreground/30 hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
-                                Book Demo
+                                Start free trial
                             </a>
                         </div>
                     </div>

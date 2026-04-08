@@ -101,9 +101,14 @@ const CapabilityGrid: React.FC = () => {
 
                     {/* Card 5 - Bottom Right */}
                     <div className={`bg-gradient-to-br ${capabilities[4].gradient} rounded-2xl p-8 md:p-10 border border-foreground/5 hover:border-foreground/10 transition-all hover:shadow-lg group`}>
-                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center">
-                            {/* Placeholder for future screenshot */}
-                            <div className="w-16 h-16 bg-foreground/5 rounded-full"></div>
+                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                                src="/images/invoice_card.webp"
+                                alt="Same-day invoicing on job completion"
+                                width={600}
+                                height={450}
+                                className="w-full h-full object-contain"
+                            />
                         </div>
                         <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-snug">
                             {capabilities[4].title}

@@ -29,11 +29,11 @@ const Header: React.FC = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.svg"
+                            src="/images/opscel-logo.webp"
                             alt="Opscel"
-                            width={320}
-                            height={96}
-                            className="h-28 w-auto"
+                            width={300}
+                            height={90}
+                            className="h-14 w-auto"
                             priority
                         />
                     </Link>
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
                         <li>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full transition-all duration-mechanical ease-mechanical"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-8 py-3 rounded-full transition-all duration-mechanical ease-mechanical"
                             >
                                 Get Started
                             </a>
@@ -192,7 +192,7 @@ const Header: React.FC = () => {
                         <li className="pt-2">
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-5 py-2 rounded-full block w-fit transition-all duration-mechanical ease-mechanical"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-5 py-2 rounded-full block w-fit transition-all duration-mechanical ease-mechanical"
                                 onClick={toggleMenu}
                             >
                                 Get Started

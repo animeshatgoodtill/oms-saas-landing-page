@@ -2,24 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
-import ParticlesBackground from './ParticlesBackground';
-import AnimatedGradientBackground from './AnimatedGradientBackground';
 
 const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative pb-8 pt-24 md:pt-32 overflow-hidden min-h-[calc(100vh-80px)]"
+            className="relative pb-8 pt-24 md:pt-32 overflow-hidden min-h-[calc(100vh-80px)] bg-hero-background"
         >
-            {/* Particles Background */}
-            <ParticlesBackground />
-
-            {/* Animated Gradient Background */}
-            <AnimatedGradientBackground />
-
-            {/* Base Background */}
-            <div className="absolute left-0 top-0 bottom-0 -z-20 w-full bg-hero-background">
-            </div>
 
             {/* Stripe-style two-column layout */}
             <div className="max-w-7xl mx-auto px-5 h-full">

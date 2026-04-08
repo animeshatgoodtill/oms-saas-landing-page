@@ -2,44 +2,49 @@ import React from 'react';
 import Image from 'next/image';
 
 import { heroDetails } from '@/data/hero';
+import ParticlesBackground from './ParticlesBackground';
+import AnimatedGradientBackground from './AnimatedGradientBackground';
 
 const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative pb-16 pt-24 md:pt-32 bg-white overflow-hidden"
+            className="relative pb-8 pt-24 md:pt-32 px-5 overflow-hidden min-h-[calc(100vh-80px)]"
         >
-            {/* Lightspeed-style two-column layout */}
-            <div className="max-w-7xl mx-auto px-5">
-                <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
-                    {/* Left Column - Content */}
-                    <div className="text-left space-y-6">
-                        {/* Category Label */}
-                        <p className="text-sm md:text-base font-semibold tracking-wide text-foreground/70">
-                            The operating system for fire safety and electrical contractors.
-                        </p>
+            {/* Particles Background */}
+            <ParticlesBackground />
 
-                        {/* Main Headline */}
-                        <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight whitespace-nowrap">
+            {/* Animated Gradient Background */}
+            <AnimatedGradientBackground />
+
+            {/* Base Background */}
+            <div className="absolute left-0 top-0 bottom-0 -z-20 w-full bg-hero-background">
+            </div>
+
+            {/* Stripe-style two-column layout */}
+            <div className="max-w-7xl mx-auto h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
+                    {/* Left Column - Content */}
+                    <div className="text-left">
+                        <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">
+                            {heroDetails.categoryLine}
+                        </p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                             {heroDetails.heading}
                         </h1>
-
-                        {/* Subheading */}
-                        <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed">
+                        <p className="mt-6 text-lg text-foreground/80 leading-relaxed max-w-xl">
                             {heroDetails.subheading}
                         </p>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row items-start gap-4 pt-2">
+                        <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
                             <a
                                 href="mailto:hello@opscel.com?subject=Demo Request"
-                                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-semibold transition-colors inline-block text-center min-w-[180px]"
+                                className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
                                 Watch a demo
                             </a>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="border-2 border-foreground/20 hover:border-foreground/40 text-foreground px-8 py-4 rounded-md font-semibold transition-colors inline-block text-center min-w-[180px]"
+                                className="border border-foreground/30 hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
                                 Start free trial
                             </a>
@@ -48,18 +53,16 @@ const Hero: React.FC = () => {
 
                     {/* Right Column - Hero Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
-                        <div className="relative w-full max-w-[550px]">
-                            <Image
-                                src={heroDetails.heroImageSrc}
-                                width={950}
-                                height={1000}
-                                quality={100}
-                                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 550px"
-                                priority={true}
-                                alt="Opscel mobile app - field engineer using deficiencies tracking"
-                                className="w-full h-auto"
-                            />
-                        </div>
+                        <Image
+                            src={heroDetails.heroImageSrc}
+                            width={950}
+                            height={1000}
+                            quality={100}
+                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 475px"
+                            priority={true}
+                            alt="Opscel mobile app - field engineer using deficiencies tracking"
+                            className="relative z-10 w-full h-auto max-w-[400px] lg:max-w-[475px] mx-auto lg:mx-0"
+                        />
                     </div>
                 </div>
             </div>

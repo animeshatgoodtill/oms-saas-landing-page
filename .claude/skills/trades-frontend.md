@@ -47,6 +47,12 @@ className="text-muted-foreground" // Secondary text
 className="border-border"      // Standard borders
 ```
 
+### Legacy Tokens (migrate when touching related code)
+These older tokens are still in `globals.css` but should be replaced with semantic equivalents:
+- `--primary-accent` (#e5c230) → use `--primary` with opacity
+- `--foreground-accent` (#454545) → use `--muted-foreground`
+- `--hero-background` (#F3F3F5) → use `--muted`
+
 ---
 
 ## Visual Language
@@ -66,7 +72,27 @@ className="border-border"      // Standard borders
 
 ---
 
-## Interactions
+## Animation Strategy
+
+This project uses two animation systems intentionally:
+
+### CSS Keyframes (globals.css) - Simple Transitions
+- `fade-in-up` / `fade-in` keyframes for page load animations
+- Stagger delay classes: `.stagger-1` through `.stagger-8` (0.1s increments)
+- `.gradient-text` utility for primary/secondary gradient text
+- Button press micro-interaction (1px translateY on `:active`)
+
+Use CSS animations for: page load effects, hover states, simple reveals.
+
+### Framer Motion - Scroll-Triggered Orchestration
+- Used only in `BenefitSection.tsx` and `BenefitBullet.tsx`
+- Spring physics: `bounce: 0.2`, `duration: 0.9`
+- Container/child stagger pattern: `delayChildren: 0.2`, `staggerChildren: 0.1`
+- `whileInView="onscreen"` with `viewport={{ once: true }}`
+
+Use Framer Motion for: scroll-triggered animations, complex orchestrated sequences.
+
+**Why the split:** CSS handles simple transitions with zero JS overhead. Framer Motion is only loaded where scroll-triggered orchestration is needed, keeping the bundle small.
 
 ### Transitions
 Use the trades-specific transition utilities:
@@ -105,6 +131,18 @@ Always use clear dividers between distinct areas:
 <div className="border-t border-border" />
 ```
 
+### Fluid Sizing
+Use CSS `clamp()` values from `globals.css` for responsive sizing without breakpoints:
+```css
+/* Typography */
+font-size: var(--text-display-xl);  /* clamp(3rem, 5vw + 1rem, 5rem) */
+font-size: var(--text-body-lg);     /* clamp(1.125rem, 1.5vw, 1.25rem) */
+
+/* Spacing */
+padding: var(--space-section);      /* clamp(4rem, 8vw, 8rem) */
+gap: var(--space-element);          /* clamp(2rem, 3vw, 3rem) */
+```
+
 ---
 
 ## Accessibility Requirements
@@ -112,7 +150,9 @@ Always use clear dividers between distinct areas:
 - Status colors are standardized (green=success, amber=warning, red=error)
 - Uppercase text limited to short labels only (accessibility concern)
 - All interactive elements must have visible focus states
-- Respect `prefers-reduced-motion` for animations
+- Respect `prefers-reduced-motion` for all animations (CSS and canvas)
+- Canvas-based animations (ParticlesBackground) must check `prefers-reduced-motion` and hide if enabled
+- Semantic HTML: use `nav`, `main`, `article`, `footer`, proper heading hierarchy
 
 ---
 
@@ -169,6 +209,14 @@ className="font-body"    // Body text
 className="font-mono"    // Data/numbers
 ```
 
+```tsx
+// WRONG - Framer Motion for simple hover
+<motion.div whileHover={{ scale: 1.05 }}>
+
+// CORRECT - CSS transition for simple hover
+className="transition-all duration-mechanical ease-mechanical hover:scale-105"
+```
+
 ---
 
 ## Files Reference
@@ -176,6 +224,7 @@ className="font-mono"    // Data/numbers
 | File | Purpose |
 |------|---------|
 | `tailwind.config.ts` | Font families, colors, transitions |
-| `app/globals.css` | CSS variables, status tokens |
+| `app/globals.css` | CSS variables, keyframes, stagger utilities |
 | `app/layout.tsx` | Font loading with next/font |
 | `CLAUDE.md` | Project-wide rules |
+| `public/icons/features-sprite.svg` | SVG sprite for feature icons |

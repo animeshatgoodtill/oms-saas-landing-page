@@ -7,25 +7,25 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative pb-16 pt-24 md:pt-32 px-5 bg-white overflow-hidden"
+            className="relative pb-16 pt-24 md:pt-32 bg-white overflow-hidden"
         >
             {/* Lightspeed-style two-column layout */}
-            <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="max-w-7xl mx-auto px-5">
+                <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
                     {/* Left Column - Content */}
                     <div className="text-left space-y-6">
                         {/* Category Label */}
-                        <p className="text-sm md:text-base font-semibold tracking-wide uppercase text-foreground/70">
-                            Operations Management Platform
+                        <p className="text-sm md:text-base font-semibold tracking-wide text-foreground/70">
+                            The operating system for fire safety and electrical contractors.
                         </p>
 
                         {/* Main Headline */}
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight whitespace-nowrap">
                             {heroDetails.heading}
                         </h1>
 
                         {/* Subheading */}
-                        <p className="text-lg md:text-xl text-foreground/70 leading-relaxed max-w-xl">
+                        <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed">
                             {heroDetails.subheading}
                         </p>
 

@@ -29,11 +29,11 @@ const Hero: React.FC = () => {
                                 href="mailto:hello@opscel.com?subject=Demo Request"
                                 className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
-                                Watch a demo
+                                Book a demo
                             </a>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="border border-foreground/30 hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-colors inline-block"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
                                 Start free trial
                             </a>
@@ -47,10 +47,10 @@ const Hero: React.FC = () => {
                             width={950}
                             height={1000}
                             quality={100}
-                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 550px"
+                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 625px"
                             priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
-                            className="relative z-10 w-full h-auto max-w-[450px] lg:max-w-[550px] mx-auto lg:mx-0"
+                            className="relative z-10 w-full h-auto max-w-[500px] lg:max-w-[625px] mx-auto lg:mx-0"
                         />
                     </div>
                 </div>

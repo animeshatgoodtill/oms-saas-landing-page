@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative pb-8 pt-24 md:pt-32 px-5 overflow-hidden min-h-[calc(100vh-80px)]"
+            className="relative pb-8 pt-24 md:pt-32 overflow-hidden min-h-[calc(100vh-80px)]"
         >
             {/* Particles Background */}
             <ParticlesBackground />
@@ -22,17 +22,17 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Stripe-style two-column layout */}
-            <div className="max-w-7xl mx-auto h-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full">
+            <div className="max-w-7xl mx-auto px-5 h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-center h-full">
                     {/* Left Column - Content */}
                     <div className="text-left">
                         <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">
                             {heroDetails.categoryLine}
                         </p>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight whitespace-nowrap">
                             {heroDetails.heading}
                         </h1>
-                        <p className="mt-6 text-lg text-foreground/80 leading-relaxed max-w-xl">
+                        <p className="mt-6 text-xl md:text-2xl text-foreground/80 leading-relaxed">
                             {heroDetails.subheading}
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">

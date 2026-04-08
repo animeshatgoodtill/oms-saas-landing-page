@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
 
             {/* Stripe-style two-column layout */}
             <div className="max-w-7xl mx-auto px-5 h-full">
-                <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-center h-full">
+                <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-8 lg:gap-12 items-center h-full">
                     {/* Left Column - Content */}
                     <div className="text-left">
                         <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">

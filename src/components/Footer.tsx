@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                             alt="Opscel"
                             width={300}
                             height={90}
-                            className="h-22 w-auto"
+                            className="h-14 w-auto"
                         />
                     </Link>
                     <p className="mt-3.5 text-foreground-accent max-w-sm">

@@ -58,10 +58,10 @@ const Hero: React.FC = () => {
                             width={950}
                             height={1000}
                             quality={100}
-                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 475px"
+                            sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 550px"
                             priority={true}
                             alt="Opscel mobile app - field engineer using deficiencies tracking"
-                            className="relative z-10 w-full h-auto max-w-[400px] lg:max-w-[475px] mx-auto lg:mx-0"
+                            className="relative z-10 w-full h-auto max-w-[450px] lg:max-w-[550px] mx-auto lg:mx-0"
                         />
                     </div>
                 </div>

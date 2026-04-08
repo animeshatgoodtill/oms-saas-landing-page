@@ -53,9 +53,14 @@ const CapabilityGrid: React.FC = () => {
 
                     {/* Card 2 - Top Right */}
                     <div className={`bg-gradient-to-br ${capabilities[1].gradient} rounded-2xl p-8 md:p-10 border border-foreground/5 hover:border-foreground/10 transition-all hover:shadow-lg group`}>
-                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center">
-                            {/* Placeholder for future screenshot */}
-                            <div className="w-16 h-16 bg-foreground/5 rounded-full"></div>
+                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                                src="/images/schedule_card.webp"
+                                alt="Engineer scheduling calendar with visit timeline and availability"
+                                width={600}
+                                height={450}
+                                className="w-full h-full object-contain"
+                            />
                         </div>
                         <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-snug">
                             {capabilities[1].title}

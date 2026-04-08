@@ -7,14 +7,12 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import CTA from "@/components/CTA";
 import CapabilityGrid from "@/components/CapabilityGrid";
-import FeatureShowcase from "@/components/FeatureShowcase";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
       <CapabilityGrid />
-      <FeatureShowcase />
 
       <Container>
         <Benefits />

@@ -18,6 +18,13 @@ const ParticlesBackground: React.FC = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
+        // Respect prefers-reduced-motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            canvas.style.display = 'none';
+            return;
+        }
+
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
@@ -84,12 +91,13 @@ const ParticlesBackground: React.FC = () => {
                 });
             });
 
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
         };
 
-        animate();
+        let animationId = requestAnimationFrame(animate);
 
         return () => {
+            cancelAnimationFrame(animationId);
             window.removeEventListener('resize', updateSize);
         };
     }, []);

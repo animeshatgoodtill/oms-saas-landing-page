@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Container from './Container';
 
 const CapabilityGrid: React.FC = () => {
@@ -36,9 +37,14 @@ const CapabilityGrid: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {/* Card 1 - Top Left */}
                     <div className={`bg-gradient-to-br ${capabilities[0].gradient} rounded-2xl p-8 md:p-10 border border-foreground/5 hover:border-foreground/10 transition-all hover:shadow-lg group`}>
-                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center">
-                            {/* Placeholder for future screenshot */}
-                            <div className="w-16 h-16 bg-foreground/5 rounded-full"></div>
+                        <div className="aspect-[4/3] mb-6 bg-white/50 rounded-lg flex items-center justify-center overflow-hidden">
+                            <Image
+                                src="/images/customer_card.webp"
+                                alt="Customer profile showing sites, contacts, and tracked assets"
+                                width={600}
+                                height={450}
+                                className="w-full h-full object-contain"
+                            />
                         </div>
                         <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-snug">
                             {capabilities[0].title}

@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
                         <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">
                             {heroDetails.categoryLine}
                         </p>
-                        <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight whitespace-nowrap">
+                        <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight lg:whitespace-nowrap">
                             {heroDetails.heading}
                         </h1>
                         <p className="mt-6 text-xl md:text-2xl text-foreground/80 leading-relaxed">

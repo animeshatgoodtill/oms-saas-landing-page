@@ -6,7 +6,7 @@ const BackofficeHero: React.FC = () => {
         <section className="py-12 md:py-20">
             <div className="max-w-7xl mx-auto px-5">
                 {/* Contained card with rounded corners */}
-                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-[#f0f4ff] pt-10 md:pt-14 pb-0 px-8 md:px-12">
+                <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-[#f0f4ff] pt-8 md:pt-10 pb-0 px-8 md:px-12">
 
                     {/* Gradient orbs */}
                     <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%]"
@@ -47,7 +47,7 @@ const BackofficeHero: React.FC = () => {
                     {/* Content */}
                     <div className="relative z-10">
                         {/* Heading - top left */}
-                        <h2 className="max-w-sm text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8 md:mb-10">
+                        <h2 className="max-w-sm text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6 md:mb-8">
                             A back-office that actually has your back.
                         </h2>
 

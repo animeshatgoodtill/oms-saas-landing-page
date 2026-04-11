@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const BackofficeHero: React.FC = () => {
     return (
-        <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
+        <section className="relative overflow-hidden pt-12 md:pt-16 pb-0">
             {/* Light base with layered radial gradient orbs */}
             <div className="absolute inset-0 bg-[#f8fafd]">
                 {/* Blue orb - top left */}
@@ -42,24 +42,22 @@ const BackofficeHero: React.FC = () => {
 
             {/* Content - text top-left, image floating right */}
             <div className="relative z-10 max-w-7xl mx-auto px-5">
-                <div className="relative min-h-[450px] md:min-h-[500px] lg:min-h-[550px]">
-                    {/* Heading - top left */}
-                    <h2 className="relative lg:absolute lg:top-0 lg:left-0 lg:max-w-md text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8 lg:mb-0">
-                        A back-office that actually has your back.
-                    </h2>
+                {/* Heading - top left */}
+                <h2 className="lg:max-w-md text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8 md:mb-12">
+                    A back-office that actually has your back.
+                </h2>
 
-                    {/* Dashboard image - floating right */}
-                    <div className="relative lg:absolute lg:right-0 lg:top-8 lg:w-[72%]">
-                        <Image
-                            src="/images/opscel-backoffice.png"
-                            alt="Opscel dashboard with reports, analytics, invoices, and conversion funnel"
-                            width={1400}
-                            height={900}
-                            quality={100}
-                            className="w-full h-auto drop-shadow-2xl"
-                            sizes="(max-width: 768px) 95vw, (max-width: 1280px) 72vw, 900px"
-                        />
-                    </div>
+                {/* Dashboard image - right-aligned, flush to bottom */}
+                <div className="lg:ml-auto lg:w-[75%]">
+                    <Image
+                        src="/images/opscel-backoffice.png"
+                        alt="Opscel dashboard with reports, analytics, invoices, and conversion funnel"
+                        width={1400}
+                        height={900}
+                        quality={100}
+                        className="w-full h-auto drop-shadow-2xl"
+                        sizes="(max-width: 768px) 95vw, (max-width: 1280px) 75vw, 900px"
+                    />
                 </div>
             </div>
         </section>

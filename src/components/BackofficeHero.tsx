@@ -4,38 +4,38 @@ import Image from 'next/image';
 const BackofficeHero: React.FC = () => {
     return (
         <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
-            {/* Light base with layered radial gradient orbs (Stripe technique) */}
+            {/* Light base with layered radial gradient orbs */}
             <div className="absolute inset-0 bg-[#f8fafd]">
                 {/* Blue orb - top left */}
                 <div
-                    className="absolute -top-[20%] -left-[10%] w-[60%] h-[70%] opacity-30"
+                    className="absolute -top-[10%] -left-[5%] w-[65%] h-[75%]"
                     style={{
-                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(48,79,255,0.6) 0%, transparent 100%)',
-                        filter: 'blur(80px)',
+                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(48,79,255,0.25) 0%, transparent 70%)',
+                        filter: 'blur(40px)',
                     }}
                 />
                 {/* Yellow orb - center right */}
                 <div
-                    className="absolute top-[10%] right-[-5%] w-[50%] h-[60%] opacity-25"
+                    className="absolute top-[5%] right-[-5%] w-[55%] h-[65%]"
                     style={{
-                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(254,216,53,0.7) 0%, transparent 100%)',
-                        filter: 'blur(80px)',
+                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(254,216,53,0.35) 0%, transparent 70%)',
+                        filter: 'blur(40px)',
                     }}
                 />
                 {/* Secondary blue orb - bottom right */}
                 <div
-                    className="absolute bottom-[-15%] right-[10%] w-[45%] h-[50%] opacity-20"
+                    className="absolute bottom-[-10%] right-[5%] w-[50%] h-[55%]"
                     style={{
-                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(48,79,255,0.5) 0%, transparent 100%)',
-                        filter: 'blur(60px)',
+                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(48,79,255,0.2) 0%, transparent 70%)',
+                        filter: 'blur(40px)',
                     }}
                 />
-                {/* Subtle warm accent - bottom left */}
+                {/* Warm accent - bottom left */}
                 <div
-                    className="absolute bottom-[0%] left-[5%] w-[35%] h-[40%] opacity-15"
+                    className="absolute bottom-[-5%] left-[0%] w-[40%] h-[45%]"
                     style={{
-                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(254,216,53,0.5) 0%, transparent 100%)',
-                        filter: 'blur(60px)',
+                        background: 'radial-gradient(50% 50% at 50% 50%, rgba(254,216,53,0.3) 0%, transparent 70%)',
+                        filter: 'blur(40px)',
                     }}
                 />
             </div>

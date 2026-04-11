@@ -1,8 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 
 const BackofficeHero: React.FC = () => {
     return (
-        <section className="relative overflow-hidden py-24 md:py-32">
+        <section className="relative overflow-hidden pt-20 md:pt-28 pb-16 md:pb-24">
             {/* Gradient mesh background */}
             <div className="absolute inset-0 bg-[#0a0e27]">
                 {/* Pink/magenta blob - top right */}
@@ -40,39 +41,41 @@ const BackofficeHero: React.FC = () => {
 
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-5">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Left Column - Text */}
-                    <div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                            A back-office that actually has your back.
-                        </h2>
-                        <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8 max-w-lg">
-                            While your engineers are on site, Opscel handles the quotes, certificates, invoices, and follow-ups — so nothing falls through the cracks.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <a
-                                href="mailto:hello@opscel.com?subject=Demo Request"
-                                className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block text-center"
-                            >
-                                Book a demo
-                            </a>
-                            <a
-                                href="https://app.opscel.com/handler/sign-up"
-                                className="bg-white/10 text-white hover:bg-white/20 border border-white/20 px-8 py-3 rounded-full font-medium transition-colors inline-block text-center"
-                            >
-                                Start free trial
-                            </a>
-                        </div>
-                    </div>
+                {/* Dashboard image - full width, dominant */}
+                <div className="relative mb-12 md:mb-16">
+                    <Image
+                        src="/images/backoffice_dashboard.webp"
+                        alt="Opscel dashboard showing reports, job analytics, invoices, and conversion funnel"
+                        width={1400}
+                        height={900}
+                        quality={100}
+                        className="w-full h-auto rounded-xl shadow-2xl shadow-black/40"
+                        sizes="(max-width: 768px) 95vw, (max-width: 1280px) 90vw, 1200px"
+                        priority
+                    />
+                </div>
 
-                    {/* Right Column - UI Image */}
-                    <div className="relative flex items-center justify-center lg:justify-end">
-                        <div className="relative w-full max-w-[600px]">
-                            {/* Placeholder - replace with actual UI mockup */}
-                            <div className="aspect-[4/3] rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                                <span className="text-white/30 text-sm">UI mockup goes here</span>
-                            </div>
-                        </div>
+                {/* Text - bottom left, like Stripe */}
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
+                        A back-office that actually has your back.
+                    </h2>
+                    <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8">
+                        While your engineers are on site, Opscel handles the quotes, certificates, invoices, and follow-ups — so nothing falls through the cracks.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <a
+                            href="mailto:hello@opscel.com?subject=Demo Request"
+                            className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block text-center"
+                        >
+                            Book a demo
+                        </a>
+                        <a
+                            href="https://app.opscel.com/handler/sign-up"
+                            className="bg-white/10 text-white hover:bg-white/20 border border-white/20 px-8 py-3 rounded-full font-medium transition-colors inline-block text-center"
+                        >
+                            Start free trial
+                        </a>
                     </div>
                 </div>
             </div>

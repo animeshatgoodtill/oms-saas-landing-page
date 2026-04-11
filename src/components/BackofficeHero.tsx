@@ -40,29 +40,6 @@ const BackofficeHero: React.FC = () => {
                 />
             </div>
 
-            {/* Subtle mesh lines */}
-            <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                    backgroundImage: `
-                        repeating-linear-gradient(
-                            -30deg,
-                            transparent,
-                            transparent 60px,
-                            rgba(48,79,255,0.5) 60px,
-                            rgba(48,79,255,0.5) 61px
-                        ),
-                        repeating-linear-gradient(
-                            60deg,
-                            transparent,
-                            transparent 60px,
-                            rgba(48,79,255,0.5) 60px,
-                            rgba(48,79,255,0.5) 61px
-                        )
-                    `,
-                }}
-            />
-
             {/* Content - text top-left, image floating right */}
             <div className="relative z-10 max-w-7xl mx-auto px-5">
                 <div className="relative min-h-[450px] md:min-h-[500px] lg:min-h-[550px]">

@@ -189,6 +189,10 @@ export const certificatesDetail: IFeatureDetail = {
 
     faq: [
         {
+            question: 'Does OpsCel support BAFE, NICEIC, ECA, and FIA certificate formats?',
+            answer: 'Yes. Certificate formats match what your trade body expects — we\'ve mapped the mandatory fields from each standard so you don\'t have to cross-reference the spec. BAFE SP203-1 fire alarm certificates include the required BAFE reference and scheme fields. NICEIC electrical certificates follow the approved contractor format with enrolment number. ECA and FIA members get the same standards-compliant outputs their membership requires. Every certificate type auto-selects the right template based on the work you\'re signing off, so you never issue the wrong format to the wrong body.'
+        },
+        {
             question: 'How does BS 7671 Zs auto-lookup work?',
             answer: 'When you enter a Zs reading for a circuit, OpsCel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.37Ω limit, corrected to 1.10Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
         },

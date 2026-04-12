@@ -51,12 +51,12 @@ const BackofficeHero: React.FC = () => {
                     />
 
                     {/* Content */}
-                    <div className="relative z-10">
-                        <h2 className="max-w-sm text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6 md:mb-8">
+                    <div className="relative z-10 grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-start">
+                        <h2 className="max-w-sm text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight lg:pt-4">
                             A back-office that actually has your back.
                         </h2>
 
-                        <div className="lg:ml-[20%]">
+                        <div className="lg:translate-y-8">
                             <Image
                                 src="/images/opscel-backoffice.png"
                                 alt="Opscel dashboard with reports, analytics, invoices, and conversion funnel"
@@ -64,7 +64,7 @@ const BackofficeHero: React.FC = () => {
                                 height={900}
                                 quality={100}
                                 className="w-full h-auto"
-                                sizes="(max-width: 768px) 90vw, (max-width: 1280px) 80vw, 950px"
+                                sizes="(max-width: 768px) 90vw, (max-width: 1280px) 60vw, 750px"
                             />
                         </div>
                     </div>

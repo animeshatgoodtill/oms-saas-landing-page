@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 const BackofficeHero: React.FC = () => {
     // Generate wavy parallel lines - bezier curves from bottom-left to top-right
-    const lines = Array.from({ length: 32 }, (_, i) => {
-        const offset = i * 6;
+    const lines = Array.from({ length: 28 }, (_, i) => {
+        const offset = i * 8;
         // Fade opacity at the edges of the line stack
-        const distFromCenter = Math.abs(i - 15.5) / 15.5;
-        const opacity = 0.35 * (1 - distFromCenter * 0.7);
+        const distFromCenter = Math.abs(i - 13.5) / 13.5;
+        const opacity = 0.7 * (1 - distFromCenter * 0.6);
         return { offset, opacity };
     });
 
@@ -28,10 +28,11 @@ const BackofficeHero: React.FC = () => {
                         {lines.map((line, i) => (
                             <path
                                 key={i}
-                                d={`M -50 ${550 + line.offset} C 300 ${650 + line.offset}, 600 ${100 + line.offset}, 1250 ${200 + line.offset}`}
+                                d={`M -50 ${480 + line.offset} C 300 ${620 + line.offset}, 600 ${80 + line.offset}, 1250 ${180 + line.offset}`}
                                 stroke={`rgba(48,79,255,${line.opacity})`}
-                                strokeWidth="1"
+                                strokeWidth="1.5"
                                 fill="none"
+                                vectorEffect="non-scaling-stroke"
                             />
                         ))}
                     </svg>

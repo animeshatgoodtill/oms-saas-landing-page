@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FiMail, FiPhone, FiMapPin, FiClock, FiMessageCircle, FiHelpCircle } from 'react-icons/fi';
+import { FiMail, FiPhone, FiClock, FiMessageCircle, FiHelpCircle, FiCalendar, FiArrowRight } from 'react-icons/fi';
 
 import Container from '@/components/Container';
 import PageHeader from '@/components/PageHeader';
@@ -39,8 +39,51 @@ const ContactPage: React.FC = () => {
         description="Have questions? We'd love to hear from you. Get in touch with our team."
       />
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-20">
         <Container>
+          {/* Book a Demo CTA card */}
+          <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-white px-8 md:px-12 py-10 md:py-14 mb-16">
+            {/* Gradient orbs for depth */}
+            <div
+              className="absolute -top-[20%] -left-[10%] w-[50%] h-[80%]"
+              style={{
+                background: 'radial-gradient(50% 50% at 50% 50%, rgba(48,79,255,0.18) 0%, transparent 70%)',
+                filter: 'blur(40px)',
+              }}
+            />
+            <div
+              className="absolute -bottom-[20%] -right-[5%] w-[45%] h-[80%]"
+              style={{
+                background: 'radial-gradient(50% 50% at 50% 50%, rgba(254,216,53,0.22) 0%, transparent 70%)',
+                filter: 'blur(40px)',
+              }}
+            />
+
+            <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-secondary/10 text-secondary text-sm font-medium px-3 py-1 rounded-full mb-4">
+                  <FiCalendar size={14} />
+                  <span>15-minute walkthrough</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-3">
+                  See Opscel in action.
+                </h2>
+                <p className="text-base md:text-lg text-foreground-accent max-w-lg">
+                  Pick a time that suits you. We&apos;ll walk through a real certificate workflow, answer your questions, and show you exactly how it fits your business.
+                </p>
+              </div>
+              <a
+                href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-secondary text-white hover:bg-secondary/90 px-8 py-4 rounded-full font-semibold text-base transition-colors whitespace-nowrap"
+              >
+                Book a demo
+                <FiArrowRight size={18} />
+              </a>
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-8">
@@ -78,22 +121,6 @@ const ContactPage: React.FC = () => {
                       </div>
                     </a>
                   )}
-
-                  {/* Address */}
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-hero-background">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FiMapPin className="text-foreground" size={20} />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Address</p>
-                      <p className="text-foreground-accent">
-                        {companyDetails.businessAddress.line1}<br />
-                        {companyDetails.businessAddress.line2 && <>{companyDetails.businessAddress.line2}<br /></>}
-                        {companyDetails.businessAddress.city}, {companyDetails.businessAddress.postcode}<br />
-                        {companyDetails.businessAddress.country}
-                      </p>
-                    </div>
-                  </div>
 
                   {/* Hours */}
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-hero-background">

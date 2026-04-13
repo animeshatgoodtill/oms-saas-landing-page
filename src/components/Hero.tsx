@@ -26,7 +26,9 @@ const Hero: React.FC = () => {
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
                             <a
-                                href="mailto:hello@opscel.com?subject=Demo Request"
+                                href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors inline-block"
                             >
                                 Book a demo

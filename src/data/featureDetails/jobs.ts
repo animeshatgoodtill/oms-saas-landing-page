@@ -62,6 +62,11 @@ export const jobsDetail: IFeatureDetail = {
             iconId: 'icon-certificate',
             title: 'Certificate Auto-Generation',
             description: 'Job marked complete? Certificate auto-generates from job data. Customer details, site address, engineer name—all pre-filled. Just add test results and sign.'
+        },
+        {
+            iconId: 'icon-calendar-sync',
+            title: 'Google Calendar & Outlook Sync',
+            description: 'Engineers see their schedule where they already look. Two-way sync keeps jobs in Google Calendar and Outlook up to date automatically. No switching apps, no double-booking.'
         }
     ],
 

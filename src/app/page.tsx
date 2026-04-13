@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
 import Container from "@/components/Container";
@@ -22,14 +21,6 @@ const HomePage: React.FC = () => {
           description=""
         >
           <Pricing />
-        </Section>
-
-        <Section
-          id="testimonials"
-          title="Social Proof"
-          description=""
-        >
-          <Testimonials />
         </Section>
 
         <FAQ />

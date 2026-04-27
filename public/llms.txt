@@ -1,0 +1,41 @@
+# Opscel — AI-Native Operations Management for Contractors
+
+> Opscel is the operating system for fire safety and electrical contractors in the UK. It handles jobs, scheduling, compliance certificates (BS 7671, BS 5839), quoting, invoicing, and customer management in one platform.
+
+## Key Pages
+
+- Homepage: https://www.opscel.com
+- Features: https://www.opscel.com/features
+- Pricing: https://www.opscel.com/#pricing
+- Blog: https://www.opscel.com/blog
+- Contact: https://www.opscel.com/contact
+
+## Feature Pages
+
+- Digital Certificates: https://www.opscel.com/features/certificates
+- Jobs & Scheduling: https://www.opscel.com/features/jobs
+- Field Service App: https://www.opscel.com/features/field-service
+- Quotations: https://www.opscel.com/features/quotations
+- Invoicing: https://www.opscel.com/features/invoicing
+- Customer Portal: https://www.opscel.com/features/customer-portal
+- Accounting Integration: https://www.opscel.com/features/accounting-integration
+- Dashboard: https://www.opscel.com/features/dashboard
+
+## Topics Covered
+
+- BS 7671 electrical installation certificates (EIC, EICR, Minor Works)
+- BS 5839 fire alarm certificates (Installation, Commissioning, Service, Modification)
+- BS 5266 emergency lighting certificates
+- BS 5306 fire extinguisher service certificates
+- Multi-visit job scheduling for contractors
+- Defect-to-quotation-to-invoice workflows
+- Customer portal with magic link authentication
+- Xero accounting integration
+- Offline-first field service app (PWA)
+- BAFE, NICEIC, ECA, FIA certification body compliance
+
+## Contact
+
+- Email: hello@opscel.com
+- Support: support@opscel.com
+- LinkedIn: https://www.linkedin.com/company/opscel

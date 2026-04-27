@@ -63,6 +63,10 @@ export const footerDetails: {
     ],
     resourcesLinks: [
         {
+            text: "Blog",
+            url: "/blog"
+        },
+        {
             text: "Documentation",
             url: "/docs"
         },

@@ -3,13 +3,28 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { FiArrowLeft, FiCalendar, FiClock } from 'react-icons/fi';
+import { FiArrowLeft, FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import { authors } from '@/data/authors';
 import { siteDetails } from '@/data/siteDetails';
 import Container from '@/components/Container';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/schema';
+
+function extractHeadings(content: string): { id: string; text: string; level: number }[] {
+    const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+    const headings: { id: string; text: string; level: number }[] = [];
+    let match;
+    while ((match = headingRegex.exec(content)) !== null) {
+        const text = match[2].trim();
+        const id = text
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+        headings.push({ id, text, level: match[1].length });
+    }
+    return headings;
+}
 
 export function generateStaticParams() {
     return getAllPosts().map(post => ({ slug: post.slug }));
@@ -50,6 +65,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
     const { meta, content } = result;
     const author = authors[meta.author];
+    const headings = extractHeadings(content);
 
     const formattedDate = new Date(meta.date).toLocaleDateString('en-GB', {
         day: 'numeric',
@@ -86,8 +102,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         <span>All posts</span>
                     </Link>
 
-                    {/* Header */}
-                    <header className="max-w-3xl mb-10">
+                    {/* Header - full width */}
+                    <header className="mb-10">
                         {meta.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {meta.tags.map(tag => (
@@ -100,7 +116,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                                 ))}
                             </div>
                         )}
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6 max-w-4xl">
                             {meta.title}
                         </h1>
                         <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -116,9 +132,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </div>
                     </header>
 
-                    {/* Hero image */}
+                    {/* Hero image - full width */}
                     {meta.heroImage && (
-                        <div className="max-w-4xl mb-12 rounded-2xl overflow-hidden">
+                        <div className="mb-12 rounded-2xl overflow-hidden">
                             <Image
                                 src={meta.heroImage}
                                 alt={meta.title}
@@ -130,13 +146,78 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </div>
                     )}
 
-                    {/* Content */}
-                    <div className="max-w-3xl prose prose-lg prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-secondary prose-strong:text-foreground prose-table:text-sm">
-                        <MDXRemote source={content} />
+                    {/* Two-column layout: content + sidebar */}
+                    <div className="grid lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 items-start">
+                        {/* Main content */}
+                        <div className="min-w-0 prose prose-lg prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-secondary prose-strong:text-foreground prose-table:text-sm prose-img:rounded-xl">
+                            <MDXRemote source={content} />
+                        </div>
+
+                        {/* Sidebar */}
+                        <aside className="hidden lg:block">
+                            <div className="sticky top-32 space-y-8">
+                                {/* Table of Contents */}
+                                {headings.length > 0 && (
+                                    <nav>
+                                        <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                                            On this page
+                                        </h4>
+                                        <ul className="space-y-2 text-sm border-l border-border pl-4">
+                                            {headings.map(heading => (
+                                                <li key={heading.id}>
+                                                    <a
+                                                        href={`#${heading.id}`}
+                                                        className={`block text-muted-foreground hover:text-foreground transition-colors ${heading.level === 3 ? 'pl-3 text-xs' : ''}`}
+                                                    >
+                                                        {heading.text}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </nav>
+                                )}
+
+                                {/* Author card */}
+                                {author && (
+                                    <div className="rounded-xl border border-border/50 bg-hero-background p-5">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                                                <FiUser className="text-secondary" size={18} />
+                                            </div>
+                                            <div>
+                                                <p className="font-medium text-foreground text-sm">{author.name}</p>
+                                                <p className="text-xs text-muted-foreground">{author.role}</p>
+                                            </div>
+                                        </div>
+                                        <p className="text-xs text-muted-foreground leading-relaxed">
+                                            {author.bio}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {/* Sidebar CTA */}
+                                <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-5">
+                                    <p className="font-semibold text-foreground text-sm mb-2">
+                                        See it in action
+                                    </p>
+                                    <p className="text-xs text-muted-foreground mb-4">
+                                        15-minute walkthrough of how Opscel handles this.
+                                    </p>
+                                    <a
+                                        href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block text-center bg-secondary text-white hover:bg-secondary/90 px-4 py-2.5 rounded-full text-sm font-medium transition-colors"
+                                    >
+                                        Book a demo
+                                    </a>
+                                </div>
+                            </div>
+                        </aside>
                     </div>
 
-                    {/* CTA */}
-                    <div className="max-w-3xl mt-16 p-8 rounded-2xl bg-hero-background border border-border/50">
+                    {/* Bottom CTA - visible on all screens */}
+                    <div className="mt-16 p-8 rounded-2xl bg-hero-background border border-border/50">
                         <h3 className="text-xl font-semibold text-foreground mb-2">
                             Want to see how Opscel handles this?
                         </h3>

@@ -149,7 +149,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     {/* Two-column layout: content + sidebar */}
                     <div className="grid lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 items-start">
                         {/* Main content */}
-                        <div className="min-w-0 prose prose-lg prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-secondary prose-strong:text-foreground prose-table:text-sm prose-img:rounded-xl">
+                        <div className="min-w-0 prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border/50 prose-h2:pb-3 prose-h3:text-xl prose-h3:mt-8 prose-p:text-foreground/80 prose-p:leading-relaxed prose-a:text-secondary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-table:text-sm prose-th:bg-hero-background prose-th:px-4 prose-th:py-2.5 prose-td:px-4 prose-td:py-2.5 prose-td:border-border/50 prose-img:rounded-xl prose-li:text-foreground/80 prose-blockquote:border-secondary prose-blockquote:text-foreground/70 prose-hr:border-border/30">
                             <MDXRemote source={content} />
                         </div>
 

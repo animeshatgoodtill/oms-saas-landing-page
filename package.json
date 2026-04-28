@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo-check": "npx tsx scripts/seo-check.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.8",

@@ -75,6 +75,10 @@ export const footerDetails: {
             url: "/docs/certificates"
         },
         {
+            text: "Asset Tracking Guide",
+            url: "/docs/asset-tracking"
+        },
+        {
             text: "Customer Portal Guide",
             url: "/docs/customer-portal"
         },

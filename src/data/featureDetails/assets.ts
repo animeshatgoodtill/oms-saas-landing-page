@@ -2,185 +2,154 @@ import { IFeatureDetail } from '@/types';
 
 export const assetsDetail: IFeatureDetail = {
     slug: 'assets',
-    title: 'Track Every Fire Panel, EV Charger, and Solar Array',
-    subtitle: 'OpsCel Assets & Equipment Tracking',
-    heroDescription: 'You service fire alarms, install solar panels, maintain EV chargers. Each one has a serial number, install date, and service history. OpsCel tracks every asset with industry-specific fields, auto-links to jobs, and flags upcoming maintenance.',
+    title: 'Your Engineers Fill the Worksheet. We Build the Asset Register.',
+    subtitle: 'Equipment Register, Automatically',
+    heroDescription: 'Fire alarms, extinguishers, emergency lights, EV chargers — every device that lands on a job becomes a tracked asset, automatically. Stop re-keying. Start tracking. Worksheets you already fill on site become the asset register your customer wants to see — same data, no double entry.',
     iconId: 'icon-service-history',
 
     featureHighlights: [
         {
             iconId: 'icon-five-trades',
-            title: '20 Fire Safety Equipment Types',
-            description: 'Fire alarm panels, detectors, call points, sounders, emergency lighting, extinguishers, hose reels, blankets, suppression systems, break glass units—each with custom fields like zone count, panel type, battery spec.'
-        },
-        {
-            iconId: 'icon-solar-panel',
-            title: '22 Electrical Equipment Types',
-            description: 'Consumer units, RCDs, MCBs, sockets, switches, lights, distribution boards, isolators, SPDs, contactors—track manufacturer, rating, install date, test results, replacement history.'
-        },
-        {
-            iconId: 'icon-ev-charger',
-            title: 'Low Carbon Asset Types',
-            description: 'Solar PV arrays (panel count, inverter, MCS cert), EV chargers (kW rating, connector type, OZEV grant), battery storage (capacity, chemistry, warranty). Built for renewable energy contractors.'
-        },
-        {
-            iconId: 'icon-service-history',
-            title: 'Asset-to-Job Linking',
-            description: 'Create job, select customer site, system shows all assets at that location. Select fire panel, job pre-fills panel model, serial number, last service date. No hunting through paperwork.'
-        },
-        {
-            iconId: 'icon-maintenance-schedule',
-            title: 'Service History Per Asset',
-            description: 'See every job, test result, certificate, and defect logged for an asset. Answer "when did we replace that detector?" or "what was the last IR reading?" in two clicks.'
-        },
-        {
-            iconId: 'icon-deficiency-log',
-            title: 'Defect Tracking on Assets',
-            description: 'EICR finds faulty RCD? Log as C2 defect, attach to consumer unit asset, create remedial quote. Defect stays linked to asset until resolved. Complete audit trail for compliance.'
+            title: 'Capture Once',
+            description: 'Engineers list devices on the worksheet they\'re already filling — extinguishers, smoke detectors, EV chargers, anything that needs servicing. No separate data entry step.'
         },
         {
             iconId: 'icon-smart-prompt',
+            title: 'One Click → Assets',
+            description: 'Admins review the extracted items on the job\'s Assets tab and register them at the site. Or flip the auto-register switch and skip the click entirely.'
+        },
+        {
+            iconId: 'icon-certificate',
+            title: 'Print the Right Register',
+            description: 'Per-site asset PDFs in the format your customer\'s compliance team expects — Synergy-style for extinguishers, BS 5839 device list for alarms, all from one workflow.'
+        },
+        {
+            iconId: 'icon-service-history',
+            title: 'Multi-Year Service History',
+            description: 'Every visit stamps the register. Five years of date-and-initials columns, ready for inspection. No spreadsheets, no manual tracking.'
+        },
+        {
+            iconId: 'icon-compliance-shield',
+            title: 'Proper Asset Relationships',
+            description: 'Detectors hang under their fire alarm panel. Circuits sit under their distribution board. Not a flat list — a real asset tree that mirrors how the installation actually works.'
+        },
+        {
+            iconId: 'icon-deficiency-log',
+            title: 'Defect-to-Asset Linking',
+            description: 'EICR finds faulty RCD? Log as C2 defect, attach to the consumer unit asset, create remedial quote. Defect stays linked to asset until resolved. Complete audit trail for compliance.'
+        },
+        {
+            iconId: 'icon-maintenance-schedule',
             title: 'Auto Maintenance Reminders',
             description: 'Fire alarm needs annual service? EV charger due for 3-year inspection? System flags upcoming maintenance based on last service date and equipment type. Never miss a compliance deadline.'
         },
         {
-            iconId: 'icon-photo-capture',
-            title: 'Asset Photos & Documents',
-            description: 'Upload panel photos, equipment datasheets, wiring diagrams, MCS certificates. Files attach to asset record. Engineer sees panel layout before arriving on-site.'
-        },
-        {
             iconId: 'icon-activity-log',
-            title: 'Install Date & Warranty Tracking',
-            description: 'Track install date, manufacturer warranty expiry, extended warranty terms. Know if failed inverter is under warranty before ordering replacement. Saves money on unnecessary purchases.'
-        },
-        {
-            iconId: 'icon-compliance-shield',
-            title: 'Compliance Certificate Linkage',
-            description: 'EIC, EICR, MCS, Fire Alarm Commissioning certs link to assets installed or tested. Proves compliance history for insurance claims or regulatory inspections.'
-        },
-        {
-            iconId: 'icon-smart-customer',
-            title: 'Asset Import from CSV',
-            description: 'Migrating from spreadsheets? Import assets via CSV with fuzzy column matching. Automatically links to existing customers by name or email. Handles thousands of assets in minutes.'
-        },
-        {
-            iconId: 'icon-user-roles',
-            title: 'Business Tier Only',
-            description: 'Asset tracking available on Business tier (£79/month). Includes all 42 equipment types, unlimited assets per customer, service history, maintenance reminders, CSV import.'
+            title: 'BS 5306-3, BS 5839-1, BS 5266-1, BS 7671',
+            description: 'Built for the way British contractors actually work. Real trade formats. Real asset trees. Capture once on site, print the trade-correct register on demand.'
         }
     ],
 
     howItWorksSteps: [
         {
             stepNumber: 1,
-            title: 'Add Asset to Customer Site',
-            description: 'Select customer, choose service address, pick equipment type (e.g., Fire Alarm Panel). Enter manufacturer, model, serial number, install date, zone count.'
+            title: 'Engineer Fills the Worksheet',
+            description: 'Fire Extinguisher Service, Fire Alarm Commissioning, EV Charger Install — engineers fill the worksheet they already have to fill. The items they list become asset candidates automatically.'
         },
         {
             stepNumber: 2,
-            title: 'Link Asset to Jobs',
-            description: 'Create service job for customer site. System shows all assets at location. Select fire panel—job pre-fills panel details. Engineer sees panel model, serial, last service date.'
+            title: 'Admin Reviews or Auto-Registers',
+            description: 'Admins curate before commit on the job\'s Assets tab — or flip auto-register if you trust the engineer\'s input. Proper relationships: detectors under panels, circuits under boards.'
         },
         {
             stepNumber: 3,
-            title: 'Log Service & Test Results',
-            description: 'Engineer completes job, logs test results (battery voltage, IR readings, defects found). Results attach to asset record. Certificate links to asset for compliance history.'
+            title: 'Asset Register Builds Itself',
+            description: 'Per-site asset register grows with every job. Five years of service history with the engineer\'s initials on every visit. No spreadsheet maintenance.'
         },
         {
             stepNumber: 4,
-            title: 'Track Maintenance & Warranty',
-            description: 'Dashboard flags upcoming maintenance (annual fire alarm service due). Asset record shows warranty expiry. Plan service visits, check warranty before ordering parts.'
+            title: 'Print Trade-Correct PDFs',
+            description: 'Asset Register PDF prints in the format your customer\'s compliance team expects. Synergy-style for extinguishers, BS 5839-1 device list for alarms. Ready for inspection.'
         }
     ],
 
     personaBenefits: [
         {
-            persona: 'Field Engineers',
+            persona: 'Fire Safety Contractors',
             benefits: [
-                'See equipment history before arriving—model, serial, last service, defects',
-                'Asset details pre-fill job forms—no hunting for serial numbers',
-                'Upload photos of panel layouts or wiring diagrams for team reference',
-                'Test results attach to asset—build compliance history automatically',
-                'Know warranty status before ordering replacement parts'
+                'Walk the site, tick the boxes, print the BS 5306-3 record sheet your insurance assessor wants to see — without opening a spreadsheet',
+                'Commission the panel, list the devices — we turn it into a BS 5839-1-aligned device register, panels and detectors linked the way the standard expects',
+                'Emergency lighting registers per BS 5266-1 with duration test results and battery condition'
             ]
         },
         {
-            persona: 'Office Managers',
+            persona: 'Electrical Contractors',
             benefits: [
-                'Auto maintenance reminders prevent missed compliance deadlines',
-                'Asset-to-job linking pre-fills forms—faster job creation',
-                'Service history shows when customer last had panel serviced',
-                'CSV import loads thousands of assets from spreadsheets in minutes',
-                'Defect tracking ensures remedial work gets quoted and completed'
+                'EICR done? The circuits and consumer units you tested are tracked assets now — ready for the next inspection cycle, ready for the report',
+                'Distribution boards, RCDs, MCBs tracked with ratings, install dates, and test history',
+                'Defect-to-remediation trail: C2 defect on asset → remedial quote → job → Minor Works cert, all linked'
             ]
         },
         {
-            persona: 'Business Owners',
+            persona: 'EV & Renewables Contractors',
             benefits: [
-                '42 equipment types cover fire safety, electrical, and low carbon sectors',
-                'Compliance certificate linkage proves audit trail for inspections',
-                'Warranty tracking saves money on unnecessary part purchases',
-                'Unlimited assets per customer—no per-asset fees',
-                'Service history shows customer equipment age and replacement opportunities'
+                'Every charger and every solar string becomes a serviceable asset on the site, with grant-evidence trail and DNO refs in one place',
+                'MCS certificate linkage, inverter warranty tracking, panel degradation monitoring',
+                'Battery storage systems tracked with capacity, chemistry, and cycle count'
             ]
         }
     ],
 
     stats: [
         {
-            value: '42 types',
-            label: '20 Fire Safety + 22 Electrical equipment types, plus Solar/EV/Battery'
+            value: 'Zero',
+            label: 'Extra data entry — worksheets your engineers already fill become the register'
         },
         {
-            value: 'Unlimited',
-            label: 'Assets per customer—no per-asset fees on Business tier'
+            value: '5 years',
+            label: 'Service history per asset with date-and-initials columns, ready for inspection'
         },
         {
-            value: 'Auto',
-            label: 'Maintenance reminders based on last service date and equipment type'
+            value: '£79/mo',
+            label: 'Business plan — unlimited assets, no per-asset fees'
         }
     ],
 
     comparison: [
         {
-            feature: '42 industry-specific equipment types',
-            opscel: true,
-            others: 'Some'
-        },
-        {
-            feature: 'Low carbon asset types (Solar PV, EV, Battery)',
+            feature: 'Worksheet-to-asset automatic extraction',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Asset-to-job linking with pre-filled details',
-            opscel: true,
-            others: 'Some'
-        },
-        {
-            feature: 'Service history per asset (jobs, tests, certs, defects)',
+            feature: 'Trade-correct register PDFs (BS 5306-3, BS 5839-1)',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Auto maintenance reminders by equipment type',
+            feature: 'Asset tree relationships (detectors → panels)',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Multi-year service history with engineer initials',
+            opscel: true,
+            others: 'No'
+        },
+        {
+            feature: 'Auto-register from engineer worksheets',
             opscel: true,
             others: 'No'
         },
         {
             feature: 'Defect tracking linked to assets',
             opscel: true,
-            others: 'No'
+            others: 'Some'
         },
         {
-            feature: 'Warranty expiry tracking',
+            feature: 'Auto maintenance reminders by equipment type',
             opscel: true,
-            others: 'No'
-        },
-        {
-            feature: 'Compliance certificate linkage to assets',
-            opscel: true,
-            others: 'No'
+            others: 'Some'
         },
         {
             feature: 'Asset CSV import with fuzzy matching',
@@ -191,28 +160,28 @@ export const assetsDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'What equipment types are supported?',
-            answer: '42 types total: 20 Fire Safety (panels, detectors, call points, sounders, emergency lighting, extinguishers, hose reels, blankets, suppression systems, break glass, etc.), 22 Electrical (consumer units, RCDs, MCBs, sockets, switches, lights, distribution boards, isolators, SPDs, etc.), plus Solar PV, EV Chargers, and Battery Storage. Each type has custom fields (e.g., fire panel has zone count, solar array has panel count and inverter model).'
+            question: 'How is this different from asset tracking in Joblogic, Klipboard, or Commusoft?',
+            answer: 'Joblogic, Klipboard, Commusoft all let you track assets — once you\'ve typed them in. OpsCel lets your engineer\'s worksheet be the data entry. Same site visit; one less back-office job. The items engineers list on their Fire Extinguisher Service sheet or Fire Alarm Commissioning form become tracked assets automatically.'
         },
         {
-            question: 'How does asset-to-job linking work?',
-            answer: 'When creating a job for a customer site, OpsCel shows all assets at that location. Select an asset (e.g., fire alarm panel)—job form pre-fills manufacturer, model, serial number, last service date. Engineer sees equipment history before arriving. Completed job adds to asset service history automatically.'
+            question: 'Do engineers need to do anything differently?',
+            answer: 'No. They fill the same worksheet they already fill — Fire Extinguisher Service, Fire Alarm Commissioning, EV Charger Install. The items they list become asset candidates. Admins review and register (or enable auto-register). Engineers don\'t even know it\'s happening.'
         },
         {
-            question: 'Can I track warranty expiry?',
-            answer: 'Yes. Enter install date and warranty period (e.g., 5 years for solar inverter). System calculates expiry date and flags it in asset record. Know if failed equipment is under warranty before ordering replacement—saves money on unnecessary purchases.'
+            question: 'What does the Asset Register PDF look like?',
+            answer: 'It prints in the format your customer\'s compliance team expects. Synergy-style layout for extinguishers, BS 5839-1 device list for fire alarms, circuit schedule for electrical. Five years of service history with date-and-initials columns. Looks like you\'ve been maintaining it for years.'
         },
         {
-            question: 'How do maintenance reminders work?',
-            answer: 'Set reminder interval per equipment type (e.g., fire alarms = 12 months, EICRs = 60 months). Dashboard shows upcoming maintenance based on last service date. Create job directly from reminder. Never miss compliance deadlines or recurring revenue opportunities.'
+            question: 'What are asset tree relationships?',
+            answer: 'Assets aren\'t a flat list. Smoke detectors hang under their fire alarm panel. Circuits sit under their distribution board. Solar panels link to their inverter. This mirrors how the installation actually works and how compliance teams expect to see it reported.'
         },
         {
-            question: 'Can I import existing asset data?',
-            answer: 'Yes. CSV import supports assets with fuzzy column matching (e.g., "Serial No" maps to Serial Number). Parent reference resolution links assets to customers by business name or email. Handles thousands of assets in one upload. See Data Import module for details.'
+            question: 'Is asset tracking available on all plans?',
+            answer: 'Asset tracking is available on the Business plan (£79/month, 8 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import.'
         },
         {
-            question: 'Is asset tracking available on all tiers?',
-            answer: 'No. Asset tracking is a Business tier feature (£79/month, 8 users included). Includes all 42 equipment types, unlimited assets, service history, maintenance reminders, warranty tracking, CSV import. Starter and Team tiers do not include asset tracking.'
+            question: 'Can I import existing asset data from spreadsheets?',
+            answer: 'Yes. CSV import supports fuzzy column matching (e.g., "Serial No" maps to Serial Number). Parent reference resolution links assets to customers by business name or email. Handles thousands of assets in one upload.'
         }
     ],
 

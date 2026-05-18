@@ -6,6 +6,7 @@ export const quotationsDetail: IFeatureDetail = {
     subtitle: 'OpsCel Quotations Module',
     heroDescription: 'Create professional quotes in minutes. Let customers approve and pay from their phone. Convert to jobs automatically.',
     iconId: 'icon-price-tag',
+    screenshotImage: '/images/ui/03-screen.png',
 
     featureHighlights: [
         {

@@ -69,23 +69,33 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
 
               {/* Right: Hero Image/Mockup */}
               <div className="relative animate-fade-in-up stagger-3">
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-                  {/* Placeholder mockup */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <svg className="w-24 h-24 mx-auto mb-4 text-gray-400">
-                        <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
-                      </svg>
-                      <p className="text-gray-500 text-lg font-medium">Feature Mockup</p>
-                      <p className="text-gray-400 text-sm mt-2">Product screenshot placeholder</p>
-                    </div>
+                {feature.screenshotImage ? (
+                  <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+                    <Image
+                      src={feature.screenshotImage}
+                      alt={`${feature.title} screenshot`}
+                      width={1240}
+                      height={930}
+                      className="w-full h-auto"
+                      priority
+                    />
                   </div>
-                  {/* Decorative gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 pointer-events-none" />
-                </div>
+                ) : (
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center p-8">
+                        <svg className="w-24 h-24 mx-auto mb-4 text-gray-400">
+                          <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
+                        </svg>
+                        <p className="text-gray-500 text-lg font-medium">Feature Mockup</p>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 pointer-events-none" />
+                  </div>
+                )}
                 {/* Floating decoration */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl" />
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -z-10" />
               </div>
             </div>
           </div>

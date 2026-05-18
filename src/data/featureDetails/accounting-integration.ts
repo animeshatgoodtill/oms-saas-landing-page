@@ -6,6 +6,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
     subtitle: 'Connect OpsCel to Xero or QuickBooks',
     heroDescription: 'Watch invoices flow straight to your accounting software. No exports, no imports, no double entry. One-click posting, automatic customer sync, real-time payment updates.',
     iconId: 'icon-xero',
+    screenshotImage: '/images/ui/06-screen.png',
 
     featureHighlights: [
         {

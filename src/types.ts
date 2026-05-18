@@ -94,6 +94,7 @@ export interface IFeatureDetail {
     subtitle: string;
     heroDescription: string;
     iconId: string;
+    screenshotImage?: string;
     sections?: IFeatureDetailSection[];
     ctaText: string;
     ctaUrl: string;

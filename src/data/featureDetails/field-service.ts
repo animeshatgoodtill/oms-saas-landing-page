@@ -6,6 +6,7 @@ export const fieldServiceDetail: IFeatureDetail = {
     subtitle: 'OpsCel Field Service',
     heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. OpsCel brings the office to them—via Telegram or web app, with GPS tracking, voice notes, and photo capture. Complete jobs from the van, get paid faster.',
     iconId: 'icon-gps-checkin',
+    screenshotImage: '/images/ui/05-screen.png',
 
     featureHighlights: [
         {

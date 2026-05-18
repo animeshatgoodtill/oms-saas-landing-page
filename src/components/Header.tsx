@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3, HiChevronDown } from 'react-icons/hi2';
 
@@ -22,10 +22,17 @@ const Header: React.FC = () => {
         setOpenSubmenu(openSubmenu === itemText ? null : itemText);
     };
 
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
+        <header className={`fixed top-0 left-0 right-0 z-50 mx-auto w-full transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
             <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-6">
+                <nav className="mx-auto flex justify-between items-center py-2 px-5 md:py-4">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image

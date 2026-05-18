@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BsFillCheckCircleFill } from 'react-icons/bs';
 
-import Container from '@/components/Container';
 import FAQAccordion from '@/components/FAQAccordion';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
 
@@ -30,457 +28,355 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
 
   return (
     <>
-      {/* Hero Section - Split layout with image */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-white overflow-hidden">
-        <Container>
-          <div className="max-w-7xl mx-auto">
-            {/* Split Layout: Content Left, Image Right */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Left: Content */}
-              <div className="relative z-10">
-                {/* Heading */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight animate-fade-in-up stagger-1">
-                  {feature.title}
-                </h1>
+      {/* ── PAGE HEADER ── Dark gradient, full-width */}
+      <div style={{ background: 'linear-gradient(135deg, #0f1a2e 0%, #0280C4 100%)', paddingTop: '7rem', paddingBottom: '4rem' }}>
+        <div className="mx-auto px-5 w-full max-w-[52rem]">
+          {/* Back link */}
+          <Link
+            href="/features"
+            className="inline-flex items-center gap-1.5 text-sm text-white/65 hover:text-white no-underline mb-5 transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            All Features
+          </Link>
 
-                {/* Description */}
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 animate-fade-in-up stagger-2">
-                  {feature.heroDescription}
-                </p>
-
-                {/* CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
-                  <Link
-                    href={feature.ctaUrl}
-                    className="inline-flex items-center justify-center bg-gradient-to-r from-primary to-primary/90 text-primary-foreground hover:shadow-2xl px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl hover:scale-105"
-                  >
-                    {feature.ctaText}
-                  </Link>
-                  {feature.slug === 'certificates' && (
-                    <Link
-                      href="/docs/certificates"
-                      className="inline-flex items-center justify-center border-2 border-gray-300 bg-white text-foreground hover:bg-gray-50 px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-sm hover:shadow-md"
-                    >
-                      View User Guide
-                    </Link>
-                  )}
-                </div>
-              </div>
-
-              {/* Right: Hero Image/Mockup */}
-              <div className="relative animate-fade-in-up stagger-3">
-                {feature.screenshotImage ? (
-                  <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-                    <Image
-                      src={feature.screenshotImage}
-                      alt={`${feature.title} screenshot`}
-                      width={1240}
-                      height={930}
-                      className="w-full h-auto"
-                      priority
-                    />
-                  </div>
-                ) : (
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl shadow-2xl overflow-hidden border border-gray-200">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center p-8">
-                        <svg className="w-24 h-24 mx-auto mb-4 text-gray-400">
-                          <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
-                        </svg>
-                        <p className="text-gray-500 text-lg font-medium">Feature Mockup</p>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-secondary/5 pointer-events-none" />
-                  </div>
-                )}
-                {/* Floating decoration */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl -z-10" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -z-10" />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Feature Highlights - Alternating layout sections */}
-      {feature.featureHighlights && feature.featureHighlights.length > 0 && (
-        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }} className="bg-gray-50">
-          <Container>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Key Features</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Everything you need to manage compliance and stay ahead of regulations
-                </p>
-              </div>
-
-              {/* Show first 4 highlights in alternating image/content layout */}
-              <div className="space-y-24 mb-20">
-                {feature.featureHighlights.slice(0, 4).map((highlight, index) => (
-                  <div
-                    key={index}
-                    className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
-                      index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-                    }`}
-                  >
-                    {/* Content */}
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} animate-fade-in-up`}>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                        {highlight.title}
-                      </h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
-                        {highlight.description}
-                      </p>
-                    </div>
-
-                    {/* Image placeholder */}
-                    <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} animate-fade-in-up`}>
-                      <div className="relative aspect-[4/3] bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-                        <div className="absolute inset-0 flex items-center justify-center p-8">
-                          <div className="text-center">
-                            <svg className="w-16 h-16 mx-auto mb-3 text-gray-300">
-                              <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
-                            </svg>
-                            <p className="text-gray-400 text-sm font-medium">{highlight.title}</p>
-                          </div>
-                        </div>
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Remaining highlights in card grid */}
-              {feature.featureHighlights.length > 4 && (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {feature.featureHighlights.slice(4).map((highlight, index) => (
-                    <div
-                      key={index + 4}
-                      className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 animate-fade-in-up"
-                    >
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center mb-4">
-                        <svg className="w-7 h-7 text-secondary">
-                          <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-bold mb-2 text-foreground">
-                        {highlight.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {highlight.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* How It Works - Dark section with visual workflow */}
-      {feature.howItWorksSteps && feature.howItWorksSteps.length > 0 && (
-        <section className="relative py-24 md:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-white/65 mb-4">
+            {feature.subtitle}
           </div>
 
-          <Container>
-            <div className="max-w-7xl mx-auto relative z-10">
-              <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                  How It Works
-                </h2>
-                <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                  Get started in minutes with our intuitive workflow
-                </p>
-              </div>
+          {/* Title */}
+          <h1
+            className="font-heading font-extrabold text-white leading-[1.1] tracking-[-0.03em] mb-[1.125rem]"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+          >
+            {feature.title}
+          </h1>
 
-              {/* Horizontal step layout on larger screens */}
-              <div className="hidden lg:grid lg:grid-cols-5 gap-4 mb-20">
-                {feature.howItWorksSteps.map((step, index) => (
-                  <div key={index} className="relative">
-                    {/* Step card */}
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-xl font-bold text-white mb-4 shadow-lg">
-                        {step.stepNumber}
-                      </div>
-                      <h3 className="text-lg font-bold mb-2 text-white">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-gray-300 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                    {/* Arrow connector */}
-                    {index < (feature.howItWorksSteps?.length ?? 0) - 1 && (
-                      <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 text-primary/50 text-2xl">
-                        →
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+          {/* Description */}
+          <p
+            className="text-white/75 leading-[1.6] max-w-[38rem]"
+            style={{ fontSize: 'clamp(1rem, 1.5vw, 1.1875rem)' }}
+          >
+            {feature.heroDescription}
+          </p>
 
-              {/* Vertical layout on mobile */}
-              <div className="lg:hidden space-y-6">
-                {feature.howItWorksSteps.map((step, index) => (
-                  <div key={index} className="relative flex gap-6">
-                    {/* Step number */}
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-xl font-bold text-white shadow-lg">
-                      {step.stepNumber}
-                    </div>
-                    {/* Content */}
-                    <div className="flex-1 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                      <h3 className="text-lg font-bold mb-2 text-white">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-gray-300 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* Persona Benefits - Clean white section */}
-      {feature.personaBenefits && feature.personaBenefits.length > 0 && (
-        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }} className="bg-white">
-          <Container>
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Built for Your Role
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Tailored benefits for every member of your team
-                </p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-                {feature.personaBenefits.map((persona, index) => (
-                  <div key={index} className="animate-fade-in-up">
-                    <div className="mb-6">
-                      <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mb-4">
-                        <svg className="w-7 h-7 text-secondary">
-                          <use href={`/icons/features-sprite.svg#icon-team`} />
-                        </svg>
-                      </div>
-                      <h3 className="text-2xl font-bold text-foreground">
-                        For {persona.persona}
-                      </h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {persona.benefits.map((benefit, benefitIndex) => (
-                        <li key={benefitIndex} className="flex items-start gap-3">
-                          <svg className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          <span className="text-muted-foreground leading-relaxed text-sm">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* Stats Block - Light section */}
-      {feature.stats && feature.stats.length > 0 && (
-        <section className="py-20 md:py-28 bg-gray-50">
-          <Container>
-            <div className="max-w-6xl mx-auto">
-              <div className="grid sm:grid-cols-3 gap-12 lg:gap-16">
-                {feature.stats.map((stat, index) => (
-                  <div key={index} className="text-center animate-fade-in-up">
-                    <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                      {stat.value}
-                    </div>
-                    <div className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* Legacy Feature Sections (for backward compatibility) */}
-      {feature.sections && feature.sections.map((section, index) => (
-        <section
-          key={index}
-          style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}
-          className={index % 2 === 1 ? 'bg-hero-background' : ''}
-        >
-          <Container>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="mb-6">
-                {section.title}
-              </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                {section.description}
-              </p>
-
-              {/* Bullets if provided */}
-              {section.bullets && section.bullets.length > 0 && (
-                <ul className="space-y-4">
-                  {section.bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="flex items-start gap-3">
-                      <BsFillCheckCircleFill className="h-6 w-6 text-secondary mt-1 flex-shrink-0" />
-                      <span className="text-foreground-accent text-lg">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Image if provided */}
-              {section.imageSrc && (
-                <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={section.imageSrc}
-                    alt={section.title}
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto"
-                  />
-                </div>
-              )}
-            </div>
-          </Container>
-        </section>
-      ))}
-
-      {/* Comparison Table - White section */}
-      {feature.comparison && feature.comparison.length > 0 && (
-        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }} className="bg-white">
-          <Container>
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  What Makes OpsCel Different?
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Compare our features with traditional job management software
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-xl border border-gray-200 bg-white">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b-2 border-gray-200 bg-gray-50">
-                      <th className="text-left py-6 px-6 md:px-8 font-bold text-base md:text-lg text-foreground">Feature</th>
-                      <th className="text-center py-6 px-4 md:px-8 font-bold text-base md:text-lg">
-                        <span className="text-secondary">OpsCel</span>
-                      </th>
-                      <th className="text-center py-6 px-4 md:px-8 font-bold text-base md:text-lg text-muted-foreground">Others</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {feature.comparison.map((row, index) => (
-                      <tr
-                        key={index}
-                        className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors"
-                      >
-                        <td className="py-5 px-6 md:px-8 text-foreground text-sm md:text-base">
-                          {row.feature}
-                        </td>
-                        <td className="py-5 px-4 md:px-8 text-center">
-                          {row.opscel ? (
-                            <BsFillCheckCircleFill className="inline text-2xl md:text-3xl text-green-600" />
-                          ) : (
-                            <span className="text-gray-400 text-lg">—</span>
-                          )}
-                        </td>
-                        <td className="py-5 px-4 md:px-8 text-center text-muted-foreground">
-                          {typeof row.others === 'boolean' ? (
-                            row.others ? (
-                              <BsFillCheckCircleFill className="inline text-2xl md:text-3xl text-gray-400" />
-                            ) : (
-                              <span className="text-gray-400 text-lg">—</span>
-                            )
-                          ) : (
-                            <span className="text-xs md:text-sm font-medium bg-gray-100 px-3 py-1 rounded-full">{row.others}</span>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* FAQ Section */}
-      {feature.faq && feature.faq.length > 0 && (
-        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }} className="bg-gray-50">
-          <Container>
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Frequently Asked Questions
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Everything you need to know about this feature
-                </p>
-              </div>
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 md:p-10 shadow-sm">
-                <FAQAccordion faqs={feature.faq} />
-              </div>
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {/* Final CTA Section - Dark section */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-br from-gray-900 to-gray-800 text-white overflow-hidden">
-        {/* Subtle pattern background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+          {/* CTA buttons */}
+          <div className="flex flex-wrap gap-[0.875rem] mt-8">
+            <Link
+              href={feature.ctaUrl}
+              className="inline-flex items-center justify-center px-8 py-3 rounded-full font-heading font-semibold text-base transition-all duration-150 whitespace-nowrap"
+              style={{ background: 'var(--primary)', color: 'var(--primary-foreground)', border: '1.5px solid var(--primary)' }}
+            >
+              {feature.ctaText}
+            </Link>
+            <Link
+              href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-full font-heading font-semibold text-base text-white transition-all duration-150 whitespace-nowrap hover:border-white/75"
+              style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.3)' }}
+            >
+              Book a Demo
+            </Link>
+          </div>
         </div>
+      </div>
 
-        <Container>
-          <div className="max-w-3xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-              Ready to Transform Your Operations?
-            </h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-3">
-              {feature.slug === 'quotations'
-                ? 'Quotations is available on Business and Pro plans.'
-                : 'Available on all plans.'}
-            </p>
-            <p className="text-base md:text-lg text-gray-400 mb-10">
-              No credit card required. Full access to every feature. 90-day free trial.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={feature.ctaUrl}
-                className="inline-flex items-center justify-center bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-              >
-                {feature.ctaText}
-              </Link>
-              <Link
-                href="/features"
-                className="inline-flex items-center justify-center border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold transition-all duration-300"
-              >
-                View All Features
-              </Link>
+      {/* ── STATS BAR ── White bar with 3 stats */}
+      {feature.stats && feature.stats.length > 0 && (
+        <div className="bg-white border-b border-border py-8">
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+              {feature.stats.map((stat, i) => (
+                <div key={i} className="px-8 py-3">
+                  <div
+                    className="font-heading font-extrabold tracking-[-0.02em] text-[color:var(--secondary)]"
+                    style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground mt-1 leading-[1.4]">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </Container>
-      </section>
+        </div>
+      )}
+
+      {/* ── HIGHLIGHTS / CAPABILITIES ── White background */}
+      {feature.featureHighlights && feature.featureHighlights.length > 0 && (
+        <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            {/* Section heading */}
+            <div className="text-center mb-10">
+              <span className="inline-block text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-[color:var(--secondary)] mb-3">
+                Capabilities
+              </span>
+              <h2 className="font-heading font-bold tracking-[-0.02em] leading-[1.15]" style={{ fontSize: 'var(--text-display-xl, clamp(1.5rem,3vw,2.25rem))' }}>
+                What it does
+              </h2>
+            </div>
+
+            {/* 3-column highlights grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {feature.featureHighlights.map((highlight, i) => (
+                <div
+                  key={i}
+                  className="bg-white border border-border rounded-[var(--r-lg,0.75rem)] p-6 hover:shadow-[0_8px_24px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div className="w-10 h-10 rounded-[0.625rem] flex items-center justify-center mb-3.5"
+                    style={{ background: 'rgba(2,128,196,0.1)' }}>
+                    <svg width="24" height="24" viewBox="0 0 200 200">
+                      <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
+                    </svg>
+                  </div>
+                  <div className="font-heading font-bold text-[0.9375rem] text-foreground mb-1.5">
+                    {highlight.title}
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-[1.6]">
+                    {highlight.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Full-width screenshot below the grid */}
+            {feature.screenshotImage && (
+              <div className="mt-12 rounded-[var(--r-lg,0.75rem)] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]">
+                <Image
+                  src={feature.screenshotImage}
+                  alt={`${feature.title} screenshot`}
+                  width={1440}
+                  height={900}
+                  className="w-full h-auto block"
+                  priority
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ── HOW IT WORKS ── Light surface background */}
+      {feature.howItWorksSteps && feature.howItWorksSteps.length > 0 && (
+        <section style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0', background: 'var(--muted)' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            {/* Section heading */}
+            <div className="text-center mb-10">
+              <span className="inline-block text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-[color:var(--secondary)] mb-3">
+                Process
+              </span>
+              <h2 className="font-heading font-bold tracking-[-0.02em] leading-[1.15]" style={{ fontSize: 'var(--text-display-xl, clamp(1.5rem,3vw,2.25rem))' }}>
+                How it works
+              </h2>
+            </div>
+
+            {/* Steps list */}
+            <div className="flex flex-col max-w-[52rem] mx-auto">
+              {feature.howItWorksSteps.map((step, i) => (
+                <div
+                  key={i}
+                  className="flex gap-6 py-7 border-b border-border last:border-b-0"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-heading font-extrabold text-sm text-white"
+                    style={{ background: 'var(--secondary)' }}>
+                    {step.stepNumber}
+                  </div>
+                  <div>
+                    <div className="font-heading font-bold text-base text-foreground mb-1.5">
+                      {step.title}
+                    </div>
+                    <div className="text-[0.9375rem] text-muted-foreground leading-[1.6]">
+                      {step.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── PERSONA BENEFITS / WHO IT'S FOR ── White background */}
+      {feature.personaBenefits && feature.personaBenefits.length > 0 && (
+        <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            {/* Section heading */}
+            <div className="text-center mb-10">
+              <span className="inline-block text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-[color:var(--secondary)] mb-3">
+                Benefits
+              </span>
+              <h2 className="font-heading font-bold tracking-[-0.02em] leading-[1.15]" style={{ fontSize: 'var(--text-display-xl, clamp(1.5rem,3vw,2.25rem))' }}>
+                Who it&apos;s for
+              </h2>
+            </div>
+
+            {/* Persona cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {feature.personaBenefits.map((persona, i) => (
+                <div
+                  key={i}
+                  className="border border-border rounded-[var(--r-lg,0.75rem)] p-6"
+                  style={{ background: 'var(--muted)' }}
+                >
+                  <div className="font-heading font-extrabold text-[0.8125rem] uppercase tracking-[0.06em] text-[color:var(--secondary)] mb-3.5">
+                    {persona.persona}
+                  </div>
+                  <ul className="flex flex-col gap-2.5 list-none">
+                    {persona.benefits.map((benefit, bi) => (
+                      <li key={bi} className="flex items-start gap-2 text-sm text-muted-foreground leading-[1.5]">
+                        <svg
+                          className="flex-shrink-0 mt-[0.125rem]"
+                          style={{ color: 'var(--success)' }}
+                          width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── COMPARISON TABLE ── Light surface background */}
+      {feature.comparison && feature.comparison.length > 0 && (
+        <section style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0', background: 'var(--muted)' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            {/* Section heading */}
+            <div className="text-center mb-8">
+              <span className="inline-block text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-[color:var(--secondary)] mb-3">
+                Comparison
+              </span>
+              <h2 className="font-heading font-bold tracking-[-0.02em] leading-[1.15]" style={{ fontSize: 'var(--text-display-xl, clamp(1.5rem,3vw,2.25rem))' }}>
+                Opscel vs. the rest
+              </h2>
+            </div>
+
+            {/* Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse rounded-[var(--r-lg,0.75rem)] overflow-hidden border border-border">
+                <thead>
+                  <tr>
+                    <th className="text-left py-[0.875rem] px-5 font-heading text-sm font-bold text-white" style={{ background: 'var(--foreground)' }}>Feature</th>
+                    <th className="text-center py-[0.875rem] px-5 font-heading text-sm font-bold text-white w-[120px]" style={{ background: 'var(--secondary)' }}>Opscel</th>
+                    <th className="text-center py-[0.875rem] px-5 font-heading text-sm font-bold text-white w-[120px]" style={{ background: 'var(--foreground)' }}>Others</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {feature.comparison.map((row, i) => (
+                    <tr key={i}>
+                      <td className="py-3 px-5 border-b border-border text-sm text-muted-foreground" style={{ background: i % 2 === 0 ? '#fff' : 'var(--muted)' }}>
+                        {row.feature}
+                      </td>
+                      <td className="py-3 px-5 border-b border-border text-center" style={{ background: i % 2 === 0 ? '#fff' : 'var(--muted)' }}>
+                        {row.opscel ? (
+                          <span className="text-[1.125rem] font-bold" style={{ color: 'var(--success)' }}>✓</span>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">—</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-5 border-b border-border text-center" style={{ background: i % 2 === 0 ? '#fff' : 'var(--muted)' }}>
+                        {typeof row.others === 'boolean' ? (
+                          row.others ? (
+                            <span className="text-[1.125rem] font-bold" style={{ color: 'var(--success)' }}>✓</span>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">No</span>
+                          )
+                        ) : (
+                          <span className="text-xs text-muted-foreground">{row.others}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── FAQ ── White background */}
+      {feature.faq && feature.faq.length > 0 && (
+        <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            {/* Section heading */}
+            <div className="text-center mb-8">
+              <span className="inline-block text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-[color:var(--secondary)] mb-3">
+                FAQ
+              </span>
+              <h2 className="font-heading font-bold tracking-[-0.02em] leading-[1.15]" style={{ fontSize: 'var(--text-display-xl, clamp(1.5rem,3vw,2.25rem))' }}>
+                {feature.subtitle} — common questions
+              </h2>
+            </div>
+            <div className="max-w-[52rem] mx-auto">
+              <FAQAccordion faqs={feature.faq} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── CTA ── Dark background with glow */}
+      <div style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+        <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+          <div
+            className="relative overflow-hidden rounded-[var(--r-xl,1rem)]"
+            style={{ padding: 'clamp(3rem, 6vw, 5rem) 2rem' }}
+          >
+            {/* Dark grid background */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: '#050a02',
+                backgroundImage: 'linear-gradient(to right, #12170f 1px, transparent 1px), linear-gradient(to bottom, #12170f 1px, transparent 1px)',
+                backgroundSize: '6rem 4rem',
+              }}
+            />
+            {/* Glow overlay */}
+            <div
+              className="absolute inset-0"
+              style={{ background: 'radial-gradient(circle 600px at 50% 120%, #1C1C02, transparent)' }}
+            />
+            {/* Content */}
+            <div className="relative z-10 text-center max-w-[42rem] mx-auto text-white">
+              <h2
+                className="font-heading font-bold text-white tracking-[-0.02em] leading-[1.2]"
+                style={{ fontSize: 'clamp(1.75rem, 3vw + 1rem, 3rem)' }}
+              >
+                Ready to transform your operations?
+              </h2>
+              <p className="mt-3.5 text-[1.0625rem] leading-[1.6] text-white/65">
+                90-day free trial. No credit card. Full access from day one.
+              </p>
+              <div className="mt-9 flex flex-wrap justify-center gap-[0.875rem]">
+                <Link
+                  href={feature.ctaUrl}
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full font-heading font-semibold text-base transition-all duration-150 whitespace-nowrap"
+                  style={{ background: 'var(--primary)', color: 'var(--primary-foreground)', border: '1.5px solid var(--primary)' }}
+                >
+                  {feature.ctaText}
+                </Link>
+                <Link
+                  href="/features"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full font-heading font-semibold text-base text-white transition-all duration-150 hover:border-white/75 whitespace-nowrap"
+                  style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.3)' }}
+                >
+                  View All Features
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

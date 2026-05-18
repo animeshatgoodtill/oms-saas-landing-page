@@ -1,120 +1,98 @@
 import React from 'react';
 import Image from 'next/image';
+import { FiFileText, FiCalendar, FiCheckCircle, FiGlobe, FiWifi, FiDollarSign } from 'react-icons/fi';
+import Container from './Container';
 
-interface Feature {
-    title: string;
-    description: string;
-    imageSrc: string;
-    gradient: string;
-}
-
-const features: Feature[] = [
+const features = [
     {
-        title: "Accept and optimise payments globally – online and in person",
-        description: "Track deficiencies in real-time with photo evidence and automatic certificate generation",
-        imageSrc: "/images/mockup-1.webp",
-        gradient: "from-purple-500 via-pink-400 to-orange-300"
+        icon: <FiFileText size={18} />,
+        title: 'Digital certificates. Nine types. Zero re-typing.',
+        image: '/images/ui/01-screen.png',
+        alt: 'Opscel certificates admin — BS 5839-1, EICR, Emergency Lighting',
+        gradient: 'from-[#0f2d52] to-[#0280C4]',
     },
     {
-        title: "Enable any billing model",
-        description: "Complete jobs faster with intelligent scheduling and route optimization for your field engineers",
-        imageSrc: "/images/mockup-2.webp",
-        gradient: "from-purple-600 via-purple-400 to-pink-300"
+        icon: <FiCalendar size={18} />,
+        title: 'One job. As many visits as it takes.',
+        image: '/images/ui/02-screen.png',
+        alt: 'Opscel schedule — engineer week view with job blocks',
+        gradient: 'from-[#1e3a4a] to-[#0891b2]',
     },
     {
-        title: "Monetise through agentic commerce",
-        description: "Generate compliant certificates instantly upon job completion with all regulatory requirements",
-        imageSrc: "/images/hero-mockup.webp",
-        gradient: "from-rose-400 via-pink-200 to-orange-100"
+        icon: <FiCheckCircle size={18} />,
+        title: 'Defect to invoice. Nothing re-keyed.',
+        image: '/images/ui/03-screen.png',
+        alt: 'Opscel quotations — defect to invoice flow',
+        gradient: 'from-[#78350f] to-[#d97706]',
     },
     {
-        title: "Create a card issuing programme",
-        description: "Track job costs, materials, and time automatically to improve profitability and reduce admin overhead",
-        imageSrc: "/images/hero-chart.webp",
-        gradient: "from-pink-500 via-pink-300 to-yellow-200"
+        icon: <FiGlobe size={18} />,
+        title: "A customer portal they'll actually use.",
+        image: '/images/ui/04-screen.png',
+        alt: 'Opscel customer detail — multi-site management',
+        gradient: 'from-[#1e1b4b] to-[#4f46e5]',
     },
     {
-        title: "Access borderless money movement with stablecoins and crypto",
-        description: "Get instant visibility into team performance, compliance status, and revenue metrics across all jobs",
-        imageSrc: "/images/hero-transactions.webp",
-        gradient: "from-blue-400 via-purple-200 to-pink-100"
+        icon: <FiWifi size={18} />,
+        title: 'Built for the field. Works offline.',
+        image: '/images/ui/05-screen.png',
+        alt: "Opscel field app — Today's route, dark theme",
+        gradient: 'from-[#0f172a] to-[#1e3a5f]',
     },
     {
-        title: "Automate compliance and reporting",
-        description: "Ensure all work meets industry standards with automated compliance checks and audit trails",
-        imageSrc: "/images/mockup-1.webp",
-        gradient: "from-indigo-400 via-blue-300 to-cyan-200"
-    }
+        icon: <FiDollarSign size={18} />,
+        title: 'Xero-ready. No double entry.',
+        image: '/images/ui/06-screen.png',
+        alt: 'Opscel reports — revenue, jobs, recent invoices',
+        gradient: 'from-[#064e3b] to-[#059669]',
+    },
 ];
 
 const FeatureShowcase: React.FC = () => {
     return (
-        <section className="py-20 px-5 bg-white">
-            <div className="max-w-7xl mx-auto">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                        Flexible solutions for every business model
+        <section className="py-16 md:py-24 bg-muted" id="features">
+            <Container>
+                <div className="text-center mb-12 md:mb-16">
+                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-secondary mb-3">
+                        Platform
+                    </span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                        Everything you need to run the job.
                     </h2>
-                    <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto">
-                        Grow your business with a comprehensive set of operations and compliance tools – designed to work individually or together.
+                    <p className="text-base md:text-lg text-foreground-accent max-w-2xl mx-auto leading-relaxed">
+                        Built for how fire safety and electrical contractors actually work — from the site visit to the signed certificate, without re-keying anything.
                     </p>
                 </div>
 
-                {/* Feature Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                    {features.map((feature, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {features.map((feature, i) => (
                         <div
-                            key={index}
-                            className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                            key={i}
+                            className={`group relative rounded-2xl overflow-hidden min-h-[20rem] flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
                         >
-                            {/* Gradient Background */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-90`}></div>
-
-                            {/* Content Container */}
-                            <div className="relative p-8 md:p-10 flex flex-col h-full min-h-[500px]">
-                                {/* Title and Expand Icon */}
-                                <div className="flex items-start justify-between mb-6">
-                                    <h3 className="text-xl md:text-2xl font-semibold text-foreground pr-4 flex-1">
-                                        {feature.title}
-                                    </h3>
-                                    <button
-                                        className="flex-shrink-0 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
-                                        aria-label="Expand feature"
-                                    >
-                                        <svg
-                                            className="w-4 h-4 text-foreground"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
-                                            />
-                                        </svg>
-                                    </button>
+                            <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient}`} />
+                            <div className="relative z-10 p-6 md:p-7 flex flex-col h-full">
+                                <div className="w-10 h-10 rounded-xl bg-white/[0.18] flex items-center justify-center text-white mb-4">
+                                    {feature.icon}
                                 </div>
-
-                                {/* Image Container */}
-                                <div className="flex-1 flex items-center justify-center mt-auto">
-                                    <div className="relative w-full max-w-[400px] mx-auto">
-                                        <Image
-                                            src={feature.imageSrc}
-                                            width={400}
-                                            height={400}
-                                            alt={feature.title}
-                                            className="w-full h-auto object-contain drop-shadow-2xl"
-                                        />
-                                    </div>
+                                <div className="font-heading text-lg md:text-xl font-bold text-white leading-snug flex-1">
+                                    {feature.title}
+                                </div>
+                                <div className="mt-5 rounded-xl overflow-hidden shadow-lg shadow-black/30 border border-white/15">
+                                    <Image
+                                        src={feature.image}
+                                        alt={feature.alt}
+                                        width={924}
+                                        height={540}
+                                        className="w-full h-44 object-cover object-top"
+                                        loading="lazy"
+                                    />
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 };

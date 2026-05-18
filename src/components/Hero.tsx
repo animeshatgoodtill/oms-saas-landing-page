@@ -40,6 +40,15 @@ const Hero: React.FC = () => {
                                 Start free trial
                             </a>
                         </div>
+                        <div className="mt-6 flex items-center gap-3">
+                            <div className="flex -space-x-2">
+                                <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-blue-100 text-blue-800 flex items-center justify-center text-[0.6rem] font-bold">FS</div>
+                                <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-amber-100 text-amber-800 flex items-center justify-center text-[0.6rem] font-bold">EC</div>
+                                <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-green-100 text-green-800 flex items-center justify-center text-[0.6rem] font-bold">GS</div>
+                                <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-pink-100 text-pink-800 flex items-center justify-center text-[0.6rem] font-bold">+</div>
+                            </div>
+                            <span className="text-sm text-muted-foreground">Piloting with UK fire safety &amp; electrical contractors</span>
+                        </div>
                     </div>
 
                     {/* Right Column - Hero Image */}

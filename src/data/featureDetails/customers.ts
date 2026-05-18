@@ -6,6 +6,7 @@ export const customersDetail: IFeatureDetail = {
     subtitle: 'OpsCel Customer Management',
     heroDescription: 'Your customers aren\'t just names in a spreadsheet. Track businesses, contacts, and service addresses—with complete history of every job, certificate, and quote. No more "which site was that?" or "who do I send this to?" confusion.',
     iconId: 'icon-unlimited-customers',
+    screenshotImage: '/images/ui/08-screen.png',
 
     featureHighlights: [
         {

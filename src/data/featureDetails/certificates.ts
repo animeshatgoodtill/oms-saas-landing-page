@@ -6,6 +6,7 @@ export const certificatesDetail: IFeatureDetail = {
     subtitle: 'OpsCel Compliance Certificate System',
     heroDescription: 'This isn\'t just digital forms—it\'s the industry\'s first compliance document system that enforces BS 7671, BS 5839, and MCS standards before certificates can be issued. Auto-lookup Zs limits, validate test results, capture GPS-tagged signatures, and maintain immutable audit trails. Your engineers can\'t accidentally issue a non-compliant certificate.',
     iconId: 'icon-compliance-shield',
+    screenshotImage: '/images/ui/01-screen.png',
 
     featureHighlights: [
         {

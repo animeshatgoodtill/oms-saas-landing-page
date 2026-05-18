@@ -6,6 +6,7 @@ export const jobsDetail: IFeatureDetail = {
     subtitle: 'OpsCel Jobs Module',
     heroDescription: 'Create jobs, assign engineers, track progress, mark complete. Everything in one place, nothing falls through the cracks. No spreadsheets, no whiteboards, no "where\'s that job sheet?" panic.',
     iconId: 'icon-job-workflow',
+    screenshotImage: '/images/ui/02-screen.png',
 
     featureHighlights: [
         {

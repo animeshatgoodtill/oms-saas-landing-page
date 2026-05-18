@@ -6,6 +6,7 @@ export const invoicingDetail: IFeatureDetail = {
     subtitle: 'Stop chasing paperwork. Get paid faster.',
     heroDescription: 'OpsCel automatically creates invoices from your completed jobs with parts, labour, and all the details already filled in. One-click invoice creation. Automatic deposit handling. Smart tax calculation. Direct sync to Xero and QuickBooks.',
     iconId: 'icon-price-tag',
+    screenshotImage: '/images/ui/07-screen.png',
 
     featureHighlights: [
         {

@@ -30,6 +30,13 @@ const documentationGuides = [
         icon: 'icon-deficiency-log'
     },
     {
+        title: 'Remedial Scope of Works Guide',
+        description: 'Turn site defects into customer quotes in one tap. Engineer logs defects, worksheet auto-attaches, office generates bundled quotes.',
+        url: '/docs/remedial-scope-of-works',
+        category: 'Sales & Quoting',
+        icon: 'icon-deficiency-log'
+    },
+    {
         title: 'Invoicing Guide',
         description: 'Complete guide to creating, managing, and sending invoices. Covers job-to-invoice workflow, deposits, tax configuration, and status tracking.',
         url: '/docs/invoicing',

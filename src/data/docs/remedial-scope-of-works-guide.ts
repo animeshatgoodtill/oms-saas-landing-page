@@ -58,7 +58,18 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
         {
             id: 'how-it-works',
             title: 'How It Works: The 4-Step Flow',
-            content: 'The remedial scope of works process follows a simple four-step workflow that bridges field operations and office administration.',
+            content: `
+                <p class="mb-8">
+                    The remedial scope of works process follows a simple four-step workflow that bridges field operations and office administration.
+                </p>
+                <div class="my-12 -mx-8 md:-mx-16 lg:-mx-24">
+                    <img
+                        src="/images/docs/remedial-scope-of-works/flow-diagram.png"
+                        alt="4-step remedial workflow: engineer logs defect on site, worksheet auto-attaches, engineer fills and signs off, office generates bundled quote"
+                        class="w-full rounded-lg border border-border shadow-lg"
+                    />
+                </div>
+            `,
             subsections: [
                 {
                     title: 'Step 1: Engineer Logs Defects On-Site',

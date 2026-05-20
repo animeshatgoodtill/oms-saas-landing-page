@@ -4,7 +4,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in OpsCel.',
-    lastUpdated: '2025-01-17',
+    lastUpdated: '2026-05-20',
     sections: [
         {
             id: 'overview',
@@ -122,6 +122,44 @@ export const certificatesGuide: IDocGuide = {
                         'Site: Installation address, postcode',
                         'Job: Job number, description, completion date, assigned engineers'
                     ]
+                },
+                {
+                    title: 'Panel Identity Carry-Forward (Fire Alarm Service)',
+                    content: `
+                        <p class="mb-4">
+                            When creating a new Fire Alarm Service certificate for a site, the system automatically looks up the last issued service certificate for that same address and pre-fills all panel identity information.
+                        </p>
+                        <p class="mb-4"><strong>What carries forward automatically:</strong></p>
+                    `,
+                    bullets: [
+                        'Panel details: Manufacturer, model, serial number, and location for every panel',
+                        'System configuration: Zone/detector/sounder counts',
+                        'Detector types and coverage',
+                        'ARC (Alarm Receiving Centre) monitoring details'
+                    ]
+                },
+                {
+                    title: 'What Does NOT Carry Forward',
+                    content: 'To maintain compliance, the following must be entered fresh for each service visit:',
+                    bullets: [
+                        'Test results and outcomes',
+                        'Service date and time',
+                        'Fault log entries',
+                        'Battery test results',
+                        'Visual inspection findings',
+                        'Functional test outcomes'
+                    ]
+                },
+                {
+                    title: 'How It Works',
+                    content: `
+                        <p class="mb-4">
+                            Next time you create a Fire Alarm Service certificate for a site that already has one, all the "who is this system" information will be waiting for you—you just fill in "what did we test today."
+                        </p>
+                        <p class="mb-6">
+                            This feature saves significant data entry time on routine service visits while ensuring compliance requirements for fresh test data are maintained.
+                        </p>
+                    `
                 }
             ]
         },

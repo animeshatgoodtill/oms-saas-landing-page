@@ -50,11 +50,11 @@ export const customerPortalGuide: IDocGuide = {
                     title: 'Step 1: Enable Portal Access for a Contact',
                     content: '',
                     steps: [
-                        { step: 'Navigate to Customers in the main menu' },
-                        { step: 'Click on the customer you want to give portal access' },
-                        { step: 'Go to the Contacts tab' },
-                        { step: 'Find the contact you want to invite (they must have an email address)' },
-                        { step: 'Toggle on Customer Portal Access' }
+                        { step: 'Navigate to Customers in the main menu', description: '' },
+                        { step: 'Click on the customer you want to give portal access', description: '' },
+                        { step: 'Go to the Contacts tab', description: '' },
+                        { step: 'Find the contact you want to invite (they must have an email address)', description: '' },
+                        { step: 'Toggle on Customer Portal Access', description: '' }
                     ]
                 },
                 {
@@ -116,9 +116,9 @@ export const customerPortalGuide: IDocGuide = {
                     title: 'Resending Invites',
                     content: 'If a customer\'s magic link expired (48 hours) or they lost the email:',
                     steps: [
-                        { step: 'Simply click Send Invite again' },
-                        { step: 'A new magic link will be generated' },
-                        { step: 'The old link becomes invalid' }
+                        { step: 'Simply click Send Invite again', description: '' },
+                        { step: 'A new magic link will be generated', description: '' },
+                        { step: 'The old link becomes invalid', description: '' }
                     ]
                 }
             ]
@@ -204,10 +204,10 @@ export const customerPortalGuide: IDocGuide = {
                     title: 'Tips for Success',
                     content: '',
                     steps: [
-                        { step: 'Explain the portal when enabling - let customers know they\'ll receive an email' },
-                        { step: 'Set expectations - tell them they can approve quotes online' },
-                        { step: 'Include in your process - mention portal access when sending quotes' },
-                        { step: 'Check activity - monitor who\'s using the portal vs. who needs a reminder' }
+                        { step: 'Explain the portal when enabling - let customers know they\'ll receive an email', description: '' },
+                        { step: 'Set expectations - tell them they can approve quotes online', description: '' },
+                        { step: 'Include in your process - mention portal access when sending quotes', description: '' },
+                        { step: 'Check activity - monitor who\'s using the portal vs. who needs a reminder', description: '' }
                     ]
                 }
             ]
@@ -220,10 +220,10 @@ export const customerPortalGuide: IDocGuide = {
                     title: 'Customer says they didn\'t receive the invite',
                     content: '',
                     steps: [
-                        { step: 'Ask them to check spam/junk folders' },
-                        { step: 'Verify their email address is correct' },
-                        { step: 'Resend the invite' },
-                        { step: 'Check your email deliverability (Resend dashboard)' }
+                        { step: 'Ask them to check spam/junk folders', description: '' },
+                        { step: 'Verify their email address is correct', description: '' },
+                        { step: 'Resend the invite', description: '' },
+                        { step: 'Check your email deliverability (Resend dashboard)', description: '' }
                     ]
                 },
                 {

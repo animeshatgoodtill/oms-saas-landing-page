@@ -9,6 +9,27 @@ export const metadata = {
 
 const documentationGuides = [
     {
+        title: 'Field Service App — Engineer\'s Day',
+        description: 'Complete guide to using the OpsCel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
+        url: '/docs/field-service',
+        category: 'Field Service',
+        icon: 'icon-mobile-device'
+    },
+    {
+        title: 'Jobs & Multi-Visit Workflow',
+        description: 'Complete guide to creating, scheduling, and managing jobs. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
+        url: '/docs/jobs',
+        category: 'Field Service',
+        icon: 'icon-job-workflow'
+    },
+    {
+        title: 'Settings Tour',
+        description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
+        url: '/docs/settings-tour',
+        category: 'Getting Started',
+        icon: 'icon-gear'
+    },
+    {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',

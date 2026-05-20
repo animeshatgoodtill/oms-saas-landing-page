@@ -23,6 +23,13 @@ const documentationGuides = [
         icon: 'icon-job-workflow'
     },
     {
+        title: 'Settings Tour',
+        description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
+        url: '/docs/settings-tour',
+        category: 'Getting Started',
+        icon: 'icon-gear'
+    },
+    {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',

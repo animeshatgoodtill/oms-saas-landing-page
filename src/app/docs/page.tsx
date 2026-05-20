@@ -9,6 +9,13 @@ export const metadata = {
 
 const documentationGuides = [
     {
+        title: 'Field Service App — Engineer\'s Day',
+        description: 'Complete guide to using the OpsCel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
+        url: '/docs/field-service',
+        category: 'Field Service',
+        icon: 'icon-mobile-device'
+    },
+    {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',

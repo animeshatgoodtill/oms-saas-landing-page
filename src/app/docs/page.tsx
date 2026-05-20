@@ -16,6 +16,13 @@ const documentationGuides = [
         icon: 'icon-mobile-device'
     },
     {
+        title: 'Jobs & Multi-Visit Workflow',
+        description: 'Complete guide to creating, scheduling, and managing jobs. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
+        url: '/docs/jobs',
+        category: 'Field Service',
+        icon: 'icon-job-workflow'
+    },
+    {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',

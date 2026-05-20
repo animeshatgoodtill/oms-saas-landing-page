@@ -44,6 +44,13 @@ const documentationGuides = [
         icon: 'icon-price-tag'
     },
     {
+        title: 'Quote to Invoice Workflow Guide',
+        description: 'Complete end-to-end workflow: understand how quotes, jobs, and invoices connect. Learn the two invoice paths (Fixed-Price vs. T&M), deposit handling, and Good-Better-Best tier selection.',
+        url: '/docs/quote-to-invoice-workflow',
+        category: 'Financial Management',
+        icon: 'icon-job-workflow'
+    },
+    {
         title: 'Accounting Integration Guide',
         description: 'Step-by-step setup guide for connecting Xero or QuickBooks. Learn about account mappings, invoice posting, and payment sync.',
         url: '/docs/accounting-integration',

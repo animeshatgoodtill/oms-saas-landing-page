@@ -4,14 +4,24 @@ export const invoicingDetail: IFeatureDetail = {
     slug: 'invoicing',
     title: 'From Job Complete to Invoice Sent in Seconds',
     subtitle: 'Stop chasing paperwork. Get paid faster.',
-    heroDescription: 'OpsCel automatically creates invoices from your completed jobs with parts, labour, and all the details already filled in. One-click invoice creation. Automatic deposit handling. Smart tax calculation. Direct sync to Xero and QuickBooks.',
+    heroDescription: 'OpsCel creates invoices from completed jobs using two intelligent paths: Fixed-Price jobs respect the agreed quote price with automatic deposit deduction; Time & Materials jobs build from actuals (labour + parts). One-click creation for both, with all details pre-filled.',
     iconId: 'icon-price-tag',
 
     featureHighlights: [
         {
             iconId: 'icon-job-workflow',
-            title: 'One-Click Invoice Creation',
-            description: 'Your engineer finishes a job, logs parts used, and records their time. Back in the office, you click one button and the invoice is ready—customer details, site address, parts, labour, everything included. No more re-typing. No more mistakes. No more delays.'
+            title: 'Smart Two-Path Invoicing',
+            description: 'Quote-originated job? Invoice pre-filled with agreed line items from the accepted quote—respects the contract price, not actuals. Standalone job? Invoice built from engineer\'s logged parts and time. System detects job source automatically and shows the right workflow.'
+        },
+        {
+            iconId: 'icon-price-tag',
+            title: 'Quote Prices Respected in Invoices',
+            description: 'When a job came from a £10k accepted quote, the invoice bills £10k—not the £950 in parts + labour the engineer used. System respects the contract price. Closes the fundamental billing gap where agreed quotes were ignored and only actuals were invoiced.'
+        },
+        {
+            iconId: 'icon-smart-customer',
+            title: 'Good-Better-Best Tier Selection Flows Through',
+            description: 'Customer chose the Premium tier on your 3-option quote? Invoice includes only the Premium tier line items—the ones they actually agreed to pay for. Tier selection from portal flows to invoice automatically.'
         },
         {
             iconId: 'icon-price-tag',
@@ -48,8 +58,8 @@ export const invoicingDetail: IFeatureDetail = {
         },
         {
             stepNumber: 2,
-            title: 'Create Invoice',
-            description: 'Click "Create Invoice" on the job. Review the pre-filled details—customer info, parts, labour, tax—adjust if needed, send.'
+            title: 'Create Invoice (Two Paths)',
+            description: 'Fixed-Price: 2-step review—agreed scope pre-filled (editable), engineer extras (checkable), totals + deposit deduction. T&M: 4-step wizard—labour (Y/N), parts (checkable), callout fee (optional), review totals. System shows the right workflow automatically.'
         },
         {
             stepNumber: 3,

@@ -19,6 +19,11 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 <p class="mb-6">
                     <strong>No paper forms. No retyping. No defects falling between visits.</strong>
                 </p>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
+                    <p class="text-sm text-blue-900">
+                        <strong>💡 Note:</strong> This guide focuses on the <strong>Worksheet Path</strong> for creating remedial quotes. There's also a faster <strong>Dashboard Widget Path</strong> that skips the worksheet and creates quotes directly from defects. <a href="/docs/defects-to-quotation" class="underline hover:no-underline">See Defects to Quotation guide</a> for the dashboard workflow, or read the <a href="#two-paths" class="underline hover:no-underline">Two Paths section</a> below to understand when to use each.
+                    </p>
+                </div>
             `,
             subsections: [
                 {
@@ -39,6 +44,68 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                         'Customer signature — Engineer signs off the scope on-site for customer approval',
                         'One-click quotes — Office staff generate bundled quotes for all remedial work instantly',
                         'Professional output — Quote includes all defects with severity, location, and recommended actions'
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'two-paths',
+            title: 'Two Paths for Creating Remedial Quotes',
+            content: `
+                <p class="mb-6">
+                    OpsCel offers two ways to turn defects into customer quotes. Both are current, valid workflows—the right choice depends on your situation.
+                </p>
+            `,
+            table: {
+                headers: ['Aspect', 'Path A: Dashboard Widget', 'Path B: Worksheet (This Guide)'],
+                rows: [
+                    ['Where', 'Admin dashboard → "Defects Pending Quotes" card', 'Job detail → Documents tab → Remedial Scope worksheet'],
+                    ['Trigger', '"Create Bundled Quote" button — reads from pending defects', '"Generate bundled quote" on the completed worksheet — reads from worksheet items'],
+                    ['Engineer involvement', 'None required — defects logged, office handles rest', 'Engineer fills scope summary, estimates, gets customer signature on-site'],
+                    ['Speed', 'Faster — one click from dashboard', 'Slower — engineer completes worksheet first'],
+                    ['Detail level', 'Defect descriptions only', 'Full scope of works with estimates, hours, customer sign-off'],
+                    ['Best for', 'Quick quotes, straightforward remedial work', 'Complex jobs, customer wants detailed scope confirmed on-site'],
+                    ['Documentation', '<a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Defects to Quotation Guide</a>', 'This guide']
+                ]
+            },
+            subsections: [
+                {
+                    title: 'What Happens Automatically vs. Manually',
+                    content: `
+                        <p class="mb-4">Understanding what the system does automatically helps avoid confusion:</p>
+                    `
+                },
+                {
+                    title: '',
+                    content: '',
+                    table: {
+                        headers: ['Action', 'Auto', 'Manual'],
+                        rows: [
+                            ['Remedial Scope worksheet created', '✅ (on defect POST with "Quote required" OR severity = major/critical)', ''],
+                            ['Worksheet seeded with defect items', '✅ (on new sheet)', ''],
+                            ['Draft quotation created', '', '✅ Admin clicks in widget or job sheets'],
+                            ['Quote line items populated', '✅ (pre-filled on creation)', '✅ Admin adds pricing (£)'],
+                            ['Defects cleared from pending-quotes widget', '✅ (on quote creation)', '']
+                        ]
+                    }
+                },
+                {
+                    title: 'Important: Quotes Are Not Auto-Created',
+                    content: `
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4">
+                            <p class="text-amber-900">
+                                <strong>⚠️ Key Point:</strong> The worksheet auto-creates, but the quote does NOT. This is intentional—engineers don't know pricing, and the office needs to review scope before committing to a number. The admin must click a button to create the quote, but the descriptions and line items are already pre-filled.
+                            </p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Worksheet Auto-Creation Triggers',
+                    content: 'A Remedial Scope of Works worksheet is automatically created when:',
+                    bullets: [
+                        'Engineer checks "Quote required for remedial work" on a defect',
+                        'Defect severity is set to Major or Critical (even if "Quote required" is NOT checked)',
+                        'First qualifying defect is saved—subsequent defects on the same job attach to the existing worksheet'
                     ]
                 }
             ]
@@ -77,18 +144,19 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     bullets: [
                         'Open the job in the field PWA',
                         'Navigate to the Defects section',
-                        'Log each defect with severity (Major, Minor, Observation), location, and description',
-                        'Check "Quote required for remedial work"',
+                        'Log each defect with severity (Critical, Major, Minor, Observation), location, and description',
+                        'Check "Quote required for remedial work" (or leave unchecked—Major/Critical defects auto-trigger worksheet creation)',
                         'Save each defect'
                     ]
                 },
                 {
                     title: 'Step 2: Worksheet Auto-Attaches',
-                    content: 'As soon as the first defect requiring a quote is logged, a "Remedial Scope of Works" worksheet automatically appears in the job sheets list.',
+                    content: 'As soon as the first qualifying defect is logged (either "Quote required" checked OR severity = Major/Critical), a "Remedial Scope of Works" worksheet automatically appears in the job sheets list.',
                     bullets: [
                         'Status: DRAFT (amber badge)',
                         'Contains "Items seeded from defect" notice',
-                        'Engineer can access it immediately from the job detail page'
+                        'Engineer can access it immediately from the job detail page',
+                        'Job also appears in the admin dashboard "Defects Pending Quotes" widget'
                     ]
                 },
                 {
@@ -104,13 +172,15 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 },
                 {
                     title: 'Step 4: Office Generates Bundled Quote',
-                    content: 'Once the worksheet is marked complete, a "Generate Bundled Quote" button appears on the job\'s worksheet row in the dashboard.',
+                    content: 'Once the worksheet is marked complete, office staff manually creates the quote. The quote does NOT auto-create—this is intentional so office can review scope and add pricing.',
                     bullets: [
+                        'Navigate to the job detail page → Documents tab',
                         'Hover over the completed Remedial Scope of Works row',
                         'Click the green "Generate Bundled Quote" button',
-                        'One quote is created with N line items pre-filled from each defect',
-                        'Add pricing, adjust line items, and send to customer',
-                        'Worksheet row now shows "Quoted" pill with link to the quote'
+                        'One quote is created with N line items pre-filled from each defect (descriptions only, £0 prices)',
+                        'Add pricing to each line item, adjust as needed, and send to customer',
+                        'Worksheet row now shows "Quoted" pill with link to the quote',
+                        'Job disappears from "Defects Pending Quotes" dashboard widget'
                     ]
                 }
             ]
@@ -402,13 +472,14 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             title: 'Related Features',
             subsections: [
                 {
-                    title: 'Bundled Remedial Quotes (Legacy)',
-                    content: 'Before the Remedial Scope of Works worksheet feature, bundled quotes were created directly from the defects dashboard widget. That workflow is still available but less recommended:',
+                    title: 'Dashboard Widget Path (Alternative)',
+                    content: 'If you prefer a faster workflow without worksheets, use the dashboard widget approach:',
                     bullets: [
-                        'Dashboard widget shows "Jobs Pending Remedial Quotes"',
-                        'Click a job card to create a bundled quote directly (no worksheet)',
+                        'Dashboard shows "Jobs Pending Remedial Quotes" widget',
+                        'Click a job card to create a bundled quote directly (no worksheet needed)',
                         'Less engineer involvement, no on-site scope sign-off',
-                        'Learn more: /docs/defects-to-quotation'
+                        'Best for straightforward remedial work where scope is clear from defect descriptions',
+                        '<a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Learn more: Defects to Quotation Guide</a>'
                     ]
                 },
                 {

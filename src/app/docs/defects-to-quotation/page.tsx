@@ -22,8 +22,33 @@ export default function DefectsToQuotationDocsPage() {
                         </p>
                     </div>
 
+                    {/* Two Paths Notice */}
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">
+                        <h3 className="font-bold text-lg mb-2">💡 Two Ways to Create Remedial Quotes</h3>
+                        <p className="text-gray-700 mb-3">
+                            This guide shows the <strong>Dashboard Widget Path</strong>—the fastest way to create quotes directly from defects. There&apos;s also a <strong>Worksheet Path</strong> where engineers fill out a detailed Remedial Scope of Works on-site before the quote is generated.
+                        </p>
+                        <div className="bg-white/50 rounded p-4 text-sm">
+                            <p className="mb-2"><strong>Use this path (Dashboard Widget) when:</strong></p>
+                            <ul className="list-disc pl-6 space-y-1 text-gray-700 mb-3">
+                                <li>You need a quick quote based on defect descriptions</li>
+                                <li>Engineer doesn&apos;t need to confirm scope on-site</li>
+                                <li>Remedial work is straightforward</li>
+                            </ul>
+                            <p className="mb-2"><strong>Use the Worksheet Path when:</strong></p>
+                            <ul className="list-disc pl-6 space-y-1 text-gray-700 mb-3">
+                                <li>You want engineer to document detailed scope on-site</li>
+                                <li>Customer wants to review and sign off on scope before quote</li>
+                                <li>Complex remedial work requiring estimates and hours</li>
+                            </ul>
+                            <Link href="/docs/remedial-scope-of-works" className="text-blue-600 hover:underline font-medium">
+                                → Learn about the Worksheet Path (Remedial Scope of Works Guide)
+                            </Link>
+                        </div>
+                    </div>
+
                     {/* Feature Announcement */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 mb-12 rounded-r-lg">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-purple-500 p-6 mb-12 rounded-r-lg">
                         <h3 className="font-bold text-lg mb-2">Stop Creating Quotes One Defect at a Time</h3>
                         <p className="text-gray-700">
                             When your engineers find multiple issues during a fire alarm service or electrical inspection, you shouldn&apos;t have to create separate quotes for each defect. OpsCel now bundles all defects per job into one professional quote.
@@ -82,7 +107,14 @@ export default function DefectsToQuotationDocsPage() {
                                     </li>
                                     <li>Save the defects</li>
                                 </ol>
-                                <p className="text-gray-600 italic">All defects flagged for quoting will appear in the office dashboard.</p>
+                                <div className="bg-gray-100 p-4 rounded-lg mt-4">
+                                    <p className="font-semibold mb-2">What Happens Automatically:</p>
+                                    <ul className="list-disc pl-6 space-y-1 text-gray-700">
+                                        <li>All defects flagged for quoting will appear in the office dashboard &quot;Defects Pending Quotes&quot; widget</li>
+                                        <li>If severity is Major or Critical, a Remedial Scope of Works worksheet is also auto-created (even if &quot;Quote required&quot; isn&apos;t checked)</li>
+                                        <li>The job is grouped by defects—you&apos;ll see one job card, not individual defect cards</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -160,12 +192,17 @@ export default function DefectsToQuotationDocsPage() {
                                 <div className="bg-gray-100 p-4 rounded-lg mt-4">
                                     <p className="font-semibold mb-2">The system will:</p>
                                     <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                                        <li>Create a single draft quote</li>
+                                        <li>Create a single draft quote with pre-filled line items (descriptions only, £0 prices)</li>
                                         <li>Set the title to &quot;Remedial Work - [Job Number]&quot;</li>
-                                        <li>Include all defect details in the quote description</li>
-                                        <li>Link all defects to this quote (they&apos;ll disappear from the pending list)</li>
+                                        <li>Link all defects to this quote via quote_id</li>
+                                        <li><strong>Auto-clear the job from the &quot;Defects Pending Quotes&quot; widget</strong></li>
                                         <li>Set the quote source as &quot;Defect&quot; for tracking</li>
                                     </ul>
+                                </div>
+                                <div className="bg-amber-50 border-l-2 border-amber-500 p-3 mt-4">
+                                    <p className="text-sm text-amber-900">
+                                        <strong>⚠️ Important:</strong> The quote does NOT auto-create when defects are logged. The admin must manually click &quot;Create Bundled Quote&quot; to create it. This is intentional—engineers don&apos;t know pricing, and the office needs to review scope before committing to a number.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -184,8 +221,9 @@ export default function DefectsToQuotationDocsPage() {
                                     <li>Navigate to Quotations to find your new draft</li>
                                     <li>Open the quote to:
                                         <ul className="list-disc pl-6 mt-2 space-y-1">
-                                            <li>Add line items with pricing</li>
-                                            <li>Adjust the title or description if needed</li>
+                                            <li>Add pricing to the pre-filled line items (they start at £0)</li>
+                                            <li>Edit descriptions or add additional line items if needed</li>
+                                            <li>Adjust the title or overall description if needed</li>
                                             <li>Add internal notes</li>
                                             <li>Set validity period</li>
                                         </ul>

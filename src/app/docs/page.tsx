@@ -30,6 +30,13 @@ const documentationGuides = [
         icon: 'icon-gear'
     },
     {
+        title: 'Onboarding for New Businesses',
+        description: 'First-time setup checklist for new accounts. Complete these steps in order to go from sign-up to first job scheduled in under 60 minutes.',
+        url: '/docs/onboarding',
+        category: 'Getting Started',
+        icon: 'icon-rocket'
+    },
+    {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',

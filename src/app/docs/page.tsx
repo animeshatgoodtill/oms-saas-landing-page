@@ -8,6 +8,36 @@ export const metadata = {
 };
 
 const documentationGuides = [
+    // Getting Started
+    {
+        title: 'Onboarding for New Businesses',
+        description: 'First-time setup checklist for new accounts. Complete these steps in order to go from sign-up to first job scheduled in under 60 minutes.',
+        url: '/docs/onboarding',
+        category: 'Getting Started',
+        icon: 'icon-rocket'
+    },
+    {
+        title: 'Settings Tour',
+        description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
+        url: '/docs/settings-tour',
+        category: 'Getting Started',
+        icon: 'icon-gear'
+    },
+    {
+        title: 'Team, Roles & Permissions',
+        description: 'Complete guide to inviting team members, assigning roles, and managing permissions. Learn about the 7 fixed roles and multi-tenant access.',
+        url: '/docs/team-management',
+        category: 'Getting Started',
+        icon: 'icon-team'
+    },
+    {
+        title: 'Branding & PDF Customization',
+        description: 'Configure your company logo, color scheme, and PDF templates. Learn how to customize certificates, quotes, and invoices with your branding.',
+        url: '/docs/branding',
+        category: 'Getting Started',
+        icon: 'icon-smart-customer'
+    },
+    // Field Service
     {
         title: 'Field Service App — Engineer\'s Day',
         description: 'Complete guide to using the OpsCel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
@@ -23,32 +53,35 @@ const documentationGuides = [
         icon: 'icon-job-workflow'
     },
     {
-        title: 'Settings Tour',
-        description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
-        url: '/docs/settings-tour',
-        category: 'Getting Started',
-        icon: 'icon-gear'
+        title: 'Offline Mode & Sync Deep Dive',
+        description: 'Technical guide to offline-first architecture, sync queue, conflict resolution, and network detection. Learn how data syncs between field and cloud.',
+        url: '/docs/offline-sync',
+        category: 'Field Service',
+        icon: 'icon-mobile-device'
     },
+    // Worksheets & Checklists
     {
-        title: 'Onboarding for New Businesses',
-        description: 'First-time setup checklist for new accounts. Complete these steps in order to go from sign-up to first job scheduled in under 60 minutes.',
-        url: '/docs/onboarding',
-        category: 'Getting Started',
-        icon: 'icon-rocket'
+        title: 'Worksheet Authoring & Filling',
+        description: 'Complete guide to creating custom worksheets and filling them on-site. Learn about template editor, field types, auto-save, and asset promotion.',
+        url: '/docs/worksheets',
+        category: 'Worksheets & Checklists',
+        icon: 'icon-job-sheet'
     },
+    // Certificates
     {
         title: 'Certificates Guide',
         description: 'Complete guide to creating, managing, and issuing digital certificates. Learn about compliance tracking, BS 7671 templates, and customer delivery.',
         url: '/docs/certificates',
-        category: 'Core Features',
+        category: 'Certificates',
         icon: 'icon-certificate'
     },
+    // Sales & Quoting
     {
-        title: 'Customer Portal Guide',
-        description: 'Learn how to invite customers to their secure portal where they can approve quotes, download certificates, and track invoices.',
-        url: '/docs/customer-portal',
-        category: 'Customer Experience',
-        icon: 'icon-smart-customer'
+        title: 'Quotations Overview',
+        description: 'Complete guide to creating quotes, templates, line items, and customer acceptance. Learn about quote-to-job conversion and deposit handling.',
+        url: '/docs/quotations',
+        category: 'Sales & Quoting',
+        icon: 'icon-quotation'
     },
     {
         title: 'Defects to Quotation Guide',
@@ -64,6 +97,38 @@ const documentationGuides = [
         category: 'Sales & Quoting',
         icon: 'icon-deficiency-log'
     },
+    // Customer Experience
+    {
+        title: 'Customer Portal Guide',
+        description: 'Learn how to invite customers to their secure portal where they can approve quotes, download certificates, and track invoices.',
+        url: '/docs/customer-portal',
+        category: 'Customer Experience',
+        icon: 'icon-smart-customer'
+    },
+    // Scheduling & Operations
+    {
+        title: 'Service Contracts',
+        description: 'Set up recurring service automation with contracts. Learn about cadence rules, asset pre-loading, cron timing, and job generation.',
+        url: '/docs/service-contracts',
+        category: 'Scheduling & Operations',
+        icon: 'icon-job-workflow'
+    },
+    {
+        title: 'Calendar Integration',
+        description: 'Connect Google Calendar, Microsoft 365, or ICS feeds. Learn about two-way sync, availability blocking, OAuth setup, and token refresh.',
+        url: '/docs/calendar-integration',
+        category: 'Scheduling & Operations',
+        icon: 'icon-gear'
+    },
+    // Assets
+    {
+        title: 'Asset Register & Lifecycle',
+        description: 'Deep dive into asset tracking, auto-promotion rules, parent-child hierarchies, service cadence, and asset pre-loading for service contracts.',
+        url: '/docs/asset-lifecycle',
+        category: 'Assets',
+        icon: 'icon-asset'
+    },
+    // Financial Management
     {
         title: 'Invoicing Guide',
         description: 'Complete guide to creating, managing, and sending invoices. Covers job-to-invoice workflow, deposits, tax configuration, and status tracking.',
@@ -84,6 +149,22 @@ const documentationGuides = [
         url: '/docs/accounting-integration',
         category: 'Financial Management',
         icon: 'icon-xero'
+    },
+    // Reports & Analytics
+    {
+        title: 'Reports & Analytics',
+        description: 'Complete guide to jobs reports and quotations reports (Business+ tier). Learn about filtering, date ranges, exporting, and key metrics.',
+        url: '/docs/reports',
+        category: 'Reports & Analytics',
+        icon: 'icon-gear'
+    },
+    // Migration & Data
+    {
+        title: 'Migration Agent',
+        description: 'AI-powered document import from cloud storage. Learn about credit system, entity matching, staging review, and import process.',
+        url: '/docs/migration-agent',
+        category: 'Migration & Data',
+        icon: 'icon-data-import'
     }
 ];
 

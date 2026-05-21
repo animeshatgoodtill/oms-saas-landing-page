@@ -1,11 +1,105 @@
 'use client';
 
-import React from 'react';
-import { calendarIntegrationGuide } from '@/data/docs/calendar-integration-guide';
+import { useState, useEffect } from 'react';
 import Container from '@/components/Container';
 import DocSidebar from '@/components/DocSidebar';
+import { calendarIntegrationGuide } from '@/data/docs/calendar-integration-guide';
+import { IDocSubsection } from '@/types';
 
-export default function CalendarIntegrationPage() {
+export default function BrandingPage() {
+    const [activeSection, setActiveSection] = useState<string>('overview');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = calendarIntegrationGuide.sections;
+            const scrollPosition = window.scrollY + 150;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = document.getElementById(sections[i].id);
+                if (section && section.offsetTop <= scrollPosition) {
+                    setActiveSection(sections[i].id);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const renderSubsection = (subsection: IDocSubsection, idx: number) => {
+        return (
+            <div key={idx} className="mb-8">
+                {subsection.title && (
+                    <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
+                        {subsection.title}
+                    </h3>
+                )}
+                {subsection.content && (
+                    <div
+                        className="prose prose-blue max-w-none mb-4 text-foreground-accent"
+                        dangerouslySetInnerHTML={{ __html: subsection.content }}
+                    />
+                )}
+                {subsection.bullets && subsection.bullets.length > 0 && (
+                    <ul className="space-y-2 mb-4 ml-6 list-disc">
+                        {subsection.bullets.map((bullet, bulletIdx) => (
+                            <li
+                                key={bulletIdx}
+                                className="text-foreground-accent"
+                                dangerouslySetInnerHTML={{ __html: bullet }}
+                            />
+                        ))}
+                    </ul>
+                )}
+                {subsection.steps && subsection.steps.length > 0 && (
+                    <ol className="space-y-3 mb-4 ml-6 list-decimal">
+                        {subsection.steps.map((step, stepIdx) => (
+                            <li
+                                key={stepIdx}
+                                className="text-foreground-accent pl-2"
+                                dangerouslySetInnerHTML={{ __html: step }}
+                            />
+                        ))}
+                    </ol>
+                )}
+                {subsection.table && (
+                    <div className="overflow-x-auto mb-6">
+                        <table className="min-w-full border border-border rounded-lg overflow-hidden">
+                            <thead className="bg-muted">
+                                <tr>
+                                    {subsection.table.headers.map((header, headerIdx) => (
+                                        <th
+                                            key={headerIdx}
+                                            className="px-4 py-3 text-left text-sm font-semibold text-foreground border-b border-border"
+                                        >
+                                            {header}
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-border">
+                                {subsection.table.rows.map((row, rowIdx) => (
+                                    <tr key={rowIdx} className="hover:bg-muted/50 transition-colors">
+                                        {row.map((cell, cellIdx) => (
+                                            <td
+                                                key={cellIdx}
+                                                className="px-4 py-3 text-sm text-foreground-accent"
+                                                dangerouslySetInnerHTML={{ __html: cell }}
+                                            />
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+            </div>
+        );
+    };
+
     return (
         <main>
             {/* Page Header */}
@@ -14,7 +108,7 @@ export default function CalendarIntegrationPage() {
                     <nav className="text-sm mb-4 opacity-90">
                         <a href="/docs" className="hover:underline">Documentation</a>
                         <span className="mx-2">/</span>
-                        <span>{calendarIntegrationGuide.category}</span>
+                        <span>Scheduling Settings & Admin Operations</span>
                     </nav>
                     <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
                         {calendarIntegrationGuide.title}
@@ -32,7 +126,7 @@ export default function CalendarIntegrationPage() {
             <Container className="py-12">
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Sidebar */}
-                    <DocSidebar guide={calendarIntegrationGuide} />
+                    <DocSidebar sections={calendarIntegrationGuide.sections} activeSection={activeSection} />
 
                     {/* Content */}
                     <div className="flex-1 max-w-4xl">
@@ -41,98 +135,7 @@ export default function CalendarIntegrationPage() {
                                 <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                                     {section.title}
                                 </h2>
-
-                                {section.subsections.map((subsection, idx) => (
-                                    <div key={idx} className="mb-8">
-                                        {subsection.title && (
-                                            <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
-                                                {subsection.title}
-                                            </h3>
-                                        )}
-
-                                        {subsection.content && (
-                                            <div
-                                                className="prose prose-blue max-w-none mb-4"
-                                                dangerouslySetInnerHTML={{ __html: subsection.content }}
-                                            />
-                                        )}
-
-                                        {subsection.bullets && (
-                                            <ul className="space-y-2 mb-4 ml-6">
-                                                {subsection.bullets.map((bullet, bulletIdx) => (
-                                                    <li
-                                                        key={bulletIdx}
-                                                        className="text-foreground-accent"
-                                                        dangerouslySetInnerHTML={{ __html: bullet }}
-                                                    />
-                                                ))}
-                                            </ul>
-                                        )}
-
-                                        {subsection.content_after_bullets && (
-                                            <div
-                                                className="prose prose-blue max-w-none mb-4"
-                                                dangerouslySetInnerHTML={{ __html: subsection.content_after_bullets }}
-                                            />
-                                        )}
-
-                                        {subsection.bullets_after && (
-                                            <ul className="space-y-2 mb-4 ml-6">
-                                                {subsection.bullets_after.map((bullet, bulletIdx) => (
-                                                    <li
-                                                        key={bulletIdx}
-                                                        className="text-foreground-accent"
-                                                        dangerouslySetInnerHTML={{ __html: bullet }}
-                                                    />
-                                                ))}
-                                            </ul>
-                                        )}
-
-                                        {subsection.steps && (
-                                            <ol className="space-y-3 mb-4 ml-6 list-decimal">
-                                                {subsection.steps.map((step, stepIdx) => (
-                                                    <li
-                                                        key={stepIdx}
-                                                        className="text-foreground-accent pl-2"
-                                                        dangerouslySetInnerHTML={{ __html: step }}
-                                                    />
-                                                ))}
-                                            </ol>
-                                        )}
-
-                                        {subsection.table && (
-                                            <div className="overflow-x-auto mb-6">
-                                                <table className="min-w-full border border-border rounded-lg overflow-hidden">
-                                                    <thead className="bg-muted">
-                                                        <tr>
-                                                            {subsection.table.headers.map((header, headerIdx) => (
-                                                                <th
-                                                                    key={headerIdx}
-                                                                    className="px-4 py-3 text-left text-sm font-semibold text-foreground border-b border-border"
-                                                                >
-                                                                    {header}
-                                                                </th>
-                                                            ))}
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody className="bg-white divide-y divide-border">
-                                                        {subsection.table.rows.map((row, rowIdx) => (
-                                                            <tr key={rowIdx} className="hover:bg-muted/50 transition-colors">
-                                                                {row.map((cell, cellIdx) => (
-                                                                    <td
-                                                                        key={cellIdx}
-                                                                        className="px-4 py-3 text-sm text-foreground-accent"
-                                                                        dangerouslySetInnerHTML={{ __html: cell }}
-                                                                    />
-                                                                ))}
-                                                            </tr>
-                                                        ))}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
+                                {section.subsections?.map((subsection, idx) => renderSubsection(subsection, idx))}
                             </section>
                         ))}
                     </div>

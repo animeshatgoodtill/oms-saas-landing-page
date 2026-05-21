@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Container from '@/components/Container';
 import DocSidebar from '@/components/DocSidebar';
-import { teamManagementGuide } from '@/data/docs/team-management-guide';
+import { brandingGuide } from '@/data/docs/branding-guide';
 import { IDocSubsection } from '@/types';
 
 export default function BrandingPage() {
@@ -11,7 +11,7 @@ export default function BrandingPage() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = teamManagementGuide.sections;
+            const sections = brandingGuide.sections;
             const scrollPosition = window.scrollY + 150;
 
             for (let i = sections.length - 1; i >= 0; i--) {
@@ -111,13 +111,13 @@ export default function BrandingPage() {
                         <span>Settings & Admin</span>
                     </nav>
                     <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                        {teamManagementGuide.title}
+                        {brandingGuide.title}
                     </h1>
                     <p className="text-xl text-blue-100 max-w-3xl">
-                        {teamManagementGuide.description}
+                        {brandingGuide.description}
                     </p>
                     <p className="text-sm text-blue-200 mt-4">
-                        Last updated: {teamManagementGuide.lastUpdated}
+                        Last updated: {brandingGuide.lastUpdated}
                     </p>
                 </Container>
             </section>
@@ -126,11 +126,11 @@ export default function BrandingPage() {
             <Container className="py-12">
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Sidebar */}
-                    <DocSidebar sections={teamManagementGuide.sections} activeSection={activeSection} />
+                    <DocSidebar sections={brandingGuide.sections} activeSection={activeSection} />
 
                     {/* Content */}
                     <div className="flex-1 max-w-4xl">
-                        {teamManagementGuide.sections.map((section) => (
+                        {brandingGuide.sections.map((section) => (
                             <section key={section.id} id={section.id} className="mb-12 scroll-mt-24">
                                 <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                                     {section.title}

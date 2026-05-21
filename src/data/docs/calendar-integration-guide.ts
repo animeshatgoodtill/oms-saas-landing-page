@@ -5,7 +5,6 @@ export const calendarIntegrationGuide: IDocGuide = {
     title: 'Calendar Integration',
     description: 'Two-way sync between OpsCel and external calendars. Connect Google Calendar, Microsoft 365, or ICS feeds for automatic availability blocking and engineer calendar sync.',
     lastUpdated: '2026-05-21',
-    category: 'Scheduling & Operations',
     sections: [
         {
             id: 'overview',

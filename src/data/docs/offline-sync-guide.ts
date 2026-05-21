@@ -1,0 +1,388 @@
+import { IDocGuide } from '@/types';
+
+export const offlineSyncGuide: IDocGuide = {
+    title: 'Offline & Sync Deep Dive',
+    description: 'Technical guide to OpsCel\'s offline-first architecture, sync queue mechanisms, conflict resolution, and troubleshooting sync issues in the field PWA.',
+    slug: 'offline-sync',
+    lastUpdated: 'May 21, 2026',
+    sections: [
+        {
+            id: 'overview',
+            title: 'Overview',
+            subsections: [
+                {
+                    content: '<strong>30-Second Version:</strong> OpsCel\'s field PWA is offline-first — engineers can capture photos, fill forms, sign off jobs, and log defects without internet. All writes queue locally in IndexedDB and sync automatically when back online. Last-write-wins conflict resolution ensures data consistency across devices. This guide covers technical architecture, sync indicators, cache management, and troubleshooting for engineers and admins dealing with sync issues.',
+                },
+                {
+                    title: 'Who Needs This Guide',
+                    bullets: [
+                        '<strong>Field Engineers:</strong> Understand what works offline and how to troubleshoot sync problems on-site',
+                        '<strong>Office Managers:</strong> Diagnose sync issues reported by engineers, monitor sync health',
+                        '<strong>Admins:</strong> Configure offline settings, manage cache quotas, understand sync architecture',
+                    ],
+                },
+                {
+                    title: 'Key Offline Benefits',
+                    bullets: [
+                        'No data loss: all work queues locally and syncs when online',
+                        'Consistent UX: app works identically online and offline',
+                        'Automatic retry: failed syncs retry with exponential backoff',
+                        'Conflict handling: last-write-wins prevents data corruption',
+                        'Visual feedback: sync indicators show queue status',
+                    ],
+                },
+            ],
+        },
+        {
+            id: 'what-works-offline',
+            title: 'What Works Offline',
+            subsections: [
+                {
+                    title: 'Fully Offline-Capable Features',
+                    content: 'These features work with zero connectivity. Data is saved locally and synced when online.',
+                },
+                {
+                    bullets: [
+                        '<strong>Job viewing:</strong> Open jobs, view customer info, site addresses, job notes (if previously loaded)',
+                        '<strong>Photos:</strong> Capture photos with device camera, add captions, assign to categories (before/during/after/defect/completion)',
+                        '<strong>Worksheets:</strong> Fill job sheets, complete checklists, input test results — all fields save locally',
+                        '<strong>Signatures:</strong> Capture engineer signature, customer signature, approval signatures',
+                        '<strong>Defects:</strong> Log defects with severity (C1/C2/C3/FI), add descriptions, attach photos',
+                        '<strong>Parts logging:</strong> Record parts used (SKU, quantity, price), ex-VAT totals',
+                        '<strong>Job status updates:</strong> Check in, mark in progress, check out (status changes queue)',
+                        '<strong>Work summaries:</strong> Write job completion summaries, add internal notes',
+                    ],
+                },
+                {
+                    title: 'For Engineers',
+                    content: '<em>Tip:</em> Before going to remote sites (rural areas, basements, underground car parks), open the job while online. This pre-loads job data into cache. You can then work fully offline without any limitations.',
+                },
+            ],
+        },
+        {
+            id: 'what-queues-vs-fails',
+            title: 'What Queues vs What Fails',
+            subsections: [
+                {
+                    title: 'Understanding the Difference',
+                    content: 'Not all actions can queue offline. Some require live server communication and will fail gracefully with error messages.',
+                },
+                {
+                    title: 'Operations That Queue (Work Offline)',
+                    bullets: [
+                        '<strong>All writes:</strong> Photo uploads, form saves, signature captures, defect creation, parts logging',
+                        '<strong>Job status changes:</strong> Check-in, check-out, mark complete',
+                        '<strong>Work summaries:</strong> Completion notes, internal comments',
+                    ],
+                },
+                {
+                    title: 'Operations That Fail (Require Online)',
+                    bullets: [
+                        '<strong>Fetching fresh job list:</strong> Viewing "Today\'s Jobs" requires server fetch (uses cached data if offline)',
+                        '<strong>Creating new jobs:</strong> Cannot create jobs from field app (admin function, requires server)',
+                        '<strong>Real-time notifications:</strong> Telegram/Slack notifications don\'t send until online',
+                        '<strong>Syncing up to office:</strong> Office staff won\'t see your updates until you sync',
+                        '<strong>Viewing other engineers\' updates:</strong> No real-time collaboration offline',
+                    ],
+                },
+                {
+                    title: 'Graceful Degradation',
+                    content: 'When offline, the PWA shows a <strong>CloudOff</strong> icon (top-right corner). Operations that require connectivity display an "Offline - will sync when online" message instead of failing silently. You can continue working — data queues and syncs automatically when back online.',
+                },
+            ],
+        },
+        {
+            id: 'sync-inspector',
+            title: 'Sync Inspector',
+            subsections: [
+                {
+                    title: 'Availability',
+                    content: '<strong>Location:</strong> Field App → Settings → Sync Inspector<br><strong>Roles:</strong> All field users',
+                },
+                {
+                    title: 'What the Sync Inspector Shows',
+                    content: 'The Sync Inspector is a diagnostic tool showing your local sync queue: pending operations, sync status, and manual retry controls.',
+                },
+                {
+                    title: 'Steps to Access Sync Inspector',
+                    steps: [
+                        'Open field PWA',
+                        'Tap <strong>Menu</strong> (hamburger icon)',
+                        'Tap <strong>Settings</strong>',
+                        'Scroll to <strong>Sync Inspector</strong>',
+                        'View queued operations list',
+                    ],
+                },
+                {
+                    title: 'What You Should See',
+                    content: 'Table showing: operation type (photo_upload, form_save, job_status_change), timestamp (when queued), status (pending/syncing/failed), retry count (0-5), file size (for photos). If queue is empty, you see "No pending operations — all synced!"',
+                },
+                {
+                    title: 'Queue Actions',
+                    bullets: [
+                        '<strong>Retry All:</strong> Forces immediate sync attempt for all pending operations (bypasses exponential backoff)',
+                        '<strong>Clear Queue:</strong> Deletes all pending operations (WARNING: irreversible data loss — only use if instructed by support)',
+                        '<strong>View Logs:</strong> Shows sync attempt history with timestamps and error messages',
+                    ],
+                },
+                {
+                    title: 'For Engineers',
+                    content: '<em>Tip:</em> Check Sync Inspector before leaving a job site. If queue shows pending uploads, wait for sync to complete or note it for follow-up when back online. Don\'t clear queue unless photos/data are already visible in the office system.',
+                },
+            ],
+        },
+        {
+            id: 'conflict-resolution',
+            title: 'Conflict Resolution',
+            subsections: [
+                {
+                    title: 'How Conflicts Happen',
+                    content: 'Conflicts occur when multiple engineers (or one engineer on multiple devices) edit the same job offline, then both sync. OpsCel must decide which version to keep.',
+                },
+                {
+                    title: 'Last-Write-Wins Strategy',
+                    content: 'OpsCel uses <strong>last-write-wins</strong> conflict resolution: the most recent sync (by server timestamp) overwrites earlier versions. This prevents data corruption but may discard earlier edits if two engineers edit the same field.',
+                },
+                {
+                    title: 'Fields Affected by Conflicts',
+                    bullets: [
+                        '<strong>Work summary:</strong> If Engineer A writes summary offline, Engineer B writes different summary offline, B\'s sync overwrites A\'s',
+                        '<strong>Job notes:</strong> Last-write-wins for notes field',
+                        '<strong>Custom fields:</strong> Any editable text field uses last-write-wins',
+                    ],
+                },
+                {
+                    title: 'Fields NOT Affected (Append-Only)',
+                    bullets: [
+                        '<strong>Photos:</strong> All photos append to the list (no conflicts — 10 photos from Engineer A + 5 from Engineer B = 15 total)',
+                        '<strong>Defects:</strong> Append-only (each defect is a separate record)',
+                        '<strong>Parts:</strong> Append-only (parts list grows, doesn\'t overwrite)',
+                        '<strong>Visit check-ins:</strong> Each visit is separate (no conflicts)',
+                    ],
+                },
+                {
+                    title: 'Manual Resolution (Critical Fields)',
+                    content: 'For critical fields (e.g., certificate test results), OpsCel flags conflicts and prompts manual resolution on next sync. Admin chooses which version to keep. This prevents accidental data loss on safety-critical information.',
+                },
+                {
+                    title: 'For Managers',
+                    content: '<em>Tip:</em> To avoid conflicts on multi-engineer jobs, assign sections: Engineer A completes first floor, Engineer B completes second floor. Each writes separate work summaries. Office staff consolidates summaries into final certificate.',
+                },
+            ],
+        },
+        {
+            id: 'cache-management',
+            title: 'Cache Management',
+            subsections: [
+                {
+                    title: 'Availability',
+                    content: '<strong>Location:</strong> Field App → Settings → Storage<br><strong>Roles:</strong> All field users',
+                },
+                {
+                    title: 'How Caching Works',
+                    content: 'OpsCel uses a <strong>service worker</strong> to cache job data, photos, and app assets locally. Default cache size: <strong>50 MB</strong> (configurable per device). Once cache is full, oldest items are evicted (LRU policy).',
+                },
+                {
+                    title: 'What Gets Cached',
+                    bullets: [
+                        '<strong>Job data:</strong> Customer info, site addresses, job notes, worksheets (text only, no photos)',
+                        '<strong>App assets:</strong> HTML, CSS, JavaScript bundles (PWA shell)',
+                        '<strong>Photos (queued):</strong> Photos pending upload stored in IndexedDB (not service worker cache)',
+                        '<strong>Recent job list:</strong> Last-fetched "Today\'s Jobs" list (refreshes on next online fetch)',
+                    ],
+                },
+                {
+                    title: 'Storage Breakdown',
+                    table: {
+                        headers: ['Data Type', 'Typical Size', 'Storage Location', 'Eviction Policy'],
+                        rows: [
+                            ['App shell (HTML/CSS/JS)', '~5 MB', 'Service worker cache', 'Never evicted (pinned)'],
+                            ['Job data (text)', '~100 KB per job', 'Service worker cache', 'LRU (oldest first)'],
+                            ['Photos (pending upload)', '~2 MB per photo', 'IndexedDB', 'Never evicted until synced'],
+                            ['Worksheet data', '~50 KB per sheet', 'IndexedDB', 'Never evicted until synced'],
+                        ],
+                    },
+                },
+                {
+                    title: 'Steps to Clear Cache',
+                    steps: [
+                        'Open field PWA',
+                        'Go to <strong>Settings → Storage</strong>',
+                        'View cache stats (XX MB used of 50 MB)',
+                        'Tap <strong>Clear Cache</strong>',
+                        'Confirm warning: "This will delete cached jobs. Pending uploads will NOT be deleted."',
+                        'Cache clears, app shell remains',
+                        'Next job fetch re-populates cache',
+                    ],
+                },
+                {
+                    title: 'When to Clear Cache',
+                    bullets: [
+                        '<strong>Storage quota exceeded:</strong> Device shows "Storage full" error',
+                        '<strong>Stale data:</strong> Cached jobs show outdated info (office updated job but cache not refreshed)',
+                        '<strong>App misbehavior:</strong> Blank screens, infinite loading (cache corruption)',
+                    ],
+                },
+                {
+                    title: 'For Engineers',
+                    content: '<em>Tip:</em> Clearing cache does NOT delete pending uploads (photos, forms). Your queued work is safe in IndexedDB. Only cached read-only data (job details) is cleared. You\'ll need to be online to re-fetch job data after clearing cache.',
+                },
+            ],
+        },
+        {
+            id: 'network-detection',
+            title: 'Network Detection',
+            subsections: [
+                {
+                    title: 'How OpsCel Detects Offline Status',
+                    content: 'The PWA uses <strong>navigator.onLine</strong> API + server ping to detect connectivity. When offline detected, UI switches to offline mode with CloudOff icon.',
+                },
+                {
+                    title: 'Sync Triggers',
+                    bullets: [
+                        '<strong>On reconnect:</strong> When network comes back, PWA auto-syncs queue immediately',
+                        '<strong>Manual sync:</strong> Tap "Sync Now" button (Settings → Sync Inspector)',
+                        '<strong>Periodic background sync:</strong> Every 15 minutes if online (requires Background Sync API support)',
+                        '<strong>On app resume:</strong> When switching back to PWA after using other apps',
+                    ],
+                },
+                {
+                    title: 'CloudOff Icon',
+                    content: 'Orange cloud icon with slash appears in top-right when offline. Icon disappears when online. Tap icon to see connection status and last sync time.',
+                },
+                {
+                    title: 'Manual Sync Button',
+                    content: 'Available in Settings → Sync Inspector. Forces immediate sync attempt even if auto-sync disabled. Useful for poor connectivity (app thinks it\'s online but requests fail).',
+                },
+                {
+                    title: 'For Engineers',
+                    content: '<em>Tip:</em> If CloudOff icon persists despite being connected to WiFi, check: (1) WiFi requires login (captive portal), (2) Firewall blocking OpsCel domain, (3) Airplane mode still on. Try manual sync button to diagnose.',
+                },
+            ],
+        },
+        {
+            id: 'sync-indicators',
+            title: 'Sync Indicators',
+            subsections: [
+                {
+                    title: 'Visual Indicators Explained',
+                    content: 'OpsCel uses icons and chips to communicate sync status throughout the UI.',
+                },
+                {
+                    table: {
+                        headers: ['Indicator', 'Meaning', 'Where It Appears', 'What to Do'],
+                        rows: [
+                            [
+                                '<strong>CloudOff</strong> (orange cloud with slash)',
+                                'Device is offline',
+                                'Top-right corner of app',
+                                'Continue working — data queues locally'
+                            ],
+                            [
+                                '<strong>SyncChip</strong> (spinning blue circle)',
+                                'Sync in progress',
+                                'Bottom-right, appears during upload',
+                                'Wait for completion — don\'t close app'
+                            ],
+                            [
+                                '<strong>AutoSaveChip</strong> (green checkmark)',
+                                'Data saved locally',
+                                'Form fields, after each edit',
+                                'No action needed — data is safe'
+                            ],
+                            [
+                                '<strong>ErrorChip</strong> (red X)',
+                                'Sync failed, will retry',
+                                'Sync Inspector, failed operations',
+                                'Check error message, retry manually if needed'
+                            ],
+                            [
+                                '<strong>QueueCount</strong> (badge with number)',
+                                'Pending operations in queue',
+                                'Settings menu icon',
+                                'Tap to open Sync Inspector'
+                            ],
+                        ],
+                    },
+                },
+                {
+                    title: 'For Engineers',
+                    content: '<em>Tip:</em> If SyncChip spins for more than 5 minutes, something is wrong. Open Sync Inspector to see error message. Common causes: server down, auth token expired, file too large.',
+                },
+            ],
+        },
+        {
+            id: 'troubleshooting',
+            title: 'Troubleshooting',
+            subsections: [
+                {
+                    title: 'Sync Stuck - SyncChip Spins Forever',
+                    content: '<strong>Cause:</strong> Server timeout, photo file too large, or network dropping packets.<br><strong>Fix:</strong> Open Sync Inspector → Retry All. If still fails, check error log for specific operation. Large photos (>10 MB): compress before uploading. If error says "401 Unauthorized", sign out and sign back in (token expired).',
+                },
+                {
+                    title: 'Photos Disappeared from Gallery',
+                    content: '<strong>Cause:</strong> Photos pending upload, not yet synced to server.<br><strong>Fix:</strong> Open Sync Inspector → check for photo_upload operations in queue. If present, photos are safe locally. Connect to WiFi and sync. If queue is empty and photos still missing, they may have failed upload — check Sync Logs for error.',
+                },
+                {
+                    title: 'Conflicting Data - Office Sees Different Summary Than I Wrote',
+                    content: '<strong>Cause:</strong> Another engineer (or you on another device) edited the same field offline. Last-write-wins conflict resolution overwrote your version.<br><strong>Fix:</strong> Check job activity log (office system) to see who synced last. Agree on workflow with team: designate one engineer to write final summary, or use separate internal notes instead of shared work summary field.',
+                },
+                {
+                    title: 'Storage Quota Exceeded Error',
+                    content: '<strong>Cause:</strong> Cache + queued photos exceed device storage limit (50 MB default).<br><strong>Fix:</strong> Sync all pending uploads to free up IndexedDB space. Clear cache (Settings → Storage → Clear Cache). If still full, device storage is genuinely low — delete apps/photos from device.',
+                },
+                {
+                    title: 'CloudOff Icon Stuck Despite Being Online',
+                    content: '<strong>Cause:</strong> Captive portal (WiFi login required), firewall blocking OpsCel, or DNS issue.<br><strong>Fix:</strong> Open browser and visit opscel.com — if redirect to login page, complete WiFi login. Try switching from WiFi to mobile data. If mobile data works, WiFi is blocking OpsCel domain.',
+                },
+            ],
+        },
+        {
+            id: 'faqs',
+            title: 'FAQs',
+            subsections: [
+                {
+                    title: 'Will I lose data if I work offline for a whole day?',
+                    content: 'No. OpsCel queues everything locally (photos, forms, signatures) with no time limit. You can work offline for days as long as you don\'t exceed device storage (50 MB default). Data syncs when you next connect.',
+                },
+                {
+                    title: 'How long can I work offline before hitting storage limits?',
+                    content: 'Typical capacity: ~50 photos (at 2 MB each) or ~500 job forms. If you\'re a heavy photo user, sync periodically (e.g., lunch break, end of day) to free up storage.',
+                },
+                {
+                    title: 'What if two engineers edit the same job offline?',
+                    content: 'Most data is append-only (photos, defects, parts) — both engineers\' contributions merge on sync. For single-value fields (work summary, notes), last-write-wins — one engineer\'s version will overwrite the other. Coordination is key: assign sections or tasks to avoid overwrites.',
+                },
+                {
+                    title: 'How many times will OpsCel retry a failed sync?',
+                    content: 'Automatic retry: 5 attempts with exponential backoff (1s, 2s, 4s, 8s, 16s). After 5 failures, operation stays in queue with ErrorChip. You must manually retry (Sync Inspector → Retry All) or investigate error.',
+                },
+                {
+                    title: 'Can I increase the 50 MB storage limit?',
+                    content: 'Not currently. The 50 MB limit is a PWA safety threshold to prevent excessive device storage use. If you regularly hit limits, sync more frequently (end of each job) instead of batching uploads.',
+                },
+                {
+                    title: 'Do I need to keep the PWA open while syncing?',
+                    content: 'No. OpsCel uses Background Sync API (where supported) — sync continues even if you switch apps or lock screen. On iOS (where Background Sync is limited), keep app open during sync for best results.',
+                },
+            ],
+        },
+        {
+            id: 'need-help',
+            title: 'Need More Help?',
+            subsections: [
+                {
+                    content: 'If you\'re experiencing persistent sync issues or need technical assistance, our support team can diagnose queue errors and server logs. Email <a href="mailto:support@opscel.com" class="text-secondary hover:underline">support@opscel.com</a> with: device type, OS version, screenshot of Sync Inspector, and error messages.',
+                },
+                {
+                    title: 'Related Guides',
+                    bullets: [
+                        '<a href="/docs/field-service" class="text-secondary hover:underline">Field Service App — Engineer\'s Day</a> — Learn day-to-day field app usage',
+                        '<a href="/docs/jobs" class="text-secondary hover:underline">Jobs & Multi-Visit Workflow</a> — Understand job statuses and workflows',
+                        '<a href="/docs/worksheets" class="text-secondary hover:underline">Worksheet Authoring & Filling</a> — How worksheets save offline',
+                    ],
+                },
+            ],
+        },
+    ],
+};

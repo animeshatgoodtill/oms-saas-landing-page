@@ -3,15 +3,15 @@
 import { useState, useEffect } from 'react';
 import Container from '@/components/Container';
 import DocSidebar from '@/components/DocSidebar';
-import { teamManagementGuide } from '@/data/docs/team-management-guide';
+import { quotationsGuide } from '@/data/docs/quotations-guide';
 import { IDocSubsection } from '@/types';
 
-export default function BrandingPage() {
+export default function QuotationsPage() {
     const [activeSection, setActiveSection] = useState<string>('overview');
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = teamManagementGuide.sections;
+            const sections = quotationsGuide.sections;
             const scrollPosition = window.scrollY + 150;
 
             for (let i = sections.length - 1; i >= 0; i--) {
@@ -102,35 +102,30 @@ export default function BrandingPage() {
 
     return (
         <main>
-            {/* Page Header */}
             <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
                 <Container>
                     <nav className="text-sm mb-4 opacity-90">
                         <a href="/docs" className="hover:underline">Documentation</a>
                         <span className="mx-2">/</span>
-                        <span>Settings & Admin</span>
+                        <span>Sales & Quoting</span>
                     </nav>
                     <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                        {teamManagementGuide.title}
+                        {quotationsGuide.title}
                     </h1>
                     <p className="text-xl text-blue-100 max-w-3xl">
-                        {teamManagementGuide.description}
+                        {quotationsGuide.description}
                     </p>
                     <p className="text-sm text-blue-200 mt-4">
-                        Last updated: {teamManagementGuide.lastUpdated}
+                        Last updated: {quotationsGuide.lastUpdated}
                     </p>
                 </Container>
             </section>
 
-            {/* Main Content */}
             <Container className="py-12">
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Sidebar */}
-                    <DocSidebar sections={teamManagementGuide.sections} activeSection={activeSection} />
-
-                    {/* Content */}
+                    <DocSidebar sections={quotationsGuide.sections} activeSection={activeSection} />
                     <div className="flex-1 max-w-4xl">
-                        {teamManagementGuide.sections.map((section) => (
+                        {quotationsGuide.sections.map((section) => (
                             <section key={section.id} id={section.id} className="mb-12 scroll-mt-24">
                                 <h2 className="text-3xl font-heading font-bold text-foreground mb-6">
                                     {section.title}

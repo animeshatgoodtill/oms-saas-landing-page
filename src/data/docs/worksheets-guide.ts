@@ -5,7 +5,6 @@ export const worksheetsGuide: IDocGuide = {
     title: 'Worksheets - Authoring & Filling',
     description: 'Learn how to create custom checklists and forms in OpsCel. Admins author templates, engineers fill them on-site. From fire alarm test sheets to maintenance logs, capture standardized data with offline support.',
     lastUpdated: '2026-05-21',
-    category: 'Worksheets & Checklists',
     sections: [
         {
             id: 'overview',

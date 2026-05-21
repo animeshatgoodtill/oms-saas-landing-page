@@ -1,0 +1,96 @@
+---
+title: "EICR Observation Codes Explained: C1, C2, C3, and FI"
+description: "A plain-English guide to EICR classification codes under BS 7671. What each code means, when to use them, and how they affect your certificate outcome."
+date: "2026-04-13"
+author: "opscel"
+tags: ["electrical", "BS 7671", "EICR", "compliance"]
+heroImage: "/images/blog/eicr-codes.png"
+---
+
+## What are EICR observation codes?
+
+When an electrician carries out an Electrical Installation Condition Report (EICR) under BS 7671, every deficiency found gets classified with a code. These codes determine whether the installation passes or fails — and what action the building owner must take.
+
+Getting these codes wrong creates real problems: wrong classification on a report can mean unnecessary remedial work, legal exposure, or — worse — a dangerous installation signed off as satisfactory.
+
+## The four classification codes
+
+### C1 — Danger present
+
+**Risk of injury exists.** The installation should be made safe immediately. An EICR with a C1 observation is always classified as **Unsatisfactory**.
+
+**Examples:**
+- Exposed live parts accessible without tools
+- Missing earthing conductor to an appliance
+- Burnt-out consumer unit with signs of arcing
+
+**What happens next:** The electrician may isolate the affected circuit on site. Remedial work is urgent.
+
+### C2 — Potentially dangerous
+
+**Risk of injury may arise.** Urgent remedial action is required. An EICR with a C2 observation is also classified as **Unsatisfactory**.
+
+**Examples:**
+- Missing RCD protection on socket circuits (post-2008 installations)
+- Inadequate bonding to gas/water services
+- Insulation resistance below acceptable limits
+
+**What happens next:** Remedial work should be carried out as soon as possible, but the circuit doesn't necessarily need immediate isolation.
+
+### C3 — Improvement recommended
+
+**Not compliant with the current edition of BS 7671, but no immediate danger.** This does **not** make the EICR unsatisfactory.
+
+**Examples:**
+- Lack of RCD protection on a pre-2008 installation where it wasn't required at the time
+- Consumer unit not to current fire-resistance standard
+- Absence of surge protection (now required under Amendment 2)
+
+**What happens next:** The building owner is advised to consider improvement, but there's no legal obligation to act.
+
+### FI — Further investigation required
+
+**The inspector cannot fully assess the condition** of part of the installation without further work (e.g., removing covers, testing circuits that were isolated, accessing areas behind fixed furniture).
+
+An FI observation does **not** make the EICR unsatisfactory on its own, but it means the inspection is incomplete.
+
+**What happens next:** A separate visit or further investigation is arranged. Once complete, the FI may be reclassified as C1, C2, C3, or cleared.
+
+## How codes affect the overall EICR result
+
+| Codes present | Overall result |
+|---|---|
+| C3 only | **Satisfactory** |
+| FI only | **Satisfactory** (but incomplete) |
+| Any C1 or C2 | **Unsatisfactory** |
+
+A single C1 or C2 observation overrides everything else — the installation fails regardless of how many items pass.
+
+## Common mistakes contractors make
+
+1. **Classifying old but safe installations as C2** — if it was compliant when installed and isn't dangerous now, C3 is correct
+2. **Using C3 for genuine hazards** — if there's a real risk of injury, it must be C1 or C2
+3. **Issuing FI and never following up** — technically valid, but leaves the report incomplete and the customer exposed
+4. **Forgetting that C1/C2 auto-fail the EICR** — no manual override should be possible
+
+## How Opscel handles this
+
+Opscel enforces the BS 7671 classification rules at the system level:
+
+- **Can't mark an EICR as "Satisfactory"** if C1 or C2 observations are present — see how our [digital certificates](/features/certificates) work
+- **Defect logging links directly to remedial quotes** — log a C2, generate a quote from the same screen using our [quotation workflow](/features/quotations)
+- **Complete audit trail** from observation through remediation, with linked Minor Works certificates
+- **Zs auto-lookup** validates readings against BS 7671 Table 41.4 so borderline values get flagged before the engineer signs off
+
+Engineers log defects on-site through the [field service app](/features/field-service), and the office sees them immediately — no waiting for paperwork.
+
+## Summary
+
+| Code | Severity | EICR outcome | Action required |
+|---|---|---|---|
+| C1 | Danger present | Unsatisfactory | Immediate |
+| C2 | Potentially dangerous | Unsatisfactory | Urgent |
+| C3 | Improvement recommended | Satisfactory | Advisory |
+| FI | Further investigation | Satisfactory (incomplete) | Follow-up visit |
+
+Understanding these codes isn't optional — they're the difference between a defensible certificate and a liability.

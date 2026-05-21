@@ -23,7 +23,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiCheckCircle size={26} />
             }
         ],
-        imageSrc: "/images/mockup-2.webp"
+        imageSrc: "/images/ui/01-screen.png"
     },
     {
         title: "One job. As many visits as it takes.",
@@ -45,7 +45,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiCalendar size={26} />
             }
         ],
-        imageSrc: "/images/mockup-1.webp"
+        imageSrc: "/images/ui/02-screen.png"
     },
     {
         title: "Defect to invoice, nothing re-keyed.",
@@ -67,7 +67,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiCheckCircle size={26} />
             }
         ],
-        imageSrc: "/images/mockup-2.webp"
+        imageSrc: "/images/ui/03-screen.png"
     },
     {
         title: "A portal your customers will actually use.",
@@ -89,7 +89,7 @@ export const benefits: IBenefit[] = [
                 icon: <FiDatabase size={26} />
             }
         ],
-        imageSrc: "/images/mockup-1.webp"
+        imageSrc: "/images/ui/04-screen.png"
     },
     {
         title: "Built for how contractors actually work.",
@@ -111,6 +111,6 @@ export const benefits: IBenefit[] = [
                 icon: <FiWifi size={26} />
             }
         ],
-        imageSrc: "/images/mockup-2.webp"
+        imageSrc: "/images/ui/05-screen.png"
     },
 ]

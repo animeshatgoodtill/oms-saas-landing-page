@@ -94,6 +94,7 @@ export interface IFeatureDetail {
     subtitle: string;
     heroDescription: string;
     iconId: string;
+    screenshotImage?: string;
     sections?: IFeatureDetailSection[];
     ctaText: string;
     ctaUrl: string;
@@ -144,4 +145,27 @@ export interface IDocGuide {
     description: string;
     lastUpdated: string;
     sections: IDocSection[];
+}
+
+// Blog types
+export interface IBlogPostMeta {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    lastUpdated?: string;
+    author: string;
+    tags: string[];
+    heroImage?: string;
+    draft?: boolean;
+    readingTime: number;
+}
+
+export interface IAuthor {
+    id: string;
+    name: string;
+    role: string;
+    bio: string;
+    avatar?: string;
+    linkedin?: string;
 }

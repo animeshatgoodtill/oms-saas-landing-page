@@ -6,6 +6,7 @@ export const invoicingDetail: IFeatureDetail = {
     subtitle: 'Stop chasing paperwork. Get paid faster.',
     heroDescription: 'OpsCel creates invoices from completed jobs using two intelligent paths: Fixed-Price jobs respect the agreed quote price with automatic deposit deduction; Time & Materials jobs build from actuals (labour + parts). One-click creation for both, with all details pre-filled.',
     iconId: 'icon-price-tag',
+    screenshotImage: '/images/ui/07-screen.png',
 
     featureHighlights: [
         {

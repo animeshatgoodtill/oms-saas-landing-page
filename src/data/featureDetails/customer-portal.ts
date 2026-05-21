@@ -6,6 +6,7 @@ export const customerPortalDetail: IFeatureDetail = {
     subtitle: 'OpsCel Customer Portal',
     heroDescription: 'Stop chasing customers for quote approvals. Stop emailing the same certificate three times. Give your customers a secure portal to view quotes, approve with one click, and download certificates 24/7. Faster approvals, fewer admin calls, professional experience.',
     iconId: 'icon-smart-customer',
+    screenshotImage: '/images/ui/04-screen.png',
 
     featureHighlights: [
         {

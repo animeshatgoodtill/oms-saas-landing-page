@@ -1,254 +1,172 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  FiBook,
-  FiMessageCircle,
+  FiHelpCircle,
+  FiCalendar,
   FiMail,
-  FiPhone,
-  FiPlayCircle,
-  FiFileText,
-  FiUsers,
-  FiSettings,
-  FiSmartphone,
-  FiCreditCard,
-  FiRefreshCw,
+  FiShield,
+  FiMessageCircle,
+  FiClock,
+  FiArrowRight,
 } from 'react-icons/fi';
 
-import Container from '@/components/Container';
-import PageHeader from '@/components/PageHeader';
+import PageHero from '@/components/PageHero';
 import { siteDetails } from '@/data/siteDetails';
 import { companyDetails } from '@/data/companyDetails';
 
 export const metadata: Metadata = {
-  title: `Help Centre | ${siteDetails.siteName}`,
+  title: `Support | ${siteDetails.siteName}`,
   description: `Get help with ${siteDetails.siteName}. Browse our help articles, watch tutorials, or contact our support team.`,
 };
 
-const helpTopics = [
-  {
-    icon: <FiPlayCircle size={24} />,
-    title: 'Getting Started',
-    description: 'New to Opscel? Learn the basics and set up your account.',
-    articles: ['Creating your account', 'Adding your first job', 'Inviting team members'],
-  },
-  {
-    icon: <FiUsers size={24} />,
-    title: 'Team Management',
-    description: 'Manage engineers, permissions, and team settings.',
-    articles: ['Adding engineers', 'Setting up roles', 'Managing schedules'],
-  },
-  {
-    icon: <FiFileText size={24} />,
-    title: 'Jobs & Certificates',
-    description: 'Create jobs, generate certificates, and manage documentation.',
-    articles: ['Creating a new job', 'Generating certificates', 'Customising templates'],
-  },
-  {
-    icon: <FiSmartphone size={24} />,
-    title: 'Mobile App',
-    description: 'Use Opscel on the go with our mobile application.',
-    articles: ['Installing the app', 'Offline mode', 'Photo capture'],
-  },
-  {
-    icon: <FiCreditCard size={24} />,
-    title: 'Billing & Subscriptions',
-    description: 'Manage your subscription, invoices, and payment methods.',
-    articles: ['Viewing invoices', 'Changing plans', 'Payment methods'],
-  },
-  {
-    icon: <FiSettings size={24} />,
-    title: 'Account Settings',
-    description: 'Configure your account, notifications, and preferences.',
-    articles: ['Profile settings', 'Notification preferences', 'Company details'],
-  },
-];
+interface SupportCard {
+  icon: React.ReactNode;
+  iconBg: string;
+  iconColor: string;
+  title: string;
+  description: string;
+  linkLabel: string;
+  linkColor?: string;
+  href?: string;
+  external?: boolean;
+}
 
 const SupportPage: React.FC = () => {
+  const cards: SupportCard[] = [
+    {
+      icon: <FiHelpCircle size={22} />,
+      iconBg: 'rgba(2,128,196,0.1)',
+      iconColor: 'var(--secondary)',
+      title: 'Help Centre',
+      description: 'Browse articles, guides, and step-by-step tutorials for every feature in Opscel.',
+      linkLabel: 'Visit Help Centre',
+      href: companyDetails.links.helpCentre || '#',
+      external: true,
+    },
+    {
+      icon: <FiCalendar size={22} />,
+      iconBg: 'rgba(254,216,53,0.2)',
+      iconColor: 'var(--foreground)',
+      title: 'Book a Walkthrough',
+      description: "Get a live screen-share with our team. We'll set up your account, import your data, and answer every question.",
+      linkLabel: 'Book 15 mins',
+      href: 'https://calendar.app.google/Tp8Hwzbf6tVMGDkW6',
+      external: true,
+    },
+    {
+      icon: <FiMail size={22} />,
+      iconBg: 'rgba(22,163,74,0.1)',
+      iconColor: 'var(--success)',
+      title: 'Email Support',
+      description: 'Send us an email and we\'ll respond within 24 hours (Mon–Fri). Priority queue for Team and Business plans.',
+      linkLabel: companyDetails.contact.supportEmail,
+      href: `mailto:${companyDetails.contact.supportEmail}`,
+    },
+    {
+      icon: <FiShield size={22} />,
+      iconBg: 'rgba(22,163,74,0.1)',
+      iconColor: 'var(--success)',
+      title: 'Status Page',
+      description: 'Check real-time uptime for the Opscel platform, API, and customer portal. Subscribe to incident notifications.',
+      linkLabel: 'All systems operational',
+      linkColor: 'var(--success)',
+      href: companyDetails.links.statusPage,
+      external: true,
+    },
+    {
+      icon: <FiMessageCircle size={22} />,
+      iconBg: 'rgba(48,79,255,0.1)',
+      iconColor: 'var(--secondary)',
+      title: 'Contact Sales',
+      description: 'Questions about pricing, multi-seat licences, or enterprise needs? Talk to us directly.',
+      linkLabel: 'Get in touch',
+      href: '/contact',
+    },
+    {
+      icon: <FiClock size={22} />,
+      iconBg: 'rgba(245,158,11,0.1)',
+      iconColor: 'var(--warning)',
+      title: 'Support Hours',
+      description: `${companyDetails.contact.supportHours}. We aim to respond to all emails within 24 hours on business days.`,
+      linkLabel: 'London, United Kingdom',
+      linkColor: 'var(--muted-foreground)',
+      // no href = non-clickable info card
+    },
+  ];
+
   return (
     <>
-      <PageHeader
-        title="Help Centre"
-        description="Find answers, watch tutorials, and get support from our team."
+      <PageHero
+        eyebrow="Support"
+        title="We're here to help"
+        description="Find answers, get in touch, or book a walkthrough. We're Monday–Friday, 9am–5:30pm GMT."
+        gradient="linear-gradient(135deg,#1e3a2f 0%,#16a34a 100%)"
       />
 
-      {/* Search Section - Placeholder for future search functionality */}
-      <section className="py-8 bg-hero-background border-b border-gray-200">
-        <Container>
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search for help articles..."
-                className="w-full px-6 py-4 rounded-full border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors text-lg"
-              />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-black px-6 py-2 rounded-full font-medium hover:bg-primary-accent transition-colors">
-                Search
-              </button>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Quick Contact Options */}
-      <section className="py-12">
-        <Container>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <a
-              href={companyDetails.links.helpCentre || '#'}
-              className="flex flex-col items-center p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-shadow text-center"
-            >
-              <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
-                <FiBook className="text-foreground" size={24} />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">Documentation</h3>
-              <p className="text-sm text-foreground-accent">Browse our detailed guides and tutorials</p>
-            </a>
-
-            <a
-              href={`mailto:${companyDetails.contact.supportEmail}`}
-              className="flex flex-col items-center p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-shadow text-center"
-            >
-              <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
-                <FiMail className="text-foreground" size={24} />
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">Email Support</h3>
-              <p className="text-sm text-foreground-accent">Get help from our support team</p>
-            </a>
-
-            {companyDetails.links.statusPage && (
-              <a
-                href={companyDetails.links.statusPage}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-shadow text-center"
-              >
-                <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                  <FiRefreshCw className="text-green-600" size={24} />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">System Status</h3>
-                <p className="text-sm text-foreground-accent">Check service availability</p>
-              </a>
-            )}
-          </div>
-        </Container>
-      </section>
-
-      {/* Help Topics */}
-      <section className="py-12 bg-hero-background">
-        <Container>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-            Browse by Topic
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {helpTopics.map((topic, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow"
-              >
-                <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
-                  {topic.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {topic.title}
-                </h3>
-                <p className="text-foreground-accent text-sm mb-4">
-                  {topic.description}
-                </p>
-                <ul className="space-y-2">
-                  {topic.articles.map((article, articleIndex) => (
-                    <li key={articleIndex}>
-                      <a
-                        href="#"
-                        className="text-sm text-secondary hover:underline"
-                      >
-                        {article}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Contact Support Section */}
-      <section className="py-16 md:py-24">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Can&apos;t Find What You&apos;re Looking For?
-            </h2>
-            <p className="text-foreground-accent mb-8">
-              Our support team is here to help. Reach out and we&apos;ll get back to you
-              as soon as possible.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto">
-              <div className="bg-hero-background rounded-2xl p-6">
-                <FiMail className="mx-auto mb-3 text-foreground" size={28} />
-                <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
-                <a
-                  href={`mailto:${companyDetails.contact.supportEmail}`}
-                  className="text-secondary hover:underline"
-                >
-                  {companyDetails.contact.supportEmail}
-                </a>
-                <p className="text-sm text-foreground-accent mt-2">
-                  We respond within 24 hours
-                </p>
-              </div>
-
-              {companyDetails.contact.phone && (
-                <div className="bg-hero-background rounded-2xl p-6">
-                  <FiPhone className="mx-auto mb-3 text-foreground" size={28} />
-                  <h3 className="font-semibold text-foreground mb-2">Call Us</h3>
-                  <a
-                    href={`tel:${companyDetails.contact.phone.replace(/\s/g, '')}`}
-                    className="text-secondary hover:underline"
+      <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+        <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {cards.map((card, i) => {
+              const inner = (
+                <>
+                  <div
+                    className="w-12 h-12 rounded-[0.875rem] flex items-center justify-center"
+                    style={{ background: card.iconBg, color: card.iconColor }}
                   >
-                    {companyDetails.contact.phone}
+                    {card.icon}
+                  </div>
+                  <div className="font-heading font-bold text-[1.0625rem] text-foreground">
+                    {card.title}
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-[1.55] flex-1">
+                    {card.description}
+                  </div>
+                  <div
+                    className="text-sm font-semibold flex items-center gap-1.5"
+                    style={{ color: card.linkColor || 'var(--secondary)' }}
+                  >
+                    {card.linkLabel}
+                    {card.href && (
+                      <FiArrowRight size={14} />
+                    )}
+                  </div>
+                </>
+              );
+
+              const cardClass =
+                'bg-white border border-border rounded-[0.75rem] p-7 flex flex-col gap-3.5 transition-all duration-200';
+              const linkClass = `${cardClass} no-underline text-inherit hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-0.5`;
+
+              if (!card.href) {
+                return (
+                  <div key={i} className={cardClass} style={{ cursor: 'default' }}>
+                    {inner}
+                  </div>
+                );
+              }
+
+              if (card.external) {
+                return (
+                  <a
+                    key={i}
+                    href={card.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {inner}
                   </a>
-                  <p className="text-sm text-foreground-accent mt-2">
-                    {companyDetails.contact.supportHours}
-                  </p>
-                </div>
-              )}
-            </div>
+                );
+              }
 
-            <div className="mt-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors"
-              >
-                <FiMessageCircle size={18} />
-                Contact Support
-              </Link>
-            </div>
+              return (
+                <Link key={i} href={card.href} className={linkClass}>
+                  {inner}
+                </Link>
+              );
+            })}
           </div>
-        </Container>
-      </section>
-
-      {/* FAQ Link */}
-      <section className="py-12 bg-foreground text-white">
-        <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="text-xl font-semibold mb-2">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-white/70">
-                Find quick answers to common questions about Opscel.
-              </p>
-            </div>
-            <Link
-              href="/#faq"
-              className="bg-white text-foreground hover:bg-gray-100 px-8 py-3 rounded-full font-medium transition-colors whitespace-nowrap"
-            >
-              View FAQs
-            </Link>
-          </div>
-        </Container>
+        </div>
       </section>
     </>
   );

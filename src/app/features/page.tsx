@@ -1,92 +1,104 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-import Container from '@/components/Container';
-import PageHeader from '@/components/PageHeader';
+import PageHero from '@/components/PageHero';
+import SectionHeading from '@/components/SectionHeading';
+import CtaBox from '@/components/CtaBox';
 import { siteDetails } from '@/data/siteDetails';
-import { featureCategories, featuresPageDetails } from '@/data/featuresPage';
+import { featureCategories } from '@/data/featuresPage';
 import { featureDetails } from '@/data/featureDetails';
 
 export const metadata: Metadata = {
   title: `Features | ${siteDetails.siteName}`,
-  description: 'Discover all the features that make OpsCel the complete job management solution for UK trade contractors. Mobile field service, instant certificates, team management, and more.',
+  description:
+    'Discover all the features that make OpsCel the complete job management solution for UK trade contractors. Mobile field service, instant certificates, team management, and more.',
 };
 
 const FeaturesPage: React.FC = () => {
   return (
     <>
-      <PageHeader
-        title={featuresPageDetails.title}
-        description={featuresPageDetails.description}
+      <PageHero
+        eyebrow={
+          <>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9z" />
+            </svg>
+            Platform
+          </>
+        }
+        title="Everything You Need to Run Your Business"
+        description="From field service to invoicing, customer management to compliance — Opscel handles it all. One system that works."
+        actions={[
+          { label: 'Start Free Trial', href: 'https://app.opscel.com/handler/sign-up', variant: 'primary' },
+          { label: 'View Pricing', href: '/#pricing', variant: 'outline' },
+        ]}
       />
 
-      {/* All Feature Detail Pages - Grid */}
-      <section className="py-16 md:py-20">
-        <Container>
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Explore All Features</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Click any feature to see detailed information, pricing, and how it works
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featureDetails.map((feature) => (
-                <Link
-                  key={feature.slug}
-                  href={`/features/${feature.slug}`}
-                  className="group bg-white border border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition-all"
+      {/* ── ALL FEATURES GRID ── White background */}
+      <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+        <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+          <SectionHeading eyebrow="All Features" title="Explore every capability" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {featureDetails.map((feature) => (
+              <Link
+                key={feature.slug}
+                href={`/features/${feature.slug}`}
+                className="flex items-start gap-4 p-5 bg-white border border-border rounded-[0.75rem] hover:-translate-y-0.5 transition-all duration-200 hover:border-[color:var(--secondary)] hover:shadow-[0_4px_16px_rgba(2,128,196,0.1)]"
+              >
+                <div
+                  className="w-11 h-11 rounded-[0.75rem] flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(2,128,196,0.1)' }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <svg className="w-7 h-7">
-                        <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">
-                        {feature.subtitle}
-                      </p>
-                    </div>
+                  <svg width="22" height="22" viewBox="0 0 200 200">
+                    <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-heading font-bold text-[0.9375rem] text-foreground mb-1">
+                    {feature.title}
                   </div>
-                </Link>
-              ))}
-            </div>
+                  <div className="text-[0.8125rem] text-muted-foreground leading-[1.45] line-clamp-2">
+                    {feature.subtitle}
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* Feature Categories */}
-      {featureCategories.map((category, categoryIndex) => (
-        <section
-          key={categoryIndex}
-          className={`py-16 md:py-24 ${categoryIndex % 2 === 1 ? 'bg-hero-background' : ''}`}
-        >
-          <Container>
-            <div className="max-w-6xl mx-auto">
-              {/* Category Header */}
-              <div className="flex items-start gap-6 mb-12">
-                <div className="w-20 h-20 bg-primary/15 rounded-2xl flex items-center justify-center text-foreground flex-shrink-0">
-                  <svg className="w-14 h-14">
+      {/* ── CATEGORY SECTIONS ── Light surface background */}
+      <section style={{ padding: '4rem 0 0', background: 'var(--muted)' }}>
+        <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+          {featureCategories.map((category, categoryIndex) => (
+            <div
+              key={categoryIndex}
+              className="py-16 border-b border-border last:border-b-0"
+            >
+              {/* Category header */}
+              <div className="flex items-start gap-5 mb-10">
+                <div
+                  className="w-14 h-14 rounded-[1rem] flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(254,216,53,0.2)' }}
+                >
+                  <svg width="28" height="28" viewBox="0 0 200 200">
                     <use href={`/icons/features-sprite.svg#${category.iconId}`} />
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
+                  <h2 className="font-heading font-bold text-foreground mb-1.5 tracking-[-0.015em] text-2xl">
                     {category.title}
                   </h2>
-                  <p className="text-xl text-muted-foreground mb-4">
+                  <p className="text-base text-muted-foreground leading-[1.55]">
                     {category.description}
                   </p>
                   {category.detailSlug && (
                     <Link
                       href={`/features/${category.detailSlug}`}
-                      className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 font-medium transition-colors"
+                      className="inline-flex items-center gap-2 text-[color:var(--secondary)] hover:opacity-80 font-medium text-sm mt-3 transition-opacity"
                     >
-                      Learn More
+                      Learn more
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
@@ -95,57 +107,40 @@ const FeaturesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Features Grid - Clean Stripe Style */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-12">
+              {/* Category features grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {category.features.map((feature, featureIndex) => (
                   <div key={featureIndex}>
-                    {/* Icon - Large and prominent */}
-                    <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                      <svg className="w-10 h-10">
+                    <div
+                      className="w-11 h-11 rounded-[0.875rem] flex items-center justify-center mb-3"
+                      style={{ background: 'rgba(2,128,196,0.08)' }}
+                    >
+                      <svg width="22" height="22" viewBox="0 0 200 200">
                         <use href={`/icons/features-sprite.svg#${feature.iconId}`} />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">
+                    <h3 className="font-heading font-bold text-[0.9375rem] text-foreground mb-1.5">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-[0.8125rem] text-muted-foreground leading-[1.5]">
                       {feature.description}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-          </Container>
-        </section>
-      ))}
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24">
-        <Container>
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Try Every Feature Free for 90 Days
-            </h2>
-            <p className="text-foreground-accent mb-8">
-              No limitations, no &ldquo;trial version.&rdquo; See if OpsCel works for your business with zero risk.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://app.opscel.com/handler/sign-up"
-                className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
-              >
-                Start Free Trial
-              </Link>
-              <Link
-                href="/#pricing"
-                className="border border-border hover:border-foreground/60 text-foreground px-8 py-3 rounded-full font-medium transition-all duration-mechanical ease-mechanical"
-              >
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        </Container>
+          ))}
+        </div>
       </section>
+
+      <CtaBox
+        title="Try every feature free for 90 days"
+        subtitle="No limitations, no trial version. See if Opscel works for your business with zero risk."
+        actions={[
+          { label: 'Start Free Trial', href: 'https://app.opscel.com/handler/sign-up', variant: 'primary' },
+          { label: 'View Pricing', href: '/#pricing', variant: 'outline' },
+        ]}
+      />
     </>
   );
 };

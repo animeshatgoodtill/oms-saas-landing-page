@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3, HiChevronDown } from 'react-icons/hi2';
 
@@ -22,18 +22,25 @@ const Header: React.FC = () => {
         setOpenSubmenu(openSubmenu === itemText ? null : itemText);
     };
 
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
+        <header className={`fixed top-0 left-0 right-0 z-50 mx-auto w-full transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
             <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+                <nav className="mx-auto flex justify-between items-center py-2 px-5 md:py-4">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
-                            src="/images/opscel-logo.svg"
+                            src="/images/opscel-logo.webp"
                             alt="Opscel"
-                            width={320}
-                            height={96}
-                            className="h-28 w-auto"
+                            width={300}
+                            height={90}
+                            className="h-14 w-auto"
                             priority
                         />
                     </Link>
@@ -89,7 +96,7 @@ const Header: React.FC = () => {
                         <li>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-8 py-3 rounded-full transition-all duration-mechanical ease-mechanical"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-8 py-3 rounded-full transition-all duration-mechanical ease-mechanical"
                             >
                                 Get Started
                             </a>
@@ -192,7 +199,7 @@ const Header: React.FC = () => {
                         <li className="pt-2">
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="bg-primary text-primary-foreground hover:bg-primary-accent px-5 py-2 rounded-full block w-fit transition-all duration-mechanical ease-mechanical"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-5 py-2 rounded-full block w-fit transition-all duration-mechanical ease-mechanical"
                                 onClick={toggleMenu}
                             >
                                 Get Started

@@ -6,6 +6,7 @@ export const dashboardDetail: IFeatureDetail = {
     subtitle: 'OpsCel Dashboard',
     heroDescription: 'See what needs attention, who\'s available, and what\'s converting—all before your first coffee gets cold. Every other system shows you numbers. OpsCel shows you what to do next.',
     iconId: 'icon-activity-log',
+    screenshotImage: '/images/ui/09-screen.png',
 
     featureHighlights: [
         {

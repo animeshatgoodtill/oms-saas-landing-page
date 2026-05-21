@@ -5,6 +5,7 @@ import { Source_Sans_3, Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { siteDetails } from '@/data/siteDetails';
+import { generateOrganizationSchema } from '@/lib/schema';
 
 import "./globals.css";
 
@@ -12,8 +13,15 @@ const manrope = Manrope({ subsets: ['latin'] });
 const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteDetails.siteUrl),
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': '/rss.xml',
+    },
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -49,8 +57,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.className} ${sourceSans.className} antialiased`}
+        className={`${manrope.className} ${sourceSans.className} antialiased overflow-x-hidden`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationSchema()) }}
+        />
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />
         <main>

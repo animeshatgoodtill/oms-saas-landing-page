@@ -57,7 +57,9 @@ export const companyDetails = {
     helpCentre: 'https://help.opscel.com',             // External help docs (set to '' if not available)
     statusPage: 'https://status.opscel.com',           // Status page (set to '' if not available)
     linkedIn: 'https://www.linkedin.com/company/opscel',
-    twitter: 'https://twitter.com/opscel',
+    facebook: 'https://www.facebook.com/profile.php?id=61575396313261',
+    reddit: 'https://www.reddit.com/r/Opscel/',
+    youtube: 'https://www.youtube.com/channel/UCG6rw49ob1qY--Vwr3TUMmg',
   },
 
   // === ABOUT PAGE CONTENT ===

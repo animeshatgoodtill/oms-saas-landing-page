@@ -63,12 +63,20 @@ export const footerDetails: {
     ],
     resourcesLinks: [
         {
+            text: "Blog",
+            url: "/blog"
+        },
+        {
             text: "Documentation",
             url: "/docs"
         },
         {
             text: "Certificate Guide",
             url: "/docs/certificates"
+        },
+        {
+            text: "Asset Tracking Guide",
+            url: "/docs/asset-tracking"
         },
         {
             text: "Customer Portal Guide",
@@ -118,10 +126,10 @@ export const footerDetails: {
     email: 'hello@opscel.com',
     telephone: '',
     socials: {
-        // twitter: 'https://twitter.com/opscel',
-        // facebook: 'https://facebook.com/opscel',
+        facebook: 'https://www.facebook.com/profile.php?id=61575396313261',
+        reddit: 'https://www.reddit.com/r/Opscel/',
         linkedin: 'https://www.linkedin.com/company/opscel',
-        // instagram: 'https://www.instagram.com/opscel',
+        youtube: 'https://www.youtube.com/channel/UCG6rw49ob1qY--Vwr3TUMmg',
     },
     icoRegistrationNumber: 'ZC105961'
 }

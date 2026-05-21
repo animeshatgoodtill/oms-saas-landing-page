@@ -1,38 +1,31 @@
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
+import TrustStrip from "@/components/TrustStrip";
+import FeatureShowcase from "@/components/FeatureShowcase";
+import BackofficeHero from "@/components/BackofficeHero";
+import Benefits from "@/components/Benefits/Benefits";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
-import Benefits from "@/components/Benefits/Benefits";
+import CTA from "@/components/CTA";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
-import CTA from "@/components/CTA";
-import CapabilityGrid from "@/components/CapabilityGrid";
-import FeatureShowcase from "@/components/FeatureShowcase";
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
-      <CapabilityGrid />
+      <TrustStrip />
       <FeatureShowcase />
+      <BackofficeHero />
 
       <Container>
         <Benefits />
 
         <Section
           id="pricing"
-          title="Straightforward pricing. No per-job fees. No contracts."
-          description=""
+          title="Simple pricing. 90-day free trial."
+          description="No credit card required. Full access from day one. Cancel anytime."
         >
           <Pricing />
-        </Section>
-
-        <Section
-          id="testimonials"
-          title="Social Proof"
-          description=""
-        >
-          <Testimonials />
         </Section>
 
         <FAQ />

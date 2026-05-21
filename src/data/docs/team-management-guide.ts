@@ -5,7 +5,6 @@ export const teamManagementGuide: IDocGuide = {
     title: 'Team, Roles & Permissions',
     description: 'Manage users, assign roles, and control access in OpsCel. Learn about the 7 fixed roles, how to invite team members, permission matrix, and multi-tenant access.',
     lastUpdated: '2026-05-21',
-    category: 'Settings & Admin',
     sections: [
         {
             id: 'overview',

@@ -5,14 +5,14 @@ export interface IMenuItem {
 }
 
 export interface IBenefit {
-    title: string;
+    title?: string;
     description: string;
     imageSrc: string;
     bullets: IBenefitBullet[]
 }
 
 export interface IBenefitBullet {
-    title: string;
+    title?: string;
     description: string;
     icon: JSX.Element;
 }
@@ -36,7 +36,7 @@ export interface ITestimonial {
 }
 
 export interface IStats {
-    title: string;
+    title?: string;
     icon: JSX.Element;
     description: string;
 }
@@ -54,7 +54,7 @@ export interface ISocials {
 }
 
 export interface IFeatureDetailSection {
-    title: string;
+    title?: string;
     description: string;
     imageSrc?: string;
     bullets?: string[];
@@ -62,13 +62,13 @@ export interface IFeatureDetailSection {
 
 export interface IFeatureHighlight {
     iconId: string;
-    title: string;
+    title?: string;
     description: string;
 }
 
 export interface IHowItWorksStep {
     stepNumber: number;
-    title: string;
+    title?: string;
     description: string;
 }
 
@@ -90,8 +90,8 @@ export interface IComparisonRow {
 
 export interface IFeatureDetail {
     slug: string;
-    title: string;
-    subtitle: string;
+    title?: string;
+    subtitle?: string;
     heroDescription: string;
     iconId: string;
     screenshotImage?: string;
@@ -115,15 +115,15 @@ export interface IFeatureDetail {
 // Documentation types
 export interface IDocSection {
     id: string;
-    title: string;
+    title?: string;
     content?: string;
     subsections?: IDocSubsection[];
     table?: IDocTable;
 }
 
 export interface IDocSubsection {
-    title: string;
-    content: string;
+    title?: string;
+    content?: string;
     bullets?: string[];
     table?: IDocTable;
     steps?: IDocStep[];
@@ -141,7 +141,7 @@ export interface IDocStep {
 
 export interface IDocGuide {
     slug: string;
-    title: string;
+    title?: string;
     description: string;
     lastUpdated: string;
     sections: IDocSection[];

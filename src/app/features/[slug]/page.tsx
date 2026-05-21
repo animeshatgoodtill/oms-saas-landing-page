@@ -1,5 +1,7 @@
+import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import FAQAccordion from '@/components/FAQAccordion';
 import PageHero from '@/components/PageHero';
@@ -162,11 +164,16 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                   <div className="font-heading font-extrabold text-[0.8125rem] uppercase tracking-[0.06em] text-[color:var(--secondary)] mb-3.5">
                     {persona.persona}
                   </div>
-                ))}
+                  <ul className="space-y-2 mt-2">
+                    {persona.benefits.map((benefit, j) => (
+                      <li key={j} className="text-sm text-muted-foreground leading-[1.6]">{benefit}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
               </div>
             </div>
-          </Container>
-        </section>
+          </section>
       )}
 
       {/* Legacy Feature Sections (for backward compatibility) */}
@@ -176,7 +183,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
           style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}
           className={index % 2 === 1 ? 'bg-hero-background' : ''}
         >
-          <Container>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
             <div className="max-w-4xl mx-auto">
               <h2 className="mb-6">
                 {section.title}
@@ -208,11 +215,11 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                     className="w-full h-auto"
                   />
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </section>
-      )}
+      ))}
 
       {/* ── COMPARISON ── */}
       {feature.comparison && feature.comparison.length > 0 && (

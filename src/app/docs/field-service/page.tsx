@@ -53,9 +53,15 @@ export default function FieldServiceDocsPage() {
                     <ol className="list-decimal pl-6 mb-4 space-y-3 text-gray-700">
                         {subsection.steps.map((stepObj, idx) => (
                             <li key={idx}>
-                                <strong>{stepObj.step}</strong>
-                                {stepObj.description && (
-                                    <span className="text-gray-600"> — {stepObj.description}</span>
+                                {typeof stepObj === 'string' ? (
+                                    <span dangerouslySetInnerHTML={{ __html: stepObj }} />
+                                ) : (
+                                    <>
+                                        <strong>{stepObj.step}</strong>
+                                        {stepObj.description && (
+                                            <span className="text-gray-600"> — {stepObj.description}</span>
+                                        )}
+                                    </>
                                 )}
                             </li>
                         ))}

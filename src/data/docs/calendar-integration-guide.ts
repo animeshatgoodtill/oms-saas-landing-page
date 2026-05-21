@@ -97,8 +97,10 @@ export const calendarIntegrationGuide: IDocGuide = {
                         '<strong>Write job events:</strong> Scheduled OpsCel jobs create calendar events',
                         '<strong>Update job events:</strong> If job time changes, calendar event updates automatically',
                         '<strong>Delete job events:</strong> If job is cancelled, calendar event is removed'
-                    ],
-                    content_after_bullets: '<p><strong>Privacy note:</strong> OpsCel only reads event start/end times and busy/free status. Event titles, descriptions, and attendees are NOT accessed.</p>'
+                    ]
+                },
+                {
+                    content: '<p><strong>Privacy note:</strong> OpsCel only reads event start/end times and busy/free status. Event titles, descriptions, and attendees are NOT accessed.</p>'
                 },
                 {
                     title: 'Calendar Selection',
@@ -419,9 +421,11 @@ export const calendarIntegrationGuide: IDocGuide = {
                         '<strong>Permissions revoked:</strong> You manually removed OpsCel from connected apps',
                         '<strong>Organization policy change:</strong> IT admin revoked app access',
                         '<strong>Long inactivity:</strong> Haven&apos;t used OpsCel or synced calendar in 6+ months'
-                    ],
-                    content_after_bullets: '<p>When refresh fails, you receive:</p>',
-                    bullets_after: [
+                    ]
+                },
+                {
+                    content: '<p>When refresh fails, you receive:</p>',
+                    bullets: [
                         '<strong>Email notification:</strong> "OpsCel calendar sync stopped - reconnect required"',
                         '<strong>In-app banner:</strong> Red banner at top of OpsCel: "Calendar connection expired"',
                         '<strong>Settings indicator:</strong> Calendar integration status shows "Disconnected - Reconnect Required"'
@@ -539,9 +543,9 @@ export const calendarIntegrationGuide: IDocGuide = {
                         'Connection status shows "Connected" in Settings → Calendar Integration',
                         'Last sync time is recent (within 15 minutes)',
                         'OAuth token not expired (check for reconnection prompt)',
-                        'Selected the correct calendar (check calendar selection dropdown)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Click "Sync Now" button to force immediate sync. If still not syncing, disconnect and reconnect calendar.</p>'
+                        'Selected the correct calendar (check calendar selection dropdown)',
+                        '<strong>Fix:</strong> Click "Sync Now" button to force immediate sync. If still not syncing, disconnect and reconnect calendar.'
+                    ]
                 },
                 {
                     title: 'Jobs Not Appearing in Calendar',
@@ -551,9 +555,9 @@ export const calendarIntegrationGuide: IDocGuide = {
                         'Visit has a scheduled date (unscheduled visits don&apos;t sync)',
                         'You&apos;re the assigned engineer (only your assigned jobs appear in your calendar)',
                         'Last sync time is recent',
-                        'Looking at correct calendar (check selected calendar in OpsCel settings)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Force sync by clicking "Sync Now". If job still missing, check calendar selection - you may be syncing to a different calendar than you&apos;re viewing.</p>'
+                        'Looking at correct calendar (check selected calendar in OpsCel settings)',
+                        '<strong>Fix:</strong> Force sync by clicking "Sync Now". If job still missing, check calendar selection - you may be syncing to a different calendar than you&apos;re viewing.'
+                    ]
                 },
                 {
                     title: 'Availability Not Blocking Scheduling',
@@ -562,9 +566,9 @@ export const calendarIntegrationGuide: IDocGuide = {
                         'ICS feed refresh delay (up to 15 minutes)',
                         'Event marked as "Busy" (not "Free" or "Available")',
                         'OAuth permissions granted (if using Google/Microsoft)',
-                        'Calendar integration enabled (not disconnected)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Wait 15 minutes for ICS refresh, or click "Sync Now" for OAuth. Ensure event status is "Busy". If using ICS, switch to OAuth for faster sync.</p>'
+                        'Calendar integration enabled (not disconnected)',
+                        '<strong>Fix:</strong> Wait 15 minutes for ICS refresh, or click "Sync Now" for OAuth. Ensure event status is "Busy". If using ICS, switch to OAuth for faster sync.'
+                    ]
                 },
                 {
                     title: 'Duplicate Events in Calendar',
@@ -572,9 +576,9 @@ export const calendarIntegrationGuide: IDocGuide = {
                     bullets: [
                         'Multiple calendar connections active (e.g., both Google and Microsoft)',
                         'Syncing to same calendar from multiple OpsCel accounts (multi-tenant)',
-                        'Old events not cleaned up after disconnection'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Disconnect all calendar integrations, manually delete duplicate events, then reconnect one calendar only.</p>'
+                        'Old events not cleaned up after disconnection',
+                        '<strong>Fix:</strong> Disconnect all calendar integrations, manually delete duplicate events, then reconnect one calendar only.'
+                    ]
                 },
                 {
                     title: 'OAuth Error Messages',
@@ -583,9 +587,9 @@ export const calendarIntegrationGuide: IDocGuide = {
                         'Account password recently changed',
                         'OAuth permissions manually revoked',
                         'Organization policy blocking app (enterprise users)',
-                        'Browser blocking popup (OAuth opens in new window)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Clear browser cache, allow popups from app.opscel.com, try reconnection. If enterprise user, contact IT admin for app approval.</p>'
+                        'Browser blocking popup (OAuth opens in new window)',
+                        '<strong>Fix:</strong> Clear browser cache, allow popups from app.opscel.com, try reconnection. If enterprise user, contact IT admin for app approval.'
+                    ]
                 }
             ]
         },

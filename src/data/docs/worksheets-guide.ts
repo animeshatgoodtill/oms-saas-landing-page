@@ -187,9 +187,9 @@ export const worksheetsGuide: IDocGuide = {
                     bullets: [
                         '<strong>Fire alarm service:</strong> "Panel Inspection Checklist" + "Zone Test Sheet" + "Final Commissioning Form"',
                         '<strong>EICR:</strong> "Distribution Board Schedule" + "Observation Log" + "Test Results"',
-                        '<strong>Installation:</strong> "Pre-Install Risk Assessment" + "Installation Checklist" + "Customer Handover"'
-                    ],
-                    content_after_bullets: '<p>Engineers complete worksheets in the order they appear in the field app. Each worksheet is saved independently.</p>'
+                        '<strong>Installation:</strong> "Pre-Install Risk Assessment" + "Installation Checklist" + "Customer Handover"',
+                        'Engineers complete worksheets in the order they appear in the field app. Each worksheet is saved independently.'
+                    ]
                 },
                 {
                     title: 'Steps to Assign Worksheet',
@@ -278,9 +278,9 @@ export const worksheetsGuide: IDocGuide = {
                     bullets: [
                         '<strong>0%:</strong> No fields filled (Not Started)',
                         '<strong>1-99%:</strong> Some fields filled (In Progress)',
-                        '<strong>100%:</strong> All required fields filled, worksheet can be marked complete'
-                    ],
-                    content_after_bullets: '<p>Tap <strong>Mark Complete</strong> button when all required fields are filled. This locks the worksheet for editing (admins can reopen if needed).</p>'
+                        '<strong>100%:</strong> All required fields filled, worksheet can be marked complete',
+                        'Tap <strong>Mark Complete</strong> button when all required fields are filled. This locks the worksheet for editing (admins can reopen if needed).'
+                    ]
                 },
                 {
                     title: 'Steps to Complete Worksheet',
@@ -384,9 +384,9 @@ export const worksheetsGuide: IDocGuide = {
                         '<strong>Worksheet marked complete</strong> with at least "Serial Number" field filled',
                         '<strong>Job has a customer and site</strong> (asset must belong to a site)',
                         '<strong>Serial number is unique</strong> (no existing asset with same serial number at that site)',
-                        '<strong>Admin has enabled auto-promotion</strong> in Settings → Asset Tracking'
-                    ],
-                    content_after_bullets: '<p>If auto-promotion is disabled, admins can manually promote from the worksheet view page.</p>'
+                        '<strong>Admin has enabled auto-promotion</strong> in Settings → Asset Tracking',
+                        'If auto-promotion is disabled, admins can manually promote from the worksheet view page.'
+                    ]
                 },
                 {
                     title: 'Manual Promotion',
@@ -465,9 +465,9 @@ export const worksheetsGuide: IDocGuide = {
                         'At least one section exists',
                         'Each section has at least one field (empty sections not allowed)',
                         'No duplicate field names within same section',
-                        'Conditional logic references valid fields (if using conditions)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Review validation errors at top of page. Fix each error, then retry Save.</p>'
+                        'Conditional logic references valid fields (if using conditions)',
+                        '<strong>Fix:</strong> Review validation errors at top of page. Fix each error, then retry Save.'
+                    ]
                 },
                 {
                     title: 'Worksheet Not Showing in Field App',
@@ -476,9 +476,9 @@ export const worksheetsGuide: IDocGuide = {
                         'Worksheet is assigned to the correct job (check job detail page)',
                         'Engineer is assigned to that job',
                         'Engineer has field app access (role permissions)',
-                        'Field app is synced (pull down to refresh job list)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> If worksheet is assigned but not visible, ask engineer to log out and log back in to force full sync.</p>'
+                        'Field app is synced (pull down to refresh job list)',
+                        '<strong>Fix:</strong> If worksheet is assigned but not visible, ask engineer to log out and log back in to force full sync.'
+                    ]
                 },
                 {
                     title: 'Auto-Save Failed',
@@ -486,18 +486,18 @@ export const worksheetsGuide: IDocGuide = {
                     bullets: [
                         'Internet connection (if offline, changes queue until online)',
                         'Sync queue status (Settings → Sync Inspector)',
-                        'Field validation errors (invalid data prevents save)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> If offline, wait for connection to return. If online but failing, check for validation errors in red text under fields. Fix errors and save will retry automatically.</p>'
+                        'Field validation errors (invalid data prevents save)',
+                        '<strong>Fix:</strong> If offline, wait for connection to return. If online but failing, check for validation errors in red text under fields. Fix errors and save will retry automatically.'
+                    ]
                 },
                 {
                     title: 'Can&apos;t Edit Completed Worksheet',
                     content: '<p><strong>Problem:</strong> Need to change data in a worksheet marked complete.</p><p><strong>Check:</strong></p>',
                     bullets: [
                         'Worksheet status is "Complete" (completed worksheets are locked)',
-                        'Job status (completed jobs lock all worksheets)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Admin must click "Reopen Worksheet" button on the worksheet card. This unlocks it for editing. Engineer can then make changes and re-mark complete. Activity log records the reopen event.</p>'
+                        'Job status (completed jobs lock all worksheets)',
+                        '<strong>Fix:</strong> Admin must click "Reopen Worksheet" button on the worksheet card. This unlocks it for editing. Engineer can then make changes and re-mark complete. Activity log records the reopen event.'
+                    ]
                 },
                 {
                     title: 'Asset Didn&apos;t Promote',
@@ -507,9 +507,9 @@ export const worksheetsGuide: IDocGuide = {
                         'Serial number field is filled (not left blank)',
                         'Job has customer and site assigned',
                         'Auto-promotion enabled (Settings → Asset Tracking → Auto-promote from worksheets)',
-                        'No existing asset with same serial number at that site (duplicates blocked)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> If auto-promotion failed, admin can manually promote from worksheet view page. Click "Promote to Asset" button and confirm details.</p>'
+                        'No existing asset with same serial number at that site (duplicates blocked)',
+                        '<strong>Fix:</strong> If auto-promotion failed, admin can manually promote from worksheet view page. Click "Promote to Asset" button and confirm details.'
+                    ]
                 }
             ]
         },

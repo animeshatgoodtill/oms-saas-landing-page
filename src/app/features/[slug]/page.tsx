@@ -339,7 +339,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                 <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src={section.imageSrc}
-                    alt={section.title}
+                    alt={section.title || section.description}
                     width={1200}
                     height={800}
                     className="w-full h-auto"

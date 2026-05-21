@@ -60,7 +60,7 @@ export default function BrandingPage() {
                             <li
                                 key={stepIdx}
                                 className="text-foreground-accent pl-2"
-                                dangerouslySetInnerHTML={{ __html: step }}
+                                dangerouslySetInnerHTML={{ __html: typeof step === 'string' ? step : step.step }}
                             />
                         ))}
                     </ol>

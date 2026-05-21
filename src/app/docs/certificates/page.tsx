@@ -52,7 +52,12 @@ const CertificatesDocPage = () => {
           {subsection.steps.map((step, idx) => (
             <li key={idx} className="text-muted-foreground flex items-start gap-3">
               <span className="font-mono text-secondary font-bold">{idx + 1}.</span>
-              <span>{step.step} {step.description && `— ${step.description}`}</span>
+              <span>
+                {typeof step === 'string'
+                  ? <span dangerouslySetInnerHTML={{ __html: step }} />
+                  : <>{step.step} {step.description && `— ${step.description}`}</>
+                }
+              </span>
             </li>
           ))}
         </ol>

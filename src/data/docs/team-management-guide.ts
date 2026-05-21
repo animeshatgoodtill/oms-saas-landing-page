@@ -485,9 +485,9 @@ export const teamManagementGuide: IDocGuide = {
                         'User role permissions (check matrix above)',
                         'Tier limits (feature available on user&apos;s current tier?)',
                         'User has logged out and back in since role change',
-                        'License count (user counted toward tier limit?)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., Quotations analytics) require Business+ tier. If user recently changed roles, ask them to log out and log back in.</p>'
+                        'License count (user counted toward tier limit?)',
+                        '<strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., Quotations analytics) require Business+ tier. If user recently changed roles, ask them to log out and log back in.'
+                    ]
                 },
                 {
                     title: 'Invite Email Not Received',
@@ -496,18 +496,18 @@ export const teamManagementGuide: IDocGuide = {
                         'Spam folder (OpsCel emails sometimes flagged)',
                         'Email address spelling (check for typos in invite)',
                         'Pending invites list (verify invite was actually sent)',
-                        'Invite expiry (invites expire after 7 days)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Click "Resend Invite" button from pending invites list. If still not received, try a different email address (e.g., personal instead of work email).</p>'
+                        'Invite expiry (invites expire after 7 days)',
+                        '<strong>Fix:</strong> Click "Resend Invite" button from pending invites list. If still not received, try a different email address (e.g., personal instead of work email).'
+                    ]
                 },
                 {
                     title: 'User Sees Wrong Business',
                     content: '<p><strong>Problem:</strong> User says "I&apos;m seeing the wrong company&apos;s data".</p><p><strong>Check:</strong></p>',
                     bullets: [
                         'User belongs to multiple businesses (multi-tenant)',
-                        'Business switcher showing current business name'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Ask user to click profile icon → Switch Business → Select correct business from dropdown. If business doesn&apos;t appear in list, they may not have been invited to that business yet.</p>'
+                        'Business switcher showing current business name',
+                        '<strong>Fix:</strong> Ask user to click profile icon → Switch Business → Select correct business from dropdown. If business doesn&apos;t appear in list, they may not have been invited to that business yet.'
+                    ]
                 },
                 {
                     title: 'Can&apos;t Remove User',
@@ -515,9 +515,9 @@ export const teamManagementGuide: IDocGuide = {
                     bullets: [
                         'Trying to remove yourself (not allowed)',
                         'Trying to remove last Super Admin (not allowed)',
-                        'User has active jobs (warning shown, but removal still allowed)'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> If you&apos;re the only Super Admin, promote someone else to Super Admin first, then you can remove yourself. If removing yourself, ask another Super Admin to do it.</p>'
+                        'User has active jobs (warning shown, but removal still allowed)',
+                        '<strong>Fix:</strong> If you&apos;re the only Super Admin, promote someone else to Super Admin first, then you can remove yourself. If removing yourself, ask another Super Admin to do it.'
+                    ]
                 },
                 {
                     title: 'Role Change Not Taking Effect',
@@ -525,9 +525,9 @@ export const teamManagementGuide: IDocGuide = {
                     bullets: [
                         'User has logged out and back in (required for permission refresh)',
                         'Role badge on user card updated correctly',
-                        'Activity log shows role change event'
-                    ],
-                    content_after_bullets: '<p><strong>Fix:</strong> Ask user to log out completely, close browser, then log back in. Permissions refresh on login, not continuously.</p>'
+                        'Activity log shows role change event',
+                        '<strong>Fix:</strong> Ask user to log out completely, close browser, then log back in. Permissions refresh on login, not continuously.'
+                    ]
                 }
             ]
         },
@@ -547,9 +547,9 @@ export const teamManagementGuide: IDocGuide = {
                         '<strong>Team:</strong> 5 users included',
                         '<strong>Business:</strong> 8 users included',
                         '<strong>Business+:</strong> 8 users included',
-                        '<strong>Additional users:</strong> £10/month per additional user (all tiers)'
-                    ],
-                    content_after_bullets: '<p>You can add unlimited additional users by paying the per-user fee. User count is tracked in Settings → Billing.</p>'
+                        '<strong>Additional users:</strong> £10/month per additional user (all tiers)',
+                        'You can add unlimited additional users by paying the per-user fee. User count is tracked in Settings → Billing.'
+                    ]
                 },
                 {
                     title: 'Can one person have multiple roles?',
@@ -565,9 +565,9 @@ export const teamManagementGuide: IDocGuide = {
                     bullets: [
                         '<strong>Admins and Managers</strong> can see all customers and jobs',
                         '<strong>Engineers</strong> can see only their assigned jobs',
-                        '<strong>Read-Only and Accountant</strong> can see all data in their scope (all jobs vs financial data)'
-                    ],
-                    content_after_bullets: '<p>If you need to restrict access to specific customers (e.g., separate divisions), consider using separate OpsCel businesses (multi-tenant) instead.</p>'
+                        '<strong>Read-Only and Accountant</strong> can see all data in their scope (all jobs vs financial data)',
+                        'If you need to restrict access to specific customers (e.g., separate divisions), consider using separate OpsCel businesses (multi-tenant) instead.'
+                    ]
                 }
             ]
         },

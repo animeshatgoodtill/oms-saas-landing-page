@@ -162,29 +162,51 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                   <div className="font-heading font-extrabold text-[0.8125rem] uppercase tracking-[0.06em] text-[color:var(--secondary)] mb-3.5">
                     {persona.persona}
                   </div>
-                  <ul className="flex flex-col gap-2.5 list-none">
-                    {persona.benefits.map((benefit, bi) => (
-                      <li
-                        key={bi}
-                        className="flex items-start gap-2 text-sm text-muted-foreground leading-[1.5]"
-                      >
-                        <svg
-                          className="flex-shrink-0 mt-[0.125rem]"
-                          style={{ color: 'var(--success)' }}
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* Legacy Feature Sections (for backward compatibility) */}
+      {feature.sections && feature.sections.map((section, index) => (
+        <section
+          key={index}
+          style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}
+          className={index % 2 === 1 ? 'bg-hero-background' : ''}
+        >
+          <Container>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="mb-6">
+                {section.title}
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                {section.description}
+              </p>
+
+              {/* Bullets if provided */}
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="space-y-4">
+                  {section.bullets.map((bullet, bulletIndex) => (
+                    <li key={bulletIndex} className="flex items-start gap-3">
+                      <BsFillCheckCircleFill className="h-6 w-6 text-secondary mt-1 flex-shrink-0" />
+                      <span className="text-foreground-accent text-lg">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Image if provided */}
+              {section.imageSrc && (
+                <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src={section.imageSrc}
+                    alt={section.title || section.description}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto"
+                  />
                 </div>
               ))}
             </div>

@@ -90,8 +90,8 @@ export interface IComparisonRow {
 
 export interface IFeatureDetail {
     slug: string;
-    title?: string;
-    subtitle?: string;
+    title: string;
+    subtitle: string;
     heroDescription: string;
     iconId: string;
     screenshotImage?: string;
@@ -126,7 +126,7 @@ export interface IDocSubsection {
     content?: string;
     bullets?: string[];
     table?: IDocTable;
-    steps?: IDocStep[];
+    steps?: string[] | IDocStep[];
 }
 
 export interface IDocTable {

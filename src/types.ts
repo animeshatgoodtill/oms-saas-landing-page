@@ -145,6 +145,11 @@ export interface IDocGuide {
     description: string;
     lastUpdated: string;
     sections: IDocSection[];
+    relatedGuides?: {
+        title: string;
+        description: string;
+        href: string;
+    }[];
 }
 
 // Blog types

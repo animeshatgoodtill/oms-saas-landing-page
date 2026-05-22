@@ -279,5 +279,27 @@ export const customerPortalGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Certificates',
+            description: 'Certificates delivered through the customer portal',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Invoicing',
+            description: 'Customer invoices visible in the portal',
+            href: '/docs/invoicing'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'End-to-end workflow view for customers',
+            href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Field Service App',
+            description: 'Field work that generates customer-visible records',
+            href: '/docs/field-service'
+        }
     ]
 };

@@ -1156,5 +1156,27 @@ export const certificatesGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'Completing jobs that generate certificates',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Defects to Quotation',
+            description: 'Logging defects that require remedial certificates',
+            href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'Converting certified work into invoices',
+            href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Asset Tracking',
+            description: 'Assets linked to certificates for audit trails',
+            href: '/docs/asset-tracking'
+        }
     ]
 };

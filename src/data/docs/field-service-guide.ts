@@ -826,5 +826,27 @@ export const fieldServiceGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Jobs & Multi-Visit Workflow',
+            description: 'Managing multi-visit jobs and scheduling from the office',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Certificates',
+            description: 'Creating and issuing compliance certificates',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Defects to Quotation',
+            description: 'Converting field defects into remedial quotes',
+            href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Asset Tracking',
+            description: 'Capturing and managing site assets from the field',
+            href: '/docs/asset-tracking'
+        }
     ]
 };

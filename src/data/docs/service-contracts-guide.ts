@@ -513,5 +513,27 @@ export const serviceContractsGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Jobs & Multi-Visit Workflow',
+            description: 'Managing multi-visit and recurring jobs',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Field Service App',
+            description: 'How engineers complete recurring service visits',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Asset Tracking',
+            description: 'Asset continuity and auto-loading explained',
+            href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Onboarding',
+            description: 'Setting up service contracts for new customers',
+            href: '/docs/onboarding'
+        }
     ]
 };

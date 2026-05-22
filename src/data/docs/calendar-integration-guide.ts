@@ -645,5 +645,27 @@ export const calendarIntegrationGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Jobs',
+            description: 'Jobs populate your calendar automatically',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Field Service App',
+            description: 'Engineers see calendar events in the field app',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Recurring contract jobs appear in the calendar',
+            href: '/docs/service-contracts'
+        },
+        {
+            title: 'Settings Tour',
+            description: 'Calendar integration settings location',
+            href: '/docs/settings-tour'
+        }
     ]
 };

@@ -272,5 +272,27 @@ export const assetTrackingGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'Capturing assets from the field',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Asset pre-loading for recurring service visits',
+            href: '/docs/service-contracts'
+        },
+        {
+            title: 'Certificates',
+            description: 'Certificates linked to asset records',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Jobs',
+            description: 'Assets are recorded per job visit',
+            href: '/docs/jobs'
+        }
     ]
 };

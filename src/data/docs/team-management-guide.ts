@@ -585,5 +585,27 @@ export const teamManagementGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'Team members access jobs via the field app',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Jobs',
+            description: 'Assigning team members to jobs and visits',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Settings Tour',
+            description: 'Team management settings location',
+            href: '/docs/settings-tour'
+        },
+        {
+            title: 'Onboarding',
+            description: 'Inviting your team during initial account setup',
+            href: '/docs/onboarding'
+        }
     ]
 };

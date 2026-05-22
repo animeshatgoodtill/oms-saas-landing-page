@@ -385,4 +385,26 @@ export const offlineSyncGuide: IDocGuide = {
             ],
         },
     ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'Full engineer workflow that uses offline sync',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Jobs',
+            description: 'Job data synced between field and office',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Worksheets',
+            description: 'Worksheets saved offline and synced on reconnect',
+            href: '/docs/worksheets'
+        },
+        {
+            title: 'Asset Tracking',
+            description: 'Assets captured offline in the field',
+            href: '/docs/asset-tracking'
+        }
+    ]
 };

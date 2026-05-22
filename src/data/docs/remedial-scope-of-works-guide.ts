@@ -500,5 +500,27 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Defects to Quotation',
+            description: 'Converting individual defects into remedial quotes',
+            href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Certificates',
+            description: 'Issuing certificates after remedial work',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Field Service App',
+            description: 'Engineers completing remedial site visits',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'Converting scope of works into invoices',
+            href: '/docs/quote-to-invoice-workflow'
+        }
     ]
 };

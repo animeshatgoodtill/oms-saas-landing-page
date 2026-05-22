@@ -533,4 +533,26 @@ export const quotationsGuide: IDocGuide = {
             ],
         },
     ],
+    relatedGuides: [
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'End-to-end from quote approval to invoice',
+            href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Defects to Quotation',
+            description: 'Converting site defects into remedial quotes',
+            href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Customer Portal',
+            description: 'Customers approve quotes in the portal',
+            href: '/docs/customer-portal'
+        },
+        {
+            title: 'Invoicing',
+            description: 'Invoicing after quote acceptance',
+            href: '/docs/invoicing'
+        }
+    ]
 };

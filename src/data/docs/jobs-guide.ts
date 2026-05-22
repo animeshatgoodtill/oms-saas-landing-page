@@ -645,5 +645,27 @@ export const jobsGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: "Engineer's guide to completing jobs in the field",
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Certificates',
+            description: 'Creating and issuing certificates from completed jobs',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Invoicing',
+            description: 'Converting completed jobs into customer invoices',
+            href: '/docs/invoicing'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'End-to-end workflow from quote to job to invoice',
+            href: '/docs/quote-to-invoice-workflow'
+        }
     ]
 };

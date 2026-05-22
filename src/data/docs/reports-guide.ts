@@ -379,4 +379,26 @@ export const reportsGuide: IDocGuide = {
             ],
         },
     ],
+    relatedGuides: [
+        {
+            title: 'Jobs',
+            description: 'Jobs data that drives the reports',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Certificates',
+            description: 'Certificate issuance metrics and compliance tracking',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Quotations',
+            description: 'Quote conversion and revenue analytics',
+            href: '/docs/quotations'
+        },
+        {
+            title: 'Settings Tour',
+            description: 'Reports settings and export options',
+            href: '/docs/settings-tour'
+        }
+    ]
 };

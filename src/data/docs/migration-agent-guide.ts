@@ -853,5 +853,27 @@ export const migrationAgentGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Onboarding',
+            description: 'Setting up your account before importing data',
+            href: '/docs/onboarding'
+        },
+        {
+            title: 'Settings Tour',
+            description: 'Find Migration Agent in the Settings menu',
+            href: '/docs/settings-tour'
+        },
+        {
+            title: 'Jobs',
+            description: 'Imported documents link to jobs automatically',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Certificates',
+            description: 'Import historical certificates for compliance records',
+            href: '/docs/certificates'
+        }
     ]
 };

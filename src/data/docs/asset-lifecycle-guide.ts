@@ -460,4 +460,26 @@ export const assetLifecycleGuide: IDocGuide = {
             ],
         },
     ],
+    relatedGuides: [
+        {
+            title: 'Asset Tracking',
+            description: 'Introduction to capturing and managing assets',
+            href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Asset pre-loading in recurring service contracts',
+            href: '/docs/service-contracts'
+        },
+        {
+            title: 'Field Service App',
+            description: 'Capturing and updating assets on site',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Certificates',
+            description: 'Certificates linked to asset lifecycle records',
+            href: '/docs/certificates'
+        }
+    ]
 };

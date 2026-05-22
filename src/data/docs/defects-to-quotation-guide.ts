@@ -276,5 +276,27 @@ export const defectsToQuotationGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'How engineers log defects on-site',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Certificates',
+            description: 'Issuing certificates after remedial work',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Remedial Scope of Works',
+            description: 'Bundling defects into a formal remedial quote',
+            href: '/docs/remedial-scope-of-works'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'End-to-end from quote to invoice',
+            href: '/docs/quote-to-invoice-workflow'
+        }
     ]
 };

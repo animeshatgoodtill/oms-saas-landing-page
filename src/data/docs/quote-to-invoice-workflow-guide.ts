@@ -348,5 +348,27 @@ Customer accepts quote
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Certificates',
+            description: 'Issuing certificates with completed jobs',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Defects to Quotation',
+            description: 'Converting defects into remedial quotes',
+            href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Customer Portal',
+            description: 'Customers approving quotes and viewing invoices',
+            href: '/docs/customer-portal'
+        },
+        {
+            title: 'Field Service App',
+            description: 'Engineers completing the jobs that become invoices',
+            href: '/docs/field-service'
+        }
     ]
 };

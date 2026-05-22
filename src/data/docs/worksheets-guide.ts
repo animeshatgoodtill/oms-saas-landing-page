@@ -565,5 +565,27 @@ export const worksheetsGuide: IDocGuide = {
                 }
             ]
         }
+    ],
+    relatedGuides: [
+        {
+            title: 'Field Service App',
+            description: 'Filling worksheets on-site in the field app',
+            href: '/docs/field-service'
+        },
+        {
+            title: 'Jobs',
+            description: 'Worksheets are attached to job visits',
+            href: '/docs/jobs'
+        },
+        {
+            title: 'Asset Tracking',
+            description: 'Worksheets that promote asset records',
+            href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Certificates',
+            description: 'Completing worksheets before issuing certificates',
+            href: '/docs/certificates'
+        }
     ]
 };

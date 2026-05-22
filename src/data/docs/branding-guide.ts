@@ -493,4 +493,26 @@ export const brandingGuide: IDocGuide = {
             ],
         },
     ],
+    relatedGuides: [
+        {
+            title: 'Certificates',
+            description: 'Certificates use your branding and logo on PDFs',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Quote to Invoice Workflow',
+            description: 'Branded quote and invoice PDFs',
+            href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Settings Tour',
+            description: 'Branding settings location in the admin panel',
+            href: '/docs/settings-tour'
+        },
+        {
+            title: 'Onboarding',
+            description: 'Setting up branding as part of initial setup',
+            href: '/docs/onboarding'
+        }
+    ]
 };

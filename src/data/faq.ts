@@ -15,7 +15,7 @@ export const faqs: IFAQ[] = [
     },
     {
         question: 'What happens during the 90-day trial?',
-        answer: 'Full access to everything on your plan. No credit card required to start. Cancel anytime, no questions asked.',
+        answer: 'Full access to everything on your plan. Cancel anytime, no questions asked.',
     },
     {
         question: 'Do you integrate with Xero or QuickBooks?',

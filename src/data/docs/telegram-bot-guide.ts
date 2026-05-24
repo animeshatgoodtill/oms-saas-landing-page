@@ -42,31 +42,38 @@ export const telegramBotGuide: IDocGuide = {
       </p>
 
       <p class="mb-4">Setting up the Telegram bot is a one-time process that connects your Opscel account to your Telegram account via a secure connection token.</p>`,
-      steps: [
+      subsections: [
         {
-          title: 'Open Telegram and find @OpscelBot',
-          description: 'On your phone or desktop, open Telegram and search for <strong>@OpscelBot</strong> in the search bar. Tap on the bot to open the chat.',
+          title: 'Connection Steps',
+          steps: [
+            {
+              step: 'Open Telegram and find @OpscelBot',
+              description: 'On your phone or desktop, open Telegram and search for <strong>@OpscelBot</strong> in the search bar. Tap on the bot to open the chat.',
+            },
+            {
+              step: 'Start the bot',
+              description: 'Send the <code>/start</code> command to the bot. You\'ll receive a welcome message with instructions.',
+            },
+            {
+              step: 'Generate connection token in Opscel',
+              description: 'In your Opscel account, navigate to <strong>Settings → Integrations → Telegram Bot</strong>. Click <strong>Generate Connection Token</strong>. A single-use token will appear (valid for 10 minutes).',
+            },
+            {
+              step: 'Connect the bot',
+              description: 'Copy the token from Opscel and paste it into the Telegram chat with @OpscelBot. The bot will confirm the connection.',
+            },
+            {
+              step: 'Confirm connection',
+              description: '<div class="bg-green-50 border-l-4 border-green-400 p-3 mt-2"><strong>What you should see:</strong> "✅ Successfully connected to [Your Business Name]. You\'ll now receive notifications for this account."</div>',
+            },
+          ],
         },
         {
-          title: 'Start the bot',
-          description: 'Send the <code>/start</code> command to the bot. You\'ll receive a welcome message with instructions.',
+          bullets: [
+            '<strong>Security:</strong> Connection tokens are single-use and expire after 10 minutes. Each team member needs their own connection.',
+            '<strong>Multi-tenant:</strong> If you manage multiple businesses, you can connect the bot to each one separately.',
+          ],
         },
-        {
-          title: 'Generate connection token in Opscel',
-          description: 'In your Opscel account, navigate to <strong>Settings → Integrations → Telegram Bot</strong>. Click <strong>Generate Connection Token</strong>. A single-use token will appear (valid for 10 minutes).',
-        },
-        {
-          title: 'Connect the bot',
-          description: 'Copy the token from Opscel and paste it into the Telegram chat with @OpscelBot. The bot will confirm the connection.',
-        },
-        {
-          title: 'Confirm connection',
-          description: '<div class="bg-green-50 border-l-4 border-green-400 p-3 mt-2"><strong>What you should see:</strong> "✅ Successfully connected to [Your Business Name]. You\'ll now receive notifications for this account."</div>',
-        },
-      ],
-      bullets: [
-        '<strong>Security:</strong> Connection tokens are single-use and expire after 10 minutes. Each team member needs their own connection.',
-        '<strong>Multi-tenant:</strong> If you manage multiple businesses, you can connect the bot to each one separately.',
       ],
     },
     {
@@ -126,27 +133,34 @@ export const telegramBotGuide: IDocGuide = {
       </p>
 
       <p class="mb-4">Customize which notifications you receive and when.</p>`,
-      steps: [
+      subsections: [
         {
-          title: 'Access settings in Telegram',
-          description: 'In your chat with @OpscelBot, send the <code>/settings</code> command.',
+          title: 'Configuration Steps',
+          steps: [
+            {
+              step: 'Access settings in Telegram',
+              description: 'In your chat with @OpscelBot, send the <code>/settings</code> command.',
+            },
+            {
+              step: 'Toggle notification categories',
+              description: 'Use the interactive buttons to enable or disable specific notification types (Jobs, Quotes, Certificates, Payments, System).',
+            },
+            {
+              step: 'Set quiet hours (optional)',
+              description: 'Configure times when notifications should be suppressed (e.g., 10pm - 7am). Send <code>/quiet 22:00-07:00</code>.',
+            },
+            {
+              step: 'Configure per-business settings',
+              description: 'If you manage multiple businesses, use <code>/business [business-name]</code> to switch context and configure preferences for each separately.',
+            },
+          ],
         },
         {
-          title: 'Toggle notification categories',
-          description: 'Use the interactive buttons to enable or disable specific notification types (Jobs, Quotes, Certificates, Payments, System).',
+          bullets: [
+            '<strong>Default settings:</strong> All notification types are enabled by default except System alerts.',
+            '<strong>Quiet hours:</strong> During quiet hours, notifications are queued and delivered in a single summary message when quiet hours end.',
+          ],
         },
-        {
-          title: 'Set quiet hours (optional)',
-          description: 'Configure times when notifications should be suppressed (e.g., 10pm - 7am). Send <code>/quiet 22:00-07:00</code>.',
-        },
-        {
-          title: 'Configure per-business settings',
-          description: 'If you manage multiple businesses, use <code>/business [business-name]</code> to switch context and configure preferences for each separately.',
-        },
-      ],
-      bullets: [
-        '<strong>Default settings:</strong> All notification types are enabled by default except System alerts.',
-        '<strong>Quiet hours:</strong> During quiet hours, notifications are queued and delivered in a single summary message when quiet hours end.',
       ],
     },
     {
@@ -198,14 +212,19 @@ export const telegramBotGuide: IDocGuide = {
           </tbody>
         </table>
       </div>`,
-      steps: [
+      subsections: [
         {
-          title: 'Mute notifications temporarily',
-          description: 'Send <code>/mute</code> to pause notifications. They\'ll queue up and you can retrieve them later with <code>/unmute</code>.',
-        },
-        {
-          title: 'Disconnect the bot',
-          description: 'Send <code>/disconnect</code> and confirm. This removes the connection between your Telegram account and Opscel. You can reconnect anytime by starting the setup process again.',
+          title: 'Common Actions',
+          steps: [
+            {
+              step: 'Mute notifications temporarily',
+              description: 'Send <code>/mute</code> to pause notifications. They\'ll queue up and you can retrieve them later with <code>/unmute</code>.',
+            },
+            {
+              step: 'Disconnect the bot',
+              description: 'Send <code>/disconnect</code> and confirm. This removes the connection between your Telegram account and Opscel. You can reconnect anytime by starting the setup process again.',
+            },
+          ],
         },
       ],
     },

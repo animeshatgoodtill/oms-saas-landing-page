@@ -165,6 +165,14 @@ const documentationGuides = [
         category: 'Reports & Analytics',
         icon: 'icon-gear'
     },
+    // Integrations & Automation
+    {
+        title: 'Telegram Bot Integration',
+        description: 'Connect the Opscel Telegram bot to receive real-time notifications for jobs, quotes, customer actions, and system alerts directly on your phone or desktop.',
+        url: '/docs/telegram-bot',
+        category: 'Integrations & Automation',
+        icon: 'icon-gear'
+    },
     // Migration & Data
     {
         title: 'Migration Agent',

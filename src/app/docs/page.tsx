@@ -37,6 +37,13 @@ const documentationGuides = [
         category: 'Getting Started',
         icon: 'icon-smart-customer'
     },
+    {
+        title: 'Document Numbering',
+        description: 'Customize invoice, quote, certificate, and job number formats with prefixes, date patterns, and sequential counters for professional document management.',
+        url: '/docs/document-numbering',
+        category: 'Getting Started',
+        icon: 'icon-gear'
+    },
     // Field Service
     {
         title: 'Field Service App — Engineer\'s Day',
@@ -156,6 +163,14 @@ const documentationGuides = [
         description: 'Complete guide to jobs reports and quotations reports (Business+ tier). Learn about filtering, date ranges, exporting, and key metrics.',
         url: '/docs/reports',
         category: 'Reports & Analytics',
+        icon: 'icon-gear'
+    },
+    // Integrations & Automation
+    {
+        title: 'Telegram Bot Integration',
+        description: 'Connect the Opscel Telegram bot to receive real-time notifications for jobs, quotes, customer actions, and system alerts directly on your phone or desktop.',
+        url: '/docs/telegram-bot',
+        category: 'Integrations & Automation',
         icon: 'icon-gear'
     },
     // Migration & Data

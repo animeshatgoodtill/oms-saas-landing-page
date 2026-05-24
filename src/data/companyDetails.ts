@@ -43,7 +43,7 @@ export const companyDetails = {
 
   // === DATA PROTECTION & COMPLIANCE ===
   compliance: {
-    icoRegistrationNumber: 'ZA123456',                 // ICO registration number (required for UK GDPR)
+    icoRegistrationNumber: 'ZC105961',                 // ICO registration number (required for UK GDPR)
     dataProtectionOfficerEmail: 'privacy@opscel.com',  // DPO contact email
     dataHostingLocation: 'United Kingdom',             // Where data is hosted
     lastPolicyUpdate: '2024-01-15',                    // Date policies were last updated (YYYY-MM-DD)

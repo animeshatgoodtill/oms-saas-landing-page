@@ -71,27 +71,27 @@ export const footerDetails: {
             url: "/docs"
         },
         {
-            text: "Certificate Guide",
+            text: "Certificates",
             url: "/docs/certificates"
         },
         {
-            text: "Asset Tracking Guide",
+            text: "Asset Tracking",
             url: "/docs/asset-tracking"
         },
         {
-            text: "Customer Portal Guide",
+            text: "Customer Portal",
             url: "/docs/customer-portal"
         },
         {
-            text: "Defects to Quotes Guide",
+            text: "Defects to Quotes",
             url: "/docs/defects-to-quotation"
         },
         {
-            text: "Invoicing Guide",
+            text: "Invoicing",
             url: "/docs/invoicing"
         },
         {
-            text: "Accounting Guide",
+            text: "Accounting",
             url: "/docs/accounting-integration"
         }
     ],

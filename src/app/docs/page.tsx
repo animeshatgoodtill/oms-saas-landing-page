@@ -37,6 +37,13 @@ const documentationGuides = [
         category: 'Getting Started',
         icon: 'icon-smart-customer'
     },
+    {
+        title: 'Document Numbering',
+        description: 'Customize invoice, quote, certificate, and job number formats with prefixes, date patterns, and sequential counters for professional document management.',
+        url: '/docs/document-numbering',
+        category: 'Getting Started',
+        icon: 'icon-gear'
+    },
     // Field Service
     {
         title: 'Field Service App — Engineer\'s Day',

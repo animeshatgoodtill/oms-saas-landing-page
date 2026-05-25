@@ -47,8 +47,8 @@ const Footer: React.FC = () => {
 
                 {/* Quick Links */}
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Product</h4>
-                    <ul className="text-foreground-accent space-y-2">
+                    <h4 className="text-base font-semibold mb-3">Product</h4>
+                    <ul className="text-foreground-accent space-y-1.5 text-sm">
                         {footerDetails.quickLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
@@ -59,8 +59,8 @@ const Footer: React.FC = () => {
 
                 {/* Feature Links - Single column */}
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Features</h4>
-                    <ul className="text-foreground-accent space-y-2">
+                    <h4 className="text-base font-semibold mb-3">Features</h4>
+                    <ul className="text-foreground-accent space-y-1.5 text-sm">
                         {footerDetails.featureLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
@@ -71,8 +71,8 @@ const Footer: React.FC = () => {
 
                 {/* Resources Links */}
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Resources</h4>
-                    <ul className="text-foreground-accent space-y-2">
+                    <h4 className="text-base font-semibold mb-3">Resources</h4>
+                    <ul className="text-foreground-accent space-y-1.5 text-sm">
                         {footerDetails.resourcesLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
@@ -83,8 +83,8 @@ const Footer: React.FC = () => {
 
                 {/* Company Links */}
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Company</h4>
-                    <ul className="text-foreground-accent space-y-2">
+                    <h4 className="text-base font-semibold mb-3">Company</h4>
+                    <ul className="text-foreground-accent space-y-1.5 text-sm">
                         {footerDetails.companyLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>
@@ -95,8 +95,8 @@ const Footer: React.FC = () => {
 
                 {/* Legal Links */}
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">Legal</h4>
-                    <ul className="text-foreground-accent space-y-2">
+                    <h4 className="text-base font-semibold mb-3">Legal</h4>
+                    <ul className="text-foreground-accent space-y-1.5 text-sm">
                         {footerDetails.legalLinks.map(link => (
                             <li key={link.text}>
                                 <Link href={link.url} className="hover:text-foreground transition-colors">{link.text}</Link>

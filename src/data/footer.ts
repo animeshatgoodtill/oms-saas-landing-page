@@ -89,10 +89,6 @@ export const footerDetails: {
         {
             text: "Invoicing",
             url: "/docs/invoicing"
-        },
-        {
-            text: "Accounting",
-            url: "/docs/accounting-integration"
         }
     ],
     companyLinks: [

@@ -778,13 +778,22 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Superseding a Certificate',
                     content: `
                         <p class="mb-4"><strong>Availability:</strong> Admin, Manager</p>
+                        <p class="mb-4">The "Supersede with correction" flow automatically creates a new draft certificate with all data pre-filled from the original. You only need to edit the field(s) that need correcting.</p>
                     `,
                     steps: [
-                        { step: 'Create a new certificate for the same job/site', description: 'Follow normal creation process' },
-                        { step: 'Fill in corrections or updates', description: '' },
-                        { step: 'Click "Issue Certificate"', description: '' },
-                        { step: 'On issue screen: select "This supersedes certificate {number}"', description: 'Dropdown shows all issued certificates for this job/site' },
-                        { step: 'Confirm issue', description: 'Original certificate status changes to "SUPERSEDED", new certificate issued' }
+                        { step: 'Open the issued certificate you need to correct', description: '' },
+                        { step: 'Click "Supersede with Correction"', description: 'Creates a new draft certificate under the same job' },
+                        { step: 'Review pre-filled data', description: 'All 40+ fields are automatically copied from the original certificate' },
+                        { step: 'Edit only the incorrect field(s)', description: 'Fix typo, address, site name, test results, etc.' },
+                        { step: 'Re-capture signatures', description: 'Signatures are NOT copied — engineer and customer must re-sign the corrected version' },
+                        { step: 'Click "Issue Certificate"', description: 'New certificate gets next number on job (e.g., FAM-000025-B)' }
+                    ],
+                    bullets: [
+                        '<strong>Original certificate:</strong> Stays in records with status "Superseded" (amber badge) and original number (e.g., FAM-000025-A)',
+                        '<strong>Document folder:</strong> Original appears with [SUPERSEDED] label for clear audit trail',
+                        '<strong>New certificate:</strong> Gets sequential letter suffix (A → B → C) on the same job',
+                        '<strong>Signatures required:</strong> Signatures must be re-captured on corrected version — intentionally not copied for compliance',
+                        '<strong>Audit trail:</strong> Both certificates remain in system; certificate numbers cannot be reused'
                     ]
                 },
                 {

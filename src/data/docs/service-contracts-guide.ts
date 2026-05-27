@@ -13,14 +13,13 @@ export const serviceContractsGuide: IDocGuide = {
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
-                        Service contracts automate recurring maintenance work. Set a customer, cadence (weekly, monthly, quarterly, annual),
+                        Service contracts automate recurring maintenance work. Set a customer, cadence (quarterly, half-yearly, annual, multi-year),
                         and lead-time window—OpsCel generates jobs automatically before they're due. Assets from the previous visit pre-load,
                         so engineers know exactly which equipment to service.
                     </p>
                     <p class="text-gray-800 mt-3">
                         <strong>Who uses this:</strong> Admins, Managers<br/>
-                        <strong>Where it lives:</strong> Scheduling → Service Contracts<br/>
-                        <strong>Availability:</strong> Business+ tier<br/>
+                        <strong>Where it lives:</strong> Operations → Service Contracts<br/>
                         <strong>Key benefit:</strong> Predictable revenue, zero manual scheduling, asset continuity
                     </p>
                 </div>
@@ -31,7 +30,7 @@ export const serviceContractsGuide: IDocGuide = {
                     title: 'Key Capabilities',
                     content: '',
                     bullets: [
-                        'Automatic job generation at configured cadence (weekly, monthly, quarterly, annual)',
+                        'Automatic job generation at configured cadence (quarterly, half-yearly, annual, multi-year)',
                         'Lead-time window configuration (e.g., create job 14 days before due)',
                         'Asset auto-loading from previous visit for continuity',
                         'Customer and site pre-filled from contract',
@@ -46,7 +45,7 @@ export const serviceContractsGuide: IDocGuide = {
                     bullets: [
                         '<strong>Annual fire alarm testing:</strong> Generate job 14 days before anniversary of last service',
                         '<strong>Quarterly PAT testing:</strong> Office sites needing regular portable appliance testing',
-                        '<strong>Monthly boiler servicing:</strong> Recurring maintenance for commercial heating systems',
+                        '<strong>6-monthly boiler servicing:</strong> Recurring maintenance for commercial heating systems',
                         '<strong>6-monthly emergency lighting:</strong> Compliance testing for fire safety systems'
                     ]
                 }
@@ -64,14 +63,14 @@ export const serviceContractsGuide: IDocGuide = {
                 {
                     title: 'Method 1: From Completed Job (Recommended)',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Business+ tier | Admins, Managers</p>
+                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
                         <p class="mb-4">The best way to start a contract is from a completed job—customer, site, and assets auto-fill.</p>
                     `,
                     steps: [
                         { step: 'Go to Jobs and open a completed job', description: '' },
                         { step: 'Scroll to the Service Contract section', description: '' },
                         { step: 'Click "Convert to Service Contract"', description: '' },
-                        { step: 'Set cadence (weekly, monthly, quarterly, annual)', description: '' },
+                        { step: 'Set cadence (quarterly, half-yearly, annual, multi-year)', description: '' },
                         { step: 'Set lead-time window (e.g., 14 days before due)', description: '' },
                         { step: 'Click "Create Contract"', description: 'Contract is now active—first job will generate based on cadence' }
                     ]
@@ -79,11 +78,11 @@ export const serviceContractsGuide: IDocGuide = {
                 {
                     title: 'Method 2: From Scratch',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Business+ tier | Admins, Managers</p>
+                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
                         <p class="mb-4">Create a contract manually when setting up a new recurring service for a customer.</p>
                     `,
                     steps: [
-                        { step: 'Go to Scheduling → Service Contracts', description: '' },
+                        { step: 'Go to Operations → Service Contracts', description: '' },
                         { step: 'Click "New Contract"', description: '' },
                         { step: 'Select customer and service address', description: '' },
                         { step: 'Enter contract title and description', description: 'e.g., "Annual Fire Alarm Service"' },
@@ -119,10 +118,10 @@ export const serviceContractsGuide: IDocGuide = {
                     table: {
                         headers: ['Cadence', 'Interval', 'Example Use Case'],
                         rows: [
-                            ['Weekly', 'Every 7 days', 'Cleaning contracts, regular site visits'],
-                            ['Monthly', 'Every 30 days', 'Boiler servicing, routine inspections'],
                             ['Quarterly', 'Every 90 days', 'PAT testing, quarterly compliance checks'],
-                            ['Annual', 'Every 365 days', 'Fire alarm service, EICR inspections, gas safety certificates']
+                            ['Half-yearly', 'Every 6 months', 'Boiler servicing, half-yearly inspections'],
+                            ['Annual', 'Every 365 days', 'Fire alarm service, EICR inspections, gas safety certificates'],
+                            ['Multi-year', 'Every 2–5 years', 'Fixed wire testing (every 5 years), long-interval certification']
                         ]
                     }
                 },
@@ -147,9 +146,10 @@ export const serviceContractsGuide: IDocGuide = {
                     title: 'Recommended Lead-Time Settings',
                     content: '',
                     bullets: [
-                        '<strong>Weekly/Monthly contracts:</strong> 7 days lead-time (short-notice scheduling)',
                         '<strong>Quarterly contracts:</strong> 14 days lead-time (medium planning window)',
-                        '<strong>Annual contracts:</strong> 30 days lead-time (customer notices, engineer availability)'
+                        '<strong>Half-yearly contracts:</strong> 21 days lead-time (customer scheduling flexibility)',
+                        '<strong>Annual contracts:</strong> 30 days lead-time (customer notices, engineer availability)',
+                        '<strong>Multi-year contracts:</strong> 60 days lead-time (extended planning for infrequent services)'
                     ]
                 }
             ]
@@ -226,11 +226,11 @@ export const serviceContractsGuide: IDocGuide = {
                 {
                     title: 'Pausing a Contract',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Business+ tier | Admins, Managers</p>
+                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
                         <p class="mb-4">Pause a contract temporarily without deleting it. No new jobs will generate until you resume.</p>
                     `,
                     steps: [
-                        { step: 'Go to Scheduling → Service Contracts', description: '' },
+                        { step: 'Go to Operations → Service Contracts', description: '' },
                         { step: 'Find the contract and click to open', description: '' },
                         { step: 'Click "Pause Contract"', description: '' },
                         { step: 'Confirm pause', description: 'Contract status changes to "Paused"—no new jobs will generate' }
@@ -367,7 +367,7 @@ export const serviceContractsGuide: IDocGuide = {
                         <p class="mb-4">The contract detail page shows all jobs generated from this contract.</p>
                     `,
                     steps: [
-                        { step: 'Go to Scheduling → Service Contracts', description: '' },
+                        { step: 'Go to Operations → Service Contracts', description: '' },
                         { step: 'Click on a contract to open', description: '' },
                         { step: 'Scroll to "Generated Jobs" section', description: 'Shows all jobs with status, dates, engineers' },
                         { step: 'Click any job to open detail page', description: '' }

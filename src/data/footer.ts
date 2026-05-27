@@ -115,6 +115,10 @@ export const footerDetails: {
             url: "/terms"
         },
         {
+            text: "EULA",
+            url: "/eula"
+        },
+        {
             text: "Cookie Policy",
             url: "/cookies"
         }

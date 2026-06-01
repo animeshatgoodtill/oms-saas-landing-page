@@ -36,7 +36,8 @@ export const worksheetsGuide: IDocGuide = {
                         'EICR observation checklists',
                         'Maintenance logs for recurring service contracts',
                         'Installation commissioning forms',
-                        'Risk assessment checklists'
+                        'Risk assessment checklists',
+                        '<strong>Specialized: </strong><a href="/docs/fire-safety-features" class="text-blue-600 hover:text-blue-800">Combined BS 5839 & BAFE SP203 Jobsheet</a> (pre-built template for fire alarm servicing)'
                     ]
                 }
             ]
@@ -581,6 +582,11 @@ export const worksheetsGuide: IDocGuide = {
             title: 'Asset Tracking',
             description: 'Worksheets that promote asset records',
             href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Fire Safety Jobsheets',
+            description: 'BS 5839 & BAFE SP203 combined inspection forms',
+            href: '/docs/fire-safety-features'
         },
         {
             title: 'Certificates',

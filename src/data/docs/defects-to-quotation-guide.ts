@@ -30,6 +30,10 @@ export const defectsToQuotationGuide: IDocGuide = {
                 {
                     title: 'Two Paths for Remedial Quotes',
                     content: '<p class="mb-4">This guide covers the <strong>Dashboard Widget Path</strong> — the fastest way to create quotes directly from defects. There\'s also a <strong>Worksheet Path</strong> where engineers fill out a detailed Remedial Scope of Works on-site before the quote is generated.</p><p class="mb-4">See <a href="/docs/remedial-scope-of-works" class="text-blue-600 hover:underline">Remedial Scope of Works Guide</a> for the worksheet-based workflow.</p>'
+                },
+                {
+                    title: 'Defects vs Carried-Forward Faults',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900"><strong>Important distinction:</strong> <strong>Defects</strong> (this guide) are for generating customer-facing quotes from issues found on this job. <strong>Carried-Forward Faults</strong> are for tracking ongoing issues across visits at a site (internal record only).</p><p class="text-blue-900 mt-2">You can log the same issue in both places if it needs tracking AND quoting. See <a href="/docs/fire-safety-features" class="text-blue-700 hover:underline font-semibold">Fire Safety Jobsheets & Fault Tracking</a> for details on carried-forward faults.</p></div>'
                 }
             ]
         },
@@ -282,6 +286,11 @@ export const defectsToQuotationGuide: IDocGuide = {
             title: 'Field Service App',
             description: 'How engineers log defects on-site',
             href: '/docs/field-service'
+        },
+        {
+            title: 'Fire Safety Fault Tracking',
+            description: 'Carried-forward faults vs defects explained',
+            href: '/docs/fire-safety-features'
         },
         {
             title: 'Certificates',

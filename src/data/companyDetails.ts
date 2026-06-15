@@ -15,10 +15,10 @@ export const companyDetails = {
   // === REGISTERED ADDRESS ===
   // Not displayed publicly - SaaS company, no public address
   registeredAddress: {
-    line1: '',
+    line1: '14 Chalfont Way',
     line2: '',
-    city: '',
-    postcode: '',
+    city: 'Luton',
+    postcode: 'LU2 9RQ',
     country: 'United Kingdom',
   },
 
@@ -46,7 +46,7 @@ export const companyDetails = {
     icoRegistrationNumber: 'ZC105961',                 // ICO registration number (required for UK GDPR)
     dataProtectionOfficerEmail: 'privacy@opscel.com',  // DPO contact email
     dataHostingLocation: 'United Kingdom',             // Where data is hosted
-    lastPolicyUpdate: '2024-01-15',                    // Date policies were last updated (YYYY-MM-DD)
+    lastPolicyUpdate: '2026-06-15',                    // Date policies were last updated (YYYY-MM-DD)
   },
 
   // === SOCIAL MEDIA & EXTERNAL LINKS ===

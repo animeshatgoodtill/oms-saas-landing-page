@@ -85,6 +85,32 @@ const PrivacyPage: React.FC = () => {
         <strong>We do not sell your personal data to third parties.</strong>
       </p>
 
+      <h3>5.1 Google API Services</h3>
+      <p>
+        {companyDetails.tradingName} integrates with Google Calendar at the user&apos;s request, using OAuth authentication.
+        We request the following scopes:
+      </p>
+      <ul>
+        <li><strong>calendar.events:</strong> To create, update, and delete calendar events corresponding to your scheduled jobs and visits within {companyDetails.tradingName}.</li>
+        <li><strong>userinfo.email:</strong> To identify the Google account being connected to your {companyDetails.tradingName} profile.</li>
+      </ul>
+      <p>
+        We use this access only to sync your {companyDetails.tradingName} jobs to your Google Calendar. We do not read, store, or use your calendar data for any other purpose beyond this synchronization feature.
+      </p>
+      <p>
+        <strong>{companyDetails.tradingName}&apos;s use and transfer of information received from Google APIs adheres to the{' '}
+        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+          Google API Services User Data Policy
+        </a>, including the Limited Use requirements.</strong>
+      </p>
+      <p>
+        You can revoke {companyDetails.tradingName}&apos;s access to your Google Calendar at any time via your{' '}
+        <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+          Google Account settings
+        </a>{' '}
+        or by disconnecting the integration within {companyDetails.tradingName} (Settings → Calendar Integration).
+      </p>
+
       <h2>6. Data Storage and Security</h2>
       <p>
         Your data is stored on secure servers located in the <strong>{companyDetails.compliance.dataHostingLocation}</strong>.

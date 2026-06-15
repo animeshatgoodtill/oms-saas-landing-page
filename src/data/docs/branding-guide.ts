@@ -11,7 +11,7 @@ export const brandingGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> OpsCel\'s branding tools let you customize how your business appears to customers. Upload your logo, set brand colors, configure PDF templates for certificates, quotes, and invoices, and add accreditation badges. All customer-facing documents automatically use your branding — no manual design work needed. Available to Admins and Super Admins.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s branding tools let you customize how your business appears to customers. Upload your logo, set brand colors, configure PDF templates for certificates, quotes, and invoices, and add accreditation badges. All customer-facing documents automatically use your branding — no manual design work needed. Available to Admins and Super Admins.',
                 },
                 {
                     title: 'Key Benefits',
@@ -47,7 +47,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Uploading Your Logo',
-                    content: 'OpsCel supports PNG, JPEG, and SVG logo formats. SVG is recommended for best quality at all sizes.',
+                    content: 'Opscel supports PNG, JPEG, and SVG logo formats. SVG is recommended for best quality at all sizes.',
                 },
                 {
                     title: 'Steps to Upload Logo',
@@ -79,7 +79,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'For Admins',
-                    content: '<em>Tip:</em> If your logo has a lot of white space around it, crop it tightly before uploading. OpsCel doesn\'t auto-crop, so extra padding can make the logo appear smaller than intended on PDFs.',
+                    content: '<em>Tip:</em> If your logo has a lot of white space around it, crop it tightly before uploading. Opscel doesn\'t auto-crop, so extra padding can make the logo appear smaller than intended on PDFs.',
                 },
             ],
         },
@@ -93,7 +93,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Setting Brand Colors',
-                    content: 'OpsCel uses two brand colors: <strong>Primary</strong> (main accent color for headers and CTAs) and <strong>Secondary</strong> (supporting color for backgrounds and borders). These colors appear in PDFs, the customer portal, and email templates.',
+                    content: 'Opscel uses two brand colors: <strong>Primary</strong> (main accent color for headers and CTAs) and <strong>Secondary</strong> (supporting color for backgrounds and borders). These colors appear in PDFs, the customer portal, and email templates.',
                 },
                 {
                     title: 'Steps to Set Colors',
@@ -134,7 +134,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Customizing Certificate PDFs',
-                    content: 'Certificate templates control the layout, footer, and accreditation display for all issued certificates. OpsCel provides standard templates for each certificate type (EICR, EIC, Minor Works, etc.), which you can customize with your branding.',
+                    content: 'Certificate templates control the layout, footer, and accreditation display for all issued certificates. Opscel provides standard templates for each certificate type (EICR, EIC, Minor Works, etc.), which you can customize with your branding.',
                 },
                 {
                     title: 'Steps to Customize Certificate Template',
@@ -237,7 +237,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'For Admins',
-                    content: '<em>Tip:</em> If you use accounting integration (Xero, QuickBooks), invoice branding is controlled by OpsCel but payment terms sync from your accounting software. Update payment terms in both places to avoid discrepancies.',
+                    content: '<em>Tip:</em> If you use accounting integration (Xero, QuickBooks), invoice branding is controlled by Opscel but payment terms sync from your accounting software. Update payment terms in both places to avoid discrepancies.',
                 },
             ],
         },
@@ -251,7 +251,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Adding Compliance Badges',
-                    content: 'Accreditation badges (NICEIC, NAPIT, BAFE, Gas Safe, etc.) appear in certificate footers to demonstrate compliance. Upload official badge images in the Branding settings, and OpsCel automatically adds them to relevant certificates.',
+                    content: 'Accreditation badges (NICEIC, NAPIT, BAFE, Gas Safe, etc.) appear in certificate footers to demonstrate compliance. Upload official badge images in the Branding settings, and Opscel automatically adds them to relevant certificates.',
                 },
                 {
                     title: 'Steps to Upload Accreditation Badges',
@@ -295,7 +295,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'For Admins',
-                    content: '<em>Tip:</em> If you have multiple accreditations (e.g., NICEIC + BAFE), upload all relevant badges. OpsCel automatically filters which badges appear based on the certificate type — electrical certificates show NICEIC, fire certificates show BAFE, etc.',
+                    content: '<em>Tip:</em> If you have multiple accreditations (e.g., NICEIC + BAFE), upload all relevant badges. Opscel automatically filters which badges appear based on the certificate type — electrical certificates show NICEIC, fire certificates show BAFE, etc.',
                 },
             ],
         },
@@ -313,7 +313,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Technical Requirement',
-                    content: 'OpsCel requires a <strong>minimum of 15mm footer chrome spacing</strong> to prevent footer logos from being clipped on A4 PDFs. If you have multiple accreditation badges or a tall logo, you may need to increase this to 20mm or 25mm.',
+                    content: 'Opscel requires a <strong>minimum of 15mm footer chrome spacing</strong> to prevent footer logos from being clipped on A4 PDFs. If you have multiple accreditation badges or a tall logo, you may need to increase this to 20mm or 25mm.',
                 },
                 {
                     title: 'Steps to Adjust Footer Chrome Spacing',
@@ -359,14 +359,14 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Testing Branding Changes',
-                    content: 'Before sending branded PDFs to customers, always preview them to ensure logos, colors, and badges render correctly. OpsCel provides preview tools for certificates, quotes, and invoices.',
+                    content: 'Before sending branded PDFs to customers, always preview them to ensure logos, colors, and badges render correctly. Opscel provides preview tools for certificates, quotes, and invoices.',
                 },
                 {
                     title: 'Steps to Preview Branding',
                     steps: [
                         'After making branding changes, navigate to the relevant template settings',
                         'Click <strong>Preview PDF</strong> (available for certificates, quotes, invoices)',
-                        'OpsCel generates a sample PDF with dummy data',
+                        'Opscel generates a sample PDF with dummy data',
                         'Download the PDF and open in Adobe Reader or browser',
                         'Check: logo clarity, color accuracy, badge placement, footer spacing',
                         'If issues found, return to settings and adjust',
@@ -420,11 +420,11 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Preview PDF Shows Wrong Logo',
-                    content: '<strong>Cause:</strong> Browser cache showing old logo.<br><strong>Fix:</strong> Hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac). If issue persists, clear all browsing data for OpsCel domain and sign in again.',
+                    content: '<strong>Cause:</strong> Browser cache showing old logo.<br><strong>Fix:</strong> Hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac). If issue persists, clear all browsing data for Opscel domain and sign in again.',
                 },
                 {
                     title: 'Colors Look Different When Printed',
-                    content: '<strong>Cause:</strong> RGB colors (screen) vs CMYK colors (print) render differently.<br><strong>Fix:</strong> OpsCel uses RGB for PDFs. To match print colors, test print a sample and adjust RGB values in branding settings. For critical color matching, consult a designer to convert your CMYK brand colors to RGB equivalents.',
+                    content: '<strong>Cause:</strong> RGB colors (screen) vs CMYK colors (print) render differently.<br><strong>Fix:</strong> Opscel uses RGB for PDFs. To match print colors, test print a sample and adjust RGB values in branding settings. For critical color matching, consult a designer to convert your CMYK brand colors to RGB equivalents.',
                 },
             ],
         },
@@ -434,7 +434,7 @@ export const brandingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Can I use different logos for different document types?',
-                    content: 'Not currently. OpsCel uses one company logo across all documents (certificates, quotes, invoices). If you need different branding per document type, contact support — this is a Business+ tier feature request we\'re tracking.',
+                    content: 'Not currently. Opscel uses one company logo across all documents (certificates, quotes, invoices). If you need different branding per document type, contact support — this is a Business+ tier feature request we\'re tracking.',
                 },
                 {
                     title: 'What image formats are supported for logos?',
@@ -446,7 +446,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I customize fonts?',
-                    content: 'Not currently. OpsCel uses a standard font set (Source Sans Pro for body, Manrope for headings) to ensure cross-platform PDF compatibility. Custom fonts require embedding in PDFs, which increases file size. If you need custom fonts, contact support for Business+ tier options.',
+                    content: 'Not currently. Opscel uses a standard font set (Source Sans Pro for body, Manrope for headings) to ensure cross-platform PDF compatibility. Custom fonts require embedding in PDFs, which increases file size. If you need custom fonts, contact support for Business+ tier options.',
                 },
                 {
                     title: 'Why does my logo look fine in preview but blurry in the final PDF?',
@@ -454,7 +454,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'How do I remove accreditation badges from specific certificate types?',
-                    content: 'OpsCel auto-filters badges by certificate type (e.g., NICEIC only shows on electrical certs). To fully remove a badge, go to Settings → Accreditation Badges, find the badge, and toggle "Display on Certificates" OFF. To hide a badge from one certificate type only, you\'ll need to create a custom template (Business+ tier).',
+                    content: 'Opscel auto-filters badges by certificate type (e.g., NICEIC only shows on electrical certs). To fully remove a badge, go to Settings → Accreditation Badges, find the badge, and toggle "Display on Certificates" OFF. To hide a badge from one certificate type only, you\'ll need to create a custom template (Business+ tier).',
                 },
                 {
                     title: 'Can I add a watermark to draft certificates?',

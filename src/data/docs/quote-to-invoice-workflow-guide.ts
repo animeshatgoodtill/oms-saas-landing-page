@@ -11,7 +11,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
             title: 'Overview',
             content: `
                 <p class="text-lg text-muted-foreground mb-6">
-                    OpsCel is built around a single end-to-end workflow: <strong>Quote → Job → Invoice</strong>. Here's exactly how the three fit together.
+                    Opscel is built around a single end-to-end workflow: <strong>Quote → Job → Invoice</strong>. Here's exactly how the three fit together.
                 </p>
                 <p class="mb-6">
                     Understanding this workflow is essential because the system treats quote-originated jobs differently from standalone jobs when creating invoices. A £10k accepted quote becomes a £10k invoice—the system respects the contract price, not just the parts and labour actuals.
@@ -80,7 +80,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Converting an accepted quote to a job',
-                    content: 'Open the accepted quote and click Convert to Job. OpsCel copies the customer, site address, and job title across. The job is linked back to the original quote — this link is used later when raising the invoice.'
+                    content: 'Open the accepted quote and click Convert to Job. Opscel copies the customer, site address, and job title across. The job is linked back to the original quote — this link is used later when raising the invoice.'
                 },
                 {
                     title: 'What the engineer sees',
@@ -110,7 +110,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 </p>
                 <h3 class="text-lg font-semibold mb-3">Opening Create Invoice</h3>
                 <p class="mb-6">
-                    Go to the job's Financial tab and click Create Invoice. OpsCel detects whether the job came from a quote or was a standalone job, and shows the right workflow automatically.
+                    Go to the job's Financial tab and click Create Invoice. Opscel detects whether the job came from a quote or was a standalone job, and shows the right workflow automatically.
                 </p>
             `
         },
@@ -209,7 +209,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
             title: 'Xero Integration',
             content: `
                 <p class="mb-6">
-                    Draft invoices can be pushed to Xero with one click from the invoice detail page. Line item categories map automatically to your Xero account codes. Once pushed, the invoice status updates to Posted and is locked against further edits in OpsCel (edits should be made in Xero from that point).
+                    Draft invoices can be pushed to Xero with one click from the invoice detail page. Line item categories map automatically to your Xero account codes. Once pushed, the invoice status updates to Posted and is locked against further edits in Opscel (edits should be made in Xero from that point).
                 </p>
             `
         },

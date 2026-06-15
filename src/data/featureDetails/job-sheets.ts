@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const jobSheetsDetail: IFeatureDetail = {
     slug: 'job-sheets',
     title: 'Professional Job Sheets That Impress Your Customers',
-    subtitle: 'OpsCel Jobs Module',
-    heroDescription: 'Your job sheets represent your business. Generic templates with bland layouts make you look like everyone else. OpsCel generates branded, professional certificates that customers actually want to keep—and that make you look like the expert contractor you are.',
+    subtitle: 'Opscel Jobs Module',
+    heroDescription: 'Your job sheets represent your business. Generic templates with bland layouts make you look like everyone else. Opscel generates branded, professional certificates that customers actually want to keep—and that make you look like the expert contractor you are.',
     iconId: 'icon-job-workflow',
     sections: [
         {
@@ -43,7 +43,7 @@ export const jobSheetsDetail: IFeatureDetail = {
         },
         {
             title: 'Multi-Visit Jobs, One Clear Record',
-            description: 'Some jobs take multiple visits—installation on Tuesday, testing on Thursday, final inspection next week. OpsCel logs every visit with photos, notes, and timestamps. Customer gets one comprehensive job sheet showing the complete history, not scattered paperwork from different days.',
+            description: 'Some jobs take multiple visits—installation on Tuesday, testing on Thursday, final inspection next week. Opscel logs every visit with photos, notes, and timestamps. Customer gets one comprehensive job sheet showing the complete history, not scattered paperwork from different days.',
             bullets: [
                 'Track multiple visits to the same job',
                 'Each visit logged with date, time, and engineer',

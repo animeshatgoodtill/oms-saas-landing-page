@@ -11,7 +11,7 @@ import { featureDetails } from '@/data/featureDetails';
 export const metadata: Metadata = {
   title: `Features | ${siteDetails.siteName}`,
   description:
-    'Discover all the features that make OpsCel the complete job management solution for UK trade contractors. Mobile field service, instant certificates, team management, and more.',
+    'Discover all the features that make Opscel the complete job management solution for UK trade contractors. Mobile field service, instant certificates, team management, and more.',
 };
 
 const FeaturesPage: React.FC = () => {

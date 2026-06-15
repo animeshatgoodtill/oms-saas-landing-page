@@ -227,7 +227,7 @@ export const featureCategories: IFeatureCategory[] = [
     },
     {
         title: "Built for Your Industry",
-        description: "Generic job management doesn't work for trade contractors. OpsCel speaks your language—electrical, fire safety, plumbing, HVAC, maintenance.",
+        description: "Generic job management doesn't work for trade contractors. Opscel speaks your language—electrical, fire safety, plumbing, HVAC, maintenance.",
         iconId: "icon-five-trades",
         features: [
             {
@@ -315,5 +315,5 @@ export const featureCategories: IFeatureCategory[] = [
 
 export const featuresPageDetails = {
     title: "Everything You Need to Run Your Business",
-    description: "From field service to invoicing, customer management to compliance—OpsCel handles it all. No bolted-on features, no 'partner integrations,' just one system that works."
+    description: "From field service to invoicing, customer management to compliance—Opscel handles it all. No bolted-on features, no 'partner integrations,' just one system that works."
 };

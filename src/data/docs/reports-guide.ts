@@ -11,7 +11,7 @@ export const reportsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> OpsCel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Jobs Report is available on all tiers; Quotations Report and scheduled reports require Business+ tier. Designed for Managers and Admins who need operational visibility.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Jobs Report is available on all tiers; Quotations Report and scheduled reports require Business+ tier. Designed for Managers and Admins who need operational visibility.',
                 },
                 {
                     title: 'Who Uses Reports',
@@ -135,7 +135,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'Using Date Ranges',
-                    content: 'OpsCel offers predefined and custom date ranges for flexible reporting. Choose ranges that align with your business review cycles.',
+                    content: 'Opscel offers predefined and custom date ranges for flexible reporting. Choose ranges that align with your business review cycles.',
                 },
                 {
                     title: 'Predefined Date Ranges',
@@ -183,7 +183,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'Why Export Data',
-                    content: 'Export reports to CSV or Excel for deeper analysis in spreadsheet tools, financial software, or BI platforms. Useful for custom visualizations, pivot tables, or sharing with stakeholders who don\'t have OpsCel access.',
+                    content: 'Export reports to CSV or Excel for deeper analysis in spreadsheet tools, financial software, or BI platforms. Useful for custom visualizations, pivot tables, or sharing with stakeholders who don\'t have Opscel access.',
                 },
                 {
                     title: 'Steps to Export Report Data',
@@ -213,7 +213,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'For Admins',
-                    content: '<em>Tip:</em> Export data monthly for historical archives. If you outgrow OpsCel or need to migrate data, you\'ll have a complete CSV backup. Store exports in Google Drive or Dropbox with clear date labels (e.g., "Jobs_Report_2026-05.csv").',
+                    content: '<em>Tip:</em> Export data monthly for historical archives. If you outgrow Opscel or need to migrate data, you\'ll have a complete CSV backup. Store exports in Google Drive or Dropbox with clear date labels (e.g., "Jobs_Report_2026-05.csv").',
                 },
             ],
         },
@@ -223,7 +223,7 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Understanding Report Metrics',
-                    content: 'OpsCel calculates metrics using your job and quote data. Here\'s how each metric is defined and why it matters.',
+                    content: 'Opscel calculates metrics using your job and quote data. Here\'s how each metric is defined and why it matters.',
                 },
                 {
                     table: {
@@ -292,7 +292,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Scheduled report appears in your Scheduled Reports list with status <strong>Active</strong>. Recipients receive an email with: PDF report attachment, CSV data file, summary of key metrics in email body. Email subject: "OpsCel Report: [Report Type] - [Date Range]".',
+                    content: 'Scheduled report appears in your Scheduled Reports list with status <strong>Active</strong>. Recipients receive an email with: PDF report attachment, CSV data file, summary of key metrics in email body. Email subject: "Opscel Report: [Report Type] - [Date Range]".',
                 },
                 {
                     title: 'Managing Scheduled Reports',
@@ -337,15 +337,15 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'How often is report data refreshed?',
-                    content: 'Report data is real-time. When you generate a report, OpsCel queries the current database state. There is no caching or delay - you see live data as of the moment you click "Generate Report".',
+                    content: 'Report data is real-time. When you generate a report, Opscel queries the current database state. There is no caching or delay - you see live data as of the moment you click "Generate Report".',
                 },
                 {
                     title: 'How far back does historical data go?',
-                    content: 'OpsCel retains all job and quote data indefinitely (no deletion policy). You can generate reports for any date range since your account was created. For tenants migrated from other systems, historical data availability depends on what was imported during migration.',
+                    content: 'Opscel retains all job and quote data indefinitely (no deletion policy). You can generate reports for any date range since your account was created. For tenants migrated from other systems, historical data availability depends on what was imported during migration.',
                 },
                 {
                     title: 'Can I create custom metrics?',
-                    content: 'Not currently. OpsCel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations. Business+ tier can request custom dashboard development (contact sales).',
+                    content: 'Not currently. Opscel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations. Business+ tier can request custom dashboard development (contact sales).',
                 },
                 {
                     title: 'Can I customize report layout or branding?',

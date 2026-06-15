@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const teamManagementGuide: IDocGuide = {
     slug: 'team-management',
     title: 'Team, Roles & Permissions',
-    description: 'Manage users, assign roles, and control access in OpsCel. Learn about the 7 fixed roles, how to invite team members, permission matrix, and multi-tenant access.',
+    description: 'Manage users, assign roles, and control access in Opscel. Learn about the 7 fixed roles, how to invite team members, permission matrix, and multi-tenant access.',
     lastUpdated: '2026-05-21',
     sections: [
         {
@@ -28,7 +28,7 @@ export const teamManagementGuide: IDocGuide = {
                 },
                 {
                     title: '7 Fixed Roles',
-                    content: '<p>OpsCel has <strong>7 fixed roles</strong> that cannot be customized. Each role has a predefined set of permissions. You cannot create custom roles or modify role permissions.</p><p>Roles are designed to match common job functions in fire safety and electrical contracting businesses.</p>'
+                    content: '<p>Opscel has <strong>7 fixed roles</strong> that cannot be customized. Each role has a predefined set of permissions. You cannot create custom roles or modify role permissions.</p><p>Roles are designed to match common job functions in fire safety and electrical contracting businesses.</p>'
                 }
             ]
         },
@@ -149,13 +149,13 @@ export const teamManagementGuide: IDocGuide = {
                 },
                 {
                     title: 'Email-Based Invite Process',
-                    content: '<p>OpsCel uses email invitations to add team members. The new user receives an email with a secure link to create their account and set their password.</p>'
+                    content: '<p>Opscel uses email invitations to add team members. The new user receives an email with a secure link to create their account and set their password.</p>'
                 },
                 {
                     title: 'Email Notification Content',
                     content: '<p>The invite email includes:</p>',
                     bullets: [
-                        'Business name (e.g., "You&apos;ve been invited to join Smith Electrical on OpsCel")',
+                        'Business name (e.g., "You&apos;ve been invited to join Smith Electrical on Opscel")',
                         'Inviter name (e.g., "John Smith has invited you")',
                         'Assigned role (e.g., "You&apos;ll be joining as an Engineer")',
                         'Secure activation link (expires in 7 days)',
@@ -169,7 +169,7 @@ export const teamManagementGuide: IDocGuide = {
                         'Directed to account creation page',
                         'Enters name, creates password (min 8 characters, must include uppercase, number, symbol)',
                         'Accepts terms of service',
-                        'Redirected to OpsCel with role already assigned',
+                        'Redirected to Opscel with role already assigned',
                         'Sees onboarding guide based on role (engineers see field app intro, admins see settings tour)'
                     ]
                 },
@@ -296,7 +296,7 @@ export const teamManagementGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Two Access Modes',
-                    content: '<p>OpsCel has two distinct interfaces:</p>',
+                    content: '<p>Opscel has two distinct interfaces:</p>',
                     bullets: [
                         '<strong>Admin dashboard (web):</strong> Desktop-optimized for scheduling, invoicing, settings. Accessed at <code>app.opscel.com</code>',
                         '<strong>Field app (mobile PWA):</strong> Mobile-optimized for on-site work. Offline-first, touch-friendly. Same URL but different interface based on device.'
@@ -325,7 +325,7 @@ export const teamManagementGuide: IDocGuide = {
                 },
                 {
                     title: 'Mobile App vs Web App Access',
-                    content: '<p>All roles can access OpsCel from any device (desktop, mobile, tablet). The interface adapts automatically:</p>',
+                    content: '<p>All roles can access Opscel from any device (desktop, mobile, tablet). The interface adapts automatically:</p>',
                     bullets: [
                         '<strong>Mobile device:</strong> Shows field app interface for field roles, mobile-optimized dashboard for admin roles',
                         '<strong>Desktop:</strong> Shows admin dashboard',
@@ -340,7 +340,7 @@ export const teamManagementGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'For Users in Multiple Tenants',
-                    content: '<p>Some users belong to multiple OpsCel businesses (e.g., contractor who works for multiple companies). These users see a <strong>Business Switcher</strong> in the top-right corner of the interface.</p>'
+                    content: '<p>Some users belong to multiple Opscel businesses (e.g., contractor who works for multiple companies). These users see a <strong>Business Switcher</strong> in the top-right corner of the interface.</p>'
                 },
                 {
                     title: 'How to Switch Between Businesses',
@@ -493,7 +493,7 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'Invite Email Not Received',
                     content: '<p><strong>Problem:</strong> User says "I never got the invite email".</p><p><strong>Check:</strong></p>',
                     bullets: [
-                        'Spam folder (OpsCel emails sometimes flagged)',
+                        'Spam folder (Opscel emails sometimes flagged)',
                         'Email address spelling (check for typos in invite)',
                         'Pending invites list (verify invite was actually sent)',
                         'Invite expiry (invites expire after 7 days)',
@@ -537,7 +537,7 @@ export const teamManagementGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Can I create custom roles?',
-                    content: '<p>No. OpsCel has 7 fixed roles that cannot be customized. You cannot create new roles or modify the permissions of existing roles. This ensures consistency and simplifies security management.</p><p>The 7 roles are designed to cover all common use cases in fire safety and electrical contracting. If you need custom permissions, contact support to discuss your requirements.</p>'
+                    content: '<p>No. Opscel has 7 fixed roles that cannot be customized. You cannot create new roles or modify the permissions of existing roles. This ensures consistency and simplifies security management.</p><p>The 7 roles are designed to cover all common use cases in fire safety and electrical contracting. If you need custom permissions, contact support to discuss your requirements.</p>'
                 },
                 {
                     title: 'How many users can I add?',
@@ -561,12 +561,12 @@ export const teamManagementGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I restrict access to specific customers or jobs?',
-                    content: '<p>No. Permissions in OpsCel are <strong>role-based</strong>, not data-based. This means:</p>',
+                    content: '<p>No. Permissions in Opscel are <strong>role-based</strong>, not data-based. This means:</p>',
                     bullets: [
                         '<strong>Admins and Managers</strong> can see all customers and jobs',
                         '<strong>Engineers</strong> can see only their assigned jobs',
                         '<strong>Read-Only and Accountant</strong> can see all data in their scope (all jobs vs financial data)',
-                        'If you need to restrict access to specific customers (e.g., separate divisions), consider using separate OpsCel businesses (multi-tenant) instead.'
+                        'If you need to restrict access to specific customers (e.g., separate divisions), consider using separate Opscel businesses (multi-tenant) instead.'
                     ]
                 }
             ]

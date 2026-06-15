@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const settingsTourGuide: IDocGuide = {
     slug: 'settings-tour',
     title: 'Settings Tour',
-    description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
+    description: 'Quick orientation to every settings page in Opscel. Learn what each setting controls and where to find advanced configuration options.',
     lastUpdated: '2026-05-20',
     sections: [
         {
@@ -13,7 +13,7 @@ export const settingsTourGuide: IDocGuide = {
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
-                        This is your guided tour of the OpsCel settings sidebar. Think of it as a map—one paragraph per setting, no deep dives,
+                        This is your guided tour of the Opscel settings sidebar. Think of it as a map—one paragraph per setting, no deep dives,
                         just "what is this and where does it link to." Use this when you are looking at the settings menu and asking "what am I looking at?"
                     </p>
                     <p class="text-gray-800 mt-3">
@@ -221,8 +221,8 @@ export const settingsTourGuide: IDocGuide = {
                 {
                     title: 'Billing',
                     content: `
-                        <p class="mb-2"><strong>What it controls:</strong> Your OpsCel subscription plan (Starter / Team / Business), upgrade/downgrade options, billing history, payment method.</p>
-                        <p class="mb-4"><strong>Why it matters:</strong> Manage your subscription and view invoices for your OpsCel account.</p>
+                        <p class="mb-2"><strong>What it controls:</strong> Your Opscel subscription plan (Starter / Team / Business), upgrade/downgrade options, billing history, payment method.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> Manage your subscription and view invoices for your Opscel account.</p>
                         <p class="text-gray-700">
                             <em>Billing & tier limits guide coming soon.</em>
                         </p>
@@ -235,15 +235,15 @@ export const settingsTourGuide: IDocGuide = {
             title: 'Integration Settings',
             content: `
                 <p class="mb-6">
-                    Connect OpsCel to external services.
+                    Connect Opscel to external services.
                 </p>
             `,
             subsections: [
                 {
                     title: 'Xero Mappings',
                     content: `
-                        <p class="mb-2"><strong>What it controls:</strong> Xero OAuth connection, account code mapping (which OpsCel categories go to which Xero accounts), sync status.</p>
-                        <p class="mb-4"><strong>Why it matters:</strong> Posts invoices to Xero automatically. Syncs payments back to OpsCel.</p>
+                        <p class="mb-2"><strong>What it controls:</strong> Xero OAuth connection, account code mapping (which Opscel categories go to which Xero accounts), sync status.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> Posts invoices to Xero automatically. Syncs payments back to Opscel.</p>
                         <p class="mb-4"><strong>Availability:</strong> Business+ tier</p>
                         <p class="text-gray-700">
                             <a href="/docs/accounting-integration" class="text-blue-600 hover:underline">→ See Accounting Integration Guide</a>
@@ -368,7 +368,7 @@ export const settingsTourGuide: IDocGuide = {
                     title: 'Migration Agent',
                     content: `
                         <p class="mb-2"><strong>What it controls:</strong> AI-powered document import from Google Drive, OneDrive, Dropbox. Scan cloud storage, classify documents, match to jobs/customers.</p>
-                        <p class="mb-4"><strong>Why it matters:</strong> Bring in historical PDFs (invoices, quotes, certs, photos) when migrating to OpsCel.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> Bring in historical PDFs (invoices, quotes, certs, photos) when migrating to Opscel.</p>
                         <p class="mb-4"><strong>Availability:</strong> Super Admin, Admin only. Credit-backed (charged per document scanned).</p>
                         <p class="text-gray-700">
                             <em>Migration agent guide coming soon.</em>

@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const accountingIntegrationDetail: IFeatureDetail = {
     slug: 'accounting-integration',
     title: 'Your Books, Always Up to Date',
-    subtitle: 'Connect OpsCel to Xero or QuickBooks',
+    subtitle: 'Connect Opscel to Xero or QuickBooks',
     heroDescription: 'Watch invoices flow straight to your accounting software. No exports, no imports, no double entry. One-click posting, automatic customer sync, real-time payment updates.',
     iconId: 'icon-xero',
     screenshotImage: '/images/ui/06-screen.png',
@@ -12,17 +12,17 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         {
             iconId: 'icon-price-tag',
             title: 'Post Invoices in One Click',
-            description: 'Create an invoice in OpsCel, click "Post to Xero" or "Post to QuickBooks", and it\'s done. The invoice appears in your accounting software with all the details intact. Line items, tax rates, customer details—everything transfers perfectly.'
+            description: 'Create an invoice in Opscel, click "Post to Xero" or "Post to QuickBooks", and it\'s done. The invoice appears in your accounting software with all the details intact. Line items, tax rates, customer details—everything transfers perfectly.'
         },
         {
             iconId: 'icon-smart-customer',
             title: 'Customers Sync Automatically',
-            description: 'When you post an invoice, OpsCel checks if the customer exists in your accounting software. If not, it creates them automatically. If they do, it links to the existing record. No duplicate customers. No mismatched records. No cleanup needed.'
+            description: 'When you post an invoice, Opscel checks if the customer exists in your accounting software. If not, it creates them automatically. If they do, it links to the existing record. No duplicate customers. No mismatched records. No cleanup needed.'
         },
         {
             iconId: 'icon-activity-log',
             title: 'Payments Update in Real-Time',
-            description: 'When a customer pays an invoice in Xero or QuickBooks, the status updates in OpsCel automatically. Your dashboard shows what\'s paid, what\'s outstanding, and what\'s overdue. No more logging into two systems to check payment status.'
+            description: 'When a customer pays an invoice in Xero or QuickBooks, the status updates in Opscel automatically. Your dashboard shows what\'s paid, what\'s outstanding, and what\'s overdue. No more logging into two systems to check payment status.'
         },
         {
             iconId: 'icon-service-history',
@@ -35,12 +35,12 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         {
             stepNumber: 1,
             title: 'Connect Your Account',
-            description: 'Click "Connect to Xero" or "Connect to QuickBooks" in Settings. Authorise OpsCel to access your accounting software. Takes 30 seconds.'
+            description: 'Click "Connect to Xero" or "Connect to QuickBooks" in Settings. Authorise Opscel to access your accounting software. Takes 30 seconds.'
         },
         {
             stepNumber: 2,
             title: 'Map Your Accounts',
-            description: 'Tell OpsCel which revenue accounts to use for different product categories. Labour, materials, equipment—each can go to the right place.'
+            description: 'Tell Opscel which revenue accounts to use for different product categories. Labour, materials, equipment—each can go to the right place.'
         },
         {
             stepNumber: 3,
@@ -50,7 +50,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         {
             stepNumber: 4,
             title: 'Track Payments',
-            description: 'When customers pay, the status updates automatically. Your OpsCel dashboard always shows the current state.'
+            description: 'When customers pay, the status updates automatically. Your Opscel dashboard always shows the current state.'
         }
     ],
 
@@ -61,7 +61,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
                 'One-click invoice posting to Xero or QuickBooks',
                 'No more exporting/importing CSV files',
                 'Customer records sync automatically—no duplicate entries',
-                'Payment status visible in OpsCel—no need to check accounting software',
+                'Payment status visible in Opscel—no need to check accounting software',
                 'Revenue correctly categorised for clean year-end reporting',
                 'Clear error messages if something needs fixing before posting'
             ]
@@ -81,7 +81,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
             persona: 'Accountants',
             benefits: [
                 'Income properly categorised by revenue account',
-                'Complete audit trail—OpsCel invoice ID linked to accounting invoice',
+                'Complete audit trail—Opscel invoice ID linked to accounting invoice',
                 'No duplicate invoices—system prevents accidental double-posting',
                 'Deposit handling flows through correctly to final invoices',
                 'Tax codes applied correctly based on product categories',
@@ -160,11 +160,11 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         },
         {
             question: 'What if I change accounting software later?',
-            answer: 'Disconnect from one, connect to the other. Your OpsCel data stays intact. Only the integration changes.'
+            answer: 'Disconnect from one, connect to the other. Your Opscel data stays intact. Only the integration changes.'
         },
         {
             question: 'Will this create duplicate invoices?',
-            answer: 'No. OpsCel tracks which invoices have been posted. You can\'t accidentally post the same invoice twice. This is a safety feature to protect your accounting data.'
+            answer: 'No. Opscel tracks which invoices have been posted. You can\'t accidentally post the same invoice twice. This is a safety feature to protect your accounting data.'
         },
         {
             question: 'What happens if an invoice fails to post?',
@@ -172,7 +172,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         },
         {
             question: 'Can I edit an invoice after posting?',
-            answer: 'In OpsCel, you can void and recreate. In your accounting software, standard rules apply. We recommend getting invoices right before posting to avoid complications.'
+            answer: 'In Opscel, you can void and recreate. In your accounting software, standard rules apply. We recommend getting invoices right before posting to avoid complications.'
         },
         {
             question: 'How quickly do payments sync?',
@@ -180,7 +180,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         },
         {
             question: 'Is my accounting data secure?',
-            answer: 'Yes. We use OAuth 2.0 (bank-level security), encrypted connections, and minimal permissions. OpsCel never stores your accounting software passwords. You can disconnect anytime.'
+            answer: 'Yes. We use OAuth 2.0 (bank-level security), encrypted connections, and minimal permissions. Opscel never stores your accounting software passwords. You can disconnect anytime.'
         }
     ],
 

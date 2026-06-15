@@ -13,7 +13,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
-                        OpsCel brings BS 5839-1:2025 servicing records and BAFE SP203 scheme documentation together in a single jobsheet
+                        Opscel brings BS 5839-1:2025 servicing records and BAFE SP203 scheme documentation together in a single jobsheet
                         that engineers fill on site. Faults logged at a site carry forward across visits automatically, so engineers
                         see the complete fault history — weeks, months, or years later — without digging through old job records.
                     </p>
@@ -54,7 +54,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     title: 'What It Is',
                     content: `
                         <p class="mb-4">
-                            OpsCel turns the jobsheet into a clean, branded PDF you can hand to the client or keep on file. It references
+                            Opscel turns the jobsheet into a clean, branded PDF you can hand to the client or keep on file. It references
                             <strong>Clause 43 of BS 5839-1:2025</strong> and is built for BAFE SP203-registered fire alarm and detection contractors.
                         </p>
                         <p class="mb-4">
@@ -115,7 +115,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
                             <p class="text-amber-800">
                                 <strong>BAFE declaration behavior:</strong> If your BAFE SP203 registration number is missing from company
-                                credentials, OpsCel won't print a "BAFE Registered Organisation" declaration with a blank number beside it —
+                                credentials, Opscel won't print a "BAFE Registered Organisation" declaration with a blank number beside it —
                                 it simply leaves the BAFE claim off that document. Add your number and it switches back on automatically.
                             </p>
                         </div>
@@ -401,7 +401,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     title: 'Deleting a Job Never Loses Fault History',
                     content: `
                         <p class="mb-4">
-                            Because faults belong to the site rather than the job, removing an old job from OpsCel never wipes a site's fault
+                            Because faults belong to the site rather than the job, removing an old job from Opscel never wipes a site's fault
                             history. The faults stay on the register, still showing which job they were originally raised on, so your long-term
                             record stays intact.
                         </p>
@@ -434,7 +434,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         },
                         {
                             step: 'Check if BAFE SP203 registration number is entered',
-                            description: 'If missing, OpsCel omits the BAFE declaration (won\'t print blank number)'
+                            description: 'If missing, Opscel omits the BAFE declaration (won\'t print blank number)'
                         },
                         {
                             step: 'Enter your BAFE SP203 number and save',
@@ -535,7 +535,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     content: `
                         <p class="text-gray-700">
                             The first engineer to sync their resolution wins. If a second engineer marks the same fault resolved before syncing,
-                            OpsCel detects the conflict and shows a warning: "This fault was already resolved on [date] by [engineer]." The second
+                            Opscel detects the conflict and shows a warning: "This fault was already resolved on [date] by [engineer]." The second
                             resolution is discarded to prevent duplicate entries.
                         </p>
                     `

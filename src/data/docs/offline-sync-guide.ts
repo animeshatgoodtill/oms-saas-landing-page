@@ -2,7 +2,7 @@ import { IDocGuide } from '@/types';
 
 export const offlineSyncGuide: IDocGuide = {
     title: 'Offline & Sync Deep Dive',
-    description: 'Technical guide to OpsCel\'s offline-first architecture, sync queue mechanisms, conflict resolution, and troubleshooting sync issues in the field PWA.',
+    description: 'Technical guide to Opscel\'s offline-first architecture, sync queue mechanisms, conflict resolution, and troubleshooting sync issues in the field PWA.',
     slug: 'offline-sync',
     lastUpdated: 'May 21, 2026',
     sections: [
@@ -11,7 +11,7 @@ export const offlineSyncGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> OpsCel\'s field PWA is offline-first — engineers can capture photos, fill forms, sign off jobs, and log defects without internet. All writes queue locally in IndexedDB and sync automatically when back online. Last-write-wins conflict resolution ensures data consistency across devices. This guide covers technical architecture, sync indicators, cache management, and troubleshooting for engineers and admins dealing with sync issues.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s field PWA is offline-first — engineers can capture photos, fill forms, sign off jobs, and log defects without internet. All writes queue locally in IndexedDB and sync automatically when back online. Last-write-wins conflict resolution ensures data consistency across devices. This guide covers technical architecture, sync indicators, cache management, and troubleshooting for engineers and admins dealing with sync issues.',
                 },
                 {
                     title: 'Who Needs This Guide',
@@ -137,11 +137,11 @@ export const offlineSyncGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'How Conflicts Happen',
-                    content: 'Conflicts occur when multiple engineers (or one engineer on multiple devices) edit the same job offline, then both sync. OpsCel must decide which version to keep.',
+                    content: 'Conflicts occur when multiple engineers (or one engineer on multiple devices) edit the same job offline, then both sync. Opscel must decide which version to keep.',
                 },
                 {
                     title: 'Last-Write-Wins Strategy',
-                    content: 'OpsCel uses <strong>last-write-wins</strong> conflict resolution: the most recent sync (by server timestamp) overwrites earlier versions. This prevents data corruption but may discard earlier edits if two engineers edit the same field.',
+                    content: 'Opscel uses <strong>last-write-wins</strong> conflict resolution: the most recent sync (by server timestamp) overwrites earlier versions. This prevents data corruption but may discard earlier edits if two engineers edit the same field.',
                 },
                 {
                     title: 'Fields Affected by Conflicts',
@@ -162,7 +162,7 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'Manual Resolution (Critical Fields)',
-                    content: 'For critical fields (e.g., certificate test results), OpsCel flags conflicts and prompts manual resolution on next sync. Admin chooses which version to keep. This prevents accidental data loss on safety-critical information.',
+                    content: 'For critical fields (e.g., certificate test results), Opscel flags conflicts and prompts manual resolution on next sync. Admin chooses which version to keep. This prevents accidental data loss on safety-critical information.',
                 },
                 {
                     title: 'For Managers',
@@ -180,7 +180,7 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'How Caching Works',
-                    content: 'OpsCel uses a <strong>service worker</strong> to cache job data, photos, and app assets locally. Default cache size: <strong>50 MB</strong> (configurable per device). Once cache is full, oldest items are evicted (LRU policy).',
+                    content: 'Opscel uses a <strong>service worker</strong> to cache job data, photos, and app assets locally. Default cache size: <strong>50 MB</strong> (configurable per device). Once cache is full, oldest items are evicted (LRU policy).',
                 },
                 {
                     title: 'What Gets Cached',
@@ -234,7 +234,7 @@ export const offlineSyncGuide: IDocGuide = {
             title: 'Network Detection',
             subsections: [
                 {
-                    title: 'How OpsCel Detects Offline Status',
+                    title: 'How Opscel Detects Offline Status',
                     content: 'The PWA uses <strong>navigator.onLine</strong> API + server ping to detect connectivity. When offline detected, UI switches to offline mode with CloudOff icon.',
                 },
                 {
@@ -256,7 +256,7 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'For Engineers',
-                    content: '<em>Tip:</em> If CloudOff icon persists despite being connected to WiFi, check: (1) WiFi requires login (captive portal), (2) Firewall blocking OpsCel domain, (3) Airplane mode still on. Try manual sync button to diagnose.',
+                    content: '<em>Tip:</em> If CloudOff icon persists despite being connected to WiFi, check: (1) WiFi requires login (captive portal), (2) Firewall blocking Opscel domain, (3) Airplane mode still on. Try manual sync button to diagnose.',
                 },
             ],
         },
@@ -266,7 +266,7 @@ export const offlineSyncGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Visual Indicators Explained',
-                    content: 'OpsCel uses icons and chips to communicate sync status throughout the UI.',
+                    content: 'Opscel uses icons and chips to communicate sync status throughout the UI.',
                 },
                 {
                     table: {
@@ -333,7 +333,7 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'CloudOff Icon Stuck Despite Being Online',
-                    content: '<strong>Cause:</strong> Captive portal (WiFi login required), firewall blocking OpsCel, or DNS issue.<br><strong>Fix:</strong> Open browser and visit opscel.com — if redirect to login page, complete WiFi login. Try switching from WiFi to mobile data. If mobile data works, WiFi is blocking OpsCel domain.',
+                    content: '<strong>Cause:</strong> Captive portal (WiFi login required), firewall blocking Opscel, or DNS issue.<br><strong>Fix:</strong> Open browser and visit opscel.com — if redirect to login page, complete WiFi login. Try switching from WiFi to mobile data. If mobile data works, WiFi is blocking Opscel domain.',
                 },
             ],
         },
@@ -343,7 +343,7 @@ export const offlineSyncGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Will I lose data if I work offline for a whole day?',
-                    content: 'No. OpsCel queues everything locally (photos, forms, signatures) with no time limit. You can work offline for days as long as you don\'t exceed device storage (50 MB default). Data syncs when you next connect.',
+                    content: 'No. Opscel queues everything locally (photos, forms, signatures) with no time limit. You can work offline for days as long as you don\'t exceed device storage (50 MB default). Data syncs when you next connect.',
                 },
                 {
                     title: 'How long can I work offline before hitting storage limits?',
@@ -354,7 +354,7 @@ export const offlineSyncGuide: IDocGuide = {
                     content: 'Most data is append-only (photos, defects, parts) — both engineers\' contributions merge on sync. For single-value fields (work summary, notes), last-write-wins — one engineer\'s version will overwrite the other. Coordination is key: assign sections or tasks to avoid overwrites.',
                 },
                 {
-                    title: 'How many times will OpsCel retry a failed sync?',
+                    title: 'How many times will Opscel retry a failed sync?',
                     content: 'Automatic retry: 5 attempts with exponential backoff (1s, 2s, 4s, 8s, 16s). After 5 failures, operation stays in queue with ErrorChip. You must manually retry (Sync Inspector → Retry All) or investigate error.',
                 },
                 {
@@ -363,7 +363,7 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'Do I need to keep the PWA open while syncing?',
-                    content: 'No. OpsCel uses Background Sync API (where supported) — sync continues even if you switch apps or lock screen. On iOS (where Background Sync is limited), keep app open during sync for best results.',
+                    content: 'No. Opscel uses Background Sync API (where supported) — sync continues even if you switch apps or lock screen. On iOS (where Background Sync is limited), keep app open during sync for best results.',
                 },
             ],
         },

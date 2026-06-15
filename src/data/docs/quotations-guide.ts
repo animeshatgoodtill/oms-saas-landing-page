@@ -11,7 +11,7 @@ export const quotationsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> OpsCel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, track acceptance/rejection, and automatically convert accepted quotes to jobs. Business+ tier adds quote analytics for conversion tracking. Available to Admins, Managers, and Office Staff.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, track acceptance/rejection, and automatically convert accepted quotes to jobs. Business+ tier adds quote analytics for conversion tracking. Available to Admins, Managers, and Office Staff.',
                 },
                 {
                     title: 'Key Benefits',
@@ -40,7 +40,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Three Ways to Create Quotes',
-                    content: 'OpsCel offers three methods for quote creation, depending on your workflow.',
+                    content: 'Opscel offers three methods for quote creation, depending on your workflow.',
                 },
                 {
                     title: 'Method 1: From Scratch',
@@ -74,7 +74,7 @@ export const quotationsGuide: IDocGuide = {
                         'Navigate to <strong>Jobs → All Jobs</strong>',
                         'Open a completed job',
                         'Click <strong>Actions → Create Quote from Job</strong>',
-                        'OpsCel pre-fills line items based on job parts and labour',
+                        'Opscel pre-fills line items based on job parts and labour',
                         'Adjust pricing if needed (markup, discounts)',
                         'Change customer if quoting for a different client',
                         'Review and click <strong>Save as Draft</strong> or <strong>Send</strong>',
@@ -89,7 +89,7 @@ export const quotationsGuide: IDocGuide = {
                     steps: [
                         'Complete an EICR certificate with observations',
                         'On the certificate detail page, click <strong>Generate Remedial Quote</strong>',
-                        'OpsCel creates a draft quote with one line item per observation',
+                        'Opscel creates a draft quote with one line item per observation',
                         'Each line item shows: defect code, description, location, suggested remedy',
                         'Adjust pricing for each remedy',
                         'Add labour costs (auto-estimated based on defect severity)',
@@ -162,7 +162,7 @@ export const quotationsGuide: IDocGuide = {
                         'Select <strong>Type</strong>: Material, Labour, or Service',
                         'Enter <strong>Quantity</strong> and <strong>Unit</strong> (e.g., 2 units, 5 hours)',
                         'Enter <strong>Unit Price</strong> (ex-VAT)',
-                        'OpsCel auto-calculates <strong>Line Total</strong> (Quantity × Unit Price)',
+                        'Opscel auto-calculates <strong>Line Total</strong> (Quantity × Unit Price)',
                         'Apply <strong>Markup</strong> if needed (percentage or fixed amount)',
                         'Apply <strong>Discount</strong> if needed (percentage or fixed amount)',
                         'Repeat for all line items',
@@ -194,7 +194,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'VAT Handling',
-                    content: 'All prices are entered <strong>ex-VAT</strong>. OpsCel automatically adds VAT at the rate configured in Settings (default: 20% UK standard rate). You can override VAT rate per line item for reduced rate or zero-rated items.',
+                    content: 'All prices are entered <strong>ex-VAT</strong>. Opscel automatically adds VAT at the rate configured in Settings (default: 20% UK standard rate). You can override VAT rate per line item for reduced rate or zero-rated items.',
                 },
                 {
                     title: 'For Office Staff',
@@ -261,7 +261,7 @@ export const quotationsGuide: IDocGuide = {
                         'Clicks <strong>Accept Quote</strong>',
                         'If deposit required: redirected to Stripe payment page (Business+ tier)',
                         'After acceptance (and payment if required): quote status changes to <strong>Accepted</strong>',
-                        'OpsCel sends confirmation email to customer and office team',
+                        'Opscel sends confirmation email to customer and office team',
                         'Quote becomes available for conversion to job',
                     ],
                 },
@@ -277,7 +277,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Acceptance Notification',
-                    content: 'When a quote is accepted, OpsCel sends notifications to: office email (hello@yourcompany.com), assigned manager, customer (confirmation email). Rejected quotes notify the office team only.',
+                    content: 'When a quote is accepted, Opscel sends notifications to: office email (hello@yourcompany.com), assigned manager, customer (confirmation email). Rejected quotes notify the office team only.',
                 },
                 {
                     title: 'For Admins',
@@ -304,7 +304,7 @@ export const quotationsGuide: IDocGuide = {
                         'Filter by <strong>Accepted</strong> status',
                         'Open the accepted quote',
                         'Click <strong>Convert to Job</strong>',
-                        'OpsCel creates a draft job with: customer, site address, job description (from quote title), expected revenue (quote total), line items (in job notes)',
+                        'Opscel creates a draft job with: customer, site address, job description (from quote title), expected revenue (quote total), line items (in job notes)',
                         'Schedule the job (assign engineer, set date)',
                         'Click <strong>Save Job</strong>',
                         'Quote status changes to <strong>Converted to Job</strong>',
@@ -341,7 +341,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Requiring Deposits on Quote Acceptance',
-                    content: 'OpsCel integrates with Stripe to collect deposits when customers accept quotes. This secures commitment and reduces no-shows.',
+                    content: 'Opscel integrates with Stripe to collect deposits when customers accept quotes. This secures commitment and reduces no-shows.',
                 },
                 {
                     title: 'Steps to Enable Deposit Payments',
@@ -361,7 +361,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Deposit Handling on Invoice',
-                    content: 'When you invoice the completed job, OpsCel automatically subtracts the deposit from the total. E.g., £1,000 job - £200 deposit = £800 invoice balance due.',
+                    content: 'When you invoice the completed job, Opscel automatically subtracts the deposit from the total. E.g., £1,000 job - £200 deposit = £800 invoice balance due.',
                 },
                 {
                     title: 'For Admins',
@@ -505,7 +505,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'How do discounts affect profitability reporting?',
-                    content: 'Discounts reduce the quote total, which flows through to job revenue and invoicing. OpsCel tracks: <strong>Original quote value</strong> (pre-discount) and <strong>Final quote value</strong> (post-discount). Profitability reports use final value minus job costs. Large discounts reduce margin - track discount % in analytics to avoid over-discounting.',
+                    content: 'Discounts reduce the quote total, which flows through to job revenue and invoicing. Opscel tracks: <strong>Original quote value</strong> (pre-discount) and <strong>Final quote value</strong> (post-discount). Profitability reports use final value minus job costs. Large discounts reduce margin - track discount % in analytics to avoid over-discounting.',
                 },
                 {
                     title: 'What\'s the difference between voiding and rejecting a quote?',

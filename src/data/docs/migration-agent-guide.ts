@@ -15,7 +15,7 @@ export const migrationAgentGuide: IDocGuide = {
                     <p class="text-gray-800">
                         Migration Agent connects to your cloud storage (Google Drive, OneDrive, Dropbox), scans your legacy documents,
                         uses AI to classify them (invoice, quote, certificate, photo), matches them to customers and jobs, then imports
-                        them into OpsCel. It&apos;s a one-time setup task to bring historical records into your new system.
+                        them into Opscel. It&apos;s a one-time setup task to bring historical records into your new system.
                     </p>
                     <p class="text-gray-800 mt-3">
                         <strong>Who uses this:</strong> Super Admins, Admins<br/>
@@ -40,17 +40,17 @@ export const migrationAgentGuide: IDocGuide = {
                     title: 'Ideal Use Cases',
                     content: '',
                     bullets: [
-                        '<strong>Moving from paper/folders to OpsCel:</strong> You have years of PDFs in Google Drive or Dropbox',
+                        '<strong>Moving from paper/folders to Opscel:</strong> You have years of PDFs in Google Drive or Dropbox',
                         '<strong>Consolidating storage:</strong> Documents scattered across multiple cloud accounts',
                         '<strong>Historical records:</strong> Need compliance audit trail for old jobs',
-                        '<strong>Customer onboarding:</strong> Bringing existing customer documents into OpsCel'
+                        '<strong>Customer onboarding:</strong> Bringing existing customer documents into Opscel'
                     ]
                 },
                 {
                     title: 'When NOT to Use',
                     content: 'Migration Agent is designed for legacy imports. Do not use if:',
                     bullets: [
-                        'Documents are already in OpsCel (use search instead)',
+                        'Documents are already in Opscel (use search instead)',
                         'You need real-time sync (Migration Agent is one-time import)',
                         'Documents are actively being edited (import creates static copies)',
                         'You have fewer than 50 documents (manual upload may be faster)'
@@ -151,7 +151,7 @@ export const migrationAgentGuide: IDocGuide = {
                         { step: 'Go to Settings → Migration Agent', description: '' },
                         { step: 'Click "Connect Google Drive"', description: '' },
                         { step: 'Sign in with your Google account', description: 'Must have access to the folder you want to scan' },
-                        { step: 'Grant OpsCel read-only access', description: 'OpsCel can only read files, not modify or delete' },
+                        { step: 'Grant Opscel read-only access', description: 'Opscel can only read files, not modify or delete' },
                         { step: 'Select the folder to scan', description: 'All subfolders will be included' },
                         { step: 'Click "Confirm Connection"', description: 'You are now connected' }
                     ]
@@ -165,7 +165,7 @@ export const migrationAgentGuide: IDocGuide = {
                         { step: 'Go to Settings → Migration Agent', description: '' },
                         { step: 'Click "Connect OneDrive"', description: '' },
                         { step: 'Sign in with your Microsoft account', description: 'Personal or Office 365' },
-                        { step: 'Grant OpsCel read-only access', description: '' },
+                        { step: 'Grant Opscel read-only access', description: '' },
                         { step: 'Select the folder to scan', description: '' },
                         { step: 'Click "Confirm Connection"', description: '' }
                     ]
@@ -179,7 +179,7 @@ export const migrationAgentGuide: IDocGuide = {
                         { step: 'Go to Settings → Migration Agent', description: '' },
                         { step: 'Click "Connect Dropbox"', description: '' },
                         { step: 'Sign in with your Dropbox account', description: '' },
-                        { step: 'Grant OpsCel read-only access', description: '' },
+                        { step: 'Grant Opscel read-only access', description: '' },
                         { step: 'Select the folder to scan', description: '' },
                         { step: 'Click "Confirm Connection"', description: '' }
                     ]
@@ -189,7 +189,7 @@ export const migrationAgentGuide: IDocGuide = {
                     content: `
                         <div class="bg-green-50 border-l-4 border-green-500 p-4">
                             <p class="text-green-800">
-                                <strong>Security note:</strong> OpsCel requests <strong>read-only</strong> access to your selected folder.
+                                <strong>Security note:</strong> Opscel requests <strong>read-only</strong> access to your selected folder.
                                 The agent cannot modify, delete, or move files. OAuth tokens are encrypted and stored securely.
                             </p>
                         </div>
@@ -341,7 +341,7 @@ export const migrationAgentGuide: IDocGuide = {
             title: 'Entity Matching',
             content: `
                 <p class="mb-6">
-                    After classification, the AI attempts to match documents to existing customers, jobs, and assets in your OpsCel account.
+                    After classification, the AI attempts to match documents to existing customers, jobs, and assets in your Opscel account.
                     This links legacy documents to the correct records automatically.
                 </p>
             `,
@@ -352,7 +352,7 @@ export const migrationAgentGuide: IDocGuide = {
                         <p class="mb-4">The AI uses fuzzy matching algorithms:</p>
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
                             <li><strong>Extract entities:</strong> Customer names, addresses, job numbers from document text</li>
-                            <li><strong>Search OpsCel database:</strong> Find similar customer names, addresses, job numbers</li>
+                            <li><strong>Search Opscel database:</strong> Find similar customer names, addresses, job numbers</li>
                             <li><strong>Calculate similarity:</strong> Levenshtein distance for text, geocoding for addresses</li>
                             <li><strong>Assign confidence:</strong> Match score 0-100%</li>
                             <li><strong>Suggest best match:</strong> Highest confidence match is pre-selected</li>
@@ -405,7 +405,7 @@ export const migrationAgentGuide: IDocGuide = {
             content: `
                 <p class="mb-6">
                     The staging area is where you review all AI decisions before importing. This is your safety net—nothing is committed to
-                    OpsCel until you explicitly approve.
+                    Opscel until you explicitly approve.
                 </p>
             `,
             subsections: [
@@ -488,7 +488,7 @@ export const migrationAgentGuide: IDocGuide = {
             title: 'Importing Documents',
             content: `
                 <p class="mb-6">
-                    Once you have reviewed and corrected classifications, you initiate the import. OpsCel processes documents in the background
+                    Once you have reviewed and corrected classifications, you initiate the import. Opscel processes documents in the background
                     using a queue system.
                 </p>
             `,
@@ -499,7 +499,7 @@ export const migrationAgentGuide: IDocGuide = {
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
                             <li><strong>Queue creation:</strong> All staged documents are added to QStash queue</li>
                             <li><strong>Background processing:</strong> Queue workers process documents one-by-one</li>
-                            <li><strong>Database records:</strong> Document metadata is inserted into OpsCel database</li>
+                            <li><strong>Database records:</strong> Document metadata is inserted into Opscel database</li>
                             <li><strong>Blob storage:</strong> PDF/image files are uploaded to secure blob storage</li>
                             <li><strong>Entity linking:</strong> Documents are linked to matched customers/jobs/assets</li>
                             <li><strong>Success/failure logging:</strong> Each document result is logged</li>
@@ -510,11 +510,11 @@ export const migrationAgentGuide: IDocGuide = {
                     title: 'QStash Queue Management',
                     content: `
                         <p class="mb-4">
-                            OpsCel uses QStash for reliable background processing. This ensures imports do not block your account and can
+                            Opscel uses QStash for reliable background processing. This ensures imports do not block your account and can
                             recover from failures automatically.
                         </p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li><strong>Non-blocking:</strong> You can continue using OpsCel while import runs</li>
+                            <li><strong>Non-blocking:</strong> You can continue using Opscel while import runs</li>
                             <li><strong>Resilient:</strong> If a document fails, queue retries automatically</li>
                             <li><strong>Parallel processing:</strong> Multiple documents processed simultaneously</li>
                         </ul>
@@ -580,7 +580,7 @@ export const migrationAgentGuide: IDocGuide = {
                     content: `
                         <p class="mb-4">The dashboard shows:</p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li><strong>Successfully imported:</strong> Documents now in OpsCel</li>
+                            <li><strong>Successfully imported:</strong> Documents now in Opscel</li>
                             <li><strong>Failed:</strong> Documents that could not be imported (see error log)</li>
                             <li><strong>Pending:</strong> Documents still in queue</li>
                             <li><strong>Skipped:</strong> Documents you excluded from staging</li>
@@ -656,7 +656,7 @@ export const migrationAgentGuide: IDocGuide = {
                 <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
                     <p class="text-red-800">
                         <strong>Warning:</strong> Rollback is <strong>destructive</strong> and <strong>cannot be undone</strong>. It permanently
-                        deletes all imported documents and database records from OpsCel. Use with extreme caution.
+                        deletes all imported documents and database records from Opscel. Use with extreme caution.
                     </p>
                 </div>
             `,
@@ -666,7 +666,7 @@ export const migrationAgentGuide: IDocGuide = {
                     content: `
                         <p class="mb-4">Rollback removes:</p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-4">
-                            <li>All document records from OpsCel database</li>
+                            <li>All document records from Opscel database</li>
                             <li>All PDF/image files from blob storage</li>
                             <li>All entity links (customer, job, asset associations)</li>
                         </ul>
@@ -762,7 +762,7 @@ export const migrationAgentGuide: IDocGuide = {
                 {
                     title: 'Credits consumed but no import happened',
                     content: `
-                        <p class="mb-2"><strong>Problem:</strong> Credits deducted but documents not in OpsCel.</p>
+                        <p class="mb-2"><strong>Problem:</strong> Credits deducted but documents not in Opscel.</p>
                         <p class="text-gray-700">
                             <strong>Reason:</strong> Credits are consumed during the <strong>scan phase</strong>, not import phase. If you reviewed
                             staging and chose not to import, credits are still consumed. No refunds.
@@ -828,7 +828,7 @@ export const migrationAgentGuide: IDocGuide = {
                     title: 'Do I need to keep files in cloud storage after import?',
                     content: `
                         <p class="text-gray-700">
-                            No. OpsCel stores complete copies of all imported PDFs and images in blob storage. You can delete the original files from
+                            No. Opscel stores complete copies of all imported PDFs and images in blob storage. You can delete the original files from
                             Google Drive/OneDrive/Dropbox after confirming the import was successful.
                         </p>
                     `
@@ -837,7 +837,7 @@ export const migrationAgentGuide: IDocGuide = {
                     title: 'Can I import documents without linking to customers/jobs?',
                     content: `
                         <p class="text-gray-700">
-                            Yes. Documents with no confident match are imported as "orphans"—they exist in OpsCel but are not linked to any entity.
+                            Yes. Documents with no confident match are imported as "orphans"—they exist in Opscel but are not linked to any entity.
                             You can manually link them later from the Documents library.
                         </p>
                     `

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 
 export const metadata = {
-    title: 'Documentation - OpsCel',
-    description: 'Complete guides and documentation for using OpsCel. Learn how to set up features, configure integrations, and get the most out of your operations management platform.',
+    title: 'Documentation - Opscel',
+    description: 'Complete guides and documentation for using Opscel. Learn how to set up features, configure integrations, and get the most out of your operations management platform.',
 };
 
 const documentationGuides = [
@@ -18,7 +18,7 @@ const documentationGuides = [
     },
     {
         title: 'Settings Tour',
-        description: 'Quick orientation to every settings page in OpsCel. Learn what each setting controls and where to find advanced configuration options.',
+        description: 'Quick orientation to every settings page in Opscel. Learn what each setting controls and where to find advanced configuration options.',
         url: '/docs/settings-tour',
         category: 'Getting Started',
         icon: 'icon-gear'
@@ -47,7 +47,7 @@ const documentationGuides = [
     // Field Service
     {
         title: 'Field Service App — Engineer\'s Day',
-        description: 'Complete guide to using the OpsCel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
+        description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
         url: '/docs/field-service',
         category: 'Field Service',
         icon: 'icon-mobile-device'
@@ -196,7 +196,7 @@ export default function DocumentationPage() {
                             Documentation
                         </h1>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Complete guides to help you set up features, configure integrations, and get the most out of OpsCel.
+                            Complete guides to help you set up features, configure integrations, and get the most out of Opscel.
                         </p>
                     </div>
 
@@ -241,7 +241,7 @@ export default function DocumentationPage() {
                                 Looking for Feature Details?
                             </h2>
                             <p className="text-gray-600 mb-6">
-                                Explore detailed marketing pages for all OpsCel features
+                                Explore detailed marketing pages for all Opscel features
                             </p>
                             <Link
                                 href="/features"

@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const jobsGuide: IDocGuide = {
     slug: 'jobs',
     title: 'Jobs & Multi-Visit Workflow',
-    description: 'Complete guide to creating, scheduling, and managing jobs in OpsCel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
+    description: 'Complete guide to creating, scheduling, and managing jobs in Opscel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
     lastUpdated: '2026-05-20',
     sections: [
         {
@@ -13,7 +13,7 @@ export const jobsGuide: IDocGuide = {
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
-                        Jobs are the core work units in OpsCel. They represent scheduled work at a customer site—from routine servicing to
+                        Jobs are the core work units in Opscel. They represent scheduled work at a customer site—from routine servicing to
                         emergency callouts. Jobs can have single or multiple visits, track time and materials, generate certificates and invoices,
                         and integrate with your calendar.
                     </p>
@@ -23,7 +23,7 @@ export const jobsGuide: IDocGuide = {
                         <strong>Key benefit:</strong> Complete work lifecycle tracking from scheduling to invoicing
                     </p>
                 </div>
-                <p class="mb-4">Jobs in OpsCel support:</p>
+                <p class="mb-4">Jobs in Opscel support:</p>
             `,
             subsections: [
                 {
@@ -47,7 +47,7 @@ export const jobsGuide: IDocGuide = {
             title: 'Creating Jobs',
             content: `
                 <p class="mb-6">
-                    There are three ways to create jobs in OpsCel. Choose the method that fits your workflow.
+                    There are three ways to create jobs in Opscel. Choose the method that fits your workflow.
                 </p>
             `,
             subsections: [
@@ -72,7 +72,7 @@ export const jobsGuide: IDocGuide = {
                     title: 'Method 2: From Accepted Quote',
                     content: `
                         <p class="mb-4"><strong>Availability:</strong> Automatic when customer accepts quote</p>
-                        <p class="mb-4">When a customer accepts a quote, OpsCel creates a job automatically with pre-filled details.</p>
+                        <p class="mb-4">When a customer accepts a quote, Opscel creates a job automatically with pre-filled details.</p>
                     `,
                     bullets: [
                         'Customer and site come from the quote',
@@ -99,7 +99,7 @@ export const jobsGuide: IDocGuide = {
                 {
                     title: 'What Gets Auto-Filled',
                     content: `
-                        <p class="mb-4">When creating from a quote or service contract, OpsCel pre-fills:</p>
+                        <p class="mb-4">When creating from a quote or service contract, Opscel pre-fills:</p>
                     `,
                     bullets: [
                         'Customer name and contact details',
@@ -249,7 +249,7 @@ export const jobsGuide: IDocGuide = {
                         'Job title and customer name',
                         'Site address (with map link)',
                         'Scheduled start and end time',
-                        'Two-way sync: change time in calendar, job updates in OpsCel'
+                        'Two-way sync: change time in calendar, job updates in Opscel'
                     ]
                 },
                 {
@@ -618,7 +618,7 @@ export const jobsGuide: IDocGuide = {
                     title: 'What if I schedule a job but the engineer is already booked?',
                     content: `
                         <p class="text-gray-700">
-                            OpsCel shows availability warnings but does not block scheduling. You can still assign the job—useful for urgent work or
+                            Opscel shows availability warnings but does not block scheduling. You can still assign the job—useful for urgent work or
                             when engineers can juggle multiple jobs. The engineer sees all jobs in their list and decides the order to tackle them.
                         </p>
                     `

@@ -2,8 +2,8 @@ import React from 'react';
 import Container from '@/components/Container';
 
 export const metadata = {
-    title: 'Accounting Integration Guide - OpsCel Documentation',
-    description: 'Learn how to connect OpsCel to Xero or QuickBooks for automated invoice posting and payment tracking.',
+    title: 'Accounting Integration Guide - Opscel Documentation',
+    description: 'Learn how to connect Opscel to Xero or QuickBooks for automated invoice posting and payment tracking.',
 };
 
 export default function AccountingIntegrationDocsPage() {
@@ -17,7 +17,7 @@ export default function AccountingIntegrationDocsPage() {
                             How to Connect Your Accounting Software
                         </h1>
                         <p className="text-xl text-gray-600">
-                            Complete guide to connecting OpsCel to Xero or QuickBooks Online
+                            Complete guide to connecting Opscel to Xero or QuickBooks Online
                         </p>
                     </div>
 
@@ -51,7 +51,7 @@ export default function AccountingIntegrationDocsPage() {
                         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                             <h3 className="font-bold text-lg mb-3">Requirements</h3>
                             <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
-                                <li>OpsCel account on <strong>Team plan</strong> or above</li>
+                                <li>Opscel account on <strong>Team plan</strong> or above</li>
                                 <li>Admin access to your Xero or QuickBooks account</li>
                                 <li>At least one invoice ready to post (for testing)</li>
                             </ul>
@@ -69,8 +69,8 @@ export default function AccountingIntegrationDocsPage() {
                             <table className="w-full border-collapse border border-gray-300">
                                 <thead>
                                     <tr className="bg-gray-100">
-                                        <th className="border border-gray-300 px-4 py-2 text-left">From OpsCel → Accounting</th>
-                                        <th className="border border-gray-300 px-4 py-2 text-left">From Accounting → OpsCel</th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">From Opscel → Accounting</th>
+                                        <th className="border border-gray-300 px-4 py-2 text-left">From Accounting → Opscel</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -116,11 +116,11 @@ export default function AccountingIntegrationDocsPage() {
                             </div>
 
                             <div className="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 className="font-bold text-xl mb-4">Step 3: Authorise OpsCel</h3>
+                                <h3 className="font-bold text-xl mb-4">Step 3: Authorise Opscel</h3>
                                 <ol className="space-y-2 text-gray-700 list-decimal list-inside">
                                     <li>Log in to your Xero account (if not already logged in)</li>
                                     <li>Select the Xero organisation you want to connect</li>
-                                    <li>Review the permissions OpsCel is requesting:
+                                    <li>Review the permissions Opscel is requesting:
                                         <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
                                             <li><strong>Accounting transactions</strong>: To create invoices</li>
                                             <li><strong>Contacts</strong>: To create/link customers</li>
@@ -133,7 +133,7 @@ export default function AccountingIntegrationDocsPage() {
 
                             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                                 <h3 className="font-bold text-xl mb-4">Step 4: Confirm Connection</h3>
-                                <p className="text-gray-700 mb-3">You&apos;ll be redirected back to OpsCel. You should see:</p>
+                                <p className="text-gray-700 mb-3">You&apos;ll be redirected back to Opscel. You should see:</p>
                                 <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
                                     <li>✓ Connected to Xero</li>
                                     <li>Your Xero organisation name displayed</li>
@@ -173,11 +173,11 @@ export default function AccountingIntegrationDocsPage() {
                             </div>
 
                             <div className="bg-white border border-gray-200 rounded-lg p-6">
-                                <h3 className="font-bold text-xl mb-4">Step 3: Authorise OpsCel</h3>
+                                <h3 className="font-bold text-xl mb-4">Step 3: Authorise Opscel</h3>
                                 <ol className="space-y-2 text-gray-700 list-decimal list-inside">
                                     <li>Log in to your QuickBooks account (if not already logged in)</li>
                                     <li>Select the QuickBooks company you want to connect</li>
-                                    <li>Review the permissions OpsCel is requesting:
+                                    <li>Review the permissions Opscel is requesting:
                                         <ul className="ml-6 mt-2 space-y-1 list-disc list-inside">
                                             <li><strong>Accounting</strong>: To create invoices and access contacts</li>
                                         </ul>
@@ -188,7 +188,7 @@ export default function AccountingIntegrationDocsPage() {
 
                             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                                 <h3 className="font-bold text-xl mb-4">Step 4: Confirm Connection</h3>
-                                <p className="text-gray-700 mb-3">You&apos;ll be redirected back to OpsCel. You should see:</p>
+                                <p className="text-gray-700 mb-3">You&apos;ll be redirected back to Opscel. You should see:</p>
                                 <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
                                     <li>✓ Connected to QuickBooks</li>
                                     <li>Your company name displayed</li>
@@ -209,7 +209,7 @@ export default function AccountingIntegrationDocsPage() {
                     <section id="account-mappings" className="mb-12">
                         <h2 className="text-3xl font-bold mb-6">Setting Up Account Mappings</h2>
                         <p className="text-gray-700 mb-6">
-                            Account mappings tell OpsCel which revenue account to use for each product category. This ensures income is recorded correctly in your accounting software.
+                            Account mappings tell Opscel which revenue account to use for each product category. This ensures income is recorded correctly in your accounting software.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -256,7 +256,7 @@ export default function AccountingIntegrationDocsPage() {
                                     <table className="w-full border-collapse border border-gray-300">
                                         <thead>
                                             <tr className="bg-gray-100">
-                                                <th className="border border-gray-300 px-4 py-2 text-left">OpsCel Category</th>
+                                                <th className="border border-gray-300 px-4 py-2 text-left">Opscel Category</th>
                                                 <th className="border border-gray-300 px-4 py-2 text-left">Xero/QuickBooks Account</th>
                                             </tr>
                                         </thead>
@@ -298,7 +298,7 @@ export default function AccountingIntegrationDocsPage() {
                                         <li>Click Add Account</li>
                                         <li>Choose &quot;Revenue&quot; as the account type</li>
                                         <li>Name it (e.g., &quot;Sales - Labour&quot;)</li>
-                                        <li>Save and return to OpsCel</li>
+                                        <li>Save and return to Opscel</li>
                                     </ol>
                                 </div>
 
@@ -309,12 +309,12 @@ export default function AccountingIntegrationDocsPage() {
                                         <li>Click New</li>
                                         <li>Choose &quot;Income&quot; as the account type</li>
                                         <li>Name it (e.g., &quot;Labour Income&quot;)</li>
-                                        <li>Save and return to OpsCel</li>
+                                        <li>Save and return to Opscel</li>
                                     </ol>
                                 </div>
 
                                 <p className="text-gray-700 mt-3 text-sm">
-                                    Then refresh the account list in OpsCel and complete your mapping.
+                                    Then refresh the account list in Opscel and complete your mapping.
                                 </p>
                             </div>
                         </div>
@@ -362,7 +362,7 @@ export default function AccountingIntegrationDocsPage() {
                             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                                 <h3 className="font-bold text-xl mb-4">What If the Customer Doesn&apos;t Exist?</h3>
                                 <p className="text-gray-700 mb-3">
-                                    OpsCel automatically creates the customer in your accounting software using:
+                                    Opscel automatically creates the customer in your accounting software using:
                                 </p>
                                 <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
                                     <li>Customer name</li>
@@ -380,14 +380,14 @@ export default function AccountingIntegrationDocsPage() {
                     <section id="payment-sync" className="mb-12">
                         <h2 className="text-3xl font-bold mb-6">How Payment Sync Works</h2>
                         <p className="text-gray-700 mb-6">
-                            When customers pay invoices, the status syncs back to OpsCel.
+                            When customers pay invoices, the status syncs back to Opscel.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-6 mb-6">
                             <div className="bg-white border border-gray-200 rounded-lg p-6">
                                 <h3 className="font-bold text-xl mb-4">For Xero</h3>
                                 <p className="text-gray-700 mb-3">
-                                    Xero sends webhook notifications when invoice status changes. OpsCel receives these and updates:
+                                    Xero sends webhook notifications when invoice status changes. Opscel receives these and updates:
                                 </p>
                                 <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
                                     <li>Invoice status (Paid, Partially Paid)</li>
@@ -402,7 +402,7 @@ export default function AccountingIntegrationDocsPage() {
                             <div className="bg-white border border-gray-200 rounded-lg p-6">
                                 <h3 className="font-bold text-xl mb-4">For QuickBooks</h3>
                                 <p className="text-gray-700 mb-3">
-                                    QuickBooks webhooks notify OpsCel of changes. Additionally, OpsCel checks for updates hourly as a backup.
+                                    QuickBooks webhooks notify Opscel of changes. Additionally, Opscel checks for updates hourly as a backup.
                                 </p>
                                 <p className="text-sm text-gray-600 mt-4 bg-gray-50 rounded p-3">
                                     <strong>Timing:</strong> Usually within 5 minutes, guaranteed within 1 hour.
@@ -412,7 +412,7 @@ export default function AccountingIntegrationDocsPage() {
 
                         <div className="bg-blue-50 border-l-4 border-blue-500 p-6">
                             <h3 className="font-bold mb-3">What You&apos;ll See</h3>
-                            <p className="text-gray-700 mb-2">On the invoice in OpsCel:</p>
+                            <p className="text-gray-700 mb-2">On the invoice in Opscel:</p>
                             <ul className="space-y-2 text-gray-700 list-disc list-inside ml-4">
                                 <li>Status changes from &quot;Posted&quot; to &quot;Paid&quot;</li>
                                 <li>Payment date is recorded</li>
@@ -510,7 +510,7 @@ export default function AccountingIntegrationDocsPage() {
                                 </ul>
                                 <p className="text-gray-700"><strong>Fix:</strong></p>
                                 <ol className="space-y-1 text-sm text-gray-700 list-decimal list-inside ml-4">
-                                    <li>Check the customer has a valid email in OpsCel</li>
+                                    <li>Check the customer has a valid email in Opscel</li>
                                     <li>Ensure name is filled in</li>
                                     <li>Try posting again</li>
                                 </ol>
@@ -556,7 +556,7 @@ export default function AccountingIntegrationDocsPage() {
                                 <ol className="space-y-1 text-sm text-gray-700 list-decimal list-inside ml-4">
                                     <li>In your accounting software, edit the invoice</li>
                                     <li>Change the account for affected line items</li>
-                                    <li>Update your mappings in OpsCel to prevent future issues</li>
+                                    <li>Update your mappings in Opscel to prevent future issues</li>
                                 </ol>
                             </div>
                         </div>
@@ -584,7 +584,7 @@ export default function AccountingIntegrationDocsPage() {
                             </div>
                             <div className="bg-white border border-gray-200 rounded-lg p-6">
                                 <h3 className="font-bold mb-2">5. Don&apos;t edit posted invoices in accounting software</h3>
-                                <p className="text-gray-700 text-sm">Make changes in OpsCel and void/recreate if needed. This keeps records consistent.</p>
+                                <p className="text-gray-700 text-sm">Make changes in Opscel and void/recreate if needed. This keeps records consistent.</p>
                             </div>
                         </div>
                     </section>

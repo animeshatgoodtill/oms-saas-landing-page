@@ -14,7 +14,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     Fire safety engineers find issues every visit. Capturing them, costing them, and getting back to the customer with a quote shouldn't take three apps and four emails.
                 </p>
                 <p class="mb-6">
-                    OpsCel does it in one flow. The engineer logs a defect → a "Remedial Scope of Works" worksheet auto-appears on the job → they fill in what needs doing and how long it'll take → the customer signs on the device. Back at the office, one click turns the whole scope into a quote with every defect pre-filled as a line item.
+                    Opscel does it in one flow. The engineer logs a defect → a "Remedial Scope of Works" worksheet auto-appears on the job → they fill in what needs doing and how long it'll take → the customer signs on the device. Back at the office, one click turns the whole scope into a quote with every defect pre-filled as a line item.
                 </p>
                 <p class="mb-6">
                     <strong>No paper forms. No retyping. No defects falling between visits.</strong>
@@ -53,7 +53,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             title: 'Two Paths for Creating Remedial Quotes',
             content: `
                 <p class="mb-6">
-                    OpsCel offers two ways to turn defects into customer quotes. Both are current, valid workflows—the right choice depends on your situation.
+                    Opscel offers two ways to turn defects into customer quotes. Both are current, valid workflows—the right choice depends on your situation.
                 </p>
             `,
             table: {

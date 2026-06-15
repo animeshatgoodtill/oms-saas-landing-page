@@ -161,7 +161,7 @@ export const assetsDetail: IFeatureDetail = {
     faq: [
         {
             question: 'How is this different from asset tracking in Joblogic, Klipboard, or Commusoft?',
-            answer: 'Joblogic, Klipboard, Commusoft all let you track assets — once you\'ve typed them in. OpsCel lets your engineer\'s worksheet be the data entry. Same site visit; one less back-office job. The items engineers list on their Fire Extinguisher Service sheet or Fire Alarm Commissioning form become tracked assets automatically.'
+            answer: 'Joblogic, Klipboard, Commusoft all let you track assets — once you\'ve typed them in. Opscel lets your engineer\'s worksheet be the data entry. Same site visit; one less back-office job. The items engineers list on their Fire Extinguisher Service sheet or Fire Alarm Commissioning form become tracked assets automatically.'
         },
         {
             question: 'Do engineers need to do anything differently?',

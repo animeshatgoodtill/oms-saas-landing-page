@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const dataImportDetail: IFeatureDetail = {
     slug: 'data-import',
     title: 'Migrate from Spreadsheets in Minutes, Not Months',
-    subtitle: 'OpsCel Data Import',
-    heroDescription: 'You\'ve got 500 customers in Excel, 1200 assets in Google Sheets, and 3 years of job history in a CSV from your old system. OpsCel\'s CSV import handles fuzzy column matching, duplicate detection, and parent reference resolution—so you migrate data in one afternoon, not three weeks.',
+    subtitle: 'Opscel Data Import',
+    heroDescription: 'You\'ve got 500 customers in Excel, 1200 assets in Google Sheets, and 3 years of job history in a CSV from your old system. Opscel\'s CSV import handles fuzzy column matching, duplicate detection, and parent reference resolution—so you migrate data in one afternoon, not three weeks.',
     iconId: 'icon-smart-prompt',
 
     featureHighlights: [
@@ -16,7 +16,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-prompt',
             title: 'Fuzzy Column Matching',
-            description: 'Your CSV has "Company Name"? OpsCel maps it to "Business Name". "Tel" maps to "Phone Number". "Postcode" maps to "Postal Code". Smart matching detects common variations—no manual column renaming required.'
+            description: 'Your CSV has "Company Name"? Opscel maps it to "Business Name". "Tel" maps to "Phone Number". "Postcode" maps to "Postal Code". Smart matching detects common variations—no manual column renaming required.'
         },
         {
             iconId: 'icon-deficiency-log',
@@ -69,7 +69,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             stepNumber: 2,
             title: 'Prepare CSV',
-            description: 'Fill template with your data or export from existing system. OpsCel auto-detects common column variations (e.g., "Company" → "Business Name"), but template ensures perfect match.'
+            description: 'Fill template with your data or export from existing system. Opscel auto-detects common column variations (e.g., "Company" → "Business Name"), but template ensures perfect match.'
         },
         {
             stepNumber: 3,
@@ -79,7 +79,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             stepNumber: 4,
             title: 'Review & Import',
-            description: 'Preview shows how many rows will create, how many will update, how many are duplicates. Confirm import. Progress bar tracks import. Get notified when complete. Data appears in OpsCel immediately.'
+            description: 'Preview shows how many rows will create, how many will update, how many are duplicates. Confirm import. Progress bar tracks import. Get notified when complete. Data appears in Opscel immediately.'
         }
     ],
 
@@ -187,7 +187,7 @@ export const dataImportDetail: IFeatureDetail = {
         },
         {
             question: 'How does fuzzy column matching work?',
-            answer: 'OpsCel detects common column name variations using pattern matching and synonyms. Examples: "Company Name"/"Business Name"/"Company", "Tel"/"Phone"/"Mobile"/"Phone Number", "Email"/"Email Address"/"E-mail". System shows matched columns for review before import. If match wrong, use custom field mapping to correct.'
+            answer: 'Opscel detects common column name variations using pattern matching and synonyms. Examples: "Company Name"/"Business Name"/"Company", "Tel"/"Phone"/"Mobile"/"Phone Number", "Email"/"Email Address"/"E-mail". System shows matched columns for review before import. If match wrong, use custom field mapping to correct.'
         },
         {
             question: 'What happens if I import duplicates?',

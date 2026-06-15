@@ -11,12 +11,12 @@ export const assetLifecycleGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> OpsCel\'s Asset Register tracks electrical panels, fire alarms, solar arrays, and devices over their lifecycle. Assets auto-promote from job data (engineer installs panel → asset created automatically), link to certificates and service contracts, and carry forward to recurring jobs. Parent-child hierarchies (panel → circuits → devices) maintain relationships. Service cadence tracking ensures timely retests and maintenance. Available on all tiers, configured by Admins.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s Asset Register tracks electrical panels, fire alarms, solar arrays, and devices over their lifecycle. Assets auto-promote from job data (engineer installs panel → asset created automatically), link to certificates and service contracts, and carry forward to recurring jobs. Parent-child hierarchies (panel → circuits → devices) maintain relationships. Service cadence tracking ensures timely retests and maintenance. Available on all tiers, configured by Admins.',
                 },
                 {
                     title: 'Asset Tracking Benefits',
                     bullets: [
-                        '<strong>Automatic asset creation:</strong> Engineers capture asset details once, OpsCel creates asset records automatically',
+                        '<strong>Automatic asset creation:</strong> Engineers capture asset details once, Opscel creates asset records automatically',
                         '<strong>Service continuity:</strong> Assets pre-load into recurring service contract jobs — no re-entry needed',
                         '<strong>Lifecycle visibility:</strong> Track when equipment was installed, last serviced, next retest due',
                         '<strong>Compliance ready:</strong> Asset history links to certificates for audit trails',
@@ -93,7 +93,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'How Auto-Promotion Works',
-                    content: 'Auto-promotion creates asset records automatically when engineers capture data in jobs or certificates. Example: Engineer completes EICR with 10 circuits → OpsCel creates 1 panel asset + 10 circuit assets linked to that panel.',
+                    content: 'Auto-promotion creates asset records automatically when engineers capture data in jobs or certificates. Example: Engineer completes EICR with 10 circuits → Opscel creates 1 panel asset + 10 circuit assets linked to that panel.',
                 },
                 {
                     title: 'Promotion Triggers',
@@ -146,7 +146,7 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Why Hierarchies Matter',
-                    content: 'Electrical and fire systems have nested relationships: a panel contains circuits, a fire alarm system contains devices. OpsCel preserves these relationships so you can navigate from panel → circuits → devices, view history, and understand dependencies.',
+                    content: 'Electrical and fire systems have nested relationships: a panel contains circuits, a fire alarm system contains devices. Opscel preserves these relationships so you can navigate from panel → circuits → devices, view history, and understand dependencies.',
                 },
                 {
                     title: 'Hierarchy Examples',
@@ -194,7 +194,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'For Engineers',
-                    content: '<em>Tip:</em> When completing EICRs, ensure "Distribution Board Location" and "Circuit Reference" fields are filled correctly. OpsCel uses these to auto-link circuits to panels. Missing data breaks hierarchy.',
+                    content: '<em>Tip:</em> When completing EICRs, ensure "Distribution Board Location" and "Circuit Reference" fields are filled correctly. Opscel uses these to auto-link circuits to panels. Missing data breaks hierarchy.',
                 },
             ],
         },
@@ -208,7 +208,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Setting Service Cadence',
-                    content: 'Service cadence defines how often an asset needs testing or maintenance. OpsCel calculates next due date automatically and alerts when assets are overdue.',
+                    content: 'Service cadence defines how often an asset needs testing or maintenance. Opscel calculates next due date automatically and alerts when assets are overdue.',
                 },
                 {
                     title: 'Steps to Set Service Cadence',
@@ -216,7 +216,7 @@ export const assetLifecycleGuide: IDocGuide = {
                         'Open an asset in <strong>Assets → All Assets</strong>',
                         'Click <strong>Edit Asset</strong>',
                         'Set <strong>Service Cadence</strong>: Annual, Quarterly, Monthly, Custom (X days)',
-                        'OpsCel calculates <strong>Next Due Date</strong> based on last service date + cadence',
+                        'Opscel calculates <strong>Next Due Date</strong> based on last service date + cadence',
                         'Example: Last serviced 1 Jan 2026, Annual cadence → Next due 1 Jan 2027',
                         'Click <strong>Save Asset</strong>',
                     ],
@@ -236,7 +236,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Overdue Alerts',
-                    content: 'OpsCel sends alerts when assets are overdue: (1) Dashboard shows overdue count for Admins/Managers, (2) Email notifications 14 days before due date (configurable), (3) Customer portal shows overdue assets (if enabled).',
+                    content: 'Opscel sends alerts when assets are overdue: (1) Dashboard shows overdue count for Admins/Managers, (2) Email notifications 14 days before due date (configurable), (3) Customer portal shows overdue assets (if enabled).',
                 },
                 {
                     title: 'For Managers',
@@ -254,7 +254,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'How Pre-Loading Works',
-                    content: 'When OpsCel generates a recurring job from a service contract, it automatically pre-loads assets from the previous job for that customer/site. This ensures continuity — engineers see the same panels, circuits, and devices they serviced last time.',
+                    content: 'When Opscel generates a recurring job from a service contract, it automatically pre-loads assets from the previous job for that customer/site. This ensures continuity — engineers see the same panels, circuits, and devices they serviced last time.',
                 },
                 {
                     title: 'Pre-Loading Conditions',
@@ -274,7 +274,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     steps: [
                         'Job 1: Engineer completes annual fire alarm test, creates 20 device assets (smoke detectors)',
                         'Service contract created from Job 1, set to Annual cadence',
-                        '12 months later: OpsCel generates Job 2 via contract',
+                        '12 months later: Opscel generates Job 2 via contract',
                         'Job 2 auto-loads 20 devices from Job 1 (if still Active)',
                         'Engineer opens Job 2 in field app, sees 20 devices pre-filled',
                         'Engineer tests each device, updates test results',
@@ -342,7 +342,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'When to Use Bulk Import',
-                    content: 'Bulk import assets from CSV when: migrating from legacy systems, importing spreadsheet asset registers, backfilling historical assets not captured in OpsCel, onboarding new customers with existing equipment.',
+                    content: 'Bulk import assets from CSV when: migrating from legacy systems, importing spreadsheet asset registers, backfilling historical assets not captured in Opscel, onboarding new customers with existing equipment.',
                 },
                 {
                     title: 'Steps to Bulk Import Assets',
@@ -350,7 +350,7 @@ export const assetLifecycleGuide: IDocGuide = {
                         'Prepare CSV file with required columns (see table below)',
                         'Navigate to <strong>Settings → Data Management → Asset Import</strong>',
                         'Click <strong>Upload CSV</strong>',
-                        'Map CSV columns to OpsCel fields (auto-detected if headers match)',
+                        'Map CSV columns to Opscel fields (auto-detected if headers match)',
                         'Click <strong>Validate Import</strong>',
                         'Review validation errors (missing customers, invalid dates, etc.)',
                         'Fix errors in CSV and re-upload, or skip invalid rows',
@@ -371,7 +371,7 @@ export const assetLifecycleGuide: IDocGuide = {
                             ['status', 'No (defaults Active)', 'Enum', 'Active, Inactive, Decommissioned, Retired'],
                             ['service_cadence', 'No', 'Enum', 'Annual, Quarterly, Monthly, Custom'],
                             ['last_service_date', 'No', 'Date (YYYY-MM-DD)', '2025-06-15'],
-                            ['parent_asset_id', 'No', 'Integer', '12345 (ID of parent asset in OpsCel)'],
+                            ['parent_asset_id', 'No', 'Integer', '12345 (ID of parent asset in Opscel)'],
                         ],
                     },
                 },
@@ -385,7 +385,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'For Admins',
-                    content: '<em>Tip:</em> Test bulk import with a small CSV (10-20 rows) first. Verify data formatting and field mapping. Once confirmed, import full dataset. OpsCel doesn\'t auto-rollback failed imports — you\'ll need to manually delete invalid assets if import goes wrong.',
+                    content: '<em>Tip:</em> Test bulk import with a small CSV (10-20 rows) first. Verify data formatting and field mapping. Once confirmed, import full dataset. Opscel doesn\'t auto-rollback failed imports — you\'ll need to manually delete invalid assets if import goes wrong.',
                 },
             ],
         },
@@ -407,7 +407,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Bulk Import Fails with "Customer Not Found" Error',
-                    content: '<strong>Cause:</strong> CSV customer_name doesn\'t match existing customer in OpsCel (case-sensitive, exact match).<br><strong>Fix:</strong> Export customer list (Customers → Export CSV). Copy exact customer names into import CSV. Alternatively, create missing customers before importing assets.',
+                    content: '<strong>Cause:</strong> CSV customer_name doesn\'t match existing customer in Opscel (case-sensitive, exact match).<br><strong>Fix:</strong> Export customer list (Customers → Export CSV). Copy exact customer names into import CSV. Alternatively, create missing customers before importing assets.',
                 },
             ],
         },

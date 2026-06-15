@@ -2,7 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { calendarIntegrationGuide } from '@/data/docs/calendar-integration-guide';
 
 export const metadata = {
-    title: `${calendarIntegrationGuide.title} - OpsCel Documentation`,
+    title: `${calendarIntegrationGuide.title} - Opscel Documentation`,
     description: calendarIntegrationGuide.description,
 };
 

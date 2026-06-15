@@ -3,7 +3,7 @@ import { IFAQ } from "@/types";
 export const faqs: IFAQ[] = [
     {
         question: 'Is this for my type of business?',
-        answer: 'OpsCel is built for UK fire safety and electrical contractors — businesses registered with BAFE, NICEIC, ECA, or FIA. If your engineers issue BS 5839 or BS 7671 certificates, this is built for you. We\'re expanding to security, HVAC, and renewables next.',
+        answer: 'Opscel is built for UK fire safety and electrical contractors — businesses registered with BAFE, NICEIC, ECA, or FIA. If your engineers issue BS 5839 or BS 7671 certificates, this is built for you. We\'re expanding to security, HVAC, and renewables next.',
     },
     {
         question: 'Will my engineers actually use it?',

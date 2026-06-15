@@ -3,13 +3,13 @@ import { IDocGuide } from '@/types';
 export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
-    description: 'A quick guide to capturing site equipment in OpsCel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
+    description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
     lastUpdated: '2026-05-01',
     sections: [
         {
             id: 'overview',
             title: 'The 30-Second Version',
-            content: 'When your engineer fills out a worksheet on site — a Fire Extinguisher Service, a Fire Alarm Commissioning, an EV Charger Install — they\'re already listing the equipment they touched. OpsCel turns that list into tracked assets at the site, automatically. Reach the site again next year? The full service history is right there.',
+            content: 'When your engineer fills out a worksheet on site — a Fire Extinguisher Service, a Fire Alarm Commissioning, an EV Charger Install — they\'re already listing the equipment they touched. Opscel turns that list into tracked assets at the site, automatically. Reach the site again next year? The full service history is right there.',
             subsections: [
                 {
                     title: 'Availability',
@@ -196,7 +196,7 @@ export const assetTrackingGuide: IDocGuide = {
             content: '',
             subsections: [
                 {
-                    title: 'What is an "asset" in OpsCel?',
+                    title: 'What is an "asset" in Opscel?',
                     content: 'A physical piece of equipment installed at a customer site that needs servicing on a recurring basis — fire extinguishers, smoke detectors, fire alarm panels, emergency lights, distribution boards, EV chargers, solar inverters, and so on.',
                     bullets: []
                 },
@@ -216,7 +216,7 @@ export const assetTrackingGuide: IDocGuide = {
                     bullets: []
                 },
                 {
-                    title: 'How do existing assets get into OpsCel?',
+                    title: 'How do existing assets get into Opscel?',
                     content: 'Three ways: (1) bulk CSV import from Settings → Data Management, (2) added by hand on the site\'s Assets page, or (3) auto-created when an engineer fills the relevant worksheet.',
                     bullets: []
                 },
@@ -257,7 +257,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'What about the engineer\'s initials on the register?',
-                    content: 'Drawn live from the engineer\'s name on their OpsCel account. If an engineer leaves and is removed from your team, their historical visits show "—" instead of initials — but the date and the work performed stay on record.',
+                    content: 'Drawn live from the engineer\'s name on their Opscel account. If an engineer leaves and is removed from your team, their historical visits show "—" instead of initials — but the date and the work performed stay on record.',
                     bullets: []
                 },
                 {

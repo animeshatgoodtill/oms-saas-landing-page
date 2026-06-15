@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const teamDetail: IFeatureDetail = {
     slug: 'team',
     title: 'Give Your Team Access Without Giving Up Control',
-    subtitle: 'OpsCel Team Management',
-    heroDescription: 'Your engineer doesn\'t need to see profit margins. Your office manager doesn\'t need to change subscription billing. OpsCel\'s 7-role permission system ensures everyone sees what they need—and nothing they shouldn\'t.',
+    subtitle: 'Opscel Team Management',
+    heroDescription: 'Your engineer doesn\'t need to see profit margins. Your office manager doesn\'t need to change subscription billing. Opscel\'s 7-role permission system ensures everyone sees what they need—and nothing they shouldn\'t.',
     iconId: 'icon-user-roles',
 
     featureHighlights: [
@@ -191,7 +191,7 @@ export const teamDetail: IFeatureDetail = {
         },
         {
             question: 'Can I customize role permissions?',
-            answer: 'Not per-user, but you can choose from 7 predefined roles with proven permission sets. Custom role creation adds complexity and security risk. OpsCel\'s roles cover 95% of contractor team structures. If you need a unique setup, contact support to discuss.'
+            answer: 'Not per-user, but you can choose from 7 predefined roles with proven permission sets. Custom role creation adds complexity and security risk. Opscel\'s roles cover 95% of contractor team structures. If you need a unique setup, contact support to discuss.'
         },
         {
             question: 'How does multi-engineer assignment work?',

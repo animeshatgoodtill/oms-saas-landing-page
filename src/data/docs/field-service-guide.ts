@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
-    description: 'Complete guide to using the OpsCel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
+    description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
     lastUpdated: '2026-05-20',
     sections: [
         {
@@ -13,7 +13,7 @@ export const fieldServiceGuide: IDocGuide = {
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
-                        The OpsCel Field Service App is an <strong>offline-first Progressive Web App (PWA)</strong> designed for field engineers.
+                        The Opscel Field Service App is an <strong>offline-first Progressive Web App (PWA)</strong> designed for field engineers.
                         It lets you manage your daily jobs, capture photos and signatures, fill worksheets, log defects and parts, and complete
                         work summaries—all while offline. Data syncs automatically when you're back online.
                     </p>
@@ -63,8 +63,8 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Installing on Chrome (Desktop)',
                     content: '',
                     steps: [
-                        { step: 'Navigate to the OpsCel field app URL in Chrome', description: 'You\'ll receive this URL from your admin or sign-in email' },
-                        { step: 'Click the install icon in the address bar (small computer with arrow)', description: 'Or go to Settings → Install OpsCel' },
+                        { step: 'Navigate to the Opscel field app URL in Chrome', description: 'You\'ll receive this URL from your admin or sign-in email' },
+                        { step: 'Click the install icon in the address bar (small computer with arrow)', description: 'Or go to Settings → Install Opscel' },
                         { step: 'Click "Install" in the confirmation dialog', description: '' },
                         { step: 'The app opens in its own window', description: 'A shortcut is added to your desktop and Start menu' }
                     ]
@@ -73,28 +73,28 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Installing on Chrome (Android)',
                     content: '',
                     steps: [
-                        { step: 'Open the OpsCel field app URL in Chrome', description: '' },
+                        { step: 'Open the Opscel field app URL in Chrome', description: '' },
                         { step: 'Tap the three-dot menu (top right)', description: '' },
                         { step: 'Select "Add to Home screen" or "Install app"', description: '' },
                         { step: 'Confirm by tapping "Add" or "Install"', description: '' },
-                        { step: 'The OpsCel icon appears on your home screen', description: 'Tap it to launch the app' }
+                        { step: 'The Opscel icon appears on your home screen', description: 'Tap it to launch the app' }
                     ]
                 },
                 {
                     title: 'Installing on Safari (iOS)',
                     content: '',
                     steps: [
-                        { step: 'Open the OpsCel field app URL in Safari', description: 'Must use Safari, not Chrome on iOS' },
+                        { step: 'Open the Opscel field app URL in Safari', description: 'Must use Safari, not Chrome on iOS' },
                         { step: 'Tap the Share button (square with arrow)', description: '' },
                         { step: 'Scroll down and tap "Add to Home Screen"', description: '' },
                         { step: 'Edit the name if desired, then tap "Add"', description: '' },
-                        { step: 'The OpsCel icon appears on your home screen', description: '' }
+                        { step: 'The Opscel icon appears on your home screen', description: '' }
                     ]
                 },
                 {
                     title: 'First Launch',
                     content: `
-                        <p class="mb-4">After installation, you'll need to sign in with your OpsCel credentials. This <strong>requires an internet connection</strong> for the first login.</p>
+                        <p class="mb-4">After installation, you'll need to sign in with your Opscel credentials. This <strong>requires an internet connection</strong> for the first login.</p>
                         <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mt-4">
                             <p class="text-sm text-amber-900">
                                 <strong>Important:</strong> The app needs one online sign-in before offline mode works. After that, you can work completely offline.

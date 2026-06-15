@@ -14,7 +14,7 @@ export const serviceContractsGuide: IDocGuide = {
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
                         Service contracts automate recurring maintenance work. Set a customer, cadence (quarterly, half-yearly, annual, multi-year),
-                        and lead-time window—OpsCel generates jobs automatically before they're due. Assets from the previous visit pre-load,
+                        and lead-time window—Opscel generates jobs automatically before they're due. Assets from the previous visit pre-load,
                         so engineers know exactly which equipment to service.
                     </p>
                     <p class="text-gray-800 mt-3">
@@ -56,7 +56,7 @@ export const serviceContractsGuide: IDocGuide = {
             title: 'Creating Service Contracts',
             content: `
                 <p class="mb-6">
-                    There are two ways to create service contracts in OpsCel. Choose the method based on whether you have an existing job history.
+                    There are two ways to create service contracts in Opscel. Choose the method based on whether you have an existing job history.
                 </p>
             `,
             subsections: [

@@ -93,6 +93,7 @@ const PrivacyPage: React.FC = () => {
       <ul>
         <li><strong>calendar.events:</strong> To create, update, and delete calendar events corresponding to your scheduled jobs and visits within {companyDetails.tradingName}.</li>
         <li><strong>userinfo.email:</strong> To identify the Google account being connected to your {companyDetails.tradingName} profile.</li>
+        <li><strong>calendar.freebusy:</strong> To read your free/busy availability (not event details) so {companyDetails.tradingName} can detect scheduling conflicts and avoid double-booking engineers.</li>
       </ul>
       <p>
         We use this access only to sync your {companyDetails.tradingName} jobs to your Google Calendar. We do not read, store, or use your calendar data for any other purpose beyond this synchronization feature.

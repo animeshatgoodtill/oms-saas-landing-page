@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const customersDetail: IFeatureDetail = {
     slug: 'customers',
     title: 'Know Your Customers. Actually Know Them.',
-    subtitle: 'OpsCel Customer Management',
+    subtitle: 'Opscel Customer Management',
     heroDescription: 'Your customers aren\'t just names in a spreadsheet. Track businesses, contacts, and service addresses—with complete history of every job, certificate, and quote. No more "which site was that?" or "who do I send this to?" confusion.',
     iconId: 'icon-unlimited-customers',
     screenshotImage: '/images/ui/08-screen.png',
@@ -181,7 +181,7 @@ export const customersDetail: IFeatureDetail = {
         },
         {
             question: 'Can I create custom contact roles?',
-            answer: 'Yes. OpsCel includes default roles (Owner, Manager, Accounts, Site Contact), but you can create custom roles specific to your industry (Facilities Manager, Head of Maintenance, etc.). Roles appear as badges in job and quote forms.'
+            answer: 'Yes. Opscel includes default roles (Owner, Manager, Accounts, Site Contact), but you can create custom roles specific to your industry (Facilities Manager, Head of Maintenance, etc.). Roles appear as badges in job and quote forms.'
         },
         {
             question: 'How does UK address autocomplete work?',
@@ -189,7 +189,7 @@ export const customersDetail: IFeatureDetail = {
         },
         {
             question: 'What if a customer has 20+ sites?',
-            answer: 'No problem. OpsCel handles unlimited sites per customer. Each site gets its own service history, equipment tracking, and contact preferences. Filter jobs/certificates by site to see location-specific history. No performance issues with large site counts.'
+            answer: 'No problem. Opscel handles unlimited sites per customer. Each site gets its own service history, equipment tracking, and contact preferences. Filter jobs/certificates by site to see location-specific history. No performance issues with large site counts.'
         },
         {
             question: 'Can I import existing customer data?',

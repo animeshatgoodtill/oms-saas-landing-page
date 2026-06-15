@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const jobsDetail: IFeatureDetail = {
     slug: 'jobs',
     title: 'Job Management That Actually Makes Sense',
-    subtitle: 'OpsCel Jobs Module',
+    subtitle: 'Opscel Jobs Module',
     heroDescription: 'Create jobs, assign engineers, track progress, mark complete. Everything in one place, nothing falls through the cracks. No spreadsheets, no whiteboards, no "where\'s that job sheet?" panic.',
     iconId: 'icon-job-workflow',
     screenshotImage: '/images/ui/02-screen.png',
@@ -189,7 +189,7 @@ export const jobsDetail: IFeatureDetail = {
     faq: [
         {
             question: 'Can I customize job types for my business?',
-            answer: 'OpsCel includes 6 default job types (Installation, Inspection, Maintenance, Repair, Testing, Emergency). You can add custom job types and map them to specific certificate templates. This ensures the right PDF generates when the job completes.'
+            answer: 'Opscel includes 6 default job types (Installation, Inspection, Maintenance, Repair, Testing, Emergency). You can add custom job types and map them to specific certificate templates. This ensures the right PDF generates when the job completes.'
         },
         {
             question: 'How do multi-engineer assignments work?',

@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const dashboardDetail: IFeatureDetail = {
     slug: 'dashboard',
     title: 'Your Business at a Glance. Finally.',
-    subtitle: 'OpsCel Dashboard',
-    heroDescription: 'See what needs attention, who\'s available, and what\'s converting—all before your first coffee gets cold. Every other system shows you numbers. OpsCel shows you what to do next.',
+    subtitle: 'Opscel Dashboard',
+    heroDescription: 'See what needs attention, who\'s available, and what\'s converting—all before your first coffee gets cold. Every other system shows you numbers. Opscel shows you what to do next.',
     iconId: 'icon-activity-log',
     screenshotImage: '/images/ui/09-screen.png',
 

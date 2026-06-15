@@ -2,8 +2,8 @@ import React from 'react';
 import Container from '@/components/Container';
 
 export const metadata = {
-    title: 'Invoicing Guide - OpsCel Documentation',
-    description: 'Complete guide to creating, managing, and sending invoices in OpsCel. Learn how to use job-to-invoice workflow, deposits, and accounting integration.',
+    title: 'Invoicing Guide - Opscel Documentation',
+    description: 'Complete guide to creating, managing, and sending invoices in Opscel. Learn how to use job-to-invoice workflow, deposits, and accounting integration.',
 };
 
 export default function InvoicingDocsPage() {
@@ -14,10 +14,10 @@ export default function InvoicingDocsPage() {
                     {/* Header */}
                     <div className="mb-12">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                            How to Use Invoicing in OpsCel
+                            How to Use Invoicing in Opscel
                         </h1>
                         <p className="text-xl text-gray-600">
-                            Complete guide to creating, managing, and sending invoices in OpsCel
+                            Complete guide to creating, managing, and sending invoices in Opscel
                         </p>
                     </div>
 
@@ -40,7 +40,7 @@ export default function InvoicingDocsPage() {
                     <section id="creating-from-job" className="mb-12">
                         <h2 className="text-3xl font-bold mb-6">Creating an Invoice from a Job</h2>
                         <p className="text-gray-700 mb-6">
-                            The easiest way to create an invoice is directly from a completed job. OpsCel pre-fills all the details for you.
+                            The easiest way to create an invoice is directly from a completed job. Opscel pre-fills all the details for you.
                         </p>
 
                         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
@@ -113,7 +113,7 @@ export default function InvoicingDocsPage() {
                     <section id="invoice-types" className="mb-12">
                         <h2 className="text-3xl font-bold mb-6">Understanding Invoice Types</h2>
                         <p className="text-gray-700 mb-6">
-                            OpsCel uses three invoice types to handle different scenarios:
+                            Opscel uses three invoice types to handle different scenarios:
                         </p>
 
                         <div className="space-y-6">
@@ -335,7 +335,7 @@ export default function InvoicingDocsPage() {
                                 When creating an invoice for a job with a paid deposit:
                             </p>
                             <ol className="space-y-2 text-gray-700 mb-4 list-decimal list-inside">
-                                <li>OpsCel shows the full job value</li>
+                                <li>Opscel shows the full job value</li>
                                 <li>Adds a negative line item for the deposit paid</li>
                                 <li>Invoice total shows remaining balance</li>
                             </ol>

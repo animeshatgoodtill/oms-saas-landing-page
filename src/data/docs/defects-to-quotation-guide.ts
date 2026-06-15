@@ -16,7 +16,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                 },
                 {
                     title: '30-Second Version',
-                    content: '<p class="mb-4">When an engineer reports defects on a job, OpsCel gives you two ways to turn those defects into a customer-ready remedial quote — and both methods now keep a permanent, visible link between the quote and the job it came from.</p>'
+                    content: '<p class="mb-4">When an engineer reports defects on a job, Opscel gives you two ways to turn those defects into a customer-ready remedial quote — and both methods now keep a permanent, visible link between the quote and the job it came from.</p>'
                 },
                 {
                     title: 'What This Guide Covers',
@@ -47,7 +47,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                 },
                 {
                     title: 'Step 2 — A Remedials Scope Worksheet is Attached',
-                    content: '<p class="mb-4">OpsCel automatically attaches a <strong>Remedials Scope of Works</strong> worksheet to the job.</p><p class="mb-4">The engineer fills in what work needs doing, estimated time and resources, then marks it complete.</p><p class="text-sm text-gray-600"><em>Note: This step is optional for the Dashboard Widget Path. You can create quotes directly from defects without waiting for the worksheet.</em></p>'
+                    content: '<p class="mb-4">Opscel automatically attaches a <strong>Remedials Scope of Works</strong> worksheet to the job.</p><p class="mb-4">The engineer fills in what work needs doing, estimated time and resources, then marks it complete.</p><p class="text-sm text-gray-600"><em>Note: This step is optional for the Dashboard Widget Path. You can create quotes directly from defects without waiting for the worksheet.</em></p>'
                 },
                 {
                     title: 'Step 3 — Office Creates the Quote',
@@ -71,7 +71,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                         'Open the job in the admin dashboard',
                         'Scroll to the <strong>Defects</strong> card on the Overview tab',
                         'Click <strong>Create Bundled Quote</strong>',
-                        'OpsCel creates one draft quote containing all the unquoted defects as line items',
+                        'Opscel creates one draft quote containing all the unquoted defects as line items',
                         'You are taken straight to the new quote to review, price, and send'
                     ]
                 },
@@ -257,7 +257,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                 },
                 {
                     title: 'Does the quote-to-job link work for quotes converted to jobs?',
-                    content: '<p>Yes, but it creates a <strong>new job</strong>. When a customer accepts a quote and you convert it to a job, OpsCel creates a <em>new</em> remedial job for the work to be done.</p><p class="mt-3">This new job is separate from (but related to) the original inspection job where the defects were logged. Both jobs will reference the quote, creating a full audit trail:</p>',
+                    content: '<p>Yes, but it creates a <strong>new job</strong>. When a customer accepts a quote and you convert it to a job, Opscel creates a <em>new</em> remedial job for the work to be done.</p><p class="mt-3">This new job is separate from (but related to) the original inspection job where the defects were logged. Both jobs will reference the quote, creating a full audit trail:</p>',
                     bullets: [
                         '<strong>Original job</strong> → generated the quote (linked via "Linked Job" field)',
                         '<strong>New remedial job</strong> → executes the quoted work (created from quote acceptance)',
@@ -266,7 +266,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I see all quotes linked to a job in one place?',
-                    content: '<p>Yes. On the job detail page, go to the <strong>Quotes</strong> tab (if available in your OpsCel version), or scroll through the Defects card on the Overview tab — each quoted defect shows its linked quote.</p><p class="mt-3">For jobs with many defects and multiple quotes, the Quotes tab provides a cleaner view of all quote activity related to the job.</p>'
+                    content: '<p>Yes. On the job detail page, go to the <strong>Quotes</strong> tab (if available in your Opscel version), or scroll through the Defects card on the Overview tab — each quoted defect shows its linked quote.</p><p class="mt-3">For jobs with many defects and multiple quotes, the Quotes tab provides a cleaner view of all quote activity related to the job.</p>'
                 }
             ]
         },

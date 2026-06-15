@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const templatesDetail: IFeatureDetail = {
     slug: 'templates',
     title: 'Your Brand, Your Way. Every Time.',
-    subtitle: 'OpsCel Templates & Branding',
-    heroDescription: 'Generic certificates with "Your Company Here" placeholders look unprofessional. OpsCel lets you upload your logo, set brand colors, customize headers and footers—so every certificate, quote, and invoice looks like it came from your business, not a template factory.',
+    subtitle: 'Opscel Templates & Branding',
+    heroDescription: 'Generic certificates with "Your Company Here" placeholders look unprofessional. Opscel lets you upload your logo, set brand colors, customize headers and footers—so every certificate, quote, and invoice looks like it came from your business, not a template factory.',
     iconId: 'icon-compliance-shield',
 
     featureHighlights: [
@@ -26,7 +26,7 @@ export const templatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-compliance-shield',
             title: 'Certificate Compliance Templates',
-            description: 'OpsCel provides BS 7671-compliant templates for EIC, EICR, Minor Works. BS 5839-compliant templates for Fire Alarm Service/Commissioning. MCS-compliant templates for Solar PV. You brand them, we ensure compliance.'
+            description: 'Opscel provides BS 7671-compliant templates for EIC, EICR, Minor Works. BS 5839-compliant templates for Fire Alarm Service/Commissioning. MCS-compliant templates for Solar PV. You brand them, we ensure compliance.'
         },
         {
             iconId: 'icon-price-tag',
@@ -61,7 +61,7 @@ export const templatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-user-roles',
             title: 'Team Tier Feature',
-            description: 'Custom PDF templates and branding available on Team tier (£49/month, 5 users) and Business tier (£79/month, 8 users). Starter tier uses OpsCel default templates with your company name only.'
+            description: 'Custom PDF templates and branding available on Team tier (£49/month, 5 users) and Business tier (£79/month, 8 users). Starter tier uses Opscel default templates with your company name only.'
         }
     ],
 
@@ -195,8 +195,8 @@ export const templatesDetail: IFeatureDetail = {
             answer: 'Yes. Create multiple templates (e.g., "Residential Electrical", "Commercial Fire Safety"). When creating a certificate, quote, or invoice, select which template to use. Default template applies automatically, but you can override per document. Useful if you run multiple trading names or service tiers.'
         },
         {
-            question: 'Are OpsCel templates compliant with regulations?',
-            answer: 'Yes. OpsCel provides BS 7671-compliant templates for Electrical Installation Certificates (EIC, EICR, Minor Works). BS 5839-compliant templates for Fire Alarm Service and Commissioning Certificates. MCS-compliant templates for Solar PV. You customize branding (logo, colors, header/footer), but compliance-critical fields remain locked to maintain regulatory adherence.'
+            question: 'Are Opscel templates compliant with regulations?',
+            answer: 'Yes. Opscel provides BS 7671-compliant templates for Electrical Installation Certificates (EIC, EICR, Minor Works). BS 5839-compliant templates for Fire Alarm Service and Commissioning Certificates. MCS-compliant templates for Solar PV. You customize branding (logo, colors, header/footer), but compliance-critical fields remain locked to maintain regulatory adherence.'
         },
         {
             question: 'Can I edit templates after saving?',
@@ -204,7 +204,7 @@ export const templatesDetail: IFeatureDetail = {
         },
         {
             question: 'What if I need a completely custom template layout?',
-            answer: 'OpsCel templates are designed to cover 95% of contractor needs while maintaining compliance. If you need a fully custom layout (e.g., unique table structure, additional sections), contact support to discuss. Custom development may be available for Business tier customers with specific requirements.'
+            answer: 'Opscel templates are designed to cover 95% of contractor needs while maintaining compliance. If you need a fully custom layout (e.g., unique table structure, additional sections), contact support to discuss. Custom development may be available for Business tier customers with specific requirements.'
         },
         {
             question: 'Do templates work on mobile field service (Telegram/PWA)?',

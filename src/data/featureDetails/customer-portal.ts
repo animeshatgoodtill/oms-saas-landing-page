@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const customerPortalDetail: IFeatureDetail = {
     slug: 'customer-portal',
     title: 'Let Customers Approve Quotes and Download Certificates—Anytime',
-    subtitle: 'OpsCel Customer Portal',
+    subtitle: 'Opscel Customer Portal',
     heroDescription: 'Stop chasing customers for quote approvals. Stop emailing the same certificate three times. Give your customers a secure portal to view quotes, approve with one click, and download certificates 24/7. Faster approvals, fewer admin calls, professional experience.',
     iconId: 'icon-smart-customer',
     screenshotImage: '/images/ui/04-screen.png',
@@ -12,7 +12,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-customer',
             title: 'One-Click Quote Approvals',
-            description: 'Customer receives quote via portal, reviews line items, clicks "Approve", enters name, done. No printing, signing, scanning. Quote approval takes 30 seconds instead of 3 days chasing via email/phone. Status updates in OpsCel instantly.'
+            description: 'Customer receives quote via portal, reviews line items, clicks "Approve", enters name, done. No printing, signing, scanning. Quote approval takes 30 seconds instead of 3 days chasing via email/phone. Status updates in Opscel instantly.'
         },
         {
             iconId: 'icon-signature',
@@ -85,7 +85,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             stepNumber: 4,
             title: 'Customer Approves Quote or Downloads Cert',
-            description: 'Customer reviews quote, clicks "Approve", enters full name to confirm. Status updates in OpsCel instantly. Or downloads certificate PDF for insurance/compliance. All actions logged with timestamp, IP, browser.'
+            description: 'Customer reviews quote, clicks "Approve", enters full name to confirm. Status updates in Opscel instantly. Or downloads certificate PDF for insurance/compliance. All actions logged with timestamp, IP, browser.'
         },
         {
             stepNumber: 5,
@@ -198,11 +198,11 @@ export const customerPortalDetail: IFeatureDetail = {
         },
         {
             question: 'What happens when a customer approves a quote?',
-            answer: 'Customer clicks "Approve", enters full name to confirm (acts as digital signature). Status updates in OpsCel instantly—quote marked "Customer Approved" with timestamp, contact name, IP address, browser. Office gets notification. Activity log records approval with forensic details. Customer cannot undo approval (contact you if mistake). You can convert to job immediately.'
+            answer: 'Customer clicks "Approve", enters full name to confirm (acts as digital signature). Status updates in Opscel instantly—quote marked "Customer Approved" with timestamp, contact name, IP address, browser. Office gets notification. Activity log records approval with forensic details. Customer cannot undo approval (contact you if mistake). You can convert to job immediately.'
         },
         {
             question: 'Can customers edit quotes or certificates?',
-            answer: 'No. Portal is read-only except for approve/decline actions on quotes. Customers cannot modify quote line items, pricing, certificate data, or invoice amounts. They can only view and download. All editing happens in OpsCel by your team. This prevents accidental or malicious changes while allowing self-service access.'
+            answer: 'No. Portal is read-only except for approve/decline actions on quotes. Customers cannot modify quote line items, pricing, certificate data, or invoice amounts. They can only view and download. All editing happens in Opscel by your team. This prevents accidental or malicious changes while allowing self-service access.'
         },
         {
             question: 'How do I control who has portal access?',

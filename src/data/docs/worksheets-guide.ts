@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
     title: 'Worksheets - Authoring & Filling',
-    description: 'Learn how to create custom checklists and forms in OpsCel. Admins author templates, engineers fill them on-site. From fire alarm test sheets to maintenance logs, capture standardized data with offline support.',
+    description: 'Learn how to create custom checklists and forms in Opscel. Admins author templates, engineers fill them on-site. From fire alarm test sheets to maintenance logs, capture standardized data with offline support.',
     lastUpdated: '2026-05-21',
     sections: [
         {
@@ -52,13 +52,13 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'Pre-Built vs Custom Templates',
-                    content: '<p>OpsCel provides <strong>pre-built worksheet templates</strong> for common tasks (fire alarm tests, PAT testing, EICR observations). These templates are ready to use immediately and follow industry-standard formats.</p><p><strong>Custom templates</strong> let you design forms that match your exact business process. Admins can create unlimited custom templates with any combination of form fields, photo sections, and signature capture.</p>'
+                    content: '<p>Opscel provides <strong>pre-built worksheet templates</strong> for common tasks (fire alarm tests, PAT testing, EICR observations). These templates are ready to use immediately and follow industry-standard formats.</p><p><strong>Custom templates</strong> let you design forms that match your exact business process. Admins can create unlimited custom templates with any combination of form fields, photo sections, and signature capture.</p>'
                 },
                 {
                     title: 'Browsing the Template Library',
                     content: '<p>Access the template library from <strong>Settings → Worksheet Templates</strong>. The library shows:</p>',
                     bullets: [
-                        '<strong>Pre-built templates:</strong> Locked templates provided by OpsCel (cannot edit, can duplicate)',
+                        '<strong>Pre-built templates:</strong> Locked templates provided by Opscel (cannot edit, can duplicate)',
                         '<strong>Custom templates:</strong> Your business-specific templates (full edit access)',
                         '<strong>Usage count:</strong> How many jobs currently use each template',
                         '<strong>Last modified:</strong> When template was last updated'
@@ -361,7 +361,7 @@ export const worksheetsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'How Worksheet Data Promotes to Asset Register',
-                    content: '<p>Worksheets can automatically promote data to the <strong>Asset Register</strong> when certain fields are filled. This is useful for capturing asset details during installation or service visits.</p><p><strong>Promotion triggers:</strong> When a worksheet contains fields named "Serial Number", "Model", "Manufacturer", "Install Date", or "Location", and the worksheet is marked complete, OpsCel offers to create an asset record.</p>'
+                    content: '<p>Worksheets can automatically promote data to the <strong>Asset Register</strong> when certain fields are filled. This is useful for capturing asset details during installation or service visits.</p><p><strong>Promotion triggers:</strong> When a worksheet contains fields named "Serial Number", "Model", "Manufacturer", "Install Date", or "Location", and the worksheet is marked complete, Opscel offers to create an asset record.</p>'
                 },
                 {
                     title: 'Asset Fields',
@@ -407,7 +407,7 @@ export const worksheetsGuide: IDocGuide = {
                     steps: [
                         'Engineer fills worksheet on-site, including Serial Number field',
                         'Engineer marks worksheet complete',
-                        'OpsCel detects asset-eligible fields and auto-creates asset record',
+                        'Opscel detects asset-eligible fields and auto-creates asset record',
                         'Asset appears in Asset Register with "Source: Worksheet" tag',
                         'Asset linked to job and site automatically'
                     ]

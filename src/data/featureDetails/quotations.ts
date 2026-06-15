@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const quotationsDetail: IFeatureDetail = {
     slug: 'quotations',
     title: 'Win More Work with Smarter Quoting',
-    subtitle: 'OpsCel Quotations Module',
+    subtitle: 'Opscel Quotations Module',
     heroDescription: 'Create professional quotes in minutes. Let customers approve and pay from their phone. Convert to jobs automatically.',
     iconId: 'icon-price-tag',
     screenshotImage: '/images/ui/03-screen.png',

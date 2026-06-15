@@ -4,10 +4,10 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 
 export const metadata: Metadata = {
-  title: 'Best Job Management Software For UK Electrical Contractors | OpsCel',
+  title: 'Best Job Management Software For UK Electrical Contractors | Opscel',
   description: 'Discover the best job management software for electrical contractors. Streamline BS 7671 compliance, scheduling, invoicing, and customer management to boost productivity and profitability.',
   openGraph: {
-    title: 'Best Job Management Software For UK Electrical Contractors | OpsCel',
+    title: 'Best Job Management Software For UK Electrical Contractors | Opscel',
     description: 'Streamline BS 7671 compliance, scheduling, invoicing, and customer management for electrical contractors.',
   },
 };
@@ -38,17 +38,17 @@ const ElectricalContractorsPage: React.FC = () => {
               British electrical contractors face a big choice today. The electrical services market continues to expand with EV chargers, solar installations, and smart home technology. Many companies struggle with too much paperwork, which is why implementing effective job management software can streamline operations. Hard work on-site should not lead to hours at a desk.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-6">
-              A review of the UK trade market shows a gap. Many tools are too complex for a small crew. They feel like they were built for a boardroom, not a van. OpsCel fills this gap with simple screens designed for electricians.
+              A review of the UK trade market shows a gap. Many tools are too complex for a small crew. They feel like they were built for a boardroom, not a van. Opscel fills this gap with simple screens designed for electricians.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-6">
-              UK SMEs make up over ninety-nine percent of the business world. Small changes in work speed can add billions to the British economy. Most electrical firms now use cloud tools to handle their daily tasks. A shift to digital work helps teams win more bids and keep clients happy. OpsCel job management software offers the right path for these firms.
+              UK SMEs make up over ninety-nine percent of the business world. Small changes in work speed can add billions to the British economy. Most electrical firms now use cloud tools to handle their daily tasks. A shift to digital work helps teams win more bids and keep clients happy. Opscel job management software offers the right path for these firms.
             </p>
 
             {/* Key Features Callout */}
             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
               <h3 className="font-heading font-bold text-xl text-blue-900 mb-3">AI-Native Tools Integrated</h3>
               <ul className="space-y-2 text-blue-800">
-                <li>• OpsCel stays 100% UK-based with data kept in local centers</li>
+                <li>• Opscel stays 100% UK-based with data kept in local centers</li>
                 <li>• Every certificate checks itself against British Standards like BS 7671 and is automatically generated</li>
                 <li>• Automatic Zs lookups and test result validation built-in</li>
               </ul>
@@ -67,23 +67,23 @@ const ElectricalContractorsPage: React.FC = () => {
               Efficiency is the main goal for most owners. Software should feel invisible in the field. It must simply help the team do a good job. Digital tools can boost company growth by eighteen percent over time. The right tool saves time for every staff member.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent">
-              NICEIC and ECA registered contractors need audit trails, retest tracking, and BS 7671 compliance. OpsCel handles all of this automatically.
+              NICEIC and ECA registered contractors need audit trails, retest tracking, and BS 7671 compliance. Opscel handles all of this automatically.
             </p>
           </section>
 
-          {/* OpsCel Section */}
+          {/* Opscel Section */}
           <section className="mb-16">
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground mb-6">
-              OpsCel: The Best Job Management Software For Electrical Contractors
+              Opscel: The Best Job Management Software For Electrical Contractors
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               This is a modern system. It uses AI to save you time. The AI assistant is very smart. Type or paste customer data in any format. The AI fills the form in 30 seconds.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              The industry is changing fast. New tech like EV chargers and smart homes adds complexity. Therefore, you need a tool that stays ahead. OpsCel is the first of its kind. It is built for the future.
+              The industry is changing fast. New tech like EV chargers and smart homes adds complexity. Therefore, you need a tool that stays ahead. Opscel is the first of its kind. It is built for the future.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              Additionally, the tool tracks retest dates. It flags when an EICR or periodic inspection is due. Never miss a job. This creates a steady income for years. This is why many choose OpsCel as the best job management software for electrical contractors in the UK.
+              Additionally, the tool tracks retest dates. It flags when an EICR or periodic inspection is due. Never miss a job. This creates a steady income for years. This is why many choose Opscel as the best job management software for electrical contractors in the UK.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent">
               The platform works for teams with five to fifty staff members. It helps firms that are NICEIC or ECA registered stay in line with the law. No hidden fees exist here. You do not sign long contracts to get started.
@@ -100,7 +100,7 @@ const ElectricalContractorsPage: React.FC = () => {
             <div className="mb-10">
               <h3 className="font-heading font-bold text-2xl text-foreground mb-4">Telegram Linking</h3>
               <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-                Most engineers already use Telegram for chatting. OpsCel uses a bot on that same app. No new software needs to be installed on their phones. Account linking takes just a few minutes. Then, job alerts arrive as simple messages.
+                Most engineers already use Telegram for chatting. Opscel uses a bot on that same app. No new software needs to be installed on their phones. Account linking takes just a few minutes. Then, job alerts arrive as simple messages.
               </p>
               <p className="text-lg leading-relaxed text-foreground-accent">
                 The bot handles GPS check-ins in two seconds. Engineers snap photos of consumer units or test equipment. They can dictate notes instead of typing. Voice capture saves a lot of time in the van. All data syncs to the office in real time.
@@ -111,7 +111,7 @@ const ElectricalContractorsPage: React.FC = () => {
             <div className="mb-10">
               <h3 className="font-heading font-bold text-2xl text-foreground mb-4">Xero Integration</h3>
               <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-                Double data entry is a waste of money. OpsCel links directly to Xero and QuickBooks. One click posts your invoice to the books. Line items and tax codes move over perfectly. This makes the life of your accountant much easier.
+                Double data entry is a waste of money. Opscel links directly to Xero and QuickBooks. One click posts your invoice to the books. Line items and tax codes move over perfectly. This makes the life of your accountant much easier.
               </p>
               <p className="text-lg leading-relaxed text-foreground-accent">
                 Payment status updates back to the app automatically. You see what is paid without opening the bank site. It also creates new customers in the accounting tool. No duplicate records will clutter your files. This flow keeps your cash moving fast.
@@ -122,7 +122,7 @@ const ElectricalContractorsPage: React.FC = () => {
             <div className="mb-10">
               <h3 className="font-heading font-bold text-2xl text-foreground mb-4">Unique Dashboard</h3>
               <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-                A good dashboard shows you what to do next. OpsCel loads your data in under half a second. It uses colour codes to show if staff are too busy. Green means capacity, while red means overloaded. You can assign emergency calls to the right person fast.
+                A good dashboard shows you what to do next. Opscel loads your data in under half a second. It uses colour codes to show if staff are too busy. Green means capacity, while red means overloaded. You can assign emergency calls to the right person fast.
               </p>
               <p className="text-lg leading-relaxed text-foreground-accent">
                 The quote pipeline shows your win rate. You see which deals are stuck in a queue. 4-week sparklines show if jobs are trending up. This helps you see growth without running a report. An activity feed shows work as it happens.
@@ -139,7 +139,7 @@ const ElectricalContractorsPage: React.FC = () => {
                 Calls to the office drop by forty percent. Clients do not need to ask &ldquo;Where is my certificate?&rdquo;. They download PDFs with one click from a secure link. The system logs when they view the document. You have proof that they received the compliance cert.
               </p>
               <p className="text-lg leading-relaxed text-foreground-accent">
-                All these make OpsCel as the best job management software for electrical contractors in the UK a safe bet for growth.
+                All these make Opscel as the best job management software for electrical contractors in the UK a safe bet for growth.
               </p>
             </div>
           </section>
@@ -156,7 +156,7 @@ const ElectricalContractorsPage: React.FC = () => {
               The system uses an auto-lookup for Zs limits. If an engineer enters a wrong value, the tool flags a warning. Safety first. It applies temperature correction math as well. No more manual lookups. No more calculators.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              OpsCel supports all standard electrical certificates: EIC, EICR, Minor Works, and PAT Testing. Each form matches the official BS 7671 model forms perfectly.
+              Opscel supports all standard electrical certificates: EIC, EICR, Minor Works, and PAT Testing. Each form matches the official BS 7671 model forms perfectly.
             </p>
 
             {/* Feature Table */}
@@ -200,7 +200,7 @@ const ElectricalContractorsPage: React.FC = () => {
               Managing Electrical Jobs with Ease
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              Electrical work requires very deep detail. You must track circuits, test results, and observations. OpsCel handles multiple certificate types. Each one follows official model forms. This keeps your NICEIC or ECA status in good standing.
+              Electrical work requires very deep detail. You must track circuits, test results, and observations. Opscel handles multiple certificate types. Each one follows official model forms. This keeps your NICEIC or ECA status in good standing.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               The system tracks when a periodic inspection is due. It flags these dates on your dashboard. You will never miss a chance for repeat work. This creates a steady flow of cash for the firm. A clear history shows every installation in just two clicks.
@@ -216,7 +216,7 @@ const ElectricalContractorsPage: React.FC = () => {
               Simple Pricing for British Electrical Contractors
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-6">
-              The cost of software is often a big worry. Some tools charge a fee for every single job. OpsCel uses a flat monthly rate instead. This helps you plan your budget with ease. A ninety-day free trial lets you test everything first.
+              The cost of software is often a big worry. Some tools charge a fee for every single job. Opscel uses a flat monthly rate instead. This helps you plan your budget with ease. A ninety-day free trial lets you test everything first.
             </p>
 
             {/* Pricing Table */}
@@ -325,13 +325,13 @@ const ElectricalContractorsPage: React.FC = () => {
               Wrapping Up
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              The choice for a new system is always big. UK electrical contractors need a partner that knows their rules. OpsCel as the best job management software for electrical contractors in the UK provides that local touch.
+              The choice for a new system is always big. UK electrical contractors need a partner that knows their rules. Opscel as the best job management software for electrical contractors in the UK provides that local touch.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               It turns field chaos into a smooth flow of cash and data. The time for paper notes is over. A shift to this AI-native tool will save hours every week.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent">
-              You will win more work with tiered quotes. You will keep clients longer with a clear portal. OpsCel as the best job management software for electrical contractors in the UK is the top choice for the modern trade. Give your team the gift of time today.
+              You will win more work with tiered quotes. You will keep clients longer with a clear portal. Opscel as the best job management software for electrical contractors in the UK is the top choice for the modern trade. Give your team the gift of time today.
             </p>
           </section>
 
@@ -341,7 +341,7 @@ const ElectricalContractorsPage: React.FC = () => {
               Ready to Transform Your Electrical Business?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join leading UK electrical contractors who trust OpsCel to manage their operations.
+              Join leading UK electrical contractors who trust Opscel to manage their operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

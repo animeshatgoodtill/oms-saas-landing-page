@@ -4,7 +4,7 @@ export const invoicingDetail: IFeatureDetail = {
     slug: 'invoicing',
     title: 'From Job Complete to Invoice Sent in Seconds',
     subtitle: 'Stop chasing paperwork. Get paid faster.',
-    heroDescription: 'OpsCel creates invoices from completed jobs using two intelligent paths: Fixed-Price jobs respect the agreed quote price with automatic deposit deduction; Time & Materials jobs build from actuals (labour + parts). One-click creation for both, with all details pre-filled.',
+    heroDescription: 'Opscel creates invoices from completed jobs using two intelligent paths: Fixed-Price jobs respect the agreed quote price with automatic deposit deduction; Time & Materials jobs build from actuals (labour + parts). One-click creation for both, with all details pre-filled.',
     iconId: 'icon-price-tag',
     screenshotImage: '/images/ui/07-screen.png',
 
@@ -27,17 +27,17 @@ export const invoicingDetail: IFeatureDetail = {
         {
             iconId: 'icon-price-tag',
             title: 'Automatic Deposit Handling',
-            description: 'When a customer accepts a quote with a deposit, OpsCel automatically creates the deposit invoice. When you invoice the final job, the deposit is already accounted for. The complete paper trail from quote to final payment—handled automatically.'
+            description: 'When a customer accepts a quote with a deposit, Opscel automatically creates the deposit invoice. When you invoice the final job, the deposit is already accounted for. The complete paper trail from quote to final payment—handled automatically.'
         },
         {
             iconId: 'icon-service-history',
             title: 'Smart Tax Calculation',
-            description: 'Set tax rates at the product level, category level, or business level. OpsCel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+            description: 'Set tax rates at the product level, category level, or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
         },
         {
             iconId: 'icon-xero',
             title: 'Direct to Your Accounting Software',
-            description: 'Post invoices directly to Xero or QuickBooks with one click. Customer records sync automatically. Payment status updates flow back to OpsCel. No double entry. No reconciliation headaches. No missed payments.'
+            description: 'Post invoices directly to Xero or QuickBooks with one click. Customer records sync automatically. Payment status updates flow back to Opscel. No double entry. No reconciliation headaches. No missed payments.'
         },
         {
             iconId: 'icon-smart-prompt',
@@ -177,11 +177,11 @@ export const invoicingDetail: IFeatureDetail = {
         },
         {
             question: 'How does the deposit handling work?',
-            answer: 'When a quote with a deposit is accepted, OpsCel creates the deposit invoice automatically. The final invoice shows the deposit as already paid. Complete paper trail from quote to final payment—handled automatically.'
+            answer: 'When a quote with a deposit is accepted, Opscel creates the deposit invoice automatically. The final invoice shows the deposit as already paid. Complete paper trail from quote to final payment—handled automatically.'
         },
         {
             question: 'Which accounting software do you integrate with?',
-            answer: 'Xero and QuickBooks Online. Invoices post directly, customers sync automatically, and payment status updates flow back to OpsCel. No double entry, no reconciliation headaches.'
+            answer: 'Xero and QuickBooks Online. Invoices post directly, customers sync automatically, and payment status updates flow back to Opscel. No double entry, no reconciliation headaches.'
         },
         {
             question: 'Can I invoice for jobs that didn\'t come from a quote?',
@@ -189,7 +189,7 @@ export const invoicingDetail: IFeatureDetail = {
         },
         {
             question: 'How are tax rates applied?',
-            answer: 'Set tax rates at the product level, category level, or business level. OpsCel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+            answer: 'Set tax rates at the product level, category level, or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
         }
     ],
 

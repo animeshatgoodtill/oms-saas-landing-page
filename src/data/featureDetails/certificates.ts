@@ -3,7 +3,7 @@ import { IFeatureDetail } from '@/types';
 export const certificatesDetail: IFeatureDetail = {
     slug: 'certificates',
     title: 'The Only System That Knows BS 7671 Table 41.4 by Heart',
-    subtitle: 'OpsCel Compliance Certificate System',
+    subtitle: 'Opscel Compliance Certificate System',
     heroDescription: 'This isn\'t just digital forms—it\'s the industry\'s first compliance document system that enforces BS 7671, BS 5839, and MCS standards before certificates can be issued. Auto-lookup Zs limits, validate test results, capture GPS-tagged signatures, and maintain immutable audit trails. Your engineers can\'t accidentally issue a non-compliant certificate.',
     iconId: 'icon-compliance-shield',
     screenshotImage: '/images/ui/01-screen.png',
@@ -190,12 +190,12 @@ export const certificatesDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'Does OpsCel support BAFE, NICEIC, ECA, and FIA certificate formats?',
+            question: 'Does Opscel support BAFE, NICEIC, ECA, and FIA certificate formats?',
             answer: 'Yes. Certificate formats match what your trade body expects — we\'ve mapped the mandatory fields from each standard so you don\'t have to cross-reference the spec. BAFE SP203-1 fire alarm certificates include the required BAFE reference and scheme fields. NICEIC electrical certificates follow the approved contractor format with enrolment number. ECA and FIA members get the same standards-compliant outputs their membership requires. Every certificate type auto-selects the right template based on the work you\'re signing off, so you never issue the wrong format to the wrong body.'
         },
         {
             question: 'How does BS 7671 Zs auto-lookup work?',
-            answer: 'When you enter a Zs reading for a circuit, OpsCel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.37Ω limit, corrected to 1.10Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
+            answer: 'When you enter a Zs reading for a circuit, Opscel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.37Ω limit, corrected to 1.10Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
         },
         {
             question: 'What prevents engineers from issuing non-compliant certificates?',

@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
-    description: 'Learn how to create, manage, and issue industry-standard compliance certificates in OpsCel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
+    description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
     lastUpdated: '2026-05-20',
     sections: [
         {
@@ -25,7 +25,7 @@ export const certificatesGuide: IDocGuide = {
                         <strong>Key benefit:</strong> Compliance-ready certificates in minutes, not hours
                     </p>
                 </div>
-                <p class="mb-4">The Certificates module allows you to create, manage, and issue industry-standard compliance certificates directly within OpsCel. Certificates are linked to jobs, customers, and service addresses, creating a complete audit trail of work performed.</p>
+                <p class="mb-4">The Certificates module allows you to create, manage, and issue industry-standard compliance certificates directly within Opscel. Certificates are linked to jobs, customers, and service addresses, creating a complete audit trail of work performed.</p>
             `,
             subsections: [
                 {
@@ -661,7 +661,7 @@ export const certificatesGuide: IDocGuide = {
             title: 'Retest Reminders',
             content: `
                 <p class="mb-6">
-                    OpsCel automatically sends email reminders 14 days before certificates are due for re-inspection. This helps you maintain compliance and generates repeat business.
+                    Opscel automatically sends email reminders 14 days before certificates are due for re-inspection. This helps you maintain compliance and generates repeat business.
                 </p>
             `,
             subsections: [
@@ -1047,7 +1047,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Certificate Number Duplicate — Per-Tenant Unique',
                     content: `
                         <p class="mb-2"><strong>Problem:</strong> Seeing same certificate number from another contractor.</p>
-                        <p class="mb-4"><strong>Reason:</strong> Certificate numbers are unique <strong>per-tenant</strong>, not globally. Another OpsCel account can have the same certificate number as yours.</p>
+                        <p class="mb-4"><strong>Reason:</strong> Certificate numbers are unique <strong>per-tenant</strong>, not globally. Another Opscel account can have the same certificate number as yours.</p>
                         <p class="text-gray-700">
                             This is by design—certificate numbers only need to be unique within your business. Combine certificate number with your company name for global uniqueness.
                         </p>
@@ -1135,7 +1135,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Are certificate numbers unique globally?',
                     content: `
                         <p class="text-gray-700">
-                            No. Certificate numbers are unique <strong>per-tenant</strong> (per OpsCel account), not globally. Another contractor using OpsCel can have the same certificate number (e.g., EIC-000042). This is by design—combine certificate number with your company name for global uniqueness.
+                            No. Certificate numbers are unique <strong>per-tenant</strong> (per Opscel account), not globally. Another contractor using Opscel can have the same certificate number (e.g., EIC-000042). This is by design—combine certificate number with your company name for global uniqueness.
                         </p>
                     `
                 },

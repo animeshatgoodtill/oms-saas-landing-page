@@ -2,7 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { settingsTourGuide } from '@/data/docs/settings-tour-guide';
 
 export const metadata = {
-    title: `${settingsTourGuide.title} - OpsCel Documentation`,
+    title: `${settingsTourGuide.title} - Opscel Documentation`,
     description: settingsTourGuide.description,
 };
 

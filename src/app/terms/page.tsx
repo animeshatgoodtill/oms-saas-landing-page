@@ -31,7 +31,7 @@ const TermsPage: React.FC = () => {
         <strong>Related Agreement:</strong> These Terms should be read in conjunction with our{' '}
         <Link href="/eula" className="text-secondary hover:underline">End User License Agreement (EULA)</Link>,
         which sets out the specific software licensing terms, AI features, third-party integrations,
-        and limitation of liability provisions that apply to your use of the OpsCel platform. In the
+        and limitation of liability provisions that apply to your use of the Opscel platform. In the
         event of any conflict between these Terms and the EULA, the EULA shall prevail with respect to
         software licensing matters.
       </p>

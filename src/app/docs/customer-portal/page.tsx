@@ -2,7 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { customerPortalGuide } from '@/data/docs/customer-portal-guide';
 
 export const metadata = {
-    title: `${customerPortalGuide.title} - OpsCel Documentation`,
+    title: `${customerPortalGuide.title} - Opscel Documentation`,
     description: customerPortalGuide.description,
 };
 

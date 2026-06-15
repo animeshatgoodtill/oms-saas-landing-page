@@ -2,7 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { assetTrackingGuide } from '@/data/docs/asset-tracking-guide';
 
 export const metadata = {
-    title: `${assetTrackingGuide.title} - OpsCel Documentation`,
+    title: `${assetTrackingGuide.title} - Opscel Documentation`,
     description: assetTrackingGuide.description,
 };
 

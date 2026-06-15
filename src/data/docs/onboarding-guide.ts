@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const onboardingGuide: IDocGuide = {
     slug: 'onboarding',
     title: 'Onboarding for New Businesses',
-    description: 'First-time setup checklist for new OpsCel accounts. Complete these steps in order to go from sign-up to first job scheduled in under 60 minutes.',
+    description: 'First-time setup checklist for new Opscel accounts. Complete these steps in order to go from sign-up to first job scheduled in under 60 minutes.',
     lastUpdated: '2026-05-20',
     sections: [
         {
@@ -14,7 +14,7 @@ export const onboardingGuide: IDocGuide = {
                     <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
                     <p class="text-gray-800">
                         This is your day-one checklist. It walks you through the essential setup steps in the right order so you can start
-                        using OpsCel immediately without getting lost in settings. Think of it as the fastest path from "empty account" to "first job booked."
+                        using Opscel immediately without getting lost in settings. Think of it as the fastest path from "empty account" to "first job booked."
                     </p>
                     <p class="text-gray-800 mt-3">
                         <strong>Who uses this:</strong> Business owners, office managers setting up a new account<br/>
@@ -136,7 +136,7 @@ export const onboardingGuide: IDocGuide = {
                     `
                 },
                 {
-                    title: 'Can I use OpsCel without the field app?',
+                    title: 'Can I use Opscel without the field app?',
                     content: `
                         <p class="text-gray-700">
                             Yes. Office staff can manage everything from the admin panel. However, you lose offline capture, photo geo-tagging,

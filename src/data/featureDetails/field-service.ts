@@ -3,8 +3,8 @@ import { IFeatureDetail } from '@/types';
 export const fieldServiceDetail: IFeatureDetail = {
     slug: 'field-service',
     title: 'Engineers Work in Vans, Not at Desks',
-    subtitle: 'OpsCel Field Service',
-    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. OpsCel brings the office to them—via Telegram or web app, with GPS tracking, voice notes, and photo capture. Complete jobs from the van, get paid faster.',
+    subtitle: 'Opscel Field Service',
+    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. Opscel brings the office to them—via Telegram or web app, with GPS tracking, voice notes, and photo capture. Complete jobs from the van, get paid faster.',
     iconId: 'icon-gps-checkin',
     screenshotImage: '/images/ui/05-screen.png',
 
@@ -65,7 +65,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             stepNumber: 1,
             title: 'Link Account',
-            description: 'Engineer gets one-time linking code from dashboard. Opens Telegram, sends code to OpsCel bot. Account linked in 15 minutes (code expires for security).'
+            description: 'Engineer gets one-time linking code from dashboard. Opens Telegram, sends code to Opscel bot. Account linked in 15 minutes (code expires for security).'
         },
         {
             stepNumber: 2,
@@ -190,7 +190,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         },
         {
             question: 'How does Telegram account linking work?',
-            answer: 'Engineer gets a one-time linking code from the OpsCel dashboard. They send this code to the OpsCel Telegram bot. Account links immediately. Code expires after 15 minutes for security. Once linked, they get job notifications and can check in/out via Telegram.'
+            answer: 'Engineer gets a one-time linking code from the Opscel dashboard. They send this code to the Opscel Telegram bot. Account links immediately. Code expires after 15 minutes for security. Once linked, they get job notifications and can check in/out via Telegram.'
         },
         {
             question: 'What if an engineer doesn\'t use Telegram?',
@@ -206,7 +206,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         },
         {
             question: 'What happens if a customer refuses to sign?',
-            answer: 'OpsCel requires signature before job completion. If customer refuses, engineer cannot mark job complete. This prevents disputes later. Engineer can contact office to discuss—sometimes a manager call resolves signature refusal.'
+            answer: 'Opscel requires signature before job completion. If customer refuses, engineer cannot mark job complete. This prevents disputes later. Engineer can contact office to discuss—sometimes a manager call resolves signature refusal.'
         }
     ],
 

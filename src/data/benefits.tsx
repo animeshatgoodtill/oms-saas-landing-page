@@ -5,7 +5,7 @@ import { IBenefit } from "@/types"
 export const benefits: IBenefit[] = [
     {
         title: "Nine certificate types. One system.",
-        description: "Your engineer completes a job, OpsCel generates the certificate — formatted to the correct British Standard, every mandatory field validated before it leaves.",
+        description: "Your engineer completes a job, Opscel generates the certificate — formatted to the correct British Standard, every mandatory field validated before it leaves.",
         bullets: [
             {
                 title: "Fire Safety Certificates",
@@ -27,7 +27,7 @@ export const benefits: IBenefit[] = [
     },
     {
         title: "One job. As many visits as it takes.",
-        description: "A fire alarm commissioning isn't one appointment — it's a job that takes three or four site visits. OpsCel works the way you already think: one job number, multiple visits, one complete record.",
+        description: "A fire alarm commissioning isn't one appointment — it's a job that takes three or four site visits. Opscel works the way you already think: one job number, multiple visits, one complete record.",
         bullets: [
             {
                 title: "Drag-and-drop calendar",

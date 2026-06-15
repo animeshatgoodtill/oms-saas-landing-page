@@ -2,7 +2,7 @@ import DocPageLayout from '@/components/DocPageLayout';
 import { quoteToInvoiceWorkflowGuide } from '@/data/docs/quote-to-invoice-workflow-guide';
 
 export const metadata = {
-    title: `${quoteToInvoiceWorkflowGuide.title} - OpsCel Documentation`,
+    title: `${quoteToInvoiceWorkflowGuide.title} - Opscel Documentation`,
     description: quoteToInvoiceWorkflowGuide.description,
 };
 

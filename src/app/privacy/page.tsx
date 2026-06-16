@@ -141,11 +141,12 @@ const PrivacyPage: React.FC = () => {
         We implement appropriate technical and organisational measures to protect your personal data, including:
       </p>
       <ul>
-        <li>Encryption of data in transit (TLS) and at rest</li>
-        <li>Regular security assessments and penetration testing</li>
-        <li>Access controls and authentication mechanisms</li>
-        <li>Regular backups and disaster recovery procedures</li>
-        <li>Staff training on data protection</li>
+        <li>Encryption of data in transit (TLS) and at rest, including application-layer encryption of third-party integration credentials</li>
+        <li>Logical isolation of each customer&apos;s data within our multi-tenant platform</li>
+        <li>Role-based access controls and authentication</li>
+        <li>Continuous monitoring and error tracking across our systems</li>
+        <li>Automated backups and disaster recovery procedures</li>
+        <li>Least-privilege access for all third-party integrations</li>
       </ul>
 
       <h2>7. Data Retention</h2>

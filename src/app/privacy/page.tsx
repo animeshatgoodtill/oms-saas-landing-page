@@ -112,17 +112,41 @@ const PrivacyPage: React.FC = () => {
         or by disconnecting the integration within {companyDetails.tradingName} (Settings → Calendar Integration).
       </p>
 
+      <h3>5.2 Intuit QuickBooks Online</h3>
+      <p>
+        {companyDetails.tradingName} integrates with QuickBooks Online at the user&apos;s request, using OAuth 2.0 authentication.
+        We request a single scope, <strong>com.intuit.quickbooks.accounting</strong>, to create and update invoices and customer
+        records in your connected QuickBooks company and to read back the payment status of those invoices.
+      </p>
+      <p>
+        The integration is one-way: {companyDetails.tradingName} pushes invoice and customer data to QuickBooks and reads payment
+        status; we do not import or store a copy of your wider QuickBooks financial data.
+      </p>
+      <p>
+        We store your OAuth access and refresh tokens (encrypted at rest), your QuickBooks company identifier (realmId), and
+        reference IDs linking {companyDetails.tradingName} records to their QuickBooks counterparts. We do not access QuickBooks
+        Payments and handle no card data.
+      </p>
+      <p>
+        You can revoke {companyDetails.tradingName}&apos;s access at any time by disconnecting within {companyDetails.tradingName}{' '}
+        (Settings → Accounting Integration) or from your{' '}
+        <a href="https://accounts.intuit.com/app/account-manager/security" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+          Intuit account&apos;s connected-apps settings
+        </a>.
+      </p>
+
       <h2>6. Data Storage and Security</h2>
       <p>
         Your data is stored on secure servers located in the <strong>{companyDetails.compliance.dataHostingLocation}</strong>.
         We implement appropriate technical and organisational measures to protect your personal data, including:
       </p>
       <ul>
-        <li>Encryption of data in transit (TLS) and at rest</li>
-        <li>Regular security assessments and penetration testing</li>
-        <li>Access controls and authentication mechanisms</li>
-        <li>Regular backups and disaster recovery procedures</li>
-        <li>Staff training on data protection</li>
+        <li>Encryption of data in transit (TLS) and at rest, including application-layer encryption of third-party integration credentials</li>
+        <li>Logical isolation of each customer&apos;s data within our multi-tenant platform</li>
+        <li>Role-based access controls and authentication</li>
+        <li>Continuous monitoring and error tracking across our systems</li>
+        <li>Automated backups and disaster recovery procedures</li>
+        <li>Least-privilege access for all third-party integrations</li>
       </ul>
 
       <h2>7. Data Retention</h2>

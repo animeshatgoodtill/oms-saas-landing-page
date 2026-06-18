@@ -325,7 +325,7 @@ const EULAPage: React.FC = () => {
 
         <div className="space-y-4 text-foreground-accent">
           <p>
-            <strong>7.1 Third-Party Services.</strong> The Service may integrate with or facilitate access to Third-Party Services, including without limitation Xero, QuickBooks (planned), Telegram, Google Calendar, Microsoft 365, ICS calendar feeds, and payment processors. Such Third-Party Services are provided by independent third parties and not by Opscel.
+            <strong>7.1 Third-Party Services.</strong> The Service may integrate with or facilitate access to Third-Party Services, including without limitation Xero, QuickBooks, Telegram, Google Calendar, Microsoft 365, ICS calendar feeds, and payment processors. Such Third-Party Services are provided by independent third parties and not by Opscel.
           </p>
 
           <p>

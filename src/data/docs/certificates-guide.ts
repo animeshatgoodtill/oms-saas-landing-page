@@ -1186,6 +1186,11 @@ export const certificatesGuide: IDocGuide = {
             title: 'Asset Tracking',
             description: 'Assets linked to certificates for audit trails',
             href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Recurring statutory servicing and PPM compliance',
+            href: '/docs/service-contracts'
         }
     ]
 };

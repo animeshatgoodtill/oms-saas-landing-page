@@ -45,6 +45,10 @@ export const footerDetails: {
             url: "/features/jobs"
         },
         {
+            text: "Service Contracts",
+            url: "/features/service-contracts"
+        },
+        {
             text: "Quotes & Estimates",
             url: "/features/quotations"
         },
@@ -85,6 +89,10 @@ export const footerDetails: {
         {
             text: "Defects to Quotes",
             url: "/docs/defects-to-quotation"
+        },
+        {
+            text: "Service Contracts",
+            url: "/docs/service-contracts"
         },
         {
             text: "Invoicing",

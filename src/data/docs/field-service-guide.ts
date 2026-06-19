@@ -847,6 +847,11 @@ export const fieldServiceGuide: IDocGuide = {
             title: 'Asset Tracking',
             description: 'Capturing and managing site assets from the field',
             href: '/docs/asset-tracking'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Site access notes and site log that reach engineers via contracts',
+            href: '/docs/service-contracts'
         }
     ]
 };

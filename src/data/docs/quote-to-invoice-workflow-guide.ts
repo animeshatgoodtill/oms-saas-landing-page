@@ -369,6 +369,11 @@ Customer accepts quote
             title: 'Field Service App',
             description: 'Engineers completing the jobs that become invoices',
             href: '/docs/field-service'
+        },
+        {
+            title: 'Service Contracts',
+            description: 'Upgrade an accepted quote to a recurring service contract',
+            href: '/docs/service-contracts'
         }
     ]
 };

@@ -12,12 +12,14 @@ import { dataImportDetail } from './data-import';
 import { teamDetail } from './team';
 import { templatesDetail } from './templates';
 import { customerPortalDetail } from './customer-portal';
+import { serviceContractsDetail } from './service-contracts';
 
 // Export all feature details (ordered by typical user workflow)
 export const featureDetails: IFeatureDetail[] = [
     dashboardDetail,
     fieldServiceDetail,
     jobsDetail,
+    serviceContractsDetail,
     customersDetail,
     certificatesDetail,
     quotationsDetail,

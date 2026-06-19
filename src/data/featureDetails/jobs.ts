@@ -210,6 +210,10 @@ export const jobsDetail: IFeatureDetail = {
         {
             question: 'What happens when a job is marked complete?',
             answer: 'System triggers certificate auto-generation (if job type requires it), calculates final duration from GPS logs, updates job status, and files all documents (photos, signatures, certificates) to the job folder. Office can immediately create invoice.'
+        },
+        {
+            question: 'Can I turn a recurring job into a service contract?',
+            answer: 'Yes. Open any completed job, go to the ⋮ menu, and choose "Convert to contract". Set the cadence (3 to 60 months), lead time, and per-visit price — the customer, site, and engineer carry over automatically. Future visits generate themselves before each due date. See /features/service-contracts for the full recurring contracts feature.'
         }
     ],
 

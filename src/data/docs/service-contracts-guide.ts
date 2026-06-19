@@ -2,538 +2,264 @@ import { IDocGuide } from '@/types';
 
 export const serviceContractsGuide: IDocGuide = {
     slug: 'service-contracts',
-    title: 'Service Contracts',
-    description: 'Recurring service automation for annual fire alarm tests, quarterly inspections, and routine maintenance visits. Automatically schedule jobs and pre-load assets for predictable revenue streams.',
-    lastUpdated: '2026-05-20',
+    title: 'Service Contracts & Multi-Site Agreements',
+    description: 'Set up recurring service contracts and group multi-site customers into agreements. Learn the three ways to create a contract, how fixed-anchor scheduling works, and how to bulk-create across sites.',
+    lastUpdated: '2026-06-19',
     sections: [
         {
             id: 'overview',
             title: 'Overview',
-            content: `
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
-                    <h3 class="font-bold text-lg mb-2">The 30-Second Version</h3>
-                    <p class="text-gray-800">
-                        Service contracts automate recurring maintenance work. Set a customer, cadence (quarterly, half-yearly, annual, multi-year),
-                        and lead-time window—Opscel generates jobs automatically before they're due. Assets from the previous visit pre-load,
-                        so engineers know exactly which equipment to service.
-                    </p>
-                    <p class="text-gray-800 mt-3">
-                        <strong>Who uses this:</strong> Admins, Managers<br/>
-                        <strong>Where it lives:</strong> Operations → Service Contracts<br/>
-                        <strong>Key benefit:</strong> Predictable revenue, zero manual scheduling, asset continuity
-                    </p>
-                </div>
-                <p class="mb-4">Service contracts power:</p>
-            `,
             subsections: [
                 {
-                    title: 'Key Capabilities',
-                    content: '',
+                    title: 'Availability',
+                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Admin, Contract Manager, Site Manager (per your permission setup). Service contracts are an admin-side feature — field engineers do not see these screens.</p>'
+                },
+                {
+                    title: '30-Second Version',
+                    content: '<p class="mb-4">A service contract turns a one-off job into recurring service on a fixed cadence. You define a service, how often it repeats, and a per-visit price; Opscel automatically creates the next draft job ahead of each due date so a planned visit never slips. For customers with many sites, a multi-site agreement groups all those contracts under one envelope so you can roll a template across every site and see the whole portfolio\'s annual value at a glance.</p>'
+                },
+                {
+                    title: 'What This Guide Covers',
                     bullets: [
-                        'Automatic job generation at configured cadence (quarterly, half-yearly, annual, multi-year)',
-                        'Lead-time window configuration (e.g., create job 14 days before due)',
-                        'Asset auto-loading from previous visit for continuity',
-                        'Customer and site pre-filled from contract',
-                        'Engineer assignment rules applied automatically',
-                        'Service history tracking per contract',
-                        'Pause/resume contracts without deleting them'
+                        'The three ways to create a recurring contract',
+                        'How automatic job generation and fixed-anchor scheduling work',
+                        'Editing the schedule safely, and the full contract lifecycle',
+                        'Grouping a customer\'s sites into a multi-site agreement',
+                        'How per-visit pricing and annual value work',
+                        'The site access notes and site log that reach engineers in the field'
                     ]
                 },
                 {
-                    title: 'Common Use Cases',
-                    content: '',
+                    title: 'Contracts vs. Agreements',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900"><strong>Important distinction:</strong> A <strong>service contract</strong> is one recurring service for a customer, usually at one site, for one service type. An <strong>agreement</strong> is a grouping envelope over several contracts for the same customer — it holds the relationship (renewal date, billing contact, terms) but never the cadence or price, which always live on each individual contract.</p></div>'
+                },
+                {
+                    title: 'One Site Needing Two Services',
+                    content: '<p class="mb-4">A site that needs two disciplines — say quarterly fire alarm servicing <strong>and</strong> annual emergency lighting — is <strong>two contracts</strong>, not one contract with two schedules. Both can sit under the same agreement. This keeps each compliance interval, certificate, and price independent and correct.</p>'
+                }
+            ]
+        },
+        {
+            id: 'how-it-works',
+            title: 'How Recurring Contracts Work',
+            content: '<p class="mb-4">A contract repeats on a <strong>cadence</strong> (frequency) and is anchored to a <strong>next due date</strong>. Each time a visit generates, the next due date advances by the frequency — so the schedule stays on its original rhythm regardless of when you actually generate.</p>',
+            subsections: [
+                {
+                    title: 'Key Terms',
                     bullets: [
-                        '<strong>Annual fire alarm testing:</strong> Generate job 14 days before anniversary of last service',
-                        '<strong>Quarterly PAT testing:</strong> Office sites needing regular portable appliance testing',
-                        '<strong>6-monthly boiler servicing:</strong> Recurring maintenance for commercial heating systems',
-                        '<strong>6-monthly emergency lighting:</strong> Compliance testing for fire safety systems'
+                        '<strong>Occurrence / visit</strong> — a job auto-generated from a contract. When you convert an existing job, that job is the first visit (visit #0).',
+                        '<strong>Cadence / frequency</strong> — how often the service repeats: every 3, 6, 12, 24, 36, 48, or 60 months.',
+                        '<strong>Lead time</strong> — how many days before a due date the draft job is auto-created (0–365, default 14).',
+                        '<strong>Next due date</strong> — the anchor for the next visit; advances by the frequency each time a visit generates.',
+                        '<strong>Statuses</strong> — <strong>Active</strong> (generating), <strong>Paused</strong> (generation halted), <strong>Ended</strong> (read-only, re-openable), <strong>Cancelled</strong> (read-only, terminal).'
                     ]
+                },
+                {
+                    title: 'Fixed-Anchor Scheduling',
+                    content: '<p class="mb-4">Generating a visit early does <strong>not</strong> shift the rest of the schedule. If the next visit is due 16 September and you generate it early, the visit after it stays on 16 December. This is the correct model for statutory work — the compliance interval is preserved no matter when the job is actually raised.</p>'
                 }
             ]
         },
         {
             id: 'creating-contracts',
-            title: 'Creating Service Contracts',
-            content: `
-                <p class="mb-6">
-                    There are two ways to create service contracts in Opscel. Choose the method based on whether you have an existing job history.
-                </p>
-            `,
+            title: 'Creating a Contract — Three Ways',
             subsections: [
                 {
-                    title: 'Method 1: From Completed Job (Recommended)',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
-                        <p class="mb-4">The best way to start a contract is from a completed job—customer, site, and assets auto-fill.</p>
-                    `,
+                    title: 'Option A — From Scratch',
+                    content: '<p class="mb-4">Go to <strong>Service Contracts → New contract</strong>, then choose:</p>',
                     steps: [
-                        { step: 'Go to Jobs and open a completed job', description: '' },
-                        { step: 'Scroll to the Service Contract section', description: '' },
-                        { step: 'Click "Convert to Service Contract"', description: '' },
-                        { step: 'Set cadence (quarterly, half-yearly, annual, multi-year)', description: '' },
-                        { step: 'Set lead-time window (e.g., 14 days before due)', description: '' },
-                        { step: 'Click "Create Contract"', description: 'Contract is now active—first job will generate based on cadence' }
+                        'Select <strong>Customer</strong>',
+                        'Select <strong>Site</strong> (optional)',
+                        'Select <strong>Service type</strong> (optional)',
+                        'Set <strong>Frequency</strong> (cadence)',
+                        'Set <strong>Lead time</strong> — days before each due date to create the draft job',
+                        'Set <strong>Start date</strong> — the first due date',
+                        'Set <strong>Per-visit price</strong> (optional)',
+                        'Click <strong>Create contract</strong>. The first visit generates according to the start date and lead time.'
                     ]
                 },
                 {
-                    title: 'Method 2: From Scratch',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
-                        <p class="mb-4">Create a contract manually when setting up a new recurring service for a customer.</p>
-                    `,
-                    steps: [
-                        { step: 'Go to Operations → Service Contracts', description: '' },
-                        { step: 'Click "New Contract"', description: '' },
-                        { step: 'Select customer and service address', description: '' },
-                        { step: 'Enter contract title and description', description: 'e.g., "Annual Fire Alarm Service"' },
-                        { step: 'Set start date', description: 'First job due date' },
-                        { step: 'Set cadence and lead-time window', description: '' },
-                        { step: 'Click "Create"', description: 'Contract is active' }
-                    ]
+                    title: 'Option B — From an Existing Job',
+                    content: '<p class="mb-4">Open the job → <strong>⋮ menu → Convert to contract</strong> → set frequency, lead time, and price → <strong>Create contract</strong>. The job you converted becomes the first visit, and future visits recur from there. Any engineer already on that job carries over.</p>'
                 },
                 {
-                    title: 'What Gets Auto-Filled (Method 1)',
-                    content: 'When converting from a completed job:',
+                    title: 'Option C — From an Accepted Quote',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900">Open an <strong>accepted</strong> quote → <strong>⋮ → Upgrade to service contract</strong>. The customer, site, and title carry over. You then <strong>confirm the recurring per-visit price</strong> — Opscel does not reuse the quote total, because a quote usually bundles one-off install or mobilisation costs that shouldn\'t repeat. Remove those, confirm the recurring figure, and select <strong>Create contract</strong>. The original quote is left untouched.</p><p class="text-blue-900 mt-2">The upgrade path is only available on <strong>accepted</strong> quotes — converting a draft or unaccepted quote would stand up a billing commitment the customer hasn\'t agreed to.</p></div><p class="mb-4">See <a href="/features/quotations" class="text-blue-600 hover:underline">Quotes & Estimates</a> for the full quoting workflow.</p>'
+                }
+            ]
+        },
+        {
+            id: 'running-the-schedule',
+            title: 'Running the Schedule',
+            subsections: [
+                {
+                    title: 'Automatic Job Generation',
+                    content: '<p class="mb-4">For an active contract, Opscel creates the next draft job automatically, a lead-time number of days before the due date (default 14). The visit appears on your board ready to be scheduled and assigned.</p>'
+                },
+                {
+                    title: 'Generate Now',
+                    content: '<p class="mb-4">Need a visit sooner — for example, the customer is ready early? Open the contract and select <strong>Generate Now</strong>, then confirm. The confirmation states exactly what happens: this generates the next visit now and the following visits do <strong>not</strong> move.</p>'
+                },
+                {
+                    title: 'Upcoming-Visits Timeline',
+                    content: '<p class="mb-4">The contract shows an upcoming-visits timeline marked <strong>Generated</strong> vs <strong>Projected</strong>. Projected dates are estimates derived from the cadence, not confirmed bookings. The timeline stops at a fixed-term contract\'s end date, and shows nothing projected for paused or ended contracts.</p>'
+                },
+                {
+                    title: 'Editing the Start Date Safely',
+                    content: '<p class="mb-4">To move the cadence anchor: <strong>contract → Details → Schedule → Edit → change start date → Review start-date change</strong>. You\'ll see a live preview of how future due dates move; check it, then <strong>Confirm new start date</strong>. Already-generated visits are locked and never moved or duplicated. If the cadence matches a statutory interval (e.g. BS 5839 6- or 12-monthly), you\'ll get an extra compliance warning before you confirm.</p>'
+                }
+            ]
+        },
+        {
+            id: 'lifecycle',
+            title: 'Managing the Lifecycle',
+            content: '<p class="mb-4">From the contract page or the list row\'s <strong>⋮</strong> menu you can:</p>',
+            subsections: [
+                {
+                    title: 'Available Actions',
                     bullets: [
-                        '<strong>Customer and site:</strong> Pre-filled from job',
-                        '<strong>Job type:</strong> Matches original job (e.g., Fire Alarm Service)',
-                        '<strong>Assets:</strong> All assets from completed job will pre-load on future jobs',
-                        '<strong>Start date:</strong> Defaults to job completion date + cadence interval (e.g., today + 1 year for annual)'
+                        '<strong>Replace the service type</strong> on the contract',
+                        '<strong>Pause / Resume</strong> — halt and restart automatic generation',
+                        '<strong>End / Reopen</strong> — close a contract (read-only) and reopen it later if needed',
+                        '<strong>Cancel</strong> — terminal, read-only',
+                        '<strong>View the activity log</strong> — a per-contract record of every change',
+                        '<strong>Export the contract list</strong> to CSV from the Service Contracts list'
                     ]
                 }
             ]
         },
         {
-            id: 'cadence',
-            title: 'Setting Cadence',
-            content: `
-                <p class="mb-6">
-                    Cadence determines how often jobs are created. Lead-time window determines how far in advance they appear.
-                </p>
-            `,
+            id: 'agreements',
+            title: 'Grouping Sites into an Agreement',
             subsections: [
                 {
-                    title: 'Cadence Options',
-                    content: '',
-                    table: {
-                        headers: ['Cadence', 'Interval', 'Example Use Case'],
-                        rows: [
-                            ['Quarterly', 'Every 90 days', 'PAT testing, quarterly compliance checks'],
-                            ['Half-yearly', 'Every 6 months', 'Boiler servicing, half-yearly inspections'],
-                            ['Annual', 'Every 365 days', 'Fire alarm service, EICR inspections, gas safety certificates'],
-                            ['Multi-year', 'Every 2–5 years', 'Fixed wire testing (every 5 years), long-interval certification']
-                        ]
-                    }
+                    title: 'When Agreements Appear',
+                    content: '<p class="mb-4">The agreement feature surfaces on the <strong>customer detail page</strong> once a customer has <strong>three or more service addresses</strong> (or already has an agreement). Customers with one or two sites never see it — keeping the interface simple for small contractors.</p>'
                 },
                 {
-                    title: 'Lead-Time Window',
-                    content: `
-                        <p class="mb-4">
-                            The lead-time window is how many days <strong>before the due date</strong> the job should appear in your system.
-                            This gives you time to schedule engineers and notify customers.
-                        </p>
-                        <p class="mb-4"><strong>Example calculation:</strong></p>
-                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li>Contract start date: <strong>1 January 2026</strong></li>
-                            <li>Cadence: <strong>Annual</strong></li>
-                            <li>Lead-time window: <strong>14 days</strong></li>
-                            <li>Next job due: <strong>1 January 2027</strong></li>
-                            <li>Job will appear on: <strong>18 December 2026</strong> (14 days before due)</li>
-                        </ul>
-                    `
+                    title: 'Create an Agreement',
+                    content: '<p class="mb-4">On the customer page, go to <strong>Agreements → New agreement</strong> and fill in the title, renewal/review date, billing contact, terms, and notes. The agreement is an envelope for the relationship — it does not hold cadence or price.</p>'
                 },
                 {
-                    title: 'Recommended Lead-Time Settings',
-                    content: '',
-                    bullets: [
-                        '<strong>Quarterly contracts:</strong> 14 days lead-time (medium planning window)',
-                        '<strong>Half-yearly contracts:</strong> 21 days lead-time (customer scheduling flexibility)',
-                        '<strong>Annual contracts:</strong> 30 days lead-time (customer notices, engineer availability)',
-                        '<strong>Multi-year contracts:</strong> 60 days lead-time (extended planning for infrequent services)'
+                    title: 'Bulk-Create Contracts Across Sites',
+                    content: '<p class="mb-4">Open the agreement → <strong>Add sites</strong>, then:</p>',
+                    steps: [
+                        'Set the <strong>template</strong> once — cadence, service type, per-visit price.',
+                        '<strong>Add existing sites</strong> and/or <strong>add new sites inline</strong> (a new address is created as you go — no need to pre-build it).',
+                        'Apply <strong>per-site overrides</strong> where a site differs — e.g. a higher price or a tighter cadence for a larger building.',
+                        'Select <strong>Create N contracts</strong> and review the results summary.'
                     ]
+                },
+                {
+                    title: 'Duplicate-Detection',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900">If a site already has an active contract for that service type, Opscel <strong>skips that site and reports it</strong> in the summary rather than creating a duplicate — the rest of the batch still goes through.</p></div>'
+                },
+                {
+                    title: 'Template Stamp — No Retroactive Updates',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4"><p class="text-amber-800">The template is a one-time stamp. Editing the agreement or template later does <strong>not</strong> retro-update contracts already created — each contract is independent once created.</p></div>'
+                },
+                {
+                    title: 'Portfolio Rollup',
+                    content: '<p class="mb-4">The agreement\'s rollup view lists every site\'s cadence, next due date, per-visit price, annual value, and status in one table, plus the agreement\'s <strong>total annual value</strong> (active contracts only).</p>'
                 }
             ]
         },
         {
-            id: 'asset-loading',
-            title: 'Asset Auto-Loading',
-            content: `
-                <p class="mb-6">
-                    One of the most powerful features of service contracts: assets from the previous job automatically pre-load on the next job.
-                    Engineers see exactly which equipment needs servicing without manual data entry.
-                </p>
-            `,
+            id: 'pricing',
+            title: 'Pricing & Annual Value',
+            content: '<p class="mb-4">A contract can carry an optional <strong>per-visit recurring price</strong>. Opscel uses it to calculate <strong>annual book value</strong> = per-visit price × visits per year, summed across active contracts and rolled up per agreement. This powers the contract-value report and the agreement portfolio total.</p>',
             subsections: [
                 {
-                    title: 'How It Works',
-                    content: `
-                        <p class="mb-4">When a contract generates a new job:</p>
-                        <ol class="list-decimal pl-6 space-y-2 text-gray-700 mb-4">
-                            <li>System finds the <strong>previous completed job</strong> for this contract</li>
-                            <li>Checks which assets were serviced in that job</li>
-                            <li>Filters to only <strong>active assets</strong> (not decommissioned or replaced)</li>
-                            <li>Pre-loads those assets into the new job</li>
-                            <li>Engineer opens job and sees full asset list ready to inspect</li>
-                        </ol>
-                    `
-                },
-                {
-                    title: 'What Pre-Loads',
-                    content: 'The following data carries forward for each asset:',
-                    bullets: [
-                        'Asset type (e.g., Fire Panel, Emergency Light, Circuit)',
-                        'Asset identity (serial number, location, manufacturer)',
-                        'Last service date',
-                        'Next due date (calculated from service cadence)',
-                        'Parent-child relationships (e.g., panel → zones → detectors)'
-                    ]
-                },
-                {
-                    title: 'What Does NOT Pre-Load',
-                    content: 'To maintain compliance, these must be entered fresh each visit:',
-                    bullets: [
-                        'Test results (IR, Zs, RCD, functional tests)',
-                        'Visual inspection outcomes',
-                        'Defects found',
-                        'Parts replaced',
-                        'Battery test results'
-                    ]
-                },
-                {
-                    title: 'When Asset Loading Fails',
-                    content: `
-                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
-                            <p class="text-amber-800">
-                                <strong>No assets will pre-load if:</strong>
-                            </p>
-                            <ul class="list-disc pl-6 mt-2 text-amber-800">
-                                <li>Previous job has <strong>no assets</strong> recorded</li>
-                                <li>All assets from previous job were <strong>decommissioned</strong></li>
-                                <li>This is the <strong>first generated job</strong> (no history yet)</li>
-                            </ul>
-                        </div>
-                        <p class="text-gray-700">
-                            In these cases, the engineer must add assets manually on the first visit. Future jobs will then pre-load correctly.
-                        </p>
-                    `
+                    title: 'What Pricing Does and Doesn\'t Do',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900">The per-visit price drives annual-value and portfolio figures. It is <strong>not</strong> automatically written onto each generated job\'s invoice, and billing is <strong>per contract</strong> — each contract invoices on its own; there is no single combined agreement invoice. Set the price for value reporting and forecasting; raise invoices per job as usual.</p><p class="text-blue-900 mt-2">See <a href="/docs/invoicing" class="text-blue-700 hover:underline font-semibold">Invoicing Guide</a> for the job-to-invoice workflow.</p></div>'
                 }
             ]
         },
         {
-            id: 'managing-contracts',
-            title: 'Managing Contracts',
+            id: 'site-access',
+            title: 'Site Access Notes & the Site Log',
+            content: '<p class="mb-4">Two field-facing pieces travel to the engineer\'s job automatically — engineers see these even though they don\'t manage contracts:</p>',
             subsections: [
                 {
-                    title: 'Pausing a Contract',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
-                        <p class="mb-4">Pause a contract temporarily without deleting it. No new jobs will generate until you resume.</p>
-                    `,
-                    steps: [
-                        { step: 'Go to Operations → Service Contracts', description: '' },
-                        { step: 'Find the contract and click to open', description: '' },
-                        { step: 'Click "Pause Contract"', description: '' },
-                        { step: 'Confirm pause', description: 'Contract status changes to "Paused"—no new jobs will generate' }
-                    ]
+                    title: 'Site Access Notes',
+                    content: '<p class="mb-4"><strong>Office-authored</strong> access information (parking, key-safe codes, access hours) set once on the address. It shows on the engineer\'s job in the field app, including offline, and every future visit to that site reflects it. Edit it once; you never have to repeat it per job.</p>'
                 },
                 {
-                    title: 'Resuming a Paused Contract',
-                    content: `
-                        <p class="mb-4">When you resume a contract, the next job due date is recalculated from today.</p>
-                    `,
-                    steps: [
-                        { step: 'Open the paused contract', description: '' },
-                        { step: 'Click "Resume Contract"', description: '' },
-                        { step: 'Confirm resume', description: 'Next job will generate at the next scheduled cron run' }
-                    ]
-                },
-                {
-                    title: 'Cancelling a Contract',
-                    content: `
-                        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
-                            <p class="text-red-800">
-                                <strong>Warning:</strong> Cancelling a contract is permanent. Existing generated jobs remain, but no new jobs will ever be created from this contract.
-                            </p>
-                        </div>
-                    `,
-                    steps: [
-                        { step: 'Open the contract', description: '' },
-                        { step: 'Click "Cancel Contract"', description: '' },
-                        { step: 'Type "CANCEL" to confirm', description: '' },
-                        { step: 'Click "Confirm Cancellation"', description: 'Contract status changes to "Cancelled"' }
-                    ]
-                },
-                {
-                    title: 'Manually Generating Next Job',
-                    content: `
-                        <p class="mb-4">Need a job now instead of waiting for the cron? Generate manually.</p>
-                    `,
-                    steps: [
-                        { step: 'Open the contract', description: '' },
-                        { step: 'Click "Generate Job Now"', description: '' },
-                        { step: 'Confirm generation', description: 'Job is created immediately and appears in the jobs list' }
-                    ]
-                },
-                {
-                    title: 'Editing Contract Terms',
-                    content: `
-                        <p class="mb-4">You can edit cadence, lead-time, customer, and site at any time.</p>
-                        <p class="mb-4"><strong>Note:</strong> Changes only affect <strong>future</strong> jobs. Already-generated jobs are not modified.</p>
-                    `,
-                    steps: [
-                        { step: 'Open the contract', description: '' },
-                        { step: 'Click "Edit Contract"', description: '' },
-                        { step: 'Update cadence, lead-time, or other fields', description: '' },
-                        { step: 'Click "Save Changes"', description: 'Next job will use new settings' }
-                    ]
+                    title: 'Site Log',
+                    content: '<p class="mb-4">A persistent, per-site running log engineers leave for whoever attends next, or for the office. It works offline, queuing and syncing on reconnect. Notes can be marked <strong>Engineers only</strong> or <strong>Office only</strong>.</p><p class="mb-4">See <a href="/docs/field-service" class="text-blue-600 hover:underline">Field Service App — Engineer\'s Day</a> for how engineers interact with both in the field.</p>'
                 }
             ]
         },
         {
-            id: 'cron-timing',
-            title: 'Cron Timing Explained',
-            content: `
-                <p class="mb-6">
-                    Service contract job generation runs on a daily cron schedule. Understanding the timing helps avoid confusion about when jobs appear.
-                </p>
-            `,
-            subsections: [
-                {
-                    title: 'Daily Cron Run',
-                    content: `
-                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                            <p class="text-blue-800">
-                                <strong>Cron schedule:</strong> Every day at <strong>05:00 UTC</strong> (UK-aligned: 05:00 GMT / 06:00 BST)
-                            </p>
-                        </div>
-                        <p class="mb-4">What happens during each run:</p>
-                        <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-                            <li>System scans all <strong>active</strong> service contracts</li>
-                            <li>Calculates next due date for each contract</li>
-                            <li>Checks if today falls within the lead-time window</li>
-                            <li>If yes: generates job and links to contract</li>
-                            <li>If no: waits until tomorrow</li>
-                        </ol>
-                    `
-                },
-                {
-                    title: 'Lead-Time Window Calculation',
-                    content: `
-                        <p class="mb-4"><strong>Example:</strong></p>
-                        <ul class="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                            <li>Today: <strong>10 December 2026</strong></li>
-                            <li>Contract due: <strong>1 January 2027</strong></li>
-                            <li>Lead-time window: <strong>30 days</strong></li>
-                            <li>Window opens: <strong>2 December 2026</strong> (30 days before due)</li>
-                            <li>Job was generated on: <strong>2 December 2026 at 05:00 UTC</strong></li>
-                        </ul>
-                        <p class="text-gray-700">
-                            Since today (10 December) is within the window, the job already exists. If you created the contract today,
-                            you would see the job immediately because the window is already open.
-                        </p>
-                    `
-                },
-                {
-                    title: 'Why Jobs May Appear Early',
-                    content: 'If you see a job weeks before its due date, this is expected behavior:',
-                    bullets: [
-                        'The lead-time window is intentionally long (e.g., 30 days for annual contracts)',
-                        'This gives you time to schedule engineers around holidays and customer availability',
-                        'The job\'s <strong>suggested date</strong> field shows the actual due date',
-                        'You can schedule the job for any date—it doesn\'t have to be the suggested date'
-                    ]
-                },
-                {
-                    title: 'Retry Logic',
-                    content: `
-                        <p class="mb-4">If job generation fails (e.g., database timeout, API error), the cron retries:</p>
-                        <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li><strong>Retry 1:</strong> 2 hours after failure</li>
-                            <li><strong>Retry 2:</strong> 4 hours after failure</li>
-                            <li><strong>Retry 3:</strong> 8 hours after failure</li>
-                            <li><strong>Next cron:</strong> If all retries fail, tries again at next 05:00 UTC</li>
-                        </ul>
-                    `
-                }
-            ]
-        },
-        {
-            id: 'viewing-jobs',
-            title: 'Viewing Generated Jobs',
-            subsections: [
-                {
-                    title: 'From Contract Detail Page',
-                    content: `
-                        <p class="mb-4">The contract detail page shows all jobs generated from this contract.</p>
-                    `,
-                    steps: [
-                        { step: 'Go to Operations → Service Contracts', description: '' },
-                        { step: 'Click on a contract to open', description: '' },
-                        { step: 'Scroll to "Generated Jobs" section', description: 'Shows all jobs with status, dates, engineers' },
-                        { step: 'Click any job to open detail page', description: '' }
-                    ]
-                },
-                {
-                    title: 'From Job Detail Page',
-                    content: `
-                        <p class="mb-4">Jobs generated from contracts show a link back to the parent contract.</p>
-                        <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li>Open any job detail page</li>
-                            <li>Look for "Service Contract" section</li>
-                            <li>If job was generated from contract: contract name and link appear</li>
-                            <li>Click link to view contract</li>
-                        </ul>
-                    `
-                },
-                {
-                    title: 'Occurrence Tracking',
-                    content: `
-                        <p class="mb-4">Each generated job has an occurrence number (1st, 2nd, 3rd, etc.) to track service history.</p>
-                        <p class="mb-4">This helps with compliance: "This is the 12th annual fire alarm test for this customer."</p>
-                    `
-                }
-            ]
-        },
-        {
-            id: 'troubleshooting',
-            title: 'Troubleshooting',
-            subsections: [
-                {
-                    title: 'Next job didn\'t generate',
-                    content: `
-                        <p class="mb-2"><strong>Problem:</strong> Contract is active but no job appeared.</p>
-                        <p class="mb-4"><strong>Check:</strong></p>
-                        <ol class="list-decimal pl-6 space-y-2 text-gray-700">
-                            <li><strong>Contract status:</strong> Is it active or paused? (Paused contracts don't generate jobs)</li>
-                            <li><strong>Lead-time window:</strong> Has the window opened yet? (Check due date minus lead-time)</li>
-                            <li><strong>Last generation date:</strong> View contract detail—shows when last job was created</li>
-                            <li><strong>Cron logs:</strong> Contact support if the cron failed (rare)</li>
-                        </ol>
-                    `
-                },
-                {
-                    title: 'Assets didn\'t pre-load',
-                    content: `
-                        <p class="mb-2"><strong>Problem:</strong> Generated job has no assets.</p>
-                        <p class="mb-4"><strong>Causes:</strong></p>
-                        <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                            <li><strong>First job:</strong> No previous job history yet—engineer must add assets manually on first visit</li>
-                            <li><strong>Assets decommissioned:</strong> All assets from previous job were marked inactive</li>
-                            <li><strong>Previous job incomplete:</strong> Previous job was cancelled or has no recorded assets</li>
-                        </ul>
-                        <p class="mt-4 text-gray-700">
-                            <strong>Fix:</strong> Complete the current job with assets recorded. Future jobs will pre-load correctly.
-                        </p>
-                    `
-                },
-                {
-                    title: 'Contract paused accidentally',
-                    content: `
-                        <p class="mb-2"><strong>Problem:</strong> No jobs generating, contract shows "Paused" status.</p>
-                        <p class="mb-4"><strong>Fix:</strong></p>
-                    `,
-                    steps: [
-                        { step: 'Open the contract detail page', description: '' },
-                        { step: 'Click "Resume Contract"', description: '' },
-                        { step: 'Confirm resume', description: 'Next job will generate at next cron run (05:00 UTC)' }
-                    ]
-                },
-                {
-                    title: 'Wrong cadence set',
-                    content: `
-                        <p class="mb-2"><strong>Problem:</strong> Contract generating jobs too frequently or not often enough.</p>
-                        <p class="mb-4"><strong>Fix:</strong></p>
-                    `,
-                    steps: [
-                        { step: 'Open contract', description: '' },
-                        { step: 'Click "Edit Contract"', description: '' },
-                        { step: 'Change cadence (weekly → monthly, etc.)', description: '' },
-                        { step: 'Save changes', description: 'Only affects future jobs—already-generated jobs unchanged' }
-                    ]
-                }
-            ]
-        },
-        {
-            id: 'faq',
+            id: 'faqs',
             title: 'Frequently Asked Questions',
             subsections: [
                 {
-                    title: 'When will the next job be created?',
-                    content: `
-                        <p class="text-gray-700">
-                            Jobs are created at 05:00 UTC daily when the current date enters the lead-time window. For example, if your contract
-                            is due 1 January 2027 with a 30-day lead-time, the job will appear on 2 December 2026 at 05:00 UTC.
-                        </p>
-                    `
+                    title: 'Does generating a visit early move the rest of my schedule?',
+                    content: '<p>No — scheduling is fixed-anchor, so only the visit you pull forward moves. Every later visit stays on its original due date.</p>'
                 },
                 {
-                    title: 'What if I change a contract after the next job is already generated?',
-                    content: `
-                        <p class="text-gray-700">
-                            Changes to cadence, lead-time, or customer only affect <strong>future</strong> jobs. Already-generated jobs remain unchanged.
-                            If you need to modify an existing generated job, edit the job directly (not the contract).
-                        </p>
-                    `
+                    title: 'What happens to past visits if I set a start date in the past?',
+                    content: '<p>Past visits aren\'t back-generated. The next visit generates on the next computed due date; log any historical visits manually.</p>'
                 },
                 {
-                    title: 'Does the engineer see which assets to service?',
-                    content: `
-                        <p class="text-gray-700">
-                            Yes! When the engineer opens the job in the field app, all pre-loaded assets appear in the Assets section. They can
-                            see asset identity, location, last service date, and next due date. They just need to fill in test results and defects.
-                        </p>
-                    `
+                    title: 'Can two contracts cover the same site and service?',
+                    content: '<p>No. Opscel flags the conflict and offers to end the existing contract first, so you don\'t double-schedule a site.</p>'
                 },
                 {
-                    title: 'Can I generate a job manually instead of waiting for the cron?',
-                    content: `
-                        <p class="text-gray-700">
-                            Yes. Open the contract detail page and click "Generate Job Now." The job is created immediately. This is useful for
-                            emergency work or when a customer requests early service.
-                        </p>
-                    `
+                    title: 'Who can manage service contracts?',
+                    content: '<p>Admin-type roles only (Admin, Contract Manager, Site Manager per your setup). Field engineers don\'t see contract screens.</p>'
                 },
                 {
-                    title: 'What happens if I delete a generated job?',
-                    content: `
-                        <p class="text-gray-700">
-                            Deleting a generated job does not affect the contract. The contract will still generate the <strong>next</strong> job
-                            at the scheduled time. The deleted job is removed from occurrence tracking.
-                        </p>
-                    `
+                    title: 'Why don\'t I see "Agreements" on a customer?',
+                    content: '<p>Agreements appear once a customer has three or more sites (or already has an agreement). Below that threshold they stay hidden to keep things simple.</p>'
                 },
                 {
-                    title: 'Can I have multiple contracts for the same customer?',
-                    content: `
-                        <p class="text-gray-700">
-                            Yes. You can create separate contracts for different services (e.g., one for fire alarms, one for emergency lighting)
-                            or different sites for the same customer. Each contract operates independently.
-                        </p>
-                    `
+                    title: 'If I edit an agreement after creating its contracts, do the contracts change?',
+                    content: '<p>No — each contract is independent once created. Edit individual contracts directly when you need to.</p>'
+                },
+                {
+                    title: 'Can the customer read the engineer site log?',
+                    content: '<p>Not currently. The site log supports <strong>Engineers only</strong> and <strong>Office only</strong> notes; there is no customer-visible tier yet.</p>'
+                }
+            ]
+        },
+        {
+            id: 'need-help',
+            title: 'Need More Help?',
+            content: '<p class="mb-4">Can\'t find what you\'re looking for? Our support team is here to help.</p>',
+            subsections: [
+                {
+                    content: '<div class="flex flex-wrap gap-4"><a href="mailto:support@opscel.com" class="inline-block bg-secondary text-white hover:bg-secondary/90 px-6 py-3 rounded-full font-medium transition-all">Contact Support</a><a href="https://help.opscel.com" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-secondary border-2 border-secondary hover:bg-secondary/10 px-6 py-3 rounded-full font-medium transition-all">Visit Help Centre</a></div>'
                 }
             ]
         }
     ],
     relatedGuides: [
         {
-            title: 'Jobs & Multi-Visit Workflow',
-            description: 'Managing multi-visit and recurring jobs',
-            href: '/docs/jobs'
+            title: 'Jobs & Scheduling',
+            description: 'How jobs are created, assigned, and completed',
+            href: '/features/jobs'
         },
         {
             title: 'Field Service App',
-            description: 'How engineers complete recurring service visits',
+            description: 'How engineers see access notes and leave site logs',
             href: '/docs/field-service'
         },
         {
-            title: 'Asset Tracking',
-            description: 'Asset continuity and auto-loading explained',
-            href: '/docs/asset-tracking'
+            title: 'Quotes & Estimates',
+            description: 'Creating and accepting quotes before upgrading them',
+            href: '/features/quotations'
         },
         {
-            title: 'Onboarding',
-            description: 'Setting up service contracts for new customers',
-            href: '/docs/onboarding'
+            title: 'Certificates',
+            description: 'Issuing compliance certificates from completed visits',
+            href: '/docs/certificates'
+        },
+        {
+            title: 'Invoicing',
+            description: 'Raising invoices from completed jobs',
+            href: '/docs/invoicing'
         }
     ]
 };

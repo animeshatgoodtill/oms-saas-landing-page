@@ -157,6 +157,10 @@ export const quotationsDetail: IFeatureDetail = {
         {
             question: 'Which pricing plan includes Quotations?',
             answer: 'Quotations is available on Business and Pro plans. Start with a 90-day free trial to test all features with your team.'
+        },
+        {
+            question: 'Can I turn an accepted quote into a recurring service contract?',
+            answer: 'Yes. Once a customer accepts a quote, open it, go to ⋮ → "Upgrade to service contract". The customer, site, and title carry over; you confirm the true recurring per-visit price (stripping any one-off install costs from the quote total). See /features/service-contracts for the full recurring contracts feature.'
         }
     ],
 

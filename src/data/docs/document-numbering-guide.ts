@@ -161,7 +161,7 @@ export const documentNumberingGuide: IDocGuide = {
         },
         {
           title: 'Certificate Numbering',
-          content: `<p>Certificates require unique numbering per standard. Opscel generates certificate numbers that are unique within your business account (per-tenant uniqueness). Common patterns: <code>CERT-{counter}</code> or <code>{YYYY}-EICR-{counter}</code>.</p>
+          content: `<p>Certificates require unique numbering per standard. Opscel generates certificate numbers that are unique within your business account (per-tenant uniqueness), following the pattern <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code> — for example <code>EICR-000123-A</code>. The prefix is configurable per certificate type; the job number and suffix are assigned automatically.</p>
 
           <p class="text-sm text-blue-700 bg-blue-50 border-l-4 border-blue-400 p-3 mt-2">
             <strong>Per-standard uniqueness:</strong> Certificate numbers are unique within your tenant, not globally. Different businesses can have the same certificate number, which is compliant with industry standards like BS 7671.

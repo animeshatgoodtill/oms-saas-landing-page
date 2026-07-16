@@ -46,8 +46,13 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-compliance-shield',
-            title: '9 Certificate Types, All Standards-Compliant',
-            description: 'EIC, EICR, Minor Works (BS 7671:2018+A2:2022). Fire Alarm Service/Commissioning (BS 5839-1:2025). Emergency Lighting (BS 5266-1:2016). PAT (IET Code 5th Ed). Solar PV (BS EN 62446-1:2016, MCS). Extinguisher (BS 5306-3:2017). Every type matches official model forms.'
+            title: '16 Certificate Types, All Standards-Compliant',
+            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Every certificate type matches official model forms.'
+        },
+        {
+            iconId: 'icon-compliance-shield',
+            title: 'Complete BAFE SP203-1 Documentation Trail',
+            description: 'All five BS 5839-1:2025 modular fire alarm certificates—Design, Installation, Commissioning, Acceptance, Verification—plus Servicing, so a BAFE-certificated fire company runs an entire project\'s paperwork in one system. Your BAFE SP203 registration pre-fills onto every certificate, and Acceptance enforces the accepting client\'s counter-signature before it can be issued.'
         },
         {
             iconId: 'icon-maintenance-schedule',
@@ -127,8 +132,8 @@ export const certificatesDetail: IFeatureDetail = {
 
     stats: [
         {
-            value: '5 standards',
-            label: 'BS 7671, BS 5839-1, BS 5266-1, BS EN 62446-1, MCS enforced automatically'
+            value: '8 standards',
+            label: 'BS 7671, BS 5839-1, BS 5839-9, BS 5266-1, BS 5306-3, IET CoP, BS EN 62446-1, MCS enforced automatically'
         },
         {
             value: 'GPS+IP+Time',

@@ -4,7 +4,7 @@ export const certificatesGuide: IDocGuide = {
     slug: 'certificates',
     title: 'Certificates Module - Complete User Guide',
     description: 'Learn how to create, manage, and issue industry-standard compliance certificates in Opscel. From EIC to EICR to Fire Alarm Service, generate professional PDFs with built-in validation.',
-    lastUpdated: '2026-05-20',
+    lastUpdated: '2026-07-16',
     sections: [
         {
             id: 'overview',
@@ -47,7 +47,7 @@ export const certificatesGuide: IDocGuide = {
                 headers: ['Vertical', 'Certificates', 'Availability'],
                 rows: [
                     ['Electrical', 'EIC, EICR, Minor Works, PAT Test', 'All tiers | Electrical vertical enabled'],
-                    ['Fire Safety', 'Fire Alarm Service, Fire Alarm Commissioning, Emergency Lighting, Extinguisher Service', 'All tiers | Fire Safety vertical enabled'],
+                    ['Fire Safety', 'Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification, Emergency Lighting, Extinguisher Service, Cable Test Readings, EVC Commissioning', 'All tiers | Fire Safety vertical enabled'],
                     ['Low Carbon', 'Solar PV Commissioning', 'All tiers | Low Carbon vertical enabled']
                 ]
             }
@@ -157,6 +157,34 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Fire Alarm Design, Acceptance & Verification Certificates',
+                    content: `
+                        <p class="mb-2"><strong>Standard:</strong> BS 5839-1:2025</p>
+                        <p class="mb-4"><strong>When to use:</strong> Together with Fire Alarm Installation, Commissioning, and Modification, these make up the complete BS 5839-1:2025 modular certificate set — the full documentation trail BAFE SP203-1 expects for a fire alarm project, alongside routine Servicing.</p>
+                    `,
+                    bullets: [
+                        '<strong>Design:</strong> Records the system design against BS 5839-1 category and coverage requirements before installation begins',
+                        '<strong>Installation:</strong> Records the physical installation work ahead of commissioning',
+                        '<strong>Modification:</strong> Documents changes to an existing system — extensions, device additions/removals, category changes',
+                        '<strong>Acceptance:</strong> Signed off jointly with the client at project handover — <strong>cannot be issued without the accepting client\'s signature</strong> (enforced, not advisory)',
+                        '<strong>Verification:</strong> Independent check that the installed system matches the design and commissioning records',
+                        '<strong>Certification body pre-fill:</strong> Your BAFE SP203 registration (Settings → Credentials) can also carry your certification body\'s name, address, and phone — these pre-fill the Certification Body box on the SP203-1 servicing jobsheet'
+                    ]
+                },
+                {
+                    title: 'EVC Commissioning Certificate',
+                    content: `
+                        <p class="mb-2"><strong>Standard:</strong> BS 5839-9:2021</p>
+                        <p class="mb-4"><strong>When to use:</strong> Commissioning an Emergency Voice Communication (EVC) system — the two-way communication points required in larger or higher-risk buildings alongside the main fire alarm system.</p>
+                    `
+                },
+                {
+                    title: 'Cable Test Readings',
+                    content: `
+                        <p class="mb-4">Supporting documentation for circuit test results, not a standards-issued certificate in its own right. Use it to record cable test readings that back up a fire alarm or electrical certificate rather than as a standalone compliance document.</p>
+                    `
+                },
+                {
                     title: 'Solar PV Commissioning Certificate',
                     content: `
                         <p class="mb-2"><strong>Standard:</strong> BS EN 62446-1:2016+A1:2018, MCS MIS 3002</p>
@@ -226,6 +254,33 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Method 3: Auto-Created from Certificate Templates',
+                    content: `
+                        <p class="mb-4"><strong>Availability:</strong> Admin, Super Admin to configure (Settings → Certificate Templates); applies automatically for all roles once set up</p>
+                        <p class="mb-4">Map your company's service types to certificate types once, and matching jobs get a draft certificate created automatically — no manual "Assign Certificate" step needed.</p>
+                    `,
+                    bullets: [
+                        'Configure the mapping in Settings → Certificate Templates: pick a service type (e.g., "EICR Inspection") and the certificate type it should generate (e.g., EICR)',
+                        'Works from both the job creation wizard and when converting an accepted quote into a job',
+                        'A matching job automatically gets a draft certificate created and linked — ready for the engineer to complete on site',
+                        'You can still create certificates manually (Methods 1 and 2 above) for service types that aren\'t mapped'
+                    ]
+                },
+                {
+                    title: 'Credentials & Pre-Fill',
+                    content: `
+                        <p class="mb-4">
+                            Registration numbers saved in Settings → Credentials pre-fill the matching fields on every certificate you create — NICEIC, NAPIT, BAFE SP203/SP101, MCS, Gas Safe, and others.
+                        </p>
+                    `,
+                    bullets: [
+                        'Add your scheme registration numbers once in Settings → Credentials',
+                        'Matching fields pre-fill automatically on new certificates — no retyping registration numbers per certificate',
+                        'The BAFE SP203 credential entry can also carry your certification body\'s name, address, and phone number',
+                        'Those certification body details pre-fill the Certification Body box on the SP203-1 servicing jobsheet'
+                    ]
+                },
+                {
                     title: 'Panel Identity Carry-Forward (Fire Alarm Service)',
                     content: `
                         <p class="mb-4">
@@ -237,7 +292,8 @@ export const certificatesGuide: IDocGuide = {
                         'Panel details: Manufacturer, model, serial number, and location for every panel',
                         'System configuration: Zone/detector/sounder counts',
                         'Detector types and coverage',
-                        'ARC (Alarm Receiving Centre) monitoring details'
+                        'ARC (Alarm Receiving Centre) monitoring details',
+                        'Service type pre-select: if the job\'s visit type is Quarterly, 6-Monthly, or Annual, the certificate\'s service type field pre-selects to match — reactive call-outs deliberately leave it blank for you to choose'
                     ]
                 },
                 {
@@ -475,7 +531,8 @@ export const certificatesGuide: IDocGuide = {
                             ['EICR', 'Inspector'],
                             ['Minor Works', 'Installer/Tester'],
                             ['PAT Test', 'Tester'],
-                            ['Fire Alarm', 'Servicing Engineer'],
+                            ['Fire Alarm Service', 'Servicing Engineer'],
+                            ['Fire Alarm Acceptance', 'Servicing Engineer + accepting client (client signature enforced before issue)'],
                             ['Emergency Lighting', 'Testing Engineer'],
                             ['Solar PV', 'MCS Certified Installer']
                         ]
@@ -567,7 +624,7 @@ export const certificatesGuide: IDocGuide = {
                         <div class="bg-green-50 border-l-4 border-green-500 p-4">
                             <p class="text-green-800">
                                 <strong>✓ Success state:</strong> Certificate status changes to "Issued" (green badge). Certificate number appears
-                                (e.g., EIC-000042). PDF downloads automatically. "Download PDF" and "Customer Portal" buttons appear. All fields
+                                (e.g., EIC-000123-A). PDF downloads automatically. "Download PDF" and "Customer Portal" buttons appear. All fields
                                 become read-only.
                             </p>
                         </div>
@@ -576,11 +633,14 @@ export const certificatesGuide: IDocGuide = {
                 {
                     title: 'Certificate Number Format',
                     content: `
-                        <p class="mb-4">Certificate numbers follow this pattern: <code>[PREFIX]-[COUNTER]</code></p>
+                        <p class="mb-4">Certificate numbers follow this pattern: <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code></p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-4">
-                            <li><strong>PREFIX:</strong> Configurable in Settings → Document Numbering (e.g., EIC, EICR, CERT)</li>
-                            <li><strong>COUNTER:</strong> Auto-increments per certificate type (e.g., 000001, 000002, etc.)</li>
+                            <li><strong>PREFIX:</strong> Configurable in Settings → Document Numbering (e.g., EIC, EICR, FAD)</li>
+                            <li><strong>JOBNUMBER:</strong> The job number the certificate is linked to (e.g., 000123)</li>
+                            <li><strong>SUFFIX:</strong> Sequential letter starting at A — increments if the certificate is superseded (A → B → C)</li>
+                            <li><strong>Example:</strong> <code>FAD-000123-A</code></li>
                             <li><strong>Per-tenant unique:</strong> Certificate numbers are unique within your account, not globally</li>
+                            <li><strong>Drafts are unnumbered:</strong> No certificate number is assigned until issue</li>
                             <li><strong>Cannot be changed:</strong> Once assigned, certificate number is permanent (even if voided)</li>
                         </ul>
                     `
@@ -1135,7 +1195,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Are certificate numbers unique globally?',
                     content: `
                         <p class="text-gray-700">
-                            No. Certificate numbers are unique <strong>per-tenant</strong> (per Opscel account), not globally. Another contractor using Opscel can have the same certificate number (e.g., EIC-000042). This is by design—combine certificate number with your company name for global uniqueness.
+                            No. Certificate numbers are unique <strong>per-tenant</strong> (per Opscel account), not globally. Another contractor using Opscel can have the same certificate number (e.g., EIC-000123-A). This is by design—combine certificate number with your company name for global uniqueness.
                         </p>
                     `
                 },
@@ -1151,7 +1211,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Can I change the certificate number format?',
                     content: `
                         <p class="text-gray-700">
-                            Yes. Configure prefixes in Settings → Document Numbering. You can set different prefixes for each certificate type (e.g., EIC-, EICR-, CERT-). The counter auto-increments and cannot be manually changed. Changes apply to new certificates only—existing certificate numbers are not affected.
+                            Yes, the prefix. Configure prefixes in Settings → Document Numbering — you can set a different prefix for each certificate type (e.g., EIC-, EICR-, FAD-). The job number and suffix portions (e.g., 000123-A) are assigned automatically and cannot be manually changed. Changes apply to new certificates only—existing certificate numbers are not affected.
                         </p>
                     `
                 },

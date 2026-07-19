@@ -4,7 +4,7 @@ export const quotationsDetail: IFeatureDetail = {
     slug: 'quotations',
     title: 'Win More Work with Smarter Quoting',
     subtitle: 'Opscel Quotations Module',
-    heroDescription: 'Create professional quotes in minutes. Let customers approve and pay from their phone. Convert to jobs automatically.',
+    heroDescription: 'Create professional quotes in minutes. Let customers approve and pay from their phone. Convert accepted quotes to jobs in one click.',
     iconId: 'icon-price-tag',
     screenshotImage: '/images/ui/03-screen.png',
 
@@ -26,8 +26,8 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-job-workflow',
-            title: 'Auto Job Creation',
-            description: 'Accepted quote? Job\'s already created with all the details. Zero re-typing.'
+            title: 'One-Click Job Creation',
+            description: 'Accepted quote? Convert it to a job in one click with every detail carried over. Zero re-typing.'
         },
         {
             iconId: 'icon-deficiency-log',
@@ -55,7 +55,7 @@ export const quotationsDetail: IFeatureDetail = {
         {
             stepNumber: 3,
             title: 'Convert',
-            description: 'Customer approves with a digital signature, pays their deposit, and the job is created automatically. You\'re ready to schedule.'
+            description: 'Customer approves with a digital signature and pays their deposit. Convert the accepted quote to a job in one click — every detail carries over, so there\'s nothing to re-type.'
         }
     ],
 
@@ -87,16 +87,16 @@ export const quotationsDetail: IFeatureDetail = {
 
     stats: [
         {
-            value: '2-3x',
-            label: 'Average ticket increase with tiered pricing'
+            value: '2-3 tiers',
+            label: 'Good, Better, Best pricing side-by-side on every quote'
         },
         {
             value: 'Zero',
             label: 'Manual data entry from quote to job'
         },
         {
-            value: 'Instant',
-            label: 'Notifications when customers view your quote'
+            value: 'No account',
+            label: 'Needed for customers to view, sign, and pay from their phone'
         }
     ],
 
@@ -144,7 +144,7 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             question: 'What is Good-Better-Best pricing?',
-            answer: 'You create up to 3 pricing tiers (e.g., Essential, Standard, Premium) with different inclusions. Customers see them side-by-side and choose the option that fits their needs. Contractors using tiered pricing typically see 2-3x higher average ticket values.'
+            answer: 'You add 2-3 pricing tiers (e.g., Essential, Standard, Premium) to a quote, each with its own line items. Customers see them side-by-side in the approval portal and pick the option that fits their budget — often trading up once they can see what each tier actually includes.'
         },
         {
             question: 'How do bundled remedial quotes work?',
@@ -152,7 +152,7 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             question: 'Will I know when customers view my quote?',
-            answer: 'Yes. You get an instant notification when a customer opens your quote. You can also see how many times they\'ve viewed it and set automatic follow-up reminders.'
+            answer: 'Yes. Every quote tracks views, so you can see exactly when a customer has opened it and how many times. You can also set automatic follow-up reminders if they haven\'t responded.'
         },
         {
             question: 'Which pricing plan includes Quotations?',

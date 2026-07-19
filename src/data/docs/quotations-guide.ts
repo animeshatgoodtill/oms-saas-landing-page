@@ -4,24 +4,24 @@ export const quotationsGuide: IDocGuide = {
     title: 'Quotations Overview',
     description: 'Create professional quotes, manage customer acceptance, and convert quotes to jobs. Track quote performance with analytics and streamline your sales workflow.',
     slug: 'quotations',
-    lastUpdated: 'May 21, 2026',
+    lastUpdated: '2026-07-19',
     sections: [
         {
             id: 'overview',
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, track acceptance/rejection, and automatically convert accepted quotes to jobs. Business+ tier adds quote analytics for conversion tracking. Available to Admins, Managers, and Office Staff.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, and track acceptance/rejection. Accepted quotes convert to a job in one click, with every detail carried over — no re-typing. Business+ tier adds quote analytics for conversion tracking. Available to Admins, Contract Managers, and Accounts. (Site Manager and Engineer roles don\'t have quote access.)',
                 },
                 {
                     title: 'Key Benefits',
                     bullets: [
                         '<strong>Professional presentation:</strong> Branded PDF quotes with cover pages, line items, and T&Cs',
                         '<strong>Customer self-service:</strong> Customers can accept/reject quotes via portal - no back-and-forth emails',
-                        '<strong>Automatic job creation:</strong> Accepted quotes convert to jobs instantly with all data carried forward',
+                        '<strong>One-click job creation:</strong> Convert an accepted quote to a job with all data carried forward - no re-typing',
                         '<strong>Defect-to-quote workflow:</strong> Generate remedial quotes directly from EICR observations',
                         '<strong>Quote analytics (Business+ tier):</strong> Track conversion rates, win/loss ratios, and average quote values',
-                        '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (Business+ tier)',
+                        '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (Team &amp; Business plans)',
                     ],
                 },
                 {
@@ -36,7 +36,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Office Staff',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
                 },
                 {
                     title: 'Three Ways to Create Quotes',
@@ -98,7 +98,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Quote is linked to the parent EICR certificate. Customer sees defects grouped by severity (C1 urgent, C2 potentially dangerous, etc.) in the quote PDF. If quote is accepted, remedial work converts to a job automatically.',
+                    content: 'Quote is linked to the parent EICR certificate. Customer sees defects grouped by severity (C1 urgent, C2 potentially dangerous, etc.) in the quote PDF. Once accepted, convert the remedial work to a job in one click — the defect details carry over, so there\'s nothing to re-enter.',
                 },
                 {
                     title: 'For Office Staff',
@@ -148,7 +148,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Office Staff',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
                 },
                 {
                     title: 'Adding Line Items',
@@ -203,12 +203,42 @@ export const quotationsGuide: IDocGuide = {
             ],
         },
         {
+            id: 'tiered-pricing',
+            title: 'Good-Better-Best Pricing',
+            subsections: [
+                {
+                    title: 'Availability',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
+                },
+                {
+                    title: 'Building a Tiered Quote',
+                    content: 'Instead of a single take-it-or-leave-it price, present the customer with 2-3 options side-by-side — for example Essential, Standard, and Premium. The customer picks the tier that fits their budget directly from the approval portal.',
+                },
+                {
+                    title: 'Steps to Add Pricing Tiers',
+                    steps: [
+                        'Open a quote (draft or in progress)',
+                        'Click <strong>Add Pricing Tiers</strong>',
+                        'Name each tier — for example <strong>Good</strong>, <strong>Better</strong>, <strong>Best</strong>, or your own naming',
+                        'Add line items to each tier separately — a tier\'s price is the sum of its own line items',
+                        'Mark one tier as <strong>Recommended</strong> so it\'s highlighted for the customer',
+                        'Add at least 2 tiers, up to 3',
+                        'Click <strong>Save as Draft</strong> or <strong>Send to Customer</strong>',
+                    ],
+                },
+                {
+                    title: 'What You Should See',
+                    content: 'The quote PDF and customer portal show all tiers side-by-side with their own line items and totals, with the recommended tier visually highlighted. When the customer accepts, they select one tier — that tier\'s total becomes the quote\'s accepted value.',
+                },
+            ],
+        },
+        {
             id: 'sending-quotes',
             title: 'Sending Quotes',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Office Staff',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
                 },
                 {
                     title: 'How to Send Quotes to Customers',
@@ -259,7 +289,7 @@ export const quotationsGuide: IDocGuide = {
                         'Customer clicks portal link in email',
                         'Reviews quote details and line items',
                         'Clicks <strong>Accept Quote</strong>',
-                        'If deposit required: redirected to Stripe payment page (Business+ tier)',
+                        'If deposit required: redirected to Stripe payment page (Team &amp; Business plans)',
                         'After acceptance (and payment if required): quote status changes to <strong>Accepted</strong>',
                         'Opscel sends confirmation email to customer and office team',
                         'Quote becomes available for conversion to job',
@@ -291,14 +321,14 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager',
                 },
                 {
-                    title: 'Automatic vs Manual Conversion',
-                    content: 'Accepted quotes can convert to jobs automatically (if enabled in Settings) or manually. Manual conversion gives you control over job scheduling before creation.',
+                    title: 'Converting Is a One-Click, Manual Step',
+                    content: 'Accepting a quote doesn\'t create a job by itself — converting is a deliberate step a staff member takes afterward, by opening the accepted quote and clicking <strong>Convert to Job</strong>. This gives you a chance to review before scheduling. It\'s not extra data entry, though: every detail from the quote carries over automatically, so there\'s nothing to re-type.',
                 },
                 {
-                    title: 'Steps to Manually Convert Quote to Job',
+                    title: 'Steps to Convert Quote to Job',
                     steps: [
                         'Navigate to <strong>Sales → Quotes</strong>',
                         'Filter by <strong>Accepted</strong> status',
@@ -326,8 +356,8 @@ export const quotationsGuide: IDocGuide = {
                     ],
                 },
                 {
-                    title: 'For Managers',
-                    content: '<em>Tip:</em> Enable automatic conversion (Settings → Jobs → Auto-convert accepted quotes) if you want quotes to become jobs instantly. Best for businesses with standard scheduling processes. Disable if you need to vet jobs before scheduling.',
+                    title: 'For Contract Managers',
+                    content: '<em>Tip:</em> There\'s little reason to delay converting once a quote is accepted — the job pulls in every quote detail (customer, site, line items) automatically, so converting promptly doesn\'t cost you any extra data entry.',
                 },
             ],
         },
@@ -337,7 +367,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business+ (Stripe integration required)<br><strong>Roles:</strong> Super Admin, Admin',
+                    content: '<strong>Tier:</strong> Team &amp; Business (Stripe integration required)<br><strong>Roles:</strong> Super Admin, Admin',
                 },
                 {
                     title: 'Requiring Deposits on Quote Acceptance',
@@ -375,7 +405,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business+<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> Business+<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager',
                 },
                 {
                     title: 'Tracking Quote Performance',

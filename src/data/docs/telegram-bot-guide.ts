@@ -295,7 +295,7 @@ export const telegramBotGuide: IDocGuide = {
         <p class="mb-3">If you're still stuck or have questions about the Telegram bot integration, our support team is here to help:</p>
         <ul class="space-y-2">
           <li>📧 <strong>Email:</strong> <a href="mailto:support@opscel.com" class="text-blue-600 hover:text-blue-800 underline">support@opscel.com</a></li>
-          <li>📚 <strong>Help Centre:</strong> <a href="https://help.opscel.com" class="text-blue-600 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">help.opscel.com</a></li>
+          <li>📚 <strong>Help Centre:</strong> <a href="/help" class="text-blue-600 hover:text-blue-800 underline">Visit the Help Centre</a></li>
         </ul>
       </div>`,
     },

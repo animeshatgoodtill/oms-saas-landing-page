@@ -1,42 +1,27 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const HELP_HOSTS = new Set(['help.opscel.com']);
-
-// help.opscel.com is a dedicated help/support subdomain — only the help
-// centre and the docs it links into belong there. Every other route on
-// this app (blog, pricing, features, sign-in, ...) belongs on the main
-// marketing site.
-const ALLOWED_PREFIXES = ['/help', '/docs'];
+// help.opscel.com was retired in favour of a plain /help route on the main
+// site — a dedicated subdomain added domain/DNS complexity (and briefly
+// served the entire app under that host) for no real benefit over a path.
+// This keeps any old bookmarks/links working by redirecting them across.
+const RETIRED_HELP_HOST = 'help.opscel.com';
 
 export function middleware(request: NextRequest) {
     const host = request.headers.get('host') ?? '';
 
-    if (!HELP_HOSTS.has(host)) {
+    if (host !== RETIRED_HELP_HOST) {
         return NextResponse.next();
     }
 
-    const { pathname } = request.nextUrl;
-
-    if (pathname === '/') {
-        const url = request.nextUrl.clone();
-        url.pathname = '/help';
-        return NextResponse.rewrite(url);
-    }
-
-    const isAllowed = ALLOWED_PREFIXES.some(
-        (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
-    );
-    if (isAllowed) {
-        return NextResponse.next();
-    }
-
-    const redirectUrl = new URL(pathname + request.nextUrl.search, 'https://www.opscel.com');
-    return NextResponse.redirect(redirectUrl);
+    const { pathname, search } = request.nextUrl;
+    const destinationPath = pathname === '/' ? '/help' : pathname;
+    const redirectUrl = new URL(destinationPath + search, 'https://www.opscel.com');
+    return NextResponse.redirect(redirectUrl, 308);
 }
 
 export const config = {
     matcher: [
-        '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|rss.xml|images/|icons/).*)',
+        '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|rss.xml|images/|icons/).*)',
     ],
 };

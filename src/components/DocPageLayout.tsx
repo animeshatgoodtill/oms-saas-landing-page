@@ -225,14 +225,12 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
                   >
                     Email Support
                   </a>
-                  <a
-                    href="https://help.opscel.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/help"
                     className="inline-block bg-white text-secondary border-2 border-secondary hover:bg-muted px-6 py-3 rounded-full font-medium transition-all"
                   >
                     Help Centre
-                  </a>
+                  </Link>
                 </div>
               </section>
 

@@ -205,7 +205,7 @@ npm run lint         # Run ESLint
 
 - **App Sign-in**: `https://app.opscel.com/handler/sign-in`
 - **App Sign-up**: `https://app.opscel.com/handler/sign-up`
-- **Help Centre**: `https://help.opscel.com`
+- **Help Centre**: `/help` (internal page — `help.opscel.com` was retired; it now redirects here)
 - **Status Page**: `https://status.opscel.com`
 - **Contact Email**: `hello@opscel.com` (demo requests)
 - **Support Email**: `support@opscel.com`

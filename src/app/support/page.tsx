@@ -41,7 +41,6 @@ const SupportPage: React.FC = () => {
       description: 'Browse articles, guides, and step-by-step tutorials for every feature in Opscel.',
       linkLabel: 'Visit Help Centre',
       href: companyDetails.links.helpCentre || '#',
-      external: true,
     },
     {
       icon: <FiCalendar size={22} />,

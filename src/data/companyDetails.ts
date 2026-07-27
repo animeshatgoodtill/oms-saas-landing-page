@@ -54,7 +54,7 @@ export const companyDetails = {
     app: 'https://app.opscel.com',
     signIn: 'https://app.opscel.com/handler/sign-in',
     signUp: 'https://app.opscel.com/handler/sign-up',
-    helpCentre: 'https://help.opscel.com',             // External help docs (set to '' if not available)
+    helpCentre: '/help',                                // Internal help centre page (was a subdomain, now a route)
     statusPage: 'https://status.opscel.com',           // Status page (set to '' if not available)
     linkedIn: 'https://www.linkedin.com/company/opscel',
     facebook: 'https://www.facebook.com/profile.php?id=61575396313261',

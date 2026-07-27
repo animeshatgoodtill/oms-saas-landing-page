@@ -81,7 +81,7 @@ export function buildSearchIndex(guides: IDocGuide[]): ISearchRecord[] {
                         sectionTitle: section.title,
                         subsectionTitle: sub.title,
                         text: text || sub.title || '',
-                        url: `/docs/${guide.slug}#${section.id}`,
+                        url: `/docs/${guide.slug}#${section.id}-sub-${idx}`,
                     });
                 });
             } else {

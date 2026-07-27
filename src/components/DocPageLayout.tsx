@@ -15,6 +15,8 @@ interface DocPageLayoutProps {
 
 const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
   const [activeSection, setActiveSection] = useState('overview');
+  const [targetSectionId, setTargetSectionId] = useState<string | null>(null);
+  const [targetAnchorId, setTargetAnchorId] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,8 +36,47 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [guide.sections]);
 
-  const renderSubsection = (subsection: IDocSubsection, index: number) => (
-    <div key={index} className="mb-6">
+  // Deep links (from Help Centre search results, or a pasted URL) point at a
+  // specific section or subsection anchor. Sections default to collapsed, so
+  // arriving via a hash needs to force the right one open and draw the eye to
+  // the exact spot rather than just the top of a possibly-long section.
+  useEffect(() => {
+    const applyHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+
+      const matchedSection = guide.sections.find(
+        (s) => hash === s.id || hash.startsWith(`${s.id}-sub-`)
+      );
+      if (!matchedSection) return;
+
+      setTargetSectionId(matchedSection.id);
+      setActiveSection(matchedSection.id);
+      setTargetAnchorId(hash);
+    };
+
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
+  }, [guide.sections]);
+
+  useEffect(() => {
+    if (!targetAnchorId) return;
+
+    // Wait a tick for the (possibly just-forced-open) Disclosure to render.
+    const timer = setTimeout(() => {
+      const el = document.getElementById(targetAnchorId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.classList.add('search-target-highlight');
+      setTimeout(() => el.classList.remove('search-target-highlight'), 2400);
+    }, 60);
+
+    return () => clearTimeout(timer);
+  }, [targetAnchorId]);
+
+  const renderSubsection = (subsection: IDocSubsection, index: number, sectionId: string) => (
+    <div key={index} id={`${sectionId}-sub-${index}`} className="mb-6 scroll-mt-24">
       {subsection.title && (
         <h4 className="text-lg font-bold text-foreground mb-3">{subsection.title}</h4>
       )}
@@ -146,7 +187,10 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
             <div className="max-w-3xl">
               {guide.sections.map((section) => (
                 <section key={section.id} id={section.id} className="mb-12 scroll-mt-24">
-                  <Disclosure defaultOpen={section.id === 'overview'}>
+                  <Disclosure
+                    key={section.id === targetSectionId ? `${section.id}-forced-open` : section.id}
+                    defaultOpen={section.id === 'overview' || section.id === targetSectionId}
+                  >
                     {({ open }) => (
                       <>
                         <Disclosure.Button className="flex justify-between items-center w-full text-left group">
@@ -197,7 +241,7 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
 
                           {section.subsections && section.subsections.length > 0 && (
                             <div className="space-y-6">
-                              {section.subsections.map((subsection, idx) => renderSubsection(subsection, idx))}
+                              {section.subsections.map((subsection, idx) => renderSubsection(subsection, idx, section.id))}
                             </div>
                           )}
                         </Disclosure.Panel>

@@ -211,6 +211,21 @@ a[role="button"]:active,
   opacity: 0;
 }
 
+/* Draws the eye to the exact subsection a search result or deep link pointed at */
+@keyframes highlight-flash {
+  0% {
+    background-color: rgba(2, 128, 196, 0.14);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.search-target-highlight {
+  animation: highlight-flash 2.4s ease-out;
+  border-radius: 0.5rem;
+}
+
 /* Stagger delays for grid items */
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }

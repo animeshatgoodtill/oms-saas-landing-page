@@ -4,7 +4,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'Track equipment from first installation to decommissioning — QR tag scanning, automatic register updates from worksheets, full service history, and pre-loading into recurring contract visits.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-07-08',
+    lastUpdated: '2026-08-04',
     sections: [
         {
             id: 'overview',
@@ -117,6 +117,10 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 {
                     content: '<p class="mb-4">Fire alarm systems are hierarchical: panel → detectors, call points, sounders. The <strong>Fire Alarm Service Worksheet</strong> records devices against their parent panel, and the register shows the relationship.</p><p>The <strong>Asset Service Worksheet</strong> creates standalone (top-level) assets — for panel-and-device hierarchies, use the Fire Alarm worksheet.</p>',
+                },
+                {
+                    title: 'Fire Alarm Addressing',
+                    content: '<p>Panels record their panel type, system category (L1–L5, M, P1, P2) and zone/loop counts. Detectors, call points, sounders and beacons record their zone, loop and device address, so the register reads the way the panel does. These come through automatically when devices are registered from a Fire Alarm Commissioning worksheet, and can be entered or corrected by hand on the asset.</p>',
                 },
             ],
         },

@@ -4,7 +4,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-05-01',
+    lastUpdated: '2026-08-04',
     sections: [
         {
             id: 'overview',
@@ -95,7 +95,7 @@ export const assetTrackingGuide: IDocGuide = {
                     steps: [
                         { step: 'Go to Customers → [Customer] → [Site] → Assets', description: '' },
                         { step: 'Click Add Asset', description: '' },
-                        { step: 'Pick the asset type, fill in the location, save.', description: '' }
+                        { step: 'Pick the asset type, fill in the location, and save. Some types ask for more: fire alarm panels take their panel type, system category and zone/loop counts; detectors, call points, sounders and beacons take their zone, loop and device address; extinguishers take their type and capacity. Anything you fill in here prints on the site\'s Asset Register PDF.', description: '' }
                     ]
                 },
                 {

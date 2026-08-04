@@ -4,7 +4,7 @@ export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
     title: 'Worksheets - Authoring & Filling',
     description: 'Learn how to create custom checklists and forms in Opscel. Admins author templates, engineers fill them on-site. From fire alarm test sheets to maintenance logs, capture standardized data with offline support.',
-    lastUpdated: '2026-05-21',
+    lastUpdated: '2026-08-04',
     sections: [
         {
             id: 'overview',
@@ -437,7 +437,7 @@ export const worksheetsGuide: IDocGuide = {
                         '<strong>Use required fields sparingly:</strong> Only mark truly essential fields as required. Engineers can&apos;t mark worksheet complete until all required fields are filled.',
                         '<strong>Organize into logical sections:</strong> Group related fields (e.g., "Panel Details", "Zone 1", "Zone 2", "Final Checks").',
                         '<strong>Include photo sections:</strong> Photos provide valuable context and compliance evidence.',
-                        '<strong>Enable asset auto-promotion:</strong> If you capture serial numbers, enable auto-promotion to build asset register automatically.'
+                        '<strong>Enable asset auto-promotion:</strong> Turn it on to build the asset register automatically from worksheet data — serial numbers aren&apos;t required.'
                     ]
                 },
                 {

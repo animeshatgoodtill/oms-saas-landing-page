@@ -658,6 +658,11 @@ export const calendarIntegrationGuide: IDocGuide = {
             href: '/docs/field-service'
         },
         {
+            title: 'Planning Your Week with the Planner',
+            description: 'The Planner checks connected calendars when you book',
+            href: '/docs/planner'
+        },
+        {
             title: 'Service Contracts',
             description: 'Recurring contract jobs appear in the calendar',
             href: '/docs/service-contracts'

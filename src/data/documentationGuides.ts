@@ -127,6 +127,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-job-workflow'
     },
     {
+        title: 'Planning Your Week with the Planner',
+        description: 'See every engineer\'s week on one board, and book work by dragging it into place. Learn how to read the board, book from the backlog, and move visits.',
+        url: '/docs/planner',
+        category: 'Scheduling & Operations',
+        icon: 'icon-job-workflow'
+    },
+    {
         title: 'Calendar Integration',
         description: 'Connect Google Calendar, Microsoft 365, or ICS feeds. Learn about two-way sync, availability blocking, OAuth setup, and token refresh.',
         url: '/docs/calendar-integration',

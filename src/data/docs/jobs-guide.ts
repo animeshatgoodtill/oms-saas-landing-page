@@ -653,6 +653,11 @@ export const jobsGuide: IDocGuide = {
             href: '/docs/field-service'
         },
         {
+            title: 'Planning Your Week with the Planner',
+            description: 'Booking and moving visits on the week board',
+            href: '/docs/planner'
+        },
+        {
             title: 'Certificates',
             description: 'Creating and issuing certificates from completed jobs',
             href: '/docs/certificates'

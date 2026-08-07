@@ -834,6 +834,11 @@ export const fieldServiceGuide: IDocGuide = {
             href: '/docs/jobs'
         },
         {
+            title: 'Planning Your Week with the Planner',
+            description: 'How office bookings on the Planner reach the field app',
+            href: '/docs/planner'
+        },
+        {
             title: 'Certificates',
             description: 'Creating and issuing compliance certificates',
             href: '/docs/certificates'

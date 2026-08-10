@@ -4,12 +4,12 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-08-04',
+    lastUpdated: '2026-08-10',
     sections: [
         {
             id: 'overview',
             title: 'The 30-Second Version',
-            content: 'When your engineer fills out a worksheet on site — a Fire Extinguisher Service, a Fire Alarm Commissioning, an EV Charger Install — they\'re already listing the equipment they touched. Opscel turns that list into tracked assets at the site, automatically. Reach the site again next year? The full service history is right there.',
+            content: '<p class="mb-4">When your engineer fills in a worksheet on site — a Fire Extinguisher Service, a Fire Alarm Commissioning, a Fire Alarm Service — they\'re already listing the equipment they touched. Opscel turns that list into tracked assets at the site. Return next year and the full service history is already there.</p><p>Only some worksheets do this — see <strong>Which Worksheets Create Assets</strong> below.</p>',
             subsections: [
                 {
                     title: 'Availability',
@@ -19,181 +19,266 @@ export const assetTrackingGuide: IDocGuide = {
             ]
         },
         {
-            id: 'auto-register',
-            title: '1. Switch On Auto-Register',
-            content: 'Recommended for established teams. When this is on, completing a worksheet immediately creates assets. When off (the default), an admin reviews first.',
+            id: 'which-worksheets',
+            title: 'Which Worksheets Create Assets',
+            content: '<p class="mb-4"><strong>Four of the eight.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
             subsections: [
                 {
-                    title: 'Steps',
-                    content: '',
-                    steps: [
-                        { step: 'Go to Settings → Asset Tracking', description: '' },
-                        { step: 'Toggle "Auto-register on worksheet completion"', description: '' },
-                        { step: 'Hit Save Changes', description: '' }
-                    ]
+                    table: {
+                        headers: ['Worksheet', 'Registers assets?'],
+                        rows: [
+                            ['Fire Alarm Service', '✅'],
+                            ['Fire Alarm Commissioning', '✅'],
+                            ['Fire Extinguisher Service', '✅'],
+                            ['Asset Service', '✅ (any equipment type)'],
+                            ['Site Attendance / Inspection &amp; Servicing', '❌'],
+                            ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],
+                            ['Remedial Scope of Works', '❌'],
+                            ['Basic Job Sheet', '❌'],
+                        ],
+                    },
                 },
                 {
-                    title: '',
-                    content: 'That\'s it. The next worksheet your engineer marks Complete will register its items as assets.',
-                    bullets: []
-                }
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Combined BS 5839/SP203 sheet does not register assets.</strong> If your fire alarm servicing runs on that sheet, or on Site Attendance, the devices will not reach your register no matter how completely the engineer fills it in. Use the <strong>Fire Alarm Service</strong> worksheet for the devices, or add them another way.</p></div>',
+                },
+                {
+                    content: '<p class="mb-4">You can always check the current list in the app: <strong>Settings → Asset Tracking</strong>, under <em>&quot;Currently Supported Worksheets&quot;</em>.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/auto-register-toggle.webp" alt="Settings → Asset Tracking screen, showing the Auto-register on worksheet completion toggle and the Currently Supported Worksheets box listing the four sheets that register assets" class="w-full rounded-lg border border-border shadow-lg" /></div>',
+                },
+            ]
+        },
+        {
+            id: 'auto-register',
+            title: '1. Auto-Register, and What It Does Not Do',
+            content: '<p class="mb-4"><strong>Settings → Asset Tracking → &quot;Auto-register on worksheet completion&quot;</strong> → <strong>Save Changes</strong>. It\'s <strong>off by default</strong> for every business.</p>',
+            subsections: [
+                {
+                    title: 'What Auto-Register Commits on Its Own',
+                    content: '<p>Routine work — an engineer servicing equipment that\'s <em>already</em> on your register updates it the moment the worksheet is marked Complete.</p>',
+                },
+                {
+                    title: 'What Still Waits for You, Even with It On',
+                    bullets: [
+                        '<strong>New equipment</strong> the engineer has added',
+                        'Anything set to <strong>Decommissioned</strong> or <strong>Missing</strong>',
+                        'Anything referencing an asset still awaiting review',
+                    ],
+                },
+                {
+                    content: '<p class="mb-4">That\'s deliberate, and worth understanding rather than working around. Engineers can <strong>add</strong> equipment they find on site but <strong>cannot edit or delete it afterwards</strong> — so a mistyped asset needs an admin to correct it. The review step catches it before it becomes a permanent record.</p><div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>On a first visit to a new site, everything is new equipment — so everything waits for your review, even with auto-register on.</strong> That\'s expected, not a fault. It\'s the most common &quot;auto-register isn\'t working&quot; report.</p></div>',
+                },
             ]
         },
         {
             id: 'manual-register',
-            title: '2. Register Assets from a Worksheet (Manual / Curated)',
-            content: 'Use this when you want to review the items before they become permanent records.',
+            title: '2. Register Assets from a Worksheet',
+            content: '<p class="mb-4">Use this when you want to review the items before they become permanent records.</p>',
             subsections: [
                 {
                     title: 'Steps',
-                    content: '',
                     steps: [
-                        { step: 'Open the job', description: '' },
-                        { step: 'Click the Assets tab', description: '' },
-                        { step: 'You\'ll see a banner at the top: "5 fire extinguisher items extracted from worksheet"', description: '' },
-                        { step: 'Click Register 5 items', description: '' },
-                        { step: 'Confirm. The assets appear in the Assets list immediately.', description: '' }
-                    ]
+                        'Open the job',
+                        'Click the <strong>Assets</strong> tab',
+                        'A banner shows what the engineer recorded — <em>&quot;5 fire extinguisher items extracted from worksheet&quot;</em>',
+                        'Click <strong>Register 5 items</strong> and confirm',
+                    ],
                 },
                 {
-                    title: 'Multiple types',
-                    content: 'If the worksheet has multiple types in one go (e.g. a fire alarm commissioning sheet with panels and detectors), the banner shows the breakdown: "3 fire alarm panels + 12 smoke detectors extracted from worksheet".',
-                    bullets: []
-                }
+                    content: '<p class="mb-4">They appear in the Assets list immediately. If the worksheet covered several equipment types, the banner breaks it down — <em>&quot;3 fire alarm panels + 12 smoke detectors&quot;</em>.</p><div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, and the clock is enforced by the server — if you come back later the undo will be refused even if the button is still on screen. Undo removes everything created in that run, and can only be used once.</p></div>',
+                },
             ]
         },
         {
             id: 'print-register',
-            title: '3. Print the Site Asset Register PDF',
-            content: 'The per-site register your insurer/client expects to see — laid out like the paper version they\'ve used for years.',
+            title: '3. Print the Site Asset Register',
             subsections: [
                 {
                     title: 'Steps',
-                    content: '',
                     steps: [
-                        { step: 'Go to Customers → [Customer] → [Site]', description: '' },
-                        { step: 'Click the Assets sub-page', description: '' },
-                        { step: 'Click Print Register in the header', description: '' },
-                        { step: 'The PDF opens in a new tab — print or save as needed.', description: '' }
-                    ]
+                        'Go to <strong>Customers → [Customer] → [Site] → Assets</strong>',
+                        'Click <strong>Print Register</strong>',
+                        'Pick the equipment type',
+                        'The PDF opens in a new tab',
+                    ],
                 },
                 {
-                    title: 'What the register shows',
-                    content: 'Site address, contact, "Month Due", every asset\'s number/type/size/position, and a multi-year service history grid with the engineer\'s initials on every visit.',
-                    bullets: []
-                }
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4"><p class="text-amber-800"><strong>One register per equipment type, not one per site.</strong> If a site has a panel, smoke detectors, heat detectors and sounders, that\'s <strong>four separate prints</strong> — there\'s no combined fire alarm device register today. Each click of Print Register gives you one type.</p></div>',
+                },
+                {
+                    title: 'What the Register Shows',
+                    content: '<p>Site address and contact, &quot;Month Due&quot;, each asset\'s number, type, size and position, and a multi-year service history grid with the engineer\'s initials per visit.</p>',
+                },
+                {
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Decommissioned equipment does not appear on the register.</strong> See section 7.</p></div>',
+                },
             ]
         },
         {
             id: 'add-manually',
-            title: '4. Add an Asset Manually',
-            content: '',
+            title: '4. Add an Asset by Hand',
             subsections: [
                 {
                     title: 'Steps',
-                    content: '',
                     steps: [
-                        { step: 'Go to Customers → [Customer] → [Site] → Assets', description: '' },
-                        { step: 'Click Add Asset', description: '' },
-                        { step: 'Pick the asset type, fill in the location, and save. Some types ask for more: fire alarm panels take their panel type, system category and zone/loop counts; detectors, call points, sounders and beacons take their zone, loop and device address; extinguishers take their type and capacity. Anything you fill in here prints on the site\'s Asset Register PDF.', description: '' }
-                    ]
+                        'Go to <strong>Customers → [Customer] → [Site] → Assets</strong>',
+                        'Click <strong>Add Asset</strong>',
+                        'Choose the equipment type, fill in the location, save',
+                    ],
                 },
                 {
-                    title: '',
-                    content: 'The new asset takes the next number in the per-site sequence.',
-                    bullets: []
-                }
+                    content: '<p class="mb-4"><strong>Required:</strong> Customer, Service Address, Asset Type, Asset Name. Everything else is optional.</p><p class="mb-4">Choosing the type reveals fields specific to that equipment, and <strong>anything you enter here prints on the register</strong>.</p>',
+                },
+                {
+                    title: 'Fire Alarm Panels',
+                    content: '<p>Panel Type, System Category, Number of Zones, Number of Loops.</p>',
+                },
+                {
+                    title: 'Detectors, Call Points, Sounders, Beacons',
+                    content: '<p class="mb-4"><strong>Zone</strong> (&quot;Zone number as shown on the panel&quot;), <strong>Loop</strong>, and <strong>Address</strong> (&quot;Device address on the loop. Addressable systems only&quot;). Enter the address exactly as the panel shows it, including any decimal point — <code>1.045</code> is valid.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/add-asset-smoke-detector-fields.webp" alt="Add Asset form with Smoke Detector selected, showing the Zone, Loop, and Address fields with their helper text" class="w-full rounded-lg border border-border shadow-lg" /></div>',
+                },
+                {
+                    title: 'Fire Extinguishers',
+                    content: '<p class="mb-4">This decides whether your BS 5306 register is complete:</p>',
+                    table: {
+                        headers: ['Field', 'What it\'s for'],
+                        rows: [
+                            ['Extinguisher Type', 'Drives the TYPE column on the record sheet'],
+                            ['Capacity (kg)', 'For CO2, powder and wet chemical'],
+                            ['Capacity (litres)', 'For water and foam'],
+                            ['Fire Rating', 'e.g. 13A 89B'],
+                            ['<strong>Manufacture Date</strong>', 'The date on the body. <strong>Starts the BS 5306-3 extended-service clock</strong>'],
+                            ['<strong>Last Discharge / Extended Service</strong>', 'Prints in the <strong>D/E</strong> column, and restarts the clock from this date'],
+                            ['Service Interval (years)', 'Leave blank for the BS 5306-3 default — <strong>5 years, or 10 for CO2</strong>'],
+                            ['Next Extended Service Due', 'Leave blank to work it out from the dates above'],
+                        ],
+                    },
+                },
+                {
+                    content: '<p class="mb-4"><strong>How ES Due is worked out:</strong> an explicit <em>Next Extended Service Due</em> always wins. Otherwise it\'s the <strong>last discharge/extended service date, or the manufacture date if there has been no discharge test</strong>, plus the interval. If neither date is present, the column stays blank — the app won\'t guess.</p><div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>These dates can only be entered here, by an admin, one asset at a time.</strong> The Fire Extinguisher Service worksheet records an extinguisher\'s <strong>type and size</strong>, but not its manufacture date or discharge test. So extinguishers that reached your register from an engineer\'s worksheet will show TYPE and SIZE correctly and leave <strong>D/E and ES Due blank</strong> until someone fills them in here.</p></div>',
+                },
             ]
         },
         {
             id: 'service-history',
-            title: '5. View an Asset\'s Service History',
-            content: '',
+            title: '5. An Asset\'s Service History',
             subsections: [
                 {
-                    title: 'Steps',
-                    content: '',
-                    steps: [
-                        { step: 'Open the asset (from the Assets list, the site page, or the job\'s Assets tab)', description: '' },
-                        { step: 'The Service History section lists every job that touched it, with the work performed and the engineer who did it.', description: '' }
-                    ]
+                    content: '<p class="mb-4">Open the asset from the Assets list, the site page, or a job\'s Assets tab. <strong>Service History</strong> lists every job that touched it — the action taken (serviced, inspected, repaired, replaced, decommissioned), any deficiencies found, the date, and the engineer.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/asset-detail-service-history.webp" alt="Asset detail page showing identification, location, and service dates, plus a Service History table listing the job, action, date, and status of each visit" class="w-full rounded-lg border border-border shadow-lg" /></div>',
                 },
-                {
-                    title: '',
-                    content: 'Each visit shows the action (serviced, inspected, repaired, replaced, decommissioned), any deficiencies found, and the date/initials.',
-                    bullets: []
-                }
             ]
         },
         {
             id: 'fac-device-list',
-            title: '6. Fill the Fire Alarm Commissioning Device List',
-            content: 'The FAC worksheet\'s device list creates panels AND their detectors in one go. Order matters: enter the panel first, then the devices that connect to it.',
+            title: '6. Fire Alarm Commissioning: Panels and Devices',
+            content: '<p class="mb-4">The commissioning worksheet creates panels <strong>and</strong> their devices in one pass. <strong>Order matters.</strong></p>',
             subsections: [
                 {
                     title: 'Steps',
-                    content: '',
                     steps: [
-                        { step: 'Open the FAC worksheet', description: '' },
-                        { step: 'Scroll to Device list (commissioned at this visit)', description: '' },
-                        { step: 'Row 1 — pick Fire Alarm Panel, fill the location. Leave "Parent panel #" blank.', description: '' },
-                        { step: 'Row 2 onwards — pick the detector / sounder / call point, and set Parent panel # to 1 (the row number of the panel it connects to).', description: '' },
-                        { step: 'If the site has more than one panel, repeat — the second panel might be Row 8, then its detectors set Parent panel # = 8.', description: '' }
-                    ]
+                        'Open the FAC worksheet',
+                        'Scroll to <strong>Device list (commissioned at this visit)</strong>',
+                        'Row 1 — pick <strong>Fire Alarm Panel</strong>, fill the location, leave <em>Parent panel #</em> blank',
+                        'Row 2 onward — pick the device and set <em>Parent panel #</em> to the panel\'s <strong>row number</strong> (<code>1</code>)',
+                        'More than one panel? If the second panel is row 8, its devices use <em>Parent panel #</em> = <code>8</code>',
+                    ],
                 },
                 {
-                    title: '',
-                    content: 'When you Mark Complete (or an admin clicks Register), the detectors automatically link to their panel.',
-                    bullets: []
-                }
+                    content: '<p>On Mark Complete (or when an admin registers), the devices link to their panel.</p>',
+                },
+                {
+                    title: 'If Devices Were Skipped',
+                    content: '<p>It\'s almost always row order — a device listed above its panel can\'t be linked. The Assets tab names the rows and the reason: <em>&quot;Parent row 4 not yet promoted — parent rows must come before children.&quot;</em> Fix the order and re-run (section 8).</p>',
+                },
             ]
         },
         {
             id: 'decommission',
-            title: '7. Decommission an Asset',
-            content: '',
+            title: '7. Decommissioning',
             subsections: [
                 {
                     title: 'Steps',
-                    content: '',
                     steps: [
-                        { step: 'Open the asset', description: '' },
-                        { step: 'Change Status to Decommissioned', description: '' },
-                        { step: 'Save.', description: '' }
-                    ]
+                        'Open the asset',
+                        'Set <strong>Status</strong> to <strong>Decommissioned</strong>',
+                        'Save',
+                    ],
                 },
                 {
-                    title: '',
-                    content: 'The asset stays on the register (with its history) but no longer shows in active counts. If it was a fire alarm panel, its detectors keep their records — they\'re not deleted with the panel.',
-                    bullets: []
-                }
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Delete button does the same thing.</strong> Deleting an asset doesn\'t remove it — it marks it decommissioned and keeps the record and its history. There\'s no separate undo; to reverse it, edit the asset and set the status back.</p></div>',
+                },
+                {
+                    title: 'What Changes Once Decommissioned',
+                    bullets: [
+                        'It <strong>no longer appears on the site register PDF</strong>',
+                        'It\'s <strong>dropped from the next visit\'s worksheet</strong>, silently — nothing tells you it was removed',
+                        'Its history is kept, and you can still open it directly',
+                        'If it was a panel, its detectors keep their own records — they\'re not removed with it',
+                    ],
+                },
             ]
         },
         {
             id: 're-run',
-            title: '8. Re-Run a Worksheet\'s Promotion',
-            content: 'Already registered some items but added more rows to the worksheet? No problem.',
+            title: '8. Re-Run a Worksheet\'s Registration',
+            content: '<p class="mb-4">Added more rows after registering some? Open the job → <strong>Assets</strong> tab → the banner shows the new pending count → <strong>Register N pending items</strong>.</p>',
             subsections: [
                 {
-                    title: 'Steps',
-                    content: '',
-                    steps: [
-                        { step: 'Open the job → Assets tab', description: '' },
-                        { step: 'The banner shows the new pending count (already-registered items don\'t get duplicated)', description: '' },
-                        { step: 'Click Register N pending items', description: '' }
-                    ]
+                    content: '<p>Re-running is always safe. Rows already registered are skipped, never duplicated.</p>',
+                },
+            ]
+        },
+        {
+            id: 'contract-visits',
+            title: '9. Contract Visits Pick Up the Site Register',
+            content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4">New — August 2026</p><p class="mb-4">If a site has an asset register and a service contract, the equipment now arrives on the visit\'s worksheet already listed — you no longer start from a blank sheet on the first contract visit.</p>',
+            subsections: [
+                {
+                    content: '<p class="mb-4">Each item comes in marked as <strong>existing equipment being serviced</strong>, so completing the sheet updates those assets rather than creating duplicates.</p><p>It fills the sheet when the normal visit-to-visit carry-forward has nothing to bring across — a first visit, or a previous visit that recorded no equipment. It doesn\'t fill anything when the contract has no site address, when there\'s no live equipment of the relevant type at that address, or when the worksheet in use can\'t hold equipment (see <strong>Which Worksheets Create Assets</strong>).</p>',
+                },
+            ]
+        },
+        {
+            id: 'existing-equipment',
+            title: 'Getting Existing Equipment In',
+            content: '<p class="mb-4">Three routes:</p>',
+            subsections: [
+                {
+                    bullets: [
+                        '<strong>By hand</strong> on the site\'s Assets page (section 4)',
+                        '<strong>Spreadsheet import</strong> — Settings → Import Data → Assets',
+                        '<strong>From a worksheet</strong> an engineer completes (section 2)',
+                    ],
                 },
                 {
-                    title: '',
-                    content: 'Re-running is always safe. Already-registered rows are skipped automatically.',
-                    bullets: []
-                }
+                    content: '<div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/import-data-select-type.webp" alt="Settings → Import Data screen showing the Select Data Type cards, including Assets, linked to site addresses" class="w-full rounded-lg border border-border shadow-lg" /></div>',
+                },
+                {
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800 mb-2"><strong>Known limitation of spreadsheet import.</strong> The importer brings in the core details — name, type, serial, manufacturer, model, location — but <strong>doesn\'t carry the equipment-specific fields</strong>. Zone, loop and device address for fire alarm devices, and every extinguisher field including the manufacture and discharge dates, are <strong>not imported</strong>, even if your spreadsheet has columns for them. They\'re dropped without an error. Add them by hand afterwards, or add those assets manually.</p><p class="text-amber-800">Imported assets are also numbered in a separate sequence (<code>ASSET-00001</code>) from assets created in the app (<code>AST-000001</code>), so a site loaded both ways will show two numbering styles.</p></div>',
+                },
+            ]
+        },
+        {
+            id: 'permissions',
+            title: 'Who Can Do What',
+            subsections: [
+                {
+                    table: {
+                        headers: ['Role', 'View', 'Add', 'Edit', 'Decommission', 'Import'],
+                        rows: [
+                            ['Admin / Contract Manager', '✅', '✅', '✅', '✅', '✅'],
+                            ['Site Manager', '✅', '✅', '✅', '❌', '❌'],
+                            ['Engineer', '✅', '✅', '❌', '❌', '❌'],
+                            ['Accounts / Sales Manager / Viewer', '✅', '❌', '❌', '❌', '❌'],
+                        ],
+                    },
+                },
+                {
+                    content: '<p><strong>Engineers can add equipment they find on site but cannot edit or delete it.</strong> If an engineer mistypes an asset, an Admin, Contract Manager or Site Manager has to correct it — which is why new equipment waits for review (section 1).</p>',
+                },
             ]
         },
         {
             id: 'faqs',
             title: 'FAQs',
-            content: '',
             subsections: [
                 {
                     title: 'What is an "asset" in Opscel?',
@@ -207,17 +292,17 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Do my engineers need to do anything different?',
-                    content: 'No. They fill the same worksheet they were already filling — the Fire Extinguisher Service Worksheet, the Fire Alarm Commissioning Worksheet, etc. The bit that becomes assets is the items list they were already entering.',
+                    content: 'No. They fill the same worksheet they were already filling — Fire Extinguisher Service, Fire Alarm Commissioning, Fire Alarm Service, or Asset Service. The bit that becomes assets is the items list they were already entering.',
                     bullets: []
                 },
                 {
                     title: 'What worksheets can produce assets?',
-                    content: 'Today: Fire Extinguisher Service and Fire Alarm Commissioning. More are landing as we add them — get in touch if your trade isn\'t covered.',
+                    content: 'Four: Fire Alarm Service, Fire Alarm Commissioning, Fire Extinguisher Service, and Asset Service (any equipment type). Site Attendance, Combined BS 5839 &amp; BAFE SP203, Remedial Scope of Works, and Basic Job Sheet don\'t — see <strong>Which Worksheets Create Assets</strong> above.',
                     bullets: []
                 },
                 {
                     title: 'How do existing assets get into Opscel?',
-                    content: 'Three ways: (1) bulk CSV import from Settings → Data Management, (2) added by hand on the site\'s Assets page, or (3) auto-created when an engineer fills the relevant worksheet.',
+                    content: 'Three ways: (1) spreadsheet import from Settings → Import Data → Assets, (2) added by hand on the site\'s Assets page, or (3) auto-created when an engineer fills a supported worksheet. Import doesn\'t carry per-type fields (zone, loop, address, extinguisher dates) — see <strong>Getting Existing Equipment In</strong> above.',
                     bullets: []
                 },
                 {
@@ -232,17 +317,17 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can engineers register assets, or only admins?',
-                    content: 'Admins register assets by default. Engineers fill the worksheets — that\'s the data — but the act of committing items as permanent asset records is admin-only. If you trust your engineers\' input, switch on auto-register (Settings → Asset Tracking) and the step happens automatically when they Mark Complete.',
+                    content: 'Admins register assets by default. Engineers fill the worksheets — that\'s the data — but the act of committing items as permanent asset records is admin-only. If you trust your engineers\' input, switch on auto-register (Settings → Asset Tracking) and the routine part happens automatically when they Mark Complete — new equipment still waits for review either way.',
                     bullets: []
                 },
                 {
                     title: 'What format is the Asset Register PDF?',
-                    content: 'Modelled on the paper formats your customers and assessors are used to seeing — Synergy/Balthorne for extinguishers (TYPE · SIZE · POSITION · D/E · ES Due plus the multi-year service grid), publisher-style logbook layout for fire alarm devices. We follow what BS 5306-3, BS 5839-1 and BS 5266-1 mandate be recorded; the visual layout matches the conventions your trade already prints.',
+                    content: 'Modelled on the paper formats your customers and assessors are used to seeing — Synergy/Balthorne for extinguishers (TYPE · SIZE · POSITION · D/E · ES Due plus the multi-year service grid), publisher-style logbook layout for fire alarm devices. We follow what BS 5306-3, BS 5839-1 and BS 5266-1 mandate be recorded; the visual layout matches the conventions your trade already prints. It\'s one register per equipment type, not one combined register per site.',
                     bullets: []
                 },
                 {
                     title: 'My engineer\'s worksheet had 8 devices but only 5 became assets. Why?',
-                    content: 'The most likely cause is row order on the Fire Alarm Commissioning device list — child devices must list their parent panel first in the row order. The Assets tab will tell you exactly which rows were skipped and why ("Parent row 4 not yet promoted — parent rows must come before children"). Re-order the worksheet rows and re-run.',
+                    content: 'The most likely cause is row order on the Fire Alarm Commissioning device list — child devices must list their parent panel first in the row order. The Assets tab will tell you exactly which rows were skipped and why ("Parent row 4 not yet promoted — parent rows must come before children"). Re-order the worksheet rows and re-run. If you\'re using the Combined BS 5839/SP203 or Site Attendance worksheet instead, that\'s the cause — those don\'t register assets at all.',
                     bullets: []
                 },
                 {

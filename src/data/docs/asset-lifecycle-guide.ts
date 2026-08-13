@@ -4,7 +4,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'Track equipment from first installation to decommissioning — QR tag scanning, automatic register updates from worksheets, full service history, and pre-loading into recurring contract visits.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-08-04',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -60,10 +60,12 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">The office can review, edit, and commit staged rows at any time; committing a row that services a Draft asset also activates it.</p><p class="mb-4">Three worksheets drive the register:</p>',
+                    content: '<p class="mb-4">The office can review, edit, and commit staged rows at any time; committing a row that services a Draft asset also activates it.</p><p class="mb-4">Five worksheets drive the register:</p>',
                     bullets: [
                         '<strong>Extinguisher Service Worksheet</strong> — extinguishers, fire blankets, hose reels',
                         '<strong>Fire Alarm Service Worksheet</strong> — panels, detectors, call points, sounders, beacons',
+                        '<strong>Fire Alarm Commissioning Worksheet</strong> — panels and their devices, on first install',
+                        '<strong>Remedials Scope of Works</strong> — equipment replaced or added as remedial work',
                         '<strong>Asset Service Worksheet</strong> — everything else (see below)',
                     ],
                 },
@@ -154,14 +156,65 @@ export const assetLifecycleGuide: IDocGuide = {
         {
             id: 'bulk-import',
             title: 'Bulk Import',
-            content: '<p class="mb-4">Import your existing register via CSV:</p>',
+            content: '<p class="mb-4">Import your existing register via CSV. The flow is site-scoped: you tell Opscel which site the file belongs to before you upload anything, rather than the file carrying that information itself.</p>',
             subsections: [
                 {
+                    title: 'The Import Flow',
+                    steps: [
+                        'Pick the <strong>customer</strong>, then the <strong>service address</strong> — before uploading. Every row in the file imports to that one site. Your CSV doesn\'t need postcode, street, or customer-name columns; if it has them, they\'re ignored.',
+                        'If your file has no <strong>Name</strong> column, Opscel derives one from the device type and its address — for example <strong>&quot;Sounder N1 L1 A45&quot;</strong> from a Node/Loop/Address combination. If two rows would derive the same name, the second gets a <strong>&quot;#2&quot;</strong> suffix.',
+                        'The <strong>Device types</strong> step maps every distinct device-type value in your file to a canonical Opscel asset type. This is <strong>blocking</strong> — any unmapped type stops the import at preview, it doesn\'t import as junk. Save your mapping as a <strong>reusable profile</strong> tied to the customer, and Opscel offers it again on their next import.',
+                        'If the site already holds assets of the types you\'re importing, a <strong>re-import warning</strong> lists them and requires an explicit acknowledgement checkbox before you can confirm — it won\'t silently double anything up.',
+                        'Review the preview and confirm. Imported assets get real <strong>AST-</strong> numbers and register positions, in the same numbering sequence as assets added by hand or from a worksheet — there\'s no separate import numbering to reconcile.',
+                    ],
+                },
+                {
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Bulk asset import needs the plan that includes Asset Management</strong> (the Business plan). On lower tiers you\'ll see an upgrade prompt instead of the import screen.</p></div>',
+                },
+                {
+                    title: 'Type and Status Normalisation',
                     bullets: [
                         '<strong>Type spellings are recognised generously</strong> — "Fire Extinguisher", "fire extinguisher" and legacy names all normalise to the standard type, and the import summary notes what was normalised. Genuinely custom types are kept as-is.',
                         '<strong>Status aliases</strong> — "not found", "lost" and "stolen" all import as Missing.',
-                        '<strong>Duplicate detection</strong> matches on type and identity, so re-importing a file won\'t double your register.',
                     ],
+                },
+                {
+                    title: 'Duplicate Detection',
+                    content: '<p>How duplicates are matched depends on where the asset\'s name came from. For <strong>auto-derived names</strong> (no Name column in your file), matching is <strong>exact-only</strong> — this is deliberate, so two adjacent devices at similar addresses never get merged into one. For files that <strong>do</strong> carry their own Name column, fuzzy matching still applies, so re-importing the same file won\'t double your register.</p>',
+                },
+            ],
+        },
+        {
+            id: 'fire-alarm-panel-export',
+            title: 'Importing a Fire Alarm Panel Export',
+            content: '<p class="mb-4">Panel exports are a special case worth walking through on their own: they typically have <strong>no Name column and no address columns</strong> — just device types and their panel positions. This flow exists specifically for them.</p>',
+            subsections: [
+                {
+                    title: 'Steps',
+                    steps: [
+                        'Pick the <strong>customer</strong>, then the <strong>service address</strong>',
+                        'Upload the export file',
+                        'Complete <strong>column mapping</strong> — matching the export\'s columns to Opscel fields',
+                        'Complete the <strong>Device types</strong> mapping — blocking, and offered as a reusable profile for next time',
+                        'Review the <strong>re-import warning</strong> if the site already has assets of these types',
+                        'Confirm the import',
+                    ],
+                },
+                {
+                    title: 'What Gets Captured',
+                    bullets: [
+                        '<strong>Node, Zone Number, Loop Number, Loop Address</strong> — Loop Address is stored as <strong>text on purpose</strong>: real panels use dotted addresses like <code>1.045</code>, and treating it as a number would corrupt them',
+                        '<strong>Panel Type</strong> and <strong>Alarm Category</strong>',
+                        'Auto-generated names built from these fields when the file has no Name column (see <strong>The Import Flow</strong> above), including the <strong>&quot;#2&quot;</strong> collision suffix',
+                    ],
+                },
+                {
+                    title: 'Combined Devices (e.g. 48.1 / 48.2)',
+                    content: '<p>A sounder/beacon combined device at one physical address is usually <strong>listed twice</strong> in a panel export — once per function, e.g. <code>48.1</code> and <code>48.2</code> — because each is programmed separately on the panel even though they\'re one physical unit. The register keeps <strong>one row per listing</strong>, matching how the panel itself lists them, rather than trying to merge them back into a single device.</p>',
+                },
+                {
+                    title: 'Second Imports',
+                    content: '<p>Re-importing an updated export from the same panel goes through the same <strong>re-import acknowledgement</strong> as any other bulk import — you\'ll see which existing assets of the incoming types are already on the site before you confirm.</p>',
                 },
             ],
         },
@@ -214,6 +267,18 @@ export const assetLifecycleGuide: IDocGuide = {
                 {
                     title: 'What happens to an asset\'s history if the asset is decommissioned?',
                     content: '<p>It\'s retained — decommissioned assets stay on record for compliance; they\'re just excluded from active field lists and pre-loading.</p>',
+                },
+                {
+                    title: 'Do I have to remap device types every time I import for the same customer?',
+                    content: '<p>No. Save your Device types mapping as a profile the first time, and Opscel offers it again on that customer\'s next import — you only remap types you haven\'t seen before.</p>',
+                },
+                {
+                    title: 'What happens if I re-import a file for a site that already has assets?',
+                    content: '<p>Opscel shows a warning listing the asset types already present at that site and requires you to tick an acknowledgement checkbox before the import proceeds. Nothing is silently duplicated.</p>',
+                },
+                {
+                    title: 'Which plan includes bulk asset import?',
+                    content: '<p>The plan that includes Asset Management — the Business plan. It\'s the same gate as the rest of the asset module; Starter and Team can still import customers, contacts, addresses, and jobs via CSV, just not assets.</p>',
                 },
             ],
         },

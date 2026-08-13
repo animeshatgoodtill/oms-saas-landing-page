@@ -26,7 +26,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-customer',
             title: 'Parent Reference Resolution',
-            description: 'Importing contacts that belong to businesses? System links contacts to existing customers by business name or email. Importing assets for customer sites? Links by address match. No manual ID mapping spreadsheets.'
+            description: 'Importing contacts that belong to businesses? System links contacts to existing customers by business name or email — no manual ID mapping spreadsheets. Asset imports don\'t use address matching — you select the site once in the UI before uploading, and every row imports to it.'
         },
         {
             iconId: 'icon-activity-log',
@@ -56,7 +56,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             iconId: 'icon-price-tag',
             title: 'Team Tier Feature',
-            description: 'Data import available on Team tier (£49/month, 5 users) and Business tier (£79/month, 8 users). Supports all 5 entity types, unlimited import batches, rollback capability. Starter tier does not include CSV import.'
+            description: 'Customer, contact, address and job import is available from Team tier (£49/month, 5 users) upward. Asset import specifically requires the Business tier (£79/month, 8 users), alongside the rest of Asset Management. Starter tier does not include CSV import at all.'
         }
     ],
 
@@ -92,7 +92,7 @@ export const dataImportDetail: IFeatureDetail = {
                 'Batch import handles thousands of records without browser freezing',
                 '5 entity types cover complete data migration (customers, contacts, sites, assets, jobs)',
                 'Parent reference resolution links contacts to businesses automatically',
-                'Team tier includes import—no enterprise tier jump required'
+                'Team tier includes import for customers, contacts, addresses, and jobs — asset import specifically needs the Business tier'
             ]
         },
         {

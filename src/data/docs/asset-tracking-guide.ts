@@ -4,7 +4,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-08-10',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -21,7 +21,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'which-worksheets',
             title: 'Which Worksheets Create Assets',
-            content: '<p class="mb-4"><strong>Four of the eight.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
+            content: '<p class="mb-4"><strong>Five of the eight.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
             subsections: [
                 {
                     table: {
@@ -31,9 +31,9 @@ export const assetTrackingGuide: IDocGuide = {
                             ['Fire Alarm Commissioning', '✅'],
                             ['Fire Extinguisher Service', '✅'],
                             ['Asset Service', '✅ (any equipment type)'],
+                            ['Remedials Scope of Works', '✅'],
                             ['Site Attendance / Inspection &amp; Servicing', '❌'],
                             ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],
-                            ['Remedial Scope of Works', '❌'],
                             ['Basic Job Sheet', '❌'],
                         ],
                     },
@@ -252,7 +252,7 @@ export const assetTrackingGuide: IDocGuide = {
                     content: '<div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/import-data-select-type.webp" alt="Settings → Import Data screen showing the Select Data Type cards, including Assets, linked to site addresses" class="w-full rounded-lg border border-border shadow-lg" /></div>',
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800 mb-2"><strong>Known limitation of spreadsheet import.</strong> The importer brings in the core details — name, type, serial, manufacturer, model, location — but <strong>doesn\'t carry the equipment-specific fields</strong>. Zone, loop and device address for fire alarm devices, and every extinguisher field including the manufacture and discharge dates, are <strong>not imported</strong>, even if your spreadsheet has columns for them. They\'re dropped without an error. Add them by hand afterwards, or add those assets manually.</p><p class="text-amber-800">Imported assets are also numbered in a separate sequence (<code>ASSET-00001</code>) from assets created in the app (<code>AST-000001</code>), so a site loaded both ways will show two numbering styles.</p></div>',
+                    content: '<p class="mb-4">You pick the <strong>customer and site in the UI before uploading</strong> — every row in the file imports to that one site, and your file doesn\'t need address or customer-name columns even if it has them. If a row has no <strong>Name</strong>, Opscel derives one from the device type and its panel position (e.g. <em>&quot;Sounder N1 L1 A45&quot;</em>).</p><p class="mb-4">Fire alarm fields import properly too: <strong>Node, Zone Number, Loop Number, Loop Address</strong> (kept as text, since real panels use addresses like <code>1.045</code>), <strong>Panel Type</strong>, and <strong>Alarm Category</strong> — plus the extinguisher service-clock fields (manufacture date, last discharge/extended service, service interval).</p><div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900">Every distinct device-type value in your file must be mapped to a canonical Opscel asset type before the import runs — this is a <strong>blocking</strong> step, so nothing imports as unrecognised junk. Save the mapping as a reusable profile for that customer\'s next import.</p></div><p class="mt-4">Imported assets get real <strong>AST-</strong> numbers and register positions, in the same sequence as assets added by hand. Full walkthrough: <a href="/docs/asset-lifecycle#bulk-import" class="text-secondary hover:underline">Bulk Import</a>.</p>',
                 },
             ]
         },
@@ -292,17 +292,22 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Do my engineers need to do anything different?',
-                    content: 'No. They fill the same worksheet they were already filling — Fire Extinguisher Service, Fire Alarm Commissioning, Fire Alarm Service, or Asset Service. The bit that becomes assets is the items list they were already entering.',
+                    content: 'No. They fill the same worksheet they were already filling — Fire Extinguisher Service, Fire Alarm Commissioning, Fire Alarm Service, Remedials Scope of Works, or Asset Service. The bit that becomes assets is the items list they were already entering.',
                     bullets: []
                 },
                 {
                     title: 'What worksheets can produce assets?',
-                    content: 'Four: Fire Alarm Service, Fire Alarm Commissioning, Fire Extinguisher Service, and Asset Service (any equipment type). Site Attendance, Combined BS 5839 &amp; BAFE SP203, Remedial Scope of Works, and Basic Job Sheet don\'t — see <strong>Which Worksheets Create Assets</strong> above.',
+                    content: 'Five: Fire Alarm Service, Fire Alarm Commissioning, Fire Extinguisher Service, Remedials Scope of Works, and Asset Service (any equipment type). Site Attendance, Combined BS 5839 &amp; BAFE SP203, and Basic Job Sheet don\'t — see <strong>Which Worksheets Create Assets</strong> above.',
                     bullets: []
                 },
                 {
                     title: 'How do existing assets get into Opscel?',
-                    content: 'Three ways: (1) spreadsheet import from Settings → Import Data → Assets, (2) added by hand on the site\'s Assets page, or (3) auto-created when an engineer fills a supported worksheet. Import doesn\'t carry per-type fields (zone, loop, address, extinguisher dates) — see <strong>Getting Existing Equipment In</strong> above.',
+                    content: 'Three ways: (1) bulk CSV import from Settings → Data Management — you pick the customer and site first, then map any unrecognised device types before the import runs (see the <a href="/docs/asset-lifecycle#bulk-import" class="text-secondary hover:underline">full import walkthrough</a>), (2) added by hand on the site\'s Assets page, or (3) auto-created when an engineer fills a supported worksheet. Import doesn\'t carry per-type fields (zone, loop, address, extinguisher dates) — see <strong>Getting Existing Equipment In</strong> above.',
+                    bullets: []
+                },
+                {
+                    title: 'Why does the import say "unknown device type"?',
+                    content: 'Every distinct device-type value in your file has to be mapped to a canonical Opscel asset type before the import can proceed — this is a blocking step, not a warning you can dismiss. It replaces the old behaviour where an unrecognised type would import silently as junk. Map it once and, if you\'ll be importing for this customer again, save the mapping as a profile — Opscel offers it automatically on their next import.',
                     bullets: []
                 },
                 {

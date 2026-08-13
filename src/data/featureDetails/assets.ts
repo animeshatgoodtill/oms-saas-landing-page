@@ -177,11 +177,11 @@ export const assetsDetail: IFeatureDetail = {
         },
         {
             question: 'Is asset tracking available on all plans?',
-            answer: 'Asset tracking is available on the Business plan (£79/month, 8 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import.'
+            answer: 'Asset tracking is available on the Business plan (£79/month, 8 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import. Bulk CSV asset import specifically carries this same Business-plan gate — Starter and Team can still import customers, contacts, addresses, and jobs, just not assets.'
         },
         {
             question: 'Can I import existing asset data from spreadsheets?',
-            answer: 'Yes. CSV import supports fuzzy column matching (e.g., "Serial No" maps to Serial Number). Parent reference resolution links assets to customers by business name or email. Handles thousands of assets in one upload.'
+            answer: 'Yes. CSV import supports fuzzy column matching (e.g., "Serial No" maps to Serial Number). You choose the customer and site before uploading, so no address or customer-name columns are needed in the file itself. Handles thousands of assets in one upload.'
         }
     ],
 

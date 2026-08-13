@@ -85,6 +85,10 @@ export default function InvoicingDocsPage() {
                                         <td className="border border-gray-300 px-4 py-2">If configured in your settings</td>
                                     </tr>
                                     <tr>
+                                        <td className="border border-gray-300 px-4 py-2">Customer reference / PO number</td>
+                                        <td className="border border-gray-300 px-4 py-2">From the job&apos;s <strong>PO Number</strong> field, automatic — see <a href="/docs/jobs" className="text-blue-600 hover:underline">Jobs</a> for where it&apos;s set</td>
+                                    </tr>
+                                    <tr>
                                         <td className="border border-gray-300 px-4 py-2">Tax rates</td>
                                         <td className="border border-gray-300 px-4 py-2">From product/category settings</td>
                                     </tr>
@@ -101,7 +105,8 @@ export default function InvoicingDocsPage() {
                                 <li><strong>Parts</strong>: Check quantities and prices match what was used</li>
                                 <li><strong>Labour</strong>: Verify hours are correct</li>
                                 <li><strong>Callout fee</strong>: Remove if not applicable for this job</li>
-                                <li><strong>Notes</strong>: Add any payment instructions or job references</li>
+                                <li><strong>Customer reference / PO number</strong>: Already filled in from the job — no need to type it</li>
+                                <li><strong>Notes</strong>: A separate free-text field for anything else — payment instructions, internal comments, etc.</li>
                             </ul>
                             <p className="text-gray-700 mt-3">
                                 Click <strong>Save as Draft</strong> when ready.
@@ -456,6 +461,7 @@ export default function InvoicingDocsPage() {
                             <li>All line items with correct accounts</li>
                             <li>Tax amounts</li>
                             <li>Due date</li>
+                            <li>Customer reference / PO number, when the job has one — reaches Xero&apos;s Reference field or QuickBooks&apos; Customer Memo. See <a href="/docs/accounting-integration#po-numbers" className="text-blue-600 hover:underline">How Purchase Order Numbers Reach Xero/QuickBooks</a> for the exact format</li>
                         </ul>
 
                         <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">

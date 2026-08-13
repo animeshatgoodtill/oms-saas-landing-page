@@ -4,7 +4,7 @@ export const serviceContractsGuide: IDocGuide = {
     slug: 'service-contracts',
     title: 'Service Contracts & Multi-Site Agreements',
     description: 'Set up recurring service contracts and group multi-site customers into agreements. Learn the three ways to create a contract, how fixed-anchor scheduling works, and how to bulk-create across sites.',
-    lastUpdated: '2026-06-19',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -75,16 +75,17 @@ export const serviceContractsGuide: IDocGuide = {
                         'Set <strong>Lead time</strong> — days before each due date to create the draft job',
                         'Set <strong>Start date</strong> — the first due date',
                         'Set <strong>Per-visit price</strong> (optional)',
+                        'Set a <strong>PO number</strong> (optional) — the customer\'s purchase order, applied to every generated visit',
                         'Click <strong>Create contract</strong>. The first visit generates according to the start date and lead time.'
                     ]
                 },
                 {
                     title: 'Option B — From an Existing Job',
-                    content: '<p class="mb-4">Open the job → <strong>⋮ menu → Convert to contract</strong> → set frequency, lead time, and price → <strong>Create contract</strong>. The job you converted becomes the first visit, and future visits recur from there. Any engineer already on that job carries over.</p>'
+                    content: '<p class="mb-4">Open the job → <strong>⋮ menu → Convert to contract</strong> → set frequency, lead time, and price → <strong>Create contract</strong>. The job you converted becomes the first visit, and future visits recur from there. Any engineer already on that job carries over.</p><p>If the source job has a <strong>PO number</strong>, the contract inherits it by default — typing a different value in the wizard overrides it, and clearing the field leaves the contract with no rolling PO.</p>'
                 },
                 {
                     title: 'Option C — From an Accepted Quote',
-                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900">Open an <strong>accepted</strong> quote → <strong>⋮ → Upgrade to service contract</strong>. The customer, site, and title carry over. You then <strong>confirm the recurring per-visit price</strong> — Opscel does not reuse the quote total, because a quote usually bundles one-off install or mobilisation costs that shouldn\'t repeat. Remove those, confirm the recurring figure, and select <strong>Create contract</strong>. The original quote is left untouched.</p><p class="text-blue-900 mt-2">The upgrade path is only available on <strong>accepted</strong> quotes — converting a draft or unaccepted quote would stand up a billing commitment the customer hasn\'t agreed to.</p></div><p class="mb-4">See <a href="/features/quotations" class="text-blue-600 hover:underline">Quotes & Estimates</a> for the full quoting workflow.</p>'
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4"><p class="text-blue-900">Open an <strong>accepted</strong> quote → <strong>⋮ → Upgrade to service contract</strong>. The customer, site, and title carry over. You then <strong>confirm the recurring per-visit price</strong> — Opscel does not reuse the quote total, because a quote usually bundles one-off install or mobilisation costs that shouldn\'t repeat. Remove those, confirm the recurring figure, and select <strong>Create contract</strong>. The original quote is left untouched.</p><p class="text-blue-900 mt-2">The upgrade path is only available on <strong>accepted</strong> quotes — converting a draft or unaccepted quote would stand up a billing commitment the customer hasn\'t agreed to.</p></div><p class="mb-4">Quotes themselves don\'t carry a PO number, but the wizard here lets you set one for the new contract if the customer has supplied one.</p><p class="mb-4">See <a href="/features/quotations" class="text-blue-600 hover:underline">Quotes & Estimates</a> for the full quoting workflow.</p>'
                 }
             ]
         },
@@ -103,6 +104,19 @@ export const serviceContractsGuide: IDocGuide = {
                 {
                     title: 'Upcoming-Visits Timeline',
                     content: '<p class="mb-4">The contract shows an upcoming-visits timeline marked <strong>Generated</strong> vs <strong>Projected</strong>. Projected dates are estimates derived from the cadence, not confirmed bookings. The timeline stops at a fixed-term contract\'s end date, and shows nothing projected for paused or ended contracts.</p>'
+                },
+                {
+                    title: 'Per-Visit PO Overrides',
+                    content: '<p class="mb-4">Each projected visit on the Occurrences timeline has its own <strong>PO chip</strong>. Click it to open a popover where you can add, edit, or remove a PO number for that visit specifically.</p>',
+                    bullets: [
+                        'A <strong>per-visit PO overrides the rolling PO</strong> for that date only — every other visit keeps using the contract\'s rolling PO',
+                        'When a visit has no override, its chip shows the rolling PO <strong>greyed out</strong> to indicate it\'s inherited, not set directly',
+                        '<strong>Generated visits</strong> (i.e. real jobs, not projections) show the job\'s actual PO <strong>read-only</strong> on the timeline — edit it on the job itself if it needs to change',
+                        '<strong>Consumed POs are locked.</strong> Once a projected visit\'s PO has been used to generate a job, trying to change it returns a &quot;consumed&quot; error — that PO is now tied to the job it created',
+                        'If a schedule change (e.g. editing the start date) leaves a per-visit PO without a matching projected date, Opscel raises an <strong>&quot;unmatched&quot; warning banner</strong> with options to reassign it to a new date or remove it — a PO is never silently dropped',
+                        'For a contract created from an existing job (Option B above), you can\'t set a per-visit PO on or before that source job\'s visit date — set it on the job directly instead',
+                        'Setting or editing a per-visit PO requires the <strong>service-contracts edit</strong> permission'
+                    ]
                 },
                 {
                     title: 'Editing the Start Date Safely',
@@ -125,6 +139,10 @@ export const serviceContractsGuide: IDocGuide = {
                         '<strong>View the activity log</strong> — a per-contract record of every change',
                         '<strong>Export the contract list</strong> to CSV from the Service Contracts list'
                     ]
+                },
+                {
+                    title: 'The Rolling PO Number',
+                    content: '<p class="mb-4">The contract\'s service/job-defaults card has an editable <strong>PO number</strong> field, with the helper text <em>&quot;Customer purchase order — applied to every generated visit&quot;</em>. Every job the contract generates carries this PO automatically. Edit it at any time from the contract detail page — the new value applies to visits generated from that point on.</p><p>Individual visits on the Occurrences timeline can override this rolling PO with their own — see <strong>Running the Schedule</strong> below.</p>'
                 }
             ]
         },
@@ -144,11 +162,14 @@ export const serviceContractsGuide: IDocGuide = {
                     title: 'Bulk-Create Contracts Across Sites',
                     content: '<p class="mb-4">Open the agreement → <strong>Add sites</strong>, then:</p>',
                     steps: [
-                        'Set the <strong>template</strong> once — cadence, service type, per-visit price.',
+                        'Set the <strong>template</strong> once — cadence, service type, per-visit price, and optionally a <strong>PO number</strong>.',
                         '<strong>Add existing sites</strong> and/or <strong>add new sites inline</strong> (a new address is created as you go — no need to pre-build it).',
                         'Apply <strong>per-site overrides</strong> where a site differs — e.g. a higher price or a tighter cadence for a larger building.',
                         'Select <strong>Create N contracts</strong> and review the results summary.'
                     ]
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900">The template\'s <strong>PO number applies to every contract created in the batch</strong> — there\'s no per-site PO override at bulk-create time. Adjust an individual contract\'s PO afterwards from its own detail page if one site needs a different reference.</p></div>'
                 },
                 {
                     title: 'Duplicate-Detection',

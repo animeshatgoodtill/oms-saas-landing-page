@@ -4,7 +4,7 @@ export const jobsGuide: IDocGuide = {
     slug: 'jobs',
     title: 'Jobs & Multi-Visit Workflow',
     description: 'Complete guide to creating, scheduling, and managing jobs in Opscel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
-    lastUpdated: '2026-05-20',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -109,6 +109,31 @@ export const jobsGuide: IDocGuide = {
                         'Expected duration (from quote or contract)',
                         'Assets to service (from contract or previous job)',
                         'Default assigned engineer (from customer preferences)'
+                    ]
+                },
+                {
+                    title: 'PO Number (Optional)',
+                    content: `
+                        <p class="mb-4">
+                            Every job has an optional <strong>PO Number</strong> field on the creation wizard and the edit form — a customer-supplied purchase order reference, not an Opscel-generated sequence. Once set, it surfaces in several places:
+                        </p>
+                    `,
+                    bullets: [
+                        'The admin job overview page',
+                        'A PO badge on the job in the field app (read-only there — editing happens in admin)',
+                        'Job-sheet PDFs',
+                        'Job search — find a job by its customer\'s PO number'
+                    ]
+                },
+                {
+                    title: 'Where PO Numbers Come From and Go To',
+                    content: `
+                        <p class="mb-4">A job's PO number can arrive from, or feed into, several other places in Opscel:</p>
+                    `,
+                    bullets: [
+                        '<strong>Service contracts</strong> — a job generated from a contract inherits that contract\'s rolling PO, or a per-visit PO if one was set for that specific occurrence. See <a href="/docs/service-contracts" class="text-secondary hover:underline">Service Contracts</a>.',
+                        '<strong>Quote conversion</strong> — converting an accepted quote to a job is the first point a PO can be entered for that piece of work, via an optional field in the Convert to Job dialog. See <a href="/docs/quotations" class="text-secondary hover:underline">Quotations</a>.',
+                        '<strong>Invoicing</strong> — when you invoice a completed job, its PO number becomes the invoice\'s customer reference automatically, and rides through to Xero or QuickBooks. See <a href="/docs/invoicing" class="text-secondary hover:underline">Invoicing</a>.'
                     ]
                 }
             ]

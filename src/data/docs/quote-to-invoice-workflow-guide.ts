@@ -4,7 +4,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
     slug: 'quote-to-invoice-workflow',
     title: 'How Quotes, Jobs and Invoices Work Together',
     description: 'Complete end-to-end workflow guide: understand how quotes, jobs, and invoices connect. Learn the two invoice paths (Fixed-Price vs. T&M), deposit handling, and Good-Better-Best tier selection.',
-    lastUpdated: '2026-05-19',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -112,6 +112,11 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 <p class="mb-6">
                     Go to the job's Financial tab and click Create Invoice. Opscel detects whether the job came from a quote or was a standalone job, and shows the right workflow automatically.
                 </p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-blue-900">
+                        <strong>PO number:</strong> If the job has a PO Number set, it becomes the invoice's customer reference automatically — no extra step in either invoice path. This is what later reaches Xero's Reference field or QuickBooks' Customer Memo when you post the invoice. See <a href="#xero-integration" class="text-blue-700 hover:underline font-semibold">Accounting Integration</a> below for the exact format.
+                    </p>
+                </div>
             `
         },
         {
@@ -206,11 +211,23 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
         },
         {
             id: 'xero-integration',
-            title: 'Xero Integration',
+            title: 'Accounting Integration',
             content: `
                 <p class="mb-6">
-                    Draft invoices can be pushed to Xero with one click from the invoice detail page. Line item categories map automatically to your Xero account codes. Once pushed, the invoice status updates to Posted and is locked against further edits in Opscel (edits should be made in Xero from that point).
+                    Draft invoices can be pushed to Xero or QuickBooks with one click from the invoice detail page. Line item categories map automatically to your account codes. Once pushed, the invoice status updates to Posted and is locked against further edits in Opscel (edits should be made in your accounting software from that point).
                 </p>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-gray-800 mb-2">
+                        <strong>If the job has a PO number</strong>, it rides along automatically:
+                    </p>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong>Xero:</strong> appears in the invoice's Reference field, formatted &lt;job number&gt; / &lt;invoice number&gt; / &lt;PO&gt; (truncated to 255 characters)</li>
+                        <li><strong>QuickBooks:</strong> QuickBooks has no native PO field, so it appears in the Customer Memo as "Customer PO: &lt;PO&gt;" — the DocNumber stays as the Opscel invoice number</li>
+                    </ul>
+                    <p class="text-sm text-gray-700 mt-2">
+                        This is a snapshot taken when the invoice is created — editing the job's PO afterwards does not update an invoice that already exists. Full detail in the <a href="/docs/accounting-integration#po-numbers" class="text-blue-600 hover:underline">Accounting Integration guide</a>.
+                    </p>
+                </div>
             `
         },
         {

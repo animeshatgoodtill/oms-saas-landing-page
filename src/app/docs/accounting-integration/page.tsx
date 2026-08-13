@@ -36,6 +36,7 @@ export default function AccountingIntegrationDocsPage() {
                             <div>
                                 <ul className="space-y-2 text-gray-600">
                                     <li><a href="#first-invoice" className="hover:text-blue-600">Posting Your First Invoice</a></li>
+                                    <li><a href="#po-numbers" className="hover:text-blue-600">How Purchase Order Numbers Reach Xero/QuickBooks</a></li>
                                     <li><a href="#payment-sync" className="hover:text-blue-600">How Payment Sync Works</a></li>
                                     <li><a href="#managing" className="hover:text-blue-600">Managing Your Connection</a></li>
                                     <li><a href="#troubleshooting" className="hover:text-blue-600">Troubleshooting</a></li>
@@ -80,6 +81,7 @@ export default function AccountingIntegrationDocsPage() {
                                                 <li>Invoices</li>
                                                 <li>Customers (auto-created)</li>
                                                 <li>Line items with tax</li>
+                                                <li>Purchase Order number, when the job has one — see <a href="#po-numbers" className="text-blue-600 hover:underline">below</a></li>
                                             </ul>
                                         </td>
                                         <td className="border border-gray-300 px-4 py-2">
@@ -373,6 +375,56 @@ export default function AccountingIntegrationDocsPage() {
                                     The customer is linked, so future invoices post to the same record.
                                 </p>
                             </div>
+                        </div>
+                    </section>
+
+                    {/* How Purchase Order Numbers Reach Xero/QuickBooks */}
+                    <section id="po-numbers" className="mb-12">
+                        <h2 className="text-3xl font-bold mb-6">How Purchase Order Numbers Reach Xero/QuickBooks</h2>
+                        <p className="text-gray-700 mb-6">
+                            If a job carries a customer&apos;s Purchase Order number, it rides along automatically when you post the invoice — there&apos;s no extra step.
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-6 mb-6">
+                            <div className="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 className="font-bold text-xl mb-4">In Xero</h3>
+                                <p className="text-gray-700 mb-3">
+                                    The PO appears in the invoice&apos;s <strong>Reference</strong> field, formatted as:
+                                </p>
+                                <div className="bg-gray-50 rounded p-3 font-mono text-sm mb-3">
+                                    &lt;job number&gt; / &lt;invoice number&gt; / &lt;PO&gt;
+                                </div>
+                                <p className="text-sm text-gray-600">
+                                    Truncated to 255 characters if the combined reference is unusually long.
+                                </p>
+                            </div>
+
+                            <div className="bg-white border border-gray-200 rounded-lg p-6">
+                                <h3 className="font-bold text-xl mb-4">In QuickBooks</h3>
+                                <p className="text-gray-700 mb-3">
+                                    QuickBooks has no native PO field on invoices, so it appears in the <strong>Customer Memo</strong> instead:
+                                </p>
+                                <div className="bg-gray-50 rounded p-3 font-mono text-sm mb-3">
+                                    Customer PO: &lt;PO&gt;
+                                </div>
+                                <p className="text-sm text-gray-600">
+                                    The <strong>DocNumber</strong> stays as the Opscel invoice number — the PO doesn&apos;t replace it.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
+                            <h3 className="font-bold mb-2">No PO on the Job?</h3>
+                            <p className="text-gray-700">
+                                Nothing changes — the Reference or Customer Memo is built exactly as it was before this feature, and an existing QuickBooks memo is never overwritten if the job has no PO.
+                            </p>
+                        </div>
+
+                        <div className="bg-amber-50 border-l-4 border-amber-500 p-6">
+                            <h3 className="font-bold mb-2">It&apos;s a Snapshot at Invoice Creation</h3>
+                            <p className="text-gray-700">
+                                The PO is captured when the invoice is built. Editing the job&apos;s PO number afterwards does <strong>not</strong> update an invoice that already exists — if the PO needs to change on a posted invoice, void it and recreate it.
+                            </p>
                         </div>
                     </section>
 

@@ -4,7 +4,7 @@ export const documentNumberingGuide: IDocGuide = {
   slug: 'document-numbering',
   title: 'Document Numbering',
   description: 'Customize invoice, quote, certificate, and job number formats with prefixes, date patterns, and sequential counters for professional document management.',
-  lastUpdated: '2024-05-23',
+  lastUpdated: '2026-08-13',
   sections: [
     {
       id: 'overview',
@@ -174,6 +174,10 @@ export const documentNumberingGuide: IDocGuide = {
         {
           title: 'Work Order Numbering',
           content: '<p>Similar to jobs, work orders use sequential numbering. Pattern: <code>WO-{YYYY}-{counter}</code>. Work orders are typically used for multi-visit or ongoing projects.</p>',
+        },
+        {
+          title: 'PO Numbers Aren\'t Part of This System',
+          content: '<p>A job\'s <strong>PO number</strong> (purchase order) is a reference your <em>customer</em> supplies — not a sequence Opscel generates, and not configurable here. It has no format pattern or counter of its own; you type it in as free text on the job, and it carries through to invoices and accounting the same way regardless of how you\'ve set up numbering elsewhere. See <a href="/docs/jobs" class="text-blue-600 hover:underline">Jobs</a> for where it\'s set.</p>',
         },
       ],
     },

@@ -4,7 +4,7 @@ export const quotationsGuide: IDocGuide = {
     title: 'Quotations Overview',
     description: 'Create professional quotes, manage customer acceptance, and convert quotes to jobs. Track quote performance with analytics and streamline your sales workflow.',
     slug: 'quotations',
-    lastUpdated: '2026-07-19',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -334,12 +334,16 @@ export const quotationsGuide: IDocGuide = {
                         'Filter by <strong>Accepted</strong> status',
                         'Open the accepted quote',
                         'Click <strong>Convert to Job</strong>',
-                        'Opscel creates a draft job with: customer, site address, job description (from quote title), expected revenue (quote total), line items (in job notes)',
+                        'The dialog opens with <strong>Job type</strong>, <strong>Service type</strong>, and <strong>Contract manager</strong> fields, plus an optional <strong>PO number</strong> input (e.g. <em>PO-4821</em>) — enter the customer\'s purchase order here if they\'ve supplied one',
+                        'Opscel creates a draft job with: customer, site address, job description (from quote title), expected revenue (quote total), line items (in job notes), and the PO number if you entered one',
                         'Schedule the job (assign engineer, set date)',
                         'Click <strong>Save Job</strong>',
                         'Quote status changes to <strong>Converted to Job</strong>',
                         'Job detail page shows link back to parent quote',
                     ],
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900">Quotes themselves don\'t have a PO number field — <strong>conversion is the first point at which one can be recorded</strong> for this piece of work. If the customer gives you a PO before the quote is accepted, hold onto it and enter it at this step.</p></div>',
                 },
                 {
                     title: 'What You Should See',
@@ -353,6 +357,7 @@ export const quotationsGuide: IDocGuide = {
                         '<strong>Expected revenue:</strong> Set to quote grand total',
                         '<strong>Line items:</strong> Copied to job notes (not job parts - engineer adds parts during work)',
                         '<strong>Special instructions:</strong> Quote notes copied to job instructions',
+                        '<strong>PO number:</strong> Only what you type in the conversion dialog — not carried from anywhere, since quotes don\'t have this field',
                     ],
                 },
                 {

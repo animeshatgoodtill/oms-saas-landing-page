@@ -4,7 +4,7 @@ export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
     description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
-    lastUpdated: '2026-05-20',
+    lastUpdated: '2026-08-13',
     sections: [
         {
             id: 'overview',
@@ -170,10 +170,18 @@ export const fieldServiceGuide: IDocGuide = {
                     steps: [
                         { step: 'Tap a job card from the Today\'s Jobs list', description: '' },
                         { step: 'The job detail hub opens', description: 'Shows a Progress Orb and quick action buttons' },
-                        { step: 'Review the Overview section', description: 'Customer details, site address, job description, scheduled time' },
+                        { step: 'Review the Overview section', description: 'Customer details, site address, job description, scheduled time, and a PO badge if the office has set a customer purchase order' },
                         { step: 'Check if a risk assessment is required', description: 'Red indicator if not completed' },
                         { step: 'Tap the address to open navigation', description: 'Opens your device\'s map app' }
                     ]
+                },
+                {
+                    title: 'PO Number Badge',
+                    content: `
+                        <p class="mb-4">
+                            If the office has set a PO (purchase order) number on the job, it shows as a badge on the job detail page. This is <strong>read-only in the field app</strong> — if it needs to change, ask the office to update it from the admin job page.
+                        </p>
+                    `
                 },
                 {
                     title: 'Risk Assessment',

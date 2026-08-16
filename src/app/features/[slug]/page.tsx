@@ -1,12 +1,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import FAQAccordion from '@/components/FAQAccordion';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import CtaBox from '@/components/CtaBox';
+import FeatureSpotlight from '@/components/FeatureSpotlight';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
 
 interface FeatureDetailPageProps {
@@ -176,50 +176,10 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
           </section>
       )}
 
-      {/* Legacy Feature Sections (for backward compatibility) */}
-      {feature.sections && feature.sections.map((section, index) => (
-        <section
-          key={index}
-          style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}
-          className={index % 2 === 1 ? 'bg-hero-background' : ''}
-        >
-          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="mb-6">
-                {section.title}
-              </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                {section.description}
-              </p>
-
-              {/* Bullets if provided */}
-              {section.bullets && section.bullets.length > 0 && (
-                <ul className="space-y-4">
-                  {section.bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="flex items-start gap-3">
-                      <BsFillCheckCircleFill className="h-6 w-6 text-secondary mt-1 flex-shrink-0" />
-                      <span className="text-foreground-accent text-lg">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Image if provided */}
-              {section.imageSrc && (
-                <div className="mt-8 rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={section.imageSrc}
-                    alt={section.title || section.description}
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto"
-                  />
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      ))}
+      {/* ── PRODUCT SPOTLIGHT ── */}
+      {feature.sections && feature.sections.length > 0 && (
+        <FeatureSpotlight sections={feature.sections} />
+      )}
 
       {/* ── COMPARISON ── */}
       {feature.comparison && feature.comparison.length > 0 && (

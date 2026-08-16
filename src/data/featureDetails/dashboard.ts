@@ -206,6 +206,54 @@ export const dashboardDetail: IFeatureDetail = {
         }
     ],
 
+    sections: [
+        {
+            eyebrow: 'Dashboard & Insights',
+            title: 'Your Business at a Glance. Finally.',
+            description: 'Four-week trends on every figure, and the five things that actually need you today — above the fold, in under half a second.',
+            imageSrc: '/images/features/dashboard/needs-attention-card.webp',
+            imageAlt: 'Needs Attention card showing 5 capped items: EICR overdue, certificate not issued, quote unanswered',
+            imageWidth: 1320,
+            imageHeight: 552
+        },
+        {
+            eyebrow: 'Jobs Needing Attention',
+            title: 'Five Items. Never Six.',
+            description: 'Prioritised by urgency, each one a single click from the fix. A list you can scroll is a list you postpone.',
+            imageSrc: '/images/features/dashboard/attention-list.webp',
+            imageAlt: 'Five prioritised attention items with one-click action buttons: assign engineer, issue certificate, follow up, assign, create quote',
+            imageWidth: 2160,
+            imageHeight: 952
+        },
+        {
+            eyebrow: 'Team Utilisation',
+            title: 'Who Can Take the 4pm Emergency?',
+            description: 'Green has capacity. Amber is busy. Red is overloaded. You do not need to ring anyone to find out.',
+            imageSrc: '/images/features/dashboard/team-utilisation.webp',
+            imageAlt: 'Team utilisation panel showing 5 engineers with job counts and colour-coded capacity percentages',
+            imageWidth: 1200,
+            imageHeight: 956
+        },
+        {
+            eyebrow: 'Quote Pipeline',
+            title: 'You Know Your Conversion Rate. To the Percent.',
+            description: 'Every quote, by stage, with the number that matters computed for you — and the ones sitting unopened that are costing you the difference.',
+            imageSrc: '/images/features/dashboard/quote-pipeline.webp',
+            imageAlt: 'Quote pipeline bar chart by stage (draft, sent, viewed, signed) next to a 39% conversion rate card',
+            imageWidth: 2160,
+            imageHeight: 588
+        },
+        {
+            eyebrow: 'Defects to Quote',
+            title: 'Five Defects. One Quote. One Click.',
+            description: 'The engineer logs what they found. The dashboard bundles it into a priced remedial quote before they have left site.',
+            imageSrc: '/images/features/dashboard/defects-to-quote.webp',
+            imageAlt: 'Defect list with critical and major severity tags converting into a priced, ready-to-send remedial quote',
+            imageWidth: 2160,
+            imageHeight: 600
+        }
+    ],
+
     ctaText: 'Start Free Trial',
     ctaUrl: 'https://app.opscel.com/handler/sign-up'
 };

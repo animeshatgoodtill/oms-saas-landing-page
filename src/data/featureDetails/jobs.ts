@@ -217,6 +217,45 @@ export const jobsDetail: IFeatureDetail = {
         }
     ],
 
+    sections: [
+        {
+            eyebrow: 'Jobs & Scheduling',
+            title: 'A Job Created in Under Two Minutes.',
+            description: 'Customer, details, schedule, review. Pre-filled from the customer record, so there is nothing to retype.',
+            imageSrc: '/images/features/jobs/creation-wizard.webp',
+            imageAlt: 'Four-step job creation wizard: Customer, Details, Schedule, Review — with customer, job type, and scheduled time filled in',
+            imageWidth: 2160,
+            imageHeight: 416
+        },
+        {
+            eyebrow: 'Multi-Engineer Assignment',
+            title: 'Two-Person Jobs, No Coordination Confusion.',
+            description: 'Assign as many engineers as the job needs, designate the primary contact, and everyone can see who else is on it.',
+            imageSrc: '/images/features/jobs/multi-engineer-card.webp',
+            imageAlt: 'Job card for fire alarm commissioning showing a primary engineer and a second engineer assigned',
+            imageWidth: 2160,
+            imageHeight: 318
+        },
+        {
+            eyebrow: 'Built for Your Industry',
+            title: 'Forms That Know Your Trade.',
+            description: 'Electrical gets 18 fields. Fire Safety gets 25. No generic forms, no workarounds.',
+            imageSrc: '/images/features/jobs/industry-fields.webp',
+            imageAlt: 'Electrical job form with 18 fields next to Fire Safety job form with 25 fields',
+            imageWidth: 2160,
+            imageHeight: 492
+        },
+        {
+            eyebrow: 'Duration & Documentation',
+            title: 'Check Out, and the Paperwork Writes Itself.',
+            description: 'Duration rounds to the nearest 15 minutes. Completion triggers the certificate — pre-filled from the job.',
+            imageSrc: '/images/features/jobs/duration-cert.webp',
+            imageAlt: 'Auto duration card showing check-in and check-out times next to an auto-generated EICR certificate with pre-filled fields',
+            imageWidth: 2160,
+            imageHeight: 382
+        }
+    ],
+
     ctaText: 'Start Free Trial',
     ctaUrl: 'https://app.opscel.com/handler/sign-up'
 };

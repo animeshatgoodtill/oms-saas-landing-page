@@ -54,9 +54,13 @@ export interface ISocials {
 }
 
 export interface IFeatureDetailSection {
+    eyebrow?: string;
     title?: string;
     description: string;
     imageSrc?: string;
+    imageAlt?: string;
+    imageWidth?: number;
+    imageHeight?: number;
     bullets?: string[];
 }
 

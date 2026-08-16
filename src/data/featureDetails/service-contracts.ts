@@ -6,7 +6,6 @@ export const serviceContractsDetail: IFeatureDetail = {
     subtitle: 'Opscel Service Contracts',
     heroDescription: 'Turn one-off jobs into recurring contracts that generate their own work. Set the service, the cadence, and the price once — Opscel creates the next draft job before every due date. No missed PPM, no diary reminders, no "did we ever book the annual?"',
     iconId: 'icon-calendar-sync',
-    screenshotImage: '/images/ui/service-contracts-screen.png',
 
     stats: [
         { value: '3 ways', label: 'Start a recurring contract: from scratch, a job, or an accepted quote' },
@@ -166,6 +165,45 @@ export const serviceContractsDetail: IFeatureDetail = {
         {
             question: 'Who can manage service contracts?',
             answer: 'Admin-type roles only. Field engineers don\'t see contract screens — though the access notes and site log you set do travel to their job in the field app.'
+        }
+    ],
+
+    sections: [
+        {
+            eyebrow: 'Service Contracts',
+            title: 'Pull One Visit Forward. The Rest Doesn\'t Move.',
+            description: 'Fixed-anchor scheduling: generate the September visit early and December stays on the 16th — guaranteed, not just usually.',
+            imageSrc: '/images/features/service-contracts/fixed-anchor-scheduling.webp',
+            imageAlt: 'Bi-annual fire alarm service timeline showing three generated visits and two projected visits anchored to the 16th of the month',
+            imageWidth: 2160,
+            imageHeight: 474
+        },
+        {
+            eyebrow: 'Three Ways to Start',
+            title: 'From Scratch. From a Job. From a Quote.',
+            description: 'The quote path confirms the true recurring price — it never blindly reuses a total that includes one-off install work.',
+            imageSrc: '/images/features/service-contracts/three-ways-to-start.webp',
+            imageAlt: 'Three cards showing contract creation paths: from scratch, from a job, and from a quote',
+            imageWidth: 2160,
+            imageHeight: 306
+        },
+        {
+            eyebrow: 'Multi-Site Agreements',
+            title: 'The Whole Portfolio. One Table.',
+            description: 'Every site\'s cadence, next due date, and value — plus the agreement\'s total annual value, rolled up.',
+            imageSrc: '/images/features/service-contracts/portfolio-rollup.webp',
+            imageAlt: 'Hartley Estates master agreement table listing four sites with cadence, next due date, and per-visit value, plus £20,640 annual value',
+            imageWidth: 2160,
+            imageHeight: 598
+        },
+        {
+            eyebrow: 'Bulk-Create from a Template',
+            title: 'Set It Once. Roll It Across Every Site.',
+            description: 'Cadence, service type, and per-visit price — applied to every site in one screen, with per-site overrides where a bigger site needs a higher price.',
+            imageSrc: '/images/features/service-contracts/bulk-create-template.webp',
+            imageAlt: 'Bulk-create template applying fire alarm service every 6 months at £420 per visit to 12 sites, with a price override for one site',
+            imageWidth: 2160,
+            imageHeight: 496
         }
     ],
 

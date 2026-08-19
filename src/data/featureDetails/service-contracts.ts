@@ -191,6 +191,7 @@ export const serviceContractsDetail: IFeatureDetail = {
             eyebrow: 'Multi-Site Agreements',
             title: 'The Whole Portfolio. One Table.',
             description: 'Every site\'s cadence, next due date, and value — plus the agreement\'s total annual value, rolled up.',
+            stat: { value: '£20,640', label: 'Annual value, rolled up' },
             imageSrc: '/images/features/service-contracts/portfolio-rollup.webp',
             imageAlt: 'Hartley Estates master agreement table listing four sites with cadence, next due date, and per-visit value, plus £20,640 annual value',
             imageWidth: 2160,

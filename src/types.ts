@@ -62,6 +62,10 @@ export interface IFeatureDetailSection {
     imageWidth?: number;
     imageHeight?: number;
     bullets?: string[];
+    stat?: {
+        value: string;
+        label: string;
+    };
 }
 
 export interface IFeatureHighlight {

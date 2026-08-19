@@ -222,6 +222,7 @@ export const jobsDetail: IFeatureDetail = {
             eyebrow: 'Jobs & Scheduling',
             title: 'A Job Created in Under Two Minutes.',
             description: 'Customer, details, schedule, review. Pre-filled from the customer record, so there is nothing to retype.',
+            stat: { value: '<2 min', label: 'Avg. creation time' },
             imageSrc: '/images/features/jobs/creation-wizard.webp',
             imageAlt: 'Four-step job creation wizard: Customer, Details, Schedule, Review — with customer, job type, and scheduled time filled in',
             imageWidth: 2160,

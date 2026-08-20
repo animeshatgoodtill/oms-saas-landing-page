@@ -38,7 +38,7 @@ const EULAPage: React.FC = () => {
         <ul className="list-disc list-inside space-y-2 text-blue-800 ml-4">
           <li><strong>You own your data</strong> — we never sell or share it with other customers</li>
           <li><strong>You verify everything</strong> — Opscel is a tool; you remain professionally responsible for all certificates, compliance work, and decisions</li>
-          <li><strong>Pay monthly</strong> — 90-day free trial, cancel anytime</li>
+          <li><strong>Pay monthly</strong> — 30-day free trial, card required at signup, cancel anytime</li>
           <li><strong>UK-hosted</strong> — your data stays in UK data centres, governed by English law</li>
           <li><strong>AI is assistive only</strong> — never rely on AI suggestions without independent professional verification</li>
           <li><strong>Opscel&apos;s liability is strictly limited</strong> — see Section 14 for full details</li>
@@ -138,13 +138,13 @@ const EULAPage: React.FC = () => {
 
         <div className="bg-muted p-4 rounded-lg mb-4">
           <p className="text-sm text-muted-foreground italic">
-            <strong>In plain English:</strong> 90-day free trial requires a payment method. Monthly billing afterwards. All fees are non-refundable except as required by law.
+            <strong>In plain English:</strong> 30-day free trial requires a payment method, but you&apos;re not charged until the trial ends. Monthly billing afterwards. All fees are non-refundable except as required by law.
           </p>
         </div>
 
         <div className="space-y-4 text-foreground-accent">
           <p>
-            <strong>3.1 Free Trial.</strong> New customers may receive a 90-day free trial period as determined by Opscel in its sole discretion. A valid payment method is required to commence the trial. Unless cancelled by Customer prior to the end of the trial, the Subscription will automatically convert to a paid Subscription and Customer authorises Opscel to charge the applicable Subscription Fees.
+            <strong>3.1 Free Trial.</strong> New customers may receive a 30-day free trial period as determined by Opscel in its sole discretion. A valid payment method is required to commence the trial, though Customer is not charged during the trial itself. Unless cancelled by Customer prior to the end of the trial, the Subscription will automatically convert to a paid Subscription and Customer authorises Opscel to charge the applicable Subscription Fees.
           </p>
 
           <p>

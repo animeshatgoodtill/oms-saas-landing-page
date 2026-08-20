@@ -110,7 +110,7 @@ export const assetsDetail: IFeatureDetail = {
             label: 'Service history per asset with date-and-initials columns, ready for inspection'
         },
         {
-            value: '£79/mo',
+            value: '£149/mo',
             label: 'Business plan — unlimited assets, no per-asset fees'
         }
     ],
@@ -177,7 +177,7 @@ export const assetsDetail: IFeatureDetail = {
         },
         {
             question: 'Is asset tracking available on all plans?',
-            answer: 'Asset tracking is available on the Business plan (£79/month, 8 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import. Bulk CSV asset import specifically carries this same Business-plan gate — Starter and Team can still import customers, contacts, addresses, and jobs, just not assets.'
+            answer: 'Asset tracking is available on the Business plan (£149/month, 5 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import. Bulk CSV asset import specifically carries this same Business-plan gate — Starter and Team can still import customers, contacts, addresses, and jobs, just not assets.'
         },
         {
             question: 'Can I import existing asset data from spreadsheets?',

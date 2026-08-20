@@ -8,12 +8,12 @@ interface FeatureSpotlightProps {
 }
 
 /**
- * Product spotlight sections — one real product story per section, framed
- * like an actual product surface rather than a pasted screenshot: a
- * left-aligned header row (eyebrow pill + headline + dek, with an optional
- * highlight stat), a textured/glowing backdrop, a ghost index numeral for
- * editorial rhythm, and the visual itself inside a browser-chrome frame so
- * it reads as "this is the real app" rather than marketing art.
+ * Product spotlight sections — one real product story per section. The
+ * visuals are pre-cropped product cards that already carry their own
+ * rounded corners and soft shadow, so they float directly on the section's
+ * textured backdrop with no extra frame around them — an airy, editorial
+ * composition (eyebrow, big headline, dek, optional stat) rather than a
+ * screenshot boxed up in more chrome.
  */
 const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
   return (
@@ -21,8 +21,7 @@ const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
       {sections.map((section, index) => {
         const tinted = index % 2 === 1;
         const accent = index % 2 === 0 ? 'var(--secondary)' : 'var(--primary)';
-        const accentSoft = index % 2 === 0 ? 'rgba(48,79,255,0.08)' : 'rgba(254,216,53,0.14)';
-        const glowSide = index % 2 === 0 ? { right: '-8%', top: '-15%' } : { left: '-8%', bottom: '-15%' };
+        const glowSide = index % 2 === 0 ? { right: '-8%', top: '-18%' } : { left: '-8%', bottom: '-18%' };
         const num = String(index + 1).padStart(2, '0');
 
         return (
@@ -31,7 +30,7 @@ const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
             className={`relative overflow-hidden ${tinted ? 'bg-hero-background' : 'bg-white'}`}
             style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}
           >
-            {/* dot-grid texture */}
+            {/* soft engineering-grid texture */}
             <div
               className="absolute inset-0 opacity-60"
               style={{
@@ -60,17 +59,14 @@ const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
               </span>
 
               {/* header row: copy left, stat right */}
-              <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
+              <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
                 <div className="max-w-[36rem]">
                   {section.eyebrow && (
-                    <div
-                      className="inline-flex items-center gap-2 mb-4 pl-2.5 pr-3.5 py-1 rounded-full border"
-                      style={{ borderColor: accent, background: accentSoft }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+                    <div className="inline-flex items-center gap-2.5 mb-4">
+                      <span className="w-6 h-[2px]" style={{ background: accent }} />
                       <span
-                        className="font-heading text-[0.75rem] font-bold uppercase tracking-[0.1em]"
-                        style={{ color: 'var(--foreground)' }}
+                        className="font-heading text-[0.8125rem] font-bold uppercase tracking-[0.12em]"
+                        style={{ color: 'var(--secondary)' }}
                       >
                         {section.eyebrow}
                       </span>
@@ -118,37 +114,19 @@ const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
                 )}
               </div>
 
-              {/* product visual, framed like a real app window */}
+              {/* the product visual itself — already a styled card (rounded
+                  corners + soft shadow baked in), so it floats free on the
+                  textured backdrop with generous room around it */}
               {section.imageSrc && (
-                <div className="relative">
-                  <div
-                    className="rounded-2xl border border-border bg-white overflow-hidden"
-                    style={{ boxShadow: '0 30px 70px -24px rgba(23,23,23,0.28), 0 4px 14px -4px rgba(23,23,23,0.08)' }}
-                  >
-                    {/* chrome bar */}
-                    <div
-                      className="flex items-center gap-4 px-4 sm:px-5 py-2.5 border-b border-border"
-                      style={{ background: 'var(--muted)' }}
-                    >
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--border)' }} />
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--border)' }} />
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ background: 'var(--border)' }} />
-                      </div>
-                      <span className="font-mono text-[0.6875rem] text-muted-foreground tracking-wide truncate">
-                        app.opscel.com — {(section.eyebrow || section.title || '').toLowerCase()}
-                      </span>
-                    </div>
-                    <div className="p-4 sm:p-6" style={{ background: 'var(--muted)' }}>
-                      <Image
-                        src={section.imageSrc}
-                        alt={section.imageAlt || section.title || section.description}
-                        width={section.imageWidth || 1200}
-                        height={section.imageHeight || 800}
-                        className="w-full h-auto rounded-lg border border-border"
-                      />
-                    </div>
-                  </div>
+                <div className="flex justify-center">
+                  <Image
+                    src={section.imageSrc}
+                    alt={section.imageAlt || section.title || section.description}
+                    width={section.imageWidth || 1200}
+                    height={section.imageHeight || 800}
+                    className="w-full h-auto"
+                    style={{ maxWidth: 'min(100%, 60rem)' }}
+                  />
                 </div>
               )}
             </div>

@@ -3,44 +3,62 @@ import { IPricing } from "@/types";
 export const tiers: IPricing[] = [
     {
         name: 'Starter',
-        price: '£29/month',
+        price: '£49/month',
+        priceGBP: 49,
+        usersIncluded: 1,
         features: [
-            '3 users included (+£10/month per additional)',
+            '1 user included (+£29/month per additional)',
             'Unlimited jobs and customers',
             'All 16 certificate types',
             'Mobile field service app',
-            'Good-Better-Best quoting',
+            'Job sheets and worksheets',
+            'Quotations with customer portal accept/decline',
             'Job-to-invoice workflow',
-            '90-day free trial',
+            '100 free AI credits every month',
+            '25 GB storage',
+            '30-day free trial, card required',
         ],
     },
     {
         name: 'Team',
-        price: '£49/month',
+        price: '£99/month',
+        priceGBP: 99,
+        usersIncluded: 3,
         features: [
-            '5 users included (+£10/month per additional)',
+            '3 users included (+£29/month per additional)',
             'Everything in Starter',
-            'Multi-engineer scheduling',
-            'Role-based permissions',
-            'CSV data import',
-            'Custom PDF branding',
-            'Priority email support',
-            '90-day free trial',
+            'Good-Better-Best tiered quoting',
+            'Deposit collection on quotes',
+            'Xero and QuickBooks sync',
+            'Service contracts and renewal reminders',
+            '100 GB storage',
+            '30-day free trial, card required',
         ],
     },
     {
         name: 'Business',
-        price: '£79/month',
+        price: '£149/month',
+        priceGBP: 149,
+        usersIncluded: 5,
         features: [
-            '8 users included (+£10/month per additional)',
+            '5 users included (+£29/month per additional)',
             'Everything in Team',
-            'Customer Portal with magic link auth',
-            'Asset and equipment tracking',
-            'Engineer performance dashboard',
-            'Xero integration',
-            'Deposit payments via Stripe',
-            'Priority phone and email support',
-            '90-day free trial',
+            'Asset register with QR/NFC tags',
+            'Remote monitoring (ARC-handled cases)',
+            'RAMS (risk assessments & method statements)',
+            'Customer self-service portal',
+            '250 GB storage',
+            '30-day free trial, card required',
         ],
     },
 ]
+
+// Launch promo: 50% off the base price for the first 3 months, on every
+// tier, applied automatically at signup — no code, no action from the
+// customer. Does not discount the £29/mo extra-user price. Currently
+// unlimited-duration (no end date configured), so this is framed as the
+// standing new-customer price rather than a "limited time" offer.
+export const launchPromo = {
+    headline: '50% off your first 3 months',
+    detail: 'Applied automatically to every plan at signup — no code needed. Doesn\'t discount extra users.',
+}

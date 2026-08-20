@@ -19,7 +19,7 @@ const CTA: React.FC = () => {
                                 href="https://app.opscel.com/handler/sign-up"
                                 className="bg-primary text-black hover:bg-primary-accent px-8 py-3 rounded-full font-medium transition-colors"
                             >
-                                Join Pilot Program
+                                Start Free Trial
                             </a>
                             <a
                                 href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"

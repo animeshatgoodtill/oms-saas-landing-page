@@ -11,7 +11,7 @@ export const quotationsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, and track acceptance/rejection. Accepted quotes convert to a job in one click, with every detail carried over — no re-typing. Business+ tier adds quote analytics for conversion tracking. Available to Admins, Contract Managers, and Accounts. (Site Manager and Engineer roles don\'t have quote access.)',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, and track acceptance/rejection. Accepted quotes convert to a job in one click, with every detail carried over — no re-typing. Business tier adds quote analytics for conversion tracking. Available to Admins, Contract Managers, and Accounts. (Site Manager and Engineer roles don\'t have quote access.)',
                 },
                 {
                     title: 'Key Benefits',
@@ -20,7 +20,7 @@ export const quotationsGuide: IDocGuide = {
                         '<strong>Customer self-service:</strong> Customers can accept/reject quotes via portal - no back-and-forth emails',
                         '<strong>One-click job creation:</strong> Convert an accepted quote to a job with all data carried forward - no re-typing',
                         '<strong>Defect-to-quote workflow:</strong> Generate remedial quotes directly from EICR observations',
-                        '<strong>Quote analytics (Business+ tier):</strong> Track conversion rates, win/loss ratios, and average quote values',
+                        '<strong>Quote analytics (Business tier):</strong> Track conversion rates, win/loss ratios, and average quote values',
                         '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (Team &amp; Business plans)',
                     ],
                 },
@@ -406,11 +406,11 @@ export const quotationsGuide: IDocGuide = {
         },
         {
             id: 'quote-analytics',
-            title: 'Quote Analytics (Business+ Tier)',
+            title: 'Quote Analytics (Business Tier)',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business+<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager',
+                    content: '<strong>Tier:</strong> Business<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager',
                 },
                 {
                     title: 'Tracking Quote Performance',

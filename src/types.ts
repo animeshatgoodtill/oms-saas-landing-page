@@ -20,6 +20,8 @@ export interface IBenefitBullet {
 export interface IPricing {
     name: string;
     price: number | string;
+    priceGBP: number;
+    usersIncluded: number;
     features: string[];
 }
 

@@ -11,7 +11,7 @@ export const reportsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Jobs Report is available on all tiers; Quotations Report and scheduled reports require Business+ tier. Designed for Managers and Admins who need operational visibility.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Jobs Report is available on all tiers; Quotations Report and scheduled reports require Business tier. Designed for Managers and Admins who need operational visibility.',
                 },
                 {
                     title: 'Who Uses Reports',
@@ -26,7 +26,7 @@ export const reportsGuide: IDocGuide = {
                     bullets: [
                         'Job completion rates and overdue job counts',
                         'Revenue by job type, engineer, or customer',
-                        'Quote acceptance and rejection rates (Business+ tier)',
+                        'Quote acceptance and rejection rates (Business tier)',
                         'Average job duration and engineer utilization',
                         'Customer lifetime value and repeat business metrics',
                     ],
@@ -81,11 +81,11 @@ export const reportsGuide: IDocGuide = {
         },
         {
             id: 'quotations-report',
-            title: 'Quotations Report (Business+ Tier)',
+            title: 'Quotations Report (Business Tier)',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business+<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> Business<br><strong>Roles:</strong> Super Admin, Admin, Manager',
                 },
                 {
                     title: 'What the Quotations Report Shows',
@@ -191,7 +191,7 @@ export const reportsGuide: IDocGuide = {
                         'Generate a report (Jobs or Quotations)',
                         'Apply desired filters and date range',
                         'Click <strong>Export to CSV</strong> button (top right)',
-                        'Choose format: <strong>CSV</strong> (Excel/Google Sheets) or <strong>Excel (.xlsx)</strong> (Business+ tier)',
+                        'Choose format: <strong>CSV</strong> (Excel/Google Sheets) or <strong>Excel (.xlsx)</strong> (Business tier)',
                         'Download starts automatically',
                         'Open file in Excel, Google Sheets, or BI tool',
                     ],
@@ -207,7 +207,7 @@ export const reportsGuide: IDocGuide = {
                         rows: [
                             ['Starter', '1,000 rows', 'CSV only'],
                             ['Business', '5,000 rows', 'CSV only'],
-                            ['Business+', '50,000 rows', 'CSV, Excel (.xlsx)'],
+                            ['Business', '50,000 rows', 'CSV, Excel (.xlsx)'],
                         ],
                     },
                 },
@@ -266,11 +266,11 @@ export const reportsGuide: IDocGuide = {
         },
         {
             id: 'scheduled-reports',
-            title: 'Scheduled Reports (Business+ Tier)',
+            title: 'Scheduled Reports (Business Tier)',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business+<br><strong>Roles:</strong> Super Admin, Admin',
+                    content: '<strong>Tier:</strong> Business<br><strong>Roles:</strong> Super Admin, Admin',
                 },
                 {
                     title: 'Automatic Email Delivery',
@@ -345,7 +345,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I create custom metrics?',
-                    content: 'Not currently. Opscel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations. Business+ tier can request custom dashboard development (contact sales).',
+                    content: 'Not currently. Opscel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations. Business tier can request custom dashboard development (contact sales).',
                 },
                 {
                     title: 'Can I customize report layout or branding?',

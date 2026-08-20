@@ -85,7 +85,7 @@ export const jobsGuide: IDocGuide = {
                 {
                     title: 'Method 3: From Service Contract (Automatic)',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Business+ tier, automatic cron generation</p>
+                        <p class="mb-4"><strong>Availability:</strong> Business tier, automatic cron generation</p>
                         <p class="mb-4">Service contracts automatically create jobs based on cadence (weekly, monthly, quarterly, annual).</p>
                     `,
                     bullets: [
@@ -508,7 +508,7 @@ export const jobsGuide: IDocGuide = {
                 {
                     title: 'Service Contract Auto-Generation',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Business+ tier, when job completes</p>
+                        <p class="mb-4"><strong>Availability:</strong> Business tier, when job completes</p>
                         <p class="mb-4">
                             If a completed job has a service contract attached, the next job generates automatically based on cadence.
                         </p>

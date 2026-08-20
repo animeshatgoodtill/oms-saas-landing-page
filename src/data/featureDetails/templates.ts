@@ -61,7 +61,7 @@ export const templatesDetail: IFeatureDetail = {
         {
             iconId: 'icon-user-roles',
             title: 'Team Tier Feature',
-            description: 'Custom PDF templates and branding available on Team tier (£49/month, 5 users) and Business tier (£79/month, 8 users). Starter tier uses Opscel default templates with your company name only.'
+            description: 'Custom PDF templates and branding available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier uses Opscel default templates with your company name only.'
         }
     ],
 

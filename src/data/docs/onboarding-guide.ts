@@ -148,8 +148,10 @@ export const onboardingGuide: IDocGuide = {
                     title: 'What happens after my trial ends?',
                     content: `
                         <p class="text-gray-700">
-                            Accounts move to the free Starter tier (2 users, 50 jobs/month). Upgrade to Team (£49/mo) or Business+ (£149/mo) if
-                            needed. All data remains accessible—no lock-in.
+                            Your 30-day free trial includes full access on the plan you signed up for. A card is required at signup, but
+                            you’re not charged until day 30—at that point billing starts automatically at your plan’s price (Starter £49/mo,
+                            Team £99/mo, Business £149/mo, all + VAT), plus 50% off that base price for your first 3 months. Downgrade,
+                            upgrade, or cancel any time from Settings → Billing. All data remains accessible—no lock-in.
                         </p>
                     `
                 }

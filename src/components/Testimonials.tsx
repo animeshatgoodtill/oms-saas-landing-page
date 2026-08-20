@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { testimonials } from '@/data/testimonials';
 
 const Testimonials: React.FC = () => {
-    // Handle single pilot message display
+    // Handle single placeholder message display
     if (testimonials.length === 1 && !testimonials[0].name) {
         return (
             <div className="text-center max-w-2xl mx-auto">

@@ -22,8 +22,8 @@ const HomePage: React.FC = () => {
 
         <Section
           id="pricing"
-          title="Simple pricing. 90-day free trial."
-          description="Full access from day one. Cancel anytime."
+          title="Simple pricing. 50% off your first 3 months."
+          description="30-day free trial, card required. Full access from day one. Cancel anytime."
         >
           <Pricing />
         </Section>

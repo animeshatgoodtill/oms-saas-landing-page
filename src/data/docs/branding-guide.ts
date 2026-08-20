@@ -434,7 +434,7 @@ export const brandingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Can I use different logos for different document types?',
-                    content: 'Not currently. Opscel uses one company logo across all documents (certificates, quotes, invoices). If you need different branding per document type, contact support — this is a Business+ tier feature request we\'re tracking.',
+                    content: 'Not currently. Opscel uses one company logo across all documents (certificates, quotes, invoices). If you need different branding per document type, contact support — this is a Business tier feature request we\'re tracking.',
                 },
                 {
                     title: 'What image formats are supported for logos?',
@@ -446,7 +446,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I customize fonts?',
-                    content: 'Not currently. Opscel uses a standard font set (Source Sans Pro for body, Manrope for headings) to ensure cross-platform PDF compatibility. Custom fonts require embedding in PDFs, which increases file size. If you need custom fonts, contact support for Business+ tier options.',
+                    content: 'Not currently. Opscel uses a standard font set (Source Sans Pro for body, Manrope for headings) to ensure cross-platform PDF compatibility. Custom fonts require embedding in PDFs, which increases file size. If you need custom fonts, contact support for Business tier options.',
                 },
                 {
                     title: 'Why does my logo look fine in preview but blurry in the final PDF?',
@@ -454,7 +454,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'How do I remove accreditation badges from specific certificate types?',
-                    content: 'Opscel auto-filters badges by certificate type (e.g., NICEIC only shows on electrical certs). To fully remove a badge, go to Settings → Accreditation Badges, find the badge, and toggle "Display on Certificates" OFF. To hide a badge from one certificate type only, you\'ll need to create a custom template (Business+ tier).',
+                    content: 'Opscel auto-filters badges by certificate type (e.g., NICEIC only shows on electrical certs). To fully remove a badge, go to Settings → Accreditation Badges, find the badge, and toggle "Display on Certificates" OFF. To hide a badge from one certificate type only, you\'ll need to create a custom template (Business tier).',
                 },
                 {
                     title: 'Can I add a watermark to draft certificates?',

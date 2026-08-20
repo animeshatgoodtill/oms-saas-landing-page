@@ -56,7 +56,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             iconId: 'icon-price-tag',
             title: 'Team Tier Feature',
-            description: 'Customer, contact, address and job import is available from Team tier (£49/month, 5 users) upward. Asset import specifically requires the Business tier (£79/month, 8 users), alongside the rest of Asset Management. Starter tier does not include CSV import at all.'
+            description: 'Customer, contact, address and job import is available from Team tier (£99/month, 3 users) upward. Asset import specifically requires the Business tier (£149/month, 5 users), alongside the rest of Asset Management. Starter tier does not include CSV import at all.'
         }
     ],
 

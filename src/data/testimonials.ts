@@ -4,7 +4,7 @@ export const testimonials: ITestimonial[] = [
     {
         name: '',
         role: '',
-        message: 'Currently in pilot with UK fire safety contractors.',
+        message: 'Now live with UK fire safety and electrical contractors.',
         avatar: '',
     },
 ];

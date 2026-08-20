@@ -254,12 +254,12 @@ export const featureCategories: IFeatureCategory[] = [
     },
     {
         title: "Simple, Transparent Pricing",
-        description: "No surprise fees, no per-job charges, no 'contact sales.' Three tiers, clear pricing, upgrade or downgrade anytime.",
+        description: "No surprise fees, no per-job charges. Three tiers, clear pricing, upgrade or downgrade anytime.",
         iconId: "icon-price-tag",
         features: [
             {
-                title: "90-Day Free Trial",
-                description: "Full access to everything for 90 days. If it doesn't work for you, cancel—no questions, no hard feelings.",
+                title: "30-Day Free Trial",
+                description: "Full access to everything for 30 days. Card required at signup, but you're not charged until day 30 — and every new plan gets 50% off its base price for the first 3 months on top of that.",
                 iconId: "icon-trial-period"
             },
             {
@@ -268,8 +268,8 @@ export const featureCategories: IFeatureCategory[] = [
                 iconId: "icon-active-users"
             },
             {
-                title: "£10 Per Additional User",
-                description: "Every plan includes users (3, 5, or 8). Need more? £10/month per person, any tier. Simple math, no surprises.",
+                title: "£29 Per Additional User",
+                description: "Every plan includes users (1, 3, or 5). Need more? £29/month per person, any tier. Simple math, no surprises.",
                 iconId: "icon-price-tag"
             },
             {

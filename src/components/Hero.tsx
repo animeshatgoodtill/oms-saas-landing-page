@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                                 <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-green-100 text-green-800 flex items-center justify-center text-[0.6rem] font-bold">GS</div>
                                 <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-pink-100 text-pink-800 flex items-center justify-center text-[0.6rem] font-bold">+</div>
                             </div>
-                            <span className="text-sm text-muted-foreground">Piloting with UK fire safety &amp; electrical contractors</span>
+                            <span className="text-sm text-muted-foreground">Trusted by UK fire safety &amp; electrical contractors</span>
                         </div>
                     </div>
 

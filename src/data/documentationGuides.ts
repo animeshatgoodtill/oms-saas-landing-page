@@ -180,7 +180,7 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
     // Reports & Analytics
     {
         title: 'Reports & Analytics',
-        description: 'Complete guide to jobs reports and quotations reports (Business+ tier). Learn about filtering, date ranges, exporting, and key metrics.',
+        description: 'Complete guide to jobs reports and quotations reports (Business tier). Learn about filtering, date ranges, exporting, and key metrics.',
         url: '/docs/reports',
         category: 'Reports & Analytics',
         icon: 'icon-gear'

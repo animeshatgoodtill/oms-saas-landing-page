@@ -46,7 +46,7 @@ export const teamDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-customer',
             title: 'Flexible User Limits',
-            description: '3 users on Starter, 5 on Team, 8 on Business—then £10/month per additional user. Scale team size without tier jumps. Add temporary staff for busy season, remove when quiet. No long-term commitment per user.'
+            description: '1 user on Starter, 3 on Team, 5 on Business—then £29/month per additional user, flat on every tier. Scale team size without tier jumps. Add temporary staff for busy season, remove when quiet. No long-term commitment per user.'
         },
         {
             iconId: 'icon-compliance-shield',
@@ -60,8 +60,8 @@ export const teamDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-user-roles',
-            title: 'Team Tier Feature (5 Users)',
-            description: 'Advanced role permissions (7 roles) available on Team tier (£49/month, 5 users) and Business tier (£79/month, 8 users). Starter tier (£29/month, 3 users) has basic roles: Owner, Engineer, Office Staff.'
+            title: 'Team Tier Feature (3 Users)',
+            description: 'Advanced role permissions (7 roles) available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier (£49/month, 1 user) has basic roles: Owner, Engineer, Office Staff.'
         }
     ],
 
@@ -127,7 +127,7 @@ export const teamDetail: IFeatureDetail = {
             label: 'Owner, Admin, Manager, Engineer, Office Staff, Read-Only, Accountant'
         },
         {
-            value: '£10/month',
+            value: '£29/month',
             label: 'Per additional user beyond tier limit—no tier jump required'
         },
         {
@@ -207,7 +207,7 @@ export const teamDetail: IFeatureDetail = {
         },
         {
             question: 'What if I exceed my user limit?',
-            answer: 'Starter includes 3 users, Team includes 5, Business includes 8. Need more? Add users at £10/month each—no tier jump required. Example: Team tier (£49) + 2 extra users = £69/month total. Scale smoothly without jumping to next tier.'
+            answer: 'Starter includes 1 user, Team includes 3, Business includes 5. Need more? Add users at £29/month each—no tier jump required. Example: Team tier (£99) + 2 extra users = £157/month total. Scale smoothly without jumping to next tier.'
         }
     ],
 

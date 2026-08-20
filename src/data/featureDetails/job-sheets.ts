@@ -79,6 +79,6 @@ export const jobSheetsDetail: IFeatureDetail = {
             ]
         }
     ],
-    ctaText: 'Try Professional Job Sheets Free for 90 Days',
+    ctaText: 'Try Professional Job Sheets Free for 30 Days',
     ctaUrl: 'https://app.opscel.com/handler/sign-up'
 };

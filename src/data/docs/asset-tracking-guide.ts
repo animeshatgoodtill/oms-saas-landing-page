@@ -13,7 +13,7 @@ export const assetTrackingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: 'Asset tracking is included on the Business plan (£79/month). Starter and Team plans don\'t include the asset module, the per-site register PDFs, or the worksheet-to-assets bridge.',
+                    content: 'Asset tracking is included on the Business plan (£149/month). Starter and Team plans don\'t include the asset module, the per-site register PDFs, or the worksheet-to-assets bridge.',
                     bullets: []
                 }
             ]
@@ -287,7 +287,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'What tier do I need?',
-                    content: 'Asset Management is on the Business plan (£79/month). Starter and Team plans don\'t include the asset module, the per-site register PDFs, or the worksheet-to-assets bridge.',
+                    content: 'Asset Management is on the Business plan (£149/month). Starter and Team plans don\'t include the asset module, the per-site register PDFs, or the worksheet-to-assets bridge.',
                     bullets: []
                 },
                 {

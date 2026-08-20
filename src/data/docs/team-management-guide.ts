@@ -486,7 +486,7 @@ export const teamManagementGuide: IDocGuide = {
                         'Tier limits (feature available on user&apos;s current tier?)',
                         'User has logged out and back in since role change',
                         'License count (user counted toward tier limit?)',
-                        '<strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., Quotations analytics) require Business+ tier. If user recently changed roles, ask them to log out and log back in.'
+                        '<strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., Quotations analytics) require Business tier. If user recently changed roles, ask them to log out and log back in.'
                     ]
                 },
                 {
@@ -543,11 +543,10 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'How many users can I add?',
                     content: '<p>User limits depend on your tier:</p>',
                     bullets: [
-                        '<strong>Starter:</strong> 3 users included',
-                        '<strong>Team:</strong> 5 users included',
-                        '<strong>Business:</strong> 8 users included',
-                        '<strong>Business+:</strong> 8 users included',
-                        '<strong>Additional users:</strong> £10/month per additional user (all tiers)',
+                        '<strong>Starter:</strong> 1 user included',
+                        '<strong>Team:</strong> 3 users included',
+                        '<strong>Business:</strong> 5 users included',
+                        '<strong>Additional users:</strong> £29/month per additional user (all tiers)',
                         'You can add unlimited additional users by paying the per-user fee. User count is tracked in Settings → Billing.'
                     ]
                 },

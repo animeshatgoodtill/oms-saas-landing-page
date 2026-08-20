@@ -271,7 +271,7 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
 
       <CtaBox
         title="Ready to transform your operations?"
-        subtitle="90-day free trial. Full access from day one."
+        subtitle="30-day free trial. Full access from day one."
         actions={[
           { label: feature.ctaText, href: feature.ctaUrl, variant: 'primary' },
           { label: 'View All Features', href: '/features', variant: 'outline' },

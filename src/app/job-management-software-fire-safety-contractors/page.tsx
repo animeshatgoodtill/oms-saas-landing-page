@@ -210,7 +210,7 @@ const FireSafetyContractorsPage: React.FC = () => {
               Simple Pricing for British Fire Safety Contractors
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-6">
-              The cost of software is often a big worry. Some tools charge a fee for every single job. Opscel uses a flat monthly rate instead. This helps you plan your budget with ease. A ninety-day free trial lets you test everything first.
+              The cost of software is often a big worry. Some tools charge a fee for every single job. Opscel uses a flat monthly rate instead, plus £29/month for each extra user on any plan. This helps you plan your budget with ease. A 30-day free trial (card required, first charge on day 30) lets you test everything first — and every new plan gets 50% off its base price for the first 3 months, no code needed.
             </p>
 
             {/* Pricing Table */}
@@ -226,25 +226,25 @@ const FireSafetyContractorsPage: React.FC = () => {
                 <tbody>
                   <tr>
                     <td className="border border-border px-6 py-3 font-semibold">Starter</td>
-                    <td className="border border-border px-6 py-3">£29</td>
-                    <td className="border border-border px-6 py-3">3 Users</td>
+                    <td className="border border-border px-6 py-3">£49 + VAT</td>
+                    <td className="border border-border px-6 py-3">1 User</td>
                   </tr>
                   <tr>
                     <td className="border border-border px-6 py-3 font-semibold">Team</td>
-                    <td className="border border-border px-6 py-3">£49</td>
-                    <td className="border border-border px-6 py-3">5 Users</td>
+                    <td className="border border-border px-6 py-3">£99 + VAT</td>
+                    <td className="border border-border px-6 py-3">3 Users</td>
                   </tr>
                   <tr>
                     <td className="border border-border px-6 py-3 font-semibold">Business</td>
-                    <td className="border border-border px-6 py-3">£79</td>
-                    <td className="border border-border px-6 py-3">8 Users</td>
+                    <td className="border border-border px-6 py-3">£149 + VAT</td>
+                    <td className="border border-border px-6 py-3">5 Users</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <p className="text-lg leading-relaxed text-foreground-accent">
-              A small team can start on the Team plan. It includes multi-engineer scheduling for forty-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal and Xero links. Every plan includes unlimited jobs and customers.
+              A small team can start on the Team plan. It includes multi-engineer scheduling, Good-Better-Best quoting, and Xero sync for ninety-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal, asset register, and RAMS. Every plan includes unlimited jobs and customers, plus certificates as standard.
             </p>
           </section>
 
@@ -307,7 +307,7 @@ const FireSafetyContractorsPage: React.FC = () => {
               <div>
                 <h3 className="font-heading font-bold text-xl text-foreground mb-3">Can I Try It For Free?</h3>
                 <p className="text-lg leading-relaxed text-foreground-accent">
-                  A ninety-day free trial is available for all plans. You get full access to every feature during the test. This gives you time to see the value.
+                  A 30-day free trial is available on all plans (a card is required at signup, but you are not charged until day 30). You get full access to every feature during the trial, and every new plan gets 50% off its base price for the first 3 months on top of that.
                 </p>
               </div>
             </div>
@@ -342,7 +342,7 @@ const FireSafetyContractorsPage: React.FC = () => {
                 href="https://app.opscel.com/handler/sign-up"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-lg hover:bg-primary-accent transition-colors"
               >
-                Start 90-Day Free Trial
+                Start 30-Day Free Trial
               </Link>
               <Link
                 href="https://calendar.app.google/Tp8Hwzbf6tVMGDkW6"

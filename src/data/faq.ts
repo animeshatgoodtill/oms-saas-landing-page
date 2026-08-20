@@ -14,12 +14,12 @@ export const faqs: IFAQ[] = [
         answer: 'Import your customers, addresses, and assets from a CSV. Set up your team and certificate branding. Most contractors are scheduling jobs within a week.',
     },
     {
-        question: 'What happens during the 90-day trial?',
-        answer: 'Full access to everything on your plan. Cancel anytime, no questions asked.',
+        question: 'What happens during the 30-day trial?',
+        answer: 'Full access to everything on your plan. A card is required at signup, but you\'re not charged until day 30 — and every new plan gets 50% off its base price for the first 3 months after that. Cancel anytime, no questions asked.',
     },
     {
         question: 'Do you integrate with Xero or QuickBooks?',
-        answer: 'Xero is live now — invoices sync automatically. QuickBooks is on the roadmap.',
+        answer: 'Both — invoices sync automatically with Xero or QuickBooks. Included from the Team plan upward.',
     },
     {
         question: 'Is our data secure?',

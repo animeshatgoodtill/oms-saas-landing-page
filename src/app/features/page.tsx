@@ -134,7 +134,7 @@ const FeaturesPage: React.FC = () => {
       </section>
 
       <CtaBox
-        title="Try every feature free for 90 days"
+        title="Try every feature free for 30 days"
         subtitle="No limitations, no trial version. See if Opscel works for your business with zero risk."
         actions={[
           { label: 'Start Free Trial', href: 'https://app.opscel.com/handler/sign-up', variant: 'primary' },

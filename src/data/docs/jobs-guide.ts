@@ -4,7 +4,7 @@ export const jobsGuide: IDocGuide = {
     slug: 'jobs',
     title: 'Jobs & Multi-Visit Workflow',
     description: 'Complete guide to creating, scheduling, and managing jobs in Opscel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-08-21',
     sections: [
         {
             id: 'overview',
@@ -424,6 +424,17 @@ export const jobsGuide: IDocGuide = {
                         'Customer signature captured (if required)',
                         'Risk assessment complete (if required)'
                     ]
+                },
+                {
+                    title: 'Open Deficiencies Don\'t Block Completion',
+                    content: `
+                        <p class="text-gray-700">
+                            Unresolved deficiencies/faults are <strong>not</strong> a completion gate. A job can be marked complete with
+                            faults still open — any unresolved count shown is a nudge, not a block. See
+                            <a href="/docs/fire-safety-features" class="text-blue-600 hover:underline">Fire Safety Jobsheets & Fault Tracking</a>
+                            for how carried-forward faults are tracked and resolved (in the field or, for remedial jobs, from the office).
+                        </p>
+                    `
                 },
                 {
                     title: 'What Can/Cannot Be Edited After Completion',

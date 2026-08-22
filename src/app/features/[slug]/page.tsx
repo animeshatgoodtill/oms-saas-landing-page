@@ -68,39 +68,6 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
         </div>
       )}
 
-      {/* ── HIGHLIGHTS / CAPABILITIES ── */}
-      {feature.featureHighlights && feature.featureHighlights.length > 0 && (
-        <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
-          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
-            <SectionHeading eyebrow="Capabilities" title="What it does" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {feature.featureHighlights.map((highlight, i) => (
-                <div
-                  key={i}
-                  className="bg-white border border-border rounded-[0.75rem] p-6 hover:shadow-[0_8px_24px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  <div
-                    className="w-10 h-10 rounded-[0.625rem] flex items-center justify-center mb-3.5"
-                    style={{ background: 'rgba(2,128,196,0.1)' }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 200 200">
-                      <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
-                    </svg>
-                  </div>
-                  <div className="font-heading font-bold text-[0.9375rem] text-foreground mb-1.5">
-                    {highlight.title}
-                  </div>
-                  <div className="text-sm text-muted-foreground leading-[1.6]">
-                    {highlight.description}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── HOW IT WORKS ── */}
       {feature.howItWorksSteps && feature.howItWorksSteps.length > 0 && (
         <section style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0', background: 'var(--muted)' }}>
@@ -165,6 +132,39 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
       {/* ── PRODUCT SPOTLIGHT ── */}
       {feature.sections && feature.sections.length > 0 && (
         <FeatureSpotlight sections={feature.sections} />
+      )}
+
+      {/* ── HIGHLIGHTS / CAPABILITIES ── */}
+      {feature.featureHighlights && feature.featureHighlights.length > 0 && (
+        <section className="bg-white border-t border-border" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            <SectionHeading eyebrow="Capabilities" title="What it does" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {feature.featureHighlights.map((highlight, i) => (
+                <div
+                  key={i}
+                  className="bg-white border border-border rounded-[0.75rem] p-6 hover:shadow-[0_8px_24px_rgba(0,0,0,0.09)] hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div
+                    className="w-10 h-10 rounded-[0.625rem] flex items-center justify-center mb-3.5"
+                    style={{ background: 'rgba(2,128,196,0.1)' }}
+                  >
+                    <svg width="24" height="24" viewBox="0 0 200 200">
+                      <use href={`/icons/features-sprite.svg#${highlight.iconId}`} />
+                    </svg>
+                  </div>
+                  <div className="font-heading font-bold text-[0.9375rem] text-foreground mb-1.5">
+                    {highlight.title}
+                  </div>
+                  <div className="text-sm text-muted-foreground leading-[1.6]">
+                    {highlight.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* ── COMPARISON ── */}

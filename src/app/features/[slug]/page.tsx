@@ -1,6 +1,5 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 
 import FAQAccordion from '@/components/FAQAccordion';
 import PageHero from '@/components/PageHero';
@@ -98,19 +97,6 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
                 </div>
               ))}
             </div>
-
-            {feature.screenshotImage && (
-              <div className="mt-12 rounded-[0.75rem] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]">
-                <Image
-                  src={feature.screenshotImage}
-                  alt={`${feature.title} screenshot`}
-                  width={1440}
-                  height={900}
-                  className="w-full h-auto block"
-                  priority
-                />
-              </div>
-            )}
           </div>
         </section>
       )}

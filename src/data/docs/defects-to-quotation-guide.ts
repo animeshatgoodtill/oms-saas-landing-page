@@ -4,7 +4,7 @@ export const defectsToQuotationGuide: IDocGuide = {
     slug: 'defects-to-quotation',
     title: 'Creating and Linking Quotes to Jobs with Defects',
     description: 'Turn defects into customer-ready remedial quotes with automatic job linking. Learn the three methods for creating bundled quotes from job defects.',
-    lastUpdated: '2026-05-21',
+    lastUpdated: '2026-08-21',
     sections: [
         {
             id: 'overview',
@@ -263,6 +263,10 @@ export const defectsToQuotationGuide: IDocGuide = {
                         '<strong>New remedial job</strong> → executes the quoted work (created from quote acceptance)',
                         '<strong>Quote</strong> → connects both jobs together'
                     ]
+                },
+                {
+                    title: 'When the remedial job is completed, does it close out the fault it was raised to fix?',
+                    content: '<p>Not automatically, but there\'s a one-click way to do it. When the office completes a remedial job that came from a converted quote, the Complete Job screen shows an <strong>Originating Deficiency</strong> panel listing the fault(s) that quote was raised for, with a working <strong>Resolve</strong> button.</p><p class="mt-3">Resolving from there hits the same mechanism as resolving in the field — it disappears from the site\'s Deficiency Register and from the field app\'s Carried-Forward Faults screen immediately. It\'s optional, though: completing the job does <strong>not</strong> require the originating fault to be resolved, and the resolution note prints on <em>this</em> remedial job\'s sheet, not the original inspection job\'s. See <a href="/docs/fire-safety-features#office-workflow" class="text-blue-600 hover:underline">Fire Safety Jobsheets & Fault Tracking</a> for the full detail.</p>'
                 },
                 {
                     title: 'Can I see all quotes linked to a job in one place?',

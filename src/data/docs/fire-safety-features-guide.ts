@@ -4,7 +4,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
     description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
-    lastUpdated: '2026-06-01',
+    lastUpdated: '2026-08-21',
     sections: [
         {
             id: 'overview',
@@ -34,6 +34,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         '<strong>Combined BS 5839 & BAFE SP203 Jobsheet:</strong> Single on-site servicing record combining BS 5839-1 compliance and BAFE SP203 scheme documentation',
                         '<strong>Carried-Forward Faults:</strong> Site-level fault tracking across visits with automatic carry-forward from previous jobs',
                         '<strong>Deficiency Register:</strong> Office view of all open and resolved faults per site',
+                        '<strong>Office resolve action:</strong> Resolving a fault from the Complete Job screen\'s Originating Deficiency panel',
                         '<strong>Field and office workflows:</strong> How engineers use fault tracking on site and how managers monitor compliance'
                     ]
                 }
@@ -247,11 +248,22 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                 {
                     title: 'What Prints on the Jobsheet',
                     content: `
-                        <p class="text-gray-700">
+                        <p class="text-gray-700 mb-4">
                             When an engineer marks a fault resolved and enters a note (e.g., &ldquo;Replaced faulty detector in Zone 2&rdquo;),
                             that note appears on the jobsheet under <strong>Work Carried Out</strong>. The customer sees what was fixed without
                             seeing your internal fault register.
                         </p>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
+                            <p class="text-amber-900">
+                                <strong>Which job's sheet:</strong> the note prints on the jobsheet of whichever job the resolve action was
+                                actually performed through — not necessarily the job where the fault was first raised. If the office resolves
+                                a fault from a remedial job's Complete Job screen (see &ldquo;Resolving a Fault from the Office&rdquo; below),
+                                the note prints on <em>that</em> remedial job's sheet, not the original inspection job's. The originating job's
+                                jobsheet won't retroactively show it was fixed elsewhere — that fault simply stops appearing as open. For the
+                                full story of a fault's life (raised → resolved → who/when/how), check the site's live Deficiency Register
+                                rather than any single jobsheet PDF.
+                            </p>
+                        </div>
                     `
                 }
             ]
@@ -308,12 +320,53 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     title: 'Register Purpose',
                     content: `
                         <p class="mb-4">
-                            The Deficiency Register is a <strong>view, not a workspace</strong>. Faults are logged and resolved in the field,
-                            and the register keeps the running picture for the office.
+                            For everyday viewing, the Deficiency Register is exactly that — a <strong>view</strong>. Faults are primarily
+                            logged and resolved in the field, and the register keeps the running picture for the office. The one exception
+                            is the Complete Job screen's Originating Deficiency panel, covered next, which gives office staff a real,
+                            working Resolve action of their own.
                         </p>
                         <p class="text-gray-700">
-                            Use it for compliance reporting, audit trails, and identifying sites with chronic issues that need escalation or
-                            remedial quotes.
+                            Use the register itself for compliance reporting, audit trails, and identifying sites with chronic issues that
+                            need escalation or remedial quotes.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Resolving a Fault from the Office: Complete Job Screen',
+                    content: `
+                        <p class="mb-4">
+                            When your office completes a remedial-type job that was converted from a quote, the <strong>Complete Job</strong>
+                            screen shows an <strong>Originating Deficiency</strong> panel — the specific fault(s) that quote was raised to fix.
+                        </p>
+                        <p class="mb-4">
+                            Office staff can click <strong>Resolve</strong> right there. It's a fully working action, not just a display —
+                            it hits the exact same resolve mechanism as the field app (same underlying fields: who resolved it, when, and
+                            which job closed it). The moment it's resolved, it disappears from both the Carried-Forward Faults screen in the
+                            field app and the Deficiency Register on the other job's dashboard — they stay in sync.
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                            <p class="text-blue-900">
+                                <strong>Legitimate shortcut, not a workaround:</strong> If office staff know a fault has actually been fixed
+                                (e.g. confirmed by the engineer verbally or in job notes), resolving it from here is a supported action. The
+                                intended, audited way is still for the engineer to resolve it in the field with a note — that's what feeds
+                                the jobsheet properly — but the office Resolve button is a real fallback, not a hack.
+                            </p>
+                        </div>
+                    `
+                },
+                {
+                    title: 'Completing a Job Does Not Require Faults to Be Resolved',
+                    content: `
+                        <p class="mb-4">
+                            Resolving deficiencies is <strong>optional, not enforced</strong>. There's no block or warning stopping you — a
+                            job can be marked complete with faults still open. The unresolved count shown on the Complete Job screen is a
+                            nudge, not a gate.
+                        </p>
+                        <p class="text-gray-700">
+                            So it's entirely possible — and will happen if nobody follows up — for a job to be completed while its faults
+                            remain open. They'll just keep resurfacing on the next visit until someone, engineer or office, resolves them.
+                            Don't assume &ldquo;job completed&rdquo; means &ldquo;faults resolved&rdquo; — those are two independent things
+                            in this system.
                         </p>
                     `
                 }
@@ -537,6 +590,26 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                             The first engineer to sync their resolution wins. If a second engineer marks the same fault resolved before syncing,
                             Opscel detects the conflict and shows a warning: "This fault was already resolved on [date] by [engineer]." The second
                             resolution is discarded to prevent duplicate entries.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Can office staff resolve a fault without the engineer doing it in the field?',
+                    content: `
+                        <p class="text-gray-700">
+                            Yes. When completing a remedial job that was converted from a quote, the Complete Job screen shows an Originating
+                            Deficiency panel with a working Resolve button. It's a legitimate shortcut when office staff know the fault was
+                            actually fixed — but the audited, jobsheet-generating path is still the engineer resolving it in the field.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Do I have to resolve all open faults before I can complete a job?',
+                    content: `
+                        <p class="text-gray-700">
+                            No. Deficiency resolution is not a completion gate — the unresolved count on the Complete Job screen is a nudge,
+                            not a block. A job can be completed with faults still open; they'll keep carrying forward to future visits until
+                            someone resolves them.
                         </p>
                     `
                 }

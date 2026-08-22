@@ -7,184 +7,138 @@ interface FeatureSpotlightProps {
   sections: IFeatureDetailSection[];
 }
 
-const Eyebrow: React.FC<{ text: string; accent: string }> = ({ text, accent }) => (
-  <div className="inline-flex items-center gap-2 mb-3">
-    <span className="w-5 h-[2px]" style={{ background: accent }} />
-    <span className="font-heading text-[0.75rem] font-bold uppercase tracking-[0.1em]" style={{ color: 'var(--secondary)' }}>
-      {text}
-    </span>
-  </div>
-);
-
 /**
- * Product spotlight — one full "hero" story for the single highest-priority
- * capability, then every other story condensed into a shared, tight grid
- * below it. Keeps the airy floating-card look (no boxed chrome, images
- * carry their own rounded corners + shadow) without letting the page run
- * to five full-viewport sections in a row.
+ * Product spotlight — every story gets the SAME treatment: eyebrow +
+ * headline + dek (+ optional stat) in a text column, the real product UI
+ * in a visual column, side-by-side in one row. Alternates which side the
+ * text sits on for rhythm, and gives wide/panoramic screenshots a wider
+ * image column so they don't get squeezed thin. Images already carry
+ * their own rounded corners + shadow, so no extra chrome around them.
  */
 const FeatureSpotlight: React.FC<FeatureSpotlightProps> = ({ sections }) => {
-  const [hero, ...rest] = sections;
-  if (!hero) return null;
-
   return (
     <>
-      {/* ── HERO STORY ── */}
-      <section className="relative overflow-hidden bg-white" style={{ padding: 'clamp(3rem, 5vw, 5rem) 0' }}>
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            backgroundImage: 'radial-gradient(circle, var(--border) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-            maskImage: 'linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)',
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute w-[32rem] h-[32rem] rounded-full opacity-[0.12] blur-[100px] pointer-events-none"
-          style={{ background: 'var(--secondary)', right: '-8%', top: '-18%' }}
-          aria-hidden="true"
-        />
+      {sections.map((section, index) => {
+        const textFirst = index % 2 === 0;
+        const tinted = index % 2 === 1;
+        const accent = index % 2 === 0 ? 'var(--secondary)' : 'var(--primary)';
+        const glowSide = textFirst ? { right: '-6%', top: '-20%' } : { left: '-6%', bottom: '-20%' };
+        const num = String(index + 1).padStart(2, '0');
 
-        <div className="relative mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
-          <span
-            className="hidden lg:block absolute -top-2 right-0 font-mono font-bold leading-none select-none pointer-events-none"
-            style={{ fontSize: '6.5rem', color: 'var(--foreground)', opacity: 0.05 }}
-            aria-hidden="true"
-          >
-            01
-          </span>
+        const aspect = (section.imageWidth || 1200) / (section.imageHeight || 800);
+        const isWide = aspect > 3;
+        const gridColsClass = isWide ? 'lg:grid-cols-[0.55fr_1fr]' : 'lg:grid-cols-[0.72fr_1fr]';
 
-          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10">
-            <div className="max-w-[36rem]">
-              {hero.eyebrow && <Eyebrow text={hero.eyebrow} accent="var(--secondary)" />}
-              {hero.title && (
-                <h2
-                  className="font-heading font-extrabold tracking-[-0.02em] leading-[1.08] text-foreground"
-                  style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.375rem)' }}
+        const textBlock = (
+          <div>
+            {section.eyebrow && (
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-[22px] h-[2px]" style={{ background: accent }} />
+                <span
+                  className="font-heading text-[0.75rem] font-bold uppercase tracking-[0.12em]"
+                  style={{ color: 'var(--secondary)' }}
                 >
-                  {hero.title}
-                </h2>
-              )}
-              <p className="mt-3.5 text-[1.0625rem] text-muted-foreground leading-[1.6]">
-                {hero.description}
-              </p>
+                  {section.eyebrow}
+                </span>
+              </div>
+            )}
+            {section.title && (
+              <h2
+                className="font-heading font-extrabold tracking-[-0.02em] leading-[1.06] text-foreground"
+                style={{ fontSize: 'clamp(1.625rem, 2.6vw, 2.25rem)' }}
+              >
+                {section.title}
+              </h2>
+            )}
+            <p className="mt-4 text-[1rem] text-muted-foreground leading-[1.6] max-w-[38ch]">
+              {section.description}
+            </p>
 
-              {hero.bullets && hero.bullets.length > 0 && (
-                <ul className="mt-5 space-y-2.5">
-                  {hero.bullets.map((bullet, bi) => (
-                    <li key={bi} className="flex items-start gap-2.5">
-                      <BsFillCheckCircleFill className="h-4 w-4 mt-1 flex-shrink-0" style={{ color: 'var(--secondary)' }} />
-                      <span className="text-[0.9375rem] text-foreground leading-[1.6]">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            {section.bullets && section.bullets.length > 0 && (
+              <ul className="mt-5 space-y-2.5">
+                {section.bullets.map((bullet, bi) => (
+                  <li key={bi} className="flex items-start gap-2.5">
+                    <BsFillCheckCircleFill className="h-4 w-4 mt-1 flex-shrink-0" style={{ color: 'var(--secondary)' }} />
+                    <span className="text-[0.9375rem] text-foreground leading-[1.6]">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-            {hero.stat && (
-              <div className="flex-shrink-0 pb-1">
-                <div
-                  className="font-heading font-extrabold tracking-[-0.02em] leading-none"
-                  style={{ fontSize: 'clamp(2.25rem, 4vw, 3.25rem)', color: 'var(--secondary)' }}
+            {section.stat && (
+              <div className="mt-5 flex items-baseline gap-2.5">
+                <span
+                  className="font-heading font-extrabold leading-none"
+                  style={{ fontSize: 'clamp(1.75rem, 3vw, 2rem)', color: accent }}
                 >
-                  {hero.stat.value}
-                </div>
-                <div className="mt-1.5 text-xs font-bold uppercase tracking-[0.08em] text-muted-foreground">
-                  {hero.stat.label}
-                </div>
+                  {section.stat.value}
+                </span>
+                <span className="text-xs font-bold uppercase tracking-[0.06em] text-muted-foreground">
+                  {section.stat.label}
+                </span>
               </div>
             )}
           </div>
+        );
 
-          {hero.imageSrc && (
-            <div className="flex justify-center">
-              <Image
-                src={hero.imageSrc}
-                alt={hero.imageAlt || hero.title || hero.description}
-                width={hero.imageWidth || 1200}
-                height={hero.imageHeight || 800}
-                className="w-full h-auto"
-                style={{ maxWidth: 'min(100%, 52rem)' }}
-              />
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ── CONDENSED GRID: every other story ── */}
-      {rest.length > 0 && (
-        <section className="relative overflow-hidden bg-hero-background" style={{ padding: 'clamp(2.5rem, 4vw, 4rem) 0' }}>
-          <div
-            className="absolute inset-0 opacity-50"
-            style={{
-              backgroundImage: 'radial-gradient(circle, var(--border) 1px, transparent 1px)',
-              backgroundSize: '28px 28px',
-            }}
-            aria-hidden="true"
+        const imageBlock = section.imageSrc && (
+          <Image
+            src={section.imageSrc}
+            alt={section.imageAlt || section.title || section.description}
+            width={section.imageWidth || 1200}
+            height={section.imageHeight || 800}
+            className="w-full h-auto"
           />
-          <div
-            className="absolute w-[28rem] h-[28rem] rounded-full opacity-[0.10] blur-[100px] pointer-events-none"
-            style={{ background: 'var(--primary)', left: '-6%', bottom: '-15%' }}
-            aria-hidden="true"
-          />
+        );
 
-          <div className="relative mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
-              {rest.map((section, i) => {
-                const accent = i % 2 === 0 ? 'var(--primary)' : 'var(--secondary)';
-                const spanFull = rest.length % 2 === 1 && i === rest.length - 1;
-                return (
-                  <div key={i} className={spanFull ? 'md:col-span-2' : ''}>
-                    <div className={spanFull ? 'max-w-[36rem] mx-auto text-center' : ''}>
-                      {section.eyebrow && (
-                        <div className={`inline-flex items-center gap-2 mb-2.5 ${spanFull ? 'justify-center' : ''}`}>
-                          <span className="w-4 h-[2px]" style={{ background: accent }} />
-                          <span
-                            className="font-heading text-[0.6875rem] font-bold uppercase tracking-[0.09em]"
-                            style={{ color: 'var(--secondary)' }}
-                          >
-                            {section.eyebrow}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-baseline justify-between gap-4 flex-wrap">
-                        {section.title && (
-                          <h3 className="font-heading font-bold tracking-[-0.01em] leading-[1.15] text-foreground text-[1.25rem] sm:text-[1.375rem]">
-                            {section.title}
-                          </h3>
-                        )}
-                        {section.stat && (
-                          <span className="font-heading font-extrabold text-sm flex-shrink-0" style={{ color: accent }}>
-                            {section.stat.value} <span className="font-normal text-muted-foreground text-xs uppercase tracking-wide">{section.stat.label}</span>
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-2 text-sm text-muted-foreground leading-[1.55]">
-                        {section.description}
-                      </p>
-                    </div>
+        return (
+          <section
+            key={index}
+            className={`relative overflow-hidden ${tinted ? 'bg-hero-background' : 'bg-white'}`}
+            style={{ padding: 'clamp(2.75rem, 4.5vw, 4.5rem) 0' }}
+          >
+            <div
+              className="absolute inset-0 opacity-55"
+              style={{
+                backgroundImage: 'radial-gradient(circle, var(--border) 1px, transparent 1px)',
+                backgroundSize: '28px 28px',
+                maskImage: 'linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)',
+              }}
+              aria-hidden="true"
+            />
+            <div
+              className="absolute w-[28rem] h-[28rem] rounded-full opacity-[0.11] blur-[100px] pointer-events-none"
+              style={{ background: accent, ...glowSide }}
+              aria-hidden="true"
+            />
 
-                    {section.imageSrc && (
-                      <div className={`mt-4 flex ${spanFull ? 'justify-center' : ''}`}>
-                        <Image
-                          src={section.imageSrc}
-                          alt={section.imageAlt || section.title || section.description}
-                          width={section.imageWidth || 1200}
-                          height={section.imageHeight || 800}
-                          className="w-full h-auto"
-                          style={{ maxWidth: spanFull ? 'min(100%, 40rem)' : '100%' }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div className="relative mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+              <span
+                className="hidden lg:block absolute -top-1 right-0 font-mono font-bold leading-none select-none pointer-events-none"
+                style={{ fontSize: '5.5rem', color: 'var(--foreground)', opacity: 0.05 }}
+                aria-hidden="true"
+              >
+                {num}
+              </span>
+
+              <div className={`relative grid grid-cols-1 lg:items-center gap-10 lg:gap-16 ${gridColsClass}`}>
+                {textFirst ? (
+                  <>
+                    <div className="lg:order-1">{textBlock}</div>
+                    <div className="lg:order-2">{imageBlock}</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="lg:order-2">{textBlock}</div>
+                    <div className="lg:order-1">{imageBlock}</div>
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })}
     </>
   );
 };

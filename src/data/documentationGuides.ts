@@ -178,6 +178,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-job-workflow'
     },
     {
+        title: 'Job Profitability',
+        description: 'How Estimated and Actual are worked out on a job\'s Financial tab, the two labour rates that drive them, and why some figures are left blank.',
+        url: '/docs/job-profitability',
+        category: 'Financial Management',
+        icon: 'icon-price-tag'
+    },
+    {
         title: 'Accounting Integration Guide',
         description: 'Step-by-step setup guide for connecting Xero or QuickBooks. Learn about account mappings, invoice posting, and payment sync.',
         url: '/docs/accounting-integration',

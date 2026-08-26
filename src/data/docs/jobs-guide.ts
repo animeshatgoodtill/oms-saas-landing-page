@@ -504,6 +504,15 @@ export const jobsGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Financial Tab: Estimated vs Actual',
+                    content: `
+                        <p class="mb-4">Every job's Financial tab shows what it was <strong>Estimated</strong> to be worth and cost, alongside what it <strong>Actually</strong> cost — clocked time plus confirmed supplier invoices. The two are allowed to disagree; the gap is what tells you whether a job made money.</p>
+                        <p class="mb-4">
+                            <a href="/docs/job-profitability" class="text-blue-600 hover:underline">→ See Job Profitability Guide</a> for exactly where each figure comes from, and what to do when one is blank.
+                        </p>
+                    `
+                },
+                {
                     title: 'Convert to Follow-Up Job',
                     content: `
                         <p class="mb-4">If work was incomplete or defects need remedial action:</p>
@@ -707,6 +716,11 @@ export const jobsGuide: IDocGuide = {
             title: 'Quote to Invoice Workflow',
             description: 'End-to-end workflow from quote to job to invoice',
             href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Job Profitability',
+            description: 'How the Estimated and Actual figures on the Financial tab are worked out',
+            href: '/docs/job-profitability'
         }
     ]
 };

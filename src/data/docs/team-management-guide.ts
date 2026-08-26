@@ -257,6 +257,10 @@ export const teamManagementGuide: IDocGuide = {
                         '<strong>Re-login required:</strong> Permission changes don&apos;t apply until user logs out and back in',
                         '<strong>Tier limits apply:</strong> Total users cannot exceed tier limit (see Billing section)'
                     ]
+                },
+                {
+                    title: 'Role vs Labour Band',
+                    content: '<p class="mb-2">These are two different assignments and easy to mix up. <strong>Role</strong> (above) controls what a user can see and do in Opscel. <strong>Labour band</strong> — assigned from the same user card — controls the cost rate and charge rate used to price their time on a job. A user\'s role can change without touching their band, and vice versa.</p><p class="text-gray-700"><a href="/docs/job-profitability#rates" class="text-blue-600 hover:underline">→ See Job Profitability Guide</a> for what the two labour band rates drive.</p>'
                 }
             ]
         },
@@ -605,6 +609,11 @@ export const teamManagementGuide: IDocGuide = {
             title: 'Onboarding',
             description: 'Inviting your team during initial account setup',
             href: '/docs/onboarding'
+        },
+        {
+            title: 'Job Profitability',
+            description: 'What a team member\'s labour band cost/charge rate drives',
+            href: '/docs/job-profitability'
         }
     ]
 };

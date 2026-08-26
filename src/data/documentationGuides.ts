@@ -97,6 +97,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-quotation'
     },
     {
+        title: 'Quote Defaults',
+        description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, and the template used for defect and remedial quotes.',
+        url: '/docs/quote-defaults',
+        category: 'Sales & Quoting',
+        icon: 'icon-gear'
+    },
+    {
         title: 'Defects to Quotation Guide',
         description: 'Master the bundled remedial quotes feature. Create one professional quote for multiple defects instead of separate quotes per issue.',
         url: '/docs/defects-to-quotation',

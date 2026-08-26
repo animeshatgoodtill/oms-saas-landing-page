@@ -131,11 +131,22 @@ export const settingsTourGuide: IDocGuide = {
                 {
                     title: 'Quote Templates',
                     content: `
-                        <p class="mb-2"><strong>What it controls:</strong> Quote layout, terms & conditions, validity periods, deposit requirements, branding.</p>
-                        <p class="mb-4"><strong>Why it matters:</strong> Professional quotes close more deals. Configure once, reuse forever.</p>
-                        <p class="mb-4"><strong>Availability:</strong> Business tier</p>
+                        <p class="mb-2"><strong>What it controls:</strong> Reusable quote starting points — line items, terms & conditions, wording, and their own validity/deposit/call-out settings.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> Professional quotes close more deals. Configure once, reuse forever. One of these templates can also be picked to supply the settings for defect and remedial quotes.</p>
+                        <p class="mb-4"><strong>Availability:</strong> All plans</p>
                         <p class="text-gray-700">
-                            <em>Quotations guide coming soon.</em>
+                            <a href="/docs/quotations#quote-templates" class="text-blue-600 hover:underline">→ See Quotations Guide</a> · <a href="/docs/quote-defaults" class="text-blue-600 hover:underline">→ See Quote Defaults Guide</a>
+                        </p>
+                    `
+                },
+                {
+                    title: 'Quote Defaults',
+                    content: `
+                        <p class="mb-2"><strong>What it controls:</strong> Default deposit percentage, quote validity period, price breakdown style, and whether call-out rates show — applied when a quote isn't using a template that sets its own. Also chooses the template used for defect and remedial quotes.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> This is the fallback every new quote starts from, and the one place that decides what settings a defect quote inherits.</p>
+                        <p class="mb-4"><strong>Availability:</strong> All plans (Admin only)</p>
+                        <p class="text-gray-700">
+                            <a href="/docs/quote-defaults" class="text-blue-600 hover:underline">→ See Quote Defaults Guide</a>
                         </p>
                     `
                 },

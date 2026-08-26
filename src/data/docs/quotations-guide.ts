@@ -4,7 +4,7 @@ export const quotationsGuide: IDocGuide = {
     title: 'Quotations Overview',
     description: 'Create professional quotes, manage customer acceptance, and convert quotes to jobs. Track quote performance with analytics and streamline your sales workflow.',
     slug: 'quotations',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-08-26',
     sections: [
         {
             id: 'overview',
@@ -115,19 +115,17 @@ export const quotationsGuide: IDocGuide = {
                     content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin',
                 },
                 {
-                    title: 'Customizing Quote Templates',
-                    content: 'Quote templates control the PDF layout, cover page, and terms & conditions. Customize once in Settings, and all future quotes use your template.',
+                    title: 'What a Quote Template Is',
+                    content: 'A quote template is a reusable starting point for a new quote. It can hold line items you use often, your terms and conditions, standard wording, a validity period, a default deposit, and whether call-out rates are printed.<br><br>You\'ll find them at <strong>Settings → Sales → Quote Templates</strong>. The same page also holds the settings that apply to every quote you send regardless of template: your T&amp;Cs PDF, the quote cover page, and whether VAT is shown.<br><br>Separately, <strong>Settings → Sales → Quote Defaults</strong> controls what a new quote starts with when no template is used — deposit, validity, price breakdown and call-out rates — and which template is used for quotes raised from defects. See the <a href="/docs/quote-defaults" class="text-secondary hover:underline">Quote Defaults guide</a> for the full settings reference.',
                 },
                 {
                     title: 'Steps to Customize Template',
                     steps: [
-                        'Go to <strong>Settings → Document Configuration → Quote Templates</strong>',
+                        'Go to <strong>Settings → Sales → Quote Templates</strong>',
                         'Toggle <strong>Include Cover Page</strong> (recommended: ON)',
                         'Upload <strong>Cover Image</strong> (optional - e.g., team photo, branded banner)',
                         'Edit <strong>Terms & Conditions</strong> (plain text or HTML)',
                         'Set default <strong>Payment Terms</strong> (e.g., "Net 30", "50% deposit required")',
-                        'Toggle <strong>Show Pricing Breakdown</strong> (materials vs labour)',
-                        'Set <strong>Validity Period</strong> default (7, 14, 30, 60, 90 days)',
                         'Click <strong>Preview Quote</strong> to see sample PDF',
                         'Click <strong>Save Template</strong>',
                     ],
@@ -267,7 +265,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'For Office Staff',
-                    content: '<em>Tip:</em> Always preview the PDF before sending. Check for pricing errors, typos, and ensure logo/branding looks correct. Once sent, quotes cannot be edited - you\'ll need to void and resend if changes are needed.',
+                    content: '<em>Tip:</em> Always preview the PDF before sending. Check for pricing errors, typos, and ensure logo/branding looks correct. If you do spot a mistake after sending, you can still edit the quote — it returns to Draft status so you can review and resend it.',
                 },
             ],
         },
@@ -383,16 +381,16 @@ export const quotationsGuide: IDocGuide = {
                     steps: [
                         'Connect Stripe account (Settings → Integrations → Stripe)',
                         'Go to <strong>Settings → Sales → Quote Defaults</strong>',
-                        'Toggle <strong>Require Deposit on Acceptance</strong> ON',
-                        'Set <strong>Deposit Amount</strong>: Fixed amount (£X) or Percentage (X%)',
-                        'Set <strong>Deposit Description</strong> (appears on Stripe payment page)',
-                        'Click <strong>Save Settings</strong>',
-                        'Future quotes will require deposit on acceptance',
+                        'Set your <strong>Default Deposit</strong> as a percentage',
+                        'Click <strong>Save changes</strong>',
                     ],
                 },
                 {
+                    content: '<p class="mb-4">That figure is now filled in ready on every new quote. To actually ask for a deposit, open the quote, switch on <strong>Require a deposit</strong> and check the amount before sending — it stays a per-quote decision because accepting a deposit quote raises an invoice straight away.</p>',
+                },
+                {
                     title: 'What You Should See',
-                    content: 'When customer accepts quote, they\'re redirected to Stripe payment page. After successful payment, quote status changes to <strong>Accepted & Paid</strong>. Payment confirmation appears in quote detail page. Deposit amount is recorded against the job (reduces final invoice amount).',
+                    content: 'When a deposit-required quote is accepted, the customer is redirected to Stripe\'s payment page. After successful payment, quote status changes to <strong>Accepted & Paid</strong>. Payment confirmation appears in quote detail page. Deposit amount is recorded against the job (reduces final invoice amount).',
                 },
                 {
                     title: 'Deposit Handling on Invoice',
@@ -490,7 +488,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Customer Can\'t Accept Quote - Portal Link Broken',
-                    content: '<strong>Cause:</strong> Quote expired, or customer portal access disabled.<br><strong>Fix:</strong> Check quote validity period (Settings → Quote Templates). If expired, extend validity and resend. Verify customer portal is enabled (Settings → Customer Portal → Enable Portal).',
+                    content: '<strong>Cause:</strong> Quote expired, or customer portal access disabled.<br><strong>Fix:</strong> Check your default quote validity period (Settings → Sales → Quote Defaults). If this quote has already expired, extend validity and resend. Verify customer portal is enabled (Settings → Customer Portal → Enable Portal).',
                 },
                 {
                     title: 'Pricing Totals Don\'t Match Expected',
@@ -516,7 +514,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Can I edit a quote after sending it?',
-                    content: 'No. Once sent, quotes are locked to prevent confusion (customer may have already reviewed it). To make changes: Clone the quote, edit the clone, void the original, and send the new version. The customer sees the updated quote with a new quote number.',
+                    content: 'Yes. Open the quote and edit it as normal — it returns to <strong>Draft</strong> status so you can review and send the updated version to the customer.<br><br>Quotes that have been converted to a job, or declined by the customer, can\'t be edited.',
                 },
                 {
                     title: 'What happens if a quote expires before the customer responds?',
@@ -562,6 +560,7 @@ export const quotationsGuide: IDocGuide = {
                         '<a href="/docs/customer-portal" class="text-secondary hover:underline">Customer Portal</a> — How customers view and accept quotes',
                         '<a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Bundled Remedial Quotes</a> — Group EICR defects for cleaner quotes',
                         '<a href="/docs/branding" class="text-secondary hover:underline">Branding & PDF Customization</a> — Customize quote templates and branding',
+                        '<a href="/docs/quote-defaults" class="text-secondary hover:underline">Quote Defaults</a> — Default deposit, validity, price breakdown and call-out rates',
                         '<a href="/docs/settings-tour" class="text-secondary hover:underline">Settings Tour</a> — Configure quote defaults and templates',
                     ],
                 },
@@ -578,6 +577,11 @@ export const quotationsGuide: IDocGuide = {
             title: 'Defects to Quotation',
             description: 'Converting site defects into remedial quotes',
             href: '/docs/defects-to-quotation'
+        },
+        {
+            title: 'Quote Defaults',
+            description: 'Default deposit, validity, price breakdown and call-out rates',
+            href: '/docs/quote-defaults'
         },
         {
             title: 'Customer Portal',

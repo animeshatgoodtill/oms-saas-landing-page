@@ -4,7 +4,7 @@ export const defectsToQuotationGuide: IDocGuide = {
     slug: 'defects-to-quotation',
     title: 'Creating and Linking Quotes to Jobs with Defects',
     description: 'Turn defects into customer-ready remedial quotes with automatic job linking. Learn the three methods for creating bundled quotes from job defects.',
-    lastUpdated: '2026-08-21',
+    lastUpdated: '2026-08-26',
     sections: [
         {
             id: 'overview',
@@ -12,7 +12,7 @@ export const defectsToQuotationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Admin, Accounts, Contract Manager</p>'
+                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-1"><strong>Creating remedial quotes:</strong> Admin, Accounts, Contract Manager</p><p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Choosing the template used for them:</strong> Admin only (Settings → Sales → Quote Defaults)</p>'
                 },
                 {
                     title: '30-Second Version',
@@ -61,6 +61,22 @@ export const defectsToQuotationGuide: IDocGuide = {
             ]
         },
         {
+            id: 'quote-settings',
+            title: 'What Settings the Quote Arrives With',
+            subsections: [
+                {
+                    content: '<p class="mb-4">A quote raised from defects starts with your business\'s quote settings already applied — you don\'t have to set them each time.</p><p class="mb-4">By default it uses your <strong>Quote Defaults</strong> (Settings → Sales → Quote Defaults): validity period, price breakdown, and deposit amount.</p><p class="mb-4">If you want remedial quotes to carry your terms and conditions, or to look different from a normal quote, pick a template under <strong>Defect &amp; Remedial Quotes</strong> on that same page. The quote will then start with that template\'s terms, wording and settings.</p><p class="mb-2">Two things worth knowing:</p>',
+                    bullets: [
+                        '<strong>Call-out rates are hidden by default</strong> on defect quotes, even if you show them on other quotes. A remedial quote isn\'t a call-out, so the tariff table would only confuse the customer. If you do want it, choose a template that has call-out rates switched on, or turn it on for the individual quote.',
+                        '<strong>A deposit is never switched on automatically.</strong> Your default deposit amount is filled in ready, but you decide per quote whether to ask for one — accepting a deposit quote raises an invoice straight away, so that stays a deliberate choice.'
+                    ]
+                },
+                {
+                    content: '<p class="mt-2">Every one of these can still be changed on the quote itself before you send it. See <a href="/docs/quote-defaults" class="text-blue-600 hover:underline">Quote Defaults</a> for the full settings reference.</p>'
+                }
+            ]
+        },
+        {
             id: 'option-a',
             title: 'Option A — Create Bundled Quote from Job Page',
             content: '<p class="mb-4 text-green-700 font-semibold">✓ Recommended method</p><p class="mb-4">This is the fastest option. The quote is automatically linked to the job.</p>',
@@ -79,10 +95,14 @@ export const defectsToQuotationGuide: IDocGuide = {
                     title: 'What You Should See',
                     bullets: [
                         '<strong>Draft quote created</strong> with customer pre-filled from the job',
-                        '<strong>Line items</strong> for each unquoted defect (severity, location, description)',
+                        '<strong>A heading line for each unquoted defect</strong>, followed by priced parts and labour lines',
                         '<strong>Linked Job</strong> field shows the originating job number',
                         '<strong>Quote is editable</strong> — adjust pricing, add notes, customize before sending'
                     ]
+                },
+                {
+                    title: 'How Defects Become Line Items',
+                    content: '<p class="mb-4">Each defect appears as a heading line showing its severity, location and recommended action, followed by a priced line for any parts the engineer recorded and a labour line if they logged hours. The heading line itself carries no price — it\'s there to give the customer context for the lines underneath.</p><p>Where the engineer didn\'t record parts or hours, you\'ll get the heading line on its own and price the work yourself.</p>'
                 },
                 {
                     title: 'When to Use This Method',
@@ -221,7 +241,7 @@ export const defectsToQuotationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'What roles can create remedial quotes?',
-                    content: '<p>Admin, Accounts, and Contract Manager roles can create quotes. Site Managers and Engineers do not have access to quote creation — the buttons are hidden automatically.</p>'
+                    content: '<p>Admin, Accounts, and Contract Manager roles can create quotes. Site Managers and Engineers do not have access to quote creation — the buttons are hidden automatically.</p><p class="mt-3">Choosing which template shapes those quotes is narrower: only Admin can set the <strong>Defect &amp; Remedial Quotes</strong> template (Settings → Sales → Quote Defaults). Accounts and Contract Manager can raise the quotes but not change what template they start from.</p>'
                 },
                 {
                     title: 'Can I link a quote to a job after it\'s been created?',
@@ -229,12 +249,11 @@ export const defectsToQuotationGuide: IDocGuide = {
                 },
                 {
                     title: 'What happens if there are multiple defects on a job?',
-                    content: '<p>"Create Bundled Quote" combines all unquoted defects into a single quote, one line item per defect. This keeps the customer\'s document clean and avoids multiple separate quotes for the same visit.</p><p class="mt-3">Each defect becomes a line item with:</p>',
+                    content: '<p>"Create Bundled Quote" combines all unquoted defects into a single quote. This keeps the customer\'s document clean and avoids multiple separate quotes for the same visit.</p><p class="mt-3">Each defect produces a heading line (severity, location, recommended action) with no price of its own, followed by:</p>',
                     bullets: [
-                        'Defect description as line item name',
-                        'Severity level (e.g., "Major", "Critical")',
-                        'Location on site',
-                        'Recommended action'
+                        'A priced line for each part the engineer recorded, and',
+                        'A labour line if they logged hours',
+                        'If no parts or hours were recorded, just the heading line appears — you price the work yourself'
                     ]
                 },
                 {
@@ -271,6 +290,10 @@ export const defectsToQuotationGuide: IDocGuide = {
                 {
                     title: 'Can I see all quotes linked to a job in one place?',
                     content: '<p>Yes. On the job detail page, go to the <strong>Quotes</strong> tab (if available in your Opscel version), or scroll through the Defects card on the Overview tab — each quoted defect shows its linked quote.</p><p class="mt-3">For jobs with many defects and multiple quotes, the Quotes tab provides a cleaner view of all quote activity related to the job.</p>'
+                },
+                {
+                    title: 'Can I add the same items to every remedial quote — batteries, for example?',
+                    content: '<p>Yes. Put them on a quote template, then choose that template under Settings → Sales → Quote Defaults → Defect &amp; Remedial Quotes.</p><p class="mt-3">Any line items on that template are added to every quote raised from defects, underneath the defect lines. The quote reads as "here\'s what we found", then "here\'s what we always fit".</p><p class="mt-3">They\'re ordinary line items — you can change the price or delete them on any individual quote. If you stop wanting them altogether, remove them from the template or pick a different template.</p>'
                 }
             ]
         },
@@ -310,6 +333,11 @@ export const defectsToQuotationGuide: IDocGuide = {
             title: 'Quote to Invoice Workflow',
             description: 'End-to-end from quote to invoice',
             href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Quote Defaults',
+            description: 'Settings that shape defect and remedial quotes',
+            href: '/docs/quote-defaults'
         }
     ]
 };

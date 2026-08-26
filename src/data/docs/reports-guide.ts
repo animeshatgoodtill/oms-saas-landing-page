@@ -126,6 +126,32 @@ export const reportsGuide: IDocGuide = {
             ],
         },
         {
+            id: 'profitability',
+            title: 'Profitability Report',
+            subsections: [
+                {
+                    title: 'Availability',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Finance',
+                },
+                {
+                    title: 'What the Profitability Report Shows',
+                    content: 'Rolls up the Estimated and Actual figures from every job\'s Financial tab across a date range: total value, total cost, and an <strong>Avg Margin</strong> percentage. See the <a href="/docs/job-profitability" class="text-secondary hover:underline">Job Profitability guide</a> for exactly how those job-level figures are worked out — this report is a rollup of the same numbers, nothing more.',
+                },
+                {
+                    title: 'Why Avg Margin Only Covers Some Jobs',
+                    content: 'A job valued purely from its schedule (no quote, no invoice) has a margin fixed by your two labour rates rather than by anything specific to that job — it would be identical on every job like it. Including it would dilute the average with a number that doesn\'t actually vary, so <strong>Avg Margin</strong> is worked out over quoted and invoiced jobs only. Where schedule-estimated jobs are still included in the money totals, the card shows how much of the total they make up.',
+                },
+                {
+                    title: 'Clock Coverage',
+                    content: 'The report also shows visits-clocked coverage across the range (N of M visits clocked) — the same figure shown per-job, using the same ten-minute rule. See <a href="/docs/job-profitability#clock" class="text-secondary hover:underline">Clocked time, and the ten-minute rule</a>.',
+                },
+                {
+                    title: 'For Finance',
+                    content: '<em>Tip:</em> If Avg Margin looks lower than expected, check whether a labour band is missing a cost rate — jobs using that band show "Labour costing not set up" and their margin is withheld entirely rather than shown as an underestimate.',
+                },
+            ],
+        },
+        {
             id: 'filtering-date-ranges',
             title: 'Filtering & Date Ranges',
             subsections: [
@@ -373,6 +399,7 @@ export const reportsGuide: IDocGuide = {
                     bullets: [
                         '<a href="/docs/jobs" class="text-secondary hover:underline">Jobs & Multi-Visit Workflow</a> — Understand job lifecycle and statuses',
                         '<a href="/docs/quotations" class="text-secondary hover:underline">Quotations Overview</a> — Learn about quote acceptance and conversion',
+                        '<a href="/docs/job-profitability" class="text-secondary hover:underline">Job Profitability</a> — How the Avg Margin figure is worked out, job by job',
                         '<a href="/docs/settings-tour" class="text-secondary hover:underline">Settings Tour</a> — Configure report defaults and permissions',
                     ],
                 },
@@ -399,6 +426,11 @@ export const reportsGuide: IDocGuide = {
             title: 'Settings Tour',
             description: 'Reports settings and export options',
             href: '/docs/settings-tour'
+        },
+        {
+            title: 'Job Profitability',
+            description: 'How Estimated, Actual and Avg Margin are worked out per job',
+            href: '/docs/job-profitability'
         }
     ]
 };

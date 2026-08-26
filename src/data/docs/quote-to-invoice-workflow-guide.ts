@@ -117,6 +117,11 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                         <strong>PO number:</strong> If the job has a PO Number set, it becomes the invoice's customer reference automatically — no extra step in either invoice path. This is what later reaches Xero's Reference field or QuickBooks' Customer Memo when you post the invoice. See <a href="#xero-integration" class="text-blue-700 hover:underline font-semibold">Accounting Integration</a> below for the exact format.
                     </p>
                 </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-blue-900">
+                        <strong>Estimated vs Actual:</strong> The same Financial tab also shows what the job was worth and what it cost — before and after you invoice it — and where each figure comes from. See the <a href="/docs/job-profitability" class="text-blue-700 hover:underline font-semibold">Job Profitability guide</a>.
+                    </p>
+                </div>
             `
         },
         {
@@ -391,6 +396,11 @@ Customer accepts quote
             title: 'Service Contracts',
             description: 'Upgrade an accepted quote to a recurring service contract',
             href: '/docs/service-contracts'
+        },
+        {
+            title: 'Job Profitability',
+            description: 'How Estimated and Actual are worked out on the Financial tab',
+            href: '/docs/job-profitability'
         }
     ]
 };

@@ -238,6 +238,16 @@ export const settingsTourGuide: IDocGuide = {
                             <em>Billing & tier limits guide coming soon.</em>
                         </p>
                     `
+                },
+                {
+                    title: 'Labour Bands',
+                    content: `
+                        <p class="mb-2"><strong>What it controls:</strong> Two rates per labour band — a <strong>cost rate</strong> (what an hour actually costs you: wage, van, tools, overhead) and a <strong>charge rate</strong> (what you bill an hour at). Assign people to a band from Team Members.</p>
+                        <p class="mb-4"><strong>Why it matters:</strong> The cost rate drives every job's labour cost and margin — without it, jobs show "Labour costing not set up" instead of a cost. The charge rate values work you've never quoted (call-outs, service visits). Both rates exclude VAT.</p>
+                        <p class="text-gray-700">
+                            <a href="/docs/job-profitability" class="text-blue-600 hover:underline">→ See Job Profitability Guide</a>
+                        </p>
+                    `
                 }
             ]
         },
@@ -504,6 +514,11 @@ export const settingsTourGuide: IDocGuide = {
             title: 'Quote to Invoice Workflow',
             description: 'End-to-end workflow from quote to job to invoice',
             href: '/docs/quote-to-invoice-workflow'
+        },
+        {
+            title: 'Job Profitability',
+            description: 'What the Labour Bands cost/charge rates drive on a job',
+            href: '/docs/job-profitability'
         }
     ]
 };

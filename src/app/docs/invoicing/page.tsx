@@ -520,6 +520,21 @@ export default function InvoicingDocsPage() {
                         </div>
                     </section>
 
+                    {/* Related */}
+                    <section className="mb-12">
+                        <div className="bg-white border border-gray-200 rounded-lg p-6">
+                            <h3 className="font-bold mb-2">Want to see the cost side too?</h3>
+                            <p className="text-gray-700 text-sm">
+                                An invoice tells you what a job was worth. The job&apos;s Financial tab shows what it actually cost —
+                                clocked time plus supplier invoices — and the margin between the two. See{' '}
+                                <a href="/docs/job-profitability" className="text-blue-600 hover:underline">
+                                    Job Profitability
+                                </a>{' '}
+                                for exactly how Estimated and Actual are worked out.
+                            </p>
+                        </div>
+                    </section>
+
                     {/* Need Help */}
                     <section className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 text-center">
                         <h2 className="text-2xl font-bold mb-4">Need Help?</h2>

@@ -21,6 +21,7 @@ import { calendarIntegrationGuide } from './calendar-integration-guide';
 import { assetTrackingGuide } from './asset-tracking-guide';
 import { assetLifecycleGuide } from './asset-lifecycle-guide';
 import { quoteToInvoiceWorkflowGuide } from './quote-to-invoice-workflow-guide';
+import { jobProfitabilityGuide } from './job-profitability-guide';
 import { reportsGuide } from './reports-guide';
 import { telegramBotGuide } from './telegram-bot-guide';
 import { migrationAgentGuide } from './migration-agent-guide';
@@ -51,6 +52,7 @@ export const docGuides: IDocGuide[] = [
     assetTrackingGuide,
     assetLifecycleGuide,
     quoteToInvoiceWorkflowGuide,
+    jobProfitabilityGuide,
     reportsGuide,
     telegramBotGuide,
     migrationAgentGuide,

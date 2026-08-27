@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" role="img" aria-labelledby="poRevTitle poRevDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="poRevTitle">Purchase order revision trail</title>
+  <desc id="poRevDesc">One purchase order, PO-1042, moves from Draft to Sent when it is emailed to the supplier. Each amendment mints a new revision of the same order rather than overwriting it: Rev 1 sent 12 March, Rev 2 amended 18 March, Rev 3 amended 2 April. Every revision issues its own PDF, and all three PDFs are kept — Rev 1 and Rev 2 are marked retained and locked, Rev 3 is marked current — so the document the supplier is holding can always be reproduced. Cancelled is a terminal state reachable from Draft or Sent, with no further revisions.</desc>
+
+  <defs>
+    <marker id="poRevArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#171717"/>
+    </marker>
+    <marker id="poRevArrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#737373"/>
+    </marker>
+    <marker id="poRevArrowStop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- surface: the figure carries its own light ground so it reads on any page background -->
+  <rect x="8" y="8" width="1024" height="464" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- ── lane bracket: it is ONE order throughout ── -->
+  <text x="500" y="46" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.4" fill="#737373">ONE ORDER RECORD &#8212; PO-1042 &#183; NORTHWOOD ELECTRICAL LTD</text>
+  <path d="M48,68 L48,60 L952,60 L952,68" fill="none" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- ── state lane ── -->
+  <!-- Draft -->
+  <rect x="48" y="92" width="184" height="64" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="68" cy="116" r="5" fill="#A3A3A3"/>
+  <text x="82" y="121" font-size="15" font-weight="700" fill="#171717">Draft</text>
+  <text x="68" y="141" font-size="10.5" fill="#737373">editable &#183; nothing issued</text>
+
+  <!-- Sent, Rev 1 -->
+  <rect x="288" y="92" width="184" height="64" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="308" cy="116" r="5" fill="#304FFF"/>
+  <text x="322" y="121" font-size="15" font-weight="700" fill="#171717">Sent</text>
+  <rect x="404" y="105" width="54" height="21" rx="10.5" fill="#EEF1FF"/>
+  <text x="431" y="120" text-anchor="middle" font-size="10.5" font-weight="700" fill="#304FFF">Rev 1</text>
+  <text x="308" y="141" font-size="10.5" fill="#737373">sent 12 Mar 2026</text>
+
+  <!-- Sent, Rev 2 -->
+  <rect x="528" y="92" width="184" height="64" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="548" cy="116" r="5" fill="#304FFF"/>
+  <text x="562" y="121" font-size="15" font-weight="700" fill="#171717">Sent</text>
+  <rect x="644" y="105" width="54" height="21" rx="10.5" fill="#EEF1FF"/>
+  <text x="671" y="120" text-anchor="middle" font-size="10.5" font-weight="700" fill="#304FFF">Rev 2</text>
+  <text x="548" y="141" font-size="10.5" fill="#737373">amended 18 Mar</text>
+
+  <!-- Sent, Rev 3 — current -->
+  <rect x="768" y="92" width="184" height="64" rx="10" fill="#FFFFFF" stroke="#304FFF" stroke-width="2"/>
+  <circle cx="788" cy="116" r="5" fill="#304FFF"/>
+  <text x="802" y="121" font-size="15" font-weight="700" fill="#171717">Sent</text>
+  <rect x="884" y="105" width="54" height="21" rx="10.5" fill="#304FFF"/>
+  <text x="911" y="120" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">Rev 3</text>
+  <text x="788" y="141" font-size="10.5" fill="#737373">amended 02 Apr &#183; current</text>
+
+  <!-- lane arrows -->
+  <line x1="236" y1="124" x2="281" y2="124" stroke="#171717" stroke-width="1.6" marker-end="url(#poRevArrow)"/>
+  <text x="258" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#525252">send</text>
+  <line x1="476" y1="124" x2="521" y2="124" stroke="#171717" stroke-width="1.6" marker-end="url(#poRevArrow)"/>
+  <text x="498" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#525252">amend</text>
+  <line x1="716" y1="124" x2="759" y2="124" stroke="#171717" stroke-width="1.6" marker-end="url(#poRevArrow)"/>
+  <text x="738" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#525252">amend</text>
+
+  <!-- ── cancel: terminal, off to one side ── -->
+  <path d="M330,158 L330,190 L142,190" fill="none" stroke="#DC2626" stroke-width="1.3" stroke-dasharray="4 4"/>
+  <line x1="140" y1="158" x2="140" y2="206" stroke="#DC2626" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#poRevArrowStop)"/>
+  <text x="150" y="176" font-size="10.5" font-weight="700" fill="#DC2626">cancel</text>
+
+  <rect x="48" y="214" width="184" height="64" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <circle cx="68" cy="238" r="5" fill="#DC2626"/>
+  <text x="82" y="243" font-size="15" font-weight="700" fill="#171717">Cancelled</text>
+  <text x="68" y="263" font-size="10.5" fill="#737373">terminal &#183; no further revisions</text>
+
+  <!-- ── the point: each revision issues its own PDF, and every PDF is kept ── -->
+  <line x1="380" y1="160" x2="380" y2="208" stroke="#171717" stroke-width="1.4" marker-end="url(#poRevArrow)"/>
+  <line x1="620" y1="160" x2="620" y2="208" stroke="#171717" stroke-width="1.4" marker-end="url(#poRevArrow)"/>
+  <line x1="860" y1="160" x2="860" y2="208" stroke="#171717" stroke-width="1.4" marker-end="url(#poRevArrow)"/>
+  <text x="390" y="188" font-size="10.5" fill="#525252">issues its own PDF</text>
+
+  <!-- Rev 1 PDF — retained -->
+  <rect x="288" y="214" width="184" height="170" rx="8" fill="#FAFAFA" stroke="#E5E5E5" stroke-width="1"/>
+  <path d="M304,230 h9 l4,4 v12 h-13 Z" fill="#FFFFFF" stroke="#A3A3A3" stroke-width="1.1"/>
+  <path d="M313,230 v4 h4" fill="none" stroke="#A3A3A3" stroke-width="1.1"/>
+  <text x="326" y="243" font-size="12" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">PO-1042 Rev 1</text>
+  <text x="304" y="261" font-size="10" fill="#737373">issued 12 Mar 2026</text>
+  <rect x="304" y="272" width="152" height="5" rx="2.5" fill="#E8E8E8"/>
+  <rect x="304" y="282" width="138" height="5" rx="2.5" fill="#E8E8E8"/>
+  <rect x="304" y="292" width="112" height="5" rx="2.5" fill="#E8E8E8"/>
+  <text x="304" y="323" font-size="14" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;8,420.00</text>
+  <text x="304" y="338" font-size="10" fill="#737373">original order &#183; 6 lines</text>
+  <rect x="304" y="348" width="102" height="22" rx="11" fill="#F0F0F0" stroke="#C4C4C4" stroke-width="1"/>
+  <path d="M316,357 h7 v6 h-7 Z" fill="#404040"/>
+  <path d="M317.2,357 a2.3,2.3 0 0 1 4.6,0" fill="none" stroke="#404040" stroke-width="1.2"/>
+  <text x="330" y="364" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#404040">RETAINED</text>
+
+  <!-- Rev 2 PDF — retained -->
+  <rect x="528" y="214" width="184" height="170" rx="8" fill="#FAFAFA" stroke="#E5E5E5" stroke-width="1"/>
+  <path d="M544,230 h9 l4,4 v12 h-13 Z" fill="#FFFFFF" stroke="#A3A3A3" stroke-width="1.1"/>
+  <path d="M553,230 v4 h4" fill="none" stroke="#A3A3A3" stroke-width="1.1"/>
+  <text x="566" y="243" font-size="12" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">PO-1042 Rev 2</text>
+  <text x="544" y="261" font-size="10" fill="#737373">issued 18 Mar 2026</text>
+  <rect x="544" y="272" width="152" height="5" rx="2.5" fill="#E8E8E8"/>
+  <rect x="544" y="282" width="138" height="5" rx="2.5" fill="#E8E8E8"/>
+  <rect x="544" y="292" width="112" height="5" rx="2.5" fill="#E8E8E8"/>
+  <text x="544" y="323" font-size="14" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;9,180.00</text>
+  <text x="544" y="338" font-size="10" fill="#737373">2 lines added on site</text>
+  <rect x="544" y="348" width="102" height="22" rx="11" fill="#F0F0F0" stroke="#C4C4C4" stroke-width="1"/>
+  <path d="M556,357 h7 v6 h-7 Z" fill="#404040"/>
+  <path d="M557.2,357 a2.3,2.3 0 0 1 4.6,0" fill="none" stroke="#404040" stroke-width="1.2"/>
+  <text x="570" y="364" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#404040">RETAINED</text>
+
+  <!-- Rev 3 PDF — current -->
+  <rect x="768" y="214" width="184" height="170" rx="8" fill="#FFFFFF" stroke="#304FFF" stroke-width="2"/>
+  <path d="M784,230 h9 l4,4 v12 h-13 Z" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.1"/>
+  <path d="M793,230 v4 h4" fill="none" stroke="#304FFF" stroke-width="1.1"/>
+  <text x="806" y="243" font-size="12" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">PO-1042 Rev 3</text>
+  <text x="784" y="261" font-size="10" fill="#737373">issued 02 Apr 2026</text>
+  <rect x="784" y="272" width="152" height="5" rx="2.5" fill="#DDE3FF"/>
+  <rect x="784" y="282" width="138" height="5" rx="2.5" fill="#DDE3FF"/>
+  <rect x="784" y="292" width="112" height="5" rx="2.5" fill="#DDE3FF"/>
+  <text x="784" y="323" font-size="14" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;9,180.00</text>
+  <text x="784" y="338" font-size="10" fill="#737373">delivery date revised</text>
+  <rect x="784" y="348" width="90" height="22" rx="11" fill="#304FFF"/>
+  <text x="829" y="364" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#FFFFFF">CURRENT</text>
+
+  <!-- ── the shelf: nothing here is ever replaced ── -->
+  <path d="M288,398 L288,406 L952,406 L952,398" fill="none" stroke="#171717" stroke-width="1.4"/>
+  <text x="620" y="430" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Revision history &#8212; every issued PDF is kept, exactly as the supplier received it</text>
+</svg>

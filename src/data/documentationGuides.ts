@@ -162,6 +162,14 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Assets',
         icon: 'icon-asset'
     },
+    // Purchasing
+    {
+        title: 'Purchase Orders',
+        description: 'Raise, send and amend purchase orders to your own suppliers and subcontractors — pre-filled from a job or a quote, sent as PDF, and revision-tracked once sent.',
+        url: '/docs/purchase-orders',
+        category: 'Purchasing',
+        icon: 'icon-price-tag'
+    },
     // Financial Management
     {
         title: 'Invoicing Guide',

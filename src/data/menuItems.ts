@@ -8,6 +8,7 @@ export const menuItems: IMenuItem[] = [
             { text: "Dashboard & Insights", url: "/features/dashboard" },
             { text: "Jobs & Scheduling", url: "/features/jobs" },
             { text: "Service Contracts", url: "/features/service-contracts" },
+            { text: "Remote Monitoring", url: "/features/remote-monitoring" },
             { text: "Field Service App", url: "/features/field-service" },
             { text: "Digital Certificates", url: "/features/certificates" },
             { text: "Quotes & Estimates", url: "/features/quotations" },

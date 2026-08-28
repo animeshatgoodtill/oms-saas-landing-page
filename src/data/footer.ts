@@ -49,6 +49,10 @@ export const footerDetails: {
             url: "/features/service-contracts"
         },
         {
+            text: "Remote Monitoring",
+            url: "/features/remote-monitoring"
+        },
+        {
             text: "Quotes & Estimates",
             url: "/features/quotations"
         },

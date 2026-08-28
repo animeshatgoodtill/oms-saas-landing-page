@@ -14,6 +14,7 @@ import { templatesDetail } from './templates';
 import { customerPortalDetail } from './customer-portal';
 import { serviceContractsDetail } from './service-contracts';
 import { purchaseOrdersDetail } from './purchase-orders';
+import { remoteMonitoringDetail } from './remote-monitoring';
 
 // Export all feature details (ordered by typical user workflow)
 export const featureDetails: IFeatureDetail[] = [
@@ -21,6 +22,7 @@ export const featureDetails: IFeatureDetail[] = [
     fieldServiceDetail,
     jobsDetail,
     serviceContractsDetail,
+    remoteMonitoringDetail,
     customersDetail,
     certificatesDetail,
     quotationsDetail,

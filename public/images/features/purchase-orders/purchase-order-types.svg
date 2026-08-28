@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="poTypeTitle poTypeDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="poTypeTitle">Materials order and subcontract order, side by side</title>
+  <desc id="poTypeDesc">Two purchase orders drawn side by side to show that the document changes shape with the order type. A materials order, PO-1051, is a five-column table: code, description, quantity, unit price and line total, with three stock lines totalling 1,458 pounds before VAT. A subcontract order, PO-1052, has no quantity or unit-price columns at all: a block of scope-of-works text, a programme, and a single order value of 6,250 pounds. Both use the same numbering series and the same revision trail; only the line-item shape differs.</desc>
+
+  <!-- surface: the figure carries its own light ground so it reads on any page background -->
+  <rect x="8" y="8" width="1024" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- ═════════ LEFT: materials order ═════════ -->
+  <rect x="40" y="64" width="464" height="316" rx="12" fill="#FFFFFF"/>
+  <path d="M40,108 L40,76 A12,12 0 0 1 52,64 L492,64 A12,12 0 0 1 504,76 L504,108 Z" fill="#F5F5F5"/>
+  <rect x="40" y="64" width="464" height="316" rx="12" fill="none" stroke="#E5E5E5" stroke-width="1"/>
+  <line x1="40" y1="108" x2="504" y2="108" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="64" y="93" font-size="15" font-weight="700" fill="#171717">Materials order</text>
+  <text x="480" y="93" text-anchor="end" font-size="11" fill="#737373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">PO-1051</text>
+
+  <!-- column headers -->
+  <text x="64" y="129" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">CODE</text>
+  <text x="168" y="129" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">DESCRIPTION</text>
+  <text x="364" y="129" text-anchor="end" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">QTY</text>
+  <text x="424" y="129" text-anchor="end" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">UNIT</text>
+  <text x="480" y="129" text-anchor="end" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">TOTAL</text>
+  <line x1="64" y1="137" x2="480" y2="137" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- row 1 -->
+  <text x="64" y="159" font-size="10.5" fill="#525252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">CAB-SWA-164</text>
+  <text x="168" y="159" font-size="10.5" fill="#171717">16mm&#178; 4-core SWA cable</text>
+  <text x="364" y="159" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">100 m</text>
+  <text x="424" y="159" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;8.40</text>
+  <text x="480" y="159" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;840.00</text>
+  <line x1="64" y1="169" x2="480" y2="169" stroke="#EDEDED" stroke-width="1"/>
+
+  <!-- row 2 -->
+  <text x="64" y="185" font-size="10.5" fill="#525252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">DB-TPN-12</text>
+  <text x="168" y="185" font-size="10.5" fill="#171717">12-way TP&amp;N board</text>
+  <text x="364" y="185" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">2</text>
+  <text x="424" y="185" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;186.00</text>
+  <text x="480" y="185" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;372.00</text>
+  <line x1="64" y1="195" x2="480" y2="195" stroke="#EDEDED" stroke-width="1"/>
+
+  <!-- row 3 -->
+  <text x="64" y="211" font-size="10.5" fill="#525252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">CON-GAL-25</text>
+  <text x="168" y="211" font-size="10.5" fill="#171717">25mm galvanised conduit</text>
+  <text x="364" y="211" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">60 m</text>
+  <text x="424" y="211" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;4.10</text>
+  <text x="480" y="211" text-anchor="end" font-size="10.5" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;246.00</text>
+  <line x1="64" y1="221" x2="480" y2="221" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- totals -->
+  <text x="364" y="265" text-anchor="end" font-size="10.5" fill="#737373">Subtotal</text>
+  <text x="480" y="265" text-anchor="end" font-size="11" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;1,458.00</text>
+  <text x="364" y="285" text-anchor="end" font-size="10.5" fill="#737373">VAT 20%</text>
+  <text x="480" y="285" text-anchor="end" font-size="11" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;291.60</text>
+  <line x1="300" y1="296" x2="480" y2="296" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="364" y="313" text-anchor="end" font-size="11" font-weight="700" fill="#171717">Total</text>
+  <text x="480" y="313" text-anchor="end" font-size="13" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;1,749.60</text>
+
+  <!-- what the shape is -->
+  <rect x="64" y="326" width="416" height="34" rx="8" fill="#F5F5F5"/>
+  <text x="80" y="347" font-size="10.5" fill="#525252">Five columns &#8212; code, description, quantity, unit price, line total</text>
+
+  <!-- ═════════ RIGHT: subcontract order ═════════ -->
+  <rect x="536" y="64" width="464" height="316" rx="12" fill="#FFFFFF"/>
+  <path d="M536,108 L536,76 A12,12 0 0 1 548,64 L988,64 A12,12 0 0 1 1000,76 L1000,108 Z" fill="#F5F5F5"/>
+  <rect x="536" y="64" width="464" height="316" rx="12" fill="none" stroke="#E5E5E5" stroke-width="1"/>
+  <line x1="536" y1="108" x2="1000" y2="108" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="560" y="93" font-size="15" font-weight="700" fill="#171717">Subcontract order</text>
+  <text x="976" y="93" text-anchor="end" font-size="11" fill="#737373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">PO-1052</text>
+
+  <!-- scope block replaces the columns -->
+  <text x="560" y="129" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">SCOPE OF WORKS</text>
+  <line x1="560" y1="137" x2="976" y2="137" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="560" y="159" font-size="11" fill="#171717">Second-fix wiring to Blocks C and D &#8212; containment,</text>
+  <text x="560" y="177" font-size="11" fill="#171717">accessories, terminations and testing, in accordance</text>
+  <text x="560" y="195" font-size="11" fill="#171717">with drawing E-204 Rev B and the agreed programme.</text>
+  <line x1="560" y1="213" x2="976" y2="213" stroke="#EDEDED" stroke-width="1"/>
+  <text x="560" y="234" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">PROGRAMME</text>
+  <text x="660" y="234" font-size="10.5" fill="#171717">06 Apr &#8211; 01 May 2026</text>
+  <line x1="560" y1="245" x2="976" y2="245" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- one value, no quantities -->
+  <text x="860" y="265" text-anchor="end" font-size="10.5" fill="#737373">Order value</text>
+  <text x="976" y="265" text-anchor="end" font-size="11" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;6,250.00</text>
+  <text x="860" y="285" text-anchor="end" font-size="10.5" fill="#737373">VAT 20%</text>
+  <text x="976" y="285" text-anchor="end" font-size="11" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;1,250.00</text>
+  <line x1="796" y1="296" x2="976" y2="296" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="860" y="313" text-anchor="end" font-size="11" font-weight="700" fill="#171717">Total</text>
+  <text x="976" y="313" text-anchor="end" font-size="13" font-weight="700" fill="#171717" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">&#163;7,500.00</text>
+
+  <!-- what the shape is -->
+  <rect x="560" y="326" width="416" height="34" rx="8" fill="#EEF1FF"/>
+  <text x="576" y="347" font-size="10.5" fill="#304FFF">No quantity or unit-price columns &#8212; scope text and one line total</text>
+
+  <!-- ═════════ the claim ═════════ -->
+  <text x="520" y="418" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Same numbering series, same revision trail &#8212; only the line-item shape follows the order type</text>
+</svg>

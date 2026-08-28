@@ -13,6 +13,7 @@ import { teamDetail } from './team';
 import { templatesDetail } from './templates';
 import { customerPortalDetail } from './customer-portal';
 import { serviceContractsDetail } from './service-contracts';
+import { purchaseOrdersDetail } from './purchase-orders';
 
 // Export all feature details (ordered by typical user workflow)
 export const featureDetails: IFeatureDetail[] = [
@@ -24,6 +25,7 @@ export const featureDetails: IFeatureDetail[] = [
     certificatesDetail,
     quotationsDetail,
     invoicingDetail,
+    purchaseOrdersDetail,
     accountingIntegrationDetail,
     customerPortalDetail,
     assetsDetail,

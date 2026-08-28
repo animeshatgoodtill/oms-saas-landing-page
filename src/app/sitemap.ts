@@ -89,11 +89,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/features/remote-monitoring`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
     // Blog
     ...blogEntries,
     // Documentation pages
     {
       url: `${baseUrl}/docs`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/remote-monitoring`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,

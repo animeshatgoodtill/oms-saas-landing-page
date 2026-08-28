@@ -134,6 +134,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         icon: 'icon-job-workflow'
     },
     {
+        title: 'Remote Monitoring',
+        description: 'Track ARC-handled monitoring cases, keyholders, and false alarm counters without dispatching an engineer. Learn how escalation to a job works and how monitoring bills as a recurring fee.',
+        url: '/docs/remote-monitoring',
+        category: 'Scheduling & Operations',
+        icon: 'icon-condition-gauge'
+    },
+    {
         title: 'Planning Your Week with the Planner',
         description: 'See every engineer\'s week on one board, and book work by dragging it into place. Learn how to read the board, book from the backlog, and move visits.',
         url: '/docs/planner',

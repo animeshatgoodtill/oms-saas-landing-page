@@ -306,7 +306,7 @@ export const settingsTourGuide: IDocGuide = {
                 {
                     title: 'Team Members',
                     content: `
-                        <p class="mb-2"><strong>What it controls:</strong> User invites, role assignment (7 fixed roles: Super Admin, Admin, Manager, Engineer, Viewer, Finance, Field Manager).</p>
+                        <p class="mb-2"><strong>What it controls:</strong> User invites, role assignment (8 fixed roles: Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Site Manager, Engineer, Viewer).</p>
                         <p class="mb-4"><strong>Why it matters:</strong> Controls who can create jobs, issue certificates, send invoices, etc.</p>
                         <p class="text-gray-700">
                             <em>Team, roles & permissions guide coming soon.</em>
@@ -468,8 +468,10 @@ export const settingsTourGuide: IDocGuide = {
                     title: 'Who can access settings?',
                     content: `
                         <p class="text-gray-700">
-                            Super Admins and Admins see all settings. Managers see most settings except Billing and Migration Agent.
-                            Engineers, Viewers, Finance, and Field Managers see only personal settings (theme, calendar, shift history).
+                            Super Admins and Admins see all settings (Super Admin also gets billing and integrations).
+                            The other roles — Accounts, Contract Manager, Sales Manager, Site Manager, Engineer and Viewer —
+                            see only personal settings (theme, calendar, shift history); the settings area itself is
+                            gated to Super Admin and Admin.
                         </p>
                     `
                 },
@@ -486,7 +488,7 @@ export const settingsTourGuide: IDocGuide = {
                     title: 'Why are some settings greyed out?',
                     content: `
                         <p class="text-gray-700">
-                            Greyed-out settings are locked to your current plan tier. For example, Quotations and Products require Business tier.
+                            Greyed-out settings are locked to your current plan tier. For example, Quote templates & options require Team tier.
                             Upgrade your plan in Settings → Billing to unlock them.
                         </p>
                     `

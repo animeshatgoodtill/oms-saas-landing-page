@@ -32,7 +32,7 @@ export const invoicingDetail: IFeatureDetail = {
         {
             iconId: 'icon-service-history',
             title: 'Smart Tax Calculation',
-            description: 'Set tax rates at the product level, category level, or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+            description: 'Set tax rates at the product level or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
         },
         {
             iconId: 'icon-xero',
@@ -47,7 +47,7 @@ export const invoicingDetail: IFeatureDetail = {
         {
             iconId: 'icon-activity-log',
             title: 'Complete Status Tracking',
-            description: 'Draft, Posted, Paid, Partial—see invoice status at a glance. Know exactly what\'s outstanding. Overdue alerts ensure you never miss a late payment. Real-time sync with Xero/QuickBooks keeps everything current.'
+            description: 'Draft, Posted, Paid, Partial, Voided—see invoice status at a glance. Know exactly what\'s outstanding. Overdue alerts ensure you never miss a late payment. Real-time sync with Xero/QuickBooks keeps everything current.'
         }
     ],
 
@@ -77,7 +77,7 @@ export const invoicingDetail: IFeatureDetail = {
                 'Engineer\'s parts list becomes line items automatically',
                 'Labour calculated from hours × your rate—done instantly',
                 'Send professional PDF invoice to customer in one click',
-                'Status tracking shows Draft, Posted, Paid, Partial at a glance',
+                'Status tracking shows Draft, Posted, Paid, Partial, Voided at a glance',
                 'No double entry with Xero/QuickBooks integration'
             ]
         },
@@ -130,7 +130,7 @@ export const invoicingDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Smart tax calculation (product/category/business level)',
+            feature: 'Smart tax calculation (product/business level)',
             opscel: true,
             others: 'Some'
         },
@@ -189,7 +189,11 @@ export const invoicingDetail: IFeatureDetail = {
         },
         {
             question: 'How are tax rates applied?',
-            answer: 'Set tax rates at the product level, category level, or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+            answer: 'Set tax rates at the product level or business level. Opscel applies the right rate automatically. Mixed VAT rates on the same invoice? No problem. Zero-rated goods, reduced rates, standard VAT—all handled correctly.'
+        },
+        {
+            question: 'Can I void an invoice and start again?',
+            answer: 'Yes, but only while it\'s posted and nothing has been paid against it. Once any payment is recorded, the invoice is locked from voiding—raise a credit note or refund instead. Draft invoices can simply be edited or deleted, no voiding needed.'
         }
     ],
 

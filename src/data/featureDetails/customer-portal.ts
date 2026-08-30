@@ -17,7 +17,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             iconId: 'icon-signature',
             title: 'Magic Link Authentication (No Passwords)',
-            description: 'Customers click link in email, signed in automatically. No password to create, remember, or reset. Links expire after 15 minutes for security. Sessions last 30 days. Request new link anytime—takes 10 seconds.'
+            description: 'Customers click link in email, signed in automatically. No password to create, remember, or reset. Links expire after 48 hours for security. Sessions last 30 days. Request new link anytime—takes 10 seconds.'
         },
         {
             iconId: 'icon-certificate',
@@ -27,7 +27,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             iconId: 'icon-compliance-shield',
             title: 'Activity Logging for Compliance',
-            description: 'Every portal action logged: who viewed which quote, when approved, IP address, browser, timestamp. Customer claims "never saw that quote"? Activity log shows they viewed it Tuesday at 3pm. Dispute-proof audit trail.'
+            description: 'Every portal action logged: who viewed which quote, when approved, IP address, timestamp. Customer claims "never saw that quote"? Activity log shows they viewed it Tuesday at 3pm. Dispute-proof audit trail.'
         },
         {
             iconId: 'icon-user-roles',
@@ -37,7 +37,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-prompt',
             title: 'Instant Invite Delivery',
-            description: 'Toggle portal access on, click "Send Invite", customer receives email in seconds. Link valid for 15 minutes. Resend anytime if expired or lost. No manual email writing, no copy-pasting links. One button, done.'
+            description: 'Toggle portal access on, click "Send Invite", customer receives email in seconds. Link valid for 48 hours. Resend anytime if expired or lost. No manual email writing, no copy-pasting links. One button, done.'
         },
         {
             iconId: 'icon-price-tag',
@@ -75,7 +75,7 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             stepNumber: 2,
             title: 'Send Portal Invite',
-            description: 'Click "Send Invite" button. Contact receives branded email with magic link valid for 15 minutes. Link includes your company name, instructions, secure token. Delivered via Resend in seconds.'
+            description: 'Click "Send Invite" button. Contact receives branded email with magic link valid for 48 hours. Link includes your company name, instructions, secure token. Delivered via Resend in seconds.'
         },
         {
             stepNumber: 3,
@@ -85,12 +85,12 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             stepNumber: 4,
             title: 'Customer Approves Quote or Downloads Cert',
-            description: 'Customer reviews quote, clicks "Approve", enters full name to confirm. Status updates in Opscel instantly. Or downloads certificate PDF for insurance/compliance. All actions logged with timestamp, IP, browser.'
+            description: 'Customer reviews quote, clicks "Approve", enters full name to confirm. Status updates in Opscel instantly. Or downloads certificate PDF for insurance/compliance. All actions logged with timestamp and IP address.'
         },
         {
             stepNumber: 5,
             title: 'Monitor Activity Log',
-            description: 'Settings → Portal Activity shows all customer interactions: logins, quote views, approvals, declines, certificate downloads. Filter by contact, date, action type. Export for compliance audits.'
+            description: 'Settings → Portal Activity shows all customer interactions: logins, quote views, approvals, declines, certificate downloads. Filter by contact, date, action type.'
         }
     ],
 
@@ -138,7 +138,7 @@ export const customerPortalDetail: IFeatureDetail = {
             label: 'Admin calls—customers self-serve cert downloads and quote status'
         },
         {
-            value: '15 min/30 days',
+            value: '48hr/30 days',
             label: 'Magic link expiry / session duration—secure and convenient'
         }
     ],
@@ -160,7 +160,7 @@ export const customerPortalDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Activity logging (who viewed what when, IP, browser)',
+            feature: 'Activity logging (who viewed what when, IP address)',
             opscel: true,
             others: 'No'
         },
@@ -194,11 +194,11 @@ export const customerPortalDetail: IFeatureDetail = {
     faq: [
         {
             question: 'How does magic link authentication work?',
-            answer: 'Customer receives email with unique sign-in link valid for 15 minutes. Clicking link signs them in automatically—no password to create or remember. Session lasts 30 days. After 30 days (or if link expired), they request new link by entering email on login page. Takes 10 seconds. Zero password reset support calls. Links are single-use tokens with cryptographic security.'
+            answer: 'Customer receives email with unique sign-in link valid for 48 hours. Clicking link signs them in automatically—no password to create or remember. Session lasts 30 days. After 30 days (or if link expired), they request new link by entering email on login page. Takes 10 seconds. Zero password reset support calls. Links are single-use tokens with cryptographic security.'
         },
         {
             question: 'What happens when a customer approves a quote?',
-            answer: 'Customer clicks "Approve", enters full name to confirm (acts as digital signature). Status updates in Opscel instantly—quote marked "Customer Approved" with timestamp, contact name, IP address, browser. Office gets notification. Activity log records approval with forensic details. Customer cannot undo approval (contact you if mistake). You can convert to job immediately.'
+            answer: 'Customer clicks "Approve", enters full name to confirm (acts as digital signature). Status updates in Opscel instantly—quote marked "Customer Approved" with timestamp, contact name, and IP address. Office gets notification. Activity log records approval with forensic details. Customer cannot undo approval (contact you if mistake). You can convert to job immediately.'
         },
         {
             question: 'Can customers edit quotes or certificates?',
@@ -210,7 +210,7 @@ export const customerPortalDetail: IFeatureDetail = {
         },
         {
             question: 'What does the activity log track?',
-            answer: 'Every portal action: Login (IP address, browser, timestamp), View Quote (which quote, when), Approve/Decline Quote (who, reason if declined), View Certificate (which cert, when), Download PDF (cert ID, timestamp), View Invoice (which invoice, when). Access via Settings → Portal Activity. Filter by contact, date range, action type. Export CSV for compliance audits. Proves customer engagement in disputes.'
+            answer: 'Every portal action: Login (IP address, timestamp), View Quote (which quote, when), Approve/Decline Quote (who, reason if declined), View Certificate (which cert, when), Download PDF (cert ID, timestamp), View Invoice (which invoice, when). Access via Settings → Portal Activity. Filter by contact, date range, action type. Proves customer engagement in disputes.'
         },
         {
             question: 'Is Customer Portal available on all pricing tiers?',

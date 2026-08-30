@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const calendarIntegrationGuide: IDocGuide = {
     slug: 'calendar-integration',
     title: 'Calendar Integration',
-    description: 'Two-way sync between Opscel and external calendars. Connect Google Calendar, Microsoft 365, or ICS feeds for automatic availability blocking and engineer calendar sync.',
+    description: 'Two-way sync between Opscel and external calendars. Connect Google Calendar or Microsoft 365 for automatic availability blocking and engineer calendar sync.',
     lastUpdated: '2026-05-21',
     sections: [
         {
@@ -12,7 +12,7 @@ export const calendarIntegrationGuide: IDocGuide = {
             subsections: [
                 {
                     title: '30-Second Version',
-                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6"><p class="text-sm text-blue-900"><strong>Who:</strong> All users (per-user connection)<br><strong>What:</strong> Two-way calendar sync between Opscel and Google/Microsoft/ICS<br><strong>Where:</strong> Settings → Calendar Integration<br><strong>Why:</strong> Prevent double-booking, auto-block engineer availability, mobile calendar integration</p></div>'
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6"><p class="text-sm text-blue-900"><strong>Who:</strong> All users (per-user connection)<br><strong>What:</strong> Two-way calendar sync between Opscel and Google/Microsoft 365<br><strong>Where:</strong> Settings → Calendar Integration<br><strong>Why:</strong> Prevent double-booking, auto-block engineer availability, mobile calendar integration</p></div>'
                 },
                 {
                     title: 'Key Benefits',
@@ -22,17 +22,15 @@ export const calendarIntegrationGuide: IDocGuide = {
                         '<strong>Engineer calendar sync:</strong> Scheduled jobs appear in engineer&apos;s personal calendar',
                         '<strong>Prevent double-booking:</strong> Scheduling respects external commitments',
                         '<strong>Mobile calendar integration:</strong> View Opscel jobs alongside personal appointments',
-                        '<strong>Two-way sync:</strong> Changes in Opscel reflect in calendar, calendar blocks reflect in Opscel',
-                        '<strong>15-minute refresh:</strong> Changes sync every 15 minutes automatically'
+                        '<strong>Two-way sync:</strong> Changes in Opscel reflect in calendar, calendar blocks reflect in Opscel'
                     ]
                 },
                 {
                     title: 'Supported Platforms',
-                    content: '<p>Opscel integrates with three calendar platforms:</p>',
+                    content: '<p>Opscel integrates with two calendar platforms:</p>',
                     bullets: [
                         '<strong>Google Calendar:</strong> OAuth 2.0, per-user, read/write access',
-                        '<strong>Microsoft 365:</strong> OAuth 2.0, per-user, read/write access',
-                        '<strong>ICS feeds:</strong> URL-based, read-only, no OAuth required'
+                        '<strong>Microsoft 365:</strong> OAuth 2.0, per-user, read/write access'
                     ]
                 }
             ]
@@ -52,8 +50,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                         headers: ['Platform', 'Sync Direction', 'Auth Method', 'Best For'],
                         rows: [
                             ['Google Calendar', 'Two-way (read/write)', 'OAuth 2.0', 'Gmail users, Android devices, Google Workspace'],
-                            ['Microsoft 365', 'Two-way (read/write)', 'OAuth 2.0', 'Outlook users, Microsoft 365 businesses'],
-                            ['ICS Feed', 'One-way (read-only)', 'URL (no auth)', 'Apple Calendar, external calendars, read-only blocking']
+                            ['Microsoft 365', 'Two-way (read/write)', 'OAuth 2.0', 'Outlook users, Microsoft 365 businesses']
                         ]
                     }
                 },
@@ -65,10 +62,6 @@ export const calendarIntegrationGuide: IDocGuide = {
                     title: 'Microsoft 365',
                     content: '<p><strong>OAuth connection via Microsoft Identity Platform.</strong> Connect your work or personal Microsoft account to sync Opscel jobs with Outlook Calendar. Supports both Outlook.com and Microsoft 365 business accounts.</p><p><strong>Permissions required:</strong> <code>Calendars.ReadWrite</code> (read/write calendar events)</p>'
                 },
-                {
-                    title: 'ICS Feed',
-                    content: '<p><strong>Read-only availability blocking via ICS URL.</strong> If your calendar provider supports ICS export (Apple Calendar, iCloud, most calendar apps), you can provide the ICS URL to Opscel. Busy times in your calendar will block job scheduling, but Opscel jobs do NOT appear in your external calendar (one-way sync).</p><p><strong>No authentication required.</strong> Just paste the ICS URL. Opscel refreshes the feed every 15 minutes.</p>'
-                }
             ]
         },
         {
@@ -213,82 +206,6 @@ export const calendarIntegrationGuide: IDocGuide = {
             ]
         },
         {
-            id: 'ics-feed',
-            title: 'ICS Feed Setup',
-            subsections: [
-                {
-                    title: 'Availability',
-                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> All users (per-user connection)</p>'
-                },
-                {
-                    title: 'When to Use ICS',
-                    content: '<p>ICS feeds are best for:</p>',
-                    bullets: [
-                        '<strong>Read-only availability blocking:</strong> You want Opscel to respect your calendar busy times, but don&apos;t need Opscel jobs to appear in your external calendar',
-                        '<strong>No OAuth required:</strong> Your calendar provider doesn&apos;t support OAuth, or you prefer not to grant full access',
-                        '<strong>Apple Calendar / iCloud:</strong> ICS is the easiest integration method for Apple users',
-                        '<strong>External calendars:</strong> Syncing calendars from other systems that export ICS'
-                    ]
-                },
-                {
-                    title: 'Getting ICS URL from Calendar Provider',
-                    content: '<p><strong>Apple Calendar / iCloud:</strong></p>',
-                    steps: [
-                        'Open iCloud Calendar in web browser',
-                        'Click calendar name, then click share icon',
-                        'Enable "Public Calendar"',
-                        'Copy the "webcal://" URL',
-                        'Change "webcal://" to "https://" (Opscel requires HTTPS)',
-                        'Paste into Opscel ICS URL field'
-                    ]
-                },
-                {
-                    title: '',
-                    content: '<p><strong>Google Calendar (ICS alternative):</strong></p>',
-                    steps: [
-                        'Open Google Calendar settings',
-                        'Select calendar from list',
-                        'Scroll to "Integrate calendar" section',
-                        'Copy "Secret address in iCal format" URL',
-                        'Paste into Opscel ICS URL field'
-                    ]
-                },
-                {
-                    title: 'Refresh Interval',
-                    content: '<p>ICS feeds are polled every <strong>15 minutes</strong>. This means:</p>',
-                    bullets: [
-                        'Changes in your external calendar take up to 15 minutes to reflect in Opscel availability',
-                        'If you add a busy event now, Opscel won&apos;t block that time slot until next refresh',
-                        'For real-time sync, use OAuth (Google Calendar or Microsoft 365) instead'
-                    ]
-                },
-                {
-                    title: 'Steps to Add ICS Feed',
-                    content: '',
-                    steps: [
-                        'Get your ICS URL from calendar provider (see above)',
-                        'Navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Click <strong>Add ICS Feed</strong> button',
-                        'Paste ICS URL into field (must start with "https://" or "webcal://")',
-                        'Click <strong>Validate</strong> to test the feed',
-                        'If valid, click <strong>Save</strong>',
-                        'Connection status shows "ICS Feed: Connected" with URL domain'
-                    ]
-                },
-                {
-                    title: 'What You Should See',
-                    content: '<p>After adding ICS feed:</p>',
-                    bullets: [
-                        '<strong>Connection status:</strong> "ICS Feed: Connected"',
-                        '<strong>Last refresh time:</strong> Timestamp of most recent poll',
-                        '<strong>Event count:</strong> Number of busy events imported from feed',
-                        '<strong>Availability blocking:</strong> Scheduling interface respects busy times from ICS',
-                        '<strong>One-way only:</strong> Opscel jobs do NOT appear in your external calendar (ICS is read-only)'
-                    ]
-                }
-            ]
-        },
-        {
             id: 'two-way-sync',
             title: 'Two-Way Sync Explained',
             subsections: [
@@ -333,7 +250,6 @@ export const calendarIntegrationGuide: IDocGuide = {
                     content: '<p><strong>What happens if admin schedules a job during engineer&apos;s busy time?</strong></p>',
                     bullets: [
                         '<strong>Warning shown:</strong> Scheduling interface shows "Engineer has conflict" warning with conflicting event time',
-                        '<strong>Manual override:</strong> Admin can force schedule (job takes precedence)',
                         '<strong>Engineer notification:</strong> Engineer receives notification about scheduling conflict',
                         '<strong>Both events persist:</strong> Both Opscel job and external calendar event remain (engineer must resolve conflict manually)'
                     ]
@@ -350,8 +266,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                     bullets: [
                         '<strong>Scheduling interface:</strong> Unavailable time slots appear grayed out with "Busy" indicator',
                         '<strong>Auto-assign:</strong> Auto-assign rules skip engineers with calendar conflicts',
-                        '<strong>Drag-and-drop scheduling:</strong> Can&apos;t drag job to blocked time slot',
-                        '<strong>Manual override:</strong> Admins with "Force Schedule" permission can override blocks'
+                        '<strong>Drag-and-drop scheduling:</strong> Can&apos;t drag job to blocked time slot'
                     ]
                 },
                 {
@@ -365,18 +280,6 @@ export const calendarIntegrationGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Manual Override',
-                    content: '<p>Admins can force schedule during blocked times:</p>',
-                    steps: [
-                        'Attempt to schedule job during busy time',
-                        'Warning appears: "Engineer has calendar conflict at this time"',
-                        'Click <strong>Force Schedule</strong> button',
-                        'Confirm override in modal dialog',
-                        'Job schedules despite conflict',
-                        'Engineer receives notification about conflict'
-                    ]
-                },
-                {
                     title: 'Examples',
                     content: '<p><strong>Example 1:</strong> John has dentist appointment 2-3pm on Tuesday. Admin tries to schedule job for John at 2:30pm Tuesday. Scheduling interface shows "Busy" indicator and suggests alternative times.</p><p><strong>Example 2:</strong> Sarah blocks out 9-5pm Friday for annual leave in Google Calendar. Opscel auto-assign skips Sarah for Friday jobs. Admins see "On Leave" indicator next to Sarah&apos;s name.</p>'
                 },
@@ -384,7 +287,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                     title: 'Steps to Test Availability Blocking',
                     content: '',
                     steps: [
-                        'Connect your calendar (Google, Microsoft, or ICS)',
+                        'Connect your calendar (Google or Microsoft)',
                         'Add a busy event in your external calendar (e.g., "Dentist" tomorrow 2-3pm)',
                         'Wait 15 minutes for sync (or click "Sync Now" in Opscel)',
                         'Navigate to Opscel scheduling interface (Jobs → Schedule Visit)',
@@ -401,16 +304,14 @@ export const calendarIntegrationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'OAuth Tokens Expire',
-                    content: '<p>Google and Microsoft OAuth tokens expire after <strong>60 days</strong> (Google) or <strong>90 days</strong> (Microsoft) of inactivity. When a token expires, Opscel can no longer sync your calendar.</p>'
+                    content: '<p>Google and Microsoft short-lived access tokens expire on their normal OAuth schedule. Opscel refreshes them automatically using the stored refresh token whenever a sync needs one, so this normally never surfaces.</p>'
                 },
                 {
                     title: 'Automatic Refresh Process',
-                    content: '<p>Opscel automatically refreshes OAuth tokens before expiry:</p>',
+                    content: '<p>Opscel automatically refreshes OAuth tokens on demand:</p>',
                     bullets: [
-                        '<strong>Refresh at 50% lifetime:</strong> Google tokens refresh at ~30 days, Microsoft at ~45 days',
-                        '<strong>Silent refresh:</strong> No action required from you',
-                        '<strong>Refresh token valid for 6 months:</strong> As long as you use Opscel regularly, tokens stay fresh',
-                        '<strong>Background process:</strong> Refresh happens during nightly maintenance (02:00 UTC)'
+                        '<strong>Refresh on use:</strong> The access token is refreshed using the stored refresh token the next time a sync needs it',
+                        '<strong>Silent refresh:</strong> No action required from you'
                     ]
                 },
                 {
@@ -419,8 +320,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                     bullets: [
                         '<strong>Account password changed:</strong> Google/Microsoft revokes tokens when you change password',
                         '<strong>Permissions revoked:</strong> You manually removed Opscel from connected apps',
-                        '<strong>Organization policy change:</strong> IT admin revoked app access',
-                        '<strong>Long inactivity:</strong> Haven&apos;t used Opscel or synced calendar in 6+ months'
+                        '<strong>Organization policy change:</strong> IT admin revoked app access'
                     ]
                 },
                 {
@@ -468,7 +368,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                     content: '',
                     steps: [
                         'Navigate to <strong>Settings → Calendar Integration</strong>',
-                        'Find connected calendar (Google, Microsoft, or ICS)',
+                        'Find connected calendar (Google or Microsoft)',
                         'Click <strong>Disconnect</strong> button',
                         'Confirm disconnection in modal dialog',
                         'Connection status changes to "Not Connected"',
@@ -507,8 +407,7 @@ export const calendarIntegrationGuide: IDocGuide = {
                     bullets: [
                         '<strong>Encourage team to connect calendars:</strong> Send reminder to all engineers to connect their calendars for accurate availability',
                         '<strong>Monitor connection health:</strong> Check Settings → Team → Calendar Status to see which users have calendars connected',
-                        '<strong>Respect availability blocks:</strong> Don&apos;t force schedule unless urgent. Calendar conflicts usually indicate legitimate conflicts.',
-                        '<strong>Use OAuth over ICS:</strong> Two-way sync (OAuth) provides better experience than read-only ICS'
+                        '<strong>Respect availability blocks:</strong> Calendar conflicts usually indicate legitimate conflicts — don&apos;t schedule over them without checking with the engineer first.'
                     ]
                 },
                 {
@@ -563,11 +462,10 @@ export const calendarIntegrationGuide: IDocGuide = {
                     title: 'Availability Not Blocking Scheduling',
                     content: '<p><strong>Problem:</strong> Have busy event in calendar but Opscel still allows scheduling at that time.</p><p><strong>Check:</strong></p>',
                     bullets: [
-                        'ICS feed refresh delay (up to 15 minutes)',
                         'Event marked as "Busy" (not "Free" or "Available")',
-                        'OAuth permissions granted (if using Google/Microsoft)',
+                        'OAuth permissions granted (Google/Microsoft)',
                         'Calendar integration enabled (not disconnected)',
-                        '<strong>Fix:</strong> Wait 15 minutes for ICS refresh, or click "Sync Now" for OAuth. Ensure event status is "Busy". If using ICS, switch to OAuth for faster sync.'
+                        '<strong>Fix:</strong> Click "Sync Now" to force an immediate sync. Ensure event status is "Busy".'
                     ]
                 },
                 {

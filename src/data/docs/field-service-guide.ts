@@ -32,7 +32,7 @@ export const fieldServiceGuide: IDocGuide = {
                     bullets: [
                         'Viewing today\'s jobs and weekly schedule',
                         'GPS-tracked check-in and departure',
-                        'Photo capture with 5 categories and captions',
+                        'Photo capture with 7 categories and captions',
                         'Engineer and customer signature collection',
                         'Multi-section worksheets and checklists',
                         'Defect logging with severity levels',
@@ -281,7 +281,7 @@ export const fieldServiceGuide: IDocGuide = {
             title: 'Capturing Photos',
             content: `
                 <p class="mb-6">
-                    Photos are organized into 5 categories to keep job documentation structured. All photos work offline and sync when you're back online.
+                    Photos are organized into 7 categories to keep job documentation structured. All photos work offline and sync when you're back online.
                 </p>
             `,
             subsections: [
@@ -290,10 +290,12 @@ export const fieldServiceGuide: IDocGuide = {
                     content: '',
                     bullets: [
                         'Before: Site condition before work starts',
-                        'During: Work in progress, installation steps',
                         'After: Completed work, final condition',
-                        'Defects: Issues found during inspection',
-                        'Other: Misc photos (equipment, access, permits)'
+                        'Deficiency: Issues found during inspection',
+                        'Equipment: Equipment being serviced or installed',
+                        'Certificate: Test certificates, documentation',
+                        'Signature: Customer sign-off',
+                        'Other: Misc photos (access, permits)'
                     ]
                 },
                 {
@@ -301,7 +303,7 @@ export const fieldServiceGuide: IDocGuide = {
                     content: '',
                     steps: [
                         { step: 'Tap "Photos" from the job hub', description: '' },
-                        { step: 'Select a category (Before, During, After, Defects, Other)', description: '' },
+                        { step: 'Select a category (Before, After, Deficiency, Equipment, Certificate, Signature, Other)', description: '' },
                         { step: 'Tap the camera button', description: '' },
                         { step: 'Take the photo using your device camera', description: '' },
                         { step: 'Add a caption to describe what is shown', description: 'Captions help identify photos later' },
@@ -377,7 +379,7 @@ export const fieldServiceGuide: IDocGuide = {
                     steps: [
                         { step: 'Tap "Defects" from the job hub', description: '' },
                         { step: 'Tap "Add Defect"', description: '' },
-                        { step: 'Select severity level', description: 'Critical, High, Medium, Low' },
+                        { step: 'Select severity level', description: 'Observation, Minor, Major, Critical' },
                         { step: 'Enter defect description', description: 'Be specific: location, what\'s wrong, why it matters' },
                         { step: 'Add photos of the defect', description: 'Photos are linked to this defect record' },
                         { step: 'Add remedial action notes if known', description: 'What needs to be done to fix it' },
@@ -693,7 +695,7 @@ export const fieldServiceGuide: IDocGuide = {
                     bullets: [
                         'Check the Sync Inspector—they may be queued',
                         'Ensure you\'re online so they can upload',
-                        'Look in the correct category (Before, During, After, etc.)',
+                        'Look in the correct category (Before, After, Deficiency, etc.)',
                         'Force sync from Settings → Sync Inspector',
                         'Check browser storage quota (Settings → Cache Stats)'
                     ]

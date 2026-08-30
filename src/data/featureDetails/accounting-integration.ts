@@ -21,8 +21,8 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-activity-log',
-            title: 'Payments Update in Real-Time',
-            description: 'When a customer pays an invoice in Xero or QuickBooks, the status updates in Opscel automatically. Your dashboard shows what\'s paid, what\'s outstanding, and what\'s overdue. No more logging into two systems to check payment status.'
+            title: 'Payments Sync Back Automatically',
+            description: 'When a customer pays an invoice, the status updates in Opscel automatically. Xero payments sync near-instantly via webhooks; QuickBooks is checked hourly, with webhooks as a supplementary (not guaranteed) speed-up. Your dashboard shows what\'s paid, what\'s outstanding, and what\'s overdue—no more logging into two systems to check payment status.'
         },
         {
             iconId: 'icon-service-history',
@@ -100,8 +100,8 @@ export const accountingIntegrationDetail: IFeatureDetail = {
             label: 'Manual exports or imports needed'
         },
         {
-            value: 'Real-time',
-            label: 'Payment status updates via webhooks'
+            value: 'Near real-time',
+            label: 'Payment status updates (Xero webhooks; QuickBooks hourly)'
         }
     ],
 
@@ -122,7 +122,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Real-time payment status updates (webhooks)',
+            feature: 'Payment status sync (Xero webhooks, QuickBooks hourly poll)',
             opscel: true,
             others: 'No'
         },
@@ -137,7 +137,7 @@ export const accountingIntegrationDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Multi-company support',
+            feature: 'Connect your Xero and QuickBooks accounts',
             opscel: true,
             others: 'Some'
         },
@@ -172,11 +172,11 @@ export const accountingIntegrationDetail: IFeatureDetail = {
         },
         {
             question: 'Can I edit an invoice after posting?',
-            answer: 'In Opscel, you can void and recreate. In your accounting software, standard rules apply. We recommend getting invoices right before posting to avoid complications.'
+            answer: 'In Opscel, you can void and recreate—but only while the invoice is posted and no payment has been recorded against it. Once a payment lands, it can no longer be voided; raise a credit note or refund instead. In your accounting software, standard rules apply. We recommend getting invoices right before posting to avoid complications.'
         },
         {
             question: 'How quickly do payments sync?',
-            answer: 'Xero: Within minutes via webhooks. QuickBooks: Checked hourly, with webhook support for faster updates. Your dashboard always shows current payment status.'
+            answer: 'Xero: Within minutes via webhooks. QuickBooks: Checked on an hourly poll—webhooks exist as a supplementary, unreliable speed-up rather than the primary mechanism. Your dashboard always shows the latest synced payment status.'
         },
         {
             question: 'Is my accounting data secure?',

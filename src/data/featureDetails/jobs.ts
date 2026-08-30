@@ -12,7 +12,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             iconId: 'icon-five-trades',
             title: 'Built for Your Industry',
-            description: 'Electrical gets 18 custom fields (EICR type, earthing, board location). Fire Safety gets 25 fields (system category, panel type, zones). Forms that understand your work.'
+            description: 'Electrical, fire safety, and security jobs each capture the trade-specific fields you need — the right details, not a generic form.'
         },
         {
             iconId: 'icon-user-roles',
@@ -21,13 +21,13 @@ export const jobsDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-job-workflow',
-            title: '4-Step Creation Wizard',
-            description: 'Customer → Details → Schedule → Review. Clear progress, no missing fields, pre-filled data from customer record. Create jobs in under 2 minutes.'
+            title: '3-Step Creation Wizard',
+            description: 'Customer & Site → Job Details → Schedule. Clear progress, no missing fields, pre-filled data from customer record. Create jobs in under 2 minutes.'
         },
         {
             iconId: 'icon-certificate',
             title: 'Job Types with Auto-Templates',
-            description: 'Six default job types (Installation, Inspection, Maintenance, Repair, Testing, Emergency). Each auto-selects correct PDF template. Add your own types.'
+            description: 'Six default job types (Emergency, Planned Maintenance, Reactive Repair, Installation, Testing & Inspection, Commissioning). Each auto-selects correct PDF template. Add your own types.'
         },
         {
             iconId: 'icon-smart-customer',
@@ -42,7 +42,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             iconId: 'icon-gps-checkin',
             title: 'Auto Duration Calculation',
-            description: 'Check-in at 9:15am, check-out at 2:47pm. System calculates 5h 32min, rounds to 5h 45min (15-min increments). Accurate billing, no guesswork.'
+            description: 'Check-in at 9:15am, check-out at 2:47pm. System calculates 5h 32min, rounds to 5h 30min (15-min increments). Accurate billing, no guesswork.'
         },
         {
             iconId: 'icon-photo-capture',
@@ -75,7 +75,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             stepNumber: 1,
             title: 'Create Job',
-            description: '4-step wizard: Select customer, choose service address, add job details (type, description, scheduled date), assign engineers, review.'
+            description: '3-step wizard: Select customer and service address, add job details (type, description, scheduled date) and assign engineers, then set the schedule.'
         },
         {
             stepNumber: 2,
@@ -98,7 +98,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             persona: 'Office Managers',
             benefits: [
-                '4-step wizard creates jobs in under 2 minutes',
+                '3-step wizard creates jobs in under 2 minutes',
                 'Quick edit modals for schedule changes—no full reload',
                 'Multi-site contact selection prevents wrong recipient errors',
                 'Work summary visible before completion—no status calls',
@@ -119,7 +119,7 @@ export const jobsDetail: IFeatureDetail = {
         {
             persona: 'Business Owners',
             benefits: [
-                'Industry-specific fields capture compliance data (EICR type, fire system category)',
+                'Trade-specific fields capture compliance data for electrical, fire safety, and security jobs',
                 'Multi-engineer assignment tracks team collaboration',
                 'Actual duration vs. estimated helps quote future jobs accurately',
                 'Parts tracking shows true job profitability',
@@ -131,11 +131,11 @@ export const jobsDetail: IFeatureDetail = {
     stats: [
         {
             value: '<2 min',
-            label: 'Average job creation time with 4-step wizard'
+            label: 'Average job creation time with 3-step wizard'
         },
         {
-            value: '18/25',
-            label: 'Custom fields for Electrical (18) and Fire Safety (25)'
+            value: '6',
+            label: 'Default job types, each mapped to a PDF template'
         },
         {
             value: 'Real-time',
@@ -189,7 +189,7 @@ export const jobsDetail: IFeatureDetail = {
     faq: [
         {
             question: 'Can I customize job types for my business?',
-            answer: 'Opscel includes 6 default job types (Installation, Inspection, Maintenance, Repair, Testing, Emergency). You can add custom job types and map them to specific certificate templates. This ensures the right PDF generates when the job completes.'
+            answer: 'Opscel includes 6 default job types (Emergency, Planned Maintenance, Reactive Repair, Installation, Testing & Inspection, Commissioning). You can add custom job types and map them to specific certificate templates. This ensures the right PDF generates when the job completes.'
         },
         {
             question: 'How do multi-engineer assignments work?',
@@ -197,7 +197,7 @@ export const jobsDetail: IFeatureDetail = {
         },
         {
             question: 'What are the industry-specific fields?',
-            answer: 'Electrical jobs get 18 custom fields including EICR type, earthing arrangement, board location, and main switch rating. Fire Safety jobs get 25 fields including system category, panel type, detector count, and zones. These fields auto-populate certificates and ensure compliance data is captured.'
+            answer: 'Electrical, fire safety, and security jobs each capture the trade-specific fields relevant to that vertical. These fields auto-populate certificates and ensure compliance data is captured.'
         },
         {
             question: 'How does parts tracking work?',
@@ -213,7 +213,7 @@ export const jobsDetail: IFeatureDetail = {
         },
         {
             question: 'Can I turn a recurring job into a service contract?',
-            answer: 'Yes. Open any completed job, go to the ⋮ menu, and choose "Convert to contract". Set the cadence (3 to 60 months), lead time, and per-visit price — the customer, site, and engineer carry over automatically. Future visits generate themselves before each due date. See /features/service-contracts for the full recurring contracts feature.'
+            answer: 'Yes. Open any completed job, go to the ⋮ menu, and choose "Convert to contract". Set the cadence (weekly, or monthly-based cycles of 1, 3, 4, 6, 12, 24, 36, 48 or 60 months), lead time, and per-visit price — the customer, site, and engineer carry over automatically. Future visits generate themselves before each due date. See /features/service-contracts for the full recurring contracts feature.'
         }
     ],
 
@@ -221,10 +221,10 @@ export const jobsDetail: IFeatureDetail = {
         {
             eyebrow: 'Jobs & Scheduling',
             title: 'A Job Created in Under Two Minutes.',
-            description: 'Customer, details, schedule, review. Pre-filled from the customer record, so there is nothing to retype.',
+            description: 'Customer & site, job details, schedule. Pre-filled from the customer record, so there is nothing to retype.',
             stat: { value: '<2 min', label: 'Avg. creation time' },
             imageSrc: '/images/features/jobs/creation-wizard.webp',
-            imageAlt: 'Four-step job creation wizard: Customer, Details, Schedule, Review — with customer, job type, and scheduled time filled in',
+            imageAlt: 'Three-step job creation wizard: Customer & Site, Job Details, Schedule — with customer, job type, and scheduled time filled in',
             imageWidth: 2160,
             imageHeight: 416
         },
@@ -240,9 +240,9 @@ export const jobsDetail: IFeatureDetail = {
         {
             eyebrow: 'Built for Your Industry',
             title: 'Forms That Know Your Trade.',
-            description: 'Electrical gets 18 fields. Fire Safety gets 25. No generic forms, no workarounds.',
+            description: 'Electrical, fire safety, and security jobs each get the trade-specific fields you need. No generic forms, no workarounds.',
             imageSrc: '/images/features/jobs/industry-fields.webp',
-            imageAlt: 'Electrical job form with 18 fields next to Fire Safety job form with 25 fields',
+            imageAlt: 'Electrical job form next to a Fire Safety job form, each showing its own trade-specific fields',
             imageWidth: 2160,
             imageHeight: 492
         },

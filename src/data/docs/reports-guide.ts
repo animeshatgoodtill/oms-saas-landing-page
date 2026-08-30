@@ -11,7 +11,7 @@ export const reportsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Jobs Report is available on all tiers; Quotations Report and scheduled reports require Business tier. Designed for Managers and Admins who need operational visibility.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s reporting suite gives you insights into jobs, quotations, and team performance. Generate reports with custom date ranges, filter by engineer or customer, and export data to CSV for deeper analysis. Access is role-based, not tier-based — any role with reporting permissions can use every report, on any tier. Designed for roles that need operational visibility.',
                 },
                 {
                     title: 'Who Uses Reports',
@@ -26,7 +26,7 @@ export const reportsGuide: IDocGuide = {
                     bullets: [
                         'Job completion rates and overdue job counts',
                         'Revenue by job type, engineer, or customer',
-                        'Quote acceptance and rejection rates (Business tier)',
+                        'Quote acceptance and rejection rates',
                         'Average job duration and engineer utilization',
                         'Customer lifetime value and repeat business metrics',
                     ],
@@ -39,7 +39,7 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Any role with reporting access — Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Viewer',
                 },
                 {
                     title: 'What the Jobs Report Shows',
@@ -81,11 +81,11 @@ export const reportsGuide: IDocGuide = {
         },
         {
             id: 'quotations-report',
-            title: 'Quotations Report (Business Tier)',
+            title: 'Quotations Report',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Business<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Any role with reporting access — Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Viewer',
                 },
                 {
                     title: 'What the Quotations Report Shows',
@@ -131,7 +131,7 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Finance',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Any role with reporting access — Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Viewer',
                 },
                 {
                     title: 'What the Profitability Report Shows',
@@ -157,7 +157,7 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Any role with reporting access — Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Viewer',
                 },
                 {
                     title: 'Using Date Ranges',
@@ -205,7 +205,7 @@ export const reportsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Any role with reporting access — Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Viewer',
                 },
                 {
                     title: 'Why Export Data',
@@ -217,7 +217,7 @@ export const reportsGuide: IDocGuide = {
                         'Generate a report (Jobs or Quotations)',
                         'Apply desired filters and date range',
                         'Click <strong>Export to CSV</strong> button (top right)',
-                        'Choose format: <strong>CSV</strong> (Excel/Google Sheets) or <strong>Excel (.xlsx)</strong> (Business tier)',
+                        'Choose format: <strong>CSV</strong> (Excel/Google Sheets)',
                         'Download starts automatically',
                         'Open file in Excel, Google Sheets, or BI tool',
                     ],
@@ -225,17 +225,6 @@ export const reportsGuide: IDocGuide = {
                 {
                     title: 'What Data Exports',
                     content: '<strong>Jobs Report CSV includes:</strong> Job ID, Customer, Engineer, Job Type, Scheduled Date, Completion Date, Status, Revenue, Duration (hours), Site Address, Job Notes.<br><br><strong>Quotations Report CSV includes:</strong> Quote Number, Customer, Date Sent, Date Responded, Status (Accepted/Rejected/Expired), Quote Value, Assigned Engineer, Rejection Reason (if rejected).',
-                },
-                {
-                    title: 'Export Limits',
-                    table: {
-                        headers: ['Tier', 'Max Rows Per Export', 'Format Options'],
-                        rows: [
-                            ['Starter', '1,000 rows', 'CSV only'],
-                            ['Business', '5,000 rows', 'CSV only'],
-                            ['Business', '50,000 rows', 'CSV, Excel (.xlsx)'],
-                        ],
-                    },
                 },
                 {
                     title: 'For Admins',
@@ -291,51 +280,6 @@ export const reportsGuide: IDocGuide = {
             ],
         },
         {
-            id: 'scheduled-reports',
-            title: 'Scheduled Reports (Business Tier)',
-            subsections: [
-                {
-                    title: 'Availability',
-                    content: '<strong>Tier:</strong> Business<br><strong>Roles:</strong> Super Admin, Admin',
-                },
-                {
-                    title: 'Automatic Email Delivery',
-                    content: 'Schedule reports to be generated and emailed automatically on a recurring basis. Great for weekly management reviews or monthly board reports.',
-                },
-                {
-                    title: 'Steps to Schedule a Report',
-                    steps: [
-                        'Navigate to <strong>Reports → Scheduled Reports</strong>',
-                        'Click <strong>+ New Scheduled Report</strong>',
-                        'Select <strong>Report Type</strong>: Jobs Report or Quotations Report',
-                        'Set <strong>Frequency</strong>: Daily, Weekly (Monday), Monthly (1st of month), Quarterly',
-                        'Choose <strong>Date Range</strong>: Last 7 days, Last 30 days, Last Quarter, Custom',
-                        'Add <strong>Recipients</strong> (email addresses - up to 10)',
-                        'Apply <strong>Filters</strong> (optional - e.g., "Only jobs assigned to Team A")',
-                        'Click <strong>Save Schedule</strong>',
-                        'First report sends on next scheduled date',
-                    ],
-                },
-                {
-                    title: 'What You Should See',
-                    content: 'Scheduled report appears in your Scheduled Reports list with status <strong>Active</strong>. Recipients receive an email with: PDF report attachment, CSV data file, summary of key metrics in email body. Email subject: "Opscel Report: [Report Type] - [Date Range]".',
-                },
-                {
-                    title: 'Managing Scheduled Reports',
-                    bullets: [
-                        '<strong>Pause:</strong> Temporarily stop report delivery without deleting schedule',
-                        '<strong>Edit:</strong> Change frequency, recipients, or filters',
-                        '<strong>Delete:</strong> Permanently remove scheduled report',
-                        '<strong>Send Now:</strong> Trigger immediate delivery (doesn\'t affect schedule)',
-                    ],
-                },
-                {
-                    title: 'For Admins',
-                    content: '<em>Tip:</em> Set up a weekly Jobs Report for managers (Mondays, last 7 days) and a monthly Quotations Report for leadership (1st of month, previous month). This provides consistent visibility without manual report generation.',
-                },
-            ],
-        },
-        {
             id: 'troubleshooting',
             title: 'Troubleshooting',
             subsections: [
@@ -345,7 +289,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'Export Fails or Times Out',
-                    content: '<strong>Cause:</strong> Dataset too large (exceeds tier limit), or server timeout.<br><strong>Fix:</strong> Reduce date range to smaller period. Apply filters to reduce row count. If on Starter tier (1,000 row limit), consider upgrading to Business tier (5,000 row limit). For very large exports, contact support for bulk export assistance.',
+                    content: '<strong>Cause:</strong> Dataset too large, or server timeout.<br><strong>Fix:</strong> Reduce date range to smaller period. Apply filters to reduce row count. For very large exports, contact support for bulk export assistance.',
                 },
                 {
                     title: 'Metrics Don\'t Match Expectations',
@@ -371,7 +315,7 @@ export const reportsGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I create custom metrics?',
-                    content: 'Not currently. Opscel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations. Business tier can request custom dashboard development (contact sales).',
+                    content: 'Not currently. Opscel provides a standard set of metrics (completion rate, revenue, acceptance rate, etc.). For custom metrics, export data to CSV and use Excel/Google Sheets for custom calculations, or contact sales to discuss custom dashboard development.',
                 },
                 {
                     title: 'Can I customize report layout or branding?',

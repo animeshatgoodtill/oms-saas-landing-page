@@ -18,7 +18,7 @@ export const jobsGuide: IDocGuide = {
                         and integrate with your calendar.
                     </p>
                     <p class="text-gray-800 mt-3">
-                        <strong>Who uses this:</strong> Admins, Managers, Engineers<br/>
+                        <strong>Who uses this:</strong> Super Admin, Admin, Contract Manager, Site Manager, Engineer<br/>
                         <strong>Where it lives:</strong> Admin app: Jobs menu | Field app: Today&apos;s Jobs<br/>
                         <strong>Key benefit:</strong> Complete work lifecycle tracking from scheduling to invoicing
                     </p>
@@ -54,7 +54,7 @@ export const jobsGuide: IDocGuide = {
                 {
                     title: 'Method 1: From Scratch (Manual)',
                     content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admins, Managers</p>
+                        <p class="mb-4"><strong>Availability:</strong> Admins, Contract Managers, Site Managers</p>
                         <p class="mb-4">Create a job manually when you need full control over every detail.</p>
                     `,
                     steps: [
@@ -64,7 +64,7 @@ export const jobsGuide: IDocGuide = {
                         { step: 'Choose the service address', description: 'Select from customer sites or add new' },
                         { step: 'Enter job title and description', description: 'Be specific for engineer clarity' },
                         { step: 'Set job type', description: 'Service, Installation, Inspection, Emergency, etc.' },
-                        { step: 'Set priority', description: 'Normal, High, Urgent' },
+                        { step: 'Set priority', description: 'Low, Normal, High, Urgent' },
                         { step: 'Click "Save as Draft" or "Save & Schedule"', description: '' }
                     ]
                 },
@@ -236,7 +236,7 @@ export const jobsGuide: IDocGuide = {
             title: 'Assigning Engineers',
             content: `
                 <p class="mb-6">
-                    Assign engineers to visits manually or let auto-assign rules handle it.
+                    Assign engineers to visits manually from the job's schedule.
                 </p>
             `,
             subsections: [
@@ -248,19 +248,6 @@ export const jobsGuide: IDocGuide = {
                         { step: 'You can assign multiple engineers to the same visit', description: 'E.g., apprentice + qualified engineer' },
                         { step: 'Engineers see the job in their field app immediately', description: '' },
                         { step: 'If calendar connected, job appears as calendar event', description: '' }
-                    ]
-                },
-                {
-                    title: 'Auto-Assign Rules',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Settings → Job Config</p>
-                        <p class="mb-4">Set rules to automatically assign engineers based on:</p>
-                    `,
-                    bullets: [
-                        'Job type (e.g., all EICR jobs → specific engineer)',
-                        'Customer (e.g., VIP customers → senior engineer)',
-                        'Postcode area (e.g., SW London → Engineer A)',
-                        'Round-robin rotation (distribute evenly)'
                     ]
                 },
                 {
@@ -359,15 +346,15 @@ export const jobsGuide: IDocGuide = {
                     title: 'Completion Behavior',
                     content: `
                         <p class="mb-4">
-                            Multi-visit jobs complete when:
+                            A multi-visit job completes when:
                         </p>
                         <ol class="list-decimal pl-6 mb-4 space-y-2 text-gray-700">
-                            <li>All scheduled visits are checked in (at least once)</li>
-                            <li>All work summaries are filled (per visit)</li>
-                            <li>Engineer marks job complete from the last visit</li>
+                            <li>An engineer signature exists on the job</li>
+                            <li>The latest visit's work summary is at least 10 characters</li>
+                            <li>Risk assessment data is present (if required)</li>
                         </ol>
                         <p class="text-gray-700">
-                            Completing a multi-visit job from the admin view requires all visits to have work summaries.
+                            The gate checks the most recent visit, not every visit individually — a job is not blocked from completing because an earlier visit was left without its own summary.
                         </p>
                     `
                 }
@@ -400,11 +387,11 @@ export const jobsGuide: IDocGuide = {
                 {
                     title: 'Admin Completion (Admin App)',
                     content: `
-                        <p class="mb-4">Managers can complete jobs from the admin interface.</p>
+                        <p class="mb-4">Admins, Contract Managers, and Site Managers can complete jobs from the admin interface.</p>
                     `,
                     steps: [
                         { step: 'Open the job detail page', description: '' },
-                        { step: 'Verify all visits have work summaries', description: '' },
+                        { step: 'Verify the latest visit has a work summary', description: '' },
                         { step: 'Click "Mark Complete"', description: '' },
                         { step: 'Add completion notes if needed', description: '' },
                         { step: 'Confirm', description: 'Status changes to "Completed"' }

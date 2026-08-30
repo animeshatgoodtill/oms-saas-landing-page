@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="syncTitle syncDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="syncTitle">Offline sync queue: merge, not overwrite</title>
+  <desc id="syncDesc">An engineer takes an action offline, such as saving a worksheet section. It is added to a local IndexedDB queue, and a second edit to the same record before syncing is folded into the first as a merged superset rather than being queued as two competing writes. When the browser fires an online or visibilitychange event, the queue drains to the server. A failed item retries immediately, up to three attempts total, with no backoff timer. A successful item is marked synced.</desc>
+
+  <rect x="8" y="8" width="1024" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- Step 1: offline actions -->
+  <rect x="40" y="56" width="192" height="128" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="58" y="80" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">OFFLINE</text>
+  <line x1="58" y1="88" x2="214" y2="88" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="58" y="108" font-size="10.5" fill="#171717">Engineer edits a</text>
+  <text x="58" y="123" font-size="10.5" fill="#171717">worksheet section</text>
+  <text x="58" y="148" font-size="10.5" fill="#171717">Edits the same</text>
+  <text x="58" y="163" font-size="10.5" fill="#171717">section again</text>
+
+  <path d="M232,110 L280,110" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow2)"/>
+
+  <!-- Step 2: local queue with merge -->
+  <rect x="284" y="44" width="228" height="152" rx="10" fill="#F5F5F5" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="302" y="68" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">LOCAL QUEUE (IndexedDB)</text>
+  <line x1="302" y1="76" x2="494" y2="76" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="302" y="86" width="192" height="26" rx="6" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="312" y="103" font-size="10" fill="#171717">queued: section delta A</text>
+  <text x="398" y="130" text-anchor="middle" font-size="10" fill="#304FFF">merges with &#8595;</text>
+  <rect x="302" y="140" width="192" height="26" rx="6" fill="#EEF1FF" stroke="#304FFF" stroke-width="1"/>
+  <text x="312" y="157" font-size="10" fill="#304FFF">merged: A + B superset</text>
+  <text x="302" y="182" font-size="9.5" fill="#737373">Dedup folds duplicates &#8212; never discards a side</text>
+
+  <path d="M512,120 L560,120" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow2)"/>
+
+  <!-- Step 3: trigger event -->
+  <rect x="564" y="72" width="192" height="96" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="582" y="96" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">TRIGGER</text>
+  <line x1="582" y1="104" x2="738" y2="104" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="582" y="124" font-size="10.5" fill="#171717">"online" event</text>
+  <text x="582" y="142" font-size="10.5" fill="#171717">"visibilitychange"</text>
+  <text x="582" y="157" font-size="9.5" fill="#737373">event-driven, not a timer</text>
+
+  <path d="M756,120 L800,120" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow2)"/>
+
+  <!-- Step 4: drain to server -->
+  <rect x="804" y="56" width="188" height="128" rx="10" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
+  <text x="820" y="80" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#304FFF">SYNCED</text>
+  <line x1="820" y1="88" x2="976" y2="88" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="820" y="108" font-size="10.5" fill="#171717">Queue drains to</text>
+  <text x="820" y="123" font-size="10.5" fill="#171717">the server</text>
+  <text x="820" y="145" font-size="10.5" fill="#171717">Item marked</text>
+  <text x="820" y="160" font-size="10.5" fill="#171717">synced &#8594; removed</text>
+
+  <!-- retry note -->
+  <rect x="284" y="240" width="708" height="70" rx="10" fill="#F5F5F5"/>
+  <text x="304" y="264" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">ON FAILURE</text>
+  <text x="304" y="286" font-size="11" fill="#171717">A failed sync retries immediately &#8212; up to 3 attempts total (MAX_RETRIES), with no backoff delay between them.</text>
+  <text x="304" y="302" font-size="10" fill="#737373">After the 3rd failed attempt the item stays queued, visible in the field app's Sync Inspector for a manual retry.</text>
+
+  <!-- 3 dots retry illustration -->
+  <circle cx="60" cy="275" r="14" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
+  <text x="60" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#304FFF">1</text>
+  <circle cx="110" cy="275" r="14" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
+  <text x="110" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#304FFF">2</text>
+  <circle cx="160" cy="275" r="14" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
+  <text x="160" y="280" text-anchor="middle" font-size="11" font-weight="700" fill="#304FFF">3</text>
+  <path d="M74,275 L96,275" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow2)"/>
+  <path d="M124,275 L146,275" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow2)"/>
+  <text x="110" y="304" text-anchor="middle" font-size="9" fill="#737373">no backoff timer</text>
+
+  <text x="520" y="418" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Concurrent edits MERGE into one queued item &#8212; sync never silently discards a side</text>
+
+  <defs>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#A3A3A3"/>
+    </marker>
+  </defs>
+</svg>

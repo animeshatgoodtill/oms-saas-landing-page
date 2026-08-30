@@ -3,7 +3,7 @@ import { IDocGuide } from '@/types';
 export const teamManagementGuide: IDocGuide = {
     slug: 'team-management',
     title: 'Team, Roles & Permissions',
-    description: 'Manage users, assign roles, and control access in Opscel. Learn about the 7 fixed roles, how to invite team members, permission matrix, and multi-tenant access.',
+    description: 'Manage users, assign roles, and control access in Opscel. Learn about the 8 fixed roles, how to invite team members, permission matrix, and multi-tenant access.',
     lastUpdated: '2026-05-21',
     sections: [
         {
@@ -27,18 +27,18 @@ export const teamManagementGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: '7 Fixed Roles',
-                    content: '<p>Opscel has <strong>7 fixed roles</strong> that cannot be customized. Each role has a predefined set of permissions. You cannot create custom roles or modify role permissions.</p><p>Roles are designed to match common job functions in fire safety and electrical contracting businesses.</p>'
+                    title: '8 Fixed Roles',
+                    content: '<p>Opscel has <strong>8 fixed roles</strong> that cannot be customized. Each role has a predefined set of permissions. You cannot create custom roles or modify role permissions.</p><p>Roles are designed to match common job functions in fire safety and electrical contracting businesses.</p>'
                 }
             ]
         },
         {
             id: 'roles-explained',
-            title: '7 Fixed Roles Explained',
+            title: '8 Fixed Roles Explained',
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Super Admin, Admin only (assign roles via Settings → Team Management)</p>'
+                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Super Admin, Admin can assign roles (via Settings → Team Management)</p>'
                 },
                 {
                     title: 'Role Descriptions',
@@ -46,13 +46,14 @@ export const teamManagementGuide: IDocGuide = {
                     table: {
                         headers: ['Role', 'Description', 'Primary Use Case'],
                         rows: [
-                            ['<strong>Super Admin</strong>', 'Full system access including billing, integrations, all settings, and all data. Can manage other Super Admins.', 'Business owner, technical director'],
-                            ['<strong>Admin</strong>', 'Full operational access to customers, jobs, certificates, invoices. Cannot manage billing or Super Admin settings.', 'Office manager, operations manager'],
-                            ['<strong>Manager</strong>', 'Scheduling, job assignments, reports, limited settings. Cannot access financial data or team management.', 'Project manager, team lead'],
-                            ['<strong>Engineer</strong>', 'Field app access, complete jobs, upload data, view assigned work only. No admin dashboard access.', 'Field engineer, technician'],
-                            ['<strong>Office Staff</strong>', 'Customer management, document creation, quote/invoice handling. No field app access.', 'Administrator, sales coordinator'],
-                            ['<strong>Read-Only</strong>', 'View-only access to all data. Cannot create, edit, or delete anything.', 'Stakeholder, auditor, client portal'],
-                            ['<strong>Accountant</strong>', 'Financial data only (invoices, reports, accounting integrations). Limited operational access.', 'Bookkeeper, external accountant']
+                            ['<strong>Super Admin</strong>', 'Full system access, including billing, integrations, all settings, and all data.', 'Business owner, technical director'],
+                            ['<strong>Admin</strong>', 'Full operational access to customers, jobs, quotes, invoices, certificates and team management. Cannot manage billing.', 'Office manager, operations manager'],
+                            ['<strong>Accounts</strong>', 'Full invoicing and payments access, plus quotes and reports. Read-only view of customers and team; no certificates or job editing.', 'Bookkeeper, external accountant'],
+                            ['<strong>Contract Manager</strong>', 'Full customer, quote, purchase-order and service-contract access; can create and issue certificates. Read-only on invoices, no team management.', 'Contracts lead, account manager'],
+                            ['<strong>Sales Manager</strong>', 'Full quoting and account management. Can view whether an invoice was paid, but can never create, edit or post one.', 'Sales lead, business development'],
+                            ['<strong>Site Manager</strong>', 'Full job scheduling, assignment and certificate sign-off for field operations. No financial access of any kind.', 'Field supervisor, site lead'],
+                            ['<strong>Engineer</strong>', 'Field app access to assigned jobs only. Can create/edit certificates on those jobs and raise an emergency callout, but has no admin dashboard or financial access.', 'Field engineer, technician'],
+                            ['<strong>Viewer</strong>', 'Read-only access to customers, quotes, invoices, certificates, service contracts and reports. Cannot create, edit, or delete anything.', 'Stakeholder, auditor, client-facing view']
                         ]
                     }
                 },
@@ -60,81 +61,94 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'What Each Role CAN Do',
                     content: '<p><strong>Super Admin:</strong></p>',
                     bullets: [
-                        'Everything admins can do, PLUS:',
+                        'Everything every other role can do, PLUS:',
                         'Manage subscription and billing',
                         'Connect accounting integrations (Xero, QuickBooks)',
                         'Manage team (invite, remove, change roles)',
-                        'Access billing history and invoices',
                         'Configure vertical settings (electrical, fire safety)',
-                        'Manage other Super Admins'
+                        'The only role that can remove a team member'
                     ]
                 },
                 {
                     title: '',
                     content: '<p><strong>Admin:</strong></p>',
                     bullets: [
-                        'Create and edit customers, jobs, quotes, invoices',
+                        'Create and edit customers, jobs, quotes, invoices, purchase orders',
                         'Schedule visits and assign engineers',
                         'Issue certificates',
-                        'Create service contracts',
+                        'Create and manage service contracts',
                         'Access all reports and analytics',
-                        'Configure templates (certificates, quotes, invoices)',
-                        'Manage document numbering',
-                        'Upload accreditation badges',
-                        'CANNOT: Manage billing, integrations, or team'
+                        'Invite and edit team members (cannot remove one — Super Admin only)',
+                        'CANNOT: Manage billing or accounting-integration connections'
                     ]
                 },
                 {
                     title: '',
-                    content: '<p><strong>Manager:</strong></p>',
+                    content: '<p><strong>Accounts:</strong></p>',
                     bullets: [
-                        'View all jobs and customer data',
-                        'Schedule visits and assign engineers',
-                        'Access reports (jobs, quotations)',
-                        'Field app access (can work as engineer if needed)',
-                        'CANNOT: Issue certificates, create invoices, access settings, manage team'
+                        'Full invoicing and payments access',
+                        'Create, edit and send quotes; convert a won quote to a job',
+                        'View and edit service contracts',
+                        'Access and export reports',
+                        'View (not edit) customers and the team directory',
+                        'CANNOT: Edit jobs, create/edit customers, issue certificates, manage team'
+                    ]
+                },
+                {
+                    title: '',
+                    content: '<p><strong>Contract Manager:</strong></p>',
+                    bullets: [
+                        'Full customer, contact, quote and purchase-order access',
+                        'Create, edit and issue certificates',
+                        'Create and edit jobs; full service-contract management',
+                        'View and create invoices (cannot edit or post them)',
+                        'View reports; operate Remote Monitoring cases',
+                        'CANNOT: Manage team, billing, or accounting-integration settings'
+                    ]
+                },
+                {
+                    title: '',
+                    content: '<p><strong>Sales Manager:</strong></p>',
+                    bullets: [
+                        'Create and edit customers; full quoting and quote-sending',
+                        'Create jobs (e.g. converting a won quote) but cannot edit, reassign or delete one',
+                        'Create and edit service contracts',
+                        'View invoices and purchase orders — read-only, by design',
+                        'Access and export reports; operate Remote Monitoring cases',
+                        'CANNOT: Create/edit/post invoices, issue or void certificates, edit the price book, manage team'
+                    ]
+                },
+                {
+                    title: '',
+                    content: '<p><strong>Site Manager:</strong></p>',
+                    bullets: [
+                        'Full job scheduling, assignment and status control',
+                        'Full service-contract management',
+                        'Create, edit and issue certificates',
+                        'Register and edit assets found on site',
+                        'Operate Remote Monitoring cases',
+                        'CANNOT: View or touch any financial data — no quotes, invoices, or reports'
                     ]
                 },
                 {
                     title: '',
                     content: '<p><strong>Engineer:</strong></p>',
                     bullets: [
-                        'View assigned jobs only',
-                        'Complete jobs in field app',
-                        'Upload photos, worksheets, defects, parts',
-                        'Capture signatures',
-                        'Work offline with sync',
-                        'CANNOT: Access admin dashboard, see other engineers\' jobs, issue certificates'
+                        'View and edit assigned jobs only',
+                        'Complete jobs in the field app',
+                        'Create and edit certificates on assigned jobs (cannot issue them)',
+                        'Raise an emergency-callout job from the field',
+                        'Upload photos, worksheets, defects, parts; capture signatures; work offline with sync',
+                        'CANNOT: Access the admin dashboard, see other engineers\' jobs, issue certificates, or see any pricing/financial data'
                     ]
                 },
                 {
                     title: '',
-                    content: '<p><strong>Office Staff:</strong></p>',
+                    content: '<p><strong>Viewer:</strong></p>',
                     bullets: [
-                        'Create and edit customers',
-                        'Create quotes and send to customers',
-                        'Create invoices (cannot issue certificates)',
-                        'View job data',
-                        'CANNOT: Schedule jobs, access field app, manage team, access financial settings'
-                    ]
-                },
-                {
-                    title: '',
-                    content: '<p><strong>Read-Only:</strong></p>',
-                    bullets: [
-                        'View all data (customers, jobs, quotes, invoices, certificates)',
-                        'Export reports',
-                        'CANNOT: Create, edit, or delete anything'
-                    ]
-                },
-                {
-                    title: '',
-                    content: '<p><strong>Accountant:</strong></p>',
-                    bullets: [
-                        'View invoices and financial data',
-                        'Access accounting integrations',
-                        'Export financial reports',
-                        'CANNOT: Access operational data (jobs, certificates), manage customers'
+                        'View customers, contacts, quotes, purchase orders, products, documents, certificates and service contracts',
+                        'View and export reports',
+                        'CANNOT: Create, edit, or delete anything — and has no access to jobs'
                     ]
                 }
             ]
@@ -167,7 +181,7 @@ export const teamManagementGuide: IDocGuide = {
                     content: '<p>When the invitee clicks the activation link:</p>',
                     bullets: [
                         'Directed to account creation page',
-                        'Enters name, creates password (min 8 characters, must include uppercase, number, symbol)',
+                        'Enters name, creates password (authentication is handled by Stack Auth)',
                         'Accepts terms of service',
                         'Redirected to Opscel with role already assigned',
                         'Sees onboarding guide based on role (engineers see field app intro, admins see settings tour)'
@@ -180,7 +194,7 @@ export const teamManagementGuide: IDocGuide = {
                         'Navigate to <strong>Settings → Team Management</strong>',
                         'Click <strong>Invite Team Member</strong> button',
                         'Enter email address (must be unique, not already in this business)',
-                        'Select role from dropdown (Super Admin, Admin, Manager, Engineer, Office Staff, Read-Only, Accountant)',
+                        'Select role from dropdown (Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Site Manager, Engineer, Viewer)',
                         'Optionally add a personal message',
                         'Click <strong>Send Invite</strong>',
                         'Invite appears in "Pending Invites" list with expiry date (7 days)'
@@ -272,25 +286,28 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'Comprehensive Permissions Table',
                     content: '<p>This matrix shows exactly what each role can do:</p>',
                     table: {
-                        headers: ['Permission', 'Super Admin', 'Admin', 'Manager', 'Engineer', 'Office Staff', 'Read-Only', 'Accountant'],
+                        headers: ['Permission', 'Super Admin', 'Admin', 'Accounts', 'Contract Mgr', 'Sales Mgr', 'Site Mgr', 'Engineer', 'Viewer'],
                         rows: [
-                            ['Create/edit customers', '✓', '✓', '✗', '✗', '✓', '✗', '✗'],
-                            ['Create/edit jobs', '✓', '✓', '✗', '✗', '✓', '✗', '✗'],
-                            ['Schedule visits', '✓', '✓', '✓', '✗', '✗', '✗', '✗'],
-                            ['Assign engineers', '✓', '✓', '✓', '✗', '✗', '✗', '✗'],
-                            ['Complete jobs', '✓', '✓', '✓', '✓', '✗', '✗', '✗'],
-                            ['Issue certificates', '✓', '✓', '✗', '✗', '✗', '✗', '✗'],
-                            ['Create quotes', '✓', '✓', '✗', '✗', '✓', '✗', '✗'],
-                            ['Create invoices', '✓', '✓', '✗', '✗', '✓', '✗', '✗'],
-                            ['View financial data', '✓', '✓', '✗', '✗', '✗', '✓', '✓'],
-                            ['Manage team', '✓', '✓', '✗', '✗', '✗', '✗', '✗'],
-                            ['Access settings', '✓', '✓', 'Limited', '✗', '✗', '✗', 'Limited'],
-                            ['Use field app', '✓', '✓', '✓', '✓', '✗', '✗', '✗'],
-                            ['Connect integrations', '✓', '✗', '✗', '✗', '✗', '✗', '✗'],
-                            ['View reports', '✓', '✓', '✓', '✗', '✗', '✓', '✓'],
-                            ['Manage billing', '✓', '✗', '✗', '✗', '✗', '✗', '✗']
+                            ['Create/edit customers', '✓', '✓', 'View only', '✓', '✓', 'View only', 'View only', 'View only'],
+                            ['Create/edit jobs', '✓', '✓', 'Create only', '✓', 'Create only', '✓', 'Assigned only', '✗'],
+                            ['Schedule visits & assign engineers', '✓', '✓', '✗', '✓', '✗', '✓', '✗', '✗'],
+                            ['Create & send quotes', '✓', '✓', '✓', '✓', '✓', '✗', '✗', 'View only'],
+                            ['Create/edit invoices', '✓', '✓', '✓', 'Create only', 'View only', '✗', '✗', 'View only'],
+                            ['Create/edit certificates', '✓', '✓', '✗', '✓', 'View only', '✓', '✓ (no issue)', 'View only'],
+                            ['Issue certificates', '✓', '✓', '✗', '✓', '✗', '✓', '✗', '✗'],
+                            ['Service contracts', '✓', '✓', 'View/edit', '✓', 'Create/edit', '✓', '✗', 'View only'],
+                            ['View & export reports', '✓', '✓', '✓', 'View only', '✓', '✗', '✗', 'View only'],
+                            ['Invite/edit team members', '✓', '✓', '✗', '✗', '✗', '✗', '✗', '✗'],
+                            ['Remove a team member', '✓', '✗', '✗', '✗', '✗', '✗', '✗', '✗'],
+                            ['Access settings/configuration', '✓', '✓', '✗', '✗', '✗', '✗', '✗', '✗'],
+                            ['Connect accounting integrations', '✓', '✗', '✗', '✗', '✗', '✗', '✗', '✗'],
+                            ['Manage billing', '✓', '✗', '✗', '✗', '✗', '✗', '✗', '✗']
                         ]
                     }
+                },
+                {
+                    title: '',
+                    content: '<div class="my-8"><img src="/images/docs/team-management/role-permission-matrix.svg" alt="Opscel 8-role permission matrix — one-line capability summary for Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Site Manager, Engineer and Viewer" class="w-full rounded-lg border border-border shadow-lg" /></div>'
                 }
             ]
         },
@@ -303,37 +320,24 @@ export const teamManagementGuide: IDocGuide = {
                     content: '<p>Opscel has two distinct interfaces:</p>',
                     bullets: [
                         '<strong>Admin dashboard (web):</strong> Desktop-optimized for scheduling, invoicing, settings. Accessed at <code>app.opscel.com</code>',
-                        '<strong>Field app (mobile PWA):</strong> Mobile-optimized for on-site work. Offline-first, touch-friendly. Same URL but different interface based on device.'
+                        '<strong>Field app (mobile PWA):</strong> Mobile-optimized for on-site work. Offline-first, touch-friendly. Accessed at <code>/field</code>.'
                     ]
                 },
                 {
                     title: 'Field Roles',
                     content: '<p>Roles with field app access:</p>',
                     bullets: [
-                        '<strong>Engineer:</strong> Primary field access, sees assigned jobs only',
-                        '<strong>Manager:</strong> Hybrid access, can work as engineer if needed',
-                        '<strong>Super Admin:</strong> Full access to both interfaces',
-                        '<strong>Admin:</strong> Full access to both interfaces'
+                        '<strong>Engineer:</strong> Field-only access, sees assigned jobs only — this is the role\'s primary interface'
                     ]
                 },
                 {
                     title: 'Admin Roles',
-                    content: '<p>Roles with admin dashboard access:</p>',
+                    content: '<p>The remaining seven roles work from the admin dashboard, scoped to their permissions:</p>',
                     bullets: [
                         '<strong>Super Admin, Admin:</strong> Full dashboard access',
-                        '<strong>Manager:</strong> Dashboard access with limited settings',
-                        '<strong>Office Staff:</strong> Dashboard only (no field app)',
-                        '<strong>Read-Only:</strong> Dashboard only (view-only)',
-                        '<strong>Accountant:</strong> Dashboard only (financial data)'
-                    ]
-                },
-                {
-                    title: 'Mobile App vs Web App Access',
-                    content: '<p>All roles can access Opscel from any device (desktop, mobile, tablet). The interface adapts automatically:</p>',
-                    bullets: [
-                        '<strong>Mobile device:</strong> Shows field app interface for field roles, mobile-optimized dashboard for admin roles',
-                        '<strong>Desktop:</strong> Shows admin dashboard',
-                        '<strong>Tablet:</strong> Adaptive interface, usually shows admin dashboard'
+                        '<strong>Accounts, Contract Manager, Sales Manager:</strong> Dashboard access scoped to their financial/sales/contract permissions',
+                        '<strong>Site Manager:</strong> Dashboard access for scheduling, jobs and certificates — no financial data',
+                        '<strong>Viewer:</strong> Dashboard only, read-only across the modules it can see'
                     ]
                 }
             ]
@@ -378,7 +382,7 @@ export const teamManagementGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Super Admin, Admin</p>'
+                    content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4"><strong>Roles:</strong> Super Admin only — Admin can invite and edit team members but cannot remove one</p>'
                 },
                 {
                     title: 'When to Remove',
@@ -451,17 +455,16 @@ export const teamManagementGuide: IDocGuide = {
                         '<strong>Keep Super Admin count low:</strong> 2-3 maximum. Too many Super Admins creates security risk.',
                         '<strong>Regular access audits:</strong> Review team list quarterly. Remove inactive users.',
                         '<strong>Use Admin role for operations:</strong> Don&apos;t give Super Admin to people who just need operational access.',
-                        '<strong>Document role decisions:</strong> Keep a record of why each person has their role (e.g., "John: Super Admin because he manages billing").',
-                        '<strong>Enable 2FA:</strong> Require two-factor authentication for Super Admins (Settings → Security).'
+                        '<strong>Document role decisions:</strong> Keep a record of why each person has their role (e.g., "John: Super Admin because he manages billing").'
                     ]
                 },
                 {
                     title: 'For Admins',
                     content: '',
                     bullets: [
-                        '<strong>Assign minimum necessary permissions:</strong> Don&apos;t give Admin role to someone who only needs Manager or Office Staff access.',
+                        '<strong>Assign minimum necessary permissions:</strong> Don&apos;t give Admin when Contract Manager, Sales Manager or Site Manager covers the job.',
                         '<strong>Review roles quarterly:</strong> People&apos;s responsibilities change. Update roles to match current job function.',
-                        '<strong>Use Read-Only for stakeholders:</strong> Clients, auditors, or board members who need visibility but not editing.',
+                        '<strong>Use Viewer for stakeholders:</strong> Clients, auditors, or board members who need visibility but not editing.',
                         '<strong>Train new users:</strong> Schedule onboarding session for new team members based on their role.',
                         '<strong>Monitor pending invites:</strong> Chase up invites that haven&apos;t been accepted after 3-4 days.'
                     ]
@@ -470,7 +473,7 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'Security Recommendations',
                     content: '',
                     bullets: [
-                        '<strong>Accountant role for external bookkeepers:</strong> Don&apos;t give Admin access to external accountants. Use Accountant role for financial data only.',
+                        '<strong>Accounts role for external bookkeepers:</strong> Don&apos;t give Admin access to external accountants. Use the Accounts role for financial data only.',
                         '<strong>Remove users on their last day:</strong> Use scheduled removal to automatically revoke access when someone leaves.',
                         '<strong>Unique email per user:</strong> Don&apos;t share logins. Each person should have their own account for audit trail.',
                         '<strong>Review activity logs:</strong> Check Settings → Activity Logs monthly for unusual access patterns.'
@@ -541,7 +544,7 @@ export const teamManagementGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Can I create custom roles?',
-                    content: '<p>No. Opscel has 7 fixed roles that cannot be customized. You cannot create new roles or modify the permissions of existing roles. This ensures consistency and simplifies security management.</p><p>The 7 roles are designed to cover all common use cases in fire safety and electrical contracting. If you need custom permissions, contact support to discuss your requirements.</p>'
+                    content: '<p>No. Opscel has 8 fixed roles that cannot be customized. You cannot create new roles or modify the permissions of existing roles. This ensures consistency and simplifies security management.</p><p>The 8 roles are designed to cover all common use cases in fire safety and electrical contracting. If you need custom permissions, contact support to discuss your requirements.</p>'
                 },
                 {
                     title: 'How many users can I add?',
@@ -566,9 +569,9 @@ export const teamManagementGuide: IDocGuide = {
                     title: 'Can I restrict access to specific customers or jobs?',
                     content: '<p>No. Permissions in Opscel are <strong>role-based</strong>, not data-based. This means:</p>',
                     bullets: [
-                        '<strong>Admins and Managers</strong> can see all customers and jobs',
+                        '<strong>Admin, Contract Manager and Site Manager</strong> can see all customers and jobs',
                         '<strong>Engineers</strong> can see only their assigned jobs',
-                        '<strong>Read-Only and Accountant</strong> can see all data in their scope (all jobs vs financial data)',
+                        '<strong>Accounts, Sales Manager and Viewer</strong> can see all data within their scope (financial data, sales/quoting data, or read-only across their permitted modules)',
                         'If you need to restrict access to specific customers (e.g., separate divisions), consider using separate Opscel businesses (multi-tenant) instead.'
                     ]
                 }

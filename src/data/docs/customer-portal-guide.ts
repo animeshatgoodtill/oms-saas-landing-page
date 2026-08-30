@@ -169,7 +169,7 @@ export const customerPortalGuide: IDocGuide = {
             table: {
                 headers: ['Activity', 'Logged Details'],
                 rows: [
-                    ['Login', 'IP address, browser, timestamp'],
+                    ['Login', 'IP address, timestamp'],
                     ['View Quote', 'Which quote, when'],
                     ['Approve Quote', 'Who approved, their name, timestamp'],
                     ['Decline Quote', 'Reason provided, timestamp'],

@@ -30,11 +30,6 @@ export const customersDetail: IFeatureDetail = {
             description: 'See every job, certificate, quote, and invoice for a customer—across all sites. Answer "when did we last service that panel?" in two clicks.'
         },
         {
-            iconId: 'icon-smart-prompt',
-            title: 'AI Assistant for Form Filling',
-            description: 'Type or paste customer details in natural language. AI extracts business name, address, contact info, and fills the form. 30 seconds instead of 5 minutes.'
-        },
-        {
             iconId: 'icon-service-history',
             title: 'UK Address Autocomplete',
             description: 'Type postcode, select address. GetAddress.io integration finds UK addresses instantly. No typos, no incomplete addresses, no "we couldn\'t find you" callbacks.'
@@ -42,7 +37,7 @@ export const customersDetail: IFeatureDetail = {
         {
             iconId: 'icon-contacts-multi',
             title: 'Role-Based Contact Badges',
-            description: 'Job form shows contact roles (Owner, Manager, Accounts, Site Contact). Pick the right person for the job. No sending work orders to the accountant.'
+            description: 'Job form shows contact roles (Contract, Billing, Site Manager, Site Access, Emergency). Pick the right person for the job. No sending work orders to the wrong contact.'
         },
         {
             iconId: 'icon-job-workflow',
@@ -65,7 +60,7 @@ export const customersDetail: IFeatureDetail = {
         {
             stepNumber: 2,
             title: 'Add Contacts & Sites',
-            description: 'Add multiple contacts with custom roles (Owner, Manager, Accounts, Site Contact). Add multiple service addresses. Set contact preferences per site.'
+            description: 'Add multiple contacts with roles (Contract, Billing, Site Manager, Site Access, Emergency). Add multiple service addresses. Set contact preferences per site.'
         },
         {
             stepNumber: 3,
@@ -83,7 +78,6 @@ export const customersDetail: IFeatureDetail = {
         {
             persona: 'Office Managers',
             benefits: [
-                'AI assistant fills forms from pasted text—30 seconds vs. 5 minutes',
                 'UK address autocomplete prevents typo errors',
                 'Contact roles show who handles what (invoices, service updates, certs)',
                 '4-tab interface finds contact/address/history fast',
@@ -106,17 +100,12 @@ export const customersDetail: IFeatureDetail = {
                 'Unlimited customers and sites—no per-customer fees',
                 'Complete service history shows customer lifetime value',
                 'Contact-to-address preferences reduce communication errors',
-                'Custom contact roles adapt to customer organizational structures',
-                'AI form filling speeds data entry for new customer onboarding'
+                'Contact roles adapt to customer organizational structures'
             ]
         }
     ],
 
     stats: [
-        {
-            value: '30 sec',
-            label: 'AI assistant form filling vs. 5 minutes manual entry'
-        },
         {
             value: 'Unlimited',
             label: 'Customers and sites—no per-customer fees, no limits'
@@ -128,11 +117,6 @@ export const customersDetail: IFeatureDetail = {
     ],
 
     comparison: [
-        {
-            feature: 'AI assistant for natural language form filling',
-            opscel: true,
-            others: 'No'
-        },
         {
             feature: 'Contact-to-address preferences (per-site notifications)',
             opscel: true,
@@ -172,16 +156,12 @@ export const customersDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'How does the AI assistant work?',
-            answer: 'Type or paste customer details in natural language (e.g., "ABC Ltd, 123 High Street, contact John Smith 07700 900000"). The AI extracts business name, address, contact name, phone, and fills the form fields automatically. Works with pasted emails, text messages, or typed notes. Saves 4-5 minutes per customer.'
-        },
-        {
             question: 'What are contact-to-address preferences?',
             answer: 'Large customers have multiple sites and multiple contacts. Contact-to-address preferences specify which contacts get notifications for which sites. Example: Site Manager A gets updates for Building A, Site Manager B for Building B, but Finance Director gets all invoices. Prevents wrong-person communication.'
         },
         {
             question: 'Can I create custom contact roles?',
-            answer: 'Yes. Opscel includes default roles (Owner, Manager, Accounts, Site Contact), but you can create custom roles specific to your industry (Facilities Manager, Head of Maintenance, etc.). Roles appear as badges in job and quote forms.'
+            answer: 'Yes. Opscel includes five default roles (Contract, Billing, Site Manager, Site Access, Emergency), but you can create custom roles specific to your industry (Facilities Manager, Head of Maintenance, etc.). Roles appear as badges in job and quote forms.'
         },
         {
             question: 'How does UK address autocomplete work?',

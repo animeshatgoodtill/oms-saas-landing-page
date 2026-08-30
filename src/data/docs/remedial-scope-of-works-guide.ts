@@ -3,8 +3,8 @@ import { IDocGuide } from '@/types';
 export const remedialScopeOfWorksGuide: IDocGuide = {
     slug: 'remedial-scope-of-works',
     title: 'Remedial Scope of Works - Complete Guide',
-    description: 'Turn site defects into customer quotes in one tap. Engineer logs defects, worksheet auto-attaches, office generates bundled quotes.',
-    lastUpdated: '2026-05-19',
+    description: 'Turn site defects into customer quotes in one tap. Engineer logs defects, an internal office-only worksheet auto-attaches, office generates bundled quotes.',
+    lastUpdated: '2026-08-30',
     sections: [
         {
             id: 'overview',
@@ -14,7 +14,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     Fire safety engineers find issues every visit. Capturing them, costing them, and getting back to the customer with a quote shouldn't take three apps and four emails.
                 </p>
                 <p class="mb-6">
-                    Opscel does it in one flow. The engineer logs a defect → a "Remedial Scope of Works" worksheet auto-appears on the job → they fill in what needs doing and how long it'll take → the customer signs on the device. Back at the office, one click turns the whole scope into a quote with every defect pre-filled as a line item.
+                    Opscel does it in one flow. The engineer logs a defect → a "Remedial Scope of Works" worksheet auto-appears on the job → they fill in what needs doing, with resourcing estimated per defect → they mark it complete. Back at the office, one click turns the whole scope into a quote with every defect pre-filled as a line item. This worksheet is an internal, office-only document — the customer never sees or signs it; they see and accept the priced quote it produces.
                 </p>
                 <p class="mb-6">
                     <strong>No paper forms. No retyping. No defects falling between visits.</strong>
@@ -41,9 +41,9 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     bullets: [
                         'Auto-attached worksheets — No manual setup required when defects are logged',
                         'Live defect sync — Engineers can refresh the worksheet to pull in newly logged defects',
-                        'Customer signature — Engineer signs off the scope on-site for customer approval',
+                        'Internal, office-only — no customer signature; resourcing is estimated per defect, not once for the whole worksheet',
                         'One-click quotes — Office staff generate bundled quotes for all remedial work instantly',
-                        'Professional output — Quote includes all defects with severity, location, and recommended actions'
+                        'Professional output — Quote includes all defects with a summary, asset reference, and severity'
                     ]
                 }
             ]
@@ -61,9 +61,9 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 rows: [
                     ['Where', 'Admin dashboard → "Defects Pending Quotes" card', 'Job detail → Documents tab → Remedial Scope worksheet'],
                     ['Trigger', '"Create Bundled Quote" button — reads from pending defects', '"Generate bundled quote" on the completed worksheet — reads from worksheet items'],
-                    ['Engineer involvement', 'None required — defects logged, office handles rest', 'Engineer fills scope summary, estimates, gets customer signature on-site'],
+                    ['Engineer involvement', 'None required — defects logged, office handles rest', 'Engineer fills an internal scope summary and per-defect resourcing on-site'],
                     ['Speed', 'Faster — one click from dashboard', 'Slower — engineer completes worksheet first'],
-                    ['Detail level', 'Defect descriptions only', 'Full scope of works with estimates, hours, customer sign-off'],
+                    ['Detail level', 'Defect descriptions only', 'Full internal scope of works with a summary and per-defect resourcing (no customer sign-off — this worksheet is office-only)'],
                     ['Best for', 'Quick quotes, straightforward remedial work', 'Complex jobs, customer wants detailed scope confirmed on-site'],
                     ['Documentation', '<a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Defects to Quotation Guide</a>', 'This guide']
                 ]
@@ -131,8 +131,8 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 </p>
                 <div class="my-12 -mx-8 md:-mx-16 lg:-mx-24">
                     <img
-                        src="/images/docs/remedial-scope-of-works/flow-diagram.png"
-                        alt="4-step remedial workflow: engineer logs defect on site, worksheet auto-attaches, engineer fills and signs off, office generates bundled quote"
+                        src="/images/docs/remedial-scope-of-works/flow-diagram.svg"
+                        alt="4-step remedial workflow: engineer logs a defect on site with per-defect resourcing, a worksheet auto-attaches, the engineer scopes it internally with no customer signature, and the office generates a bundled quote"
                         class="w-full rounded-lg border border-border shadow-lg"
                     />
                 </div>
@@ -160,13 +160,13 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Step 3: Engineer Fills and Signs Off',
-                    content: 'The engineer opens the worksheet, reviews the scope, and completes it on-site.',
+                    title: 'Step 3: Engineer Scopes It (Internal, Office-Only)',
+                    content: 'The engineer opens the worksheet, reviews the scope, and completes it on-site. This is an internal/office-only document — the customer never sees or signs it; they see and accept the priced quote it later produces.',
                     bullets: [
                         'Review auto-imported defects in the "Defects in Scope" section',
                         'Tap "Refresh from defects" to pull any newly logged defects (edits preserved)',
-                        'Fill in scope summary, engineers/days/hours estimate',
-                        'Capture customer signature if required',
+                        'Fill in the scope summary and any other information the office needs',
+                        'Resourcing (engineers / days / hours) is estimated per defect, not once for the whole worksheet',
                         'Mark worksheet as COMPLETE'
                     ]
                 },
@@ -202,21 +202,22 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 },
                 {
                     title: 'Defects in Scope Section',
-                    content: 'This section shows all defects that will be included in the remedial quote.',
+                    content: 'This section shows all defects that will be included in the remedial quote. Each row has three visible columns:',
                     bullets: [
-                        'Severity badges: Red (MAJOR), Amber (MINOR), Grey (OBSERVATION)',
-                        'Each defect shows: description, location, recommended action',
+                        'Summary — what the defect is and what needs doing',
+                        'Asset reference — e.g. "Panel B / Zone 4"',
+                        'Severity — Critical, Major, Minor, or Observation (engineer-editable per row)',
                         'Blue "Refresh from defects" banner appears when new defects are logged',
                         'Tap "Refresh" to sync — your manual edits to existing rows are preserved'
                     ]
                 },
                 {
                     title: 'Completing the Worksheet',
-                    content: 'Fill in the required fields before marking complete:',
+                    content: 'Fill in the required fields before marking complete. This is an internal/office-only worksheet — there is no customer sign-off field:',
                     bullets: [
-                        'Scope summary — Brief overview of the remedial work required',
-                        'Engineers / days / hours — Estimated resource requirements',
-                        'Customer signature — Optional but recommended for customer approval',
+                        'Details of works required — a free-text summary of the remedial work for the office to quote',
+                        'Any other information to consider — access constraints, parts to verify, etc.',
+                        'Resourcing (engineers / days / hours) is captured per defect, not once for the whole worksheet',
                         'Tap "Mark Complete" when finished'
                     ]
                 },
@@ -224,9 +225,9 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     title: 'Best Practices for Engineers',
                     content: '',
                     bullets: [
-                        'Be specific in defect descriptions — these appear in the customer quote',
-                        'Always include location information (e.g., "Zone 3", "First Floor Corridor")',
-                        'Use "Recommended Action" to suggest clear remedial steps',
+                        'Be specific in the defect summary — these appear in the customer quote',
+                        'Always fill in an asset reference (e.g., "Panel B / Zone 4") so the office can locate the item',
+                        'Set severity accurately — it drives what appears where in the quote',
                         'If you find additional defects after marking complete, log them and the office can manually add to the quote'
                     ]
                 }
@@ -254,7 +255,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                         { step: 'Click the green "Generate Bundled Quote" button', description: '' },
                         { step: 'A new quote is created with format "QT-YYYY-NNNN"', description: '' },
                         { step: 'Quote title: "Remedial Works"', description: '' },
-                        { step: 'Line items: One per defect with description, location, and recommended action', description: '' },
+                        { step: 'Line items: One per defect, carrying its summary and severity', description: '' },
                         { step: 'Navigate to Quotations to view and edit the draft quote', description: '' }
                     ]
                 },
@@ -338,7 +339,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                 headers: ['Status', 'What It Means', 'Who Can Edit', 'Next Action'],
                 rows: [
                     ['DRAFT (worksheet)', 'Auto-generated when first defect logged', 'Engineer', 'Fill in scope details and mark complete'],
-                    ['COMPLETED (worksheet)', 'Engineer has signed off on scope', 'Office (can reopen if needed)', 'Generate bundled quote'],
+                    ['COMPLETED (worksheet)', 'Engineer has finished scoping the work internally', 'Office (can reopen if needed)', 'Generate bundled quote'],
                     ['Quoted (worksheet)', 'Linked to a quote', 'N/A', 'Send quote to customer'],
                     ['Draft (quote)', 'Generated but not sent', 'Office', 'Add pricing and send to customer'],
                     ['Sent (quote)', 'Customer has received quote', 'Office (revisions allowed)', 'Wait for customer approval'],
@@ -403,7 +404,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     bullets: [
                         'Worksheet must be marked COMPLETED (not DRAFT)',
                         'Worksheet must not already be linked to a quote',
-                        'Check user permissions (requires Manager or Admin role)',
+                        'Check user permissions (requires quote-creation access — Super Admin, Admin, Accounts, Contract Manager or Sales Manager; Site Manager and Engineer can complete the worksheet but can\'t generate the quote from it)',
                         'Hover over the worksheet row — button appears on hover'
                     ]
                 },
@@ -441,17 +442,15 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
         {
             id: 'permissions',
             title: 'Permissions and Roles',
+            content: '<p class="mb-4">This worksheet\'s actions ride two permissions: <code>jobs.edit</code> for logging defects and working the worksheet, and <code>quotes.create</code>/<code>quotes.view</code> for the bundled quote it produces. That split is why some roles can complete the worksheet but not raise the quote from it, and vice versa.</p>',
             table: {
-                headers: ['Action', 'Admin', 'Manager', 'Engineer', 'Viewer'],
+                headers: ['Action', 'Super Admin', 'Admin', 'Accounts', 'Contract Manager', 'Sales Manager', 'Site Manager', 'Engineer', 'Viewer'],
                 rows: [
-                    ['Log defects', '✅', '✅', '✅', '❌'],
-                    ['Create worksheet (auto)', '✅', '✅', '✅', '❌'],
-                    ['Edit draft worksheet', '✅', '✅', '✅', '❌'],
-                    ['Mark worksheet complete', '✅', '✅', '✅', '❌'],
-                    ['Reopen completed worksheet', '✅', '✅', '⚠️', '❌'],
-                    ['Generate bundled quote', '✅', '✅', '❌', '❌'],
-                    ['View worksheets', '✅', '✅', '✅', '✅'],
-                    ['View quotes', '✅', '✅', '✅', '✅']
+                    ['Log defects / create &amp; edit worksheet', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
+                    ['Mark worksheet complete', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
+                    ['Generate bundled quote', '✅', '✅', '✅', '✅', '✅', '❌', '❌', '❌'],
+                    ['View worksheets', '✅', '✅', '✅', '✅', '✅', '✅', '✅', '❌'],
+                    ['View the resulting quote', '✅', '✅', '✅', '✅', '✅', '❌', '❌', '✅']
                 ]
             },
             subsections: [
@@ -459,10 +458,11 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     title: 'Role Notes',
                     content: '',
                     bullets: [
-                        '⚠️ Engineers can reopen worksheets only if they created them',
-                        'Generating quotes requires Manager or Admin role to prevent accidental quote creation',
-                        'Viewers have read-only access to all worksheets and quotes',
-                        'Defect logging permissions are separate — configure in Settings > Permissions'
+                        'Accounts can raise and view the bundled quote but cannot touch the worksheet itself (no job-edit access) — the worksheet has to reach COMPLETE via Admin, Contract Manager, Site Manager or an Engineer first',
+                        'Sales Manager owns quoting end-to-end but has no job-edit access, so it can generate and send the bundled quote but cannot log defects or complete the worksheet',
+                        'Site Manager and Engineer can run the whole field side of this (log defects, complete the worksheet) but hold no quoting permission at all — they cannot generate the quote or view it once raised',
+                        'Viewer has neither jobs.view nor quotes.create, so it cannot see this worksheet at all — but it can view the quote once one exists',
+                        'These are the same role permissions used everywhere else in Opscel — see your Team settings to check what a given user\'s role can do'
                     ]
                 }
             ]
@@ -492,10 +492,10 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'EICR Observations (Electrical)',
-                    content: 'EICR certificates include observations (C1, C2, C3 codes). These can be turned into remedial quotes using a similar bundled approach.',
+                    title: 'Electrical Defects (EICR Work)',
+                    content: 'There is no separate 1:1 conversion from EICR observation codes (C1/C2/C3/FI) to quote line items. Issues found during EICR work are logged as ordinary job defects (by generic severity — observation, minor, major, or critical) and go through the same bundling flow described in this guide and in the Defects to Quotation guide.',
                     bullets: [
-                        'Learn more: /docs/certificates (EICR Defect-to-Quote Pipeline section)'
+                        'Learn more: <a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Defects to Quotation Guide</a>'
                     ]
                 }
             ]

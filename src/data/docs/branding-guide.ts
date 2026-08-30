@@ -26,7 +26,7 @@ export const brandingGuide: IDocGuide = {
                 {
                     title: 'What You Can Customize',
                     bullets: [
-                        'Company logo (header and footer)',
+                        'Company logo (positioned in the document header)',
                         'Primary and secondary brand colors',
                         'Certificate PDF layouts and templates',
                         'Quote and invoice cover pages',
@@ -47,14 +47,14 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Uploading Your Logo',
-                    content: 'Opscel supports PNG, JPEG, and SVG logo formats. SVG is recommended for best quality at all sizes.',
+                    content: 'Opscel supports PNG and JPEG logo formats. SVG is not accepted — PDF generation requires a raster format.',
                 },
                 {
                     title: 'Steps to Upload Logo',
                     steps: [
                         'Navigate to <strong>Settings → Company & Branding → Branding</strong>',
                         'Click <strong>Upload Logo</strong> in the Company Logo section',
-                        'Select your logo file (PNG, JPEG, or SVG)',
+                        'Select your logo file (PNG or JPEG)',
                         'Wait for upload confirmation (you\'ll see a green checkmark)',
                         'Click <strong>Preview PDF</strong> to see how it looks on certificates',
                     ],
@@ -68,8 +68,8 @@ export const brandingGuide: IDocGuide = {
                     table: {
                         headers: ['Specification', 'Recommendation', 'Why'],
                         rows: [
-                            ['File format', 'SVG (vector)', 'Scales perfectly at any size'],
-                            ['Fallback format', 'PNG at 300 DPI', 'High resolution for print quality'],
+                            ['File format', 'PNG', 'Supports transparency, best for logos'],
+                            ['Fallback format', 'JPEG at 300 DPI', 'High resolution for print quality'],
                             ['Dimensions', '800×200px minimum', 'Ensures clarity on A4 PDFs'],
                             ['Background', 'Transparent', 'Works on white and colored backgrounds'],
                             ['File size', 'Under 2 MB', 'Faster PDF generation'],
@@ -180,7 +180,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Customizing Quote PDFs',
-                    content: 'Quote templates control the cover page, line item layout, and terms & conditions display for all quotes sent to customers. You can customize the header, add a cover image, and include custom T&Cs.',
+                    content: 'Quote templates control the cover page, line item layout, and terms & conditions display for all quotes sent to customers. You can add a cover image and include custom T&Cs.',
                 },
                 {
                     title: 'Steps to Customize Quote Template',
@@ -215,7 +215,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Customizing Invoice PDFs',
-                    content: 'Invoice templates control the header, payment instructions, and footer for all invoices. You can customize the layout, add bank details, and include payment links.',
+                    content: 'Invoice templates control payment instructions and a custom footer for all invoices. You can add bank details and include payment links; the logo is positioned in the header automatically.',
                 },
                 {
                     title: 'Steps to Customize Invoice Template',
@@ -259,7 +259,7 @@ export const brandingGuide: IDocGuide = {
                         'Go to <strong>Settings → Company & Branding → Accreditation Badges</strong>',
                         'Click <strong>Add Badge</strong>',
                         'Select the accreditation type (NICEIC, NAPIT, BAFE, Gas Safe, etc.)',
-                        'Upload the badge image (PNG or SVG, transparent background recommended)',
+                        'Upload the badge image (PNG or JPEG, transparent background recommended)',
                         'Enter your <strong>Registration Number</strong> (appears below badge on certificates)',
                         'Toggle <strong>Display on Certificates</strong> (ON by default)',
                         'Click <strong>Save Badge</strong>',
@@ -285,7 +285,7 @@ export const brandingGuide: IDocGuide = {
                     table: {
                         headers: ['Specification', 'Recommendation'],
                         rows: [
-                            ['Format', 'PNG (transparent) or SVG'],
+                            ['Format', 'PNG (transparent) or JPEG'],
                             ['Dimensions', '200×200px minimum'],
                             ['Background', 'Transparent (white backgrounds show seams)'],
                             ['File size', 'Under 500 KB'],
@@ -396,11 +396,11 @@ export const brandingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Logo Appears Pixelated or Blurry',
-                    content: '<strong>Cause:</strong> Low-resolution image or JPEG compression artifacts.<br><strong>Fix:</strong> Re-upload logo as SVG (vector format) or PNG at 300 DPI minimum. Avoid JPEG for logos — use PNG with transparent background instead.',
+                    content: '<strong>Cause:</strong> Low-resolution image or JPEG compression artifacts.<br><strong>Fix:</strong> Re-upload logo as PNG at 300 DPI minimum with a transparent background. Avoid heavily compressed JPEGs for logos.',
                 },
                 {
                     title: 'Logo is Cut Off or Too Small',
-                    content: '<strong>Cause:</strong> Excess white space around logo, or logo dimensions too large/small.<br><strong>Fix:</strong> Crop logo tightly before uploading (remove extra padding). If using SVG, ensure viewBox is set correctly. For PNG, resize to 800×200px range.',
+                    content: '<strong>Cause:</strong> Excess white space around logo, or logo dimensions too large/small.<br><strong>Fix:</strong> Crop logo tightly before uploading (remove extra padding). Resize to the 800×200px range for PNG.',
                 },
                 {
                     title: 'Brand Colors Don\'t Appear on PDFs',
@@ -438,7 +438,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'What image formats are supported for logos?',
-                    content: 'PNG, JPEG, and SVG. We recommend SVG (vector format) for best quality at all sizes. If using PNG, upload at 300 DPI minimum with transparent background. Avoid JPEG for logos due to compression artifacts.',
+                    content: 'PNG and JPEG. SVG is not accepted — PDF generation requires a raster format. We recommend PNG at 300 DPI minimum with a transparent background; avoid heavily compressed JPEGs for logos.',
                 },
                 {
                     title: 'Do branding changes apply to old certificates?',
@@ -450,7 +450,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'Why does my logo look fine in preview but blurry in the final PDF?',
-                    content: 'This usually happens with low-resolution PNG files. The preview may be shown at a smaller size (hiding pixelation), but the final PDF renders at full print resolution. Solution: upload an SVG logo or PNG at 300 DPI minimum.',
+                    content: 'This usually happens with low-resolution PNG files. The preview may be shown at a smaller size (hiding pixelation), but the final PDF renders at full print resolution. Solution: upload a PNG at 300 DPI minimum.',
                 },
                 {
                     title: 'How do I remove accreditation badges from specific certificate types?',
@@ -462,7 +462,7 @@ export const brandingGuide: IDocGuide = {
                 },
                 {
                     title: 'What\'s the maximum file size for logo uploads?',
-                    content: 'Logo uploads are capped at 2 MB. If your logo file is larger, compress it before uploading. For SVG files, you can often reduce size by removing unnecessary metadata (use an SVG optimizer tool).',
+                    content: 'Logo uploads are capped at 2 MB. If your logo file is larger, compress it before uploading (a PNG optimizer tool can help reduce file size without a visible quality loss).',
                 },
                 {
                     title: 'Do color changes affect the customer portal too?',

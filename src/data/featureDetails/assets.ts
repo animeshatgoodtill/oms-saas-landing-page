@@ -40,8 +40,8 @@ export const assetsDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-maintenance-schedule',
-            title: 'Auto Maintenance Reminders',
-            description: 'Fire alarm needs annual service? EV charger due for 3-year inspection? System flags upcoming maintenance based on last service date and equipment type. Never miss a compliance deadline.'
+            title: 'Service Due Dates Tracked',
+            description: 'Fire alarm needs annual service? EV charger due for 3-year inspection? Each asset carries its next-service-due date and shows it on the asset register and service history, so office staff can see what\'s coming up at a glance when planning visits.'
         },
         {
             iconId: 'icon-activity-log',
@@ -147,7 +147,7 @@ export const assetsDetail: IFeatureDetail = {
             others: 'Some'
         },
         {
-            feature: 'Auto maintenance reminders by equipment type',
+            feature: 'Service due dates tracked on the asset register',
             opscel: true,
             others: 'Some'
         },
@@ -177,7 +177,7 @@ export const assetsDetail: IFeatureDetail = {
         },
         {
             question: 'Is asset tracking available on all plans?',
-            answer: 'Asset tracking is available on the Business plan (£149/month, 5 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history, maintenance reminders, and CSV import. Bulk CSV asset import specifically carries this same Business-plan gate — Starter and Team can still import customers, contacts, addresses, and jobs, just not assets.'
+            answer: 'Asset tracking is available on the Business plan (£149/month, 5 users included). Includes unlimited assets per customer, auto-register from worksheets, trade-correct PDF registers, multi-year service history with tracked service-due dates, and CSV import. Bulk CSV asset import specifically carries this same Business-plan gate — other entity types can still be imported on lower tiers, just not assets.'
         },
         {
             question: 'Can I import existing asset data from spreadsheets?',

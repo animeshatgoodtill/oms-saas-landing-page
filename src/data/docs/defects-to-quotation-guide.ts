@@ -200,7 +200,7 @@ export const defectsToQuotationGuide: IDocGuide = {
                     bullets: [
                         '<strong>View Quote badge</strong> appears on quoted defects (color-coded by quote status)',
                         '<strong>Quote reference number</strong> displayed',
-                        '<strong>Quote status</strong> shown (Draft, Sent, Accepted, Rejected)',
+                        '<strong>Quote status</strong> shown (Draft, Sent, Accepted, Declined)',
                         '<strong>Clickable link</strong> takes you directly to the quote detail page'
                     ]
                 },
@@ -241,7 +241,7 @@ export const defectsToQuotationGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'What roles can create remedial quotes?',
-                    content: '<p>Admin, Accounts, and Contract Manager roles can create quotes. Site Managers and Engineers do not have access to quote creation — the buttons are hidden automatically.</p><p class="mt-3">Choosing which template shapes those quotes is narrower: only Admin can set the <strong>Defect &amp; Remedial Quotes</strong> template (Settings → Sales → Quote Defaults). Accounts and Contract Manager can raise the quotes but not change what template they start from.</p>'
+                    content: '<p>Admin, Sales Manager, Accounts, and Contract Manager roles can create quotes. Site Managers and Engineers do not have access to quote creation — the buttons are hidden automatically.</p><p class="mt-3">Choosing which template shapes those quotes is narrower: only Admin can set the <strong>Defect &amp; Remedial Quotes</strong> template (Settings → Sales → Quote Defaults). Sales Manager, Accounts and Contract Manager can raise the quotes but not change what template they start from.</p>'
                 },
                 {
                     title: 'Can I link a quote to a job after it\'s been created?',

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="attachTitle attachDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="attachTitle">How a job gets its worksheet</title>
+  <desc id="attachDesc">A new fire-safety job is created. Opscel resolves its effective vertical and service type, looks up the templates mapping, and auto-attaches exactly one worksheet from the registry of built-in schemas: Fire Safety Attendance, because it is mapped to that service type. If nothing is mapped, the vertical's basic default is used instead. This replaces any earlier default rather than adding a second sheet. Afterwards, an admin can still open the Assign Job Sheet modal to manually add one more sheet type from the registry, filtered to the business's enabled verticals.</desc>
+
+  <rect x="8" y="8" width="1024" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- Step 1: new job -->
+  <rect x="40" y="60" width="200" height="100" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="60" y="88" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">NEW JOB</text>
+  <line x1="60" y1="96" x2="220" y2="96" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="60" y="116" font-size="11" fill="#171717">Vertical: Fire Safety</text>
+  <text x="60" y="136" font-size="11" fill="#171717">Service type: Fire Alarm</text>
+  <text x="60" y="153" font-size="10" fill="#737373">Servicing</text>
+
+  <!-- arrow 1 -->
+  <path d="M240,110 L292,110" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: resolve mapping -->
+  <rect x="296" y="52" width="220" height="116" rx="10" fill="#F5F5F5" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="316" y="78" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">RESOLVE</text>
+  <line x1="316" y1="86" x2="496" y2="86" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="316" y="105" font-size="10.5" fill="#171717">1. Effective vertical</text>
+  <text x="316" y="123" font-size="10.5" fill="#171717">(job, else tenant default)</text>
+  <text x="316" y="143" font-size="10.5" fill="#171717">2. Service type &#8594; template</text>
+  <text x="316" y="157" font-size="9.5" fill="#737373">via templates.service_types[]</text>
+
+  <!-- arrow 2 -->
+  <path d="M520,110 L572,110" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: registry pick -->
+  <rect x="576" y="44" width="240" height="132" rx="10" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
+  <text x="596" y="68" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#304FFF">AUTO-ATTACHED</text>
+  <line x1="596" y1="76" x2="796" y2="76" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="596" y="98" font-size="12" font-weight="700" fill="#171717">Fire Safety Attendance</text>
+  <text x="596" y="116" font-size="10" fill="#737373">Matched: service_types[] maps</text>
+  <text x="596" y="130" font-size="10" fill="#737373">"Fire Alarm Servicing" to this type</text>
+  <rect x="596" y="140" width="200" height="24" rx="6" fill="#EEF1FF"/>
+  <text x="606" y="156" font-size="9.5" fill="#304FFF">One sheet per job &#8212; REPLACES default</text>
+
+  <!-- fallback note -->
+  <rect x="576" y="188" width="240" height="52" rx="8" fill="#F5F5F5"/>
+  <text x="592" y="207" font-size="9.5" font-weight="700" fill="#737373">IF NO MAPPING FOUND</text>
+  <text x="592" y="224" font-size="10" fill="#525252">Falls back to the vertical's</text>
+  <text x="592" y="236" font-size="10" fill="#525252">basic default sheet type</text>
+
+  <!-- registry box below -->
+  <rect x="40" y="260" width="776" height="94" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="60" y="284" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">JOB_SHEET_SCHEMA_REGISTRY &#8212; 13 built-in types</text>
+  <line x1="60" y1="292" x2="796" y2="292" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="60" y="312" font-size="10" fill="#171717">Basic Attendance &#183; Fire Safety Attendance &#183; Fire Alarm Commissioning &#183; Fire Alarm Service</text>
+  <text x="60" y="330" font-size="10" fill="#171717">Extinguisher Service &#183; Remedials Scope &#183; Combined BS5839/SP203 &#183; Asset Service</text>
+  <text x="60" y="346" font-size="10" fill="#171717">Intruder Alarm Device List &#183; CCTV/Intruder/Access Control Commissioning &#183; Security Risk Assessment</text>
+
+  <!-- arrow down from step3 to manual add -->
+  <path d="M696,176 L696,222" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: manual add -->
+  <rect x="840" y="44" width="152" height="310" rx="10" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="856" y="70" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">OPTIONAL</text>
+  <text x="856" y="88" font-size="11" font-weight="700" fill="#171717">Admin manually</text>
+  <text x="856" y="103" font-size="11" font-weight="700" fill="#171717">adds one more</text>
+  <line x1="856" y1="115" x2="976" y2="115" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="856" y="135" font-size="10" fill="#525252">Opens the Assign</text>
+  <text x="856" y="149" font-size="10" fill="#525252">Job Sheet modal</text>
+  <text x="856" y="169" font-size="10" fill="#525252">Picks any type from</text>
+  <text x="856" y="183" font-size="10" fill="#525252">the registry, filtered</text>
+  <text x="856" y="197" font-size="10" fill="#525252">to enabled verticals</text>
+  <rect x="856" y="212" width="120" height="34" rx="6" fill="#F5F5F5"/>
+  <text x="866" y="233" font-size="9.5" fill="#525252">Additive, not a</text>
+  <text x="866" y="245" font-size="9.5" fill="#525252">replacement</text>
+
+  <path d="M816,110 L836,110" stroke="#A3A3A3" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="4 3"/>
+
+  <text x="520" y="418" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">One worksheet is auto-picked per job &#8212; no drag-and-drop builder, no custom templates</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#A3A3A3"/>
+    </marker>
+  </defs>
+</svg>

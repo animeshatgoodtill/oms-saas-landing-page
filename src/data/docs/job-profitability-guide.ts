@@ -12,7 +12,7 @@ export const jobProfitabilityGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Manager, Finance'
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Accounts'
                 },
                 {
                     title: '30-Second Version',
@@ -83,7 +83,7 @@ export const jobProfitabilityGuide: IDocGuide = {
             title: 'The Two Rates You Set',
             subsections: [
                 {
-                    content: '<p class="mb-4">Both live in <strong>Settings → Financial Settings → Labour Bands</strong>, set per band. Assign people to a band from <a href="/docs/team-management" class="text-secondary hover:underline">Team Members</a>.</p>'
+                    content: '<p class="mb-4">Both live in <strong>Settings → Team → Labour Bands</strong>, set per band. Assign people to a band from <a href="/docs/team-management" class="text-secondary hover:underline">Team Members</a>.</p>'
                 },
                 {
                     title: 'Cost rate — what an hour costs you',
@@ -180,8 +180,8 @@ export const jobProfitabilityGuide: IDocGuide = {
                     table: {
                         headers: ['What you see', 'What it means', 'What to do'],
                         rows: [
-                            ['Labour costing not set up', 'No labour band has a cost rate, so no job can be costed for labour.', 'Set a cost rate in Settings → Financial Settings → Labour Bands. Every job fills in at once.'],
-                            ['No value (not quoted, no charge rate set)', 'Engineers are booked on the job, but there\'s no charge rate to value their time with.', 'Set a charge rate in Settings → Financial Settings → Labour Bands.'],
+                            ['Labour costing not set up', 'No labour band has a cost rate, so no job can be costed for labour.', 'Set a cost rate in Settings → Team → Labour Bands. Every job fills in at once.'],
+                            ['No value (not quoted, no charge rate set)', 'Engineers are booked on the job, but there\'s no charge rate to value their time with.', 'Set a charge rate in Settings → Team → Labour Bands.'],
                             ['No value (not quoted, nothing scheduled to price)', 'Nobody is booked on this job, so there are no hours to value. Your rates are fine.', 'Book a visit and assign an engineer — or raise a quote or invoice.'],
                             ['Labour cost incomplete', 'Some labour could be priced and some couldn\'t — an engineer with no band, a band with no rate, a visit with no duration, or a visit with nobody on it.', 'Check the job\'s visits have a duration and an assigned engineer, and everyone is in a band with a cost rate.'],
                             ['Scheduled value incomplete', 'Part of the schedule couldn\'t be priced at the charge rate.', 'Same checks — durations, assignments, and a charge rate on the band.'],
@@ -239,7 +239,7 @@ export const jobProfitabilityGuide: IDocGuide = {
                 },
                 {
                     title: 'Can I set the cost or charge rate on a person instead of a band?',
-                    content: '<p>No — both rates are set per labour band in Settings → Financial Settings → Labour Bands, and everyone assigned to that band shares it. Move someone to a different band from Team Members if their rate should differ.</p>'
+                    content: '<p>No — both rates are set per labour band in Settings → Team → Labour Bands, and everyone assigned to that band shares it. Move someone to a different band from Team Members if their rate should differ.</p>'
                 },
                 {
                     title: 'A job I finished last year just changed margin — is that a bug?',

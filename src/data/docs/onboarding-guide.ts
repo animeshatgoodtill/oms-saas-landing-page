@@ -60,6 +60,28 @@ export const onboardingGuide: IDocGuide = {
             ]
         },
         {
+            id: 'setup-copilot',
+            title: 'Setup Copilot (AI-Assisted Setup)',
+            content: `
+                <p class="mb-4">
+                    Opscel also offers a newer, AI-assisted way to work through onboarding: the <strong>Setup Copilot</strong>, a chat
+                    interface (gated to Admin/Super Admin) that can read a spreadsheet, PDF, scanned document, or your company
+                    website and propose setup changes from it — filling in your company profile, matching accreditation bodies,
+                    importing a workbook of customers or products, or drafting terms.
+                </p>
+                <p class="mb-4">
+                    It never writes to your account directly. Every proposal is a suggestion you review and approve — applying one
+                    runs through the exact same permission-gated setup screens you'd use by hand, so nothing happens that you
+                    couldn't have done yourself.
+                </p>
+                <p class="text-gray-700">
+                    It's a newer capability, scoped specifically to onboarding conversations rather than general account changes,
+                    reachable from the nav and from a dashboard setup card. Ask support if you'd like a hand trying it during
+                    setup.
+                </p>
+            `
+        },
+        {
             id: 'tips',
             title: 'Tips for Success',
             subsections: [

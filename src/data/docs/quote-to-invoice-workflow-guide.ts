@@ -54,7 +54,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                     bullets: [
                         'Read the full quote including all line items',
                         'Select a tier (if Good-Better-Best)',
-                        'Accept or decline with a typed signature',
+                        'Accept or decline with a drawn signature — sign with a finger or mouse on the portal\'s signature pad',
                         'Pay a deposit by card if one is configured'
                     ]
                 },

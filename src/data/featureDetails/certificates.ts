@@ -8,16 +8,33 @@ export const certificatesDetail: IFeatureDetail = {
     iconId: 'icon-compliance-shield',
     screenshotImage: '/images/ui/01-screen.png',
 
+    sections: [
+        {
+            eyebrow: 'Immutable Once Issued',
+            title: 'Draft, Completed, Issued — Then It Can\'t Be Touched',
+            description: 'A certificate moves through a fixed lifecycle: Draft while the engineer records results, Completed once every required field and signature is present, then Issued — which locks it for good and assigns the permanent certificate number. From there, the only paths are Voided (with a written reason kept permanently) or Superseded by a linked replacement. The original record is never edited or deleted.',
+            imageSrc: '/images/features/certificates/certificate-status-workflow.svg',
+            imageAlt: 'Certificate status workflow diagram: Draft moves to Completed, then to Issued, which is immutable. From Issued, a certificate can be Voided with a stored reason or Superseded by a linked replacement certificate.',
+            imageWidth: 1040,
+            imageHeight: 480,
+            bullets: [
+                'Issued certificates are locked — no field, reading or signature can be changed',
+                'Voiding requires a written reason, stored permanently against the record',
+                'Superseding issues a new certificate and links it back to the one it replaces'
+            ]
+        }
+    ],
+
     featureHighlights: [
         {
             iconId: 'icon-compliance-shield',
             title: 'BS 7671 Zs Auto-Lookup & Validation',
-            description: 'Engineer enters Zs = 1.2Ω for B32 MCB? System auto-looks up BS 7671 Table 41.4 limit (1.37Ω), applies temperature correction (×0.8 = 1.10Ω), shows status: ⚠️ WARNING (compliant but close to limit). Margin: -0.10Ω. No manual table lookups, no calculator needed.'
+            description: 'Engineer enters Zs = 1.2Ω for B32 MCB? System auto-looks up BS 7671 Table 41.4 limit (1.44Ω), applies temperature correction (×0.8 = 1.152Ω), shows status: ⚠️ WARNING (compliant but close to limit). Margin: -0.048Ω. No manual table lookups, no calculator needed.'
         },
         {
             iconId: 'icon-deficiency-log',
             title: 'Prevents Non-Compliant Certificates',
-            description: 'Can\'t issue EIC with IR <1MΩ. Can\'t issue EICR with C1/C2 observations marked "Satisfactory". Can\'t issue Solar PV with Voc/Isc >5% deviation. System enforces regulations—engineers can\'t bypass validation.'
+            description: 'Can\'t issue EIC with IR <1MΩ. Can\'t issue EICR with C1/C2 observations marked "Satisfactory". Can\'t issue Solar PV with Voc/Isc >10% deviation from expected values. System enforces regulations—engineers can\'t bypass validation.'
         },
         {
             iconId: 'icon-activity-log',
@@ -46,8 +63,8 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-compliance-shield',
-            title: '16 Certificate Types, All Standards-Compliant',
-            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Every certificate type matches official model forms.'
+            title: '17 Certificate Types, All Standards-Compliant',
+            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Security: Security System Handover Certificate (PD 6662, BS EN 50131-1, BS EN 62676-4, BS EN 60839-11). Every certificate type matches official model forms.'
         },
         {
             iconId: 'icon-compliance-shield',
@@ -75,7 +92,7 @@ export const certificatesDetail: IFeatureDetail = {
         {
             stepNumber: 2,
             title: 'Enter Test Results with Auto-Validation',
-            description: 'Add circuits with Zs, IR, RCD trip times. System auto-looks up BS 7671 Table 41.4 limits, applies temperature correction, shows pass/fail status with margins. Fire certs validate zone counts and device tests. Solar PV checks Voc/Isc within ±5% expected values.'
+            description: 'Add circuits with Zs, IR, RCD trip times. System auto-looks up BS 7671 Table 41.4 limits, applies temperature correction, shows pass/fail status with margins. Fire certs validate zone counts and device tests. Solar PV checks Voc/Isc within ±10% of expected values.'
         },
         {
             stepNumber: 3,
@@ -121,7 +138,7 @@ export const certificatesDetail: IFeatureDetail = {
             persona: 'Field Engineers',
             benefits: [
                 'Auto-lookups—no more flipping through BS 7671 Table 41.4, system knows Zs limits by MCB type/rating',
-                'Pass/fail guidance—enter Zs = 1.2Ω, system shows limit 1.37Ω, corrected 1.10Ω, status: ⚠️ WARNING with margin',
+                'Pass/fail guidance—enter Zs = 1.2Ω, system shows limit 1.44Ω, corrected 1.152Ω, status: ⚠️ WARNING with margin',
                 'Mobile-first—complete certificates on-site from tablet/phone, no evening paperwork',
                 'Draft mode—save partial work, complete later, no lost data if signal drops',
                 'GPS signatures—sign on-site, GPS proves you were there, dispute-proof documentation',
@@ -132,8 +149,8 @@ export const certificatesDetail: IFeatureDetail = {
 
     stats: [
         {
-            value: '8 standards',
-            label: 'BS 7671, BS 5839-1, BS 5839-9, BS 5266-1, BS 5306-3, IET CoP, BS EN 62446-1, MCS enforced automatically'
+            value: '9 standards',
+            label: 'BS 7671, BS 5839-1, BS 5839-9, BS 5266-1, BS 5306-3, IET CoP, BS EN 62446-1, MCS, PD 6662 enforced automatically'
         },
         {
             value: 'GPS+IP+Time',
@@ -200,11 +217,11 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             question: 'How does BS 7671 Zs auto-lookup work?',
-            answer: 'When you enter a Zs reading for a circuit, Opscel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.37Ω limit, corrected to 1.10Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
+            answer: 'When you enter a Zs reading for a circuit, Opscel automatically looks up the maximum permitted value from BS 7671:2018+A2:2022 Table 41.4 based on protective device type (MCB/RCBO/Fuse) and rating (6A, 10A, 16A, etc.). It then applies temperature correction factor (×0.8 for 70°C conductors) and shows pass/fail status with margin. Example: B32 MCB has 1.44Ω limit, corrected to 1.152Ω. Your reading of 1.2Ω shows ⚠️ WARNING (compliant but close). No manual table lookups or calculator needed.'
         },
         {
             question: 'What prevents engineers from issuing non-compliant certificates?',
-            answer: 'System enforces regulations before allowing issue. Can\'t issue EIC with IR <1MΩ (BS 7671 minimum). Can\'t issue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can\'t issue Solar PV with Voc/Isc >5% deviation from expected. Can\'t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can\'t bypass validation—system blocks non-compliant issue.'
+            answer: 'System enforces regulations before allowing issue. Can\'t issue EIC with IR <1MΩ (BS 7671 minimum). Can\'t issue EICR with C1/C2 observations marked "Satisfactory" (automatic fail). Can\'t issue Solar PV with Voc/Isc >10% deviation from expected. Can\'t skip required signatures (BS 7671 needs Designer, Constructor, Inspector). Engineers can\'t bypass validation—system blocks non-compliant issue.'
         },
         {
             question: 'What forensic evidence is captured with digital signatures?',

@@ -194,7 +194,7 @@ const FireSafetyContractorsPage: React.FC = () => {
               Managing Fire Safety Jobs with Ease
             </h2>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
-              Fire safety work requires very deep detail. You must track extinguishers, alarms, emergency lights, and more. Opscel handles nine types of fire safety certificates. Each one follows official model forms. This keeps your BAFE status in good standing.
+              Fire safety work requires very deep detail. You must track extinguishers, alarms, emergency lights, and more. Opscel handles eleven types of fire safety certificates — Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, and Verification, plus Emergency Lighting, Extinguisher Service, Cable Test Readings, and EVC Commissioning. Each one follows official model forms. This keeps your BAFE status in good standing.
             </p>
             <p className="text-lg leading-relaxed text-foreground-accent mb-4">
               The system tracks when a retest is due. It flags these dates on your dashboard. You will never miss a chance for repeat work. This creates a steady flow of cash for the firm. A clear history shows every panel service in just two clicks.

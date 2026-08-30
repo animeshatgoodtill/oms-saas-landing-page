@@ -165,7 +165,7 @@ export const remoteMonitoringGuide: IDocGuide = {
                 },
                 {
                     title: 'The 90-Day Clock',
-                    content: '<div class="border-l-4 border-amber-500 bg-amber-50 p-4 mb-4"><p class="text-amber-900">A false alarm count only clears after <strong>90 days</strong> with no further false alarms on that arrangement. A single false alarm inside the 90-day window keeps the count live rather than resetting it, so a withdrawn response level can take a while to reinstate. Track the reinstatement date from the arrangement\'s false alarm history.</p></div>'
+                    content: '<div class="border-l-4 border-amber-500 bg-amber-50 p-4 mb-4"><p class="text-amber-900">Reinstatement eligibility is a simple calculation: a fixed <strong>reinstatement clock start date</strong> plus <strong>90 days</strong>. That start date is set once, by your office, when the clock begins (typically when the police response is withdrawn) — Opscel does not automatically push it forward if another false alarm happens inside the 90-day window. If your ARC or police contact requires the clock to restart after a further false alarm, update the start date yourself; Opscel will not do it for you.</p></div>'
                 }
             ]
         },
@@ -179,7 +179,7 @@ export const remoteMonitoringGuide: IDocGuide = {
                 },
                 {
                     title: 'Case Lifecycle',
-                    content: '<div class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto"><p class="font-mono text-sm whitespace-nowrap">Open → Triaged → (Escalated to job, case stays open) → Resolved → Closed</p></div>'
+                    content: '<div class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto"><p class="font-mono text-sm whitespace-nowrap">Open → Triaged → (Escalated to job, case stays open) → Resolved → Closed</p></div><div class="my-8"><img src="/images/features/remote-monitoring/case-lifecycle.svg" alt="Monitoring case lifecycle: Case Opened, an optional Escalated step that creates a linked job while the case stays open, an append-only timeline of contacts, and a manual Case Closed step, with a side note on the separate false-alarm counter and 90-day reinstatement clock." class="w-full rounded-lg border border-border shadow-lg" /></div>'
                 },
                 {
                     title: 'When to Escalate',
@@ -262,7 +262,7 @@ export const remoteMonitoringGuide: IDocGuide = {
                 },
                 {
                     title: 'What happens to false alarm counts after 90 days?',
-                    content: '<p>A count only clears after 90 days pass with no further false alarm on that arrangement. Another false alarm inside the window keeps the clock running rather than resetting to zero.</p>'
+                    content: '<p>Reinstatement eligibility is simply the clock\'s start date plus 90 days — Opscel stores that start date as a plain field and does not automatically extend it if another false alarm happens inside the window. If your ARC or police contact requires the clock to restart after a further incident, that\'s a manual, office-managed update to the start date, not something Opscel tracks or applies for you.</p>'
                 },
                 {
                     title: 'Does escalating a case close it?',

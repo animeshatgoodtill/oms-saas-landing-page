@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 700" role="img" aria-labelledby="rsowFlowTitle rsowFlowDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="rsowFlowTitle">Remedial Scope of Works — end-to-end flow</title>
+  <desc id="rsowFlowDesc">Four steps, left to right. Step 1: engineer on site logs a major-severity defect (smoke detector clogged, plant room zone 4) with quote required ticked, and records the resourcing for that one defect — one engineer, half a day. Step 2: a Remedial Scope of Works worksheet auto-attaches to the job in draft status, seeded from the defect. Step 3: the engineer fills the worksheet — a scope summary, the defects-in-scope list with summary, asset reference and severity columns, and marks it complete. There is no customer signature step; this worksheet is internal and office-only, and resourcing is captured per defect, not at worksheet level. Step 4: back at the office, one click turns the completed worksheet into a bundled draft quote with one line per defect.</desc>
+
+  <rect x="8" y="8" width="1984" height="684" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+
+  <text x="56" y="72" font-size="30" font-weight="700" fill="#171717">Remedial Scope of Works — end-to-end flow</text>
+  <text x="56" y="104" font-size="15" fill="#737373">Engineer finds a defect → worksheet auto-attaches → engineer scopes it internally → office bundles a quote</text>
+
+  <!-- ═════════ STEP 1 — Engineer on site ═════════ -->
+  <rect x="56" y="170" width="440" height="440" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="56" y="170" width="440" height="6" rx="3" fill="#304FFF"/>
+  <circle cx="96" cy="222" r="20" fill="#EEF1FF"/>
+  <path d="M88,222 a8,8 0 1 1 16,0 a8,8 0 1 1 -16,0 M96,214 v-8 M92,210 h8" stroke="#304FFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="128" y="216" font-size="11" font-weight="700" letter-spacing="0.9" fill="#304FFF">STEP 1</text>
+  <text x="128" y="236" font-size="17" font-weight="700" fill="#171717">Engineer on site</text>
+
+  <text x="80" y="278" font-size="12" fill="#737373">Logs a defect:</text>
+  <rect x="80" y="290" width="392" height="150" rx="8" fill="#F5F5F5"/>
+  <rect x="96" y="304" width="52" height="18" rx="4" fill="#FEE2E2"/>
+  <text x="122" y="317" text-anchor="middle" font-size="9.5" font-weight="700" fill="#B91C1C">MAJOR</text>
+  <text x="96" y="344" font-size="13.5" font-weight="700" fill="#171717">Smoke detector clogged</text>
+  <text x="96" y="364" font-size="11" fill="#737373">Plant Room — Zone 4</text>
+  <rect x="96" y="378" width="14" height="14" rx="3" fill="#304FFF"/>
+  <path d="M99,385 l3,4 l7,-8" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="116" y="390" font-size="11" font-weight="700" fill="#171717">Quote required</text>
+  <line x1="96" y1="404" x2="456" y2="404" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="96" y="424" font-size="10.5" fill="#737373">Est. resourcing (per defect): 1 engineer, 0.5 day</text>
+
+  <text x="80" y="466" font-size="12" fill="#737373">This is the only place resourcing is estimated —</text>
+  <text x="80" y="484" font-size="12" fill="#737373">there is no separate worksheet-level estimate.</text>
+
+  <!-- arrow 1 -->
+  <path d="M500,390 L556,390" stroke="#A3A3A3" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ═════════ STEP 2 — Auto-attach ═════════ -->
+  <rect x="560" y="170" width="440" height="440" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="560" y="170" width="440" height="6" rx="3" fill="#7C3AED"/>
+  <circle cx="600" cy="222" r="20" fill="#F3E8FF"/>
+  <path d="M602,208 l-10,16 h8 l-2,12 l12,-18 h-8 z" fill="#7C3AED"/>
+  <text x="632" y="216" font-size="11" font-weight="700" letter-spacing="0.9" fill="#7C3AED">STEP 2</text>
+  <text x="632" y="236" font-size="17" font-weight="700" fill="#171717">Worksheet auto-attaches</text>
+
+  <text x="584" y="278" font-size="12" fill="#737373">Appears on the job — internal, office-only:</text>
+  <rect x="584" y="290" width="392" height="150" rx="8" fill="#F5F5F5"/>
+  <text x="600" y="312" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#737373">JOB SHEET</text>
+  <text x="600" y="336" font-size="14.5" font-weight="700" fill="#171717">Remedial Scope of Works</text>
+  <rect x="600" y="348" width="52" height="18" rx="4" fill="#FEF3C7"/>
+  <text x="626" y="361" text-anchor="middle" font-size="9.5" font-weight="700" fill="#92400E">DRAFT</text>
+  <line x1="600" y1="382" x2="960" y2="382" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="600" y="404" font-size="10.5" fill="#737373">Items seeded from the defect &#8595;</text>
+  <text x="600" y="422" font-size="10.5" fill="#A3A3A3">No customer-facing fields — the customer</text>
+  <text x="600" y="438" font-size="10.5" fill="#A3A3A3">never sees or signs this document.</text>
+
+  <text x="584" y="466" font-size="12" fill="#737373">Auto-trigger: severity is major/critical, or</text>
+  <text x="584" y="484" font-size="12" fill="#737373">"Quote required" was ticked on the defect.</text>
+
+  <!-- arrow 2 -->
+  <path d="M1004,390 L1060,390" stroke="#A3A3A3" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ═════════ STEP 3 — Fill & mark complete ═════════ -->
+  <rect x="1064" y="170" width="440" height="440" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="1064" y="170" width="440" height="6" rx="3" fill="#0EA5E9"/>
+  <circle cx="1104" cy="222" r="20" fill="#E0F2FE"/>
+  <path d="M1096,230 l4,-16 l14,-4 l-4,16 z" fill="#0EA5E9"/>
+  <text x="1136" y="216" font-size="11" font-weight="700" letter-spacing="0.9" fill="#0EA5E9">STEP 3</text>
+  <text x="1136" y="236" font-size="17" font-weight="700" fill="#171717">Engineer scopes it</text>
+
+  <text x="1088" y="278" font-size="12" fill="#737373">Fills in, office-only (no sign-off page):</text>
+  <rect x="1088" y="290" width="392" height="150" rx="8" fill="#F5F5F5"/>
+  <text x="1104" y="312" font-size="10.5" fill="#171717">&#10003; Details of works required</text>
+  <text x="1104" y="332" font-size="10.5" fill="#171717">&#10003; Any other information to consider</text>
+  <text x="1104" y="352" font-size="10.5" fill="#171717">&#10003; Defects in scope — Summary, Asset ref, Severity</text>
+  <line x1="1104" y1="364" x2="1464" y2="364" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="1104" y="378" width="130" height="26" rx="6" fill="#171717"/>
+  <text x="1169" y="395" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">&#10003; MARK COMPLETE</text>
+
+  <text x="1088" y="466" font-size="12" fill="#737373">customer_name / customer_signature were</text>
+  <text x="1088" y="484" font-size="12" fill="#737373">removed from this worksheet — nothing to sign.</text>
+
+  <!-- arrow 3 -->
+  <path d="M1508,390 L1564,390" stroke="#A3A3A3" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ═════════ STEP 4 — Office quotes ═════════ -->
+  <rect x="1568" y="170" width="376" height="440" rx="12" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
+  <rect x="1568" y="170" width="376" height="6" rx="3" fill="#16A34A"/>
+  <circle cx="1608" cy="222" r="20" fill="#DCFCE7"/>
+  <path d="M1600,222 l6,6 l10,-12" stroke="#16A34A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1640" y="216" font-size="11" font-weight="700" letter-spacing="0.9" fill="#16A34A">STEP 4</text>
+  <text x="1640" y="236" font-size="17" font-weight="700" fill="#171717">Office bundles a quote</text>
+
+  <text x="1592" y="278" font-size="12" fill="#737373">One click, from the completed worksheet:</text>
+  <rect x="1592" y="290" width="328" height="150" rx="8" fill="#F5F5F5"/>
+  <text x="1608" y="312" font-size="10.5" fill="#737373" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">QT-2026-0042</text>
+  <text x="1608" y="334" font-size="13.5" font-weight="700" fill="#171717">Remedial Works</text>
+  <line x1="1608" y1="346" x2="1904" y2="346" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="1608" y="366" font-size="10.5" fill="#171717">1 [MAJOR] Smoke detector — £0.00</text>
+  <text x="1608" y="384" font-size="10.5" fill="#171717">2 [MINOR] Cable test fail — £0.00</text>
+  <text x="1608" y="402" font-size="10.5" fill="#171717">3 [OBS] Sign missing — £0.00</text>
+  <text x="1608" y="420" font-size="10" fill="#A3A3A3">Draft — office adds pricing before sending</text>
+
+  <text x="1592" y="466" font-size="12" fill="#737373">Quote status starts Draft; worksheet row</text>
+  <text x="1592" y="484" font-size="12" fill="#737373">then shows a "Quoted" pill linking back.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A3A3A3"/>
+    </marker>
+  </defs>
+
+  <text x="1000" y="672" text-anchor="middle" font-size="13" font-weight="700" fill="#171717">Internal document, no customer sign-off — resourcing is estimated per defect, not once for the whole worksheet</text>
+</svg>

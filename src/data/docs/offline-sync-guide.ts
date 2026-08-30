@@ -11,7 +11,7 @@ export const offlineSyncGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s field PWA is offline-first — engineers can capture photos, fill forms, sign off jobs, and log defects without internet. All writes queue locally in IndexedDB and sync automatically when back online. Last-write-wins conflict resolution ensures data consistency across devices. This guide covers technical architecture, sync indicators, cache management, and troubleshooting for engineers and admins dealing with sync issues.',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s field PWA is offline-first — engineers can capture photos, fill forms, sign off jobs, and log defects without internet. All writes queue locally in IndexedDB and sync automatically when the browser detects you\'re back online. Concurrent edits to the same queued item merge into one write rather than one overwriting the other. This guide covers technical architecture, sync indicators, cache management, and troubleshooting for engineers and admins dealing with sync issues.',
                 },
                 {
                     title: 'Who Needs This Guide',
@@ -26,8 +26,8 @@ export const offlineSyncGuide: IDocGuide = {
                     bullets: [
                         'No data loss: all work queues locally and syncs when online',
                         'Consistent UX: app works identically online and offline',
-                        'Automatic retry: failed syncs retry with exponential backoff',
-                        'Conflict handling: last-write-wins prevents data corruption',
+                        'Automatic retry: a failed sync retries immediately, up to 3 attempts total, no backoff delay',
+                        'Merge, not overwrite: two edits queued for the same item are folded into one write, not resolved by discarding either side',
                         'Visual feedback: sync indicators show queue status',
                     ],
                 },
@@ -115,12 +115,12 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Table showing: operation type (photo_upload, form_save, job_status_change), timestamp (when queued), status (pending/syncing/failed), retry count (0-5), file size (for photos). If queue is empty, you see "No pending operations — all synced!"',
+                    content: 'Table showing: operation type (photo_upload, form_save, job_status_change), timestamp (when queued), status (pending/syncing/failed), retry count (0-3), file size (for photos). If queue is empty, you see "No pending operations — all synced!"',
                 },
                 {
                     title: 'Queue Actions',
                     bullets: [
-                        '<strong>Retry All:</strong> Forces immediate sync attempt for all pending operations (bypasses exponential backoff)',
+                        '<strong>Retry All:</strong> Forces an immediate sync attempt for all pending operations',
                         '<strong>Clear Queue:</strong> Deletes all pending operations (WARNING: irreversible data loss — only use if instructed by support)',
                         '<strong>View Logs:</strong> Shows sync attempt history with timestamps and error messages',
                     ],
@@ -136,37 +136,27 @@ export const offlineSyncGuide: IDocGuide = {
             title: 'Conflict Resolution',
             subsections: [
                 {
-                    title: 'How Conflicts Happen',
-                    content: 'Conflicts occur when multiple engineers (or one engineer on multiple devices) edit the same job offline, then both sync. Opscel must decide which version to keep.',
+                    content: '<div class="my-8"><img src="/images/docs/offline-sync/sync-queue-flow.svg" alt="Flow diagram: an offline action is added to the local sync queue, a second edit to the same record merges into it as a superset, then an online or visibilitychange event drains the queue to the server, retrying a failed item up to 3 times with no backoff." class="w-full rounded-lg border border-border shadow-lg" /></div>',
                 },
                 {
-                    title: 'Last-Write-Wins Strategy',
-                    content: 'Opscel uses <strong>last-write-wins</strong> conflict resolution: the most recent sync (by server timestamp) overwrites earlier versions. This prevents data corruption but may discard earlier edits if two engineers edit the same field.',
+                    title: 'How This Comes Up',
+                    content: 'It comes up when the same job is edited more than once while still queued locally — the same engineer editing a job sheet across two field pages before either sync fires, or briefly on two devices. Opscel does not pick a winner and discard the loser: it <strong>merges</strong> the queued edits into a single write.',
                 },
                 {
-                    title: 'Fields Affected by Conflicts',
+                    title: 'Merge, Not Last-Write-Wins',
+                    content: 'Different field pages send different <em>partial</em> payloads for the same job — a risk-assessment page sends just the risk assessment fields, a parts page sends just parts used, a completion page sends the status. When a second edit queues before the first has synced, Opscel folds the queued items together (oldest to newest, the newest edit\'s fields taking precedence field-by-field) into one write, rather than treating the later item as a full replacement of the job\'s state. That is what keeps an earlier queued edit from being silently dropped just because a later one queued behind it.',
+                },
+                {
+                    title: 'What This Means in Practice',
                     bullets: [
-                        '<strong>Work summary:</strong> If Engineer A writes summary offline, Engineer B writes different summary offline, B\'s sync overwrites A\'s',
-                        '<strong>Job notes:</strong> Last-write-wins for notes field',
-                        '<strong>Custom fields:</strong> Any editable text field uses last-write-wins',
+                        '<strong>Different fields, same job:</strong> if one queued edit sets the risk assessment and a later one (queued before the first synced) sets parts used, both land — neither is a "full state" that erases the other',
+                        '<strong>Same field, edited twice offline:</strong> the later queued edit\'s value wins for that specific field, but it never erases a different field set by the earlier edit',
+                        '<strong>Photos, defects, parts:</strong> these are always additive records, not merged field values — every photo and every defect logged offline is kept',
                     ],
-                },
-                {
-                    title: 'Fields NOT Affected (Append-Only)',
-                    bullets: [
-                        '<strong>Photos:</strong> All photos append to the list (no conflicts — 10 photos from Engineer A + 5 from Engineer B = 15 total)',
-                        '<strong>Defects:</strong> Append-only (each defect is a separate record)',
-                        '<strong>Parts:</strong> Append-only (parts list grows, doesn\'t overwrite)',
-                        '<strong>Visit check-ins:</strong> Each visit is separate (no conflicts)',
-                    ],
-                },
-                {
-                    title: 'Manual Resolution (Critical Fields)',
-                    content: 'For critical fields (e.g., certificate test results), Opscel flags conflicts and prompts manual resolution on next sync. Admin chooses which version to keep. This prevents accidental data loss on safety-critical information.',
                 },
                 {
                     title: 'For Managers',
-                    content: '<em>Tip:</em> To avoid conflicts on multi-engineer jobs, assign sections: Engineer A completes first floor, Engineer B completes second floor. Each writes separate work summaries. Office staff consolidates summaries into final certificate.',
+                    content: '<em>Tip:</em> On multi-engineer jobs it\'s still good practice to assign sections (Engineer A completes first floor, Engineer B the second) so each engineer\'s edits land in different fields where possible. But the underlying mechanism protects you even when that doesn\'t happen — a second engineer\'s edit merges in rather than silently overwriting the first.',
                 },
             ],
         },
@@ -180,35 +170,23 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'How Caching Works',
-                    content: 'Opscel uses a <strong>service worker</strong> to cache job data, photos, and app assets locally. Default cache size: <strong>50 MB</strong> (configurable per device). Once cache is full, oldest items are evicted (LRU policy).',
+                    content: 'Opscel uses a <strong>service worker</strong> to cache job pages, API responses, and app assets locally. Rather than a total megabyte budget, each cache has a fixed <strong>entry-count cap</strong>: once a cache is full, the oldest entries are trimmed to make room for new ones (FIFO — entries are never evicted by age, only by being the oldest once the cap is hit). The separate IndexedDB store that holds queued photos and worksheet data has <strong>no size cap and no time-to-live</strong> — stale data is treated as better than no data offline — and only evicts (oldest 25% of entries) if the browser actually raises a storage-quota error.',
                 },
                 {
                     title: 'What Gets Cached',
                     bullets: [
-                        '<strong>Job data:</strong> Customer info, site addresses, job notes, worksheets (text only, no photos)',
-                        '<strong>App assets:</strong> HTML, CSS, JavaScript bundles (PWA shell)',
-                        '<strong>Photos (queued):</strong> Photos pending upload stored in IndexedDB (not service worker cache)',
+                        '<strong>Job data & API responses:</strong> Customer info, site addresses, job notes, worksheets (text only, no photos) — capped at a fixed number of entries per cache, oldest trimmed first',
+                        '<strong>App assets:</strong> HTML, CSS, JavaScript bundles (PWA shell), also capped by entry count',
+                        '<strong>Photos & worksheet data (queued):</strong> Stored in IndexedDB, not the service worker cache — never evicted until synced, unless the browser reports the device is genuinely out of storage',
                         '<strong>Recent job list:</strong> Last-fetched "Today\'s Jobs" list (refreshes on next online fetch)',
                     ],
-                },
-                {
-                    title: 'Storage Breakdown',
-                    table: {
-                        headers: ['Data Type', 'Typical Size', 'Storage Location', 'Eviction Policy'],
-                        rows: [
-                            ['App shell (HTML/CSS/JS)', '~5 MB', 'Service worker cache', 'Never evicted (pinned)'],
-                            ['Job data (text)', '~100 KB per job', 'Service worker cache', 'LRU (oldest first)'],
-                            ['Photos (pending upload)', '~2 MB per photo', 'IndexedDB', 'Never evicted until synced'],
-                            ['Worksheet data', '~50 KB per sheet', 'IndexedDB', 'Never evicted until synced'],
-                        ],
-                    },
                 },
                 {
                     title: 'Steps to Clear Cache',
                     steps: [
                         'Open field PWA',
                         'Go to <strong>Settings → Storage</strong>',
-                        'View cache stats (XX MB used of 50 MB)',
+                        'View cache stats',
                         'Tap <strong>Clear Cache</strong>',
                         'Confirm warning: "This will delete cached jobs. Pending uploads will NOT be deleted."',
                         'Cache clears, app shell remains',
@@ -240,10 +218,9 @@ export const offlineSyncGuide: IDocGuide = {
                 {
                     title: 'Sync Triggers',
                     bullets: [
-                        '<strong>On reconnect:</strong> When network comes back, PWA auto-syncs queue immediately',
+                        '<strong>On reconnect:</strong> When the browser fires the <code>online</code> event, the PWA auto-syncs the queue immediately',
                         '<strong>Manual sync:</strong> Tap "Sync Now" button (Settings → Sync Inspector)',
-                        '<strong>Periodic background sync:</strong> Every 15 minutes if online (requires Background Sync API support)',
-                        '<strong>On app resume:</strong> When switching back to PWA after using other apps',
+                        '<strong>On app resume / tab visible:</strong> A <code>visibilitychange</code> event (switching back to the PWA, unlocking the screen) also triggers an auto-sync attempt — there is no fixed-interval background timer',
                     ],
                 },
                 {
@@ -325,11 +302,11 @@ export const offlineSyncGuide: IDocGuide = {
                 },
                 {
                     title: 'Conflicting Data - Office Sees Different Summary Than I Wrote',
-                    content: '<strong>Cause:</strong> Another engineer (or you on another device) edited the same field offline. Last-write-wins conflict resolution overwrote your version.<br><strong>Fix:</strong> Check job activity log (office system) to see who synced last. Agree on workflow with team: designate one engineer to write final summary, or use separate internal notes instead of shared work summary field.',
+                    content: '<strong>Cause:</strong> Another engineer (or you on another device) queued a separate edit to the same job before both synced. Queued edits to the same job merge field-by-field rather than one replacing the other outright — but if you both wrote to the <em>same</em> field (e.g. the same work summary text), the later queued edit\'s value wins for that field.<br><strong>Fix:</strong> Check the job activity log (office system) to see the sync order. Agree on workflow with the team: designate one engineer to write the final summary, or use separate internal notes instead of both editing the shared work summary field.',
                 },
                 {
                     title: 'Storage Quota Exceeded Error',
-                    content: '<strong>Cause:</strong> Cache + queued photos exceed device storage limit (50 MB default).<br><strong>Fix:</strong> Sync all pending uploads to free up IndexedDB space. Clear cache (Settings → Storage → Clear Cache). If still full, device storage is genuinely low — delete apps/photos from device.',
+                    content: '<strong>Cause:</strong> The device\'s actual storage is running low (Opscel checks the browser\'s real storage estimate, not a fixed app-imposed limit) — you\'ll also be blocked from queuing a new photo once 50 photos are already pending upload, regardless of storage.<br><strong>Fix:</strong> Sync all pending uploads to free up IndexedDB space. Clear cache (Settings → Storage → Clear Cache). If still full, device storage is genuinely low — delete apps/photos from device.',
                 },
                 {
                     title: 'CloudOff Icon Stuck Despite Being Online',
@@ -343,23 +320,23 @@ export const offlineSyncGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Will I lose data if I work offline for a whole day?',
-                    content: 'No. Opscel queues everything locally (photos, forms, signatures) with no time limit. You can work offline for days as long as you don\'t exceed device storage (50 MB default). Data syncs when you next connect.',
+                    content: 'No. Opscel queues everything locally (photos, forms, signatures) with no time limit — queued data is never evicted just for being old, only if the device\'s real storage genuinely runs out. You can work offline for days. Data syncs when you next connect.',
                 },
                 {
                     title: 'How long can I work offline before hitting storage limits?',
-                    content: 'Typical capacity: ~50 photos (at 2 MB each) or ~500 job forms. If you\'re a heavy photo user, sync periodically (e.g., lunch break, end of day) to free up storage.',
+                    content: 'Photos are capped at 50 pending uploads in the queue at once — beyond that you\'ll need to sync before queuing more. Otherwise the limit is your device\'s actual free storage, which Opscel checks before accepting each new photo. If you\'re a heavy photo user, sync periodically (e.g., lunch break, end of day) to free up storage.',
                 },
                 {
                     title: 'What if two engineers edit the same job offline?',
-                    content: 'Most data is append-only (photos, defects, parts) — both engineers\' contributions merge on sync. For single-value fields (work summary, notes), last-write-wins — one engineer\'s version will overwrite the other. Coordination is key: assign sections or tasks to avoid overwrites.',
+                    content: 'Queued edits to the same job merge rather than one overwriting the other outright — different fields from different edits are folded into a single write. If two edits genuinely touch the exact same field, the later one wins for that field only. Coordination (assigning sections or tasks) still helps avoid that overlap.',
                 },
                 {
                     title: 'How many times will Opscel retry a failed sync?',
-                    content: 'Automatic retry: 5 attempts with exponential backoff (1s, 2s, 4s, 8s, 16s). After 5 failures, operation stays in queue with ErrorChip. You must manually retry (Sync Inspector → Retry All) or investigate error.',
+                    content: 'Automatic retry: up to 3 attempts. After 3 failures, the operation stays in the queue with an ErrorChip and you retry manually (Sync Inspector → Retry All) or investigate the error. Coming back online or bringing the tab back into view also triggers a fresh sync attempt.',
                 },
                 {
-                    title: 'Can I increase the 50 MB storage limit?',
-                    content: 'Not currently. The 50 MB limit is a PWA safety threshold to prevent excessive device storage use. If you regularly hit limits, sync more frequently (end of each job) instead of batching uploads.',
+                    title: 'Is there a storage limit I can increase?',
+                    content: 'There\'s no fixed app-imposed megabyte limit to raise. Cached read-only data (job pages, API responses) is capped by entry count and trims its oldest entries automatically; queued photos and forms in IndexedDB are limited only by your device\'s actual free storage (plus the 50-photo queue cap). If you regularly hit limits, sync more frequently (end of each job) instead of batching uploads.',
                 },
                 {
                     title: 'Do I need to keep the PWA open while syncing?',

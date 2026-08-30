@@ -156,7 +156,7 @@ export const assetLifecycleGuide: IDocGuide = {
         {
             id: 'bulk-import',
             title: 'Bulk Import',
-            content: '<p class="mb-4">Import your existing register via CSV. The flow is site-scoped: you tell Opscel which site the file belongs to before you upload anything, rather than the file carrying that information itself.</p>',
+            content: '<p class="mb-4">Import your existing register via CSV. The flow is site-scoped: you tell Opscel which site the file belongs to before you upload anything, rather than the file carrying that information itself.</p><div class="my-8"><img src="/images/docs/asset-lifecycle/bulk-import-flow.svg" alt="The bulk asset import wizard as six steps: pick the customer, pick the service address, upload the file, complete column mapping, complete device-type mapping (a blocking step), then review a re-import warning if the site already has matching assets before confirming." class="w-full rounded-lg border border-border shadow-lg" /></div>',
             subsections: [
                 {
                     title: 'The Import Flow',

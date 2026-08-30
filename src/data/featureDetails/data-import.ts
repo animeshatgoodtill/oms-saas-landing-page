@@ -10,8 +10,8 @@ export const dataImportDetail: IFeatureDetail = {
     featureHighlights: [
         {
             iconId: 'icon-five-trades',
-            title: '5 Entity Types Supported',
-            description: 'Import Customers (businesses), Contacts (people), Addresses (service sites), Assets (equipment), Jobs (historical work). Each entity has dedicated import template with field mapping and validation rules.'
+            title: '6 Entity Types Supported',
+            description: 'Import Customers (businesses, with their contacts and addresses handled as part of the same workbook), Addresses (service sites), Products, Assets (equipment), Jobs (historical work), and Service Contracts. Each entity has dedicated import handling with field mapping and validation rules.'
         },
         {
             iconId: 'icon-smart-prompt',
@@ -26,7 +26,7 @@ export const dataImportDetail: IFeatureDetail = {
         {
             iconId: 'icon-smart-customer',
             title: 'Parent Reference Resolution',
-            description: 'Importing contacts that belong to businesses? System links contacts to existing customers by business name or email — no manual ID mapping spreadsheets. Asset imports don\'t use address matching — you select the site once in the UI before uploading, and every row imports to it.'
+            description: 'Importing addresses or historical jobs that belong to a business? System links each row to an existing customer by business name or email — no manual ID mapping spreadsheets. Contacts import as part of the same customer workbook, alongside the business and its addresses. Asset imports don\'t use address matching — you select the site once in the UI before uploading, and every row imports to it.'
         },
         {
             iconId: 'icon-activity-log',
@@ -39,24 +39,24 @@ export const dataImportDetail: IFeatureDetail = {
             description: 'Importing 1200 assets? Progress bar shows import status—"Processing row 487 of 1200". Large imports run in background. Get notified when complete. No browser tab freezing for 10 minutes.'
         },
         {
-            iconId: 'icon-service-history',
-            title: 'Import History & Rollback',
-            description: 'See all previous imports with timestamp, user, entity type, row count. Imported wrong file? Rollback import to delete all records from that batch. Critical for fixing mistakes without manual cleanup.'
+            iconId: 'icon-activity-log',
+            title: 'Row-Level Import with Error Reporting',
+            description: 'Each row imports as its own transaction, so one bad row doesn\'t block the rest of the file. A dedicated error report lists exactly which rows failed and why, so you can fix just those and re-upload rather than starting over.'
         },
         {
             iconId: 'icon-compliance-shield',
             title: 'Template Download Per Entity',
-            description: 'Download CSV template for customers, contacts, addresses, assets, or jobs. Template includes all supported columns, example data, field descriptions. Fill template, upload—guaranteed column match.'
+            description: 'Download a CSV template for customers, addresses, products, assets, jobs, or service contracts. Template includes all supported columns, example data, field descriptions. Fill template, upload—guaranteed column match.'
         },
         {
             iconId: 'icon-smart-prompt',
             title: 'Custom Field Mapping',
-            description: 'Have custom columns that don\'t auto-match? Manual mapping interface lets you drag "Client Name" to "Business Name", "Mobile" to "Phone Number". Mapping saved for future imports from same source.'
+            description: 'Have custom columns that don\'t auto-match? Manual mapping interface lets you drag "Client Name" to "Business Name", "Mobile" to "Phone Number". For asset imports specifically, the device-type mapping you build is saved as a reusable profile tied to the customer, so it\'s offered again on their next import.'
         },
         {
             iconId: 'icon-price-tag',
-            title: 'Team Tier Feature',
-            description: 'Customer, contact, address and job import is available from Team tier (£99/month, 3 users) upward. Asset import specifically requires the Business tier (£149/month, 5 users), alongside the rest of Asset Management. Starter tier does not include CSV import at all.'
+            title: 'Who Can Import',
+            description: 'Data import is a role permission, not a tier gate — Admins, Contract Managers and Super Admins can import customers, addresses, products, jobs and service contracts on any plan. Asset import is the one exception: it specifically requires the Business (or higher) plan, alongside the rest of Asset Management.'
         }
     ],
 
@@ -88,11 +88,11 @@ export const dataImportDetail: IFeatureDetail = {
             persona: 'Business Owners',
             benefits: [
                 'Migrate from old system in one afternoon, not three weeks of manual entry',
-                'Import history with rollback prevents permanent mistakes from bad uploads',
+                'Row-level imports and a per-row error report mean one bad row never blocks the rest of the batch',
                 'Batch import handles thousands of records without browser freezing',
-                '5 entity types cover complete data migration (customers, contacts, sites, assets, jobs)',
-                'Parent reference resolution links contacts to businesses automatically',
-                'Team tier includes import for customers, contacts, addresses, and jobs — asset import specifically needs the Business tier'
+                '6 entity types cover complete data migration (customers, addresses, products, assets, jobs, service contracts)',
+                'Parent reference resolution links addresses and jobs to existing customers automatically',
+                'Import access is role-based, not tier-based — Admins and Contract Managers can import on any plan; asset import specifically needs the Business plan'
             ]
         },
         {
@@ -102,7 +102,7 @@ export const dataImportDetail: IFeatureDetail = {
                 'Duplicate detection prevents accidental re-imports of existing customers',
                 'Validation preview shows errors before import—fix and re-upload easily',
                 'Download templates ensure correct column format for guaranteed success',
-                'Custom field mapping saves for repeated imports from same source',
+                'Custom field mapping handles columns that don\'t auto-match; asset imports save their device-type mapping for repeat imports from the same customer',
                 'Progress tracking shows import status for large batches'
             ]
         },
@@ -119,22 +119,22 @@ export const dataImportDetail: IFeatureDetail = {
 
     stats: [
         {
-            value: '5 types',
-            label: 'Import Customers, Contacts, Addresses, Assets, Jobs via CSV'
+            value: '6 types',
+            label: 'Import Customers, Addresses, Products, Assets, Jobs, and Service Contracts via CSV'
         },
         {
             value: 'Fuzzy',
             label: 'Column matching detects "Company Name" → "Business Name" automatically'
         },
         {
-            value: 'Rollback',
-            label: 'Undo import batch if wrong file uploaded—delete all imported rows'
+            value: 'Per-row',
+            label: 'Each row imports independently, with a clear error report for any that fail'
         }
     ],
 
     comparison: [
         {
-            feature: '5 entity types (customers, contacts, addresses, assets, jobs)',
+            feature: '6 entity types (customers, addresses, products, assets, jobs, service contracts)',
             opscel: true,
             others: 'Some'
         },
@@ -164,7 +164,7 @@ export const dataImportDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Import history with rollback capability',
+            feature: 'Row-level imports with a per-row error report',
             opscel: true,
             others: 'No'
         },
@@ -174,7 +174,7 @@ export const dataImportDetail: IFeatureDetail = {
             others: 'Yes'
         },
         {
-            feature: 'Custom field mapping with saved presets',
+            feature: 'Custom field mapping (saved presets for asset device types)',
             opscel: true,
             others: 'No'
         }
@@ -195,15 +195,11 @@ export const dataImportDetail: IFeatureDetail = {
         },
         {
             question: 'Can I import contacts without manually linking to businesses?',
-            answer: 'Yes. Parent reference resolution auto-links contacts to existing businesses by matching business name or email domain. Example: Contact "John Smith" with business name "ABC Ltd" links to existing customer "ABC Ltd" automatically. If business doesn\'t exist, import creates it first, then links contact.'
+            answer: 'Contacts aren\'t imported as a separate file — they\'re a sheet in the same customer workbook as the business and its service addresses, so each contact is already linked to its business by construction. There\'s no separate contacts-only import to manually reconcile against your customer list.'
         },
         {
             question: 'What if my import fails halfway through?',
-            answer: 'Imports are transactional—either all rows succeed or none do. If row 487 of 1200 has an error, entire import fails and shows error details. Fix CSV, re-upload. This prevents partial imports that leave your database in inconsistent state. Use validation preview to catch errors before import starts.'
-        },
-        {
-            question: 'Can I undo an import if I uploaded the wrong file?',
-            answer: 'Yes. Import history shows all previous imports with timestamp, user, entity type, row count. Click "Rollback" to delete all records created by that import batch. Critical for fixing mistakes without manual cleanup. Rollback works for imports completed within last 30 days.'
+            answer: 'Each row is imported as its own transaction, so one bad row doesn\'t take down the rest of the batch. If row 487 of 1200 has an error, rows 1-486 and 488-1200 still import; row 487 is listed in a dedicated error report with the reason it failed, so you can fix just that row and re-upload it separately. Use validation preview to catch as many errors as possible before you start.'
         }
     ],
 

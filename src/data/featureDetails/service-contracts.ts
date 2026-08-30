@@ -9,7 +9,7 @@ export const serviceContractsDetail: IFeatureDetail = {
 
     stats: [
         { value: '3 ways', label: 'Start a recurring contract: from scratch, a job, or an accepted quote' },
-        { value: '7 cadences', label: 'Quarterly to 5-yearly (3, 6, 12, 24, 36, 48, 60 months)' },
+        { value: '9 cadences', label: 'Weekly to 5-yearly (1, 3, 4, 6, 12, 24, 36, 48, 60 months, plus weekly)' },
         { value: '1 view', label: 'Whole multi-site portfolio and its total annual value' }
     ],
 

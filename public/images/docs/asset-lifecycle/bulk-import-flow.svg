@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" role="img" aria-labelledby="bulkImportFlowTitle bulkImportFlowDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="bulkImportFlowTitle">Bulk asset import wizard flow</title>
+  <desc id="bulkImportFlowDesc">Six steps in the bulk asset import wizard, left to right: pick the customer, pick the service address, upload the file, complete column mapping, complete device-type mapping (a blocking step), see a re-import warning if the site already holds matching assets, then confirm. Device-type mapping is highlighted as blocking because an unmapped type stops the import at preview rather than importing as junk. The re-import warning only appears when relevant and requires an explicit acknowledgement before the final confirm step is reachable.</desc>
+
+  <defs>
+    <marker id="bifArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#A3A3A3"/>
+    </marker>
+  </defs>
+
+  <!-- surface: the figure carries its own light ground so it reads on any page background -->
+  <rect x="8" y="8" width="1184" height="364" rx="16" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+
+  <text x="600" y="46" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.4" fill="#737373">BULK ASSET IMPORT &#8212; ONE WIZARD, SITE-SCOPED FROM THE FIRST STEP</text>
+
+  <!-- ═════════ Step 1: Pick customer ═════════ -->
+  <rect x="32" y="76" width="160" height="180" rx="10" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <circle cx="112" cy="104" r="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+  <text x="112" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">1</text>
+  <text x="112" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Pick</text>
+  <text x="112" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">customer</text>
+  <rect x="48" y="172" width="128" height="18" rx="4" fill="#f5f5f5"/>
+  <text x="56" y="185" font-size="9" fill="#737373">Northwood Electrical</text>
+  <rect x="48" y="196" width="128" height="18" rx="4" fill="#fafafa" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="56" y="209" font-size="9" fill="#a3a3a3">Search customers&#8230;</text>
+  <text x="112" y="238" text-anchor="middle" font-size="9.5" fill="#737373">Before anything is</text>
+  <text x="112" y="250" text-anchor="middle" font-size="9.5" fill="#737373">uploaded</text>
+
+  <line x1="192" y1="166" x2="220" y2="166" stroke="#A3A3A3" stroke-width="1.4" marker-end="url(#bifArrow)"/>
+
+  <!-- ═════════ Step 2: Pick site ═════════ -->
+  <rect x="224" y="76" width="160" height="180" rx="10" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <circle cx="304" cy="104" r="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+  <text x="304" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">2</text>
+  <text x="304" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Pick service</text>
+  <text x="304" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">address</text>
+  <rect x="240" y="172" width="128" height="18" rx="4" fill="#f5f5f5"/>
+  <text x="248" y="185" font-size="9" fill="#737373">14 Riverside Way</text>
+  <text x="304" y="238" text-anchor="middle" font-size="9.5" fill="#737373">Every row in the file</text>
+  <text x="304" y="250" text-anchor="middle" font-size="9.5" fill="#737373">imports to this one site</text>
+
+  <line x1="384" y1="166" x2="412" y2="166" stroke="#A3A3A3" stroke-width="1.4" marker-end="url(#bifArrow)"/>
+
+  <!-- ═════════ Step 3: Upload ═════════ -->
+  <rect x="416" y="76" width="160" height="180" rx="10" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <circle cx="496" cy="104" r="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+  <text x="496" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">3</text>
+  <text x="496" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Upload</text>
+  <text x="496" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">file</text>
+  <rect x="440" y="172" width="112" height="46" rx="6" fill="#fafafa" stroke="#d4d4d4" stroke-width="1" stroke-dasharray="4 3"/>
+  <path d="M496,182 v18 M489,191 l7,-9 l7,9" fill="none" stroke="#a3a3a3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="496" y="228" text-anchor="middle" font-size="9" fill="#737373">register.csv</text>
+  <text x="496" y="243" text-anchor="middle" font-size="9.5" fill="#737373">No postcode or</text>
+  <text x="496" y="253" text-anchor="middle" font-size="9.5" fill="#737373">customer columns needed</text>
+
+  <line x1="576" y1="166" x2="604" y2="166" stroke="#A3A3A3" stroke-width="1.4" marker-end="url(#bifArrow)"/>
+
+  <!-- ═════════ Step 4: Column mapping ═════════ -->
+  <rect x="608" y="76" width="160" height="180" rx="10" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <circle cx="688" cy="104" r="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+  <text x="688" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">4</text>
+  <text x="688" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Column</text>
+  <text x="688" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">mapping</text>
+  <text x="628" y="176" font-size="9" fill="#a3a3a3">Node</text>
+  <text x="716" y="176" font-size="9" fill="#171717">&#8594; Loop Number</text>
+  <line x1="628" y1="181" x2="748" y2="181" stroke="#EDEDED" stroke-width="1"/>
+  <text x="628" y="194" font-size="9" fill="#a3a3a3">Type</text>
+  <text x="716" y="194" font-size="9" fill="#171717">&#8594; Device type</text>
+  <line x1="628" y1="199" x2="748" y2="199" stroke="#EDEDED" stroke-width="1"/>
+  <text x="628" y="212" font-size="9" fill="#a3a3a3">Loc</text>
+  <text x="716" y="212" font-size="9" fill="#171717">&#8594; Address</text>
+  <text x="688" y="243" text-anchor="middle" font-size="9.5" fill="#737373">Match export columns</text>
+  <text x="688" y="253" text-anchor="middle" font-size="9.5" fill="#737373">to Opscel fields</text>
+
+  <line x1="768" y1="166" x2="796" y2="166" stroke="#A3A3A3" stroke-width="1.4" marker-end="url(#bifArrow)"/>
+
+  <!-- ═════════ Step 5: Device-type mapping — BLOCKING ═════════ -->
+  <rect x="800" y="72" width="168" height="188" rx="10" fill="#FFFBEB" stroke="#FED835" stroke-width="2"/>
+  <rect x="800" y="72" width="168" height="26" rx="10" fill="#FED835"/>
+  <rect x="800" y="85" width="168" height="13" fill="#FED835"/>
+  <text x="884" y="90" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#171717">BLOCKING STEP</text>
+  <circle cx="884" cy="120" r="14" fill="#FFFFFF" stroke="#FED835" stroke-width="1.4"/>
+  <text x="884" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">5</text>
+  <text x="884" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Device-type</text>
+  <text x="884" y="172" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">mapping</text>
+  <rect x="816" y="184" width="136" height="18" rx="4" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <text x="824" y="197" font-size="9" fill="#171717">"Sounder" &#8594; Sounder</text>
+  <rect x="816" y="206" width="136" height="18" rx="4" fill="#FFFFFF" stroke="#DC2626" stroke-width="1"/>
+  <text x="824" y="219" font-size="9" fill="#DC2626">"VESDA" &#8594; unmapped</text>
+  <text x="884" y="244" text-anchor="middle" font-size="9.5" fill="#737373">Unmapped type stops the</text>
+  <text x="884" y="256" text-anchor="middle" font-size="9.5" fill="#737373">import at preview</text>
+
+  <line x1="968" y1="166" x2="996" y2="166" stroke="#A3A3A3" stroke-width="1.4" marker-end="url(#bifArrow)"/>
+
+  <!-- ═════════ Step 6: Re-import warning + Confirm ═════════ -->
+  <rect x="1000" y="76" width="168" height="180" rx="10" fill="#FFFFFF" stroke="#e5e5e5" stroke-width="1"/>
+  <circle cx="1084" cy="104" r="14" fill="#f5f5f5" stroke="#d4d4d4" stroke-width="1"/>
+  <text x="1084" y="109" text-anchor="middle" font-size="12" font-weight="700" fill="#171717">6</text>
+  <text x="1084" y="140" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Re-import</text>
+  <text x="1084" y="156" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">warning &#8594; confirm</text>
+  <rect x="1016" y="170" width="136" height="34" rx="6" fill="#FEF2F2" stroke="#DC2626" stroke-width="1"/>
+  <text x="1024" y="183" font-size="8.5" fill="#991B1B">Site already has 12</text>
+  <text x="1024" y="194" font-size="8.5" fill="#991B1B">assets of these types</text>
+  <rect x="1016" y="210" width="136" height="24" rx="12" fill="#304FFF"/>
+  <text x="1084" y="226" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FFFFFF">Confirm Import</text>
+  <text x="1084" y="250" text-anchor="middle" font-size="9.5" fill="#737373">Shown only if types overlap</text>
+
+  <text x="600" y="342" text-anchor="middle" font-size="12.5" font-weight="700" fill="#171717">Site-scoped from step 1 &#8212; device-type mapping blocks on an unmapped type; the re-import warning needs an explicit acknowledgement</text>
+</svg>

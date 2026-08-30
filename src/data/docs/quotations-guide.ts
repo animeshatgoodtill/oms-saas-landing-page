@@ -11,22 +11,22 @@ export const quotationsGuide: IDocGuide = {
             title: 'Overview',
             subsections: [
                 {
-                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch, from completed jobs, or from EICR defects. Send quotes via email or customer portal, and track acceptance/rejection. Accepted quotes convert to a job in one click, with every detail carried over — no re-typing. Business tier adds quote analytics for conversion tracking. Available to Admins, Contract Managers, and Accounts. (Site Manager and Engineer roles don\'t have quote access.)',
+                    content: '<strong>30-Second Version:</strong> Opscel\'s quotation system lets you create professional quotes from scratch or bundled from job defects. Send quotes via email or customer portal, and track acceptance/decline. Accepted quotes convert to a job in one click, with every detail carried over — no re-typing. Business tier adds quote analytics for conversion tracking. Available to Admins, Sales Managers, Contract Managers, and Accounts. (Site Manager and Engineer roles don\'t have quote access.)',
                 },
                 {
                     title: 'Key Benefits',
                     bullets: [
                         '<strong>Professional presentation:</strong> Branded PDF quotes with cover pages, line items, and T&Cs',
-                        '<strong>Customer self-service:</strong> Customers can accept/reject quotes via portal - no back-and-forth emails',
+                        '<strong>Customer self-service:</strong> Customers can accept/decline quotes via portal - no back-and-forth emails',
                         '<strong>One-click job creation:</strong> Convert an accepted quote to a job with all data carried forward - no re-typing',
-                        '<strong>Defect-to-quote workflow:</strong> Generate remedial quotes directly from EICR observations',
+                        '<strong>Defect-to-quote workflow:</strong> Bundle logged job defects into a remedial quote',
                         '<strong>Quote analytics (Business tier):</strong> Track conversion rates, win/loss ratios, and average quote values',
                         '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (Team &amp; Business plans)',
                     ],
                 },
                 {
                     title: 'Quote Lifecycle',
-                    content: 'Quotes move through stages: <strong>Draft</strong> (being prepared) → <strong>Sent</strong> (awaiting customer decision) → <strong>Accepted</strong> (customer approved) or <strong>Rejected</strong> (customer declined) → <strong>Converted to Job</strong> (if accepted) or <strong>Expired</strong> (validity period passed).',
+                    content: 'Quotes move through stages: <strong>Draft</strong> (being prepared) → <strong>Sent</strong> (awaiting customer decision) → <strong>Accepted</strong> (customer approved) or <strong>Declined</strong> (customer declined) → <strong>Converted to Job</strong> (if accepted) or <strong>Expired</strong> (validity period passed).',
                 },
             ],
         },
@@ -36,11 +36,11 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager, Accounts',
                 },
                 {
-                    title: 'Three Ways to Create Quotes',
-                    content: 'Opscel offers three methods for quote creation, depending on your workflow.',
+                    title: 'Two Ways to Create Quotes',
+                    content: 'Opscel offers two methods for quote creation, depending on your workflow.',
                 },
                 {
                     title: 'Method 1: From Scratch',
@@ -62,43 +62,18 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Quote appears in your Quotes list with <strong>Draft</strong> status. Quote number is auto-assigned (e.g., QUO-00123). Customer receives email notification if you chose "Send to Customer".',
+                    content: 'Quote appears in your Quotes list with <strong>Draft</strong> status. Quote number is auto-assigned (e.g., QT-2026-0123). Customer receives email notification if you chose "Send to Customer".',
                 },
                 {
-                    title: 'Method 2: From Completed Job',
-                    content: 'Generate a quote based on actual work performed. Useful for offering similar services to the same or different customers.',
+                    title: 'Method 2: Bundled from Job Defects (Remedial Quotes)',
+                    content: 'When an engineer logs a defect on a job (severity observation, minor, major, or critical), the office can bundle any unquoted defects on that job into a single draft quote — one heading line per defect, followed by any priced parts and labour the engineer recorded. This is not a 1:1 defect-code conversion (there\'s no separate line-by-line mapping of C1/C2/C3/FI-style codes) — it\'s a bundling step you review and price before sending.',
                 },
                 {
-                    title: 'Steps to Create Quote from Job',
-                    steps: [
-                        'Navigate to <strong>Jobs → All Jobs</strong>',
-                        'Open a completed job',
-                        'Click <strong>Actions → Create Quote from Job</strong>',
-                        'Opscel pre-fills line items based on job parts and labour',
-                        'Adjust pricing if needed (markup, discounts)',
-                        'Change customer if quoting for a different client',
-                        'Review and click <strong>Save as Draft</strong> or <strong>Send</strong>',
-                    ],
-                },
-                {
-                    title: 'Method 3: From EICR Defects (Remedial Quotes)',
-                    content: 'Automatically generate quotes from EICR observations. Each defect (C1, C2, C3, FI) becomes a line item with suggested pricing.',
-                },
-                {
-                    title: 'Steps to Create Remedial Quote',
-                    steps: [
-                        'Complete an EICR certificate with observations',
-                        'On the certificate detail page, click <strong>Generate Remedial Quote</strong>',
-                        'Opscel creates a draft quote with one line item per observation',
-                        'Each line item shows: defect code, description, location, suggested remedy',
-                        'Adjust pricing for each remedy',
-                        'Add labour costs (auto-estimated based on defect severity)',
-                        'Review totals and click <strong>Send to Customer</strong>',
-                    ],
+                    content: 'See the <a href="/docs/defects-to-quotation" class="text-secondary hover:underline">Creating and Linking Quotes to Jobs with Defects guide</a> for the full step-by-step (Create Bundled Quote from the job page, from a custom quote on the job page, or from the dashboard\'s Deficiencies Pending Quotes widget) and how the quote stays linked back to its originating job.',
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Quote is linked to the parent EICR certificate. Customer sees defects grouped by severity (C1 urgent, C2 potentially dangerous, etc.) in the quote PDF. Once accepted, convert the remedial work to a job in one click — the defect details carry over, so there\'s nothing to re-enter.',
+                    content: 'The bundled quote is linked to the originating job — the job\'s Defects card shows a "View Quote" badge on each quoted defect, and the quote\'s detail panel shows a "Linked Job" reference back. Once accepted, convert the quote to a job in one click — the details carry over, so there\'s nothing to re-enter.',
                 },
                 {
                     title: 'For Office Staff',
@@ -112,7 +87,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager',
                 },
                 {
                     title: 'What a Quote Template Is',
@@ -146,7 +121,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager, Accounts',
                 },
                 {
                     title: 'Adding Line Items',
@@ -206,7 +181,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager, Accounts',
                 },
                 {
                     title: 'Building a Tiered Quote',
@@ -236,11 +211,11 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager, Accounts',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager, Accounts',
                 },
                 {
                     title: 'How to Send Quotes to Customers',
-                    content: 'Once a quote is ready, send it via email with a customer portal link for easy acceptance/rejection.',
+                    content: 'Once a quote is ready, send it via email with a customer portal link for easy acceptance/decline.',
                 },
                 {
                     title: 'Steps to Send Quote',
@@ -257,11 +232,11 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'Quote status changes to <strong>Sent</strong>. A green checkmark appears next to "Sent to customer on [date]". Customer sees the quote in their customer portal and can accept/reject online.',
+                    content: 'Quote status changes to <strong>Sent</strong>. A green checkmark appears next to "Sent to customer on [date]". Customer sees the quote in their customer portal and can accept/decline online.',
                 },
                 {
                     title: 'Email Content',
-                    content: 'The customer receives an email with: quote PDF attachment, link to accept/reject in portal, validity period reminder, your contact details for questions.',
+                    content: 'The customer receives an email with: quote PDF attachment, link to accept/decline in portal, validity period reminder, your contact details for questions.',
                 },
                 {
                     title: 'For Office Staff',
@@ -271,7 +246,7 @@ export const quotationsGuide: IDocGuide = {
         },
         {
             id: 'customer-acceptance',
-            title: 'Customer Acceptance/Rejection',
+            title: 'Customer Acceptance/Decline',
             subsections: [
                 {
                     title: 'Availability',
@@ -279,7 +254,7 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'Customer Portal Workflow',
-                    content: 'Customers can accept or reject quotes via the customer portal - no email replies needed. This streamlines the sales process and creates a clear audit trail.',
+                    content: 'Customers can accept or decline quotes via the customer portal - no email replies needed. This streamlines the sales process and creates a clear audit trail.',
                 },
                 {
                     title: 'What Happens When Customer Accepts',
@@ -294,18 +269,18 @@ export const quotationsGuide: IDocGuide = {
                     ],
                 },
                 {
-                    title: 'What Happens When Customer Rejects',
+                    title: 'What Happens When Customer Declines',
                     steps: [
-                        'Customer clicks <strong>Reject Quote</strong>',
-                        'Optionally provides rejection reason (free text)',
-                        'Quote status changes to <strong>Rejected</strong>',
-                        'Office team receives notification with rejection reason',
+                        'Customer clicks <strong>Decline Quote</strong>',
+                        'Optionally provides a decline reason (free text)',
+                        'Quote status changes to <strong>Declined</strong>',
+                        'Office team receives notification with the decline reason',
                         'Quote can be cloned and resent with adjustments',
                     ],
                 },
                 {
                     title: 'Acceptance Notification',
-                    content: 'When a quote is accepted, Opscel sends notifications to: office email (hello@yourcompany.com), assigned manager, customer (confirmation email). Rejected quotes notify the office team only.',
+                    content: 'When a quote is accepted, Opscel sends notifications to: office email (hello@yourcompany.com), assigned manager, customer (confirmation email). Declined quotes notify the office team only.',
                 },
                 {
                     title: 'For Admins',
@@ -319,7 +294,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Contract Manager',
+                    content: '<strong>Tier:</strong> All plans<br><strong>Roles:</strong> Super Admin, Admin, Sales Manager, Contract Manager',
                 },
                 {
                     title: 'Converting Is a One-Click, Manual Step',
@@ -333,7 +308,7 @@ export const quotationsGuide: IDocGuide = {
                         'Open the accepted quote',
                         'Click <strong>Convert to Job</strong>',
                         'The dialog opens with <strong>Job type</strong>, <strong>Service type</strong>, and <strong>Contract manager</strong> fields, plus an optional <strong>PO number</strong> input (e.g. <em>PO-4821</em>) — enter the customer\'s purchase order here if they\'ve supplied one',
-                        'Opscel creates a draft job with: customer, site address, job description (from quote title), expected revenue (quote total), line items (in job notes), and the PO number if you entered one',
+                        'Opscel creates a draft job with: customer, site address, a job title (from the quote title), a job description (from the quote\'s description, converted to plain text), an estimated cost (quote total), notes (from the quote\'s customer notes), and the PO number if you entered one',
                         'Schedule the job (assign engineer, set date)',
                         'Click <strong>Save Job</strong>',
                         'Quote status changes to <strong>Converted to Job</strong>',
@@ -345,16 +320,17 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'What You Should See',
-                    content: 'New job appears in Jobs list with status <strong>Draft</strong>. Job is linked to the quote (visible in "Related Documents"). Quote shows "Converted to Job #12345" badge. Line items from quote are copied to job notes for engineer reference.',
+                    content: 'New job appears in Jobs list with status <strong>Draft</strong>. Job is linked to the quote (visible in "Related Documents"). Quote shows "Converted to Job #12345" badge. Line items themselves aren\'t copied anywhere on the job — the job\'s notes come from the quote\'s customer notes field, and the engineer adds parts during the work.',
                 },
                 {
                     title: 'Data Carry-Forward',
                     bullets: [
                         '<strong>Customer & site address:</strong> Copied from quote',
-                        '<strong>Job description:</strong> Uses quote title',
-                        '<strong>Expected revenue:</strong> Set to quote grand total',
-                        '<strong>Line items:</strong> Copied to job notes (not job parts - engineer adds parts during work)',
-                        '<strong>Special instructions:</strong> Quote notes copied to job instructions',
+                        '<strong>Job title:</strong> Uses quote title',
+                        '<strong>Job description:</strong> Uses the quote\'s description (rich text, converted to plain text) — not the quote title',
+                        '<strong>Estimated cost:</strong> Set to quote grand total (labelled "Estimated Cost" on the job, not "Expected Revenue")',
+                        '<strong>Line items:</strong> Not copied anywhere on the job — job notes come only from the quote\'s customer notes field; the engineer adds parts during the work',
+                        '<strong>Special instructions:</strong> Quote customer notes copied to job notes',
                         '<strong>PO number:</strong> Only what you type in the conversion dialog — not carried from anywhere, since quotes don\'t have this field',
                     ],
                 },
@@ -419,7 +395,7 @@ export const quotationsGuide: IDocGuide = {
                     steps: [
                         'Navigate to <strong>Reports → Quotations Report</strong>',
                         'Select date range (this month, this quarter, custom)',
-                        'View key metrics: Total quotes sent, Acceptance rate (%), Rejection rate (%), Average quote value, Total revenue from accepted quotes',
+                        'View key metrics: Total quotes sent, Acceptance rate (%), Decline rate (%), Average quote value, Total revenue from accepted quotes',
                         'Filter by: Engineer, Customer, Quote status, Date range',
                         'Click <strong>Export to CSV</strong> for detailed analysis',
                     ],
@@ -432,13 +408,13 @@ export const quotationsGuide: IDocGuide = {
                             ['Acceptance Rate', 'Percentage of sent quotes that are accepted', '40-60% (varies by industry)'],
                             ['Average Quote Value', 'Mean value of all quotes', 'Track trends - should increase over time'],
                             ['Conversion Time', 'Days from sent to accepted', 'Under 7 days (faster is better)'],
-                            ['Win/Loss Ratio', 'Accepted quotes vs rejected quotes', 'Above 1.0 (more wins than losses)'],
+                            ['Win/Loss Ratio', 'Accepted quotes vs declined quotes', 'Above 1.0 (more wins than losses)'],
                         ],
                     },
                 },
                 {
                     title: 'For Managers',
-                    content: '<em>Tip:</em> If acceptance rate is below 30%, your quotes may be overpriced or unclear. Review rejected quote reasons (customer feedback) and adjust pricing or presentation. Consider offering tiered quotes (good/better/best options) to increase acceptance.',
+                    content: '<em>Tip:</em> If acceptance rate is below 30%, your quotes may be overpriced or unclear. Review declined quote reasons (customer feedback) and adjust pricing or presentation. Consider offering tiered quotes (good/better/best options) to increase acceptance.',
                 },
             ],
         },
@@ -448,7 +424,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'When to Use Bundled Quotes',
-                    content: 'For EICR remedial work with many similar defects (e.g., 10 socket replacements, 5 bonding upgrades), bundle defects into grouped line items for cleaner quotes.',
+                    content: 'For remedial work with many similar defects on a job (e.g., 10 socket replacements, 5 bonding upgrades), bundle those defects into one quote for a cleaner customer document instead of quoting each one separately.',
                 },
                 {
                     content: 'See the <a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline"><strong>Bundled Remedial Quotes guide</strong></a> for detailed instructions on grouping defects, pricing bundled work, and presenting remedial quotes to customers.',
@@ -470,7 +446,7 @@ export const quotationsGuide: IDocGuide = {
                             ['Draft', 'Quote is being prepared, not yet sent', 'Review and send to customer'],
                             ['Sent', 'Quote sent to customer, awaiting decision', 'Wait for customer response or follow up'],
                             ['Accepted', 'Customer accepted quote', 'Convert to job and schedule work'],
-                            ['Rejected', 'Customer declined quote', 'Review rejection reason, adjust, and resend if appropriate'],
+                            ['Declined', 'Customer declined quote', 'Review the decline reason, adjust, and resend if appropriate'],
                             ['Expired', 'Validity period passed without decision', 'Contact customer or mark as lost'],
                             ['Converted to Job', 'Quote accepted and job created', 'Complete the job and invoice'],
                         ],
@@ -522,15 +498,15 @@ export const quotationsGuide: IDocGuide = {
                 },
                 {
                     title: 'How does quote numbering work?',
-                    content: 'Quote numbers auto-increment per tenant (your business). Format: <strong>QUO-00001</strong>, <strong>QUO-00002</strong>, etc. You can customize the prefix (Settings → Document Numbering → Quote Prefix). Quote numbers are unique per tenant, not globally.',
+                    content: 'Quote numbers auto-increment per tenant (your business), always including the year. Format: <strong>QT-2026-0001</strong>, <strong>QT-2026-0002</strong>, etc. You can customize the prefix (Settings → System → Document Numbering → Quote Prefix). Quote numbers are unique per tenant, not globally.',
                 },
                 {
                     title: 'Can customers negotiate pricing via the portal?',
-                    content: 'Not currently. Customers can only accept or reject. If they want to negotiate, they must contact you (email/phone). You then create a revised quote and resend. This is a feature request we\'re tracking for future releases.',
+                    content: 'Not currently. Customers can only accept or decline. If they want to negotiate, they must contact you (email/phone). You then create a revised quote and resend. This is a feature request we\'re tracking for future releases.',
                 },
                 {
-                    title: 'Do remedial quotes show the parent EICR certificate to the customer?',
-                    content: 'Yes. When you generate a remedial quote from an EICR, the customer can view the parent certificate in their portal. This provides context for why the work is needed. If you don\'t want customers to see the full EICR, manually create a quote and reference the defects in line item descriptions instead.',
+                    title: 'Do remedial quotes show the originating job to the customer?',
+                    content: 'The quote is linked back to the job its defects were bundled from, and that link is visible to staff on both the quote and job pages — but the customer\'s copy of the quote doesn\'t expose the job or its defect log directly. If you want the customer to see why the work is needed, describe the context in the quote\'s line items or description instead.',
                 },
                 {
                     title: 'Can I send one quote to multiple customers?',
@@ -539,10 +515,6 @@ export const quotationsGuide: IDocGuide = {
                 {
                     title: 'How do discounts affect profitability reporting?',
                     content: 'Discounts reduce the quote total, which flows through to job revenue and invoicing. Opscel tracks: <strong>Original quote value</strong> (pre-discount) and <strong>Final quote value</strong> (post-discount). Profitability reports use final value minus job costs. Large discounts reduce margin - track discount % in analytics to avoid over-discounting.',
-                },
-                {
-                    title: 'What\'s the difference between voiding and rejecting a quote?',
-                    content: '<strong>Rejecting:</strong> Customer declines the quote (customer action). <strong>Voiding:</strong> You cancel the quote internally (admin action) - e.g., customer went with another contractor, or you sent wrong version. Voided quotes don\'t appear in customer portal.',
                 },
             ],
         },
@@ -558,7 +530,7 @@ export const quotationsGuide: IDocGuide = {
                     bullets: [
                         '<a href="/docs/invoicing" class="text-secondary hover:underline">Invoicing</a> — Convert jobs to invoices and manage payments',
                         '<a href="/docs/customer-portal" class="text-secondary hover:underline">Customer Portal</a> — How customers view and accept quotes',
-                        '<a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Bundled Remedial Quotes</a> — Group EICR defects for cleaner quotes',
+                        '<a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Bundled Remedial Quotes</a> — Group job defects for cleaner quotes',
                         '<a href="/docs/branding" class="text-secondary hover:underline">Branding & PDF Customization</a> — Customize quote templates and branding',
                         '<a href="/docs/quote-defaults" class="text-secondary hover:underline">Quote Defaults</a> — Default deposit, validity, price breakdown and call-out rates',
                         '<a href="/docs/settings-tour" class="text-secondary hover:underline">Settings Tour</a> — Configure quote defaults and templates',

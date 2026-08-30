@@ -3,75 +3,66 @@ import { IDocGuide } from '@/types';
 export const telegramBotGuide: IDocGuide = {
   slug: 'telegram-bot',
   title: 'Telegram Bot Integration',
-  description: 'Connect the Opscel Telegram bot to receive real-time notifications for jobs, quotes, customer actions, and system alerts directly on your phone or desktop.',
-  lastUpdated: '2024-05-23',
+  description: 'Connect the OpsCel Telegram bot to get a daily job summary and check-in/check-out reminders in Telegram, with a quick link into the field app.',
+  lastUpdated: '2026-08-30',
   sections: [
     {
       id: 'overview',
       title: 'Overview',
       content: `<div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
         <p class="font-semibold text-blue-900 mb-2">30-Second Version</p>
-        <p class="text-blue-800">The Opscel Telegram bot sends real-time notifications for job updates, customer actions, quote responses, certificate expiry reminders, and system alerts directly to your Telegram app. Stay informed without constantly checking the dashboard—notifications come to you on your phone or desktop.</p>
+        <p class="text-blue-800">The OpsCel Telegram bot is a notification-only companion to the field app. Once linked, it sends a daily job summary each morning plus a check-in reminder before a visit and a check-out reminder if a visit runs long — each with a quick link back into the field app. It doesn't replace the app: check-in, photos, signatures, and job completion all still happen there.</p>
       </div>
 
-      <p class="mb-4">The Telegram bot integration allows you to receive instant notifications for important events in your Opscel account. Whether you're on-site, in the office, or on the go, you'll get timely alerts for:</p>
+      <p class="mb-4">Linking is per-person, not per-business-account: any team member with access to jobs (which includes Engineers) can link their own Telegram account so reminders reach them directly, without waiting on the office.</p>
 
-      <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
-        <li>Job status changes (scheduled, in progress, completed)</li>
-        <li>Quote acceptances and rejections</li>
-        <li>Customer portal activity</li>
-        <li>Certificate expiry reminders</li>
-        <li>Payment confirmations</li>
-        <li>System alerts and warnings</li>
+      <p class="mb-4"><strong>What it sends:</strong></p>
+      <ul class="list-disc list-inside space-y-2 ml-4">
+        <li>Daily job summary each morning</li>
+        <li>A check-in reminder before each visit</li>
+        <li>A check-out reminder when a visit runs over its estimated duration</li>
       </ul>
 
-      <p class="mb-4"><strong>Key benefits:</strong></p>
-      <ul class="list-disc list-inside space-y-2 ml-4">
-        <li>Real-time alerts without opening the app</li>
-        <li>Desktop and mobile support</li>
-        <li>End-to-end encrypted notifications</li>
-        <li>Customizable notification preferences</li>
-        <li>Multi-business support for managing multiple tenants</li>
-      </ul>`,
+      <p class="mt-4 mb-4">That's the complete list — the bot doesn't currently notify on quotes, portal activity, certificates, payments, or system alerts. It also isn't configurable per-category: there's no in-bot settings menu, quiet hours, or mute command.</p>`,
     },
     {
       id: 'setup',
       title: 'Setting Up the Bot',
       content: `<p class="text-sm text-amber-700 bg-amber-50 border-l-4 border-amber-400 p-3 mb-4">
-        <strong>Availability:</strong> Super Admin, Admin
+        <strong>Availability:</strong> Any role with <code>jobs.view</code> — in practice, virtually every role including Engineer. All team members can link their own account; there's no Admin-only gate.
       </p>
 
-      <p class="mb-4">Setting up the Telegram bot is a one-time process that connects your Opscel account to your Telegram account via a secure connection token.</p>`,
+      <p class="mb-4">Linking is a one-time process per person, done from the dashboard and confirmed in Telegram with a single command.</p>`,
       subsections: [
         {
           title: 'Connection Steps',
           steps: [
             {
-              step: 'Open Telegram and find @OpscelBot',
-              description: 'On your phone or desktop, open Telegram and search for <strong>@OpscelBot</strong> in the search bar. Tap on the bot to open the chat.',
+              step: 'Go to Settings → Telegram',
+              description: 'In the OpsCel dashboard, open <strong>Settings → Telegram</strong>.',
             },
             {
-              step: 'Start the bot',
-              description: 'Send the <code>/start</code> command to the bot. You\'ll receive a welcome message with instructions.',
+              step: 'Click "Generate Link Code"',
+              description: 'This creates a short, single-use code. It\'s valid for <strong>15 minutes</strong> — if it expires before you use it, click the button again to generate a new one.',
             },
             {
-              step: 'Generate connection token in Opscel',
-              description: 'In your Opscel account, navigate to <strong>Settings → Integrations → Telegram Bot</strong>. Click <strong>Generate Connection Token</strong>. A single-use token will appear (valid for 10 minutes).',
+              step: 'Open the bot in Telegram',
+              description: 'Search for the OpsCel bot in Telegram and open a chat with it (the dashboard page links directly to it).',
             },
             {
-              step: 'Connect the bot',
-              description: 'Copy the token from Opscel and paste it into the Telegram chat with @OpscelBot. The bot will confirm the connection.',
+              step: 'Send the link command',
+              description: 'Send <code>/start YOUR_CODE</code> as a single message — for example <code>/start ABC123</code>. There\'s no separate "paste a token into chat" step; the code rides on the <code>/start</code> command itself.',
             },
             {
-              step: 'Confirm connection',
-              description: '<div class="bg-green-50 border-l-4 border-green-400 p-3 mt-2"><strong>What you should see:</strong> "✅ Successfully connected to [Your Business Name]. You\'ll now receive notifications for this account."</div>',
+              step: 'Confirm linking',
+              description: '<div class="bg-green-50 border-l-4 border-green-400 p-3 mt-2">The bot replies confirming the account is linked, and the Settings → Telegram page updates to show it connected.</div>',
             },
           ],
         },
         {
           bullets: [
-            '<strong>Security:</strong> Connection tokens are single-use and expire after 10 minutes. Each team member needs their own connection.',
-            '<strong>Multi-tenant:</strong> If you manage multiple businesses, you can connect the bot to each one separately.',
+            '<strong>Per-person, not per-business:</strong> each team member links their own Telegram account to their own OpsCel login. A Telegram account can only be linked to one OpsCel user at a time.',
+            '<strong>Codes expire after 15 minutes</strong> and are single-use — a used or expired code is rejected and you generate a fresh one.',
           ],
         },
       ],
@@ -79,94 +70,43 @@ export const telegramBotGuide: IDocGuide = {
     {
       id: 'notification-types',
       title: 'Notification Types',
-      content: `<p class="mb-4">The Telegram bot sends notifications for the following event types:</p>
+      content: `<p class="mb-4">There are exactly three notification types, all related to your scheduled jobs:</p>
 
       <div class="overflow-x-auto mb-6">
         <table class="min-w-full border border-gray-200">
           <thead class="bg-gray-50">
             <tr>
-              <th class="border border-gray-200 px-4 py-2 text-left">Category</th>
-              <th class="border border-gray-200 px-4 py-2 text-left">Events</th>
-              <th class="border border-gray-200 px-4 py-2 text-left">Example</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">Notification</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">When It Sends</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">What It Contains</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Jobs</td>
-              <td class="border border-gray-200 px-4 py-2">Scheduled, In Progress, Completed, Overdue</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"Job #1234 at ABC Ltd is now overdue by 2 days"</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Daily job summary</td>
+              <td class="border border-gray-200 px-4 py-2">Each morning</td>
+              <td class="border border-gray-200 px-4 py-2 text-sm">Every job scheduled for you today — job number, time, customer, and site address — with a link to the field app</td>
             </tr>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Quotes</td>
-              <td class="border border-gray-200 px-4 py-2">Accepted, Rejected, Expired</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"Quote #QUO-2024-0056 accepted by ABC Ltd"</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Check-in reminder</td>
+              <td class="border border-gray-200 px-4 py-2">Before a visit's scheduled time</td>
+              <td class="border border-gray-200 px-4 py-2 text-sm">Job number, job type, customer, site address, scheduled time and contact — with a link to check in</td>
             </tr>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Customer Portal</td>
-              <td class="border border-gray-200 px-4 py-2">Document viewed, Signature captured</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"John Smith viewed EICR certificate #CERT-001234"</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Certificates</td>
-              <td class="border border-gray-200 px-4 py-2">Retest due soon (14 days), Expired</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"EICR for ABC Ltd due for retest in 14 days"</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Payments</td>
-              <td class="border border-gray-200 px-4 py-2">Payment received, Invoice overdue</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"Payment of £450.00 received for Invoice #INV-2024-0123"</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">System</td>
-              <td class="border border-gray-200 px-4 py-2">Storage limit warning, Subscription expiry</td>
-              <td class="border border-gray-200 px-4 py-2 text-sm">"Storage at 85% capacity - consider upgrading"</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Check-out reminder</td>
+              <td class="border border-gray-200 px-4 py-2">When a visit runs past its estimated duration</td>
+              <td class="border border-gray-200 px-4 py-2 text-sm">Job number, elapsed time vs. estimated duration, customer — with a link to check out</td>
             </tr>
           </tbody>
         </table>
-      </div>`,
-    },
-    {
-      id: 'preferences',
-      title: 'Configuring Notification Preferences',
-      content: `<p class="text-sm text-amber-700 bg-amber-50 border-l-4 border-amber-400 p-3 mb-4">
-        <strong>Availability:</strong> All users with bot connection
-      </p>
+      </div>
 
-      <p class="mb-4">Customize which notifications you receive and when.</p>`,
-      subsections: [
-        {
-          title: 'Configuration Steps',
-          steps: [
-            {
-              step: 'Access settings in Telegram',
-              description: 'In your chat with @OpscelBot, send the <code>/settings</code> command.',
-            },
-            {
-              step: 'Toggle notification categories',
-              description: 'Use the interactive buttons to enable or disable specific notification types (Jobs, Quotes, Certificates, Payments, System).',
-            },
-            {
-              step: 'Set quiet hours (optional)',
-              description: 'Configure times when notifications should be suppressed (e.g., 10pm - 7am). Send <code>/quiet 22:00-07:00</code>.',
-            },
-            {
-              step: 'Configure per-business settings',
-              description: 'If you manage multiple businesses, use <code>/business [business-name]</code> to switch context and configure preferences for each separately.',
-            },
-          ],
-        },
-        {
-          bullets: [
-            '<strong>Default settings:</strong> All notification types are enabled by default except System alerts.',
-            '<strong>Quiet hours:</strong> During quiet hours, notifications are queued and delivered in a single summary message when quiet hours end.',
-          ],
-        },
-      ],
+      <p class="text-sm text-muted-foreground">There's no notification for quotes, customer portal activity, certificate expiry, payments, or system/storage alerts — those aren't part of the bot today.</p>`,
     },
     {
-      id: 'managing',
-      title: 'Managing the Bot',
-      content: `<p class="mb-4">The Telegram bot responds to several commands for managing your connection and preferences:</p>
+      id: 'commands',
+      title: 'Bot Commands',
+      content: `<p class="mb-4">The bot is deliberately small — three commands, all notification-related. It's not a way to manage jobs or account settings from inside Telegram.</p>
 
       <div class="overflow-x-auto mb-6">
         <table class="min-w-full border border-gray-200">
@@ -178,51 +118,42 @@ export const telegramBotGuide: IDocGuide = {
           </thead>
           <tbody>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/start</td>
-              <td class="border border-gray-200 px-4 py-2">Initial setup and welcome message</td>
+              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/start [code]</td>
+              <td class="border border-gray-200 px-4 py-2">With no code: shows a welcome message and linking instructions, or your linked status if you're already linked. With a code (<code>/start ABC123</code>): links your account.</td>
             </tr>
             <tr>
               <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/help</td>
-              <td class="border border-gray-200 px-4 py-2">Show all available commands</td>
+              <td class="border border-gray-200 px-4 py-2">Shows the available commands and the notifications you'll receive.</td>
             </tr>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/settings</td>
-              <td class="border border-gray-200 px-4 py-2">Configure notification preferences</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/mute</td>
-              <td class="border border-gray-200 px-4 py-2">Temporarily pause all notifications</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/unmute</td>
-              <td class="border border-gray-200 px-4 py-2">Resume notifications</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/status</td>
-              <td class="border border-gray-200 px-4 py-2">Check connection status and business(es)</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/test</td>
-              <td class="border border-gray-200 px-4 py-2">Send a test notification to verify connection</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/disconnect</td>
-              <td class="border border-gray-200 px-4 py-2">Disconnect the bot from your Opscel account</td>
+              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">/jobs</td>
+              <td class="border border-gray-200 px-4 py-2">Lists today's scheduled jobs on demand (requires a linked account).</td>
             </tr>
           </tbody>
         </table>
-      </div>`,
+      </div>
+
+      <p class="text-sm text-muted-foreground">There's no <code>/settings</code>, <code>/quiet</code>, <code>/mute</code>/<code>/unmute</code>, <code>/status</code>, <code>/test</code>, <code>/business</code>, or in-chat <code>/disconnect</code> command. The bot doesn't support multi-business switching from within Telegram — linking is one Telegram account to one OpsCel user.</p>`,
+    },
+    {
+      id: 'managing',
+      title: 'Unlinking Your Account',
+      content: `<p class="mb-4">Disconnecting is done from the OpsCel dashboard, not from inside Telegram — there's no <code>/disconnect</code> command in the bot itself.</p>`,
       subsections: [
         {
-          title: 'Common Actions',
+          title: 'Steps to Unlink',
           steps: [
             {
-              step: 'Mute notifications temporarily',
-              description: 'Send <code>/mute</code> to pause notifications. They\'ll queue up and you can retrieve them later with <code>/unmute</code>.',
+              step: 'Go to Settings → Telegram',
+              description: 'Open <strong>Settings → Telegram</strong> in the dashboard, where you\'ll see your linked Telegram username and connection date.',
             },
             {
-              step: 'Disconnect the bot',
-              description: 'Send <code>/disconnect</code> and confirm. This removes the connection between your Telegram account and Opscel. You can reconnect anytime by starting the setup process again.',
+              step: 'Unlink the account',
+              description: 'Use the unlink control on that page. This removes the connection immediately — the bot stops sending you notifications.',
+            },
+            {
+              step: 'Reconnect later if needed',
+              description: 'You can relink at any time by generating a new code and sending <code>/start</code> with it again.',
             },
           ],
         },
@@ -233,20 +164,20 @@ export const telegramBotGuide: IDocGuide = {
       title: 'Troubleshooting',
       subsections: [
         {
-          title: 'Bot not responding',
-          content: '<p>Check that you\'re chatting with the correct bot (@OpscelBot). Try sending <code>/start</code> again. If still unresponsive, check Telegram\'s service status or contact support.</p>',
+          title: 'Link code says invalid or expired',
+          content: '<p>Link codes expire after <strong>15 minutes</strong> and can only be used once. Go back to <strong>Settings → Telegram</strong> and click "Generate Link Code" again, then send <code>/start</code> with the new code.</p>',
+        },
+        {
+          title: 'This Telegram account is already linked to another user',
+          content: '<p>Each Telegram account can only be linked to one OpsCel user at a time. If you need to relink it to a different OpsCel login, unlink it from that user\'s Settings → Telegram page first.</p>',
         },
         {
           title: 'Not receiving notifications',
-          content: '<p>Send <code>/status</code> to verify connection. Check your notification preferences with <code>/settings</code>. Ensure you\'re not in muted mode (<code>/unmute</code> to resume). Verify that Telegram notifications are enabled in your device settings.</p>',
+          content: '<p>Confirm the account shows as linked on <strong>Settings → Telegram</strong>. Send <code>/jobs</code> in the bot chat to confirm the bot can see your jobs at all. Check that Telegram notifications are enabled in your device settings, and that you haven\'t blocked or archived the chat with the bot.</p>',
         },
         {
-          title: 'Receiving notifications for wrong business',
-          content: '<p>If you manage multiple businesses, use <code>/business</code> to list connected businesses and verify the correct one is selected. Disconnect and reconnect if needed.</p>',
-        },
-        {
-          title: 'How to reconnect',
-          content: '<p>Send <code>/disconnect</code> in Telegram, then follow the setup process again from Settings → Integrations → Telegram Bot in Opscel.</p>',
+          title: 'Bot not responding',
+          content: '<p>Confirm you\'re chatting with the correct OpsCel bot (the link on Settings → Telegram opens the right one). Try <code>/help</code> to confirm the bot is reachable. If it still doesn\'t respond, contact support.</p>',
         },
       ],
     },
@@ -255,36 +186,32 @@ export const telegramBotGuide: IDocGuide = {
       title: 'Frequently Asked Questions',
       subsections: [
         {
-          title: 'Is the Telegram bot secure?',
-          content: '<p>Yes. Connection tokens are single-use and expire after 10 minutes. All notifications are sent via Telegram\'s end-to-end encryption. Tokens cannot be reused, and disconnecting the bot immediately revokes access.</p>',
+          title: 'Who can link their Telegram account?',
+          content: '<p>Anyone with the <code>jobs.view</code> permission — which in practice is nearly every role, Engineer included. It\'s not restricted to Admins; each team member links their own account independently.</p>',
         },
         {
-          title: 'Can multiple team members connect the bot?',
-          content: '<p>Yes. Each team member can connect the bot to their own Telegram account. Notifications are sent based on role permissions—for example, engineers only receive notifications for their assigned jobs.</p>',
+          title: 'Are Telegram bot chats end-to-end encrypted?',
+          content: '<p>No. Ordinary Telegram chats with a bot are transported over Telegram\'s standard (server-side) encryption, not end-to-end — bots can\'t take part in Telegram\'s separate Secret Chat feature, which is the only end-to-end-encrypted mode Telegram offers. Treat it the same as any other notification channel.</p>',
         },
         {
-          title: 'Does it work on desktop Telegram?',
-          content: '<p>Yes. The bot works on all Telegram platforms: mobile (iOS/Android), desktop (Windows/Mac/Linux), and web.</p>',
+          title: 'Can I customise which notifications I get, or set quiet hours?',
+          content: '<p>Not currently. There\'s no in-bot settings menu or quiet-hours command — you get all three notification types (daily summary, check-in reminder, check-out reminder) or none, by linking or unlinking.</p>',
         },
         {
-          title: 'How do I stop notifications temporarily?',
-          content: '<p>Send <code>/mute</code> to pause notifications. You can resume anytime with <code>/unmute</code>. Alternatively, use quiet hours to automatically suppress notifications during specific times.</p>',
+          title: 'Can I manage jobs from Telegram?',
+          content: '<p>No. The bot is notification-only. Checking in, checking out, logging parts, capturing photos and signatures, and completing jobs all happen in the field app — the bot\'s notifications link straight to it.</p>',
+        },
+        {
+          title: 'Can one Telegram account be linked to more than one OpsCel business?',
+          content: '<p>No. Linking is one Telegram account to one OpsCel user. If you work across multiple businesses under different logins, you\'d need a separate Telegram account (or to unlink and relink) for each.</p>',
+        },
+        {
+          title: 'How do I stop notifications?',
+          content: '<p>Unlink your account from <strong>Settings → Telegram</strong> in the dashboard. There\'s no in-chat mute — unlinking is the way to stop them.</p>',
         },
         {
           title: 'What happens if I lose my phone?',
-          content: '<p>Log into Telegram on a new device, and your chat with @OpscelBot will sync. For security, you can also disconnect the bot from Opscel (Settings → Integrations → Telegram Bot → Disconnect) and reconnect from your new device.</p>',
-        },
-        {
-          title: 'Can I customize notification messages?',
-          content: '<p>Not currently. Notification messages are system-generated to ensure clarity and consistency. You can, however, choose which notification types to receive via <code>/settings</code>.</p>',
-        },
-        {
-          title: 'Do I get charged for Telegram notifications?',
-          content: '<p>No. Telegram bot notifications are included in your Opscel subscription at no additional cost. Telegram itself is a free service.</p>',
-        },
-        {
-          title: 'What if I manage multiple businesses?',
-          content: '<p>You can connect the bot to multiple Opscel businesses. Use <code>/business [name]</code> to switch between them and configure preferences for each independently.</p>',
+          content: '<p>Log into Telegram on a new device and your chat history syncs as normal. If you want to be safe, unlink the account from <strong>Settings → Telegram</strong> and relink from the new device.</p>',
         },
       ],
     },
@@ -303,7 +230,7 @@ export const telegramBotGuide: IDocGuide = {
   relatedGuides: [
     {
       title: 'Settings Tour',
-      description: 'Navigate Opscel settings and configure integrations',
+      description: 'Navigate OpsCel settings and configure integrations',
       href: '/docs/settings-tour',
     },
     {
@@ -313,13 +240,13 @@ export const telegramBotGuide: IDocGuide = {
     },
     {
       title: 'Jobs & Multi-Visit Workflow',
-      description: 'Understand job notifications and status changes',
+      description: 'Understand job scheduling and check-in/check-out',
       href: '/docs/jobs',
     },
     {
-      title: 'Service Contracts',
-      description: 'Set up recurring service automation',
-      href: '/docs/service-contracts',
+      title: 'Field Service App',
+      description: 'The engineer workflow the bot links back into',
+      href: '/docs/field-service',
     },
   ],
 };

@@ -4,7 +4,7 @@ export const fieldServiceDetail: IFeatureDetail = {
     slug: 'field-service',
     title: 'Engineers Work in Vans, Not at Desks',
     subtitle: 'Opscel Field Service',
-    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. Opscel brings the office to them—via Telegram or web app, with GPS tracking, voice notes, and photo capture. Complete jobs from the van, get paid faster.',
+    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. Opscel brings the office to them—via Telegram or web app, with GPS tracking and photo capture. Complete jobs from the van, get paid faster.',
     iconId: 'icon-gps-checkin',
     screenshotImage: '/images/ui/05-screen.png',
 
@@ -17,12 +17,12 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             iconId: 'icon-gps-checkin',
             title: 'GPS Check-In & Out',
-            description: 'Engineers tap "Check In" when they arrive. GPS logs location and time. Tap "Check Out" when done. System calculates exact job duration, validates they were on-site, builds audit trail for disputes.'
+            description: 'Engineers tap "Check In" when they arrive. GPS captures location and time. Tap "Check Out" when done. System calculates exact job duration and builds an audit trail for disputes.'
         },
         {
             iconId: 'icon-photo-capture',
-            title: 'Photo & Voice Capture',
-            description: 'Snap pictures of equipment, serial numbers, test results, or defects. Dictate job notes instead of typing. Photos and voice notes auto-attach to the job record.'
+            title: 'Photo Capture',
+            description: 'Snap pictures of equipment, serial numbers, test results, or defects. Photos auto-attach to the job record.'
         },
         {
             iconId: 'icon-signature',
@@ -32,7 +32,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             iconId: 'icon-deficiency-log',
             title: 'Deficiency Logging from the Field',
-            description: 'Spot a broken fire alarm during service? Log it as a deficiency right there. Take photo, note severity (C1/C2/C3), recommend fix. Office gets notification, creates remedial quote.'
+            description: 'Spot a broken fire alarm during service? Log it as a deficiency right there. Take a photo, note severity (Observation, Minor, Major, Critical), recommend a fix. Office gets notification, creates remedial quote.'
         },
         {
             iconId: 'icon-smart-prompt',
@@ -75,12 +75,12 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             stepNumber: 3,
             title: 'Check In with GPS',
-            description: 'Engineer arrives, taps "Check In" in Telegram or PWA. GPS logs exact location and time. System validates they\'re at correct address.'
+            description: 'Engineer arrives, taps "Check In" in Telegram or PWA. GPS captures exact location and time.'
         },
         {
             stepNumber: 4,
             title: 'Complete Job On-Site',
-            description: 'Take photos of equipment, serial numbers, test results. Dictate work summary. Log defects found. Add parts used from product catalog.'
+            description: 'Take photos of equipment, serial numbers, test results. Write up the work summary. Log defects found. Add parts used from product catalog.'
         },
         {
             stepNumber: 5,
@@ -95,7 +95,7 @@ export const fieldServiceDetail: IFeatureDetail = {
             benefits: [
                 'No app installs—use Telegram you already have or web app',
                 'GPS check-in takes 2 seconds, not 5 minutes of paperwork',
-                'Dictate job notes instead of typing in the van',
+                'Log job notes right from the van',
                 'See previous visit history before starting work',
                 'Customer signature captured on your phone—no paper forms',
                 'Get job notifications with customer address and details',
@@ -147,12 +147,12 @@ export const fieldServiceDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'GPS check-in/out with location validation',
+            feature: 'GPS check-in/out with location capture',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Voice note dictation for job summaries',
+            feature: 'Defect logging from the field, linked to remedial quotes',
             opscel: true,
             others: 'No'
         },

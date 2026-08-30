@@ -78,7 +78,7 @@ export const plannerGuide: IDocGuide = {
                     steps: [
                         'Find the job in the backlog rail underneath the board.',
                         'Drag it onto the day and engineer you want.',
-                        'The confirm box opens. Set the <strong>Start</strong> time and <strong>How long</strong> (30-minute steps, from 30 minutes to 12 hours).',
+                        'The confirm box opens. Set the <strong>Start</strong> time and <strong>How long</strong> (30-minute steps, from 30 minutes to 10 hours).',
                         'Read the calendar line — see below.',
                         'Click <strong>Book it</strong>.',
                     ],

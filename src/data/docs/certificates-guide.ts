@@ -39,7 +39,7 @@ export const certificatesGuide: IDocGuide = {
                         'Automatic filing — Certificates file to job and site compliance folders',
                         'Retest tracking — Track inspection intervals and due dates',
                         'Panel identity carry-forward — Fire Alarm Service pre-fills panel details from previous visits',
-                        'Certificate numbering — Unique per-tenant numbering with configurable prefixes'
+                        'Certificate numbering — Unique per-tenant numbering, fixed {PREFIX}-{JOBNUMBER}-{SUFFIX} format per certificate type'
                     ]
                 }
             ],
@@ -72,6 +72,9 @@ export const certificatesGuide: IDocGuide = {
                             <li><strong>Voided:</strong> Certificate cancelled — retains certificate number, cannot be un-voided</li>
                             <li><strong>Superseded:</strong> Certificate replaced by newer version — original retained for audit trail</li>
                         </ol>
+                        <div class="my-8">
+                            <img src="/images/features/certificates/certificate-status-workflow.svg" alt="Certificate status workflow diagram: Draft moves to Completed, then to Issued, which is immutable. From Issued, a certificate can be Voided with a stored reason or Superseded by a linked replacement certificate." class="w-full rounded-lg border border-border shadow-lg" />
+                        </div>
                     `,
                     table: {
                         headers: ['Status', 'Editable?', 'Certificate Number', 'Who Can Change Status'],
@@ -145,7 +148,7 @@ export const certificatesGuide: IDocGuide = {
                 {
                     title: 'Fire Alarm Service Certificate',
                     content: `
-                        <p class="mb-2"><strong>Standard:</strong> BS 5839-1:2017</p>
+                        <p class="mb-2"><strong>Standard:</strong> BS 5839-1:2025</p>
                         <p class="mb-4"><strong>When to use:</strong> Routine 6-monthly service visits, annual inspections, post-repair verification</p>
                         <p class="mb-4"><strong>Completion time:</strong> 15-30 minutes</p>
                     `,
@@ -635,7 +638,7 @@ export const certificatesGuide: IDocGuide = {
                     content: `
                         <p class="mb-4">Certificate numbers follow this pattern: <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code></p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-4">
-                            <li><strong>PREFIX:</strong> Configurable in Settings → Document Numbering (e.g., EIC, EICR, FAD)</li>
+                            <li><strong>PREFIX:</strong> Fixed per certificate type in the system (e.g., EIC, EICR, FAD) — not user-configurable. Settings → Document Numbering only controls Job, Quote, and Invoice numbering, never certificate prefixes.</li>
                             <li><strong>JOBNUMBER:</strong> The job number the certificate is linked to (e.g., 000123)</li>
                             <li><strong>SUFFIX:</strong> Sequential letter starting at A — increments if the certificate is superseded (A → B → C)</li>
                             <li><strong>Example:</strong> <code>FAD-000123-A</code></li>
@@ -721,7 +724,7 @@ export const certificatesGuide: IDocGuide = {
             title: 'Retest Reminders',
             content: `
                 <p class="mb-6">
-                    Opscel automatically sends email reminders 14 days before certificates are due for re-inspection. This helps you maintain compliance and generates repeat business.
+                    Opscel runs a daily check for certificates coming due for re-inspection and sends a single digest email to your company's own account email — not to the customer. This helps you stay ahead of compliance deadlines and gives you a heads-up on repeat-business opportunities.
                 </p>
             `,
             subsections: [
@@ -735,7 +738,6 @@ export const certificatesGuide: IDocGuide = {
                             <li>Issue date: 20 May 2026</li>
                             <li>Default interval: 5 years</li>
                             <li>Next due date: 20 May 2031</li>
-                            <li>Reminder sent: 6 May 2031 (14 days before due)</li>
                         </ul>
                     `
                 },
@@ -761,47 +763,28 @@ export const certificatesGuide: IDocGuide = {
                     content: `
                         <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
                             <p class="text-blue-800">
-                                <strong>Cron schedule:</strong> Every day at <strong>05:00 UTC</strong> (UK-aligned: 05:00 GMT / 06:00 BST)
+                                <strong>Cron schedule:</strong> Every day at <strong>08:00 UK time</strong>
                             </p>
                         </div>
                         <p class="mb-4">What happens during each run:</p>
                         <ol class="list-decimal pl-6 space-y-2 text-gray-700">
                             <li>System scans all <strong>issued</strong> certificates (not draft/completed)</li>
-                            <li>Calculates days until next due date</li>
-                            <li>If exactly 14 days before due: sends reminder email</li>
-                            <li>Email sent to: customer contact email + internal admin notification</li>
+                            <li>Finds every certificate whose next due date falls within the next <strong>30 days</strong> and hasn't already had a reminder sent</li>
+                            <li>Groups those certificates by contractor account and sends <strong>one digest email per account</strong>, listing every certificate coming due</li>
                         </ol>
                     `
                 },
                 {
                     title: 'Email Content and Recipients',
                     content: `
-                        <p class="mb-4"><strong>Customer email includes:</strong></p>
-                        <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-4">
-                            <li>Certificate type and number</li>
-                            <li>Site address</li>
-                            <li>Next due date</li>
-                            <li>Link to book re-inspection (if online booking enabled)</li>
-                            <li>Your company contact details</li>
-                        </ul>
-                        <p class="mb-4"><strong>Internal notification sent to:</strong></p>
+                        <p class="mb-4"><strong>The digest email is sent to your company's own account email only</strong> — there is no customer-facing retest email, and no per-user notification preference to opt in or out. It includes:</p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li>Account owner (Super Admin)</li>
-                            <li>Users with "Receive retest reminders" notification enabled (Settings → Notifications)</li>
+                            <li>Certificate type and number for each cert coming due</li>
+                            <li>Site address and customer name</li>
+                            <li>Next due date for each</li>
+                            <li>A link straight to your Certificates dashboard — there's no customer booking link, since the customer never sees this email</li>
                         </ul>
                     `
-                },
-                {
-                    title: 'How to Override Retest Dates',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admin, Manager</p>
-                    `,
-                    steps: [
-                        { step: 'Open the issued certificate', description: '' },
-                        { step: 'Click "Edit Retest Date"', description: 'Only available for issued certificates' },
-                        { step: 'Enter new next due date', description: '' },
-                        { step: 'Click "Save"', description: 'Retest reminder will use new date' }
-                    ]
                 }
             ]
         },
@@ -861,73 +844,6 @@ export const certificatesGuide: IDocGuide = {
                     content: `
                         <p class="text-gray-700">
                             Voided and superseded certificates retain their certificate numbers. The numbers cannot be reused. This ensures audit compliance—you can always trace the certificate history.
-                        </p>
-                    `
-                }
-            ]
-        },
-        {
-            id: 'custom-templates',
-            title: 'Custom Templates & Accreditation Badges',
-            content: `
-                <p class="mb-6">
-                    Customize certificate PDFs with your branding and accreditation badges.
-                </p>
-            `,
-            subsections: [
-                {
-                    title: 'Accessing Template Settings',
-                    content: `
-                        <p class="mb-4"><strong>Availability:</strong> Admin, Super Admin</p>
-                    `,
-                    steps: [
-                        { step: 'Go to Settings → Branding', description: '' },
-                        { step: 'Click "Certificate Templates"', description: '' },
-                        { step: 'See list of certificate types', description: '' },
-                        { step: 'Click a certificate type to edit its template', description: '' }
-                    ]
-                },
-                {
-                    title: 'PDF Layout Customization',
-                    content: '',
-                    bullets: [
-                        '<strong>Logo placement:</strong> Upload logo (recommended: 300x100px PNG, transparent background)',
-                        '<strong>Header color:</strong> Hex color for header background',
-                        '<strong>Footer text:</strong> Add company tagline or certification details',
-                        '<strong>Font size:</strong> Adjust for readability (12pt standard, 10pt for dense forms)'
-                    ]
-                },
-                {
-                    title: 'Accreditation Badge Requirements',
-                    content: `
-                        <p class="mb-4">Accreditation badges appear in the PDF footer to demonstrate compliance with industry schemes.</p>
-                        <p class="mb-4"><strong>Supported badges:</strong></p>
-                        <ul class="list-disc pl-6 space-y-1 text-gray-700 mb-4">
-                            <li>NICEIC (electrical)</li>
-                            <li>NAPIT (electrical)</li>
-                            <li>BAFE (fire safety)</li>
-                            <li>FIA (fire safety)</li>
-                            <li>MCS (renewable energy)</li>
-                        </ul>
-                        <p class="mb-4"><strong>Badge upload requirements:</strong></p>
-                        <ul class="list-disc pl-6 space-y-1 text-gray-700">
-                            <li>Format: PNG with transparent background</li>
-                            <li>Size: 150x50px (height will be capped at 50px)</li>
-                            <li>Location: Settings → Company Profile → Accreditation Badges</li>
-                        </ul>
-                    `
-                },
-                {
-                    title: 'Footer Chrome Spacing',
-                    content: `
-                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4">
-                            <p class="text-amber-800">
-                                <strong>Important:</strong> Certificate PDF pages must reserve space for footer chrome (page numbers, accreditation badges).
-                                If content fills the page to the bottom margin, badges may be cut off or overlap content.
-                            </p>
-                        </div>
-                        <p class="mt-4 text-gray-700">
-                            <strong>Fix:</strong> In template settings, set "Footer margin" to at least 15mm to ensure sufficient space.
                         </p>
                     `
                 }
@@ -1064,16 +980,15 @@ export const certificatesGuide: IDocGuide = {
                     `
                 },
                 {
-                    title: 'PDF Shows Wrong Logo — Branding Cache',
+                    title: 'PDF Shows Wrong Logo or Accreditation Badge',
                     content: `
-                        <p class="mb-2"><strong>Problem:</strong> Issued certificate PDF shows old logo or no logo.</p>
-                        <p class="mb-4"><strong>Cause:</strong> Branding settings are cached for performance. Cache may not have updated yet.</p>
+                        <p class="mb-2"><strong>Problem:</strong> Issued certificate PDF shows an old logo, no logo, or a missing accreditation badge.</p>
+                        <p class="mb-4"><strong>Cause:</strong> Your company logo lives in Settings → Branding; accreditation body badges (NICEIC, BAFE, MCS, etc.) live separately in Settings → Credentials. If either was uploaded after the certificate PDF was generated, the certificate needs to be regenerated to pick it up.</p>
                         <p class="mb-4"><strong>Fix:</strong></p>
                     `,
                     steps: [
-                        { step: 'Go to Settings → Branding', description: '' },
-                        { step: 'Click "Clear Cache"', description: '' },
-                        { step: 'Reissue certificate or regenerate PDF', description: '' }
+                        { step: 'Check your logo is set in Settings → Branding, and any accreditation badges you need are uploaded in Settings → Credentials', description: '' },
+                        { step: 'Regenerate the certificate PDF', description: '' }
                     ]
                 },
                 {
@@ -1090,16 +1005,15 @@ export const certificatesGuide: IDocGuide = {
                     ]
                 },
                 {
-                    title: 'Retest Email Didn\'t Send — Check Cron Logs',
+                    title: 'Retest Digest Email Didn\'t Arrive',
                     content: `
-                        <p class="mb-2"><strong>Problem:</strong> Certificate is 14 days from due date but no reminder email sent.</p>
+                        <p class="mb-2"><strong>Problem:</strong> A certificate is within 30 days of its due date but no retest digest email has arrived.</p>
                         <p class="mb-4"><strong>Checks:</strong></p>
                         <ol class="list-decimal pl-6 space-y-1 text-gray-700">
-                            <li>Verify certificate is <strong>issued</strong> (not draft/completed)</li>
-                            <li>Verify next due date is correct (Settings → Edit Retest Date)</li>
-                            <li>Check cron run succeeded (Settings → Cron Logs, filter by date)</li>
-                            <li>Verify customer email is valid (Customer detail page)</li>
-                            <li>If cron shows failure: contact support@opscel.com with certificate number</li>
+                            <li>Verify the certificate is <strong>issued</strong> (not draft/completed) — only issued certificates are included</li>
+                            <li>Verify the next due date is correct on the certificate</li>
+                            <li>Confirm your company's account email is set correctly — the digest goes there, not to any customer or individual user</li>
+                            <li>If it's genuinely missing, contact support@opscel.com with the certificate number</li>
                         </ol>
                     `
                 },
@@ -1140,17 +1054,16 @@ export const certificatesGuide: IDocGuide = {
                     `
                 },
                 {
-                    title: 'Footer Logo Cut Off — Page Padding Issue',
+                    title: 'Accreditation Badge Looks Cropped or Misaligned',
                     content: `
-                        <p class="mb-2"><strong>Problem:</strong> Accreditation badge or page number cut off at bottom of PDF.</p>
-                        <p class="mb-4"><strong>Cause:</strong> Page content fills to bottom margin, not reserving space for footer chrome.</p>
+                        <p class="mb-2"><strong>Problem:</strong> An accreditation badge in the PDF footer looks cropped or off-centre.</p>
+                        <p class="mb-4"><strong>Cause:</strong> The footer's reserved space is a fixed part of the certificate layout — it isn't a setting you adjust — so this is almost always the uploaded badge image itself: an unusual aspect ratio, or a logo with no transparent margin around it.</p>
                         <p class="mb-4"><strong>Fix:</strong></p>
                     `,
                     steps: [
-                        { step: 'Go to Settings → Branding → Certificate Templates', description: '' },
-                        { step: 'Select the affected certificate type', description: '' },
-                        { step: 'Set "Footer margin" to at least 15mm', description: '' },
-                        { step: 'Save and regenerate PDF', description: '' }
+                        { step: 'Open Settings → Credentials and check the uploaded badge image', description: '' },
+                        { step: 'Re-upload a version with a transparent background and even margins', description: '' },
+                        { step: 'Regenerate the certificate PDF to confirm', description: '' }
                     ]
                 }
             ]
@@ -1171,15 +1084,15 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Why does the PDF show the wrong logo?',
                     content: `
                         <p class="text-gray-700">
-                            Branding settings are cached for performance. If you recently changed your logo, clear the branding cache (Settings → Branding → Clear Cache) and regenerate the PDF.
+                            Your company logo comes from Settings → Branding, and accreditation body badges come from Settings → Credentials — check the right one was updated. If you changed either after a certificate was already generated, regenerate the PDF to pick up the new image.
                         </p>
                     `
                 },
                 {
-                    title: 'When do retest emails go out?',
+                    title: 'When do retest reminders go out, and who receives them?',
                     content: `
                         <p class="text-gray-700">
-                            Retest reminder emails are sent <strong>14 days before the next due date</strong>. The cron runs daily at 05:00 UTC (05:00 GMT / 06:00 BST). Only issued certificates trigger reminders—drafts and completed certificates are not included.
+                            A daily cron job (08:00 UK time) checks every <strong>issued</strong> certificate — drafts and completed certificates are excluded — and sends a single digest email once a certificate's next due date falls within <strong>30 days</strong>. That email goes to your company's own account email, not to the customer, and there's no per-user notification preference to turn it on or off.
                         </p>
                     `
                 },
@@ -1200,10 +1113,10 @@ export const certificatesGuide: IDocGuide = {
                     `
                 },
                 {
-                    title: 'Why is the footer logo cut off?',
+                    title: 'Why does an accreditation badge look cropped?',
                     content: `
                         <p class="text-gray-700">
-                            PDF pages must reserve space for footer chrome (page numbers, accreditation badges). If content fills the page to the bottom margin, badges may be cut off. Fix: Set "Footer margin" to at least 15mm in Settings → Branding → Certificate Templates.
+                            The footer space on a certificate PDF is a fixed part of the layout, not a user-adjustable setting — so a cropped or misaligned badge is almost always the source image itself. Re-upload the badge in Settings → Credentials with a transparent background and even margins, then regenerate the PDF.
                         </p>
                     `
                 },
@@ -1211,7 +1124,7 @@ export const certificatesGuide: IDocGuide = {
                     title: 'Can I change the certificate number format?',
                     content: `
                         <p class="text-gray-700">
-                            Yes, the prefix. Configure prefixes in Settings → Document Numbering — you can set a different prefix for each certificate type (e.g., EIC-, EICR-, FAD-). The job number and suffix portions (e.g., 000123-A) are assigned automatically and cannot be manually changed. Changes apply to new certificates only—existing certificate numbers are not affected.
+                            No. Certificate numbers follow a fixed <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code> format (e.g., <code>EICR-000123-A</code>), and the prefix is set per certificate type in the system — it isn't user-configurable. Settings → Document Numbering controls Job, Quote, and Invoice numbering only, never certificate prefixes. The job number and suffix portions are always assigned automatically.
                         </p>
                     `
                 },

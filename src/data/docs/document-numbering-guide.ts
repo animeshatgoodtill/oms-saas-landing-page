@@ -3,99 +3,77 @@ import { IDocGuide } from '@/types';
 export const documentNumberingGuide: IDocGuide = {
   slug: 'document-numbering',
   title: 'Document Numbering',
-  description: 'Customize invoice, quote, certificate, and job number formats with prefixes, date patterns, and sequential counters for professional document management.',
-  lastUpdated: '2026-08-13',
+  description: 'Set the prefix and starting counter for job, quote, and invoice numbers for professional, trackable document management.',
+  lastUpdated: '2026-08-30',
   sections: [
     {
       id: 'overview',
       title: 'Overview',
       content: `<div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
         <p class="font-semibold text-blue-900 mb-2">30-Second Version</p>
-        <p class="text-blue-800">Document Numbering lets you customize the format of invoice, quote, certificate, and job numbers with prefixes, date patterns, and sequential counters. Professional, branded numbering improves audit trails, ensures compliance, and makes documents easy to track and reference.</p>
+        <p class="text-blue-800">Document Numbering lets you set a prefix and a starting counter for job, quote, and invoice numbers. Each document type has its own fixed format and its own independent counter — there's no free-form pattern to design, just the prefix and where the count starts.</p>
       </div>
 
-      <p class="mb-4">Document numbering is the system that generates unique reference numbers for your invoices, quotes, certificates, and jobs. Instead of generic sequential numbers, you can create custom formats that include:</p>
+      <p class="mb-4">Document numbering generates unique reference numbers for your jobs, quotes, and invoices (certificate numbering is separate and isn't configured here). For each document type you can set:</p>
 
       <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
-        <li>Your company prefix or brand code</li>
-        <li>Date components (year, month, day)</li>
-        <li>Sequential counters that auto-increment</li>
-        <li>Document type identifiers</li>
+        <li>Your own prefix (free text, automatically uppercased)</li>
+        <li>The starting number the counter should count up from</li>
       </ul>
 
       <p class="mb-4"><strong>Why it matters:</strong></p>
       <ul class="list-disc list-inside space-y-2 ml-4">
-        <li><strong>Professional branding:</strong> Include your company code in every document number</li>
-        <li><strong>Audit trails:</strong> Date-based patterns make it easy to identify when documents were created</li>
-        <li><strong>Compliance:</strong> Meet regulatory requirements for unique, sequential numbering</li>
-        <li><strong>Per-document control:</strong> Configure different formats for invoices, quotes, certificates, and jobs</li>
+        <li><strong>Professional branding:</strong> Include your company code as the prefix on every document number</li>
+        <li><strong>Audit trails:</strong> A sequential, gap-tracked counter makes documents easy to reference and reconcile</li>
+        <li><strong>Compliance:</strong> Unique, sequential numbering per tenant meets standard record-keeping requirements</li>
+        <li><strong>Per-document control:</strong> Job, quote and invoice numbering are configured and counted independently</li>
       </ul>`,
     },
     {
       id: 'patterns',
-      title: 'Number Format Patterns',
-      content: `<p class="mb-4">Document number formats follow a pattern of <strong>prefix + counter + suffix</strong>, with optional date components. Here's the syntax:</p>
+      title: 'Number Formats',
+      content: `<p class="mb-4">There's no format-pattern field to fill in — job, quote and invoice numbers each follow one fixed shape. What you configure is the <strong>prefix</strong> and the <strong>starting number</strong>; the rest of the format (whether the year appears, and how many digits the counter pads to) is fixed per document type.</p>
 
       <div class="overflow-x-auto mb-6">
         <table class="min-w-full border border-gray-200">
           <thead class="bg-gray-50">
             <tr>
-              <th class="border border-gray-200 px-4 py-2 text-left">Element</th>
-              <th class="border border-gray-200 px-4 py-2 text-left">Syntax</th>
-              <th class="border border-gray-200 px-4 py-2 text-left">Output Example</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">Document type</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">Fixed format</th>
+              <th class="border border-gray-200 px-4 py-2 text-left">Default example</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Static prefix</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">INV-</td>
-              <td class="border border-gray-200 px-4 py-2">INV-</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Job</td>
+              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">PREFIX-NNNNNN</td>
+              <td class="border border-gray-200 px-4 py-2">JOB-000001</td>
             </tr>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Year (4-digit)</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">{YYYY}</td>
-              <td class="border border-gray-200 px-4 py-2">2024</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Quote</td>
+              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">PREFIX-YYYY-NNNN</td>
+              <td class="border border-gray-200 px-4 py-2">QT-2026-0001</td>
             </tr>
             <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Year (2-digit)</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">{YY}</td>
-              <td class="border border-gray-200 px-4 py-2">24</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Month</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">{MM}</td>
-              <td class="border border-gray-200 px-4 py-2">05</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Day</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">{DD}</td>
-              <td class="border border-gray-200 px-4 py-2">23</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Counter (auto-increment)</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">{counter}</td>
-              <td class="border border-gray-200 px-4 py-2">0001, 0002, 0003...</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-200 px-4 py-2 font-semibold">Separator</td>
-              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">- or /</td>
-              <td class="border border-gray-200 px-4 py-2">- or /</td>
+              <td class="border border-gray-200 px-4 py-2 font-semibold">Invoice</td>
+              <td class="border border-gray-200 px-4 py-2 font-mono text-sm">PREFIX-YYYY-NNNN</td>
+              <td class="border border-gray-200 px-4 py-2">INV-2026-0003</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <p class="mb-4"><strong>Example formats:</strong></p>
+      <p class="mb-4"><strong>What you can and can't change:</strong></p>
 
-      <div class="bg-gray-50 p-4 rounded-lg mb-4 space-y-2 font-mono text-sm">
-        <div><span class="text-gray-600">Pattern:</span> <strong>INV-{YYYY}-{counter}</strong> → <span class="text-green-600">INV-2024-0001</span></div>
-        <div><span class="text-gray-600">Pattern:</span> <strong>QUO-{YY}{MM}{DD}-{counter}</strong> → <span class="text-green-600">QUO-240523-001</span></div>
-        <div><span class="text-gray-600">Pattern:</span> <strong>CERT-{counter}</strong> → <span class="text-green-600">CERT-001234</span></div>
-        <div><span class="text-gray-600">Pattern:</span> <strong>JOB/{YYYY}/{counter}</strong> → <span class="text-green-600">JOB/2024/00456</span></div>
-      </div>
+      <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+        <li>You can change the <strong>prefix</strong> (letters and numbers, automatically uppercased) for each of the three document types independently</li>
+        <li>You can set the <strong>starting number</strong> the counter begins from (e.g. when migrating from another system)</li>
+        <li>You cannot reposition, add, or remove the year — job numbers never carry one; quote and invoice numbers always do</li>
+        <li>You cannot add day- or month-level granularity to any of the three</li>
+      </ul>
 
       <p class="text-sm text-amber-700 bg-amber-50 border-l-4 border-amber-400 p-3">
-        <strong>Note:</strong> The counter always uses leading zeros and is padded to 4 digits by default (e.g., 0001, 0234, 1456). This ensures consistent length and sortability.
+        <strong>Note:</strong> Quote numbers automatically reset their counter to 1 at the start of each calendar year. Job and invoice counters never reset — they only move forward.
       </p>`,
     },
     {
@@ -105,7 +83,7 @@ export const documentNumberingGuide: IDocGuide = {
         <strong>Availability:</strong> Super Admin, Admin
       </p>
 
-      <p class="mb-4">Configure document numbering formats for each document type in your Opscel account.</p>`,
+      <p class="mb-4">Configure the prefix and starting counter for each document type in your Opscel account.</p>`,
       subsections: [
         {
           title: 'Configuration Steps',
@@ -117,15 +95,15 @@ export const documentNumberingGuide: IDocGuide = {
             },
             {
               step: 'Select document type',
-              description: 'Choose which document type to configure: <strong>Invoice</strong>, <strong>Quote</strong>, <strong>Certificate</strong>, or <strong>Job</strong>.',
+              description: 'Choose which document type to configure: <strong>Job</strong>, <strong>Quote</strong>, or <strong>Invoice</strong>. (Certificate numbering is a separate, non-configurable mechanism and isn\'t managed on this page.)',
             },
             {
-              step: 'Enter your pattern',
-              description: 'In the <strong>Format Pattern</strong> field, enter your desired format using the syntax from the table above. For example: <code>INV-{YYYY}-{counter}</code>.',
+              step: 'Enter your prefix',
+              description: 'In the <strong>Number Prefix</strong> field, enter the letters/numbers you want at the front of the number — for example <code>JOB</code>, <code>QT</code>, or <code>INV</code>. It\'s automatically uppercased. The rest of the format (year for quotes/invoices, digit padding) is fixed and not editable.',
             },
             {
               step: 'Set starting number',
-              description: 'In the <strong>Starting Number</strong> field, enter the number where the counter should begin (default is 1). Useful when migrating from another system.',
+              description: 'Click <strong>Set Starting Number</strong> and enter the number where the counter should begin (default is 1). Useful when migrating from another system.',
             },
             {
               step: 'Preview the format',
@@ -133,7 +111,7 @@ export const documentNumberingGuide: IDocGuide = {
             },
             {
               step: 'Save changes',
-              description: 'Click <strong>Save</strong>. The new format applies to all documents created after this point.',
+              description: 'Click <strong>Save</strong>. The new prefix applies to all documents created after this point.',
             },
           ],
         },
@@ -141,8 +119,8 @@ export const documentNumberingGuide: IDocGuide = {
           title: 'Important Notes',
           content: '',
           bullets: [
-            '<strong>Takes effect immediately:</strong> The new format applies to the next document you create. Existing documents keep their original numbers.',
-            '<strong>Per-document-type:</strong> Each document type (Invoice, Quote, Certificate, Job) has its own independent numbering sequence.',
+            '<strong>Takes effect immediately:</strong> The new prefix applies to the next document you create. Existing documents keep their original numbers.',
+            '<strong>Per-document-type:</strong> Job, Quote and Invoice each have their own independent numbering sequence.',
           ],
         },
       ],
@@ -153,15 +131,15 @@ export const documentNumberingGuide: IDocGuide = {
       subsections: [
         {
           title: 'Invoice Numbering',
-          content: '<p>Invoices typically use date-based formats for easy financial period tracking. Common patterns: <code>INV-{YYYY}-{counter}</code> or <code>INV{YYYY}{MM}{counter}</code>. Sequential, unique numbering is often required for tax compliance (e.g., HMRC in the UK).</p>',
+          content: '<p>Invoices always include the year for easy financial period tracking, in the fixed format <code>PREFIX-YYYY-NNNN</code> — for example <code>INV-2026-0003</code>. You can change the prefix; the year\'s position and the counter\'s digit padding aren\'t configurable. The counter never resets — sequential, unique numbering is required for tax compliance (e.g., HMRC in the UK), and a number already issued can never be reused.</p>',
         },
         {
           title: 'Quote Numbering',
-          content: '<p>Quotes often include the date to indicate when the quote was issued, helping track validity periods. Common patterns: <code>QUO-{YY}{MM}{DD}-{counter}</code> or <code>Q{YYYY}-{counter}</code>.</p>',
+          content: '<p>Quotes always include the year, in the fixed format <code>PREFIX-YYYY-NNNN</code> — for example <code>QT-2026-0001</code>. Unlike invoices, the quote counter automatically resets to 1 at the start of each calendar year.</p>',
         },
         {
           title: 'Certificate Numbering',
-          content: `<p>Certificates require unique numbering per standard. Opscel generates certificate numbers that are unique within your business account (per-tenant uniqueness), following the pattern <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code> — for example <code>EICR-000123-A</code>. The prefix is configurable per certificate type; the job number and suffix are assigned automatically.</p>
+          content: `<p>Certificates require unique numbering per standard. Opscel generates certificate numbers that are unique within your business account (per-tenant uniqueness), following the pattern <code>{PREFIX}-{JOBNUMBER}-{SUFFIX}</code> — for example <code>EICR-000123-A</code>. The prefix is configurable per certificate type; the job number and suffix are assigned automatically. This numbering is a separate mechanism from the Job/Quote/Invoice numbering on this page and isn't configured here.</p>
 
           <p class="text-sm text-blue-700 bg-blue-50 border-l-4 border-blue-400 p-3 mt-2">
             <strong>Per-standard uniqueness:</strong> Certificate numbers are unique within your tenant, not globally. Different businesses can have the same certificate number, which is compliant with industry standards like BS 7671.
@@ -169,11 +147,7 @@ export const documentNumberingGuide: IDocGuide = {
         },
         {
           title: 'Job Numbering',
-          content: '<p>Job numbers help track work orders and site visits. Common patterns: <code>JOB-{YYYY}-{counter}</code> or <code>J{YY}{MM}{counter}</code>. Job numbers are often referenced in internal workflows and field engineer apps.</p>',
-        },
-        {
-          title: 'Work Order Numbering',
-          content: '<p>Similar to jobs, work orders use sequential numbering. Pattern: <code>WO-{YYYY}-{counter}</code>. Work orders are typically used for multi-visit or ongoing projects.</p>',
+          content: '<p>Job numbers help track scheduled work and site visits, in the fixed format <code>PREFIX-NNNNNN</code> — for example <code>JOB-000001</code>. Unlike quotes and invoices, job numbers never carry a year. Job numbers are often referenced in internal workflows and field engineer apps.</p>',
         },
         {
           title: 'PO Numbers Aren\'t Part of This System',
@@ -211,15 +185,15 @@ export const documentNumberingGuide: IDocGuide = {
           steps: [
             {
               step: 'Find your last document number',
-              description: 'In your old system, identify the highest document number for each type (e.g., last invoice was INV-2024-0456).',
+              description: 'In your old system, identify the highest document number for each type (e.g., last invoice was INV-2026-0456).',
             },
             {
               step: 'Set starting number in Opscel',
               description: 'In Settings → System → Document Numbering, set the <strong>Starting Number</strong> for each document type to one higher than your last number (e.g., 457 to continue from 456).',
             },
             {
-              step: 'Update the format pattern',
-              description: 'Ensure the format pattern matches your old system (e.g., <code>INV-{YYYY}-{counter}</code>). The year component will auto-populate with the current year.',
+              step: 'Set the prefix',
+              description: 'Set the prefix to match your old system where possible (e.g., <code>INV</code>). The year (for quotes and invoices) will auto-populate with the current year — it isn\'t something you enter yourself.',
             },
             {
               step: 'Test with a draft',
@@ -247,11 +221,11 @@ export const documentNumberingGuide: IDocGuide = {
         },
         {
           title: 'Want to reset the counter',
-          content: '<p>You cannot reset the counter to a lower number (e.g., back to 0001). Counters only increment. If you need a new sequence, consider changing the format pattern to include a new prefix or date component, which effectively creates a new numbering series.</p>',
+          content: '<p>You cannot reset the counter to a lower number (e.g., back to 0001). Job and invoice counters only increment; quote counters reset automatically each calendar year but can\'t be reset on demand. If you need a new sequence, consider changing the prefix, which reads clearly as a new numbering series even though the underlying counter carries on.</p>',
         },
         {
-          title: 'Format not displaying correctly',
-          content: '<p>Check your pattern syntax carefully. Ensure date placeholders use curly braces: <code>{YYYY}</code>, not <code>YYYY</code>. The counter must be <code>{counter}</code>, not <code>{COUNT}</code> or similar. Review the pattern syntax table in this guide.</p>',
+          title: 'Starting number rejected',
+          content: '<p>The starting number must be at least the minimum allowed (shown on the settings page) — this exists to prevent a new starting point from colliding with a number already issued. Check the "Minimum allowed" value shown next to the current counter and choose a number at or above it.</p>',
         },
       ],
     },
@@ -260,24 +234,24 @@ export const documentNumberingGuide: IDocGuide = {
       title: 'Frequently Asked Questions',
       subsections: [
         {
-          title: 'Can I change the format after documents are issued?',
-          content: '<p>Yes. Changing the format only affects new documents created after the change. Existing documents keep their original numbers, which is important for audit integrity. For example, if you switch from <code>INV-{counter}</code> to <code>INV-{YYYY}-{counter}</code>, old invoices remain as INV-0123, and new ones become INV-2024-0124.</p>',
+          title: 'Can I change the prefix after documents are issued?',
+          content: '<p>Yes. Changing the prefix only affects new documents created after the change. Existing documents keep their original numbers, which is important for audit integrity. For example, if you switch your quote prefix from <code>QUO</code> to <code>QT</code>, old quotes remain as QUO-2026-0123, and new ones become QT-2026-0124.</p>',
         },
         {
           title: 'Are document numbers globally unique?',
-          content: '<p>No. Document numbers are unique within your Opscel business account (tenant), not globally across all Opscel users. This is standard practice and complies with regulations. For example, two different electrical contractors using Opscel can both have an invoice numbered INV-2024-0001.</p>',
+          content: '<p>No. Document numbers are unique within your Opscel business account (tenant), not globally across all Opscel users. This is standard practice and complies with regulations. For example, two different electrical contractors using Opscel can both have an invoice numbered INV-2026-0001.</p>',
         },
         {
           title: 'Why are there gaps in my invoice numbers?',
           content: '<p>Gaps are normal and occur when drafts are deleted, saves fail, or documents are created concurrently. Tax authorities (like HMRC) accept gaps as long as numbers are unique and sequential. Gaps do not affect compliance.</p>',
         },
         {
-          title: 'Can I use letters in the counter?',
-          content: '<p>No. The <code>{counter}</code> element is numeric only (e.g., 0001, 0002). However, you can add letter prefixes or suffixes as static text outside the counter: <code>INV-A-{counter}</code> produces INV-A-0001, INV-A-0002.</p>',
+          title: 'Can I customize the format beyond the prefix?',
+          content: '<p>No. There\'s no format-pattern field — the position of the year and the counter\'s digit padding are fixed per document type (jobs never carry a year; quotes and invoices always do). The only things you control are the prefix and the starting number.</p>',
         },
         {
-          title: 'What happens if I reach 9999?',
-          content: '<p>The counter continues incrementing beyond 9999 to 10000, 10001, etc. The padding adjusts automatically, so you won\'t run out of numbers. If you want to restart from 0001, change the format pattern to include a new year or prefix.</p>',
+          title: 'What happens if the counter reaches a very high number?',
+          content: '<p>The counter keeps incrementing and the padding widens automatically, so you won\'t run out of numbers. Quote counters reset to 1 at the start of each new year regardless of how high they reached; job and invoice counters just keep climbing.</p>',
         },
         {
           title: 'Can different engineers have different numbering?',

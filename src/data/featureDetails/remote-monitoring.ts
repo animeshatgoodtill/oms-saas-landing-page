@@ -7,6 +7,23 @@ export const remoteMonitoringDetail: IFeatureDetail = {
     heroDescription: 'Not every ARC call needs an engineer on site. Remote Monitoring gives your office and monitoring staff a dedicated case type — separate from jobs, off the planner, with its own number — for the recurring signals, panel faults and phoned-in issues you handle without dispatching a van. Escalate to a real job the moment one is actually needed, without losing the case history.',
     iconId: 'icon-condition-gauge',
 
+    sections: [
+        {
+            eyebrow: 'The Case Lifecycle',
+            title: 'Escalation Links to a Job. It Never Closes the Case.',
+            description: 'A case opens, timeline entries append as it\'s worked, and it\'s closed by a person once the issue is actually resolved. Escalating to a job along the way creates a real job with its own visit and engineer — but the case stays open beside it, linked, not replaced. The false-alarm counter and 90-day reinstatement clock run separately: the clock is a plain start date plus 90 days, set once by your office, and it does not automatically extend itself if another false alarm lands inside the window.',
+            imageSrc: '/images/features/remote-monitoring/case-lifecycle.svg',
+            imageAlt: 'Monitoring case lifecycle: Case Opened, an optional Escalated step that creates a linked job while the case stays open, an append-only timeline of contacts, and a manual Case Closed step, with a side note on the separate false-alarm counter and 90-day reinstatement clock.',
+            imageWidth: 1040,
+            imageHeight: 520,
+            bullets: [
+                'Escalation is a link, not a status — the case is never auto-closed by the job it spawns',
+                'Every contact appends to the timeline; nothing is ever edited away',
+                'The 90-day reinstatement clock is a fixed start date + 90 days, managed by your office, not auto-extending'
+            ]
+        }
+    ],
+
     stats: [
         { value: 'MC-NNNNN', label: 'Every case gets its own number - never a job number, and never on the planner' },
         { value: '2 in 20', label: 'The NPCC keyholder expectation Opscel warns you against: two keyholders able to attend within 20 minutes' },

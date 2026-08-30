@@ -48,7 +48,7 @@ export const serviceContractsGuide: IDocGuide = {
                     title: 'Key Terms',
                     bullets: [
                         '<strong>Occurrence / visit</strong> — a job auto-generated from a contract. When you convert an existing job, that job is the first visit (visit #0).',
-                        '<strong>Cadence / frequency</strong> — how often the service repeats: every 3, 6, 12, 24, 36, 48, or 60 months.',
+                        '<strong>Cadence / frequency</strong> — how often the service repeats: weekly, or every 1, 3, 4, 6, 12, 24, 36, 48, or 60 months.',
                         '<strong>Lead time</strong> — how many days before a due date the draft job is auto-created (0–365, default 14).',
                         '<strong>Next due date</strong> — the anchor for the next visit; advances by the frequency each time a visit generates.',
                         '<strong>Statuses</strong> — <strong>Active</strong> (generating), <strong>Paused</strong> (generation halted), <strong>Ended</strong> (read-only, re-openable), <strong>Cancelled</strong> (read-only, terminal).'

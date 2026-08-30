@@ -575,21 +575,12 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     `
                 },
                 {
-                    title: 'Can I export the Deficiency Register for a site?',
-                    content: `
-                        <p class="text-gray-700">
-                            Yes. From the site detail page, click "Export Deficiency Register" to download a CSV of all faults (open and resolved)
-                            for audit or reporting purposes. The export includes severity, dates, originating job, and resolution notes.
-                        </p>
-                    `
-                },
-                {
                     title: 'What happens if two engineers mark the same fault resolved on different jobs?',
                     content: `
                         <p class="text-gray-700">
-                            The first engineer to sync their resolution wins. If a second engineer marks the same fault resolved before syncing,
-                            Opscel detects the conflict and shows a warning: "This fault was already resolved on [date] by [engineer]." The second
-                            resolution is discarded to prevent duplicate entries.
+                            Opscel's offline sync is built so the same fault being resolved twice doesn't create duplicate or conflicting records —
+                            whichever resolution syncs is the one that's kept. If you're relying on cross-engineer coordination for a shared site,
+                            it's still worth confirming who's picking up a fault before two people start on it.
                         </p>
                     `
                 },

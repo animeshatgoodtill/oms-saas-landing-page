@@ -4,29 +4,29 @@ export const teamDetail: IFeatureDetail = {
     slug: 'team',
     title: 'Give Your Team Access Without Giving Up Control',
     subtitle: 'Opscel Team Management',
-    heroDescription: 'Your engineer doesn\'t need to see profit margins. Your office manager doesn\'t need to change subscription billing. Opscel\'s 7-role permission system ensures everyone sees what they need—and nothing they shouldn\'t.',
+    heroDescription: 'Your engineer doesn\'t need to see profit margins. Your office manager doesn\'t need to change subscription billing. Opscel\'s 8-role permission system ensures everyone sees what they need—and nothing they shouldn\'t.',
     iconId: 'icon-user-roles',
 
     featureHighlights: [
         {
             iconId: 'icon-user-roles',
-            title: '7 Role-Based Permission Levels',
-            description: 'Owner, Admin, Manager, Engineer, Office Staff, Read-Only, Accountant. Each role has specific permissions—Engineers see jobs and certificates, Accountants see invoices and Xero, Managers see scheduling and team capacity.'
+            title: '8 Role-Based Permission Levels',
+            description: 'Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Site Manager, Engineer, Viewer. Each role has a purpose-built permission set—Engineers see jobs and certificates, Accounts sees invoices and reports, Sales Manager can quote but only ever views invoices.'
         },
         {
             iconId: 'icon-compliance-shield',
             title: 'Granular Permission Control',
-            description: 'Control who can create jobs, approve quotes, issue certificates, post invoices to Xero, manage team members, change billing. 40+ permission flags ensure proper access control without over-complicating setup.'
+            description: 'Control who can create jobs, approve quotes, issue certificates, post invoices, manage team members, change billing. Dozens of permission flags ensure proper access control without over-complicating setup.'
         },
         {
             iconId: 'icon-smart-prompt',
             title: 'Invite Team Members by Email',
-            description: 'Enter email, select role, send invite. Team member gets email with sign-up link, sets password, logs in. No manual account creation, no password sharing. Invitation expires after 7 days for security.'
+            description: 'Enter email, select role, send invite. Team member gets email with sign-up link, sets password, logs in. No manual account creation, no password sharing.'
         },
         {
             iconId: 'icon-activity-log',
             title: 'Team Activity Audit Log',
-            description: 'See who created which job, who approved that quote, who posted the invoice to Xero. Complete audit trail of team actions with timestamps and user attribution. Critical for compliance and dispute resolution.'
+            description: 'See who created which job, who approved that quote, who posted the invoice. Complete audit trail of team actions with timestamps and user attribution. Critical for compliance and dispute resolution.'
         },
         {
             iconId: 'icon-user-roles',
@@ -49,19 +49,14 @@ export const teamDetail: IFeatureDetail = {
             description: '1 user on Starter, 3 on Team, 5 on Business—then £29/month per additional user, flat on every tier. Scale team size without tier jumps. Add temporary staff for busy season, remove when quiet. No long-term commitment per user.'
         },
         {
-            iconId: 'icon-compliance-shield',
-            title: 'Two-Factor Authentication',
-            description: 'Protect accounts with 2FA (TOTP via authenticator apps). Require 2FA for Admin and Owner roles to prevent unauthorized billing or Xero changes. Optional for other roles based on security policy.'
-        },
-        {
             iconId: 'icon-activity-log',
-            title: 'Session Management',
-            description: 'See active sessions per user (web, mobile, Telegram bot). Revoke sessions remotely if device lost or user leaves company. Prevent unauthorized access from stolen phones or laptops.'
+            title: 'Role-Scoped Financial Boundaries',
+            description: 'Sales Manager can quote and win work but can never raise or edit an invoice—it only sees whether the money arrived. Site Manager and Engineer carry no financial permissions at all. The role, not a setting you have to remember, keeps that boundary.'
         },
         {
             iconId: 'icon-user-roles',
             title: 'Team Tier Feature (3 Users)',
-            description: 'Advanced role permissions (7 roles) available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier (£49/month, 1 user) has basic roles: Owner, Engineer, Office Staff.'
+            description: 'The full 8-role permission system is available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier (£49/month, 1 user) still gets the same roles to choose from as your business grows into them.'
         }
     ],
 
@@ -74,17 +69,17 @@ export const teamDetail: IFeatureDetail = {
         {
             stepNumber: 2,
             title: 'Set Password & Log In',
-            description: 'Team member clicks link, sets password, optionally enables 2FA. Logs in and sees role-specific dashboard (Engineers see their jobs, Managers see team capacity).'
+            description: 'Team member clicks link, sets password, and logs in to see a role-specific dashboard (Engineers see their jobs, Site Manager sees scheduling and team capacity).'
         },
         {
             stepNumber: 3,
             title: 'Assign Jobs',
-            description: 'Office creates job, assigns to engineer. Engineer gets notification (Telegram or email), sees job on dashboard, checks in/out via GPS, completes work.'
+            description: 'Office creates job, assigns to engineer. Engineer gets notification, sees job on dashboard, checks in/out via GPS, completes work.'
         },
         {
             stepNumber: 4,
             title: 'Monitor Activity',
-            description: 'Audit log shows who did what—job created by Sarah, certificate approved by Dave, invoice posted to Xero by Owner. Complete accountability for team actions.'
+            description: 'Audit log shows who did what—job created by Sarah, certificate approved by Dave, invoice posted by Accounts. Complete accountability for team actions.'
         }
     ],
 
@@ -92,11 +87,11 @@ export const teamDetail: IFeatureDetail = {
         {
             persona: 'Business Owners',
             benefits: [
-                '7-role permission system prevents unauthorized changes to billing or Xero',
+                '8-role permission system prevents unauthorized changes to billing or accounting',
                 'Team activity audit log shows who created jobs, approved quotes, posted invoices',
                 'Flexible user limits—add temporary staff for busy season without tier jumps',
-                '2FA for Admin/Owner roles protects sensitive financial and customer data',
-                'Session management revokes access from lost devices or departed employees',
+                'Sales Manager can sell freely but can never raise or edit an invoice',
+                'Site Manager and Engineer carry no financial permissions at all',
                 'Team capacity dashboard shows workload distribution across engineers'
             ]
         },
@@ -114,7 +109,7 @@ export const teamDetail: IFeatureDetail = {
             persona: 'Field Engineers',
             benefits: [
                 'Engineer-specific dashboard shows only your assigned jobs—no clutter',
-                'Get job notifications via Telegram or email when office assigns work',
+                'Get job notifications when the office assigns work',
                 'See team members assigned to same job for two-person EICRs',
                 'No access to irrelevant data (profit margins, billing, other engineers\' jobs)'
             ]
@@ -123,32 +118,32 @@ export const teamDetail: IFeatureDetail = {
 
     stats: [
         {
-            value: '7 roles',
-            label: 'Owner, Admin, Manager, Engineer, Office Staff, Read-Only, Accountant'
+            value: '8 roles',
+            label: 'Super Admin, Admin, Accounts, Contract Manager, Sales Manager, Site Manager, Engineer, Viewer'
         },
         {
             value: '£29/month',
             label: 'Per additional user beyond tier limit—no tier jump required'
         },
         {
-            value: '40+',
-            label: 'Permission flags for granular access control per role'
+            value: 'Dozens',
+            label: 'Of granular permission flags for fine-grained access control per role'
         }
     ],
 
     comparison: [
         {
-            feature: '7 role-based permission levels',
+            feature: '8 role-based permission levels',
             opscel: true,
             others: 'Some'
         },
         {
-            feature: 'Granular permission control (40+ flags)',
+            feature: 'Granular permission control (fine-grained flags)',
             opscel: true,
             others: 'No'
         },
         {
-            feature: 'Email invitation with auto-expiry (7 days)',
+            feature: 'Email invitation onboarding',
             opscel: true,
             others: 'Yes'
         },
@@ -173,12 +168,7 @@ export const teamDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Two-factor authentication (TOTP)',
-            opscel: true,
-            others: 'Some'
-        },
-        {
-            feature: 'Session management (revoke remote sessions)',
+            feature: 'Role-enforced financial boundaries (e.g. sales can quote, never invoice)',
             opscel: true,
             others: 'No'
         }
@@ -186,12 +176,12 @@ export const teamDetail: IFeatureDetail = {
 
     faq: [
         {
-            question: 'What are the 7 role types?',
-            answer: 'Owner (full access), Admin (full except billing), Manager (scheduling + team + reports), Engineer (jobs + certificates assigned to them), Office Staff (customers + jobs + quotes), Read-Only (view-only access), Accountant (invoices + Xero + financial reports). Each role has specific permission sets optimized for job function.'
+            question: 'What are the 8 role types?',
+            answer: 'Super Admin (full system access), Admin (everything except critical billing/business settings), Accounts (invoices, payments and financial reports), Contract Manager (customers, quotes, service contracts and certificates), Sales Manager (full quoting, read-only view of invoices), Site Manager (job scheduling and field ops, no financial access), Engineer (assigned jobs and certificates, field-only), Viewer (read-only across customers, quotes and reports). Each role has a permission set matched to that job function.'
         },
         {
             question: 'Can I customize role permissions?',
-            answer: 'Not per-user, but you can choose from 7 predefined roles with proven permission sets. Custom role creation adds complexity and security risk. Opscel\'s roles cover 95% of contractor team structures. If you need a unique setup, contact support to discuss.'
+            answer: 'Not per-user, but you can choose from 8 predefined roles with proven permission sets covering most contractor team structures. If you need a unique setup, contact support to discuss.'
         },
         {
             question: 'How does multi-engineer assignment work?',
@@ -199,11 +189,11 @@ export const teamDetail: IFeatureDetail = {
         },
         {
             question: 'What happens when a user leaves the company?',
-            answer: 'Deactivate their account immediately—they lose access to dashboard, Telegram bot, and mobile app. Revoke all active sessions remotely. Their historical activity (jobs created, certificates issued) remains in audit log for compliance. Deactivation frees up a user slot for replacement hire.'
+            answer: 'Deactivate their account immediately—they lose access to the dashboard and mobile/field app. Their historical activity (jobs created, certificates issued) remains in the audit log for compliance. Deactivation frees up a user slot for a replacement hire.'
         },
         {
-            question: 'Can I require 2FA for all team members?',
-            answer: 'You can require 2FA for Admin and Owner roles (recommended for security). Other roles can enable 2FA optionally. Mandatory 2FA for all roles depends on your security policy—contact support to enable account-wide enforcement if needed.'
+            question: 'Can a Sales Manager see invoices?',
+            answer: 'Yes, but read-only—Sales Manager can view whether an invoice was paid, but cannot create, edit or post one. That boundary is enforced by the role, not left to a setting someone could get wrong.'
         },
         {
             question: 'What if I exceed my user limit?',

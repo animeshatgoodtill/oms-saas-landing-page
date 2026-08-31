@@ -219,6 +219,15 @@ export const jobsDetail: IFeatureDetail = {
 
     sections: [
         {
+            eyebrow: 'From Wizard to Schedule',
+            title: 'One Job, Three Views, Zero Re-Entry.',
+            description: 'The step-2 wizard, the job card, and the day planner all read the same record — job type, priority, engineers, and time slot flow straight through.',
+            imageSrc: '/images/features/jobs/jobs-hero-mockup.svg',
+            imageAlt: 'Composite view of the job creation wizard on step 2 of 3 with Job Type and Priority fields, a floating job card for JOB-004821 with an In Progress status, and a day planner strip showing three scheduled, in-progress and completed visits',
+            imageWidth: 1200,
+            imageHeight: 800
+        },
+        {
             eyebrow: 'Jobs & Scheduling',
             title: 'A Job Created in Under Two Minutes.',
             description: 'Customer & site, job details, schedule. Pre-filled from the customer record, so there is nothing to retype.',

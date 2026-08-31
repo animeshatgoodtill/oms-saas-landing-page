@@ -6,6 +6,7 @@ export const assetsDetail: IFeatureDetail = {
     subtitle: 'Equipment Register, Automatically',
     heroDescription: 'Fire alarms, extinguishers, emergency lights, EV chargers — every device that lands on a job becomes a tracked asset, automatically. Stop re-keying. Start tracking. Worksheets you already fill on site become the asset register your customer wants to see — same data, no double entry.',
     iconId: 'icon-service-history',
+    screenshotImage: '/images/features/assets/assets-hero-mockup.svg',
 
     featureHighlights: [
         {

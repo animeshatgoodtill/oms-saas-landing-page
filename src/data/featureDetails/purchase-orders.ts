@@ -6,7 +6,7 @@ export const purchaseOrdersDetail: IFeatureDetail = {
     subtitle: 'Opscel Purchase Orders',
     heroDescription: 'Raise a purchase order from a job or from a quote\'s materials take-off, and the order codes, quantities and buy costs land on it automatically — no retyping a parts list you\'ve already priced. Send it to your supplier or subcontractor, and if the order changes afterwards, amend it: the supplier gets Revision 2, and the original stays exactly as it was sent, with its own PDF.',
     iconId: 'icon-price-tag',
-
+    screenshotImage: '/images/features/purchase-orders/purchase-orders-hero-mockup.svg',
 
     sections: [
         {

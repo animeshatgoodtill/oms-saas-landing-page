@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bgWash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F9FB"/>
+      <stop offset="55%" stop-color="#EFEBFA"/>
+      <stop offset="100%" stop-color="#E8E5F5"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#141619" flood-opacity="0.14"/>
+    </filter>
+    <filter id="softShadowSmall" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#141619" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Page wash -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#bgWash)"/>
+
+  <!-- ============ DOMINANT PANEL: Monitoring case card ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="230" y="120" width="620" height="410" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+
+  <!-- Card header row -->
+  <text x="270" y="172" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#6B7280">MONITORING CASE</text>
+  <text x="270" y="203" font-family="ui-monospace, monospace" font-size="22" font-weight="700" fill="#141619">MC-00347</text>
+
+  <!-- Status pill: Open -->
+  <rect x="702" y="150" width="84" height="28" rx="14" fill="#0280C4" fill-opacity="0.12"/>
+  <circle cx="720" cy="164" r="4" fill="#0280C4"/>
+  <text x="730" y="168" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#0280C4">Open</text>
+
+  <!-- Divider -->
+  <line x1="270" y1="226" x2="810" y2="226" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Meta row: site / ARC level -->
+  <text x="270" y="252" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#6B7280">SITE</text>
+  <text x="270" y="274" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">Northgate Retail Park — Unit 4</text>
+
+  <text x="270" y="308" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#6B7280">RESPONSE LEVEL</text>
+  <g>
+    <rect x="270" y="318" width="90" height="26" rx="13" fill="#F59E0B" fill-opacity="0.16"/>
+    <text x="315" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#B45309">Level 3</text>
+  </g>
+
+  <text x="490" y="308" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#6B7280">ARC ACCOUNT</text>
+  <text x="490" y="334" font-family="ui-monospace, monospace" font-size="15" font-weight="600" fill="#141619">SEC-88213</text>
+
+  <line x1="270" y1="362" x2="810" y2="362" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Signal detail rows -->
+  <g font-family="system-ui, sans-serif" font-size="14" fill="#141619">
+    <text x="270" y="396">Intruder signal — Zone 3, motion detector</text>
+    <text x="810" y="396" text-anchor="end" font-family="ui-monospace, monospace" fill="#6B7280">08:14</text>
+    <line x1="270" y1="412" x2="810" y2="412" stroke="#F1F3F5" stroke-width="1"/>
+
+    <text x="270" y="444">Keyholder 1 contacted — attending</text>
+    <text x="810" y="444" text-anchor="end" font-family="ui-monospace, monospace" fill="#6B7280">08:19</text>
+  </g>
+
+  <!-- False-alarm counter chip -->
+  <rect x="270" y="466" width="220" height="30" rx="15" fill="#F1F3F5"/>
+  <text x="286" y="486" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6B7280">False alarms (90d):</text>
+  <text x="470" y="486" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#141619">1 / 2</text>
+
+  <!-- Primary button suggestion -->
+  <rect x="628" y="466" width="182" height="44" rx="12" fill="#0280C4"/>
+  <text x="719" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#FAFAFA">Escalate to Job</text>
+
+  <!-- ============ SECONDARY PANEL: Keyholder call order (floating, lower-left) ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="120" y="500" width="320" height="248" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+  <text x="150" y="534" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="#6B7280">KEYHOLDER CALL ORDER</text>
+  <line x1="150" y1="546" x2="410" y2="546" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <circle cx="164" cy="580" r="13" fill="#0280C4" fill-opacity="0.12"/>
+  <text x="164" y="585" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#0280C4">1</text>
+  <text x="190" y="577" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#141619">J. Whitfield</text>
+  <text x="190" y="595" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">07700 900112</text>
+  <g transform="translate(384,570)">
+    <circle r="12" fill="#F1F3F5"/>
+    <path d="M-4.5 -5.5c0-1 .8-1.8 1.8-1.8h1.4c.7 0 1.3.5 1.5 1.1l.7 2.1c.2.6 0 1.2-.4 1.6l-1 .9c.8 1.7 2.1 3.1 3.9 3.9l.9-1c.4-.4 1-.6 1.6-.4l2.1.7c.6.2 1.1.8 1.1 1.5v1.4c0 1-.8 1.8-1.8 1.8h-.6C-0.4 5.7-5.7.4-5.7-6v-.6z" fill="none" stroke="#6B7280" stroke-width="0" transform="translate(6,6) scale(0.8)"/>
+    <path d="M-3.6 -4.4c0-.8.6-1.4 1.4-1.4h1.1c.6 0 1.1.4 1.2.9l.6 1.7c.2.5 0 1-.3 1.3l-.8.7c.6 1.4 1.7 2.5 3.1 3.1l.7-.8c.3-.3.8-.5 1.3-.3l1.7.6c.5.2.9.6.9 1.2v1.1c0 .8-.6 1.4-1.4 1.4h-.5C-0.3 5.1-4.6.8-4.6-4v-.4z" fill="#6B7280" stroke="none"/>
+  </g>
+
+  <!-- Row 2 -->
+  <circle cx="164" cy="632" r="13" fill="#0280C4" fill-opacity="0.12"/>
+  <text x="164" y="637" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#0280C4">2</text>
+  <text x="190" y="629" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#141619">R. Okafor</text>
+  <text x="190" y="647" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">07700 900487</text>
+  <g transform="translate(384,622)">
+    <circle r="12" fill="#F1F3F5"/>
+    <path d="M-3.6 -4.4c0-.8.6-1.4 1.4-1.4h1.1c.6 0 1.1.4 1.2.9l.6 1.7c.2.5 0 1-.3 1.3l-.8.7c.6 1.4 1.7 2.5 3.1 3.1l.7-.8c.3-.3.8-.5 1.3-.3l1.7.6c.5.2.9.6.9 1.2v1.1c0 .8-.6 1.4-1.4 1.4h-.5C-0.3 5.1-4.6.8-4.6-4v-.4z" fill="#6B7280" stroke="none"/>
+  </g>
+
+  <!-- Row 3 -->
+  <circle cx="164" cy="684" r="13" fill="#F1F3F5"/>
+  <text x="164" y="689" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#6B7280">3</text>
+  <text x="190" y="681" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#141619">S. Marsh</text>
+  <text x="190" y="699" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">07700 900035</text>
+  <g transform="translate(384,674)">
+    <circle r="12" fill="#F1F3F5"/>
+    <path d="M-3.6 -4.4c0-.8.6-1.4 1.4-1.4h1.1c.6 0 1.1.4 1.2.9l.6 1.7c.2.5 0 1-.3 1.3l-.8.7c.6 1.4 1.7 2.5 3.1 3.1l.7-.8c.3-.3.8-.5 1.3-.3l1.7.6c.5.2.9.6.9 1.2v1.1c0 .8-.6 1.4-1.4 1.4h-.5C-0.3 5.1-4.6.8-4.6-4v-.4z" fill="#6B7280" stroke="none"/>
+  </g>
+
+  <!-- ============ ACCENT STRIP: append-only timeline (floating, right edge, vertical) ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="890" y="200" width="232" height="380" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+  <text x="916" y="236" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.4" fill="#6B7280">CASE TIMELINE</text>
+  <line x1="916" y1="248" x2="1096" y2="248" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Timeline spine -->
+  <line x1="928" y1="276" x2="928" y2="520" stroke="#E5E7EB" stroke-width="2"/>
+
+  <!-- Entry 1 -->
+  <circle cx="928" cy="284" r="6" fill="#0280C4"/>
+  <text x="944" y="281" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#141619">Signal received</text>
+  <text x="944" y="299" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">08:14:02</text>
+
+  <!-- Entry 2 -->
+  <circle cx="928" cy="366" r="6" fill="#E5A800"/>
+  <text x="944" y="363" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#141619">Keyholder called</text>
+  <text x="944" y="381" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">08:19:47</text>
+
+  <!-- Entry 3 -->
+  <circle cx="928" cy="448" r="6" fill="#16A34A"/>
+  <text x="944" y="445" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#141619">Attended, all clear</text>
+  <text x="944" y="463" font-family="ui-monospace, monospace" font-size="11" fill="#6B7280">08:41:15</text>
+
+  <!-- Entry 4 (pending, muted) -->
+  <circle cx="928" cy="520" r="6" fill="#F1F3F5" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="944" y="517" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#6B7280">Case closed</text>
+  <text x="944" y="535" font-family="ui-monospace, monospace" font-size="11" fill="#9CA3AF">pending</text>
+
+</svg>

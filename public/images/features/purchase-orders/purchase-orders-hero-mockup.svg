@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bgWash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F9FB"/>
+      <stop offset="55%" stop-color="#EFEBFA"/>
+      <stop offset="100%" stop-color="#E8E5F5"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#141619" flood-opacity="0.14"/>
+    </filter>
+    <filter id="softShadowSmall" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#141619" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- Page wash -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#bgWash)"/>
+
+  <!-- ============ DOMINANT PANEL: PO detail card ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="230" y="160" width="660" height="460" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+
+  <!-- Card header row -->
+  <text x="270" y="215" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#6B7280">PURCHASE ORDER</text>
+  <text x="270" y="246" font-family="ui-monospace, monospace" font-size="22" font-weight="700" fill="#141619">SPO0000085</text>
+
+  <!-- Rev 2 chip -->
+  <rect x="452" y="222" width="60" height="26" rx="13" fill="#F1F3F5"/>
+  <text x="482" y="240" text-anchor="middle" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#6B7280">Rev 2</text>
+
+  <!-- Status pill: Sent -->
+  <rect x="800" y="198" width="70" height="28" rx="14" fill="#0280C4" fill-opacity="0.12"/>
+  <circle cx="817" cy="212" r="4" fill="#0280C4"/>
+  <text x="827" y="216" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#0280C4">Sent</text>
+
+  <!-- PO type toggle: small pill/tab control near header -->
+  <rect x="270" y="264" width="132" height="30" rx="15" fill="#0280C4"/>
+  <text x="336" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FAFAFA">Materials</text>
+
+  <rect x="410" y="264" width="150" height="30" rx="15" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+  <text x="485" y="284" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#6B7280">Subcontract</text>
+
+  <!-- Divider -->
+  <line x1="270" y1="318" x2="850" y2="318" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Meta row: supplier / required by -->
+  <text x="270" y="344" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#6B7280">SUPPLIER</text>
+  <text x="270" y="366" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">Steel Supply Co Ltd</text>
+
+  <text x="620" y="344" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#6B7280">REQUIRED BY</text>
+  <text x="620" y="366" font-family="ui-monospace, monospace" font-size="15" font-weight="600" fill="#141619">05 Sep 2026</text>
+
+  <!-- Line items list -->
+  <g font-family="system-ui, sans-serif" font-size="14" fill="#141619">
+    <text x="270" y="416">Steel channel 100x50 x12</text>
+    <text x="850" y="416" text-anchor="end" font-family="ui-monospace, monospace">£486.00</text>
+    <line x1="270" y1="432" x2="850" y2="432" stroke="#F1F3F5" stroke-width="1"/>
+
+    <text x="270" y="464">Galvanised fixings, mixed ×80</text>
+    <text x="850" y="464" text-anchor="end" font-family="ui-monospace, monospace">£142.30</text>
+    <line x1="270" y1="480" x2="850" y2="480" stroke="#F1F3F5" stroke-width="1"/>
+
+    <text x="270" y="512">Delivery to site</text>
+    <text x="850" y="512" text-anchor="end" font-family="ui-monospace, monospace">£35.00</text>
+    <line x1="270" y1="528" x2="850" y2="528" stroke="#F1F3F5" stroke-width="1"/>
+  </g>
+
+  <line x1="270" y1="548" x2="850" y2="548" stroke="#E5E7EB" stroke-width="1.5"/>
+
+  <!-- Hero total -->
+  <text x="270" y="596" font-family="system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="1.2" fill="#6B7280">ORDER TOTAL</text>
+  <text x="270" y="632" font-family="ui-monospace, monospace" font-size="34" font-weight="700" fill="#141619">£687.90</text>
+
+  <!-- Primary button suggestion -->
+  <rect x="700" y="588" width="150" height="44" rx="12" fill="#0280C4"/>
+  <text x="775" y="615" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#FAFAFA">View Order</text>
+
+  <!-- ============ ACCENT PANEL: supplier email-send confirmation strip, overlapping bottom-left ============ -->
+  <g filter="url(#softShadow)">
+    <rect x="120" y="588" width="380" height="118" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+
+  <!-- Envelope icon -->
+  <g transform="translate(148, 618)">
+    <rect x="0" y="0" width="44" height="32" rx="6" fill="#0280C4" fill-opacity="0.12" stroke="#0280C4" stroke-width="1.4"/>
+    <path d="M2 4 L22 20 L42 4" fill="none" stroke="#0280C4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="206" y="628" font-family="system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1" fill="#6B7280">SENT TO SUPPLIER</text>
+  <text x="206" y="650" font-family="ui-monospace, monospace" font-size="13" font-weight="600" fill="#141619">accounts@steelsupplyco.co.uk</text>
+
+  <!-- Small green checkmark -->
+  <circle cx="464" cy="628" r="15" fill="#16A34A" fill-opacity="0.14"/>
+  <path d="M457 628.5 L462 633.5 L472 622.5" fill="none" stroke="#16A34A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="206" y="676" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Revision 2 &#8226; PDF attached</text>
+
+  <!-- ============ FLOATING TOP-RIGHT CHIP: revision trail cue ============ -->
+  <g filter="url(#softShadowSmall)">
+    <rect x="812" y="108" width="188" height="56" rx="16" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+  </g>
+  <circle cx="844" cy="136" r="14" fill="#E5A800" fill-opacity="0.16"/>
+  <path d="M844 129 L844 137 L849 140" fill="none" stroke="#E5A800" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="866" y="132" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.8" fill="#6B7280">ORIGINAL KEPT</text>
+  <text x="866" y="150" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#141619">Rev 1 PDF</text>
+
+</svg>

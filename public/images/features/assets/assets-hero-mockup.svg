@@ -1,0 +1,163 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Composite illustration of the Opscel asset register: a table of tracked assets with next-service dates, an asset detail card, and a QR tag chip for physical asset tagging.">
+  <title>Opscel Asset Register — hero mockup</title>
+
+  <defs>
+    <linearGradient id="bgWash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7F9FB"/>
+      <stop offset="55%" stop-color="#F0F1FA"/>
+      <stop offset="100%" stop-color="#E8E5F5"/>
+    </linearGradient>
+    <radialGradient id="blob1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D5D0F1" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#D5D0F1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0280C4" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0280C4" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#141619" flood-opacity="0.14"/>
+    </filter>
+    <filter id="chipShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#141619" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <!-- page wash -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#bgWash)"/>
+  <circle cx="150" cy="120" r="220" fill="url(#blob1)"/>
+  <circle cx="1080" cy="700" r="260" fill="url(#blob2)"/>
+  <circle cx="1000" cy="90" r="150" fill="url(#blob1)"/>
+
+  <!-- ===================== Panel A: Asset register table (dominant) ===================== -->
+  <g filter="url(#cardShadow)">
+    <rect x="100" y="170" width="760" height="450" rx="24" fill="#FFFFFF"/>
+  </g>
+  <rect x="100" y="170" width="760" height="450" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- table header -->
+  <text x="132" y="206" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.2" fill="#6B7280">SITE ASSET REGISTER</text>
+  <text x="828" y="206" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#0280C4" text-anchor="end">247 ASSETS</text>
+
+  <text x="140" y="232" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#6B7280">ASSET</text>
+  <text x="560" y="232" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#6B7280">TYPE</text>
+  <text x="700" y="232" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#6B7280">NEXT SERVICE</text>
+  <line x1="132" y1="246" x2="828" y2="246" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- row 1: Fire Alarm Panel — due soon -->
+  <rect x="140" y="270" width="32" height="32" rx="8" fill="#0280C4" fill-opacity="0.12"/>
+  <rect x="150" y="280" width="12" height="3" rx="1" fill="#0280C4"/>
+  <rect x="150" y="286" width="12" height="3" rx="1" fill="#0280C4"/>
+  <rect x="150" y="292" width="8" height="3" rx="1" fill="#0280C4" fill-opacity="0.6"/>
+  <text x="184" y="284" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">Fire Alarm Panel — 8 Zone</text>
+  <text x="184" y="301" font-family="ui-monospace, monospace" font-size="12" fill="#6B7280">AST-01847</text>
+  <text x="560" y="291" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Fire Alarm</text>
+  <circle cx="690" cy="288" r="4" fill="#F59E0B"/>
+  <text x="700" y="292" font-family="ui-monospace, monospace" font-size="13" font-weight="600" fill="#B45309">14 Sep 2026</text>
+  <line x1="132" y1="322" x2="828" y2="322" stroke="#F1F3F5" stroke-width="1"/>
+
+  <!-- row 2: Extinguisher -->
+  <rect x="140" y="344" width="32" height="32" rx="8" fill="#16A34A" fill-opacity="0.12"/>
+  <rect x="153" y="352" width="6" height="16" rx="2" fill="#16A34A"/>
+  <rect x="150" y="350" width="12" height="4" rx="1" fill="#16A34A" fill-opacity="0.7"/>
+  <text x="184" y="358" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">CO2 Extinguisher 5kg</text>
+  <text x="184" y="375" font-family="ui-monospace, monospace" font-size="12" fill="#6B7280">AST-01852</text>
+  <text x="560" y="365" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Extinguisher</text>
+  <text x="700" y="366" font-family="ui-monospace, monospace" font-size="13" fill="#141619">02 Mar 2027</text>
+  <line x1="132" y1="396" x2="828" y2="396" stroke="#F1F3F5" stroke-width="1"/>
+
+  <!-- row 3: EV Charger -->
+  <rect x="140" y="418" width="32" height="32" rx="8" fill="#0280C4" fill-opacity="0.12"/>
+  <path d="M152 424 h12 v10 l-4 8 v-6 h-4 z" fill="#0280C4"/>
+  <text x="184" y="432" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">EV Charger — 7kW</text>
+  <text x="184" y="449" font-family="ui-monospace, monospace" font-size="12" fill="#6B7280">AST-01860</text>
+  <text x="560" y="439" font-family="system-ui, sans-serif" font-size="13" fill="#374151">EV Charger</text>
+  <text x="700" y="440" font-family="ui-monospace, monospace" font-size="13" fill="#141619">18 Jan 2027</text>
+  <line x1="132" y1="470" x2="828" y2="470" stroke="#F1F3F5" stroke-width="1"/>
+
+  <!-- row 4: Distribution Board -->
+  <rect x="140" y="492" width="32" height="32" rx="8" fill="#E5A800" fill-opacity="0.14"/>
+  <rect x="150" y="500" width="12" height="16" rx="2" fill="none" stroke="#B4880A" stroke-width="1.5"/>
+  <line x1="153" y1="504" x2="159" y2="504" stroke="#B4880A" stroke-width="1.5"/>
+  <line x1="153" y1="509" x2="159" y2="509" stroke="#B4880A" stroke-width="1.5"/>
+  <text x="184" y="506" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#141619">Distribution Board — DB2</text>
+  <text x="184" y="523" font-family="ui-monospace, monospace" font-size="12" fill="#6B7280">AST-01873</text>
+  <text x="560" y="513" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Electrical</text>
+  <text x="700" y="514" font-family="ui-monospace, monospace" font-size="13" fill="#141619">30 Nov 2026</text>
+
+  <line x1="132" y1="546" x2="828" y2="546" stroke="#F1F3F5" stroke-width="1"/>
+  <text x="132" y="580" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Built from worksheets your engineers already fill in — </text>
+  <text x="463" y="580" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#0280C4">zero re-keying</text>
+
+  <!-- ===================== Panel B: Asset detail card ===================== -->
+  <g filter="url(#cardShadow)">
+    <rect x="740" y="80" width="310" height="232" rx="20" fill="#FAFAFA"/>
+  </g>
+  <rect x="740" y="80" width="310" height="232" rx="20" fill="#FAFAFA" stroke="#E5E7EB" stroke-width="1"/>
+
+  <text x="768" y="112" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.1" fill="#6B7280">ASSET DETAIL</text>
+
+  <rect x="768" y="126" width="56" height="56" rx="14" fill="#0280C4" fill-opacity="0.12" stroke="#0280C4" stroke-opacity="0.25"/>
+  <rect x="784" y="140" width="24" height="28" rx="3" fill="none" stroke="#0280C4" stroke-width="2"/>
+  <line x1="789" y1="147" x2="803" y2="147" stroke="#0280C4" stroke-width="1.5"/>
+  <line x1="789" y1="153" x2="803" y2="153" stroke="#0280C4" stroke-width="1.5"/>
+  <line x1="789" y1="159" x2="798" y2="159" stroke="#0280C4" stroke-width="1.5"/>
+
+  <text x="836" y="146" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#141619">Fire Alarm Panel</text>
+  <text x="836" y="164" font-family="system-ui, sans-serif" font-size="13" fill="#141619">8-Zone Conventional</text>
+  <text x="836" y="182" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Kentec · Syncro AS K11080M2</text>
+
+  <line x1="768" y1="200" x2="1022" y2="200" stroke="#E5E7EB" stroke-width="1"/>
+
+  <rect x="768" y="216" width="66" height="24" rx="12" fill="#16A34A" fill-opacity="0.12"/>
+  <circle cx="781" cy="228" r="3.5" fill="#16A34A"/>
+  <text x="789" y="232" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#15803D">Active</text>
+
+  <text x="1022" y="232" font-family="ui-monospace, monospace" font-size="12" fill="#6B7280" text-anchor="end">AST-01847</text>
+
+  <text x="768" y="268" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1" fill="#6B7280">SITE</text>
+  <text x="768" y="288" font-family="system-ui, sans-serif" font-size="13" fill="#141619">Riverside House — Plant Room</text>
+
+  <!-- ===================== Panel C: QR tag chip ===================== -->
+  <g filter="url(#chipShadow)">
+    <rect x="758" y="478" width="192" height="212" rx="20" fill="#FFFFFF"/>
+  </g>
+  <rect x="758" y="478" width="192" height="212" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- QR-motif grid (decorative, not a scannable code) -->
+  <g transform="translate(798,502)">
+    <rect x="0" y="0" width="112" height="112" rx="8" fill="#F7F9FB"/>
+    <!-- finder pattern: top-left -->
+    <rect x="8" y="8" width="26" height="26" rx="3" fill="none" stroke="#141619" stroke-width="4"/>
+    <rect x="16" y="16" width="10" height="10" rx="2" fill="#141619"/>
+    <!-- finder pattern: top-right -->
+    <rect x="78" y="8" width="26" height="26" rx="3" fill="none" stroke="#141619" stroke-width="4"/>
+    <rect x="86" y="16" width="10" height="10" rx="2" fill="#141619"/>
+    <!-- finder pattern: bottom-left -->
+    <rect x="8" y="78" width="26" height="26" rx="3" fill="none" stroke="#141619" stroke-width="4"/>
+    <rect x="16" y="86" width="10" height="10" rx="2" fill="#141619"/>
+    <!-- scattered data modules -->
+    <rect x="44" y="10" width="8" height="8" fill="#141619"/>
+    <rect x="60" y="10" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="44" y="24" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="44" y="44" width="8" height="8" fill="#141619"/>
+    <rect x="60" y="44" width="8" height="8" fill="#141619"/>
+    <rect x="76" y="44" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="92" y="44" width="8" height="8" fill="#141619"/>
+    <rect x="44" y="60" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="60" y="60" width="8" height="8" fill="#0280C4"/>
+    <rect x="76" y="60" width="8" height="8" fill="#141619"/>
+    <rect x="44" y="76" width="8" height="8" fill="#141619"/>
+    <rect x="60" y="78" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="78" y="78" width="8" height="8" fill="#141619"/>
+    <rect x="94" y="78" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="44" y="92" width="8" height="8" fill="#141619" fill-opacity="0.55"/>
+    <rect x="60" y="94" width="8" height="8" fill="#141619"/>
+    <rect x="78" y="94" width="8" height="8" fill="#141619"/>
+  </g>
+
+  <text x="854" y="640" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.1" fill="#6B7280" text-anchor="middle">TAG</text>
+  <text x="854" y="662" font-family="ui-monospace, monospace" font-size="14" font-weight="600" fill="#141619" text-anchor="middle">AST-01847</text>
+
+</svg>

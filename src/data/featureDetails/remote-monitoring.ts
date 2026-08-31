@@ -6,6 +6,7 @@ export const remoteMonitoringDetail: IFeatureDetail = {
     subtitle: 'Opscel Remote Monitoring',
     heroDescription: 'Not every ARC call needs an engineer on site. Remote Monitoring gives your office and monitoring staff a dedicated case type — separate from jobs, off the planner, with its own number — for the recurring signals, panel faults and phoned-in issues you handle without dispatching a van. Escalate to a real job the moment one is actually needed, without losing the case history.',
     iconId: 'icon-condition-gauge',
+    screenshotImage: '/images/features/remote-monitoring/remote-monitoring-hero-mockup.svg',
 
     sections: [
         {

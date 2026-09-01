@@ -5,10 +5,18 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import SectionTitle from "./SectionTitle";
 import { faqs } from "@/data/faq";
 import { companyDetails } from "@/data/companyDetails";
+import { generateFAQSchema } from "@/lib/schema";
 
 const FAQ: React.FC = () => {
     return (
         <section id="faq" className="py-10 lg:py-20">
+            {/* Structured data for the FAQ actually rendered below — derived
+                from the same `faqs` array so it can never drift from what's
+                on the page. */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+            />
             <div className="flex flex-col lg:flex-row gap-10">
                 <div className="">
                     <p className="hidden lg:block text-foreground-accent">FAQ&apos;S</p>

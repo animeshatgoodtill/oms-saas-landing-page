@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
+import BeforeAfter from "@/components/BeforeAfter";
 import FeatureShowcase from "@/components/FeatureShowcase";
+import Stats from "@/components/Stats";
 import BackofficeHero from "@/components/BackofficeHero";
 import Benefits from "@/components/Benefits/Benefits";
 import Pricing from "@/components/Pricing/Pricing";
@@ -14,7 +16,9 @@ const HomePage: React.FC = () => {
     <>
       <Hero />
       <TrustStrip />
+      <BeforeAfter />
       <FeatureShowcase />
+      <Stats />
       <BackofficeHero />
 
       <Container>

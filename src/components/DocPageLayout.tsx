@@ -8,12 +8,21 @@ import Link from 'next/link';
 import Container from '@/components/Container';
 import DocSidebar from '@/components/DocSidebar';
 import { IDocGuide, IDocSubsection } from '@/types';
+import { siteDetails } from '@/data/siteDetails';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 interface DocPageLayoutProps {
   guide: IDocGuide;
 }
 
 const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
+  const siteUrl = siteDetails.siteUrl.replace(/\/$/, '');
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Documentation', url: `${siteUrl}/docs` },
+    { name: guide.title ?? 'Guide', url: `${siteUrl}/docs/${guide.slug}` },
+  ]);
+
   const [activeSection, setActiveSection] = useState('overview');
   const [targetSectionId, setTargetSectionId] = useState<string | null>(null);
   const [targetAnchorId, setTargetAnchorId] = useState<string | null>(null);
@@ -142,6 +151,10 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
 
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Header */}
       <section className="pt-32 md:pt-40 pb-12 bg-hero-background border-b border-border">
         <Container>

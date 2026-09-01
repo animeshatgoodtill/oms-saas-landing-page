@@ -40,6 +40,9 @@ const Hero: React.FC = () => {
                                 Start free trial
                             </a>
                         </div>
+                        <p className="mt-3 text-sm text-muted-foreground">
+                            {heroDetails.ctaMicrocopy}
+                        </p>
                         <div className="mt-6 flex items-center gap-3">
                             <div className="flex -space-x-2">
                                 <div className="w-8 h-8 rounded-full border-2 border-hero-background bg-blue-100 text-blue-800 flex items-center justify-center text-[0.6rem] font-bold">FS</div>
@@ -53,6 +56,24 @@ const Hero: React.FC = () => {
 
                     {/* Right Column - Hero Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
+                        {/* Decorative gradient blob — fixed-size wrapper so it can never affect layout or become LCP */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-0 -z-10 w-full h-full max-w-[625px] max-h-[700px] mx-auto lg:mx-0 pointer-events-none overflow-hidden"
+                        >
+                            <div
+                                className="absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full opacity-[0.2]"
+                                style={{
+                                    background: 'radial-gradient(circle, var(--secondary) 0%, transparent 70%)',
+                                }}
+                            />
+                            <div
+                                className="absolute -bottom-16 -left-10 w-[360px] h-[360px] rounded-full opacity-[0.18]"
+                                style={{
+                                    background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)',
+                                }}
+                            />
+                        </div>
                         <Image
                             src={heroDetails.heroImageSrc}
                             width={950}

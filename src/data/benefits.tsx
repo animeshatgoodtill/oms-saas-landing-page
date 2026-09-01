@@ -4,7 +4,7 @@ import { IBenefit } from "@/types"
 
 export const benefits: IBenefit[] = [
     {
-        title: "Nine certificate types. One system.",
+        title: "17 certificate types. One system.",
         description: "Your engineer completes a job, Opscel generates the certificate — formatted to the correct British Standard, every mandatory field validated before it leaves.",
         bullets: [
             {

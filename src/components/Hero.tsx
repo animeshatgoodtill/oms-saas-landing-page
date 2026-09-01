@@ -18,6 +18,10 @@ const Hero: React.FC = () => {
                         <p className="text-base md:text-lg font-medium text-foreground/70 mb-4">
                             {heroDetails.categoryLine}
                         </p>
+                        <div className="inline-flex items-center gap-2 bg-card border border-border rounded-full px-4 py-1.5 mb-5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                            <span className="text-sm font-bold text-foreground">Built for BAFE, NICEIC, ECA &amp; FIA-registered contractors</span>
+                        </div>
                         <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] xl:text-6xl font-bold text-foreground leading-tight">
                             {heroDetails.heading}
                         </h1>
@@ -35,9 +39,10 @@ const Hero: React.FC = () => {
                             </a>
                             <a
                                 href="https://app.opscel.com/handler/sign-up"
-                                className="bg-secondary text-white hover:bg-secondary/90 px-8 py-3 rounded-full font-medium transition-colors inline-block"
+                                className="bg-secondary text-white hover:bg-secondary/90 px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2"
                             >
                                 Start free trial
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                             </a>
                         </div>
                         <p className="mt-3 text-sm text-muted-foreground">
@@ -56,24 +61,6 @@ const Hero: React.FC = () => {
 
                     {/* Right Column - Hero Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
-                        {/* Decorative gradient blob — fixed-size wrapper so it can never affect layout or become LCP */}
-                        <div
-                            aria-hidden="true"
-                            className="absolute inset-0 -z-10 w-full h-full max-w-[625px] max-h-[700px] mx-auto lg:mx-0 pointer-events-none overflow-hidden"
-                        >
-                            <div
-                                className="absolute -top-10 -right-10 w-[420px] h-[420px] rounded-full opacity-[0.2]"
-                                style={{
-                                    background: 'radial-gradient(circle, var(--secondary) 0%, transparent 70%)',
-                                }}
-                            />
-                            <div
-                                className="absolute -bottom-16 -left-10 w-[360px] h-[360px] rounded-full opacity-[0.18]"
-                                style={{
-                                    background: 'radial-gradient(circle, var(--primary) 0%, transparent 70%)',
-                                }}
-                            />
-                        </div>
                         <Image
                             src={heroDetails.heroImageSrc}
                             width={950}

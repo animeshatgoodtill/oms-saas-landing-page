@@ -2,6 +2,44 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Container from '@/components/Container';
+import { generateFAQSchema } from '@/lib/schema';
+
+// Single source of truth for the FAQ section rendered further down the page
+// — also fed straight into the FAQPage JSON-LD so the two can never drift.
+const faqs = [
+  {
+    question: 'Is This For My Business Size?',
+    answer: 'The software fits teams with five to fifty employees. It works well for small British fire safety firms that want to grow. Starter plans help micro-firms with up to three users. Business plans support larger teams with more needs.',
+  },
+  {
+    question: 'Do Engineers Need A New Phone?',
+    answer: 'No, they can use the phones they already own. The Telegram bot works on most modern devices. A web app also exists for those who do not use Telegram. No big app store downloads are required.',
+  },
+  {
+    question: 'Can I Use It In A Basement?',
+    answer: 'The product catalog stays saved on the device. Engineers can add parts and log work without a signal. Data will sync as soon as they get back to the van. This offline mode is vital for fire safety work in commercial buildings.',
+  },
+  {
+    question: 'Does It Link To Xero?',
+    answer: 'Yes, it has a one-click link to Xero and QuickBooks. Invoices move over with all tax details. Payment status updates in the job system automatically. This prevents the need for double entry.',
+  },
+  {
+    question: 'How Long Is The Setup?',
+    answer: 'A guided checklist walks you through every step. Most firms are up and running very fast. The 4-step wizard makes creating customers a breeze. You will not feel overwhelmed by the start.',
+  },
+  {
+    question: 'What About BAFE or FIA Registration?',
+    answer: 'The system creates certificates that follow British Standards. It supports BS 5839 for fire alarm systems. These forms match official model types perfectly. This helps you pass audits with ease.',
+  },
+  {
+    question: 'Is My Data Safe?',
+    answer: 'All data stays in UK-based data centers. The system follows GDPR rules for privacy. It uses bank-level security for accounting links. You have full control over your records.',
+  },
+  {
+    question: 'Can I Try It For Free?',
+    answer: 'A 30-day free trial is available on all plans (a card is required at signup, but you are not charged until day 30). You get full access to every feature during the trial, and every new plan gets 50% off its base price for the first 3 months on top of that.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Best Job Management Software For UK Fire Safety Contractors | Opscel',
@@ -15,6 +53,10 @@ export const metadata: Metadata = {
 const FireSafetyContractorsPage: React.FC = () => {
   return (
     <article className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+      />
       {/* Hero Section */}
       <section className="bg-hero-background border-b border-border pt-32 md:pt-40 pb-16">
         <Container>
@@ -255,61 +297,14 @@ const FireSafetyContractorsPage: React.FC = () => {
             </h2>
 
             <div className="space-y-6">
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Is This For My Business Size?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  The software fits teams with five to fifty employees. It works well for small British fire safety firms that want to grow. Starter plans help micro-firms with up to three users. Business plans support larger teams with more needs.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Do Engineers Need A New Phone?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  No, they can use the phones they already own. The Telegram bot works on most modern devices. A web app also exists for those who do not use Telegram. No big app store downloads are required.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Can I Use It In A Basement?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  The product catalog stays saved on the device. Engineers can add parts and log work without a signal. Data will sync as soon as they get back to the van. This offline mode is vital for fire safety work in commercial buildings.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Does It Link To Xero?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  Yes, it has a one-click link to Xero and QuickBooks. Invoices move over with all tax details. Payment status updates in the job system automatically. This prevents the need for double entry.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">How Long Is The Setup?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  A guided checklist walks you through every step. Most firms are up and running very fast. The 4-step wizard makes creating customers a breeze. You will not feel overwhelmed by the start.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">What About BAFE or FIA Registration?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  The system creates certificates that follow British Standards. It supports BS 5839 for fire alarm systems. These forms match official model types perfectly. This helps you pass audits with ease.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Is My Data Safe?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  All data stays in UK-based data centers. The system follows GDPR rules for privacy. It uses bank-level security for accounting links. You have full control over your records.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-heading font-bold text-xl text-foreground mb-3">Can I Try It For Free?</h3>
-                <p className="text-lg leading-relaxed text-foreground-accent">
-                  A 30-day free trial is available on all plans (a card is required at signup, but you are not charged until day 30). You get full access to every feature during the trial, and every new plan gets 50% off its base price for the first 3 months on top of that.
-                </p>
-              </div>
+              {faqs.map((faq) => (
+                <div key={faq.question}>
+                  <h3 className="font-heading font-bold text-xl text-foreground mb-3">{faq.question}</h3>
+                  <p className="text-lg leading-relaxed text-foreground-accent">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
 

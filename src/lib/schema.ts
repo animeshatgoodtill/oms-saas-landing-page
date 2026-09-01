@@ -1,5 +1,6 @@
 import { IBlogPostMeta, IAuthor } from '@/types';
 import { siteDetails } from '@/data/siteDetails';
+import { tiers } from '@/data/pricing';
 
 export function generateArticleSchema(post: IBlogPostMeta, author: IAuthor) {
     return {
@@ -67,6 +68,26 @@ export function generateOrganizationSchema() {
             email: 'hello@opscel.com',
             contactType: 'sales',
         },
+    };
+}
+
+export function generateSoftwareApplicationSchema() {
+    const siteUrl = siteDetails.siteUrl.replace(/\/$/, '');
+
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: siteDetails.siteName,
+        url: siteUrl,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        offers: tiers.map(tier => ({
+            '@type': 'Offer',
+            name: tier.name,
+            price: String(tier.priceGBP),
+            priceCurrency: 'GBP',
+            url: `${siteUrl}/#pricing`,
+        })),
     };
 }
 

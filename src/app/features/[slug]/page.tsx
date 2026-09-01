@@ -1,4 +1,5 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import FAQAccordion from '@/components/FAQAccordion';
@@ -7,6 +8,8 @@ import SectionHeading from '@/components/SectionHeading';
 import CtaBox from '@/components/CtaBox';
 import FeatureSpotlight from '@/components/FeatureSpotlight';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
+import { siteDetails } from '@/data/siteDetails';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 interface FeatureDetailPageProps {
   params: {
@@ -19,6 +22,26 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+export async function generateMetadata({ params }: FeatureDetailPageProps): Promise<Metadata> {
+  const feature = getFeatureBySlug(params.slug);
+
+  if (!feature) {
+    return {};
+  }
+
+  const title = `${feature.title} | ${siteDetails.siteName}`;
+  const description = feature.heroDescription;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+  };
+}
+
 const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
   const feature = getFeatureBySlug(params.slug);
 
@@ -26,8 +49,25 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
     notFound();
   }
 
+  const siteUrl = siteDetails.siteUrl.replace(/\/$/, '');
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: siteUrl },
+    { name: 'Features', url: `${siteUrl}/features` },
+    { name: feature.title, url: `${siteUrl}/features/${feature.slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {feature.faq && feature.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(feature.faq)) }}
+        />
+      )}
       <PageHero
         backLink={{ label: 'All Features', href: '/features' }}
         eyebrow={feature.subtitle}

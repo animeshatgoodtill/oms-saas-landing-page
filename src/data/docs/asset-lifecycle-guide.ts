@@ -4,7 +4,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'Track equipment from first installation to decommissioning — QR tag scanning, automatic register updates from worksheets, full service history, and pre-loading into recurring contract visits.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -60,12 +60,12 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">The office can review, edit, and commit staged rows at any time; committing a row that services a Draft asset also activates it.</p><p class="mb-4">Five worksheets drive the register:</p>',
+                    content: '<p class="mb-4">The office can review, edit, and commit staged rows at any time; committing a row that services a Draft asset also activates it.</p><p class="mb-4">Five of the thirteen worksheets drive the register:</p>',
                     bullets: [
                         '<strong>Extinguisher Service Worksheet</strong> — extinguishers, fire blankets, hose reels',
                         '<strong>Fire Alarm Service Worksheet</strong> — panels, detectors, call points, sounders, beacons',
                         '<strong>Fire Alarm Commissioning Worksheet</strong> — panels and their devices, on first install',
-                        '<strong>Remedials Scope of Works</strong> — equipment replaced or added as remedial work',
+                        '<strong>Intruder Alarm Zone List</strong> — intruder panels, detectors, contacts, PA buttons and keypads',
                         '<strong>Asset Service Worksheet</strong> — everything else (see below)',
                     ],
                 },
@@ -137,10 +137,10 @@ export const assetLifecycleGuide: IDocGuide = {
         },
         {
             id: 'asset-preloading',
-            title: 'Asset Pre-Loading (Service Contracts)',
+            title: 'Asset Pre-Loading',
             subsections: [
                 {
-                    content: '<p class="mb-4">When a contract visit generates a job, the attached worksheets pre-load with the site\'s registered assets — extinguishers into the Extinguisher worksheet, alarm devices into the Fire Alarm worksheet, and everything else into the Asset Service Worksheet when it\'s attached. Each asset appears exactly once, on the most specific worksheet available.</p><p>Only details actually on record pre-fill — blank fields stay honestly blank rather than guessing.</p>',
+                    content: '<p class="mb-4">When a job is created at a site that has an asset register — a contract visit, a job raised by hand, or a job converted from a quote — the attached worksheets pre-load with the site\'s registered assets — extinguishers into the Extinguisher worksheet, alarm devices into the Fire Alarm worksheet, and everything else into the Asset Service Worksheet when it\'s attached. Each asset appears exactly once, on the most specific worksheet available.</p><p>Only details actually on record pre-fill — blank fields stay honestly blank rather than guessing.</p>',
                 },
             ],
         },

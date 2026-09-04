@@ -4,7 +4,7 @@ export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
     description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -348,12 +348,21 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Filling Worksheets',
                     content: `
                         <p class="mb-4">
-                            Worksheets are custom forms created by your admin for specific job types (e.g., Fire Alarm Service, Extinguisher Inspection, Remedial Scope).
+                            Worksheets are the standard forms Opscel attaches to your job &mdash; Fire Alarm Service, Fire Extinguisher Service, Intruder Alarm Zone List, Remedials Scope of Works and others. You don't pick one: the right sheet is already on the job when you open it.
+                        </p>
+                        <p class="mb-4">
+                            Where the site has an asset register, the equipment list arrives <strong>already filled in</strong>, each row badged as carried over. Confirm those rows rather than re-typing them, and add a row only for equipment that isn't listed. If something listed genuinely isn't there any more, mark it <strong>Missing</strong> rather than deleting the row.
+                        </p>
+                        <p class="mb-4">
+                            Equipment you add isn't on the asset register until the office registers it. That's deliberate &mdash; you can add equipment you find on site, but you can't edit or delete it afterwards, so the office checks new items before they become permanent records.
+                        </p>
+                        <p class="mb-4">
+                            One field to watch: <strong>Asset ref</strong> takes the asset's <code>AST-</code> number or a scanned tag. A serial number won't match anything &mdash; the row registers nothing and nobody is told. If you don't have the number, leave it blank.
                         </p>
                     `,
                     steps: [
                         { step: 'Tap "Job Sheets" or "Checklists" from the job hub', description: '' },
-                        { step: 'Select the worksheet type to fill', description: '' },
+                        { step: 'Open the worksheet already on the job (usually one, occasionally two)', description: '' },
                         { step: 'Complete each section in order', description: 'Required fields are marked with asterisks' },
                         { step: 'Add photos or notes where prompted', description: '' },
                         { step: 'The form auto-saves as you go', description: 'You\'ll see "Saved" indicators' },

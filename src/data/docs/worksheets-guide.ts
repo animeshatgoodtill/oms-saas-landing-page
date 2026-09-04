@@ -4,7 +4,7 @@ export const worksheetsGuide: IDocGuide = {
     slug: 'worksheets',
     title: 'Worksheets - Assigning & Filling',
     description: 'Learn how job sheets work in Opscel. Opscel auto-attaches the right built-in worksheet to every job based on its vertical and service type, and engineers fill it on-site. From fire alarm service sheets to asset service logs, capture standardized data with offline support.',
-    lastUpdated: '2026-08-30',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -91,8 +91,8 @@ export const worksheetsGuide: IDocGuide = {
                     content: '<p>You do not normally choose a worksheet when creating a job. Opscel auto-attaches exactly <strong>one</strong> worksheet to every new job, based on:</p>',
                     bullets: [
                         '<strong>The job\'s effective vertical</strong> — the job\'s own vertical if set, otherwise the business\'s vertical (e.g. Fire Safety)',
-                        '<strong>The job\'s service type</strong> — if that service type is mapped (via Settings → Job Sheet Templates) to a specific worksheet type, that mapped type is attached',
-                        '<strong>Otherwise, the vertical\'s basic default</strong> — Fire Safety jobs default to the Site Attendance sheet; everything else defaults to the Basic Job Sheet'
+                        '<strong>The job\'s service type</strong> — Opscel ships with the common service types already mapped, so a fire alarm service job gets the <strong>Fire Alarm Service</strong> worksheet, an extinguisher service job gets the <strong>Fire Extinguisher Service</strong> worksheet, and intruder alarm installation or service jobs get the <strong>Intruder Alarm Zone List</strong>. You can change or extend these mappings in Settings → Job Sheet Templates.',
+                        '<strong>Otherwise, the vertical\'s basic default</strong> — a Fire Safety job whose service type isn\'t mapped falls back to the Site Attendance sheet; everything else falls back to the Basic Job Sheet. With the shipped mappings in place, most fire and security service jobs never reach this fallback.'
                     ]
                 },
                 {
@@ -100,7 +100,7 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'It Replaces, It Doesn\'t Stack',
-                    content: '<p>If a mapped worksheet type applies, it <strong>replaces</strong> the vertical\'s basic default — a job gets one auto-attached worksheet, not two. This is deliberate: customer sign-off lives on each worksheet, and having a single sheet per job keeps that sign-off unambiguous.</p>'
+                    content: '<p class="mb-4">If a mapped worksheet type applies, it <strong>replaces</strong> the vertical\'s basic default — a job gets one auto-attached worksheet, not two. This is deliberate: customer sign-off lives on each worksheet, and having a single sheet per job keeps that sign-off unambiguous.</p><p class="mb-4">If you serviced fire alarms, extinguishers or intruder alarms before September 2026, you will notice the attendance sheet is no longer the sheet you get — the specialised worksheet takes its place. <strong>Nothing is lost:</strong> each specialised worksheet carries its own customer signature section, so on-site sign-off works exactly as before. If you still want the attendance sheet on a particular job, add it via <strong>Add Worksheet</strong>.</p><p>(Separately, logging a Major or Critical defect adds a Remedials Scope of Works sheet to the job. That is a different mechanism, and it does add a second sheet.)</p>'
                 },
                 {
                     title: 'Adding an Additional Worksheet Manually',
@@ -132,6 +132,14 @@ export const worksheetsGuide: IDocGuide = {
                         '<strong>Status:</strong> Draft → Completed',
                         '<strong>Last saved:</strong> Timestamp of most recent auto-save'
                     ]
+                },
+                {
+                    title: 'Equipment Already Listed On The Sheet',
+                    content: '<p class="mb-4">If the site has an asset register, the equipment list arrives <strong>already filled in</strong>, with each row badged as carried over. Work down it and confirm what is there rather than typing it again — add a row only for equipment that is not listed.</p><p class="mb-4">It is filtered to the equipment types that worksheet manages, so a fire alarm visit does not arrive carrying every extinguisher on site. If the job has two worksheets, each item appears on one of them only.</p><p>If a listed item genuinely is not at the site any more, mark it <strong>Missing</strong> rather than deleting the row — that tells the office to take it off the register, whereas a deleted row simply goes unrecorded.</p>'
+                },
+                {
+                    title: 'The Asset Ref Column',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Asset ref takes the asset number, or a scanned tag — not a serial number.</strong> Enter the <code>AST-XXXXXX</code> number from the register, or scan the equipment\'s tag. A serial number, model number or the customer\'s own label will not match anything: the row stays on the worksheet but registers nothing against the existing asset, and <strong>nobody is told</strong>. If you do not have the asset number to hand, leave the column blank — a blank row is recorded as new equipment for the office to review, which is recoverable. A wrong reference is not.</p></div>'
                 },
                 {
                     title: 'Section-by-Section Completion',
@@ -228,7 +236,7 @@ export const worksheetsGuide: IDocGuide = {
                     title: 'For Admins',
                     content: '',
                     bullets: [
-                        '<strong>Let auto-attach do the work:</strong> map service types to the right worksheet type once, in Settings → Job Sheet Templates, and every future job of that type gets the correct sheet without anyone choosing it.',
+                        '<strong>Check the mappings before you change them:</strong> the common fire and security service types are mapped out of the box, so most businesses need to do nothing. Open Settings → Job Sheet Templates only when you want a different sheet for a service type — for example pointing fire alarm servicing at the Combined BS 5839 &amp; BAFE SP203 Jobsheet.',
                         '<strong>Add a second worksheet sparingly:</strong> most jobs need only the auto-attached sheet. Add another only when the job genuinely needs a second, distinct record.',
                         '<strong>Know which types promote assets:</strong> not every worksheet type does — check the worksheet\'s view page for a promotion action before assuming it will build your asset register.'
                     ]
@@ -249,6 +257,10 @@ export const worksheetsGuide: IDocGuide = {
             id: 'troubleshooting',
             title: 'Troubleshooting',
             subsections: [
+                {
+                    title: 'A Job Got a Different Worksheet Than It Used To',
+                    content: '<p><strong>Problem:</strong> Fire alarm, extinguisher or intruder alarm jobs now attach a specialised worksheet where they used to attach the attendance sheet.</p><p><strong>Why:</strong> these service types are mapped by default from September 2026.</p><p><strong>Fix:</strong> nothing is broken — the specialised sheet carries its own signature section, and it also records equipment to your asset register, which the attendance sheet never did. To point a service type at a different sheet, change the mapping in Settings → Job Sheet Templates. Mappings only apply to jobs created after the change.</p>'
+                },
                 {
                     title: 'Wrong Worksheet Type Attached to a Job',
                     content: '<p><strong>Problem:</strong> A job got the Basic Job Sheet instead of the vertical-specific worksheet you expected.</p><p><strong>Check:</strong></p>',

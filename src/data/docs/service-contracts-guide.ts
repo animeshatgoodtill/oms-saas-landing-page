@@ -4,7 +4,7 @@ export const serviceContractsGuide: IDocGuide = {
     slug: 'service-contracts',
     title: 'Service Contracts & Multi-Site Agreements',
     description: 'Set up recurring service contracts and group multi-site customers into agreements. Learn the three ways to create a contract, how fixed-anchor scheduling works, and how to bulk-create across sites.',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -122,6 +122,19 @@ export const serviceContractsGuide: IDocGuide = {
                     title: 'Editing the Start Date Safely',
                     content: '<p class="mb-4">To move the cadence anchor: <strong>contract → Details → Schedule → Edit → change start date → Review start-date change</strong>. You\'ll see a live preview of how future due dates move; check it, then <strong>Confirm new start date</strong>. Already-generated visits are locked and never moved or duplicated. If the cadence matches a statutory interval (e.g. BS 5839 6- or 12-monthly), you\'ll get an extra compliance warning before you confirm.</p>'
                 }
+            ]
+        },
+        {
+            id: 'generated-visit-contents',
+            title: 'What Each Generated Visit Carries',
+            content: '<p class="mb-4">Every job a contract generates goes through the same worksheet auto-attach as any other job, so the same worksheet type lands on every visit and you get a consistent record across the life of the contract.</p>',
+            subsections: [
+                {
+                    content: '<p class="mb-4">Where the site has an asset register and your plan includes the asset module, the equipment is <strong>already listed</strong> on that worksheet when the engineer opens it, badged as carried over. It is filtered to the equipment types that worksheet manages, and each item appears on one worksheet only even when the visit carries two.</p><p>On a second and subsequent visit, what the engineer recorded last time carries forward as well, so the list reflects the site as it was left rather than as it was first imported.</p>'
+                },
+                {
+                    content: '<p>See <a href="/docs/worksheets#auto-attach" class="text-secondary hover:underline">Worksheets</a> for which sheet a service type attaches, and <a href="/docs/asset-tracking#which-worksheets" class="text-secondary hover:underline">Asset Tracking</a> for which worksheets record equipment to the register.</p>'
+                },
             ]
         },
         {

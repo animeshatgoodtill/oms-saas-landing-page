@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="attachTitle attachDesc" font-family="Manrope, 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
   <title id="attachTitle">How a job gets its worksheet</title>
-  <desc id="attachDesc">A new fire-safety job is created. Opscel resolves its effective vertical and service type, looks up the templates mapping, and auto-attaches exactly one worksheet from the registry of built-in schemas: Fire Safety Attendance, because it is mapped to that service type. If nothing is mapped, the vertical's basic default is used instead. This replaces any earlier default rather than adding a second sheet. Afterwards, an admin can still open the Assign Job Sheet modal to manually add one more sheet type from the registry, filtered to the business's enabled verticals.</desc>
+  <desc id="attachDesc">A new fire-safety job is created. Opscel resolves its effective vertical and service type, looks up the templates mapping, and auto-attaches exactly one worksheet from the registry of built-in schemas: Fire Alarm Service, because that service type ships already mapped to it. If nothing is mapped, the vertical's basic default is used instead. This replaces any earlier default rather than adding a second sheet. Afterwards, an admin can still open the Assign Job Sheet modal to manually add one more sheet type from the registry, filtered to the business's enabled verticals.</desc>
 
   <rect x="8" y="8" width="1024" height="444" rx="16" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1"/>
 
@@ -32,9 +32,9 @@
   <rect x="576" y="44" width="240" height="132" rx="10" fill="#FFFFFF" stroke="#304FFF" stroke-width="1.5"/>
   <text x="596" y="68" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#304FFF">AUTO-ATTACHED</text>
   <line x1="596" y1="76" x2="796" y2="76" stroke="#D4D4D4" stroke-width="1"/>
-  <text x="596" y="98" font-size="12" font-weight="700" fill="#171717">Fire Safety Attendance</text>
-  <text x="596" y="116" font-size="10" fill="#737373">Matched: service_types[] maps</text>
-  <text x="596" y="130" font-size="10" fill="#737373">"Fire Alarm Servicing" to this type</text>
+  <text x="596" y="98" font-size="12" font-weight="700" fill="#171717">Fire Alarm Service</text>
+  <text x="596" y="116" font-size="10" fill="#737373">Mapped by default: service_types[]</text>
+  <text x="596" y="130" font-size="10" fill="#737373">maps "Fire Alarm Service" here</text>
   <rect x="596" y="140" width="200" height="24" rx="6" fill="#EEF1FF"/>
   <text x="606" y="156" font-size="9.5" fill="#304FFF">One sheet per job &#8212; REPLACES default</text>
 

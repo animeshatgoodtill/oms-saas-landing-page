@@ -4,7 +4,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -21,7 +21,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'which-worksheets',
             title: 'Which Worksheets Create Assets',
-            content: '<p class="mb-4"><strong>Five of the eight.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
+            content: '<p class="mb-4"><strong>Five of the thirteen.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
             subsections: [
                 {
                     table: {
@@ -30,19 +30,25 @@ export const assetTrackingGuide: IDocGuide = {
                             ['Fire Alarm Service', '✅'],
                             ['Fire Alarm Commissioning', '✅'],
                             ['Fire Extinguisher Service', '✅'],
+                            ['Intruder Alarm Zone List', '✅'],
                             ['Asset Service', '✅ (any equipment type)'],
-                            ['Remedials Scope of Works', '✅'],
+                            ['<strong>Remedials Scope of Works</strong>', '❌'],
                             ['Site Attendance / Inspection &amp; Servicing', '❌'],
                             ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],
                             ['Basic Job Sheet', '❌'],
+                            ['CCTV / Intruder / Access Control Commissioning', '❌'],
+                            ['Security Risk Assessment', '❌'],
                         ],
                     },
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Combined BS 5839/SP203 sheet does not register assets.</strong> If your fire alarm servicing runs on that sheet, or on Site Attendance, the devices will not reach your register no matter how completely the engineer fills it in. Use the <strong>Fire Alarm Service</strong> worksheet for the devices, or add them another way.</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Remedials Scope of Works sheet does not register assets.</strong> It is a scope document — it records what needs doing so it can be quoted, not what equipment is on site. An earlier version of this page listed it as registering assets; that was incorrect. If you relied on it to build your register, those items were never added: record equipment on the <strong>Asset Service</strong> worksheet, or bring it in under <strong>Data Management → Import</strong>.</p></div>',
                 },
                 {
-                    content: '<p class="mb-4">You can always check the current list in the app: <strong>Settings → Asset Tracking</strong>, under <em>&quot;Currently Supported Worksheets&quot;</em>.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/auto-register-toggle.webp" alt="Settings → Asset Tracking screen, showing the Auto-register on worksheet completion toggle and the Currently Supported Worksheets box listing the four sheets that register assets" class="w-full rounded-lg border border-border shadow-lg" /></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Combined BS 5839/SP203 sheet does not register assets.</strong> Fire alarm servicing jobs now attach the <strong>Fire Alarm Service</strong> worksheet by default, which does register devices — so most businesses are already covered. But if you have deliberately pointed your fire alarm servicing at the Combined BS 5839 &amp; BAFE SP203 Jobsheet, the devices will not reach your register no matter how completely the engineer fills it in. Keep the Fire Alarm Service worksheet on those jobs as a second sheet, or add the devices another way.</p></div>',
+                },
+                {
+                    content: '<p class="mb-4">You can always check the current list in the app: <strong>Settings → Asset Tracking</strong>, under <em>&quot;Currently Supported Worksheets&quot;</em> — that list is generated from the app itself, so it is the one to trust if this page ever disagrees with it.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/auto-register-toggle.webp" alt="Settings → Asset Tracking screen, showing the Auto-register on worksheet completion toggle and the Currently Supported Worksheets box listing the worksheets that register assets" class="w-full rounded-lg border border-border shadow-lg" /></div>',
                 },
             ]
         },
@@ -79,7 +85,7 @@ export const assetTrackingGuide: IDocGuide = {
                         'Open the job',
                         'Click the <strong>Assets</strong> tab',
                         'A banner shows what the engineer recorded — <em>&quot;5 fire extinguisher items extracted from worksheet&quot;</em>',
-                        'Click <strong>Register 5 items</strong> and confirm',
+                        'Click <strong>Register as Assets</strong> — the button names the count, e.g. <em>&quot;Register 5 items&quot;</em> — and confirm',
                     ],
                 },
                 {
@@ -228,11 +234,11 @@ export const assetTrackingGuide: IDocGuide = {
         },
         {
             id: 'contract-visits',
-            title: '9. Contract Visits Pick Up the Site Register',
-            content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4">New — August 2026</p><p class="mb-4">If a site has an asset register and a service contract, the equipment now arrives on the visit\'s worksheet already listed — you no longer start from a blank sheet on the first contract visit.</p>',
+            title: '9. Jobs Pick Up the Site Register',
+            content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4">Updated — September 2026</p><p class="mb-4">If a site has an asset register, the equipment arrives on the job\'s worksheet already listed — you no longer start from a blank sheet. This applies to <strong>every job created at that site</strong>, not just contract visits, including jobs converted from a quote.</p>',
             subsections: [
                 {
-                    content: '<p class="mb-4">Each item comes in marked as <strong>existing equipment being serviced</strong>, so completing the sheet updates those assets rather than creating duplicates.</p><p>It fills the sheet when the normal visit-to-visit carry-forward has nothing to bring across — a first visit, or a previous visit that recorded no equipment. It doesn\'t fill anything when the contract has no site address, when there\'s no live equipment of the relevant type at that address, or when the worksheet in use can\'t hold equipment (see <strong>Which Worksheets Create Assets</strong>).</p>',
+                    content: '<p class="mb-4">Each item comes in marked as <strong>existing equipment being serviced</strong>, so completing the sheet updates those assets rather than creating duplicates.</p><p class="mb-4">It is filtered to the equipment types the attached worksheet actually manages, so a fire alarm visit does not arrive carrying every extinguisher on the site. If a job carries two worksheets, each asset is listed on one of them only — never both — so you never confirm the same detector twice.</p><p>It doesn\'t fill anything when the job has no site address, when there\'s no live equipment of the relevant type at that address, when the worksheet in use can\'t hold equipment (see <strong>Which Worksheets Create Assets</strong>), or on plans that don\'t include the asset module.</p>',
                 },
             ]
         },
@@ -292,12 +298,12 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Do my engineers need to do anything different?',
-                    content: 'No. They fill the same worksheet they were already filling — Fire Extinguisher Service, Fire Alarm Commissioning, Fire Alarm Service, Remedials Scope of Works, or Asset Service. The bit that becomes assets is the items list they were already entering.',
+                    content: 'Almost nothing. The equipment list they were already filling in is the bit that becomes assets. Two things did change: fire alarm, extinguisher and intruder alarm service jobs now open on their specialised worksheet rather than the attendance sheet, and where the site has an asset register the equipment is already listed when they open the sheet — so they confirm rather than re-type.',
                     bullets: []
                 },
                 {
                     title: 'What worksheets can produce assets?',
-                    content: 'Five: Fire Alarm Service, Fire Alarm Commissioning, Fire Extinguisher Service, Remedials Scope of Works, and Asset Service (any equipment type). Site Attendance, Combined BS 5839 &amp; BAFE SP203, and Basic Job Sheet don\'t — see <strong>Which Worksheets Create Assets</strong> above.',
+                    content: 'Five of the thirteen: Fire Alarm Service, Fire Alarm Commissioning, Fire Extinguisher Service, Intruder Alarm Zone List, and Asset Service (any equipment type). Remedials Scope of Works does <strong>not</strong> — despite what an earlier version of this page said. Nor do Site Attendance, Combined BS 5839 &amp; BAFE SP203, Basic Job Sheet, the CCTV / Intruder / Access Control commissioning checklists, or the Security Risk Assessment. See <strong>Which Worksheets Create Assets</strong> above.',
                     bullets: []
                 },
                 {

@@ -4,7 +4,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
     description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
-    lastUpdated: '2026-08-21',
+    lastUpdated: '2026-09-04',
     sections: [
         {
             id: 'overview',
@@ -85,6 +85,16 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         <p class="mb-4">
                             The jobsheet is ready to use out of the box — there's nothing to design or configure. You'll find it under
                             <strong>Settings → Job Sheet Templates</strong>.
+                        </p>
+                        <p class="mb-4">
+                            <strong>It is not attached automatically.</strong> From September 2026 a fire alarm servicing job attaches the
+                            <strong>Fire Alarm Service</strong> worksheet by default. To make this jobsheet your standard sheet for servicing
+                            visits, map your fire alarm servicing service type to it in <strong>Settings → Job Sheet Templates</strong>.
+                        </p>
+                        <p class="mb-4">
+                            One trade-off to weigh before you do: this jobsheet <strong>does not record devices to your asset register</strong>.
+                            If you rely on the register for service history or the per-site register PDF, keep the Fire Alarm Service worksheet
+                            on those jobs as a second sheet — see <a href="/docs/asset-tracking#which-worksheets" class="text-secondary hover:underline">Which Worksheets Create Assets</a>.
                         </p>
                         <p class="mb-4">
                             Your BAFE Registered Organisation details — company name, address, phone, and SP203 registration number — pull

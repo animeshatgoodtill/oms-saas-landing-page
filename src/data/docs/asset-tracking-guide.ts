@@ -4,7 +4,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-09-04',
+    lastUpdated: '2026-09-05',
     sections: [
         {
             id: 'overview',
@@ -21,7 +21,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'which-worksheets',
             title: 'Which Worksheets Create Assets',
-            content: '<p class="mb-4"><strong>Five of the thirteen.</strong> This is the single most common source of confusion, and the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>.</p>',
+            content: '<p class="mb-4"><strong>Five of the thirteen.</strong> This is the single most common source of confusion. In the office the app will not warn you: on a worksheet that doesn\'t support it, nothing happens and <strong>no message is shown</strong>. On the engineer\'s phone it is now visible — the <strong>Add from site register</strong> button simply isn\'t there on a worksheet that can\'t hold equipment, and scanning a tag onto one says so outright.</p>',
             subsections: [
                 {
                     table: {
@@ -31,7 +31,7 @@ export const assetTrackingGuide: IDocGuide = {
                             ['Fire Alarm Commissioning', '✅'],
                             ['Fire Extinguisher Service', '✅'],
                             ['Intruder Alarm Zone List', '✅'],
-                            ['Asset Service', '✅ (any equipment type)'],
+                            ['Asset Service', '✅ (any equipment type — see the note below)'],
                             ['<strong>Remedials Scope of Works</strong>', '❌'],
                             ['Site Attendance / Inspection &amp; Servicing', '❌'],
                             ['<strong>Combined BS 5839 &amp; BAFE SP203</strong>', '❌'],
@@ -46,6 +46,9 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Combined BS 5839/SP203 sheet does not register assets.</strong> Fire alarm servicing jobs now attach the <strong>Fire Alarm Service</strong> worksheet by default, which does register devices — so most businesses are already covered. But if you have deliberately pointed your fire alarm servicing at the Combined BS 5839 &amp; BAFE SP203 Jobsheet, the devices will not reach your register no matter how completely the engineer fills it in. Keep the Fire Alarm Service worksheet on those jobs as a second sheet, or add the devices another way.</p></div>',
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>Asset Service records any equipment type — but not its technical detail.</strong> It captures what the item is, where it is, its serial, make and model, what was done to it and its condition, and it builds a proper service history. What it does not capture is the type-specific detail the dedicated worksheets ask for: a fire alarm device\'s zone, loop and address, or an extinguisher\'s size and manufacture date. So an emergency light registered through Asset Service will have its <em>Type</em> and <em>Duration</em> columns blank on the register until someone fills them in on the asset itself (section 4). For fire alarm devices and extinguishers, use the dedicated worksheets — they capture the lot in one pass.</p></div>',
                 },
                 {
                     content: '<p class="mb-4">You can always check the current list in the app: <strong>Settings → Asset Tracking</strong>, under <em>&quot;Currently Supported Worksheets&quot;</em> — that list is generated from the app itself, so it is the one to trust if this page ever disagrees with it.</p><div class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="/images/docs/asset-tracking/auto-register-toggle.webp" alt="Settings → Asset Tracking screen, showing the Auto-register on worksheet completion toggle switched off, and the Currently Supported Worksheets box listing the five worksheets that register assets: Fire Alarm Commissioning, Fire Alarm Service, Fire Extinguisher Service, Asset Service, and Intruder Alarm Zone List &amp; Operational Checks" class="w-full rounded-lg border border-border shadow-lg" /></div>',
@@ -238,7 +241,42 @@ export const assetTrackingGuide: IDocGuide = {
             content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4">Updated — September 2026</p><p class="mb-4">If a site has an asset register, the equipment arrives on the job\'s worksheet already listed — you no longer start from a blank sheet. This applies to <strong>every job created at that site</strong>, not just contract visits, including jobs converted from a quote.</p>',
             subsections: [
                 {
-                    content: '<p class="mb-4">Each item comes in marked as <strong>existing equipment being serviced</strong>, so completing the sheet updates those assets rather than creating duplicates.</p><p class="mb-4">It is filtered to the equipment types the attached worksheet actually manages, so a fire alarm visit does not arrive carrying every extinguisher on the site. If a job carries two worksheets, each asset is listed on one of them only — never both — so you never confirm the same detector twice.</p><p>It doesn\'t fill anything when the job has no site address, when there\'s no live equipment of the relevant type at that address, when the worksheet in use can\'t hold equipment (see <strong>Which Worksheets Create Assets</strong>), or on plans that don\'t include the asset module.</p>',
+                    content: '<p class="mb-4">Each item comes in marked as <strong>existing equipment being serviced</strong>, so completing the sheet updates those assets rather than creating duplicates.</p><p class="mb-4">It is filtered to the equipment types the attached worksheet actually manages, so a fire alarm visit does not arrive carrying every extinguisher on the site. If a job carries two worksheets, each asset is listed on one of them only — never both — so you never confirm the same detector twice.</p><p class="mb-4">It doesn\'t fill anything when the job has no site address, when there\'s no live equipment of the relevant type at that address, when the worksheet in use can\'t hold equipment (see <strong>Which Worksheets Create Assets</strong>), or on plans that don\'t include the asset module. It also can\'t fill a sheet with equipment that was added to the register <em>after</em> the job was created.</p><p>When it comes up short, the engineer is no longer stuck: they can pull the equipment in themselves from the phone — see <strong>section 10</strong>.</p>',
+                },
+            ]
+        },
+        {
+            id: 'on-site-picking',
+            title: '10. On Site: Picking the Equipment in Front of You',
+            content: '<p class="text-sm bg-gray-100 px-3 py-1 rounded inline-block mb-4">New — September 2026</p><p class="mb-4">Until now, if the worksheet didn\'t already list a piece of equipment and its tag wouldn\'t scan, the engineer\'s only option was to add a blank row and type the asset number from memory. That field has no lookup, and a mistyped number is accepted silently — the row looks filled in, but nothing is recorded against that unit. That gap is closed.</p>',
+            subsections: [
+                {
+                    title: 'Add from Site Register',
+                    content: '<p class="mb-4">On any worksheet that records equipment, there is now an <strong>Add from site register</strong> button above the equipment list. It shows what is already registered at that site; the engineer taps an item and the row fills itself in.</p>',
+                    bullets: [
+                        '<strong>Only what that worksheet records.</strong> On a Fire Extinguisher Service you see extinguishers, fire blankets and hose reels — not the site\'s smoke detectors.',
+                        '<strong>Nothing already on the sheet.</strong> Items the worksheet is already carrying are left out, so the same unit can\'t be added twice.',
+                        '<strong>Search</strong> by location, asset number or serial — useful on a site with a hundred devices.',
+                        '<strong>Add all</strong> brings in everything currently listed, up to fifty at a time.',
+                        '<strong>It works with no signal.</strong> The register is already downloaded to the phone with the job.',
+                    ],
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900">The button is absent on a worksheet that can\'t hold equipment — that is the quickest way to tell. It is also absent on <strong>Fire Alarm Commissioning</strong>, which is deliberate: commissioning is where devices are installed for the first time, so there is no existing register to service.</p></div>',
+                },
+                {
+                    title: 'When the Tag Won\'t Scan',
+                    content: '<p class="mb-4">Damaged label, no camera, or bad light: the scan screen now offers <strong>Enter the code manually</strong>. The engineer can type the tag code, the asset number, or the serial number off the rating plate.</p>',
+                    bullets: [
+                        'Matches are <strong>exact</strong> — no partial or fuzzy matching, because pointing an engineer at the wrong unit is worse than finding nothing.',
+                        'If two units share a serial number, it <strong>asks which one</strong> rather than guessing.',
+                        'It searches the sites downloaded to the phone first, so it works offline.',
+                        'Typing an <strong>asset number</strong> won\'t offer to register it as a tag — asset numbers aren\'t tag codes, and treating one as a tag would create a duplicate record.',
+                    ],
+                },
+                {
+                    title: 'Rows Now Say What They Are',
+                    content: '<p>Each row on the worksheet is headed by the equipment it refers to — its asset number and location, rather than just a row number — and carries a label saying where it came from: <em>carried over from your last visit</em>, <em>from site register</em>, or <em>scanned</em>. On a site with forty extinguishers this is the difference between a usable list and a numbered one.</p>',
                 },
             ]
         },

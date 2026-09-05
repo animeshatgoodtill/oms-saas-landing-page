@@ -13,7 +13,7 @@ const EULAPage: React.FC = () => {
   return (
     <LegalPage
       title="End User License Agreement"
-      lastUpdated="24 May 2026"
+      lastUpdated="5 September 2026"
     >
       {/* Critical Legal Notice */}
       <div className="bg-red-50 border-l-4 border-red-600 p-6 mb-8 rounded-r-lg">
@@ -284,7 +284,7 @@ const EULAPage: React.FC = () => {
 
         <div className="space-y-4 text-foreground-accent">
           <p>
-            <strong>6.1 AI Features.</strong> The Service includes features that use artificial intelligence, machine learning, large language models, and similar technologies (collectively, &quot;<strong>AI Features</strong>&quot;), including without limitation auto-fill, document classification, defect identification suggestions, scheduling optimisation, predictive analytics, and compliance validation suggestions.
+            <strong>6.1 AI Features.</strong> The Service includes features that use artificial intelligence, machine learning, large language models, and similar technologies (collectively, &quot;<strong>AI Features</strong>&quot;), including without limitation Setup Copilot (workspace setup assistance), Insights (natural-language answers to business questions about Customer&apos;s account), auto-fill, document classification, defect identification suggestions, scheduling optimisation, predictive analytics, and compliance validation suggestions.
           </p>
 
           <p>
@@ -304,11 +304,11 @@ const EULAPage: React.FC = () => {
           </p>
 
           <p>
-            <strong>6.6 AI Training.</strong> Opscel may use Customer Data to improve AI Features for Customer&apos;s tenant only. Opscel does not use Customer Data to train AI models that serve other customers. Opscel may use aggregated, anonymised, or de-identified data for general AI improvement purposes.
+            <strong>6.6 No Model Training.</strong> Opscel does not use Customer Data to train AI models — not for Customer&apos;s own tenant, not for other customers, and not for general model improvement. Data sent to power an AI Feature is used only to produce the requested output. Conversations with Insights are retained for 30 days and with Setup Copilot for 90 days, after which they are deleted; every Insights query is recorded in Customer&apos;s audit log against the user who made it.
           </p>
 
           <p>
-            <strong>6.7 Third-Party AI.</strong> AI Features may rely on third-party AI services, models, or providers. Such third-party services are subject to their own terms of service. Opscel is not liable for the acts, omissions, or outputs of third-party AI providers.
+            <strong>6.7 Third-Party AI.</strong> AI Features are powered by Anthropic, PBC, acting as Opscel&apos;s sub-processor, and Customer Data sent to power them is never combined with or made visible to another Opscel customer. AI Features do not modify Customer&apos;s account directly — they may propose a change, which a member of Customer&apos;s team must then choose to apply. Full detail on what is sent, to whom, and for how long is set out in section 5.3 of Opscel&apos;s <Link href="/privacy" className="text-secondary hover:underline">Privacy Policy</Link>. Anthropic and any other third-party AI provider is subject to its own terms of service, and Opscel is not liable for the acts, omissions, or outputs of third-party AI providers.
           </p>
         </div>
       </section>

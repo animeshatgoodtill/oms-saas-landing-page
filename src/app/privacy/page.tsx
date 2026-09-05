@@ -14,7 +14,7 @@ const PrivacyPage: React.FC = () => {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated={companyDetails.compliance.lastPolicyUpdate}
+      lastUpdated="5 September 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -61,7 +61,7 @@ const PrivacyPage: React.FC = () => {
         <li><strong>Marketing:</strong> To send promotional communications (with your consent) which you can opt out of at any time.</li>
         <li><strong>Analytics:</strong> To understand how our services are used and to improve user experience.</li>
         <li><strong>Legal Compliance:</strong> To comply with legal obligations and protect our rights.</li>
-        <li><strong>AI Features:</strong> To power our AI-assisted features such as document analysis, voice transcription, and intelligent suggestions. Your data is processed securely and not used to train general AI models.</li>
+        <li><strong>AI Features:</strong> To power Setup Copilot (workspace setup) and Insights (answering business questions about your account). See section 5.3 below for what this involves and who processes it.</li>
       </ul>
 
       <h2>4. Legal Basis for Processing (UK GDPR)</h2>
@@ -134,6 +134,67 @@ const PrivacyPage: React.FC = () => {
           Intuit account&apos;s connected-apps settings
         </a>.
       </p>
+
+      <h3>5.3 Anthropic, PBC (AI Features)</h3>
+      <p>
+        Some {companyDetails.tradingName} features use artificial intelligence to help you set up your workspace
+        and answer questions about your own data. When you use them, the relevant information is sent to our
+        AI provider, Anthropic, PBC, which processes it and returns a result. Two features do this today:
+      </p>
+      <ul>
+        <li>
+          <strong>Setup Copilot</strong> reads files you upload and, if you give us the address, the text of your
+          public website, so that it can work out how to map your customer, site and contact records — this can
+          include anything contained in those files, such as names, addresses, email addresses and telephone
+          numbers.
+        </li>
+        <li>
+          <strong>Insights</strong> answers business questions using figures already held in your account: totals
+          and summaries such as revenue, margin, outstanding invoices, open quotes and upcoming work, together
+          with the customer or site names those figures relate to. Free-text fields — job notes, descriptions and
+          quotation terms — are never sent to Insights.
+        </li>
+      </ul>
+      <p>
+        Your information is sent only in order to produce your answer. It is not used to train AI models, it is
+        never combined with or made visible to another {companyDetails.tradingName} customer, and the AI cannot
+        change anything in your account by itself: it can only propose a change, which someone on your team then
+        chooses to apply.
+      </p>
+      <p>
+        Anthropic retains the information it receives for a limited period under its standard API terms, to
+        provide and monitor the service. Within {companyDetails.tradingName}, Insights conversations are deleted
+        after 30 days and Setup Copilot conversations after 90 days, and every Insights question is recorded in
+        your audit log against the user who asked it.
+      </p>
+
+      <h3>5.4 Sub-Processors</h3>
+      <p>
+        The table below lists the sub-processors we use to provide {companyDetails.tradingName}, what they
+        process, and the safeguard in place for any transfer of data outside the UK.
+      </p>
+      <div className="overflow-x-auto my-4">
+        <table className="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr className="bg-hero-background">
+              <th className="border border-gray-200 px-4 py-2 text-left">Sub-processor</th>
+              <th className="border border-gray-200 px-4 py-2 text-left">Purpose</th>
+              <th className="border border-gray-200 px-4 py-2 text-left">Data processed</th>
+              <th className="border border-gray-200 px-4 py-2 text-left">Location</th>
+              <th className="border border-gray-200 px-4 py-2 text-left">Transfer safeguard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Anthropic, PBC</td>
+              <td className="border border-gray-200 px-4 py-2">AI processing for the Setup Copilot and Insights features</td>
+              <td className="border border-gray-200 px-4 py-2">Customer, site and contact records you upload; aggregate financial and scheduling figures from your account, with the related customer and site names</td>
+              <td className="border border-gray-200 px-4 py-2">United States</td>
+              <td className="border border-gray-200 px-4 py-2">Standard Contractual Clauses and the UK International Data Transfer Addendum, under Anthropic&apos;s Data Processing Agreement</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>6. Data Storage and Security</h2>
       <p>

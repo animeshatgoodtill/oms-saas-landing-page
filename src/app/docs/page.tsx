@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import Container from '@/components/Container';
+import HelpSearch from '@/components/HelpSearch';
 import { documentationGuides, documentationCategories as categories } from '@/data/documentationGuides';
+import { docGuides } from '@/data/docs';
+import { buildSearchIndex } from '@/lib/searchIndex';
 
 export const metadata = {
     title: 'Documentation - Opscel',
@@ -9,18 +12,25 @@ export const metadata = {
 };
 
 export default function DocumentationPage() {
+    const searchRecords = buildSearchIndex(docGuides);
+
     return (
         <Container>
             <div className="py-16 md:py-24">
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}
-                    <div className="mb-16 text-center">
+                    <div className="mb-12 text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
                             Documentation
                         </h1>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             Complete guides to help you set up features, configure integrations, and get the most out of Opscel.
                         </p>
+                    </div>
+
+                    {/* Search */}
+                    <div className="mb-16">
+                        <HelpSearch records={searchRecords} />
                     </div>
 
                     {/* Documentation Guides by Category */}

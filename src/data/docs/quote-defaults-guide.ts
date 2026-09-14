@@ -3,8 +3,8 @@ import { IDocGuide } from '@/types';
 export const quoteDefaultsGuide: IDocGuide = {
     slug: 'quote-defaults',
     title: 'Quote Defaults',
-    description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, and the template used for defect and remedial quotes.',
-    lastUpdated: '2026-08-26',
+    description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, a default overheads & prelims percentage, and the template used for defect and remedial quotes.',
+    lastUpdated: '2026-09-14',
     sections: [
         {
             id: 'overview',
@@ -50,6 +50,10 @@ export const quoteDefaultsGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Overheads & Prelims',
+                    content: '<p class="mb-4">A percentage added on top of the work to recover your running costs (overheads) or job set-up costs such as welfare, access and site management (preliminaries). Set it here and every new quote starts with it; leave it empty and new quotes start with none.</p><p class="mb-4">Choose <strong>How it\'s shown</strong>:</p><ul class="list-disc pl-6 mb-4 space-y-1"><li><strong>As its own line on the quote</strong> — the customer sees a line such as "Preliminaries (10%)" between the subtotal and any discount. This is the usual choice for most customers.</li><li><strong>Spread across the line prices</strong> — the percentage is built into each line\'s price and the customer never sees the word "overheads". Useful when quoting a main contractor who expects prelims included in your rates.</li></ul><p class="mb-4">Give it a <strong>label</strong> if you want your own wording ("Preliminaries", "OH&amp;P"); without one it reads "Overheads".</p><p>Every quote keeps its own copy of the percentage, so you can change it, switch how it\'s shown, or remove it on any individual quote. See <a href="/docs/quotations#line-items-pricing" class="text-secondary hover:underline">Overheads &amp; Prelims on a quote</a>.</p>'
+                },
+                {
                     title: 'Defect & Remedial Quotes',
                     content: '<p class="mb-4">A dropdown where you pick the quote template that supplies terms, validity, price breakdown, deposit amount, and call-out visibility for quotes raised from defects (see <a href="/docs/defects-to-quotation#quote-settings" class="text-secondary hover:underline">What Settings the Quote Arrives With</a>). That template\'s line items are copied onto every defect quote too, underneath the defect lines — this is how you get standing items, like replacement batteries, added automatically.</p><p class="mb-4">The template you choose here is badged <span class="text-sm bg-gray-100 px-2 py-0.5 rounded font-mono">Remedial</span> on the Quote Templates list, so editing or deleting it later isn\'t a silent surprise.</p><p><strong>Only Admin can change this setting</strong> (it sits behind the same permission as the rest of this page). Accounts and Contract Manager can still raise defect quotes — they just can\'t change which template shapes them.</p><p class="mt-3">If you don\'t choose a template here, defect quotes fall back to your other Quote Defaults settings on this page.</p>'
                 }
@@ -70,6 +74,10 @@ export const quoteDefaultsGuide: IDocGuide = {
                 {
                     title: 'Why don\'t defect quotes show call-out rates even though I\'ve turned that on here?',
                     content: '<p>Defect and remedial quotes always default to hiding call-out rates, regardless of this page\'s setting — a remedial quote isn\'t a call-out, so the tariff table isn\'t relevant. Choose a template with call-out rates on under <strong>Defect &amp; Remedial Quotes</strong>, or switch it on for that individual quote, if you want it shown.</p>'
+                },
+                {
+                    title: 'If I set an overheads percentage, will my existing quotes change?',
+                    content: '<p>No. The percentage is copied onto quotes when they are created, so draft, sent and accepted quotes keep exactly the prices they already have. Quotes raised from defects also start without it — add it on the individual quote if you want it there.</p>'
                 },
                 {
                     title: 'Which price breakdown option should I use?',

@@ -4,7 +4,7 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
     slug: 'quote-to-invoice-workflow',
     title: 'How Quotes, Jobs and Invoices Work Together',
     description: 'Complete end-to-end workflow guide: understand how quotes, jobs, and invoices connect. Learn the two invoice paths (Fixed-Price vs. T&M), deposit handling, and Good-Better-Best tier selection.',
-    lastUpdated: '2026-08-13',
+    lastUpdated: '2026-09-14',
     sections: [
         {
             id: 'overview',
@@ -43,6 +43,10 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 {
                     title: 'Discounts and markup',
                     content: 'Apply a percentage or fixed discount at quote level. Individual line items can carry a markup percentage — the marked-up price is what the customer sees; your cost price stays internal.'
+                },
+                {
+                    title: 'Overheads and prelims',
+                    content: 'Add an overheads / prelims percentage to the quote, shown either as its own line (for example "Preliminaries (10%)") or spread into the line prices. It carries through to the invoice automatically — see <a href="/docs/quotations#line-items-pricing" class="text-secondary hover:underline">Overheads &amp; Prelims</a>.'
                 },
                 {
                     title: 'Sending to the customer',
@@ -143,6 +147,10 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Overheads on the invoice',
+                    content: 'If the quote showed overheads as its own line, the invoice includes it as its own line for exactly the amount the customer agreed (split by VAT rate if the quote mixed rates). If the overheads were spread into the prices, they are already inside each line\'s unit price, so there is nothing extra to add. When invoicing in stages, the full overheads line is proposed each time like every other quote line — edit or remove it on the draft as needed.'
+                },
+                {
                     title: 'Engineer extras',
                     content: 'Below the agreed scope you\'ll also see any additional items from the engineer — parts logged during the job. Tick the ones you want to include; untick any that shouldn\'t be charged.'
                 },
@@ -183,6 +191,10 @@ export const quoteToInvoiceWorkflowGuide: IDocGuide = {
                 {
                     title: 'Step 4: Review',
                     content: 'Review subtotal, VAT, total, and amount due before creating the invoice'
+                },
+                {
+                    title: 'No automatic overheads',
+                    content: 'Time & Materials invoices never add an overheads percentage on their own — most contractors already recover overheads through their labour rate, so adding a percentage on top would charge twice. If you do bill overheads on this kind of work, add them as a custom line on the draft invoice.'
                 }
             ]
         },

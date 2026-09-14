@@ -4,7 +4,7 @@ export const quotationsGuide: IDocGuide = {
     title: 'Quotations Overview',
     description: 'Create professional quotes, manage customer acceptance, and convert quotes to jobs. Track quote performance with analytics and streamline your sales workflow.',
     slug: 'quotations',
-    lastUpdated: '2026-08-26',
+    lastUpdated: '2026-09-14',
     sections: [
         {
             id: 'overview',
@@ -166,6 +166,10 @@ export const quotationsGuide: IDocGuide = {
                     ],
                 },
                 {
+                    title: 'Overheads & Prelims',
+                    content: '<p class="mb-4">Add a percentage on top of the work to recover overheads or preliminaries. It sits next to the discount at the bottom of the line items: enter the <strong>Overheads / prelims %</strong>, then choose how it\'s shown.</p><ul class="list-disc pl-6 mb-4 space-y-1"><li><strong>Show as its own line</strong> — the quote, PDF and customer portal show a line such as "Preliminaries (10%)" between the subtotal and any discount. A percentage discount is taken off the total including this line.</li><li><strong>Spread across line prices</strong> — the percentage is folded into every line\'s price, so the customer only ever sees the higher line prices. The line prices you type in the editor stay as entered; the editor shows how much has been spread in.</li></ul><p class="mb-4">A new quote starts with the percentage from <a href="/docs/quote-defaults" class="text-secondary hover:underline">Quote Defaults</a>, if one is set. VAT is charged on the overheads the same as on the work. Your internal profit figure counts the overheads as income and shows "of which overheads" underneath, so you can tell recovered overheads apart from profit on the work itself.</p><p class="mb-4"><strong>Itemised prelims</strong> (scaffold, welfare, skips, access equipment) don\'t need this setting — add them as ordinary line items. Tip: create a <em>Preliminaries</em> product category and a quote template holding your usual prelim lines, then load it onto any quote.</p><p>Overheads can\'t currently be combined with Good-Better-Best pricing tiers on the same quote.</p>'
+                },
+                {
                     title: 'VAT Handling',
                     content: 'All prices are entered <strong>ex-VAT</strong>. Opscel automatically adds VAT at the rate configured in Settings (default: 20% UK standard rate). You can override VAT rate per line item for reduced rate or zero-rated items.',
                 },
@@ -202,6 +206,10 @@ export const quotationsGuide: IDocGuide = {
                 {
                     title: 'What You Should See',
                     content: 'The quote PDF and customer portal show all tiers side-by-side with their own line items and totals, with the recommended tier visually highlighted. When the customer accepts, they select one tier — that tier\'s total becomes the quote\'s accepted value.',
+                },
+                {
+                    title: 'Tiers and Overheads',
+                    content: 'A quote can have pricing tiers or an overheads & prelims percentage, but not both at once. Remove the percentage before adding tiers, or build the overheads into each tier\'s own line prices.',
                 },
             ],
         },

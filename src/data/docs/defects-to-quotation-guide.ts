@@ -4,7 +4,7 @@ export const defectsToQuotationGuide: IDocGuide = {
     slug: 'defects-to-quotation',
     title: 'Creating and Linking Quotes to Jobs with Defects',
     description: 'Turn defects into customer-ready remedial quotes with automatic job linking. Learn the three methods for creating bundled quotes from job defects.',
-    lastUpdated: '2026-08-26',
+    lastUpdated: '2026-09-14',
     sections: [
         {
             id: 'overview',
@@ -65,10 +65,11 @@ export const defectsToQuotationGuide: IDocGuide = {
             title: 'What Settings the Quote Arrives With',
             subsections: [
                 {
-                    content: '<p class="mb-4">A quote raised from defects starts with your business\'s quote settings already applied — you don\'t have to set them each time.</p><p class="mb-4">By default it uses your <strong>Quote Defaults</strong> (Settings → Sales → Quote Defaults): validity period, price breakdown, and deposit amount.</p><p class="mb-4">If you want remedial quotes to carry your terms and conditions, or to look different from a normal quote, pick a template under <strong>Defect &amp; Remedial Quotes</strong> on that same page. The quote will then start with that template\'s terms, wording and settings.</p><p class="mb-2">Two things worth knowing:</p>',
+                    content: '<p class="mb-4">A quote raised from defects starts with your business\'s quote settings already applied — you don\'t have to set them each time.</p><p class="mb-4">By default it uses your <strong>Quote Defaults</strong> (Settings → Sales → Quote Defaults): validity period, price breakdown, and deposit amount.</p><p class="mb-4">If you want remedial quotes to carry your terms and conditions, or to look different from a normal quote, pick a template under <strong>Defect &amp; Remedial Quotes</strong> on that same page. The quote will then start with that template\'s terms, wording and settings.</p><p class="mb-2">Three things worth knowing:</p>',
                     bullets: [
                         '<strong>Call-out rates are hidden by default</strong> on defect quotes, even if you show them on other quotes. A remedial quote isn\'t a call-out, so the tariff table would only confuse the customer. If you do want it, choose a template that has call-out rates switched on, or turn it on for the individual quote.',
-                        '<strong>A deposit is never switched on automatically.</strong> Your default deposit amount is filled in ready, but you decide per quote whether to ask for one — accepting a deposit quote raises an invoice straight away, so that stays a deliberate choice.'
+                        '<strong>A deposit is never switched on automatically.</strong> Your default deposit amount is filled in ready, but you decide per quote whether to ask for one — accepting a deposit quote raises an invoice straight away, so that stays a deliberate choice.',
+                        '<strong>Overheads &amp; prelims are not added automatically.</strong> The overheads percentage from Quote Defaults applies to quotes you create yourself, not to quotes raised from defects. Add it on the individual quote if you want it — see <a href="/docs/quotations#line-items-pricing" class="text-blue-600 hover:underline">Overheads &amp; Prelims</a>.'
                     ]
                 },
                 {

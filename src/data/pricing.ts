@@ -31,6 +31,7 @@ export const tiers: IPricing[] = [
             'Deposit collection on quotes',
             'Xero and QuickBooks sync',
             'Service contracts and renewal reminders',
+            'Automatic customer emails for visits and job status',
             '100 GB storage',
             '30-day free trial, card required',
         ],

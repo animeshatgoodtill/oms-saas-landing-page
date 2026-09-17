@@ -125,6 +125,13 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Customer Experience',
         icon: 'icon-smart-customer'
     },
+    {
+        title: 'Customer Notifications',
+        description: 'Automatic emails to your customers when a visit is booked, moved or cancelled, the evening before a visit, and when a job is completed or cancelled. Who receives them and how to switch them on.',
+        url: '/docs/customer-notifications',
+        category: 'Customer Experience',
+        icon: 'icon-smart-prompt'
+    },
     // Scheduling & Operations
     {
         title: 'Service Contracts',

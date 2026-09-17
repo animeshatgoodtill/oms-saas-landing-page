@@ -15,6 +15,7 @@ import { quotationsGuide } from './quotations-guide';
 import { defectsToQuotationGuide } from './defects-to-quotation-guide';
 import { remedialScopeOfWorksGuide } from './remedial-scope-of-works-guide';
 import { customerPortalGuide } from './customer-portal-guide';
+import { customerNotificationsGuide } from './customer-notifications-guide';
 import { serviceContractsGuide } from './service-contracts-guide';
 import { plannerGuide } from './planner-guide';
 import { calendarIntegrationGuide } from './calendar-integration-guide';
@@ -48,6 +49,7 @@ export const docGuides: IDocGuide[] = [
     defectsToQuotationGuide,
     remedialScopeOfWorksGuide,
     customerPortalGuide,
+    customerNotificationsGuide,
     serviceContractsGuide,
     remoteMonitoringGuide,
     plannerGuide,

@@ -3,8 +3,8 @@ import { IDocGuide } from '@/types';
 export const quoteDefaultsGuide: IDocGuide = {
     slug: 'quote-defaults',
     title: 'Quote Defaults',
-    description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, a default overheads & prelims percentage, and the template used for defect and remedial quotes.',
-    lastUpdated: '2026-09-14',
+    description: 'What Settings → Sales → Quote Defaults controls: default deposit, validity period, price breakdown, call-out rates, a default overheads & prelims percentage, automatic follow-up reminders, and the template used for defect and remedial quotes.',
+    lastUpdated: '2026-09-17',
     sections: [
         {
             id: 'overview',
@@ -54,6 +54,10 @@ export const quoteDefaultsGuide: IDocGuide = {
                     content: '<p class="mb-4">A percentage added on top of the work to recover your running costs (overheads) or job set-up costs such as welfare, access and site management (preliminaries). Set it here and every new quote starts with it; leave it empty and new quotes start with none.</p><p class="mb-4">Choose <strong>How it\'s shown</strong>:</p><ul class="list-disc pl-6 mb-4 space-y-1"><li><strong>As its own line on the quote</strong> — the customer sees a line such as "Preliminaries (10%)" between the subtotal and any discount. This is the usual choice for most customers.</li><li><strong>Spread across the line prices</strong> — the percentage is built into each line\'s price and the customer never sees the word "overheads". Useful when quoting a main contractor who expects prelims included in your rates.</li></ul><p class="mb-4">Give it a <strong>label</strong> if you want your own wording ("Preliminaries", "OH&amp;P"); without one it reads "Overheads".</p><p>Every quote keeps its own copy of the percentage, so you can change it, switch how it\'s shown, or remove it on any individual quote. See <a href="/docs/quotations#line-items-pricing" class="text-secondary hover:underline">Overheads &amp; Prelims on a quote</a>.</p>'
                 },
                 {
+                    title: 'Automatic Follow-Ups',
+                    content: '<p class="mb-4"><strong>Off by default.</strong> When switched on, Opscel emails a polite reminder to everyone a quote was sent to, on the days you set after sending (for example 3, 7 and 14 days), until they accept or decline or the maximum number of reminders is reached. The reminder shows the quote number, title and total (following your VAT display setting), links to the quote, and replies go to your company email.</p><ul class="list-disc pl-6 mb-4 space-y-1"><li><strong>Follow-up days</strong> — up to five, each between 1 and 90 days after the quote was sent</li><li><strong>Maximum follow-ups</strong> — the cap per quote (0 to 10)</li></ul><p class="mb-4">Only quotes sent in the last 45 days are chased, so switching this on does not resurrect old quotes. Each reminder is recorded on the quote\'s history, and a quote that is accepted, declined, expired or edited stops being chased.</p><p>This is a decision for the whole business — every Admin should know it is on, because customers will receive these in your name.</p>'
+                },
+                {
                     title: 'Defect & Remedial Quotes',
                     content: '<p class="mb-4">A dropdown where you pick the quote template that supplies terms, validity, price breakdown, deposit amount, and call-out visibility for quotes raised from defects (see <a href="/docs/defects-to-quotation#quote-settings" class="text-secondary hover:underline">What Settings the Quote Arrives With</a>). That template\'s line items are copied onto every defect quote too, underneath the defect lines — this is how you get standing items, like replacement batteries, added automatically.</p><p class="mb-4">The template you choose here is badged <span class="text-sm bg-gray-100 px-2 py-0.5 rounded font-mono">Remedial</span> on the Quote Templates list, so editing or deleting it later isn\'t a silent surprise.</p><p><strong>Only Admin can change this setting</strong> (it sits behind the same permission as the rest of this page). Accounts and Contract Manager can still raise defect quotes — they just can\'t change which template shapes them.</p><p class="mt-3">If you don\'t choose a template here, defect quotes fall back to your other Quote Defaults settings on this page.</p>'
                 }
@@ -78,6 +82,10 @@ export const quoteDefaultsGuide: IDocGuide = {
                 {
                     title: 'If I set an overheads percentage, will my existing quotes change?',
                     content: '<p>No. The percentage is copied onto quotes when they are created, so draft, sent and accepted quotes keep exactly the prices they already have. Quotes raised from defects also start without it — add it on the individual quote if you want it there.</p>'
+                },
+                {
+                    title: 'Will Opscel chase my customers about quotes automatically?',
+                    content: '<p>Only if you switch on <strong>Automatic Follow-Ups</strong> on this page. It is off by default for every business, so nobody is emailed a reminder unless an Admin has decided they should be. When it is on, reminders go only to the people the quote was sent to, only for quotes sent in the last 45 days, and stop as soon as the customer responds.</p>'
                 },
                 {
                     title: 'Which price breakdown option should I use?',

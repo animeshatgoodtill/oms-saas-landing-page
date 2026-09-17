@@ -3,8 +3,8 @@ import { IDocGuide } from '@/types';
 export const customerPortalGuide: IDocGuide = {
     slug: 'customer-portal',
     title: 'Customer Portal - Contractor Guide',
-    description: 'How to invite customers to access their quotes, certificates, and invoices online.',
-    lastUpdated: '2026-05-20',
+    description: 'How to invite customers to access their quotes, jobs and visits, job sheets, certificates, and invoices online.',
+    lastUpdated: '2026-09-17',
     sections: [
         {
             id: 'overview',
@@ -138,6 +138,24 @@ export const customerPortalGuide: IDocGuide = {
                     ]
                 },
                 {
+                    title: 'Jobs and Upcoming Visits',
+                    content: '',
+                    bullets: [
+                        'A Jobs page with two tabs: Scheduled (booked, underway or on hold, soonest first) and Completed — draft and cancelled jobs are never shown',
+                        'Each job\'s page links its quote, visits, completed job sheets, certificates and invoices together',
+                        'An Upcoming visits card on the dashboard: date, time, site, and the engineer\'s first name (or "Engineer to be confirmed")',
+                        'Nothing internal — no costs, margins, engineer notes, GPS or completion photos'
+                    ]
+                },
+                {
+                    title: 'Job Sheets',
+                    content: '',
+                    bullets: [
+                        'Every completed job sheet across their jobs, as a downloadable PDF',
+                        'Draft sheets are never visible'
+                    ]
+                },
+                {
                     title: 'Certificates',
                     content: '',
                     bullets: [
@@ -159,6 +177,18 @@ export const customerPortalGuide: IDocGuide = {
             ]
         },
         {
+            id: 'email-updates',
+            title: 'Email Updates Without a Login',
+            content: `
+                <p class="mb-4">
+                    The portal is where customers go to look things up. To <em>tell</em> them when something changes — a visit booked, moved or cancelled, a reminder the evening before, a job completed — switch on <strong>Customer notifications</strong> (Settings → Customer notifications, Team and Business plans).
+                </p>
+                <p class="mb-4">
+                    Those emails go to the site contacts on each job whether or not they have portal access, and carry a "View in your customer portal" button for the contacts who do. See the <a href="/docs/customer-notifications" class="text-secondary hover:underline">Customer Notifications guide</a>.
+                </p>
+            `
+        },
+        {
             id: 'activity-logging',
             title: 'Activity Logging',
             content: `
@@ -174,7 +204,10 @@ export const customerPortalGuide: IDocGuide = {
                     ['Approve Quote', 'Who approved, their name, timestamp'],
                     ['Decline Quote', 'Reason provided, timestamp'],
                     ['View Certificate', 'Which certificate, when'],
-                    ['Download PDF', 'Certificate ID, timestamp']
+                    ['Download PDF', 'Certificate ID, timestamp'],
+                    ['View Job', 'Which job, when'],
+                    ['Download Job Sheet', 'Which sheet, timestamp'],
+                    ['View Invoices', 'When the invoices page was opened']
                 ]
             }
         },
@@ -281,6 +314,11 @@ export const customerPortalGuide: IDocGuide = {
         }
     ],
     relatedGuides: [
+        {
+            title: 'Customer Notifications',
+            description: 'Automatic emails about visits and job status, with a link into the portal',
+            href: '/docs/customer-notifications'
+        },
         {
             title: 'Certificates',
             description: 'Certificates delivered through the customer portal',

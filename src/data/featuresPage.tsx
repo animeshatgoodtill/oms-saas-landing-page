@@ -182,8 +182,8 @@ export const featureCategories: IFeatureCategory[] = [
                 iconId: "icon-signature"
             },
             {
-                title: "Automatic Follow-Ups",
-                description: "System sends reminders at 3, 7, and 14 days if customer hasn't responded. You never forget to follow up.",
+                title: "Automatic Follow-Ups (Opt-In)",
+                description: "Switch it on in Quote Defaults and Opscel emails a reminder on the days you choose — say 3, 7 and 14 — until the customer responds. Off until you decide, so nobody is chased by accident.",
                 iconId: "icon-smart-prompt"
             },
             {

@@ -4,7 +4,7 @@ export const customerPortalDetail: IFeatureDetail = {
     slug: 'customer-portal',
     title: 'Let Customers Approve Quotes and Download Certificates—Anytime',
     subtitle: 'Opscel Customer Portal',
-    heroDescription: 'Stop chasing customers for quote approvals. Stop emailing the same certificate three times. Give your customers a secure portal to view quotes, approve with one click, and download certificates 24/7. Faster approvals, fewer admin calls, professional experience.',
+    heroDescription: 'Stop chasing customers for quote approvals. Stop emailing the same certificate three times. Give your customers a secure portal to view quotes, see upcoming visits and job progress, approve with one click, and download certificates and job sheets 24/7 — and let Opscel email them automatically when a visit is booked or a job is done. Faster approvals, fewer admin calls, professional experience.',
     iconId: 'icon-smart-customer',
     screenshotImage: '/images/ui/04-screen.png',
 
@@ -23,6 +23,16 @@ export const customerPortalDetail: IFeatureDetail = {
             iconId: 'icon-certificate',
             title: 'Certificate Self-Service Download',
             description: 'Customer needs EICR for insurance? They log into portal, find certificate, download PDF. 2am or 2pm—doesn&apos;t matter. No waiting for office hours, no "can you resend that cert?" emails. Reduces admin calls by 40%.'
+        },
+        {
+            iconId: 'icon-smart-prompt',
+            title: 'Automatic Visit and Job Updates by Email',
+            description: 'Switch on Customer notifications and your customers hear from you the moment a visit is booked, moved or cancelled, get a reminder the evening before, and are told when the job is completed. Sent to the job&apos;s site contacts in your name, no login needed; portal users get a button straight into the job. Team and Business plans.'
+        },
+        {
+            iconId: 'icon-service-history',
+            title: 'Jobs, Visits and Job Sheets',
+            description: 'Customers see their scheduled and completed jobs, an upcoming-visits card with date, time and the engineer&apos;s first name, and every completed job sheet as a PDF. Each job page links its quote, visits, sheets, certificates and invoices. Nothing internal leaks: no costs, notes, GPS or photos.'
         },
         {
             iconId: 'icon-compliance-shield',
@@ -188,6 +198,16 @@ export const customerPortalDetail: IFeatureDetail = {
             feature: 'Rate-limited security (5-10 req/min on auth)',
             opscel: true,
             others: 'No'
+        },
+        {
+            feature: 'Automatic visit booked / rescheduled / reminder / job completed emails',
+            opscel: true,
+            others: 'Some'
+        },
+        {
+            feature: 'Upcoming visits, job progress and job sheet PDFs in the portal',
+            opscel: true,
+            others: 'Some'
         }
     ],
 
@@ -211,6 +231,10 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             question: 'What does the activity log track?',
             answer: 'Every portal action: Login (IP address, timestamp), View Quote (which quote, when), Approve/Decline Quote (who, reason if declined), View Certificate (which cert, when), Download PDF (cert ID, timestamp), View Invoice (which invoice, when). Access via Settings → Portal Activity. Filter by contact, date range, action type. Proves customer engagement in disputes.'
+        },
+        {
+            question: 'Do customers get told when a visit is booked or a job is finished?',
+            answer: 'Yes, if you switch on Customer notifications (Settings → Customer notifications, Team and Business plans, off by default). Opscel then emails the job&apos;s site contacts when a visit is booked, rescheduled or cancelled, sends a reminder the evening before, and tells them when the job is completed or cancelled. The emails come from your company name, reply to your company email, and carry a portal button for contacts who have access. Every email is listed on the job&apos;s Overview tab, so the office can see what the customer was told.'
         },
         {
             question: 'Is Customer Portal available on all pricing tiers?',

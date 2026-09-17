@@ -452,7 +452,7 @@ export const quotationsGuide: IDocGuide = {
                         headers: ['Status', 'Meaning', 'Next Action'],
                         rows: [
                             ['Draft', 'Quote is being prepared, not yet sent', 'Review and send to customer'],
-                            ['Sent', 'Quote sent to customer, awaiting decision', 'Wait for customer response or follow up'],
+                            ['Sent', 'Quote sent to customer, awaiting decision', 'Wait for customer response or follow up — or switch on <a href="/docs/quote-defaults" class="text-secondary hover:underline">automatic follow-ups</a> in Quote Defaults (off by default)'],
                             ['Accepted', 'Customer accepted quote', 'Convert to job and schedule work'],
                             ['Declined', 'Customer declined quote', 'Review the decline reason, adjust, and resend if appropriate'],
                             ['Expired', 'Validity period passed without decision', 'Contact customer or mark as lost'],

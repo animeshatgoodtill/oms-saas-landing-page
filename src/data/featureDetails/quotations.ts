@@ -117,7 +117,7 @@ export const quotationsDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Auto follow-up reminders',
+            feature: 'Auto follow-up reminders (opt-in, on the days you choose)',
             opscel: true,
             others: 'Some'
         },
@@ -152,7 +152,7 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             question: 'Will I know when customers view my quote?',
-            answer: 'Yes. Every quote tracks views, so you can see exactly when a customer has opened it and how many times. You can also set automatic follow-up reminders if they haven\'t responded.'
+            answer: 'Yes. Every quote tracks views — from the emailed link and from the customer portal — so you can see exactly when a customer has opened it and how many times. You can also switch on automatic follow-up reminders in Quote Defaults (off by default) so customers who haven\'t responded are chased on the days you choose.'
         },
         {
             question: 'Which pricing plan includes Quotations?',

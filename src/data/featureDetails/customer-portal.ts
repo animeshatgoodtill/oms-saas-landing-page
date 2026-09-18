@@ -7,6 +7,38 @@ export const customerPortalDetail: IFeatureDetail = {
     heroDescription: 'Stop chasing customers for quote approvals. Stop emailing the same certificate three times. Give your customers a secure portal to view quotes, see upcoming visits and job progress, approve with one click, and download certificates and job sheets 24/7 — and let Opscel email them automatically when a visit is booked or a job is done. Faster approvals, fewer admin calls, professional experience.',
     iconId: 'icon-smart-customer',
     screenshotImage: '/images/ui/04-screen.png',
+    showcase: 'customer-portal',
+
+    gallery: [
+        {
+            src: '/images/portal/portal-dashboard.webp',
+            alt: 'Customer portal dashboard with pending quotes, certificates, invoices and an upcoming visit',
+            caption: 'The dashboard a customer lands on: quotes to review, certificates, invoices, and the next visit with date, time, site and engineer.',
+            width: 1500,
+            height: 712
+        },
+        {
+            src: '/images/portal/portal-jobs.webp',
+            alt: 'Customer portal jobs list with Scheduled and Completed tabs',
+            caption: 'Scheduled and completed jobs, each with its site, date and how many visits and job sheets it has.',
+            width: 1500,
+            height: 812
+        },
+        {
+            src: '/images/portal/portal-job.webp',
+            alt: 'A job page in the customer portal linking its quotation and visits',
+            caption: 'Every job links its quotation, visits, job sheets, certificates and invoices in one place.',
+            width: 1500,
+            height: 812
+        },
+        {
+            src: '/images/portal/notification-email.webp',
+            alt: 'The "Your visit is booked" email a customer receives, rendered from the real template',
+            caption: 'Sent automatically in your name when a visit is booked, moved or cancelled — no login needed.',
+            width: 690,
+            height: 754
+        }
+    ],
 
     featureHighlights: [
         {
@@ -22,7 +54,17 @@ export const customerPortalDetail: IFeatureDetail = {
         {
             iconId: 'icon-certificate',
             title: 'Certificate Self-Service Download',
-            description: 'Customer needs EICR for insurance? They log into portal, find certificate, download PDF. 2am or 2pm—doesn&apos;t matter. No waiting for office hours, no "can you resend that cert?" emails. Reduces admin calls by 40%.'
+            description: 'Customer needs EICR for insurance? They log into portal, find certificate, download PDF. 2am or 2pm—doesn&apos;t matter. No waiting for office hours, no "can you resend that cert?" emails.'
+        },
+        {
+            iconId: 'icon-smart-prompt',
+            title: 'Automatic Visit and Job Updates by Email',
+            description: 'Switch on Customer notifications and your customers hear from you the moment a visit is booked, moved or cancelled, get a reminder the evening before, and are told when the job is completed. Sent to the job&apos;s site contacts in your name, no login needed; portal users get a button straight into the job. Team and Business plans.'
+        },
+        {
+            iconId: 'icon-service-history',
+            title: 'Jobs, Visits and Job Sheets',
+            description: 'Customers see their scheduled and completed jobs, an upcoming-visits card with date, time and the engineer&apos;s first name, and every completed job sheet as a PDF. Each job page links its quote, visits, sheets, certificates and invoices. Nothing internal leaks: no costs, notes, GPS or photos.'
         },
         {
             iconId: 'icon-smart-prompt',
@@ -109,7 +151,7 @@ export const customerPortalDetail: IFeatureDetail = {
             persona: 'Business Owners',
             benefits: [
                 'Faster quote approvals—customers approve online in 30 seconds, not 3 days via email chase',
-                'Reduce admin calls by 40%—customers download certificates themselves at 2am if needed',
+                'Fewer admin calls—customers download certificates themselves at 2am if needed',
                 'Professional customer experience—positions you as modern, tech-forward contractor',
                 'Activity logging for disputes—prove customer viewed quote on Tuesday at 3pm',
                 'Instant revocation—toggle portal access off, all sessions end immediately',
@@ -144,12 +186,12 @@ export const customerPortalDetail: IFeatureDetail = {
             label: 'Quote approval time vs. 3 days via email chase'
         },
         {
-            value: '40% fewer',
-            label: 'Admin calls—customers self-serve cert downloads and quote status'
+            value: '0 passwords',
+            label: 'Magic-link sign-in, 48-hour links, 30-day sessions'
         },
         {
-            value: '48hr/30 days',
-            label: 'Magic link expiry / session duration—secure and convenient'
+            value: 'Every 10 minutes',
+            label: 'Visit and job changes emailed to site contacts automatically'
         }
     ],
 

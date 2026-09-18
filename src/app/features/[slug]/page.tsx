@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 import FAQAccordion from '@/components/FAQAccordion';
@@ -7,6 +8,7 @@ import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import CtaBox from '@/components/CtaBox';
 import FeatureSpotlight from '@/components/FeatureSpotlight';
+import CustomerPortalShowcase from '@/components/showcase/CustomerPortalShowcase';
 import { getFeatureBySlug, getAllFeatureSlugs } from '@/data/featureDetails';
 import { siteDetails } from '@/data/siteDetails';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
@@ -106,6 +108,41 @@ const FeatureDetailPage: React.FC<FeatureDetailPageProps> = ({ params }) => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* ── SHOWCASE (hand-built UI illustration, opt-in per feature) ── */}
+      {feature.showcase === 'customer-portal' && (
+        <section className="bg-white" style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            <SectionHeading eyebrow="See it" title="What your customers see" />
+            <CustomerPortalShowcase />
+          </div>
+        </section>
+      )}
+
+      {/* ── GALLERY (real screenshots) ── */}
+      {feature.gallery && feature.gallery.length > 0 && (
+        <section style={{ padding: 'clamp(3.5rem, 6vw, 6rem) 0', background: 'var(--muted)' }}>
+          <div className="mx-auto px-5 w-full" style={{ maxWidth: '80rem' }}>
+            <SectionHeading eyebrow="Screenshots" title="The real thing" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {feature.gallery.map((image, i) => (
+                <div key={i}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    className="rounded-xl border border-border shadow-sm h-auto w-full"
+                  />
+                  <p className="mt-3 text-sm text-muted-foreground leading-[1.6]">
+                    {image.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* ── HOW IT WORKS ── */}

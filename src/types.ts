@@ -98,6 +98,14 @@ export interface IComparisonRow {
     others: 'Yes' | 'No' | 'Some';
 }
 
+export interface IFeatureGalleryImage {
+    src: string;
+    alt: string;
+    caption: string;
+    width: number;
+    height: number;
+}
+
 export interface IFeatureDetail {
     slug: string;
     title: string;
@@ -120,6 +128,10 @@ export interface IFeatureDetail {
         author: string;
         company: string;
     };
+    // Real screenshots (optional) — rendered in a "The real thing" gallery section
+    gallery?: IFeatureGalleryImage[];
+    // Hand-built UI illustration to render instead of/alongside a screenshot (optional)
+    showcase?: 'customer-portal';
 }
 
 // Documentation types

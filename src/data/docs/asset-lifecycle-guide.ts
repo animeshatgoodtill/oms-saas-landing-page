@@ -4,7 +4,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'Track equipment from first installation to decommissioning — QR tag scanning, automatic register updates from worksheets, full service history, and pre-loading into recurring contract visits.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-09-04',
+    lastUpdated: '2026-09-21',
     sections: [
         {
             id: 'overview',
@@ -70,7 +70,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p>Each equipment row records an action: <strong>Service</strong>, <strong>Service existing</strong>, <strong>Replace</strong>, <strong>Condemn</strong>, or <strong>Missing</strong>.</p>',
+                    content: '<p class="mb-4">Each equipment row records an <strong>action</strong> — what was done to that item — and the action is what decides how the register changes. The choices suit the worksheet: the Fire Alarm and Asset Service worksheets offer <strong>Service</strong>, <strong>Service existing</strong>, <strong>Replace</strong>, <strong>Condemn</strong> and <strong>Missing</strong>; the Extinguisher worksheet has its own set including <strong>Basic service</strong>, <strong>Discharge test</strong>, <strong>Refilled</strong>, <strong>Exchange</strong>, <strong>New hire</strong> and <strong>Condemn &amp; dispose</strong>; commissioning worksheets record <strong>Install</strong> and <strong>Commission</strong>.</p><p>A row with <strong>no action</strong> is left out of the register entirely — see <a href="/docs/asset-tracking#manual-register" class="text-secondary hover:underline">Register Assets from a Worksheet</a>.</p>',
                 },
             ],
         },
@@ -224,7 +224,7 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'An Asset the Engineer Recorded Isn\'t on the Register',
-                    content: '<p>Check the review banner on the customer\'s Assets tab — rows that create new assets or change lifecycle status wait there for office commit.</p>',
+                    content: '<p class="mb-4">Check the review banner on the customer\'s Assets tab — rows that create new assets or change lifecycle status wait there for office commit.</p><p>If the row is there but won\'t register, open the review panel and read the reason beside it. The usual causes are a row with <strong>no action selected</strong>, or one whose action services an existing asset without saying <strong>which</strong> asset. Both are fixed on the worksheet, not in the panel; the row then registers on a re-run, and nothing is written about it in the meantime.</p>',
                 },
                 {
                     title: 'A Scanned Tag Says It\'s Already Bound',

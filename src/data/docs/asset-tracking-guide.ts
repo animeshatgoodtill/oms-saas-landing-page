@@ -4,7 +4,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'A quick guide to capturing site equipment in Opscel, registering it from your engineers\' worksheets, and printing the per-site asset register your customers and assessors want to see.',
-    lastUpdated: '2026-09-05',
+    lastUpdated: '2026-09-21',
     sections: [
         {
             id: 'overview',
@@ -88,8 +88,14 @@ export const assetTrackingGuide: IDocGuide = {
                         'Open the job',
                         'Click the <strong>Assets</strong> tab',
                         'A banner shows what the engineer recorded — <em>&quot;5 fire extinguisher items extracted from worksheet&quot;</em>',
-                        'Click <strong>Register as Assets</strong> — the button names the count, e.g. <em>&quot;Register 5 items&quot;</em> — and confirm',
+                        'Click <strong>Register as Assets</strong> — the button names the count, e.g. <em>&quot;Register 5 items&quot;</em>',
+                        'A review panel opens from the right. Each row shows an <strong>Action</strong> — what will happen to it — and a status: <em>Ready</em>, <em>Links existing asset</em>, <em>Will decommission</em>, <em>Will mark missing</em>, or a reason it cannot be registered',
+                        'Correct a location or an existing asset number in place, or switch <strong>Skip</strong> on for a row you do not want, then confirm',
                     ],
+                },
+                {
+                    title: 'Why the Two Counts Can Disagree',
+                    content: '<p class="mb-4">The banner counts everything the engineer recorded. The button inside the review panel counts only the rows that can actually be registered — so a job can show <em>&quot;Register 1 item&quot;</em> on the banner and a greyed-out <em>&quot;Register 0 items&quot;</em> inside. The footer says why, e.g. <em>&quot;0 rows will be processed, 1 will be skipped&quot;</em>.</p><p>A row that cannot be registered shows its <strong>Skip</strong> switch already on and locked, with the reason beside it. You cannot force it through from here — fix the cause on the worksheet, then re-run (section 8). Nothing about that row is written in the meantime, so it registers normally once the worksheet is right.</p>',
                 },
                 {
                     content: '<p class="mb-4">They appear in the Assets list immediately. If the worksheet covered several equipment types, the banner breaks it down — <em>&quot;3 fire alarm panels + 12 smoke detectors&quot;</em>.</p><div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, and the clock is enforced by the server — if you come back later the undo will be refused even if the button is still on screen. Undo removes everything created in that run, and can only be used once.</p></div>',
@@ -195,7 +201,16 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'If Devices Were Skipped',
-                    content: '<p>It\'s almost always row order — a device listed above its panel can\'t be linked. The Assets tab names the rows and the reason: <em>&quot;Parent row 4 not yet promoted — parent rows must come before children.&quot;</em> Fix the order and re-run (section 8).</p>',
+                    content: '<p class="mb-4">On a commissioning worksheet it\'s almost always row order — a device listed above its panel can\'t be linked. The Assets tab names the rows and the reason: <em>&quot;Parent row 4 not yet promoted — parent rows must come before children.&quot;</em> Fix the order and re-run (section 8).</p><p class="mb-4">Two other reasons show up on service worksheets, and both appear as the reason beside a locked <strong>Skip</strong> switch in the review panel:</p>',
+                },
+                {
+                    bullets: [
+                        '<strong>No action selected</strong> — the row records equipment but never says what was done to it, so there is nothing to apply to the register. Set the action on the worksheet.',
+                        '<strong>Needs an existing asset no.</strong> — the action services an asset that is already on the register, but the row doesn\'t say which one. Add the asset number on the worksheet (the review panel can correct an existing reference, but cannot supply a first one).',
+                    ],
+                },
+                {
+                    content: '<p>In both cases the row is left untouched rather than half-registered — fix the worksheet and re-run.</p>',
                 },
             ]
         },
@@ -276,7 +291,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Rows Now Say What They Are',
-                    content: '<p>Each row on the worksheet is headed by the equipment it refers to — its asset number and location, rather than just a row number — and carries a label saying where it came from: <em>carried over from your last visit</em>, <em>from site register</em>, or <em>scanned</em>. On a site with forty extinguishers this is the difference between a usable list and a numbered one.</p>',
+                    content: '<p class="mb-4">Each row on the worksheet is headed by the equipment it refers to — its asset number and location, rather than just a row number — and carries a label saying where it came from: <em>carried over from your last visit</em>, <em>from site register</em>, or <em>scanned</em>. On a site with forty extinguishers this is the difference between a usable list and a numbered one.</p><p>The office worksheet names its rows the same way. A service worksheet is wider than the screen, so the row column stays pinned as you scroll across to the dates and asset numbers — you can always see which unit you are filling in.</p>',
                 },
             ]
         },

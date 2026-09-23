@@ -55,8 +55,8 @@ export const teamDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-user-roles',
-            title: 'Team Tier Feature (3 Users)',
-            description: 'The full 8-role permission system is available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier (£49/month, 1 user) still gets the same roles to choose from as your business grows into them.'
+            title: 'All 8 Roles on Every Plan',
+            description: 'The full 8-role permission system is included on every plan. Starter includes 1 user, Team 3 and Business 5, and you can add more on any plan for £29/month each.'
         }
     ],
 

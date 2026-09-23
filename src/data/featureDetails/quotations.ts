@@ -156,7 +156,7 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             question: 'Which pricing plan includes Quotations?',
-            answer: 'Quotations—the wizard, PDF generation, sending, templates, and customer portal accept/decline—is included on every plan, from Starter upward. Good-Better-Best tiered pricing and deposit collection on quotes are Team tier and above. Start with a 30-day free trial (card required, first charge on day 30) to test everything with your team.'
+            answer: 'Quotations—the wizard, PDF generation, sending, templates, and customer portal accept/decline—is included on every plan, from Starter upward. Deposit collection is on every plan too; Good-Better-Best tiered pricing is Team tier and above. Start with a 30-day free trial (card required, first charge on day 30) to test everything with your team.'
         },
         {
             question: 'Can I turn an accepted quote into a recurring service contract?',

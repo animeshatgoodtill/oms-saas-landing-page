@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Manrope", "sans-serif"],
-        body: ["Source Sans 3", "sans-serif"],
+        heading: ["var(--font-manrope)", "Manrope", "sans-serif"],
+        body: ["var(--font-source-sans)", "Source Sans 3", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
       },
       colors: {

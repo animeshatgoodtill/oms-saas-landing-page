@@ -42,7 +42,7 @@
 }
 
 /* ---------- stage ---------- */
-.wf-stage-wrap { position: relative; width: 100%; max-width: 980px; margin-inline: auto; aspect-ratio: 880 / 580; }
+.wf-stage-wrap { position: relative; width: 100%; max-width: 980px; margin-inline: auto; aspect-ratio: 880 / 580; overflow: hidden; }
 .wf-stage { position: absolute; left: 0; top: 0; width: 880px; height: 580px; transform-origin: 0 0; transform: scale(var(--wf-s, 1)); font-size: 12px; line-height: 1.35; }
 @media (max-width: 767px) {
   .wf-stage-wrap { max-width: 280px; aspect-ratio: 244 / 506; }

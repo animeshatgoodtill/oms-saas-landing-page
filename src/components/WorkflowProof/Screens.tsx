@@ -3,7 +3,7 @@
 // Class names are the global `wf-` classes in workflow-proof.css.
 import React from 'react';
 
-type Props = { active: number; stepClass: string };
+type Props = { active: number; step: number; stepClass: string };
 
 const view = (base: string, i: number, active: number, stepClass: string) =>
     i === active ? `${base} wf-on ${stepClass}` : base;
@@ -144,7 +144,7 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
                         </div>
                         <span className="wf-btn wf-off3" style={{ alignSelf: 'center' }}>Create quote</span>
                     </div>
-                    <div className="wf-card wf-rq wf-at3">
+                    <div className="wf-card wf-rq wf-at3" style={{ marginTop: 10 }}>
                         <div className="wf-rq-head">
                             <span>Q-2418 · Remedial works</span>
                             <span className="wf-slot">
@@ -154,7 +154,8 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
                         </div>
                         <table className="wf-lines">
                             <tbody>
-                                <tr><td>Resettable call point (replacement) × 1</td><td className="wf-num">£68.00</td></tr>
+                                <tr><td colSpan={2} style={{ fontWeight: 600 }}>Medium · Call point Z2·L1/012, Corridor 2F: replace element</td></tr>
+                                <tr><td>Resettable call point × 1</td><td className="wf-num">£68.00</td></tr>
                                 <tr><td>Labour: 1 hr</td><td className="wf-num">£72.00</td></tr>
                                 <tr className="wf-tot"><td>Total inc. VAT</td><td className="wf-num">£168.00</td></tr>
                             </tbody>
@@ -197,7 +198,7 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="M13 5a5 5 0 0 0-9-1M3 11a5 5 0 0 0 9 1" /><path d="M4 1v3h3M12 15v-3H9" /></svg>
                             </span>
                             <div className="wf-tx"><h5>Posted to <span className="wf-xero">Xero</span></h5><p>Payment status syncs back from Xero</p></div>
-                            <span className="wf-pill wf-ok wf-at4" style={{ ['--d' as string]: '700ms' }}>Paid</span>
+                            <span className="wf-pill wf-ok wf-at4" style={{ ['--d' as string]: '1200ms' }}>Paid · via Xero</span>
                         </li>
                     </ol>
                 </section>
@@ -209,11 +210,11 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
 // the phone's clock moves through the afternoon with the story
 const PHONE_CLOCK = ['10:44', '13:52', '13:58', '14:41'];
 
-export const PhoneScreens: React.FC<Props> = ({ active, stepClass }) => (
+export const PhoneScreens: React.FC<Props> = ({ active, step, stepClass }) => (
     <div className="wf-phone">
         <div className="wf-screen">
             <div className="wf-notch" />
-            <div className="wf-sbar"><span>{PHONE_CLOCK[active]}</span><span>●●● 5G</span></div>
+            <div className="wf-sbar"><span>{PHONE_CLOCK[active]}</span><span>{active === 1 && step === 2 ? 'No service' : '●●● 5G'}</span></div>
 
             {/* 0 — today's route */}
             <section className={view('wf-pview', 0, active, stepClass)}>
@@ -276,8 +277,9 @@ export const PhoneScreens: React.FC<Props> = ({ active, stepClass }) => (
                 <div className="wf-ph"><div><b>Log defect</b><small>J-3088 · Harbour View</small></div></div>
                 <div className="wf-pb">
                     <div className="wf-field"><label>Device</label>Call point · <span className="wf-mono">Z2·L1/012</span></div>
-                    <CallPointPhoto width="100%" height={78} />
+                    <CallPointPhoto width="100%" height={62} />
                     <div className="wf-field"><label>Note</label><span className="wf-at1">Glass cracked. Still operates on test. Needs a new element.</span></div>
+                    <div className="wf-field wf-at1"><label>Parts &amp; time</label>Call point × 1 · 1 hr</div>
                     <div className="wf-chips"><span>Low</span><span className="wf-pick">Medium</span><span>Urgent</span></div>
                     <span className="wf-big wf-p2"><span className="wf-b1">Save defect</span><span className="wf-b2">✓ Saved to the job</span></span>
                 </div>

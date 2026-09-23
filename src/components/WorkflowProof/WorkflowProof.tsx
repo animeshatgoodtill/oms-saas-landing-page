@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { sendGAEvent } from '@next/third-parties/google';
 
 import Container from '@/components/Container';
@@ -29,6 +29,9 @@ const DOT_CLASS: Record<FlowDirection, string> = {
     toOffice: 'wf-to-office',
 };
 
+// measure before paint on the client (no 880px flash); plain effect on the server
+const useIsoLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 const stepClassFor = (step: number) =>
     Array.from({ length: step }, (_, i) => `wf-s${i + 1}`).join(' ');
 
@@ -40,15 +43,16 @@ const WorkflowProof: React.FC = () => {
     const [step, setStep] = useState(4); // the finished state is the resting (no-JS / reduced-motion) frame
     const [progress, setProgress] = useState(0);
 
-    const sectionRef = useRef<HTMLElement>(null);
     const wrapRef = useRef<HTMLDivElement>(null);
     const stageRef = useRef<HTMLDivElement>(null);
     const elapsed = useRef(0);
     const hovering = useRef(false);
     const inView = useRef(false);
+    const started = useRef(false);
     const reduced = useRef(false);
 
     const show = useCallback((i: number) => {
+        started.current = true;
         elapsed.current = 0;
         setActive(i);
         setStep(reduced.current ? 4 : 0);
@@ -56,7 +60,7 @@ const WorkflowProof: React.FC = () => {
     }, []);
 
     // Scale the fixed-size stage to its container (desk + phone ≥768px, phone only below).
-    useEffect(() => {
+    useIsoLayoutEffect(() => {
         const wrap = wrapRef.current;
         const stage = stageRef.current;
         if (!wrap || !stage) return;
@@ -70,24 +74,24 @@ const WorkflowProof: React.FC = () => {
         return () => ro.disconnect();
     }, []);
 
-    // Play only while on screen; start from the top the first time it's seen.
+    // Play only while the stage is on screen; start from the top the first time it's seen.
+    // A card click (show) also starts playback, so it never waits on the observer.
     useEffect(() => {
         reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduced.current) return;
-        const el = sectionRef.current;
+        if (reduced.current) {
+            setProgress(100);
+            return;
+        }
+        const el = wrapRef.current;
         if (!el) return;
-        let started = false;
         const io = new IntersectionObserver(([entry]) => {
             inView.current = entry.isIntersecting;
-            if (entry.isIntersecting && !started) {
-                started = true;
-                show(0);
-            }
-        }, { threshold: 0.35 });
+            if (entry.isIntersecting && !started.current) show(0);
+        }, { threshold: 0.2 });
         io.observe(el);
 
         const timer = window.setInterval(() => {
-            if (!started || !inView.current || hovering.current || document.hidden) return;
+            if (!started.current || !inView.current || hovering.current || document.hidden) return;
             elapsed.current += TICK;
             const t = elapsed.current;
             if (t >= TOTAL) {
@@ -118,7 +122,7 @@ const WorkflowProof: React.FC = () => {
     };
 
     return (
-        <section ref={sectionRef} id="how-it-works" className="wf py-16 md:py-24" aria-labelledby="wf-heading">
+        <section id="how-it-works" className="wf py-16 md:py-24" aria-labelledby="wf-heading">
             <Container>
                 <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
                     <h2 id="wf-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance text-white">
@@ -132,13 +136,14 @@ const WorkflowProof: React.FC = () => {
                 <div
                     ref={wrapRef}
                     className="wf-stage-wrap"
-                    onMouseEnter={() => { hovering.current = true; }}
-                    onMouseLeave={() => { hovering.current = false; }}
+                    // mouse only: touch browsers fire an emulated enter on tap and no leave
+                    onPointerEnter={e => { if (e.pointerType === 'mouse') hovering.current = true; }}
+                    onPointerLeave={e => { if (e.pointerType === 'mouse') hovering.current = false; }}
                     aria-hidden="true"
                 >
                     <div ref={stageRef} className="wf-stage">
-                        <DeskScreens active={active} stepClass={stepClass} />
-                        <PhoneScreens active={active} stepClass={stepClass} />
+                        <DeskScreens active={active} step={step} stepClass={stepClass} />
+                        <PhoneScreens active={active} step={step} stepClass={stepClass} />
                     </div>
                 </div>
 
@@ -149,7 +154,7 @@ const WorkflowProof: React.FC = () => {
                     </div>
                     <span className={`wf-end ${direction === 'field' || direction === 'toField' ? 'wf-lit' : ''}`}>Engineer’s phone</span>
                 </div>
-                <p className="mt-3 min-h-[3em] sm:min-h-[1.6em] text-center text-base md:text-lg text-white" aria-live="polite">
+                <p className="mt-3 min-h-[3em] sm:min-h-[1.6em] text-center text-base md:text-lg text-white" aria-hidden="true">
                     {current && (
                         <>
                             <span className="mr-2 font-mono text-xs uppercase tracking-wider text-primary">{ROUTE_LABEL[current.direction]}</span>
@@ -158,13 +163,22 @@ const WorkflowProof: React.FC = () => {
                     )}
                 </p>
 
-                <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-[980px] mx-auto" role="tablist" aria-label="Workflows">
+                {/* the animation is decorative for screen readers; this is the same story as text */}
+                <div className="sr-only">
+                    {workflows.map(w => (
+                        <div key={w.id}>
+                            <h3>{w.title}</h3>
+                            <ol>{w.steps.map(s => <li key={s.caption}>{s.caption}</li>)}</ol>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-[980px] mx-auto" role="group" aria-label="Choose a workflow to play">
                     {workflows.map((w, i) => (
                         <button
                             key={w.id}
                             type="button"
-                            role="tab"
-                            aria-selected={i === active}
+                            aria-pressed={i === active}
                             onClick={() => onTab(i)}
                             className={`flex flex-col justify-start text-left rounded-xl border p-3 md:p-4 transition-colors duration-mechanical ease-mechanical focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${i === active ? 'border-secondary bg-[rgba(48,79,255,0.18)]' : 'border-[color:var(--wf-line)] bg-white/[0.03] hover:border-white/30'}`}
                         >

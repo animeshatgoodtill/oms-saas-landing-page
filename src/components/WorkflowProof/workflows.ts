@@ -54,7 +54,7 @@ export const workflows: IWorkflow[] = [
         steps: [
             { direction: 'field', caption: 'A cracked call point, photographed and logged' },
             { direction: 'toOffice', caption: 'It’s on the job in the office before she leaves site' },
-            { direction: 'office', caption: 'Create a quote from the defect. The lines are already filled in' },
+            { direction: 'office', caption: 'One click turns it into a quote, with her parts and hours on it' },
             { direction: 'office', caption: 'Sent to the customer to approve online' },
         ],
     },

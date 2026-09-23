@@ -2,7 +2,8 @@ import { IPricing } from "@/types";
 
 // Plan contents mirror what the product ENFORCES (lib/auth/tier-feature-matrix.ts
 // and the gates that actually check it), verified 2026-09-23. Only the gated
-// modules are plan-specific: Team adds Good-Better-Best, accounting sync, service
+// modules are plan-specific (deposits are every plan, the owner's call
+// 2026-09-23): Team adds Good-Better-Best, accounting sync, service
 // contracts, purchase orders and customer notification emails; Business adds
 // assets, remote monitoring, RAMS and the self-service portal. Everything else is
 // on every plan. The trial terms render once per card (PricingColumn), not here.
@@ -18,7 +19,7 @@ export const tiers: IPricing[] = [
             'Scheduling, with Google and Outlook calendar sync',
             'Field app for engineers that works offline',
             'All 18 certificate types, with your branding',
-            'Quotes your customers approve from their email',
+            'Quotes customers approve and pay deposits on from their email',
             'Invoicing, and reports including job profitability',
             'Job sheets, checklists and customer sign-off',
             '100 free AI credits every month',
@@ -33,7 +34,7 @@ export const tiers: IPricing[] = [
         features: [
             '3 users included (+£29/month per additional)',
             'Everything in Starter',
-            'Good-Better-Best quotes and deposits',
+            'Good-Better-Best quote options',
             'Xero and QuickBooks sync',
             'Service contracts: recurring visits, fees and renewal reminders',
             'Purchase orders to suppliers',

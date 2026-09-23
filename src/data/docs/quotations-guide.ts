@@ -21,7 +21,7 @@ export const quotationsGuide: IDocGuide = {
                         '<strong>One-click job creation:</strong> Convert an accepted quote to a job with all data carried forward - no re-typing',
                         '<strong>Defect-to-quote workflow:</strong> Bundle logged job defects into a remedial quote',
                         '<strong>Quote analytics:</strong> Track conversion rates, win/loss ratios, and average quote values',
-                        '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (Team &amp; Business plans)',
+                        '<strong>Deposit handling:</strong> Require deposits on acceptance, integrated with Stripe (all plans)',
                     ],
                 },
                 {
@@ -270,7 +270,7 @@ export const quotationsGuide: IDocGuide = {
                         'Customer clicks portal link in email',
                         'Reviews quote details and line items',
                         'Clicks <strong>Accept Quote</strong>',
-                        'If deposit required: redirected to Stripe payment page (Team &amp; Business plans)',
+                        'If deposit required: redirected to Stripe payment page',
                         'After acceptance (and payment if required): quote status changes to <strong>Accepted</strong>',
                         'Opscel sends confirmation email to customer and office team',
                         'Quote becomes available for conversion to job',
@@ -354,7 +354,7 @@ export const quotationsGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Availability',
-                    content: '<strong>Tier:</strong> Team &amp; Business (Stripe integration required)<br><strong>Roles:</strong> Super Admin, Admin',
+                    content: '<strong>Tier:</strong> All plans (Stripe integration required)<br><strong>Roles:</strong> Super Admin, Admin',
                 },
                 {
                     title: 'Requiring Deposits on Quote Acceptance',

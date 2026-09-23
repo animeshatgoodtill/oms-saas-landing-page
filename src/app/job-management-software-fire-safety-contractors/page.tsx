@@ -286,7 +286,7 @@ const FireSafetyContractorsPage: React.FC = () => {
             </div>
 
             <p className="text-lg leading-relaxed text-foreground-accent">
-              A small team can start on the Team plan. It includes multi-engineer scheduling, Good-Better-Best quoting, and Xero sync for ninety-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal, asset register, and RAMS. Every plan includes unlimited jobs and customers, plus certificates as standard.
+              A small team can start on the Team plan. It adds Good-Better-Best quoting, Xero sync and service contracts for ninety-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal, asset register, and RAMS. Every plan includes unlimited jobs and customers, plus certificates as standard.
             </p>
           </section>
 

@@ -493,7 +493,7 @@ export const teamManagementGuide: IDocGuide = {
                         'Tier limits (feature available on user&apos;s current tier?)',
                         'User has logged out and back in since role change',
                         'License count (user counted toward tier limit?)',
-                        '<strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., Quotations analytics) require Business tier. If user recently changed roles, ask them to log out and log back in.'
+                        '<strong>Fix:</strong> If role is correct but feature missing, check tier limits. Some features (e.g., the asset register) require the Business plan. If user recently changed roles, ask them to log out and log back in.'
                     ]
                 },
                 {

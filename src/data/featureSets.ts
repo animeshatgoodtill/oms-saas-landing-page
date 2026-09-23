@@ -53,7 +53,7 @@ export const featureSets: IFeatureSet[] = [
         icon: 'import',
         plan: 'Every plan',
         title: 'Bring your data with you.',
-        body: 'Import customers, sites, products, jobs and contracts from a spreadsheet on any plan. Asset import comes with Business.',
+        body: 'Import customers, sites, products and jobs from a spreadsheet on any plan. Contracts come with Team, assets with Business.',
         href: '/features/data-import',
     },
 ];

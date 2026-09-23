@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 440" role="img" aria-labelledby="d5title d5desc">
+<title id="d5title">Coverage is worked out, never stored</title>
+<desc id="d5desc">A site register lists four assets: two extinguishers, a fire alarm panel and an emergency light. Two active contracts are checked against them: an extinguisher service contract, whose worksheet claims extinguishers and blankets, and a fire alarm service contract, whose worksheet claims panels, detectors and sounders. The two extinguishers and the panel are found covered by the matching contract. The emergency light matches no active contract, so it is marked not on a contract and raises a dashboard note, "1 asset on no service contract", with a button to start a new contract. Caption: an asset is covered when an active contract at its site has a worksheet that handles its type.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.chip{fill:#F1F3F5;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#586070"/>
+</marker>
+<marker id="arA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#026A9F"/>
+</marker>
+</defs>
+
+<rect x="40" y="70" width="220" height="280" rx="4" class="box"/>
+<text x="56" y="94" class="lbl title" style="font-size:13px;">Site register</text>
+<rect x="56" y="110" width="190" height="32" rx="4" class="chip"/>
+<text x="66" y="130" class="lbl body">Extinguisher A</text>
+<rect x="56" y="150" width="190" height="32" rx="4" class="chip"/>
+<text x="66" y="170" class="lbl body">Extinguisher B</text>
+<rect x="56" y="190" width="190" height="32" rx="4" class="chip"/>
+<text x="66" y="210" class="lbl body">Fire alarm panel</text>
+<rect x="56" y="230" width="190" height="32" rx="4" class="chip"/>
+<text x="66" y="250" class="lbl body">Emergency light</text>
+
+<!-- contract cards -->
+<rect x="380" y="105" width="260" height="82" rx="4" class="box"/>
+<text x="396" y="128" class="lbl title" style="font-size:13px;">Extinguisher service</text>
+<text x="396" y="146" class="lbl note">&#8594; Extinguisher worksheet</text>
+<text x="396" y="164" class="lbl note">claims: extinguishers, blankets</text>
+
+<rect x="380" y="195" width="260" height="70" rx="4" class="box"/>
+<text x="396" y="216" class="lbl title" style="font-size:13px;">Fire alarm service</text>
+<text x="396" y="234" class="lbl note">&#8594; Fire alarm worksheet</text>
+<text x="396" y="250" class="lbl note">claims: panel, detectors, sounders</text>
+
+<text x="380" y="306" class="lbl note">no active contract claims this type</text>
+
+<!-- register -> contracts -->
+<path d="M246,126 H360 V146 H380" class="line" marker-end="url(#ar)"/>
+<path d="M246,166 H360 V146 H380" class="line" marker-end="url(#ar)"/>
+<path d="M246,206 H360 V230 H380" class="line" marker-end="url(#ar)"/>
+<path d="M246,246 V285 H660 V249 H700" stroke="#026A9F" stroke-width="2" fill="none" marker-end="url(#arA)"/>
+
+<!-- contracts -> results -->
+<path d="M640,146 H670 V129 H700" class="line" marker-end="url(#ar)"/>
+<path d="M640,146 H670 V169 H700" class="line" marker-end="url(#ar)"/>
+<path d="M640,230 H670 V209 H700" class="line" marker-end="url(#ar)"/>
+
+<!-- results -->
+<rect x="700" y="115" width="300" height="28" rx="4" fill="#E4F3E9"/>
+<text x="710" y="134" class="lbl" style="font-size:11.5px;fill:#15803D;">Covered &#183; Extinguisher service</text>
+<rect x="700" y="155" width="300" height="28" rx="4" fill="#E4F3E9"/>
+<text x="710" y="174" class="lbl" style="font-size:11.5px;fill:#15803D;">Covered &#183; Extinguisher service</text>
+<rect x="700" y="195" width="300" height="28" rx="4" fill="#E4F3E9"/>
+<text x="710" y="214" class="lbl" style="font-size:11.5px;fill:#15803D;">Covered &#183; Fire alarm service</text>
+<rect x="700" y="235" width="300" height="28" rx="4" fill="#FBF0D9"/>
+<text x="710" y="254" class="lbl" style="font-size:11.5px;fill:#8A5A00;">Not on a contract &#183; Emergency light</text>
+
+<path d="M750,263 V290" class="line" marker-end="url(#ar)"/>
+
+<rect x="700" y="290" width="300" height="54" rx="4" class="box"/>
+<text x="716" y="311" class="lbl title" style="font-size:12.5px;">Dashboard</text>
+<text x="716" y="329" class="lbl note">&#8220;1 asset on no service contract&#8221;</text>
+
+<rect x="700" y="360" width="150" height="30" rx="4" class="chip"/>
+<text x="775" y="380" text-anchor="middle" class="lbl" style="font-size:11px;fill:#141619;">+ New contract</text>
+
+<text x="520" y="420" text-anchor="middle" class="lbl cap">An asset is covered when an active contract at its site has a worksheet that handles its type.</text>
+</svg>

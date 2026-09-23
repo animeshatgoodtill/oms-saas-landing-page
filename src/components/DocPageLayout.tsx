@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 import Container from '@/components/Container';
 import DocSidebar from '@/components/DocSidebar';
+import DocMockup from '@/components/docs/mockups/DocMockup';
 import { IDocGuide, IDocSubsection } from '@/types';
 import { siteDetails } from '@/data/siteDetails';
 import { generateBreadcrumbSchema } from '@/lib/schema';
@@ -95,6 +96,7 @@ const DocPageLayout: React.FC<DocPageLayoutProps> = ({ guide }) => {
           dangerouslySetInnerHTML={{ __html: subsection.content }}
         />
       )}
+      {subsection.mockup && <DocMockup name={subsection.mockup} />}
       {subsection.bullets && subsection.bullets.length > 0 && (
         <ul className="space-y-2 ml-4">
           {subsection.bullets.map((bullet, idx) => (

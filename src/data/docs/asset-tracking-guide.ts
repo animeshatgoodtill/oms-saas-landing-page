@@ -38,7 +38,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Three Ways Equipment Lands on a Row',
-                    content: '<p class="mb-4">Whether a row was pre-loaded, picked from the register on site, or scanned, it is the same row - the tag on it tells the engineer (and you) which door it came in by.</p>'
+                    content: '<p class="mb-4">Whether a row was pre-loaded, picked from the register on site, or scanned, it is the same row - the tag on it tells the engineer (and you) which door it came in by. QR and barcode tags scan on any device; NFC tag binding is a Chrome-on-Android enhancement on top of that, not a requirement.</p>'
                         + diagram(`${IMG}/three-ways-onto-a-row.svg`, 'Three sources - pre-loaded from the register when the job is raised, picked from the site register on site, or a scanned QR tag - all converge on one worksheet row; the tags they produce read FROM SITE REGISTER, FROM SITE REGISTER and SCANNED, with a greyed FROM LAST VISIT tag reserved for carry-forward when a site has no register.', 'One row shape, three doors in - the tag says which.'),
                 },
                 {
@@ -92,7 +92,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Importing a Fire Alarm Panel Export',
-                    content: '<p class="mb-4">A panel extract (Apollo, Hochiki, Advanced and the like) uploads <strong>as it comes out of the panel software</strong> - no reformatting. The columns a panel prints (Kind, Zone Number, Loop Number, Address, Location) map automatically, and the device kinds resolve through a built-in fire-alarm vocabulary: Optical and Multi become detectors, MCP a call point, Sounder and Beacon themselves, <strong>Switch an interface unit</strong> (never an electrical light switch), Relay a relay module.</p><p class="mb-4">A panel export has no name column, so each device gets a derived name from its type and panel position - <em>detector_multi L1 A1</em>. That is deliberate: derived names match <strong>exactly</strong> on a re-import, so two adjacent loop devices are never merged into one. Zone, loop and address are stored on the asset, so the register reads the way the panel does.</p><p>Every distinct device-type value in the file must resolve before the import runs; anything unrecognised stops at the preview rather than importing as junk. Save the mapping as a profile for that customer\'s next panel.</p>'
+                    content: '<p class="mb-4">A panel extract (Apollo, Hochiki, Advanced and the like) uploads <strong>as it comes out of the panel software</strong> - no reformatting. The columns a panel prints (Kind, Zone Number, Loop Number, Address, Location) map automatically, and the device kinds resolve through a built-in fire-alarm vocabulary: Optical and Multi become detectors, MCP a call point, Sounder and Beacon themselves, <strong>Switch an interface unit</strong> (never an electrical light switch), Relay a relay module.</p><p class="mb-4">A panel export has no name column, so each device gets a derived name from its type and panel position - e.g. <em>Multi L1 A1</em>, built from the device-type text as your file spells it. That is deliberate: derived names match <strong>exactly</strong> on a re-import, so two adjacent loop devices are never merged into one. Zone, loop and address are stored on the asset, so the register reads the way the panel does.</p><p>Every distinct device-type value in the file must resolve before the import runs; anything unrecognised stops at the preview rather than importing as junk. Save the mapping as a profile for that customer\'s next panel.</p>'
                         + figure(`${IMG}/import-data-select-type.webp`, 'Settings → Import Data screen showing the Select Data Type cards, including Assets, linked to site addresses', 'Settings → Data Management → Import. Assets are imported per site.'),
                 },
                 {
@@ -131,12 +131,13 @@ export const assetTrackingGuide: IDocGuide = {
                 {
                     steps: [
                         'Open the job → <strong>Assets</strong> tab',
-                        'The banner shows what the engineer recorded - <em>&quot;5 fire extinguisher items extracted from worksheet&quot;</em> - broken down by type when the sheet covered several',
-                        'Review or edit the rows, then click <strong>Register as Assets</strong> and confirm',
+                        'A banner names what the engineer recorded on that worksheet - broken down by type when the sheet covered several - and how many rows are still pending',
+                        'Click through to <strong>Review and register</strong>: a per-row table lets you edit each location, fix a parent or existing-asset reference, or skip a row before anything is committed',
+                        'The footer totals the run before you confirm it - e.g. <em>&quot;1 new, 5 linking to existing assets, 1 to decommission, 1 to mark missing&quot;</em> - then click <strong>Register</strong> and confirm',
                     ],
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo removes everything created in that run and can be used once. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
                 },
             ],
         },
@@ -156,7 +157,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'The Register Was Built After the Job',
-                    content: '<p class="mb-4">A job raised before the register existed arrives with an empty worksheet. Two things fix that: an <strong>asset import</strong> onto the site refills the site\'s empty draft sheets automatically, and on the job\'s worksheets panel the office can press <strong>Load site register</strong> at any time.</p>'
+                    content: '<p class="mb-4">A job raised before the register existed arrives with an empty worksheet. Two things fix that: an <strong>asset import</strong> onto the site refills the site\'s empty draft sheets automatically, and on the job\'s worksheets panel the office can press <strong>Load site register</strong> at any time (needs the <strong>Edit Jobs</strong> permission). It loads the <strong>whole</strong> site register, not just a planned visit\'s share - use it to catch a sheet up, not to re-apply a visit plan split.</p>'
                         + figure(`${IMG}/office-load-site-register.webp`, 'The job\'s worksheets panel in the office, showing the attached Fire Extinguisher Service Worksheet and the Load site register button with its explanation line', '"Load site register" fills this worksheet from the site\'s asset register - for a job raised before the register existed, or a sheet still empty after an import.'),
                 },
             ],
@@ -164,7 +165,7 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'visit-plan',
             title: '7. Service Contracts and the Visit Plan',
-            content: '<p class="mb-4">A service contract\'s <strong>service type decides which worksheet each visit gets</strong>, and the register fills it. On a small site that is the whole story. On a large one - a fire alarm system with 88 devices on a quarterly contract - you do not want every device on every visit.</p><p class="mb-4">A <strong>visit plan</strong> on the contract splits the register across the year\'s visits <strong>by zone, floor, building or evenly</strong>. Each visit\'s job pre-loads only its share; the engineer sees "Visit 2 of 4 - 30 devices this visit"; anything an earlier visit missed rolls forward; and the last visit of the year picks up whatever is still untested. BS 5839-1 asks for every device within twelve months - the plan is how you get there without an 88-row sheet four times a year.</p>',
+            content: '<p class="mb-4">A service contract\'s <strong>service type decides which worksheet each visit gets</strong>, and the register fills it. On a small site that is the whole story. On a large one - a fire alarm system with 88 devices on a quarterly contract - you do not want every device on every visit.</p><p class="mb-4">A <strong>visit plan</strong> on the contract splits the register across the year\'s visits <strong>by zone, floor, building or evenly</strong>. Each visit\'s job pre-loads only its share; the engineer sees "Visit 2 of 4 - 9 devices this visit"; anything an earlier visit missed rolls forward; and the last visit of the year picks up whatever is still untested. BS 5839-1 asks for every device within twelve months - the plan is how you get there without an 88-row sheet four times a year.</p>',
             subsections: [
                 {
                     mockup: 'visit-plan-card',
@@ -188,7 +189,7 @@ export const assetTrackingGuide: IDocGuide = {
                     mockup: 'coverage-panel',
                 },
                 {
-                    content: '<p class="mb-4">The customer\'s <strong>Coverage</strong> tab lists every asset by site and contract, and each uncovered row has a <strong>New contract</strong> link that opens the contract wizard with the customer, site and service type already chosen. The dashboard\'s <em>Needs attention</em> list shows <em>"N assets on no service contract"</em> per customer, and always keeps a slot for it however many overdue jobs there are.</p>'
+                    content: '<p class="mb-4">The customer\'s <strong>Coverage</strong> tab lists every asset by site and contract, and each uncovered row has a <strong>New contract</strong> link that opens the contract wizard with the customer and site already chosen - and the service type too, when exactly one worksheet fits the asset\'s type; otherwise you pick it there. The dashboard\'s <em>Needs attention</em> list shows <em>"N assets on no service contract"</em> per customer, and always keeps a slot for it however many overdue jobs there are.</p>'
                         + figure(`${IMG}/office-coverage-tab.webp`, 'The customer Coverage tab in the office, showing every registered asset is on a service contract with a per-site breakdown', 'A customer\'s Coverage tab, once every asset is on a contract.'),
                 },
             ],
@@ -205,7 +206,7 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; panels, detectors, call points, sounders and beacons on one fire alarm device register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
+                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
                         + figure(`${IMG}/office-site-assets.webp`, 'The site Assets tab in the office listing the register rows with asset number, type, location and status, and the Print Register button', 'The site\'s register, with Print Register in the toolbar.'),
                 },
                 {
@@ -248,7 +249,7 @@ export const assetTrackingGuide: IDocGuide = {
                     },
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The service worksheet records type and size, not manufacture or discharge dates.</strong> Extinguishers that reached the register from a worksheet show TYPE and SIZE and leave D/E and ES Due blank until an admin fills them in here (or they come in on an import, which does carry them).</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The extinguisher worksheet has its own row fields for the clock, not just TYPE and SIZE.</strong> Ask engineers to fill in <strong>Manufacture date</strong> (the date on the body - it starts the BS 5306-3 clock), tick <strong>Extended service done this visit</strong> only when they actually carried out the discharge/refill, and set <strong>Extended service due</strong> if a maintenance label already names a year. Registering the sheet writes these straight to the asset, so D/E and ES Due print on the register from then on. A row with none of these filled in still leaves D/E and ES Due blank until an admin fills them in here (or an import carries them).</p></div>',
                 },
             ],
         },
@@ -295,9 +296,10 @@ export const assetTrackingGuide: IDocGuide = {
                         headers: ['Role', 'View', 'Add', 'Edit', 'Decommission', 'Import', 'Visit plan'],
                         rows: [
                             ['Admin / Contract Manager', '✅', '✅', '✅', '✅', '✅', '✅'],
-                            ['Site Manager', '✅', '✅', '✅', '❌', '❌', '❌'],
+                            ['Site Manager', '✅', '✅', '✅', '❌', '❌', '✅'],
+                            ['Accounts / Sales Manager', '✅', '❌', '❌', '❌', '❌', '✅'],
                             ['Engineer', '✅', '✅', '❌', '❌', '❌', '❌'],
-                            ['Accounts / Sales Manager / Viewer', '✅', '❌', '❌', '❌', '❌', '❌'],
+                            ['Viewer', '✅', '❌', '❌', '❌', '❌', '❌'],
                         ],
                     },
                 },
@@ -312,11 +314,11 @@ export const assetTrackingGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'The worksheet says "from last visit" on a site\'s first-ever visit. Why?',
-                    content: 'Rows pre-loaded from the register are tagged <strong>from site register</strong>. "From last visit" is the carry-forward of what the engineer did last time, used when a site has no register - and it is also what jobs raised before September 2026 show, because those rows were stamped before the two were told apart. New jobs read correctly.',
+                    content: 'Rows pre-loaded from the register are tagged <strong>from site register</strong>. "From last visit" is the carry-forward of what the engineer did last time, used when a site has no register - and it is also what jobs raised before 22 September 2026 show, because those rows were stamped before the two were told apart. New jobs read correctly.',
                 },
                 {
                     title: 'My engineer added all 15 remaining devices to a visit that should have had 5.',
-                    content: 'On a planned visit the "Add from site register" list tags every other device <strong>other visit</strong>, explains that the rest are on other visits this year, and <strong>"Add all" needs a second tap</strong>. Adding one device you are servicing today is still one tap - that is deliberate.',
+                    content: 'On a planned visit the "Add from site register" list tags every other device <strong>other visit</strong>, explains that the rest are on other visits this year, and <strong>"Add all" needs a second tap</strong>. Adding one device you are servicing today is still one tap - that is deliberate. "Add all" is also capped at 50 devices per tap, so a very large remaining list needs more than one confirmation.',
                 },
                 {
                     title: 'The visit plan put every device on visit 1.',
@@ -336,11 +338,11 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can engineers register assets, or only admins?',
-                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records is admin-only, unless you switch on auto-register, in which case routine rows commit themselves and new equipment still waits for review.',
+                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records needs <strong>Asset Edit</strong> (Admin, Contract Manager or Site Manager) - it is not admin-only. Switch on auto-register and routine rows commit themselves too, while new equipment still waits for review.',
                 },
                 {
                     title: 'What format is the Asset Register PDF?',
-                    content: 'Modelled on the paper formats your customers and assessors already know - the extinguisher record sheet with TYPE · SIZE · POSITION · D/E · ES Due and the per-job service grid; logbook-style for fire alarm devices. One document per register family (extinguishers and blankets together; panel and devices together).',
+                    content: 'Modelled on the paper formats your customers and assessors already know - the extinguisher record sheet with TYPE · SIZE · POSITION · D/E · ES Due and the per-job service grid; logbook-style for fire alarm devices. One document per register family (extinguishers and blankets together; a fire alarm panel on its own register, separate from its devices).',
                 },
                 {
                     title: 'My engineer\'s worksheet had 8 devices but only 5 became assets.',
@@ -352,7 +354,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'What about the engineer\'s initials on the register?',
-                    content: 'They come from whoever completed the worksheet, live from their Opscel account. If an engineer leaves your team, their historical visits show "-" for initials; the date and the work stay on record.',
+                    content: 'They come from whoever was recorded as doing the work on that visit. If an engineer leaves your team, their historical visits still show their name and initials - deactivating a user does not blank their past work. A cell prints blank only when nobody was recorded against that visit.',
                 },
                 {
                     title: 'How do I report a problem?',

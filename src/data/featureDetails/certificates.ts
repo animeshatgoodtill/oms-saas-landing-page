@@ -63,8 +63,8 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-compliance-shield',
-            title: '17 Certificate Types, All Standards-Compliant',
-            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Security: Security System Handover Certificate (PD 6662, BS EN 50131-1, BS EN 62676-4, BS EN 60839-11). Every certificate type matches official model forms.'
+            title: '18 Certificate Types, All Standards-Compliant',
+            description: 'Electrical: EIC, EICR, Minor Works, PAT Test (BS 7671:2018+A2:2022, IET Code 5th Ed). Fire Safety: Fire Alarm Service, Commissioning, Modification, Installation, Design, Acceptance, Verification (BS 5839-1:2025), Emergency Lighting (BS 5266-1:2025), Extinguisher Service (BS 5306-3:2017), Cable Test Readings (supporting document), EVC Commissioning (BS 5839-9:2021), Fire Risk Assessment Certificate of Conformity (BAFE SP205). Low Carbon: Solar PV Commissioning (BS EN 62446-1:2016, MCS). Security: Security System Handover Certificate (PD 6662, BS EN 50131-1, BS EN 62676-4, BS EN 60839-11). Every certificate type matches official model forms.'
         },
         {
             iconId: 'icon-compliance-shield',

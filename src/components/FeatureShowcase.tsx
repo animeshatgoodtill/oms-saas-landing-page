@@ -19,7 +19,7 @@ const features: {
 }[] = [
     {
         icon: <FiFileText size={18} />,
-        title: 'Digital certificates. 17 types. Zero re-typing.',
+        title: 'Digital certificates. 18 types. Zero re-typing.',
         href: '/features/certificates',
         image: '/images/ui/01-screen.png',
         alt: 'Opscel certificates admin — BS 5839-1, EICR, Emergency Lighting',

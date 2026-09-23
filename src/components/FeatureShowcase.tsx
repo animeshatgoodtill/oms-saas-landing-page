@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import { FiFileText, FiCalendar, FiCheckCircle, FiGlobe, FiWifi, FiDollarSign } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiFileText, FiCalendar, FiCheckCircle, FiGlobe, FiWifi, FiDollarSign, FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
 import Container from './Container';
 
 type Layout = 'float' | 'tall' | 'side' | 'bottom' | 'inline';
@@ -8,6 +9,7 @@ type Layout = 'float' | 'tall' | 'side' | 'bottom' | 'inline';
 const features: {
     icon: React.ReactNode;
     title: string;
+    href: string;
     image: string;
     alt: string;
     gradient: string;
@@ -18,6 +20,7 @@ const features: {
     {
         icon: <FiFileText size={18} />,
         title: 'Digital certificates. 17 types. Zero re-typing.',
+        href: '/features/certificates',
         image: '/images/ui/01-screen.png',
         alt: 'Opscel certificates admin — BS 5839-1, EICR, Emergency Lighting',
         gradient: 'from-[#0f2d52] to-[#0280C4]',
@@ -28,6 +31,7 @@ const features: {
     {
         icon: <FiCalendar size={18} />,
         title: 'One job. As many visits as it takes.',
+        href: '/features/jobs',
         image: '/images/ui/02-screen.png',
         alt: 'Opscel schedule — engineer week view with job blocks',
         gradient: 'from-[#1e3a4a] to-[#0891b2]',
@@ -38,6 +42,7 @@ const features: {
     {
         icon: <FiCheckCircle size={18} />,
         title: 'Defect to invoice. Nothing re-keyed.',
+        href: '/features/quotations',
         image: '/images/ui/03-screen.png',
         alt: 'Opscel quotations — defect to invoice flow',
         gradient: 'from-[#78350f] to-[#d97706]',
@@ -48,6 +53,7 @@ const features: {
     {
         icon: <FiGlobe size={18} />,
         title: "A customer portal they'll actually use.",
+        href: '/features/customer-portal',
         image: '/images/ui/04-screen.png',
         alt: 'Opscel customer detail — multi-site management',
         gradient: 'from-[#1e1b4b] to-[#4f46e5]',
@@ -58,6 +64,7 @@ const features: {
     {
         icon: <FiWifi size={18} />,
         title: 'Built for the field. Works offline.',
+        href: '/features/field-service',
         image: '/images/ui/05-screen.png',
         alt: "Opscel field app — Today's route, dark theme",
         gradient: 'from-[#0f172a] to-[#1e3a5f]',
@@ -68,6 +75,7 @@ const features: {
     {
         icon: <FiDollarSign size={18} />,
         title: 'Xero-ready. No double entry.',
+        href: '/features/accounting-integration',
         image: '/images/ui/06-screen.png',
         alt: 'Opscel reports — revenue, jobs, recent invoices',
         gradient: 'from-[#064e3b] to-[#059669]',
@@ -82,24 +90,23 @@ const FeatureShowcase: React.FC = () => {
         <section className="py-16 md:py-24 bg-muted" id="features">
             <Container>
                 <div className="text-center mb-12 md:mb-16">
-                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-secondary mb-3">
-                        Platform
-                    </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                        Everything you need to run the job.
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+                        Everything else the job needs.
                     </h2>
-                    <p className="text-base md:text-lg text-foreground-accent max-w-2xl mx-auto leading-relaxed">
-                        Built for how fire safety and electrical contractors actually work — from the site visit to the signed certificate, without re-keying anything.
-                    </p>
                 </div>
 
                 <div className="grid grid-cols-6 auto-rows-[minmax(220px,auto)] gap-5">
                     {features.map((feature, i) => (
-                        <div
+                        <Link
                             key={i}
-                            className={`group relative rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${feature.colSpan} ${feature.rowSpan}`}
+                            href={feature.href}
+                            className={`group relative rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 ${feature.colSpan} ${feature.rowSpan}`}
                         >
                             <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient}`} />
+                            {/* the 'inline' card keeps its thumbnail in this corner */}
+                            {feature.layout !== 'inline' && (
+                                <FiArrowUpRight aria-hidden="true" size={20} className="absolute top-5 right-5 z-20 text-white/60 transition-colors group-hover:text-white" />
+                            )}
 
                             {/* headline-top-screenshot-bottom */}
                             {feature.layout === 'bottom' && (
@@ -218,8 +225,14 @@ const FeatureShowcase: React.FC = () => {
                                     </h3>
                                 </div>
                             )}
-                        </div>
+                        </Link>
                     ))}
+                </div>
+
+                <div className="mt-10 text-center">
+                    <Link href="/features" className="inline-flex items-center gap-2 font-semibold text-secondary hover:underline">
+                        See every feature <FiArrowRight aria-hidden="true" />
+                    </Link>
                 </div>
             </Container>
         </section>

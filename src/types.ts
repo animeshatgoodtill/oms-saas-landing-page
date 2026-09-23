@@ -149,6 +149,7 @@ export interface IDocSubsection {
     bullets?: string[];
     table?: IDocTable;
     steps?: string[] | IDocStep[];
+    mockup?: 'engineer-journey' | 'engineer-journey-devices' | 'visit-plan-card' | 'coverage-panel';
 }
 
 export interface IDocTable {

@@ -10,9 +10,6 @@ const figure = (src: string, alt: string, caption?: string) =>
 const diagram = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8"><div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0"><img src="${src}" alt="${alt}" class="w-full min-w-[720px] rounded-lg border border-border bg-white" loading="lazy" /></div>${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
 
-const phone = (src: string, alt: string, caption: string) =>
-    `<figure class="my-8 flex flex-col items-center"><img src="${src}" alt="${alt}" class="w-full max-w-[360px] rounded-2xl border border-border shadow-lg" loading="lazy" /><figcaption class="mt-3 text-sm text-muted-foreground text-center max-w-md">${caption}</figcaption></figure>`;
-
 export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'How the register works underneath: asset statuses, what updates automatically and what waits for review, how a visit plan splits a large site across the year, how coverage is worked out, the pre-loading rules, QR tags, and bulk import including panel exports.',
@@ -124,7 +121,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: phone(`${TRK}/field-worksheet-preloaded-rows.webp`, 'The extinguisher items section of the worksheet on a phone: a banner says 5 items pre-loaded from the site register, each row is tagged FROM SITE REGISTER, and the header reads 0 of 5 done', 'On the phone: the banner and the tag on every pre-loaded row.'),
+                    mockup: 'engineer-journey-devices',
                 },
             ],
         },
@@ -151,8 +148,10 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'What the Engineer Sees',
-                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · 30 devices this visit · 88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all; a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>'
-                        + phone(`${TRK}/field-job-hub-visit-pill.webp`, 'The field app job screen with a visit plan line reading Visit 2 of 4, 5 devices this visit, 20 at this site in total - the rest are on other visits this year', 'The visit line on the job screen, before the worksheet is opened.'),
+                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · 30 devices this visit · 88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all; a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>',
+                },
+                {
+                    mockup: 'engineer-journey',
                 },
                 {
                     title: 'On the Contract Timeline',

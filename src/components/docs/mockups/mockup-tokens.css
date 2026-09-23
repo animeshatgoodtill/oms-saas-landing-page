@@ -1,0 +1,54 @@
+/**
+ * Design tokens lifted from the product's own design canvas (light theme
+ * only — the docs mockups never switch to dark). Scoped to `.opscel-mockup`
+ * so nothing leaks into the marketing site's own design system.
+ */
+.opscel-mockup {
+  --bg: #ffffff;
+  --surf: #f7f9fb;
+  --card: #ffffff;
+  --ink: #141619;
+  --ink2: #586070;
+  --line: #e1e5ea;
+  --chip: #f1f3f5;
+  --ok-bg: #e4f3e9;
+  --ok-ink: #15803d;
+  --warn-bg: #fbf0d9;
+  --warn-ink: #8a5a00;
+  --bad-bg: #fbe6e4;
+  --bad-ink: #b42318;
+  --due-bg: #e4eff7;
+  --due-ink: #045985;
+  --gold: #e5a800;
+  --stage: #efedf9;
+  --on-accent: #ffffff;
+  --accent: #026a9f;
+  --link: #026a9f;
+  --link-h: #014b71;
+
+  color: var(--ink);
+  background: var(--surf);
+}
+
+.opscel-mockup button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.opscel-mockup .mono {
+  font-family: var(--mockup-font-mono, ui-monospace, monospace);
+}
+
+.opscel-mockup .hd {
+  font-family: var(--mockup-font-heading, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.opscel-mockup a {
+  color: var(--link);
+}
+
+.opscel-mockup a:hover {
+  color: var(--link-h);
+}

@@ -10,12 +10,6 @@ const figure = (src: string, alt: string, caption?: string) =>
 const diagram = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8"><div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0"><img src="${src}" alt="${alt}" class="w-full min-w-[720px] rounded-lg border border-border bg-white" loading="lazy" /></div>${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
 
-/** Two phone screenshots side by side on wide screens, stacked on a phone. */
-const phonePair = (a: { src: string; alt: string; caption: string }, b: { src: string; alt: string; caption: string }) =>
-    `<div class="my-8 grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">${[a, b]
-        .map((p) => `<figure class="flex flex-col items-center"><img src="${p.src}" alt="${p.alt}" class="w-full max-w-[360px] rounded-2xl border border-border shadow-lg" loading="lazy" /><figcaption class="mt-3 text-sm text-muted-foreground text-center max-w-xs">${p.caption}</figcaption></figure>`)
-        .join('')}</div>`;
-
 export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
@@ -37,20 +31,11 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'engineer-journey',
             title: '1. What the Engineer Sees',
-            content: '<p class="mb-4">This is the part most offices want to see first, because it is what changed for the people on site. The screens below are from the Opscel field app on a phone, on a quarterly extinguisher contract at a 20-device site with a <strong>visit plan</strong> of four visits a year.</p>'
-                + phonePair(
-                    { src: `${IMG}/field-job-list.webp`, alt: 'The field app job list on a phone, showing upcoming jobs with the site name, time and worksheet count on each card', caption: '<strong>1.</strong> The job appears on the engineer\'s list like any other.' },
-                    { src: `${IMG}/field-job-hub-visit-pill.webp`, alt: 'The field app job screen with a visit plan line reading Visit 2 of 4, 5 devices this visit, 20 at this site in total - the rest are on other visits this year', caption: '<strong>2.</strong> On a planned contract the job screen says which visit this is and how many devices are on it - before the worksheet is opened.' },
-                )
-                + phonePair(
-                    { src: `${IMG}/field-worksheet-preloaded-rows.webp`, alt: 'The extinguisher items section of the worksheet on a phone: a banner says 5 items pre-loaded from the site register, each row is tagged FROM SITE REGISTER, and the header reads 0 of 5 done', caption: '<strong>3.</strong> The worksheet opens with the equipment already listed - type, size, location and asset number filled from the register. Each row says where it came from.' },
-                    { src: `${IMG}/field-worksheet-row-done.webp`, alt: 'The same worksheet section after the first row has been confirmed: the row carries a check mark and the header reads 1 of 5 done', caption: '<strong>4.</strong> Tap a row, record what was done, and it ticks off. The header counts done rows, not just filled ones.' },
-                )
-                + phonePair(
-                    { src: `${IMG}/field-add-from-register.webp`, alt: 'The Add from site register panel on a phone: a note says this visit covers 5 of 20 devices at the site and the rest are on other visits this year; each listed device is tagged OTHER VISIT; an Add all 15 button sits at the bottom', caption: '<strong>5.</strong> Equipment not on this visit is still one tap away - tagged "other visit" so nobody adds the whole site by accident. Scanning a QR tag does the same for a single unit.' },
-                    { src: `${IMG}/field-sign-off.webp`, alt: 'The worksheet sign-off section on a phone with the customer signature area', caption: '<strong>6.</strong> The customer signs the sheet as usual. Marking it complete is what updates the register.' },
-                ),
+            content: '<p class="mb-4">This is the part most offices want to see first, because it is what changed for the people on site. The mockup below is interactive - it follows the Opscel field app on a phone, on a quarterly fire alarm contract at an 88-device site with a <strong>visit plan</strong> of four visits a year.</p>',
             subsections: [
+                {
+                    mockup: 'engineer-journey',
+                },
                 {
                     title: 'Three Ways Equipment Lands on a Row',
                     content: '<p class="mb-4">Whether a row was pre-loaded, picked from the register on site, or scanned, it is the same row - the tag on it tells the engineer (and you) which door it came in by.</p>'
@@ -179,9 +164,11 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'visit-plan',
             title: '7. Service Contracts and the Visit Plan',
-            content: '<p class="mb-4">A service contract\'s <strong>service type decides which worksheet each visit gets</strong>, and the register fills it. On a small site that is the whole story. On a large one - a fire alarm system with 88 devices on a quarterly contract - you do not want every device on every visit.</p><p class="mb-4">A <strong>visit plan</strong> on the contract splits the register across the year\'s visits <strong>by zone, floor, building or evenly</strong>. Each visit\'s job pre-loads only its share; the engineer sees "Visit 2 of 4 - 30 devices this visit"; anything an earlier visit missed rolls forward; and the last visit of the year picks up whatever is still untested. BS 5839-1 asks for every device within twelve months - the plan is how you get there without an 88-row sheet four times a year.</p>'
-                + figure(`${IMG}/office-visit-plan-card.webp`, 'The Visit plan card on a service contract in the office: split by Even split, 4 visits per year, and a preview listing Visit 1 to Visit 4 with the device count on each and the last visit marked as catch-up for anything not yet tested', 'The contract\'s Visit plan card previews the split before you save it.'),
+            content: '<p class="mb-4">A service contract\'s <strong>service type decides which worksheet each visit gets</strong>, and the register fills it. On a small site that is the whole story. On a large one - a fire alarm system with 88 devices on a quarterly contract - you do not want every device on every visit.</p><p class="mb-4">A <strong>visit plan</strong> on the contract splits the register across the year\'s visits <strong>by zone, floor, building or evenly</strong>. Each visit\'s job pre-loads only its share; the engineer sees "Visit 2 of 4 - 30 devices this visit"; anything an earlier visit missed rolls forward; and the last visit of the year picks up whatever is still untested. BS 5839-1 asks for every device within twelve months - the plan is how you get there without an 88-row sheet four times a year.</p>',
             subsections: [
+                {
+                    mockup: 'visit-plan-card',
+                },
                 {
                     content: '<p class="mb-4">The contract\'s timeline labels every occurrence <strong>Visit k of N</strong>, so the office can see at a glance which share a generated job carries.</p>'
                         + figure(`${IMG}/office-visit-timeline.webp`, 'The upcoming visits timeline on a service contract, each row numbered and labelled Visit 1 of 4, Visit 2 of 4 and so on', 'The timeline names each visit\'s place in the year.'),
@@ -197,6 +184,9 @@ export const assetTrackingGuide: IDocGuide = {
             content: '<p class="mb-4">Coverage is <strong>worked out, never stored</strong>: an asset is covered when an active contract at its site has a service type whose worksheet handles that asset\'s type. There is nothing to attach or tick.</p>'
                 + diagram(`${IMG}/coverage-derived.svg`, 'A site register with two extinguishers, a panel and an emergency light; two active contracts at the site - an extinguisher service whose worksheet claims extinguishers and blankets, and a fire alarm service whose worksheet claims panels, detectors and sounders; the extinguishers and panel come out Covered with the contract named, the emergency light comes out Not on a contract and feeds a dashboard item reading 1 asset on no service contract with a New contract button beside it.', 'An asset is covered when an active contract at its site has a worksheet that handles its type.'),
             subsections: [
+                {
+                    mockup: 'coverage-panel',
+                },
                 {
                     content: '<p class="mb-4">The customer\'s <strong>Coverage</strong> tab lists every asset by site and contract, and each uncovered row has a <strong>New contract</strong> link that opens the contract wizard with the customer, site and service type already chosen. The dashboard\'s <em>Needs attention</em> list shows <em>"N assets on no service contract"</em> per customer, and always keeps a slot for it however many overdue jobs there are.</p>'
                         + figure(`${IMG}/office-coverage-tab.webp`, 'The customer Coverage tab in the office, showing every registered asset is on a service contract with a per-site breakdown', 'A customer\'s Coverage tab, once every asset is on a contract.'),

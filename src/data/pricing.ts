@@ -9,7 +9,7 @@ export const tiers: IPricing[] = [
         features: [
             '1 user included (+£29/month per additional)',
             'Unlimited jobs and customers',
-            'All 17 certificate types',
+            'All 18 certificate types',
             'Mobile field service app',
             'Job sheets and worksheets',
             'Quotations with customer portal accept/decline',

@@ -113,8 +113,8 @@ export const customerPortalDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-user-roles',
-            title: 'Business Tier Exclusive',
-            description: 'Customer Portal available on Business tier only (£149/month, 5 users). Includes unlimited portal invites, activity logging, quote approvals, certificate downloads. Starter and Team tiers do not include portal access.'
+            title: 'Which Plan Includes What',
+            description: 'On every plan, customers approve or decline quotes from the link in their email, with no login. The self-service portal (signing in to see every site\'s quotes, certificates and invoices) is on the Business plan (£149/month, 5 users), with unlimited portal invites and activity logging.'
         }
     ],
 
@@ -280,7 +280,7 @@ export const customerPortalDetail: IFeatureDetail = {
         },
         {
             question: 'Is Customer Portal available on all pricing tiers?',
-            answer: 'No. Customer Portal is Business tier exclusive (£149/month, 5 users included). Includes unlimited portal invites, activity logging, quote approvals, certificate downloads, invoice tracking. Starter (£49) and Team (£99) tiers do not include portal access—customers receive quotes/certs via email attachments. Upgrade to Business via Settings → Billing to enable portal.'
+            answer: 'Partly. On every plan, customers approve or decline a quote from the link in their email, with no login. The self-service portal, where customers sign in to see every site\'s quotes, certificates and invoices, is on the Business plan (£149/month, 5 users included), with unlimited portal invites and activity logging. On Starter and Team, certificates and invoices reach customers by email. Upgrade to Business via Settings → Billing to enable the portal.'
         }
     ],
 

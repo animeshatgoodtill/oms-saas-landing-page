@@ -265,7 +265,7 @@ export const settingsTourGuide: IDocGuide = {
                     content: `
                         <p class="mb-2"><strong>What it controls:</strong> Xero OAuth connection, account code mapping (which Opscel categories go to which Xero accounts), sync status.</p>
                         <p class="mb-4"><strong>Why it matters:</strong> Posts invoices to Xero automatically. Syncs payments back to Opscel.</p>
-                        <p class="mb-4"><strong>Availability:</strong> Business tier</p>
+                        <p class="mb-4"><strong>Availability:</strong> Team &amp; Business plans</p>
                         <p class="text-gray-700">
                             <a href="/docs/accounting-integration" class="text-blue-600 hover:underline">→ See Accounting Integration Guide</a>
                         </p>
@@ -276,7 +276,7 @@ export const settingsTourGuide: IDocGuide = {
                     content: `
                         <p class="mb-2"><strong>What it controls:</strong> QuickBooks Online OAuth, account mapping, sync status, CDC (change data capture) settings.</p>
                         <p class="mb-4"><strong>Why it matters:</strong> Posts invoices to QuickBooks. Syncs payments and customer changes.</p>
-                        <p class="mb-4"><strong>Availability:</strong> Business tier</p>
+                        <p class="mb-4"><strong>Availability:</strong> Team &amp; Business plans</p>
                         <p class="text-gray-700">
                             <a href="/docs/accounting-integration" class="text-blue-600 hover:underline">→ See Accounting Integration Guide</a>
                         </p>
@@ -346,7 +346,7 @@ export const settingsTourGuide: IDocGuide = {
                     content: `
                         <p class="mb-2"><strong>What it controls:</strong> Product categories (Labour, Materials, Equipment, Other), units (hours, items, meters), markup percentages.</p>
                         <p class="mb-4"><strong>Why it matters:</strong> Defines how parts and services are priced and invoiced.</p>
-                        <p class="mb-4"><strong>Availability:</strong> Business tier</p>
+                        <p class="mb-4"><strong>Availability:</strong> All plans</p>
                     `
                 },
                 {
@@ -488,7 +488,7 @@ export const settingsTourGuide: IDocGuide = {
                     title: 'Why are some settings greyed out?',
                     content: `
                         <p class="text-gray-700">
-                            Greyed-out settings are locked to your current plan tier. For example, Quote templates & options require Team tier.
+                            Greyed-out settings are locked to your current plan tier. For example, Good-Better-Best quote options require the Team plan.
                             Upgrade your plan in Settings → Billing to unlock them.
                         </p>
                     `

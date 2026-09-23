@@ -45,8 +45,8 @@ export const templatesDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-user-roles',
-            title: 'Team Tier Feature',
-            description: 'Branding customization is available on Team tier (£99/month, 3 users) and Business tier (£149/month, 5 users). Starter tier uses Opscel default styling with your company name only.'
+            title: 'On Every Plan',
+            description: 'Branding (your logo, colours, accreditation badges, and certificate, quote and invoice templates) is included on every plan, from Starter upward.'
         }
     ],
 
@@ -81,7 +81,7 @@ export const templatesDetail: IFeatureDetail = {
                 'Compliance templates (BS 7671, BS 5839, MCS) ensure regulatory adherence',
                 'Custom invoice footer with payment terms reduces customer confusion and late payments',
                 'Template preview ensures branding is perfect before the customer sees the document',
-                'Team tier includes branding—no enterprise tier jump required'
+                'Every plan includes branding, with no upgrade required'
             ]
         },
         {

@@ -9,7 +9,7 @@ import { generateFAQSchema } from '@/lib/schema';
 const faqs = [
   {
     question: 'Is This For My Business Size?',
-    answer: 'The software fits teams with five to fifty employees. It works well for small British fire safety firms that want to grow. Starter plans help micro-firms with up to three users. Business plans support larger teams with more needs.',
+    answer: 'The software fits teams with five to fifty employees. It works well for small British fire safety firms that want to grow. Starter includes one user and suits a sole trader; Team includes three. Business plans support larger teams with more needs.',
   },
   {
     question: 'Do Engineers Need A New Phone?',
@@ -286,7 +286,7 @@ const FireSafetyContractorsPage: React.FC = () => {
             </div>
 
             <p className="text-lg leading-relaxed text-foreground-accent">
-              A small team can start on the Team plan. It includes multi-engineer scheduling, Good-Better-Best quoting, and Xero sync for ninety-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal, asset register, and RAMS. Every plan includes unlimited jobs and customers, plus certificates as standard.
+              A small team can start on the Team plan. It adds Good-Better-Best quoting, Xero sync and service contracts for ninety-nine pounds. Larger firms might pick the Business tier. That plan adds a customer portal, asset register, and RAMS. Every plan includes unlimited jobs and customers, plus certificates as standard.
             </p>
           </section>
 

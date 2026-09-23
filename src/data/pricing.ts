@@ -1,5 +1,12 @@
 import { IPricing } from "@/types";
 
+// Plan contents mirror what the product ENFORCES (lib/auth/tier-feature-matrix.ts
+// and the gates that actually check it), verified 2026-09-23. Only the gated
+// modules are plan-specific (deposits are every plan, the owner's call
+// 2026-09-23): Team adds Good-Better-Best, accounting sync, service
+// contracts, purchase orders and customer notification emails; Business adds
+// assets, remote monitoring, RAMS and the self-service portal. Everything else is
+// on every plan. The trial terms render once per card (PricingColumn), not here.
 export const tiers: IPricing[] = [
     {
         name: 'Starter',
@@ -8,15 +15,15 @@ export const tiers: IPricing[] = [
         usersIncluded: 1,
         features: [
             '1 user included (+£29/month per additional)',
-            'Unlimited jobs and customers',
-            'All 18 certificate types',
-            'Mobile field service app',
-            'Job sheets and worksheets',
-            'Quotations with customer portal accept/decline',
-            'Job-to-invoice workflow',
+            'Unlimited jobs, customers and sites',
+            'Scheduling, with Google and Outlook calendar sync',
+            'Field app for engineers that works offline',
+            'All 18 certificate types, with your branding',
+            'Quotes customers approve and pay deposits on from their email',
+            'Invoicing, and reports including job profitability',
+            'Job sheets, checklists and customer sign-off',
             '100 free AI credits every month',
             '25 GB storage',
-            '30-day free trial, card required',
         ],
     },
     {
@@ -27,13 +34,12 @@ export const tiers: IPricing[] = [
         features: [
             '3 users included (+£29/month per additional)',
             'Everything in Starter',
-            'Good-Better-Best tiered quoting',
-            'Deposit collection on quotes',
+            'Good-Better-Best quote options',
             'Xero and QuickBooks sync',
-            'Service contracts and renewal reminders',
+            'Service contracts: recurring visits, fees and renewal reminders',
+            'Purchase orders to suppliers',
             'Automatic customer emails for visits and job status',
             '100 GB storage',
-            '30-day free trial, card required',
         ],
     },
     {
@@ -44,12 +50,11 @@ export const tiers: IPricing[] = [
         features: [
             '5 users included (+£29/month per additional)',
             'Everything in Team',
-            'Asset register with QR/NFC tags',
-            'Remote monitoring (ARC-handled cases)',
+            'Asset register with QR/NFC tags, and asset import',
+            'Remote monitoring (alarm-receiving-centre cases)',
             'RAMS (risk assessments & method statements)',
             'Customer self-service portal',
             '250 GB storage',
-            '30-day free trial, card required',
         ],
     },
 ]

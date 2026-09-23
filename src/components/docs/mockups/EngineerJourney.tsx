@@ -28,7 +28,16 @@ const LOCS = ['ACCOUNTS CV', "CORRIDOR CV BY STEVE'S RM", 'CONTRACTS MANAGERS CV
 // product actually assigns to visit 2. For these six zones over four
 // visits that's zones 2 and 3 (9 devices), not a fixed pair.
 const ZONE_GROUPS: DealGroup[] = ZONE_SIZES.map((count, i) => ({ label: String(i + 1), count }));
-const VISIT_ZONES = dealGroupsAcrossVisits(ZONE_GROUPS, 4)[1].map((g) => Number(g.label));
+const VISIT_INDEX = 1; // "Visit 2 of 4" - 0-indexed
+const ALL_VISIT_CHUNKS = dealGroupsAcrossVisits(ZONE_GROUPS, 4);
+const VISIT_ZONES = ALL_VISIT_CHUNKS[VISIT_INDEX].map((g) => Number(g.label));
+// Devices done on an earlier visit THIS cycle - the chunks before this one,
+// fully completed. Derived rather than hardcoded so it can't drift from
+// VISIT_ZONES either (visit 1 = zone 1 = 29 devices).
+const DONE_EARLIER_THIS_CYCLE = ALL_VISIT_CHUNKS.slice(0, VISIT_INDEX).reduce(
+  (sum, chunk) => sum + chunk.reduce((s, g) => s + g.count, 0),
+  0
+);
 
 function buildKinds(): string[] {
   const spec: [string, number][] = [
@@ -237,7 +246,7 @@ const EngineerJourney: React.FC<EngineerJourneyProps> = ({ initialStep = 'job' }
               done={counts.done}
               fault={counts.fault}
               total={visitDevices.length}
-              doneEarlier={58}
+              doneEarlier={DONE_EARLIER_THIS_CYCLE}
               onContinue={() => goTo('devices')}
               onSignoff={() => goTo('signoff')}
             />

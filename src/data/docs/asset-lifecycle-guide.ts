@@ -155,7 +155,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'What the Engineer Sees',
-                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · 9 devices this visit · 88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all (capped at 50 per tap); a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>',
+                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · Zones 2-3 · 9 devices this visit"</em>, with a second line underneath - <em>"88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all (capped at 50 per tap); a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>',
                 },
                 {
                     mockup: 'engineer-journey',
@@ -183,7 +183,7 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 {
                     bullets: [
-                        'The <strong>customer\'s Coverage tab</strong> lists every asset by site and contract; each uncovered row has a <strong>New contract</strong> link that opens the wizard with customer and site already chosen - and the service type too, when exactly one worksheet fits the asset\'s type; otherwise you pick it on the wizard.',
+                        'The <strong>customer\'s Coverage tab</strong> lists every asset by site and contract; each uncovered row has a <strong>New contract</strong> link that opens the wizard with customer and site already chosen - and the service type too, when exactly one of your service types\' worksheets covers the asset\'s type; otherwise you pick it on the wizard.',
                         'The <strong>contract\'s Assets covered card</strong> shows how many of the site\'s assets that contract will pre-load.',
                         'The <strong>dashboard\'s Needs attention</strong> list shows "N assets on no service contract" per customer, and always keeps a slot for it however many overdue jobs there are.',
                         'A service type whose worksheet holds no equipment rows still counts its assets as covered by the generic Asset Service Worksheet, because that is what the visit will actually attach.',
@@ -248,7 +248,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     title: 'The Import Flow',
                     steps: [
                         'Pick the <strong>customer</strong>, then the <strong>service address</strong> - before uploading. Every row in the file imports to that one site; postcode, street or customer-name columns are ignored if present.',
-                        'If your file has no <strong>Name</strong> column, Opscel derives one from the device-type text as your file spells it plus its position - e.g. <strong>&quot;Multi L1 A1&quot;</strong> - and suffixes <strong>&quot;#2&quot;</strong> on a collision.',
+                        'If your file has no <strong>Name</strong> column, Opscel derives one from the device-type text as your file spells it plus its position - e.g. <strong>&quot;Multi L1 A1&quot;</strong> (plus &quot;N&lt;node&gt;&quot; too, when your file has a Node column) - and suffixes <strong>&quot;#2&quot;</strong> on a collision.',
                         'The <strong>Device types</strong> step maps every distinct device-type value in your file to a canonical Opscel asset type. This is <strong>blocking</strong> - an unmapped type stops the import at preview rather than importing as junk. Save your mapping as a <strong>reusable profile</strong> tied to the customer.',
                         'If the site already holds assets of the types you are importing, a <strong>re-import warning</strong> lists them and requires an explicit acknowledgement before you can confirm.',
                         'Review the preview and confirm. Imported assets get real <strong>AST-</strong> numbers and register positions in the same sequence as assets added by hand or from a worksheet.',
@@ -267,7 +267,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Duplicate Detection',
-                    content: '<p>An incoming row is checked against the site\'s existing assets <strong>in order</strong>: an exact serial-number match wins first, then an exact asset-number match. Only once neither matches does Opscel fall back to the name, and there the rule depends on where the name came from - for <strong>auto-derived names</strong> (no Name column), name matching is <strong>exact-only</strong>, deliberate, so two adjacent devices at similar addresses never get merged into one. For files that <strong>do</strong> carry a Name column, fuzzy matching applies (similarity ≥ 0.90), so re-importing the same file will not double your register.</p>',
+                    content: '<p>An incoming row is checked against the site\'s existing assets <strong>in order</strong>: an exact serial-number match wins first, then an exact asset-number match. Only once neither matches does Opscel fall back to the name, and there the rule depends on where the name came from - for <strong>auto-derived names</strong> (no Name column), name matching is <strong>exact-only</strong>, deliberate, so two adjacent devices at similar addresses never get merged into one. For files that <strong>do</strong> carry a Name column, a close name match counts too, so re-importing the same file will not double your register.</p>',
                 },
             ],
         },
@@ -282,7 +282,7 @@ export const assetLifecycleGuide: IDocGuide = {
                         'The panel\'s columns (Kind, Zone Number, Loop Number, Address, Location) map to the register\'s fields without you touching the mapping step.',
                         'Device kinds resolve through a built-in fire-alarm vocabulary - Optical and Multi to detectors, MCP to a call point, Sounder and Beacon to themselves, <strong>Switch to an interface unit</strong> (never an electrical light switch), Relay to a relay module. Anything it cannot place stops at the preview for you to map.',
                         '<strong>Zone Number, Loop Number and Loop Address</strong> are stored on each device - Loop Address as <strong>text on purpose</strong>, because real panels use dotted addresses like <code>1.045</code>. <strong>Node</strong> is read too, but only to help build the derived name below - it is not itself stored on the asset.',
-                        'Names are derived from type and position and match exact-only on a re-import.',
+                        'Names are derived from type and position and match exact-only on a re-import - e.g. <em>&quot;Multi N1 L1 A1&quot;</em> when the file has a Node column, or <em>&quot;Multi L1 A1&quot;</em> without one.',
                         'If the site already holds exactly one fire alarm panel, the imported devices are <strong>parented to it</strong>.',
                     ],
                 },

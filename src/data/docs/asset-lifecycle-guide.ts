@@ -23,6 +23,10 @@ export const assetLifecycleGuide: IDocGuide = {
                 + diagram(`${IMG}/asset-journey.svg`, 'The journey of a piece of equipment: the site register is fed by imports, hand entry and completed worksheets; a service contract decides which worksheet a visit gets; when a job is raised the worksheet is pre-filled from the register; the engineer confirms rows, adds from the register or scans a tag, and signs off; history flows back to the register and consequential changes wait for office review.', 'The register feeds the sheet; the sheet feeds the register. Nothing is typed twice.'),
             subsections: [
                 {
+                    title: 'Availability',
+                    content: '<p>The whole asset module is included on the <strong>Business</strong> plan - the register, pre-loading, the visit plan, coverage, QR/NFC tags, the per-site register PDF and bulk import. Starter and Team plans don\'t include any of it.</p>',
+                },
+                {
                     title: 'Why Track Assets in Opscel',
                     bullets: [
                         'Register updates come from the work itself - no separate data entry after the job',
@@ -48,13 +52,16 @@ export const assetLifecycleGuide: IDocGuide = {
                     table: {
                         headers: ['Status', 'Meaning'],
                         rows: [
-                            ['Draft', 'Registered from the field (usually via tag scan) and awaiting office review. Becomes Active when the office commits it.'],
-                            ['Active', 'In service. Appears on the register and the register PDF, pre-loads into worksheets, and counts for coverage.'],
-                            ['Maintenance', 'Temporarily out of service.'],
-                            ['Missing', 'The engineer couldn\'t locate it on site. Missing assets stay visible on the register (highlighted) so they\'re never quietly forgotten.'],
+                            ['Draft', 'Registered from the field (usually via tag scan) and awaiting office review. Becomes Active when the office commits it. Still pre-loads into worksheets and counts for coverage while in Draft.'],
+                            ['Active', 'In service. Appears on the register and the register PDF.'],
+                            ['Maintenance', 'Temporarily out of service. Still pre-loads into worksheets and counts for coverage - Opscel keeps asking for it to be serviced.'],
+                            ['Missing', 'The engineer couldn\'t locate it on site. Missing assets stay visible on the register (highlighted), and still pre-load into worksheets and count for coverage, so they\'re never quietly forgotten.'],
                             ['Decommissioned', 'End of life. Kept for history and compliance, but excluded from field lists, worksheet pre-loading and coverage. The Delete button does exactly this.'],
                         ],
                     },
+                },
+                {
+                    content: '<p>Pre-loading and coverage count every status except Decommissioned - Draft, Active, Maintenance and Missing all count.</p>',
                 },
                 {
                     content: '<p class="mt-4">Assets are protected from accidental loss: deleting or merging a service address will not silently destroy its register.</p>',
@@ -84,7 +91,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p>Each equipment row records an action: <strong>Service</strong>, <strong>Service existing</strong>, <strong>Replace</strong>, <strong>Condemn</strong>, or <strong>Missing</strong>. A pre-loaded row arrives as <em>Service existing</em>; the engineer\'s own entry on the row - what was done, a quantity, a result - is what marks it done.</p>',
+                    content: '<p>Each equipment row records an action, and the action list is <strong>specific to the worksheet</strong> - the extinguisher worksheet offers <strong>Basic Service</strong>, <strong>Test Discharge</strong>, <strong>Refilled</strong>, <strong>Exchange</strong>, <strong>Condemn &amp; Dispose</strong>, <strong>New / Hire</strong>, <strong>Service Existing</strong> and <strong>Missing / Not Found</strong>; other worksheets carry their own list built the same way. A pre-loaded row arrives as <em>Service Existing</em> (or its equivalent); the engineer\'s own entry on the row - what was done, a quantity, a result - is what marks it done.</p>',
                 },
             ],
         },
@@ -148,7 +155,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'What the Engineer Sees',
-                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · 30 devices this visit · 88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all; a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>',
+                    content: '<p class="mb-4">The job screen and the worksheet both carry one line: <em>"Visit 2 of 4 · Zones 2-3 · 9 devices this visit"</em>, with a second line underneath - <em>"88 at this site in total - the rest are on other visits this year."</em> The <strong>Add from site register</strong> picker tags every other device <em>other visit</em> and asks for a second tap before adding them all (capped at 50 per tap); a single device being serviced early is still one tap. On the catch-up visit the note and tags do not show, because everything untested is already on the sheet.</p>',
                 },
                 {
                     mockup: 'engineer-journey',
@@ -176,7 +183,7 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 {
                     bullets: [
-                        'The <strong>customer\'s Coverage tab</strong> lists every asset by site and contract; each uncovered row has a <strong>New contract</strong> link that opens the wizard with customer, site and service type already chosen.',
+                        'The <strong>customer\'s Coverage tab</strong> lists every asset by site and contract; each uncovered row has a <strong>New contract</strong> link that opens the wizard with customer and site already chosen - and the service type too, when exactly one of your service types\' worksheets covers the asset\'s type; otherwise you pick it on the wizard.',
                         'The <strong>contract\'s Assets covered card</strong> shows how many of the site\'s assets that contract will pre-load.',
                         'The <strong>dashboard\'s Needs attention</strong> list shows "N assets on no service contract" per customer, and always keeps a slot for it however many overdue jobs there are.',
                         'A service type whose worksheet holds no equipment rows still counts its assets as covered by the generic Asset Service Worksheet, because that is what the visit will actually attach.',
@@ -241,7 +248,7 @@ export const assetLifecycleGuide: IDocGuide = {
                     title: 'The Import Flow',
                     steps: [
                         'Pick the <strong>customer</strong>, then the <strong>service address</strong> - before uploading. Every row in the file imports to that one site; postcode, street or customer-name columns are ignored if present.',
-                        'If your file has no <strong>Name</strong> column, Opscel derives one from the device type and its position - <strong>&quot;detector_multi L1 A1&quot;</strong> - and suffixes <strong>&quot;#2&quot;</strong> on a collision.',
+                        'If your file has no <strong>Name</strong> column, Opscel derives one from the device-type text as your file spells it plus its position - e.g. <strong>&quot;Multi L1 A1&quot;</strong> (plus &quot;N&lt;node&gt;&quot; too, when your file has a Node column) - and suffixes <strong>&quot;#2&quot;</strong> on a collision.',
                         'The <strong>Device types</strong> step maps every distinct device-type value in your file to a canonical Opscel asset type. This is <strong>blocking</strong> - an unmapped type stops the import at preview rather than importing as junk. Save your mapping as a <strong>reusable profile</strong> tied to the customer.',
                         'If the site already holds assets of the types you are importing, a <strong>re-import warning</strong> lists them and requires an explicit acknowledgement before you can confirm.',
                         'Review the preview and confirm. Imported assets get real <strong>AST-</strong> numbers and register positions in the same sequence as assets added by hand or from a worksheet.',
@@ -254,13 +261,13 @@ export const assetLifecycleGuide: IDocGuide = {
                 {
                     title: 'Type and Status Normalisation',
                     bullets: [
-                        '<strong>Type spellings are recognised generously</strong> - "Fire Extinguisher", "fire extinguisher" and legacy names all normalise to the standard type, and the import summary notes what was normalised. Genuinely custom types are kept as-is.',
+                        '<strong>Type spellings are recognised generously</strong> - "Fire Extinguisher", "fire extinguisher" and legacy names all normalise to the standard type, and the import summary notes what was normalised. A genuinely custom type is not simply kept as-is: the blocking <strong>Device types</strong> step (above) still needs it mapped to one of Opscel\'s canonical types before the import can run.',
                         '<strong>Status aliases</strong> - "not found", "lost" and "stolen" all import as Missing.',
                     ],
                 },
                 {
                     title: 'Duplicate Detection',
-                    content: '<p>Matching depends on where the asset\'s name came from. For <strong>auto-derived names</strong> (no Name column), matching is <strong>exact-only</strong> - deliberate, so two adjacent devices at similar addresses never get merged into one. For files that <strong>do</strong> carry a Name column, fuzzy matching applies, so re-importing the same file will not double your register.</p>',
+                    content: '<p>An incoming row is checked against the site\'s existing assets <strong>in order</strong>: an exact serial-number match wins first, then an exact asset-number match. Only once neither matches does Opscel fall back to the name, and there the rule depends on where the name came from - for <strong>auto-derived names</strong> (no Name column), name matching is <strong>exact-only</strong>, deliberate, so two adjacent devices at similar addresses never get merged into one. For files that <strong>do</strong> carry a Name column, a close name match counts too, so re-importing the same file will not double your register.</p>',
                 },
             ],
         },
@@ -274,14 +281,14 @@ export const assetLifecycleGuide: IDocGuide = {
                     bullets: [
                         'The panel\'s columns (Kind, Zone Number, Loop Number, Address, Location) map to the register\'s fields without you touching the mapping step.',
                         'Device kinds resolve through a built-in fire-alarm vocabulary - Optical and Multi to detectors, MCP to a call point, Sounder and Beacon to themselves, <strong>Switch to an interface unit</strong> (never an electrical light switch), Relay to a relay module. Anything it cannot place stops at the preview for you to map.',
-                        '<strong>Node, Zone Number, Loop Number, Loop Address</strong> are stored on each device - Loop Address as <strong>text on purpose</strong>, because real panels use dotted addresses like <code>1.045</code>.',
-                        'Names are derived from type and position and match exact-only on a re-import.',
+                        '<strong>Zone Number, Loop Number and Loop Address</strong> are stored on each device - Loop Address as <strong>text on purpose</strong>, because real panels use dotted addresses like <code>1.045</code>. <strong>Node</strong> is read too, but only to help build the derived name below - it is not itself stored on the asset.',
+                        'Names are derived from type and position and match exact-only on a re-import - e.g. <em>&quot;Multi N1 L1 A1&quot;</em> when the file has a Node column, or <em>&quot;Multi L1 A1&quot;</em> without one.',
                         'If the site already holds exactly one fire alarm panel, the imported devices are <strong>parented to it</strong>.',
                     ],
                 },
                 {
                     title: 'Combined Devices (e.g. 48.1 / 48.2)',
-                    content: '<p>A sounder/beacon combined device at one physical address is usually <strong>listed twice</strong> in a panel export - once per function - because each is programmed separately on the panel. The register keeps <strong>one row per listing</strong>, matching how the panel lists them.</p>',
+                    content: '<p>A sounder/beacon combined device at one physical address is usually <strong>listed twice</strong> in a panel export - once per function - because each is programmed separately on the panel. The register keeps <strong>one row per listing</strong>, matching how the panel lists them.</p><p>If your panel instead prints it as <strong>one combined row</strong> (Kind reading something like "Sounder/Beacon"), it imports as a <strong>sounder only</strong> - the registry has no combined type, so the beacon function on that row is not recorded. List it as two rows on the panel side if you need both captured.</p>',
                 },
                 {
                     title: 'Second Imports',
@@ -303,7 +310,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Rows Say "From Last Visit" on a First Visit',
-                    content: '<p>Jobs raised before September 2026 stamped register rows and carry-forward rows the same way; from then on register rows read <em>from site register</em>. Nothing is wrong with the data - the wording on older sheets is simply the old one.</p>',
+                    content: '<p>Jobs raised before 22 September 2026 stamped register rows and carry-forward rows the same way; from then on register rows read <em>from site register</em>. Nothing is wrong with the data - the wording on older sheets is simply the old one.</p>',
                 },
                 {
                     title: 'An Asset the Engineer Recorded Isn\'t on the Register',

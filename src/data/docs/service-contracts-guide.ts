@@ -4,7 +4,7 @@ export const serviceContractsGuide: IDocGuide = {
     slug: 'service-contracts',
     title: 'Service Contracts & Multi-Site Agreements',
     description: 'Set up recurring service contracts and group multi-site customers into agreements. Learn the three ways to create a contract, how fixed-anchor scheduling works, and how to bulk-create across sites.',
-    lastUpdated: '2026-09-04',
+    lastUpdated: '2026-09-23',
     sections: [
         {
             id: 'overview',
@@ -130,7 +130,7 @@ export const serviceContractsGuide: IDocGuide = {
             content: '<p class="mb-4">Every job a contract generates goes through the same worksheet auto-attach as any other job, so the same worksheet type lands on every visit and you get a consistent record across the life of the contract.</p>',
             subsections: [
                 {
-                    content: '<p class="mb-4">Where the site has an asset register and your plan includes the asset module, the equipment is <strong>already listed</strong> on that worksheet when the engineer opens it, each row tagged <em>from site register</em>. It is filtered to the equipment types that worksheet manages, and each item appears on one worksheet only even when the visit carries two.</p><p class="mb-4">On a site with no register, what the engineer recorded last time carries forward instead, tagged <em>from last visit</em>.</p><p class="mb-4"><strong>Large site?</strong> Add a <strong>visit plan</strong> to the contract - split by zone, floor, building or evenly - and each visit\'s job pre-loads only its share, the engineer sees "Visit 2 of 4 - 30 devices this visit", anything missed rolls forward, and the last visit of the year picks up whatever is still untested. The timeline labels every occurrence "Visit k of N". How it works: <a href="/docs/asset-lifecycle#visit-plan" class="text-secondary hover:underline">the visit plan model</a>.</p>'
+                    content: '<p class="mb-4">Where the site has an asset register and your plan includes the asset module, the equipment is <strong>already listed</strong> on that worksheet when the engineer opens it, each row tagged <em>from site register</em>. It is filtered to the equipment types that worksheet manages, and each item appears on one worksheet only even when the visit carries two.</p><p class="mb-4">On a site with no register, what the engineer recorded last time carries forward instead, tagged <em>from last visit</em>.</p><p class="mb-4"><strong>Large site?</strong> Add a <strong>visit plan</strong> to the contract - split by zone, floor, building or evenly - and each visit\'s job pre-loads only its share, the engineer sees "Visit 2 of 4 · Zones 2-3 · 9 devices this visit", anything missed rolls forward, and the last visit of the year picks up whatever is still untested. The timeline labels every occurrence "Visit k of N". How it works: <a href="/docs/asset-lifecycle#visit-plan" class="text-secondary hover:underline">the visit plan model</a>.</p>'
                 },
                 {
                     content: '<p>See <a href="/docs/worksheets#auto-attach" class="text-secondary hover:underline">Worksheets</a> for which sheet a service type attaches, and <a href="/docs/asset-tracking#which-worksheets" class="text-secondary hover:underline">Asset Tracking</a> for which worksheets record equipment to the register.</p>'

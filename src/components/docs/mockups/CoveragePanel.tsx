@@ -9,17 +9,16 @@ interface UncoveredRow {
   no: string;
   type: string;
   site: string;
-  suggest: string;
-  primary: string;
-  actionable: boolean;
+  /** Shown in "Now covered" once the row's New contract link is followed. */
+  nowCoveredBy: string;
 }
 
 const INITIAL_ROWS: UncoveredRow[] = [
-  { id: 'FA-0089', no: 'FA-0089', type: 'Aspirating detector', site: 'Ashvale House', suggest: 'CTR-00043 Fire Alarm Service', primary: 'Add to CTR-00043', actionable: true },
-  { id: 'EX-0017', no: 'EX-0017', type: 'Fire blanket', site: 'Ashvale House', suggest: 'CTR-00044 Extinguisher Service', primary: 'Add to CTR-00044', actionable: true },
-  { id: 'EX-0018', no: 'EX-0018', type: 'Fire blanket', site: 'Ashvale House', suggest: 'CTR-00044 Extinguisher Service', primary: 'Add to CTR-00044', actionable: true },
-  { id: 'HR-0003', no: 'HR-0003', type: 'Hose reel', site: '[Site name]', suggest: 'No contract at this site', primary: 'Add to contract', actionable: false },
-  { id: 'FA-0104', no: 'FA-0104', type: 'Manual call point', site: '[Site name]', suggest: 'No contract at this site', primary: 'Add to contract', actionable: false },
+  { id: 'FA-0089', no: 'FA-0089', type: 'Aspirating detector', site: 'Ashvale House', nowCoveredBy: 'now on CTR-00043 Fire Alarm Service' },
+  { id: 'EX-0017', no: 'EX-0017', type: 'Fire blanket', site: 'Ashvale House', nowCoveredBy: 'now on CTR-00044 Extinguisher Service' },
+  { id: 'EX-0018', no: 'EX-0018', type: 'Fire blanket', site: 'Ashvale House', nowCoveredBy: 'now on CTR-00044 Extinguisher Service' },
+  { id: 'HR-0003', no: 'HR-0003', type: 'Hose reel', site: '[Site name]', nowCoveredBy: 'now on a new contract' },
+  { id: 'FA-0104', no: 'FA-0104', type: 'Manual call point', site: '[Site name]', nowCoveredBy: 'now on a new contract' },
 ];
 
 const SITES = [
@@ -88,21 +87,13 @@ const CoveragePanel: React.FC = () => {
                       <td className="border-b border-[var(--line)] px-2 py-2">{r.type}</td>
                       <td className="border-b border-[var(--line)] px-2 py-2">{r.site}</td>
                       <td className="border-b border-[var(--line)] px-3 py-2 text-right">
-                        <span className="inline-flex gap-1.5">
-                          <button
-                            type="button"
-                            disabled={!r.actionable}
-                            onClick={() => moveToNowCovered(r)}
-                            className={`mono min-h-8 rounded border px-2 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-50 ${
-                              r.actionable ? 'border-[var(--accent)] bg-[var(--accent)] text-[var(--on-accent)]' : 'border-[var(--line)] bg-[var(--chip)] text-[var(--ink2)]'
-                            }`}
-                          >
-                            {r.primary}
-                          </button>
-                          <button type="button" className="min-h-8 rounded border border-[var(--line)] bg-[var(--card)] px-2 text-xs font-semibold">
-                            New contract
-                          </button>
-                        </span>
+                        <button
+                          type="button"
+                          onClick={() => moveToNowCovered(r)}
+                          className="mono min-h-8 rounded border border-[var(--accent)] bg-[var(--accent)] px-2 text-xs font-semibold text-[var(--on-accent)]"
+                        >
+                          New contract
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -122,7 +113,7 @@ const CoveragePanel: React.FC = () => {
                 <span className="text-[11px] font-semibold" style={{ color: 'var(--ink2)', ...hdStyle }}>Now covered</span>
                 <ul className="mt-1.5 flex flex-col gap-1">
                   {covered.map((r) => (
-                    <li key={r.id} className="mono text-xs" style={{ color: 'var(--ok-ink)' }}>{r.no} – {r.suggest}</li>
+                    <li key={r.id} className="mono text-xs" style={{ color: 'var(--ok-ink)' }}>{r.no} – {r.nowCoveredBy}</li>
                   ))}
                 </ul>
               </div>

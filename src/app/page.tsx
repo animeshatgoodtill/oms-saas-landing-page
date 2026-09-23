@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import WorkflowProof from "@/components/WorkflowProof/WorkflowProof";
-import FeatureShowcase from "@/components/FeatureShowcase";
+import FeatureSets from "@/components/FeatureSets";
 import Pricing from "@/components/Pricing/Pricing";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
@@ -8,15 +8,16 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 
 // Homepage order is the conversion argument: the promise (Hero), the proof
-// (WorkflowProof — the promise happening, office ⇄ phone), the breadth
-// (FeatureShowcase, each card links to its feature page), then price,
+// (WorkflowProof — the promise happening, office ⇄ phone, one laptop screen
+// tall), the breadth it can't show (FeatureSets, each links to its feature
+// page), then price,
 // objections and the ask. Anything that repeats one of those doesn't belong here.
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
       <WorkflowProof />
-      <FeatureShowcase />
+      <FeatureSets />
 
       <Container>
         <Section

@@ -3,33 +3,28 @@ import Link from 'next/link';
 import { FiRefreshCw, FiGrid, FiRadio, FiFileText, FiGlobe, FiDownload, FiArrowRight } from 'react-icons/fi';
 
 import Container from './Container';
-import { featureSets, ChipTone, FeatureSetIcon } from '@/data/featureSets';
+import { featureSets, FeatureSetIcon } from '@/data/featureSets';
 
 const ICONS: Record<FeatureSetIcon, React.ReactNode> = {
-    contracts: <FiRefreshCw size={26} />,
-    assets: <FiGrid size={26} />,
-    monitoring: <FiRadio size={26} />,
-    certificates: <FiFileText size={26} />,
-    portal: <FiGlobe size={26} />,
-    import: <FiDownload size={26} />,
+    contracts: <FiRefreshCw size={22} />,
+    assets: <FiGrid size={22} />,
+    monitoring: <FiRadio size={22} />,
+    certificates: <FiFileText size={22} />,
+    portal: <FiGlobe size={22} />,
+    import: <FiDownload size={22} />,
 };
 
-// One colour per meaning, matching the product UI: green = done, the app's blue =
-// an action, everything else neutral.
-const TONE: Record<ChipTone, string> = {
-    plain: 'text-foreground',
-    muted: 'text-muted-foreground',
-    mono: 'font-mono text-muted-foreground',
-    ok: 'font-semibold bg-[#dcf5e4] text-[#0e6b31] px-2.5 py-0.5 rounded-full',
-    action: 'font-semibold bg-[#0280c4] text-white px-3 py-1 rounded-md',
-    tag: 'font-semibold bg-[#f0f2fa] text-[#3b3f4a] px-2.5 py-1 rounded-full',
-};
-
+/**
+ * "Everything else the business needs" — plain, scannable cards. The product UI
+ * is shown in the WorkflowProof animation above; UI fragments here (chips
+ * without their screen) read as noise, so each card is: icon, plan, headline,
+ * one line, and where it leads.
+ */
 const FeatureSets: React.FC = () => {
     return (
         <section className="py-16 md:py-24 bg-background" id="features">
             <Container>
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 md:mb-14">
+                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-12">
                     <div className="flex flex-col gap-3">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground text-balance">
                             Everything else the business needs.
@@ -43,25 +38,27 @@ const FeatureSets: React.FC = () => {
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {featureSets.map(f => (
                         <Link
                             key={f.href}
                             href={f.href}
-                            className="group flex flex-col gap-3 border-t border-border pt-7 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-4 rounded-sm"
+                            className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 md:p-7 transition-all duration-200 hover:border-secondary/40 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
                         >
                             <span className="flex items-center justify-between">
-                                <span className="text-secondary" aria-hidden="true">{ICONS[f.icon]}</span>
-                                <span className="text-xs font-semibold text-muted-foreground border border-border px-2.5 py-0.5 rounded-full">{f.plan}</span>
+                                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#eef1ff] text-secondary" aria-hidden="true">
+                                    {ICONS[f.icon]}
+                                </span>
+                                <span className="text-xs font-semibold text-muted-foreground">{f.plan}</span>
                             </span>
-                            <h3 className="font-heading text-xl md:text-[1.4rem] font-bold tracking-tight text-foreground group-hover:text-secondary transition-colors">
-                                {f.title}
-                            </h3>
-                            <p className="text-base md:text-[1.05rem] leading-relaxed text-muted-foreground">{f.body}</p>
-                            <span className={`mt-1 self-start flex flex-wrap items-center gap-2 text-sm ${f.chip.every(c => c.tone === 'tag') ? '' : 'border border-border rounded-lg px-3 py-2'}`} aria-hidden="true">
-                                {f.chip.map(c => (
-                                    <span key={c.text} className={TONE[c.tone]}>{c.text}</span>
-                                ))}
+                            <span className="flex flex-col gap-2">
+                                <h3 className="font-heading text-xl md:text-[1.35rem] font-bold tracking-tight text-foreground">
+                                    {f.title}
+                                </h3>
+                                <p className="text-base leading-relaxed text-muted-foreground">{f.body}</p>
+                            </span>
+                            <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-secondary">
+                                Learn more <FiArrowRight aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
                             </span>
                         </Link>
                     ))}

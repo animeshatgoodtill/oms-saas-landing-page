@@ -47,7 +47,7 @@ export const dashboardDetail: IFeatureDetail = {
         {
             iconId: 'icon-user-roles',
             title: 'Engineer Performance Leaderboard',
-            description: 'Business tier only: See which engineers complete most jobs, maintain fastest response times, and generate highest revenue. Healthy competition, data-driven recognition.'
+            description: 'See which engineers complete most jobs, maintain fastest response times, and generate highest revenue. Healthy competition, data-driven recognition.'
         },
         {
             iconId: 'icon-smart-prompt',

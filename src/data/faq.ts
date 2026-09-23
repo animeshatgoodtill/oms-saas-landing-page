@@ -11,7 +11,7 @@ export const faqs: IFAQ[] = [
     },
     {
         question: 'How quickly can we get set up?',
-        answer: 'Import your customers, addresses, and assets from a CSV. Set up your team and certificate branding. Most contractors are scheduling jobs within a week.',
+        answer: 'Import your customers, addresses and jobs from a spreadsheet (assets too, on the Business plan). Set up your team and certificate branding. Most contractors are scheduling jobs within a week.',
     },
     {
         question: 'What happens during the 30-day trial?',

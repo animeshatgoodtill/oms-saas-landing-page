@@ -12,7 +12,7 @@ export const customerPortalGuide: IDocGuide = {
             content: `
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
                     <p class="text-sm text-blue-900">
-                        <strong>Business Plan Required:</strong> Customer Portal is available exclusively on the Business plan. <a href="/pricing" class="underline hover:no-underline">Upgrade your plan</a> to enable this feature.
+                        <strong>Business Plan Required:</strong> The self-service Customer Portal (signing in to see quotes, certificates and invoices) is on the Business plan. Approving or declining a quote from the emailed link works on every plan. <a href="/pricing" class="underline hover:no-underline">Compare plans</a>.
                     </p>
                 </div>
                 <p class="mb-6">
@@ -280,7 +280,7 @@ export const customerPortalGuide: IDocGuide = {
                     title: '"Upgrade required" error',
                     content: '',
                     bullets: [
-                        'Customer Portal requires the Business plan',
+                        'The self-service Customer Portal requires the Business plan (quote approval from the emailed link works on every plan)',
                         'Visit Settings → Billing to upgrade'
                     ]
                 }

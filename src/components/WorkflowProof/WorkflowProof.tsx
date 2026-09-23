@@ -34,7 +34,8 @@ const DEMO_URL = 'https://calendar.app.google/Tp8Hwzbf6tVMGDkW6';
  * "See a job go from quote to paid" — the homepage proof section.
  *
  * ≥1024px it is ONE laptop screen tall: the section is the viewport minus the
- * fixed 88px header (clamped 520–880px; tighter spacing under 720px tall), the rail on the left holds the
+ * fixed 88px header (clamped 440–880px; three tighter tiers for short windows, with
+ * DISJOINT height ranges so Tailwind's rule order can't decide the winner), the rail on the left holds the
  * workflows + their steps + the CTA, and the stage scales to whichever of the
  * column's width or height runs out first. So the animation, the live step and
  * both buttons are all visible at once, without scrolling.
@@ -131,15 +132,15 @@ const WorkflowProof: React.FC = () => {
         <section
             id="how-it-works"
             aria-labelledby="wf-heading"
-            className="wf py-14 md:py-16 lg:py-10 lg:h-[calc(100svh-88px)] lg:min-h-[520px] lg:max-h-[880px] [@media(min-width:1024px)_and_(max-height:720px)]:py-6"
+            className="wf py-14 md:py-16 lg:py-10 lg:h-[calc(100svh-88px)] lg:min-h-[440px] lg:max-h-[880px] [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:py-6 [@media(min-width:1024px)_and_(max-height:620px)]:py-4"
         >
             <Container className="h-full">
                 <div className="h-full flex flex-col gap-8 lg:grid lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-12">
 
                     {/* ===== rail ===== */}
-                    <div className="flex flex-col gap-5 min-h-0 lg:order-1 order-1 [@media(min-width:1024px)_and_(max-height:720px)]:gap-3">
+                    <div className="flex flex-col gap-5 min-h-0 lg:order-1 order-1 [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:gap-3 [@media(min-width:1024px)_and_(max-height:620px)]:gap-2">
                         <div className="flex flex-col gap-2">
-                            <h2 id="wf-heading" className="text-3xl md:text-4xl lg:text-[2.35rem] font-extrabold leading-[1.12] tracking-tight text-balance text-white [@media(min-width:1024px)_and_(max-height:760px)]:text-[1.9rem] [@media(min-width:1024px)_and_(max-height:720px)]:text-[1.65rem]">
+                            <h2 id="wf-heading" className="text-3xl md:text-4xl lg:text-[2.35rem] font-extrabold leading-[1.12] tracking-tight text-balance text-white [@media(min-width:1024px)_and_(min-height:721px)_and_(max-height:760px)]:text-[1.9rem] [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:text-[1.65rem] [@media(min-width:1024px)_and_(max-height:620px)]:text-[1.45rem]">
                                 See a job go from quote to paid.
                             </h2>
                             <p className="text-base text-[color:var(--wf-txt2)] [@media(min-width:1024px)_and_(max-height:760px)]:hidden">
@@ -156,8 +157,9 @@ const WorkflowProof: React.FC = () => {
                                         key={w.id}
                                         type="button"
                                         aria-pressed={on}
+                                        aria-label={w.title}
                                         onClick={() => onPick(i)}
-                                        className={`text-left rounded-[14px] border px-4 py-3 [@media(min-width:1024px)_and_(max-height:720px)]:py-2 transition-colors duration-mechanical ease-mechanical focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${on ? 'border-secondary bg-[rgba(48,79,255,0.16)]' : 'border-[color:var(--wf-line)] bg-white/[0.02] hover:border-white/30'}`}
+                                        className={`text-left rounded-[14px] border px-4 py-3 [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:py-2 [@media(min-width:1024px)_and_(max-height:620px)]:py-1.5 transition-colors duration-mechanical ease-mechanical focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${on ? 'border-secondary bg-[rgba(48,79,255,0.16)]' : 'border-[color:var(--wf-line)] bg-white/[0.02] hover:border-white/30'}`}
                                     >
                                         <span className="flex items-baseline justify-between gap-3">
                                             <span className="font-heading font-bold text-[1.05rem] text-white">{w.title}</span>
@@ -165,12 +167,12 @@ const WorkflowProof: React.FC = () => {
                                         </span>
                                         {on && (
                                             <>
-                                                <span className="mt-2.5 flex flex-col gap-1.5 [@media(min-width:1024px)_and_(max-height:720px)]:mt-1.5 [@media(min-width:1024px)_and_(max-height:720px)]:gap-1">
+                                                <span className="mt-2.5 flex flex-col gap-1.5 [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:mt-1.5 [@media(min-width:1024px)_and_(min-height:621px)_and_(max-height:720px)]:gap-1 [@media(min-width:1024px)_and_(max-height:620px)]:mt-1 [@media(min-width:1024px)_and_(max-height:620px)]:gap-0.5">
                                                     {w.steps.map((s, k) => {
                                                         const n = k + 1;
                                                         const state = n < step ? 'done' : n === step ? 'now' : 'next';
                                                         return (
-                                                            <span key={s.short} className="flex items-start gap-2.5 text-[0.9rem] leading-snug">
+                                                            <span key={s.short} className="flex items-start gap-2.5 text-[0.9rem] leading-snug [@media(min-width:1024px)_and_(max-height:620px)]:text-[0.82rem]">
                                                                 <span
                                                                     aria-hidden="true"
                                                                     className={`mt-[0.4rem] h-2 w-2 shrink-0 rounded-full ${state === 'done' ? 'bg-[#4ade80]' : state === 'now' ? 'bg-primary shadow-[0_0_0_4px_rgba(254,216,53,0.22)]' : 'bg-white/25'}`}
@@ -259,7 +261,7 @@ const CtaButtons: React.FC = () => (
             <a
                 href={SIGN_UP_URL}
                 onClick={() => sendGAEvent('event', 'workflow_cta', { cta: 'trial' })}
-                className="bg-primary text-black hover:bg-primary-accent px-6 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2"
+                className="bg-primary text-black hover:bg-primary-accent px-6 py-3 [@media(min-width:1024px)_and_(max-height:620px)]:py-2 rounded-full font-medium transition-colors inline-flex items-center gap-2"
             >
                 Start free trial
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -269,12 +271,12 @@ const CtaButtons: React.FC = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => sendGAEvent('event', 'workflow_cta', { cta: 'demo' })}
-                className="border border-white/30 hover:border-white/60 text-white px-6 py-3 rounded-full font-medium transition-colors"
+                className="border border-white/30 hover:border-white/60 text-white px-6 py-3 [@media(min-width:1024px)_and_(max-height:620px)]:py-2 rounded-full font-medium transition-colors"
             >
                 Book a demo
             </a>
         </div>
-        <p className="text-sm text-[color:var(--wf-txt2)]">30-day free trial · 50% off your first 3 months · Example data</p>
+        <p className="text-sm text-[color:var(--wf-txt2)] [@media(min-width:1024px)_and_(max-height:620px)]:hidden">30-day free trial · 50% off your first 3 months · Example data</p>
     </>
 );
 

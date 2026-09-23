@@ -43,9 +43,12 @@
 }
 
 /* ---------- stage ---------- */
-.wf-stage-wrap { position: relative; flex: none; overflow: hidden; }
+/* Fallback size until WorkflowProof.tsx measures (SSR / before hydration): same
+   aspect as the stage, so nothing below it jumps. The script's inline px win. */
+.wf-stage-wrap { position: relative; flex: none; overflow: hidden; width: 100%; max-width: 880px; max-height: 100%; aspect-ratio: 880 / 580; }
 .wf-stage { position: absolute; left: 0; top: 0; width: 880px; height: 580px; transform-origin: 0 0; transform: scale(var(--wf-s, 1)); font-size: 12px; line-height: 1.35; }
 @media (max-width: 767px) {
+  .wf-stage-wrap { max-width: 280px; aspect-ratio: 244 / 506; }
   .wf-stage { transform: scale(var(--wf-s, 1)) translate(-636px, -62px); }
   .wf-desk { display: none; }
 }

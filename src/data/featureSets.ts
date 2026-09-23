@@ -60,8 +60,8 @@ export const featureSets: IFeatureSet[] = [
         icon: 'import',
         plan: 'Every plan',
         title: 'Bring your data with you.',
-        body: 'Import customers, sites, assets, jobs and contracts from Xero, QuickBooks or a spreadsheet.',
+        body: 'Import customers, sites, products, jobs and contracts from a spreadsheet on any plan. Asset import comes with Business.',
         href: '/features/data-import',
-        chip: [{ text: 'Customers', tone: 'tag' }, { text: 'Sites', tone: 'tag' }, { text: 'Assets', tone: 'tag' }, { text: 'Contracts', tone: 'tag' }],
+        chip: [{ text: 'Customers', tone: 'tag' }, { text: 'Sites', tone: 'tag' }, { text: 'Jobs', tone: 'tag' }, { text: 'Contracts', tone: 'tag' }],
     },
 ];

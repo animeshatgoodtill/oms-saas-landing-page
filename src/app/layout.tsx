@@ -9,8 +9,11 @@ import { generateOrganizationSchema } from '@/lib/schema';
 
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ['latin'] });
-const sourceSans = Source_Sans_3({ subsets: ['latin'] });
+// next/font serves each face under a generated family name, so CSS must reach it
+// through these variables — a literal "Manrope" matches nothing and silently
+// falls back to the system font (which is what shipped until 2026-09-23).
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
+const sourceSans = Source_Sans_3({ subsets: ['latin'], variable: '--font-source-sans' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteDetails.siteUrl),
@@ -57,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.className} ${sourceSans.className} antialiased overflow-x-hidden`}
+        className={`${manrope.variable} ${sourceSans.variable} ${sourceSans.className} antialiased overflow-x-hidden`}
       >
         <script
           type="application/ld+json"

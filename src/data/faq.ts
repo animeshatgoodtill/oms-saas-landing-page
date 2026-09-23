@@ -19,7 +19,7 @@ export const faqs: IFAQ[] = [
     },
     {
         question: 'Do you integrate with Xero or QuickBooks?',
-        answer: 'Both — invoices sync automatically with Xero or QuickBooks. Included from the Team plan upward.',
+        answer: 'Both. Post an invoice to Xero or QuickBooks in one click, with no double entry. Included from the Team plan upward.',
     },
     {
         question: 'Is our data secure?',

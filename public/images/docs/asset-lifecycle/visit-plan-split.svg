@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 500" role="img" aria-labelledby="d2title d2desc">
+<title id="d2title">A visit plan splits the register across the year</title>
+<desc id="d2desc">A bar of six zones sized by device count (29, 6, 3, 27, 6 and 17 devices, 88 devices total at Ashvale House) is divided across four quarterly visit cards: visit 1 takes zone 1 (29 devices), visit 2 takes zones 2 to 3 (9 devices), visit 3 takes zone 4 (27 devices), and visit 4 takes zones 5 to 6 (23 devices) plus a catch-up for anything still untested. A dashed line from visit 1 to visit 2 notes that a device missed on visit 1 rolls forward. A margin note lists the possible splits: zone, floor, building, or even. Caption: each contract year the devices are split across the visits, and the last visit picks up anything not yet tested.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.lane{font-size:11px;letter-spacing:.06em;font-weight:600;fill:#586070;text-transform:uppercase;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.chip{fill:#F1F3F5;}
+.zone{fill:#F1F3F5;stroke:#E1E5EA;stroke-width:1;}
+.warn{fill:#FBF0D9;} .warnink{fill:#8A5A00;}
+.line{stroke:#586070;stroke-width:1;fill:none;}
+</style>
+<defs>
+<marker id="arA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#026A9F"/>
+</marker>
+</defs>
+
+<text x="70" y="34" class="lbl title">88 devices at Ashvale House</text>
+
+<rect x="790" y="16" width="180" height="44" rx="4" class="chip"/>
+<text x="880" y="32" text-anchor="middle" class="lbl" style="font-size:10.5px;font-weight:600;letter-spacing:.06em;fill:#586070;">SPLITS</text>
+<text x="880" y="48" text-anchor="middle" class="lbl" style="font-size:11px;fill:#141619;">zone &#183; floor &#183; building &#183; even</text>
+
+<!-- zone 3 callout -->
+<text x="443" y="70" text-anchor="middle" class="lbl note">Zone 3 &#183; 3</text>
+<path d="M443,74 V90" class="line"/>
+
+<!-- zone bar -->
+<rect x="70" y="90" width="296.6" height="40" class="zone"/>
+<rect x="366.6" y="90" width="61.4" height="40" class="zone"/>
+<rect x="428" y="90" width="30.7" height="40" class="zone"/>
+<rect x="458.7" y="90" width="276.1" height="40" class="zone"/>
+<rect x="734.8" y="90" width="61.4" height="40" class="zone"/>
+<rect x="796.2" y="90" width="173.9" height="40" class="zone"/>
+
+<text x="218.3" y="146" text-anchor="middle" class="lbl body">Zone 1 &#183; 29</text>
+<text x="397.3" y="146" text-anchor="middle" class="lbl" style="font-size:10px;fill:#141619;">Zone 2 &#183; 6</text>
+<text x="596.75" y="146" text-anchor="middle" class="lbl body">Zone 4 &#183; 27</text>
+<text x="765.5" y="146" text-anchor="middle" class="lbl" style="font-size:10px;fill:#141619;">Zone 5 &#183; 6</text>
+<text x="883.15" y="146" text-anchor="middle" class="lbl body">Zone 6 &#183; 17</text>
+
+<text x="70" y="184" class="lbl lane">Quarterly visits</text>
+
+<!-- visit cards -->
+<rect x="70" y="196" width="207" height="190" rx="4" class="box"/>
+<text x="90" y="224" class="lbl title">Visit 1</text>
+<text x="90" y="250" class="lbl body">Zone 1 (29)</text>
+
+<rect x="301" y="196" width="207" height="190" rx="4" class="box"/>
+<text x="321" y="224" class="lbl title">Visit 2</text>
+<text x="321" y="250" class="lbl body">Zones 2&#8211;3 (9)</text>
+
+<rect x="532" y="196" width="207" height="190" rx="4" class="box"/>
+<text x="552" y="224" class="lbl title">Visit 3</text>
+<text x="552" y="250" class="lbl body">Zone 4 (27)</text>
+
+<rect x="763" y="196" width="207" height="190" rx="4" class="box"/>
+<text x="783" y="224" class="lbl title">Visit 4</text>
+<text x="783" y="250" class="lbl body">Zones 5&#8211;6 (23)</text>
+<rect x="783" y="266" width="167" height="40" rx="4" class="warn"/>
+<text x="791" y="282" class="lbl" style="font-size:10.5px;fill:#8A5A00;">+ catch-up:</text>
+<text x="791" y="296" class="lbl" style="font-size:10.5px;fill:#8A5A00;">anything still untested</text>
+
+<!-- rolled-forward callout -->
+<text x="289" y="286" text-anchor="middle" class="lbl note">1 device missed on visit 1</text>
+<text x="289" y="300" text-anchor="middle" class="lbl note">rolls forward</text>
+<path d="M270,314 H308" stroke="#026A9F" stroke-width="2" stroke-dasharray="4 4" fill="none" marker-end="url(#arA)"/>
+
+<text x="520" y="478" text-anchor="middle" class="lbl cap">Each contract year the devices are split across the visits; the last visit picks up anything not yet tested.</text>
+</svg>

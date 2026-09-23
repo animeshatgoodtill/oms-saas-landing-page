@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 460" role="img" aria-labelledby="d4title d4desc">
+<title id="d4title">What updates the register on its own, and what waits for review</title>
+<desc id="d4desc">A completed worksheet contains six kinds of rows: Service existing and Service apply automatically, updating the register's history and condition straight away. Replace, Condemn, Missing and New equipment instead wait for review: they raise a review banner on the customer's Assets tab, and only update the register once the office commits them. A note adds that with the auto-register toggle off, everything waits. Caption: routine rows apply themselves, anything that changes what exists waits for a human.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11.5px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#586070"/>
+</marker>
+<marker id="arOk" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#15803D"/>
+</marker>
+<marker id="arWarn" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#8A5A00"/>
+</marker>
+</defs>
+
+<rect x="40" y="60" width="260" height="340" rx="4" class="box"/>
+<text x="60" y="86" class="lbl title">Completed worksheet</text>
+
+<rect x="60" y="100" width="220" height="28" rx="4" fill="#E4F3E9"/>
+<text x="70" y="119" class="lbl" style="font-size:11.5px;fill:#15803D;">Service existing</text>
+<rect x="60" y="134" width="220" height="28" rx="4" fill="#E4F3E9"/>
+<text x="70" y="153" class="lbl" style="font-size:11.5px;fill:#15803D;">Service</text>
+<rect x="60" y="168" width="220" height="28" rx="4" fill="#FBF0D9"/>
+<text x="70" y="187" class="lbl" style="font-size:11.5px;fill:#8A5A00;">Replace</text>
+<rect x="60" y="202" width="220" height="28" rx="4" fill="#FBE6E4"/>
+<text x="70" y="221" class="lbl" style="font-size:11.5px;fill:#B42318;">Condemn</text>
+<rect x="60" y="236" width="220" height="28" rx="4" fill="#FBE6E4"/>
+<text x="70" y="255" class="lbl" style="font-size:11.5px;fill:#B42318;">Missing</text>
+<rect x="60" y="270" width="220" height="28" rx="4" fill="#FBF0D9"/>
+<text x="70" y="289" class="lbl" style="font-size:11.5px;fill:#8A5A00;">New equipment</text>
+
+<text x="60" y="322" class="lbl note">Auto-register toggle:</text>
+<text x="60" y="336" class="lbl note">off = everything waits</text>
+
+<!-- register box -->
+<rect x="780" y="70" width="220" height="60" rx="4" class="box"/>
+<text x="800" y="94" class="lbl title" style="font-size:13px;">Register</text>
+<text x="800" y="112" class="lbl note">history + condition updated</text>
+
+<!-- green path -->
+<path d="M300,131 H400 V100 H780" stroke="#15803D" stroke-width="2" fill="none" marker-end="url(#arOk)"/>
+<text x="540" y="88" text-anchor="middle" class="lbl" style="font-size:11px;fill:#15803D;">applies automatically</text>
+
+<!-- amber path -->
+<path d="M300,233 H360 V285 H420" stroke="#8A5A00" stroke-width="2" fill="none" marker-end="url(#arWarn)"/>
+<text x="330" y="222" text-anchor="middle" class="lbl" style="font-size:11px;fill:#8A5A00;">waits for review</text>
+
+<rect x="420" y="260" width="240" height="50" rx="4" class="box"/>
+<text x="440" y="282" class="lbl body">Review banner on the</text>
+<text x="440" y="298" class="lbl body">customer's Assets tab</text>
+
+<path d="M660,285 H700" class="line" marker-end="url(#ar)"/>
+
+<rect x="700" y="260" width="160" height="50" rx="4" class="box"/>
+<text x="780" y="290" text-anchor="middle" class="lbl body">Office commits</text>
+
+<path d="M860,260 V130" class="line" marker-end="url(#ar)"/>
+
+<text x="520" y="410" text-anchor="middle" class="lbl cap">Routine rows apply themselves; anything that changes what exists waits for a human.</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 420" role="img" aria-labelledby="d3title d3desc">
+<title id="d3title">Three ways an asset lands on a worksheet row</title>
+<desc id="d3desc">Three sources feed the same worksheet row: pre-loaded from the register when the job is raised, added from the site register with an on-site picker, or scanned by QR or NFC tag. All three converge on one row, shown here as AST-000014, Extinguisher CO2 2kg, Kitchen, carrying a provenance tag. Underneath, four example tags show the exact wording each path produces: From site register (twice, for pre-load and picker), Scanned, and a fourth, greyed, From last visit, used as a carry-forward of last visit's work when there is no register. Caption: one row shape, three doors in, the tag says which.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.title{font-size:13.5px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#586070"/>
+</marker>
+</defs>
+
+<!-- source cards -->
+<rect x="40" y="50" width="280" height="90" rx="4" class="box"/>
+<rect x="56" y="76" width="26" height="38" rx="5" fill="#F1F3F5" stroke="#E1E5EA"/>
+<text x="96" y="92" class="lbl body">Pre-loaded from the register</text>
+<text x="96" y="108" class="lbl note">(when the job is raised)</text>
+
+<rect x="40" y="160" width="280" height="90" rx="4" class="box"/>
+<rect x="56" y="186" width="26" height="38" rx="5" fill="#F1F3F5" stroke="#E1E5EA"/>
+<text x="96" y="202" class="lbl body">Add from site register</text>
+<text x="96" y="218" class="lbl note">(picker, on site)</text>
+
+<rect x="40" y="270" width="280" height="90" rx="4" class="box"/>
+<rect x="56" y="296" width="26" height="38" rx="5" fill="#F1F3F5" stroke="#E1E5EA"/>
+<text x="96" y="312" class="lbl body">Scan tag</text>
+<text x="96" y="328" class="lbl note">(QR / NFC)</text>
+
+<!-- converging arrows -->
+<path d="M320,95 H650 V195 H700" class="line" marker-end="url(#ar)"/>
+<path d="M320,205 H650 V210 H700" class="line" marker-end="url(#ar)"/>
+<path d="M320,315 H650 V225 H700" class="line" marker-end="url(#ar)"/>
+
+<!-- row card -->
+<rect x="700" y="175" width="320" height="70" rx="4" class="box"/>
+<text x="716" y="203" class="mono" style="font-size:12.5px;fill:#141619;">AST-000014</text>
+<text x="716" y="221" class="lbl body">Extinguisher CO2 2kg &#183; Kitchen</text>
+<rect x="716" y="228" width="150" height="18" rx="4" fill="#E4EFF7"/>
+<text x="791" y="241" text-anchor="middle" class="lbl" style="font-size:9.5px;font-weight:600;letter-spacing:.04em;fill:#045985;">FROM SITE REGISTER</text>
+
+<!-- legend chips -->
+<rect x="700" y="270" width="150" height="30" rx="4" fill="#E4EFF7"/>
+<text x="775" y="289" text-anchor="middle" class="lbl" style="font-size:10px;font-weight:600;letter-spacing:.04em;fill:#045985;">FROM SITE REGISTER</text>
+<rect x="870" y="270" width="150" height="30" rx="4" fill="#E4EFF7"/>
+<text x="945" y="289" text-anchor="middle" class="lbl" style="font-size:10px;font-weight:600;letter-spacing:.04em;fill:#045985;">FROM SITE REGISTER</text>
+<rect x="700" y="310" width="150" height="30" rx="4" fill="#E4F3E9"/>
+<text x="775" y="329" text-anchor="middle" class="lbl" style="font-size:10px;font-weight:600;letter-spacing:.04em;fill:#15803D;">SCANNED</text>
+<rect x="870" y="310" width="150" height="30" rx="4" fill="#F1F3F5"/>
+<text x="945" y="329" text-anchor="middle" class="lbl" style="font-size:10px;font-weight:600;letter-spacing:.04em;fill:#586070;">FROM LAST VISIT</text>
+
+<text x="700" y="360" class="lbl note">carry-forward of last visit's work, when</text>
+<text x="700" y="374" class="lbl note">there is no register</text>
+
+<text x="520" y="404" text-anchor="middle" class="lbl cap">One row shape, three doors in &#8212; the tag says which.</text>
+</svg>

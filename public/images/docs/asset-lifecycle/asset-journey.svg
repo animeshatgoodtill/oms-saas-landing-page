@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 580" role="img" aria-labelledby="d1title d1desc">
+<title id="d1title">How equipment reaches the engineer's sheet</title>
+<desc id="d1desc">A left-to-right diagram in three lanes, Office, System and Field. In the Office lane, imports, hand entry and completed worksheets feed the site asset register, and a service contract carries a service type to worksheet link and an optional visit plan. In the System lane, a job is raised (by cron or Generate now), a worksheet is attached, and it is pre-filled from the register, using that visit's share when a plan is set. In the Field lane, the engineer's Job screen shows visit progress, the Worksheet screen shows rows added from the site register or scanned, and the engineer signs off. A dashed line returns from sign-off to the register: history and condition update immediately, while new, condemned or missing rows wait for office review. Caption: the register feeds the sheet, the sheet feeds the register, nothing is typed twice.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.lane{font-size:11px;letter-spacing:.06em;font-weight:600;fill:#586070;text-transform:uppercase;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11.5px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.chip{fill:#F1F3F5;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+.accent{stroke:#026A9F;stroke-width:2;fill:none;}
+.dash{stroke-dasharray:4 4;}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#586070"/>
+</marker>
+<marker id="arA" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#026A9F"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="1040" height="580" fill="none"/>
+
+<!-- lane bands -->
+<rect x="16" y="36" width="328" height="470" fill="#F7F9FB"/>
+<rect x="360" y="36" width="320" height="470" fill="#F7F9FB"/>
+<rect x="696" y="36" width="328" height="470" fill="#F7F9FB"/>
+<text x="32" y="56" class="lbl lane">Office</text>
+<text x="376" y="56" class="lbl lane">System</text>
+<text x="712" y="56" class="lbl lane">Field</text>
+
+<!-- OFFICE: register -->
+<rect x="32" y="76" width="296" height="48" rx="4" class="box"/>
+<text x="180" y="105" text-anchor="middle" class="lbl title">Site asset register</text>
+
+<!-- input chips -->
+<rect x="48" y="150" width="264" height="28" rx="4" class="chip"/>
+<text x="62" y="168" class="lbl body">Import (CSV / panel extract)</text>
+<rect x="48" y="186" width="264" height="28" rx="4" class="chip"/>
+<text x="62" y="204" class="lbl body">Added by hand</text>
+<rect x="48" y="222" width="264" height="28" rx="4" class="chip"/>
+<text x="62" y="240" class="lbl body">From a completed worksheet</text>
+
+<!-- trunk feeding register -->
+<path d="M312,164 H322" class="line"/>
+<path d="M312,200 H322" class="line"/>
+<path d="M312,236 H322" class="line"/>
+<path d="M322,236 V124" class="line" marker-end="url(#ar)"/>
+
+<!-- OFFICE: service contract -->
+<rect x="32" y="290" width="296" height="112" rx="4" class="box"/>
+<text x="48" y="314" class="lbl title">Service contract</text>
+<rect x="48" y="326" width="264" height="26" rx="4" class="chip"/>
+<text x="62" y="344" class="lbl body">Service type &#8594; worksheet</text>
+<rect x="48" y="358" width="264" height="26" rx="4" class="chip"/>
+<text x="62" y="376" class="lbl body">Visit plan (optional)</text>
+
+<!-- SYSTEM: job raised -->
+<rect x="376" y="76" width="288" height="56" rx="4" class="box"/>
+<text x="520" y="98" text-anchor="middle" class="lbl title">Job raised</text>
+<rect x="396" y="104" width="248" height="20" rx="4" class="chip"/>
+<text x="520" y="118" text-anchor="middle" class="lbl note">cron, or Generate now</text>
+
+<path d="M520,132 V172" class="line" marker-end="url(#ar)"/>
+
+<rect x="376" y="176" width="288" height="44" rx="4" class="box"/>
+<text x="520" y="203" text-anchor="middle" class="lbl title">Worksheet attached</text>
+
+<path d="M520,220 V260" class="line" marker-end="url(#ar)"/>
+
+<rect x="376" y="264" width="288" height="48" rx="4" class="box"/>
+<text x="520" y="293" text-anchor="middle" class="lbl title">Pre-filled from the register</text>
+<text x="520" y="328" text-anchor="middle" class="lbl note">this visit's share when a plan is set</text>
+
+<!-- cross lane arrows office -> system -->
+<path d="M328,346 H356 V104 H376" class="line" marker-end="url(#ar)"/>
+<path d="M328,100 H340 V288 H376" class="accent" marker-end="url(#arA)"/>
+
+<!-- FIELD: phone job -->
+<rect x="712" y="76" width="140" height="150" rx="8" fill="#FFFFFF" stroke="#141619" stroke-width="1.5"/>
+<rect x="712" y="92" width="140" height="4" fill="#E1E5EA"/>
+<text x="782" y="112" text-anchor="middle" class="lbl note" style="letter-spacing:.06em;font-weight:600;text-transform:uppercase;">Job</text>
+<rect x="722" y="122" width="120" height="42" rx="6" class="chip"/>
+<text x="782" y="139" text-anchor="middle" class="lbl body">Visit 2 of 4</text>
+<text x="782" y="155" text-anchor="middle" class="mono" style="font-size:9.5px;fill:#141619;">30 devices this visit</text>
+
+<path d="M664,104 H690 V151 H712" class="line" marker-end="url(#ar)"/>
+
+<!-- FIELD: phone worksheet -->
+<rect x="712" y="250" width="140" height="180" rx="8" fill="#FFFFFF" stroke="#141619" stroke-width="1.5"/>
+<rect x="712" y="266" width="140" height="4" fill="#E1E5EA"/>
+<text x="782" y="286" text-anchor="middle" class="lbl note" style="letter-spacing:.06em;font-weight:600;text-transform:uppercase;">Worksheet</text>
+<rect x="724" y="296" width="116" height="20" rx="4" fill="#E4EFF7"/>
+<text x="730" y="310" class="lbl" style="font-size:9px;fill:#045985;">Row 1 &#183; register</text>
+<rect x="724" y="320" width="116" height="20" rx="4" fill="#E4EFF7"/>
+<text x="730" y="334" class="lbl" style="font-size:9px;fill:#045985;">Row 2 &#183; register</text>
+<rect x="724" y="344" width="90" height="20" rx="4" fill="#E4EFF7"/>
+<text x="730" y="358" class="lbl" style="font-size:9px;fill:#045985;">Row 3 &#183; register</text>
+<path d="M820,353 l3,4 l7,-9" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+<path d="M664,288 H690 V340 H712" class="line" marker-end="url(#ar)"/>
+
+<!-- side chips -->
+<rect x="868" y="266" width="156" height="28" rx="4" class="chip"/>
+<text x="946" y="284" text-anchor="middle" class="lbl" style="font-size:11px;fill:#141619;">Add from site register</text>
+<rect x="868" y="302" width="156" height="28" rx="4" class="chip"/>
+<text x="946" y="320" text-anchor="middle" class="lbl" style="font-size:11px;fill:#141619;">Scan tag</text>
+
+<path d="M782,430 V452" class="line" marker-end="url(#ar)"/>
+
+<!-- sign-off -->
+<rect x="712" y="452" width="312" height="44" rx="4" class="box"/>
+<text x="868" y="479" text-anchor="middle" class="lbl title">Sign-off</text>
+
+<!-- return dashed arrow -->
+<path d="M712,474 H8 V100 H32" class="line dash" marker-end="url(#ar)"/>
+<text x="380" y="446" text-anchor="middle" class="lbl note">history + condition updated;</text>
+<text x="380" y="461" text-anchor="middle" class="lbl note">new / condemned / missing rows wait for office review</text>
+
+<text x="520" y="562" text-anchor="middle" class="lbl cap">The register feeds the sheet; the sheet feeds the register. Nothing is typed twice.</text>
+</svg>

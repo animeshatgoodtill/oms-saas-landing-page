@@ -4,7 +4,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
     slug: 'fire-safety-features',
     title: 'Fire Safety Jobsheets & Fault Tracking',
     description: 'Combined BS 5839 & BAFE SP203 inspection jobsheets and carried-forward fault tracking for fire alarm servicing visits.',
-    lastUpdated: '2026-09-04',
+    lastUpdated: '2026-09-24',
     sections: [
         {
             id: 'overview',
@@ -34,7 +34,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         '<strong>Combined BS 5839 & BAFE SP203 Jobsheet:</strong> Single on-site servicing record combining BS 5839-1 compliance and BAFE SP203 scheme documentation',
                         '<strong>Carried-Forward Faults:</strong> Site-level fault tracking across visits with automatic carry-forward from previous jobs',
                         '<strong>Deficiency Register:</strong> Office view of all open and resolved faults per site',
-                        '<strong>Office resolve action:</strong> Resolving a fault from the Complete Job screen\'s Originating Deficiency panel',
+                        '<strong>Office resolve action:</strong> Resolving a fault from the Complete Job screen\'s Originating defect panel',
                         '<strong>Field and office workflows:</strong> How engineers use fault tracking on site and how managers monitor compliance'
                     ]
                 }
@@ -186,6 +186,10 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                             A site keeps its complete fault history over time, even as individual jobs come and go. Nothing falls through the
                             cracks between visits, and you never have to dig back through old job records to find out what was left outstanding.
                         </p>
+                        <p class="mb-4">
+                            A carried-forward fault is not a separate record. It is the <strong>same defect</strong> an engineer logged on a job,
+                            seen at site level - so a defect logged on today's Defects screen is the fault the next visit sees carried forward.
+                        </p>
                         <p class="mb-4">You'll see this in two places:</p>
                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
                             <li><strong>Carried-Forward Faults screen:</strong> Engineers use this in the field to see open faults and mark them resolved</li>
@@ -240,7 +244,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         },
                         {
                             step: 'Or log a new fault found today',
-                            description: 'New fault joins the site\'s register for next time'
+                            description: 'It is recorded as a defect on today\'s job and joins the site\'s register for next time - log it here or on the Defects screen, not both'
                         }
                     ]
                 },
@@ -332,7 +336,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                         <p class="mb-4">
                             For everyday viewing, the Deficiency Register is exactly that — a <strong>view</strong>. Faults are primarily
                             logged and resolved in the field, and the register keeps the running picture for the office. The one exception
-                            is the Complete Job screen's Originating Deficiency panel, covered next, which gives office staff a real,
+                            is the Complete Job screen's Originating defect panel, covered next, which gives office staff a real,
                             working Resolve action of their own.
                         </p>
                         <p class="text-gray-700">
@@ -346,7 +350,13 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     content: `
                         <p class="mb-4">
                             When your office completes a remedial-type job that was converted from a quote, the <strong>Complete Job</strong>
-                            screen shows an <strong>Originating Deficiency</strong> panel — the specific fault(s) that quote was raised to fix.
+                            screen shows an <strong>Originating defect</strong> panel — the specific fault(s) that quote was raised to fix. It sits
+                            on the Complete Job Card's <strong>Defects</strong> step (previously called Deficiencies). The job's Overview card shows
+                            the same information under the heading &ldquo;Originating deficiency&rdquo;.
+                        </p>
+                        <p class="mb-4">
+                            The Defects step counts open defects by severity (for example &ldquo;1 Observation&rdquo;) and gathers resolved ones
+                            under a collapsible line such as &ldquo;3 resolved defects&rdquo;.
                         </p>
                         <p class="mb-4">
                             Office staff can click <strong>Resolve</strong> right there. It's a fully working action, not just a display —
@@ -387,18 +397,19 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
             title: 'Carried-Forward Faults vs Defects',
             content: `
                 <p class="mb-6">
-                    These are two different screens doing two different jobs, so it's worth knowing which is which:
+                    These are <strong>two screens onto one record</strong>. Every fault on the Carried-Forward Faults screen is a defect that
+                    was logged on a job; the screen simply shows the site's open defects from every visit in one place. Resolving it on either
+                    screen resolves the same record.
                 </p>
             `,
             table: {
-                headers: ['Feature', 'Defects', 'Carried-Forward Faults'],
+                headers: ['Feature', 'Defects screen', 'Carried-Forward Faults screen'],
                 rows: [
-                    ['Scope', 'This visit only', 'Site-level (all visits)'],
-                    ['What it shows', 'What you found today', 'Everything still open at this site'],
-                    ['When to use', 'Recording new defects on current job', 'Picking up where last visit left off'],
-                    ['Links to quotes', 'Yes (defect-to-quotation workflow)', 'No (use Defects for quoting)'],
-                    ['Carries forward', 'No (per-job)', 'Yes (per-site, automatic)'],
-                    ['Visible to customer', 'Yes (if included in quote)', 'No (internal only)']
+                    ['What it shows', 'This job\'s defects', 'Every open defect at this site, from any job'],
+                    ['When to use', 'Recording what you found today', 'Picking up where the last visit left off'],
+                    ['Links to quotes', 'Yes (defect-to-quotation workflow)', 'Yes - it is the same defect, quoted from the job it was raised on'],
+                    ['Carries forward', 'Yes - an open defect appears on the next visit\'s Carried-Forward Faults screen', 'Yes (per-site, automatic)'],
+                    ['Delete one raised by mistake', 'Yes - Edit, then Delete defect', 'Not offered here - use the Defects screen of the job it was raised on']
                 ]
             },
             subsections: [
@@ -408,8 +419,24 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     bullets: [
                         '<strong>Use Defects:</strong> When you need to log something found today that requires a quote or immediate remedial action',
                         '<strong>Use Carried-Forward Faults:</strong> When you need to see everything still open at the site from previous visits',
-                        '<strong>Both together:</strong> Most engineers use Carried-Forward Faults to pick up where the last visit left off, and Defects to record anything new that needs quoting'
+                        '<strong>Both together:</strong> Most engineers use Carried-Forward Faults to pick up where the last visit left off, and Defects to record anything new that needs quoting',
+                        '<strong>Log each issue once:</strong> Because both screens show the same record, logging an issue in both places creates a duplicate. A duplicate can now be deleted (see below).'
                     ]
+                },
+                {
+                    title: 'Removing a Defect Raised by Mistake',
+                    content: `
+                        <p class="mb-4">
+                            A defect logged on the wrong job, or logged twice, can be deleted by the person who raised it, or by the office
+                            (Super Admin, Admin or Site Manager). Engineers delete from the job's Defects screen (Edit, then Delete defect); it needs a
+                            connection. The office can delete from the job's Overview → Defects card.
+                        </p>
+                        <p class="mb-4">
+                            Resolved defects, and defects already on a quote or with a remedial job raised, can't be deleted - the app says why.
+                            The defect itself can't be restored once deleted. Full details:
+                            <a href="/docs/defects-to-quotation#delete-a-defect" class="text-secondary hover:underline">Deleting a defect raised by mistake</a>.
+                        </p>
+                    `
                 }
             ]
         },
@@ -578,9 +605,10 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     title: 'What\'s the difference between logging a fault and logging a defect?',
                     content: `
                         <p class="text-gray-700">
-                            <strong>Carried-Forward Faults:</strong> For tracking ongoing issues at a site across visits (internal record).<br/>
-                            <strong>Defects:</strong> For generating remedial quotes from things found on this job (customer-facing).<br/>
-                            You can log the same issue in both places if it needs tracking AND quoting.
+                            There isn't one - they are the same record. A fault logged on the Carried-Forward Faults screen is a defect on
+                            today's job, and a defect logged on the Defects screen is carried forward to the next visit while it stays open. It can
+                            be tracked across visits <em>and</em> quoted, so log it once: logging the same issue in both places creates a duplicate,
+                            which you can delete (Edit, then Delete defect on the Defects screen).
                         </p>
                     `
                 },
@@ -599,7 +627,7 @@ export const fireSafetyFeaturesGuide: IDocGuide = {
                     content: `
                         <p class="text-gray-700">
                             Yes. When completing a remedial job that was converted from a quote, the Complete Job screen shows an Originating
-                            Deficiency panel with a working Resolve button. It's a legitimate shortcut when office staff know the fault was
+                            defect panel with a working Resolve button. It's a legitimate shortcut when office staff know the fault was
                             actually fixed — but the audited, jobsheet-generating path is still the engineer resolving it in the field.
                         </p>
                     `

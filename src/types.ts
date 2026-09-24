@@ -1,3 +1,4 @@
+import type { DocMockupName } from '@/components/docs/mockups/DocMockup';
 export interface IMenuItem {
     text: string;
     url: string;
@@ -149,7 +150,7 @@ export interface IDocSubsection {
     bullets?: string[];
     table?: IDocTable;
     steps?: string[] | IDocStep[];
-    mockup?: 'engineer-journey' | 'engineer-journey-devices' | 'visit-plan-card' | 'coverage-panel';
+    mockup?: DocMockupName;
 }
 
 export interface IDocTable {

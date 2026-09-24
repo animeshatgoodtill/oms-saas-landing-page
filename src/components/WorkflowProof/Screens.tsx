@@ -138,11 +138,10 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
                     <div className="wf-card wf-def wf-at2">
                         <CallPointPhoto width={72} height={56} />
                         <div style={{ flex: 1 }}>
-                            <p className="wf-def-meta">From site · Priya S. · 13:58</p>
+                            <p className="wf-def-meta">Major · From site · Priya S. · 13:58</p>
                             <h4>Call point Z2·L1/012: glass cracked</h4>
                             <p>Still operates on test. Needs a new element.</p>
                         </div>
-                        <span className="wf-btn wf-off3" style={{ alignSelf: 'center' }}>Create quote</span>
                     </div>
                     <div className="wf-card wf-rq wf-at3" style={{ marginTop: 10 }}>
                         <div className="wf-rq-head">
@@ -154,7 +153,7 @@ export const DeskScreens: React.FC<Props> = ({ active, stepClass }) => (
                         </div>
                         <table className="wf-lines">
                             <tbody>
-                                <tr><td colSpan={2} style={{ fontWeight: 600 }}>Medium · Call point Z2·L1/012, Corridor 2F: replace element</td></tr>
+                                <tr><td colSpan={2} style={{ fontWeight: 600 }}>Major · Call point Z2·L1/012, Corridor 2F: replace element</td></tr>
                                 <tr><td>Resettable call point × 1</td><td className="wf-num">£68.00</td></tr>
                                 <tr><td>Labour: 1 hr</td><td className="wf-num">£72.00</td></tr>
                                 <tr className="wf-tot"><td>Total inc. VAT</td><td className="wf-num">£168.00</td></tr>
@@ -280,8 +279,13 @@ export const PhoneScreens: React.FC<Props> = ({ active, step, stepClass }) => (
                     <CallPointPhoto width="100%" height={62} />
                     <div className="wf-field"><label>Note</label><span className="wf-at1">Glass cracked. Still operates on test. Needs a new element.</span></div>
                     <div className="wf-field wf-at1"><label>Parts &amp; time</label>Call point × 1 · 1 hr</div>
-                    <div className="wf-chips"><span>Low</span><span className="wf-pick">Medium</span><span>Urgent</span></div>
-                    <span className="wf-big wf-p2"><span className="wf-b1">Save defect</span><span className="wf-b2">✓ Saved to the job</span></span>
+                    {/* The app's four severities. Side padding keeps "Observation" off its border; the row height is unchanged. */}
+                    <div className="wf-chips">
+                        {(['Observation', 'Minor', 'Major', 'Critical'] as const).map((s) => (
+                            <span key={s} className={s === 'Major' ? 'wf-pick' : undefined} style={{ padding: '7px 3px' }}>{s}</span>
+                        ))}
+                    </div>
+                    <span className="wf-big wf-p2"><span className="wf-b1">Add defect</span><span className="wf-b2">✓ Added to the job</span></span>
                 </div>
             </section>
 

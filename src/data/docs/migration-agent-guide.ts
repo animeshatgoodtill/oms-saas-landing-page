@@ -93,7 +93,7 @@ export const migrationAgentGuide: IDocGuide = {
                         </div>
                         <p class="mb-4">
                             Every business receives a monthly free credit allowance regardless of plan, and the same shared credit balance
-                            purchased for other AI features (such as deficiency detection) covers Migration Agent too — there is no
+                            purchased for other AI features covers Migration Agent too — there is no
                             migration-specific pack.
                         </p>
                     `

@@ -4,7 +4,7 @@ export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
     description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
-    lastUpdated: '2026-09-04',
+    lastUpdated: '2026-09-24',
     sections: [
         {
             id: 'overview',
@@ -382,17 +382,91 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'Logging Defects',
                     content: `
                         <p class="mb-4">
-                            Defects are issues found during the job that need attention. They can be linked to remedial quotes later.
+                            Defects are problems you find on the job that need attention. Each one is recorded against the job and the site, and the office can turn it into a remedial quote.
                         </p>
                     `,
                     steps: [
-                        { step: 'Tap "Defects" from the job hub', description: '' },
-                        { step: 'Tap "Add Defect"', description: '' },
-                        { step: 'Select severity level', description: 'Observation, Minor, Major, Critical' },
-                        { step: 'Enter defect description', description: 'Be specific: location, what\'s wrong, why it matters' },
-                        { step: 'Add photos of the defect', description: 'Photos are linked to this defect record' },
-                        { step: 'Add remedial action notes if known', description: 'What needs to be done to fix it' },
-                        { step: 'Tap "Save"', description: '' }
+                        'Tap <strong>Defects</strong> from the job hub, then <strong>Add defect</strong>',
+                        'Pick a <strong>severity</strong> (required) - each tile carries a reminder of what it means (see below)',
+                        'Choose a <strong>category</strong> and enter the <strong>location</strong>, e.g. "Ground floor corridor"',
+                        'Describe the defect (required) - be specific: what is wrong and why it matters',
+                        'Add the <strong>recommended action</strong> if you know it - this is shown on the customer\'s job sheet',
+                        'Tick <strong>Quote required for remedial work</strong> if the fix needs quoting',
+                        'Add photos with <strong>Take photo</strong> or <strong>Gallery</strong> - they are linked to this defect',
+                        'Tap <strong>Add defect</strong>'
+                    ]
+                },
+                {
+                    title: 'Severity Levels',
+                    content: '<p class="mb-4">The four severity tiles each carry a short reminder. The office\'s Complete Job Card uses the same wording.</p>',
+                    table: {
+                        headers: ['Severity', 'Reminder on the tile'],
+                        rows: [
+                            ['Observation', 'Advisory only'],
+                            ['Minor', 'Next routine visit'],
+                            ['Major', 'Within 28 days'],
+                            ['Critical', 'Immediate action']
+                        ]
+                    }
+                },
+                {
+                    title: 'When a Defect Needs a Quote',
+                    content: `
+                        <p class="mb-4">
+                            A defect goes forward for quoting when it is <strong>Major</strong> or <strong>Critical</strong>, or when you tick <strong>Quote required for remedial work</strong>.
+                            Before you save, the form tells you that saving creates a <strong>Remedial Scope</strong> sheet under Job Sheets for you to complete - the office needs it to quote.
+                        </p>
+                        <p class="mb-4">
+                            When you tap <strong>Add defect</strong>, Opscel attaches a draft Remedial Scope of Works sheet to the job (if the job already has a draft one, the defect joins it).
+                            The toast reads <em>"Defect added - complete the Remedial Scope sheet so the office can quote"</em> - tap it to go straight to the sheet.
+                            Offline, it reads <em>"Defect saved offline - complete the Remedial Scope sheet after it syncs"</em>.
+                        </p>
+                        <p class="mb-4">
+                            More on the sheet itself: <a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Remedial Scope of Works</a>.
+                        </p>
+                    `
+                },
+                {
+                    title: 'Remedial Resourcing & Parts',
+                    content: `
+                        <p class="mb-4">
+                            For a defect going forward for quoting, a <strong>Remedial resourcing &amp; parts</strong> section appears in the form.
+                            It is office-only - the office uses it to price the quote, and it is not shown to the customer.
+                        </p>
+                    `,
+                    bullets: [
+                        '<strong>Est. hours</strong> and <strong>Engineers</strong> - how long the fix will take and how many people it needs',
+                        '<strong>Working hours</strong> - Normal, Out of hours or Mixed',
+                        '<strong>Parts</strong> - the parts catalogue stays closed until you tap <strong>Add a part</strong>, so nothing jumps under your thumb while it loads. Pick from the <strong>Catalogue</strong> or enter a <strong>Custom</strong> part. Labour and service items are not offered here - defect parts are parts only.'
+                    ]
+                },
+                {
+                    title: 'Editing, Resolving or Deleting a Defect',
+                    content: `
+                        <p class="mb-4">
+                            Every open defect on the Defects screen has <strong>Edit</strong> and <strong>Mark resolved</strong>. Edit opens the same form, saved with <strong>Save changes</strong>.
+                            Mark resolved asks you to confirm, then moves the defect to the <strong>Resolved</strong> list, where <strong>Re-open</strong> moves it back to open if you need to change it.
+                            A defect you logged offline can be edited once it has synced.
+                        </p>
+                        <p class="mb-4">
+                            <strong>Delete defect</strong> is for a defect raised by mistake - on the wrong job, or logged twice. Open the defect with <strong>Edit</strong>:
+                            Delete defect sits at the bottom of the form, full-width and set apart below Save changes and Cancel, so a gloved thumb won't catch it by accident.
+                        </p>
+                        <p class="mb-4">
+                            Opscel asks <em>"Delete this defect?"</em> first. The dialog shows the defect, explains it will be removed from this job, its job sheets and the site's defect register,
+                            and ticks <strong>Also delete its photo(s)</strong> by default - deleted photos can be restored from the job's Photos for 30 days. The defect itself can't be restored,
+                            and there is no undo: tap <strong>Delete defect</strong> to confirm, or <strong>Keep it</strong> to back out.
+                        </p>
+                    `,
+                    mockup: 'defect-delete-journey',
+                    bullets: [
+                        '<strong>Only your own.</strong> You can delete a defect you raised. A colleague\'s defect shows no Delete defect - ask the office (Super Admin, Admin or Site Manager), who can delete any defect.',
+                        '<strong>Some defects can\'t be deleted, and the form says why.</strong> If the defect is on a quote, or a remedial job has been raised for it, a muted line appears where Delete defect would be - for example <em>"This defect is on QT-2026-0097. Remove it from the quote first."</em> A few other cases, such as a defect recorded on a completed Remedial Scope sheet, are checked when you confirm, and the dialog shows the reason.',
+                        '<strong>Resolved defects can\'t be deleted.</strong> They show Re-open instead - re-open it first if it was raised by mistake.',
+                        '<strong>Deleting needs a connection.</strong> Offline, the dialog says <em>"You\'re offline. Deleting a defect needs a connection, so try again once you\'re back online."</em> and the button stays disabled. It is never queued.',
+                        '<strong>Unsynced changes come first.</strong> If you edited the defect and that change hasn\'t synced yet, the dialog says <em>"This defect has a change still waiting to sync. Delete it once it has synced."</em> and the button stays disabled until it has.',
+                        '<strong>Delete from the Defects screen.</strong> Delete isn\'t offered on the Carried-Forward Faults screen or on the field Remedial Scope sheet - open the defect on the Defects screen of the job it was raised on. On the Remedial Scope sheet, <strong>Remove from scope</strong> only takes a defect off the scope list; the defect stays on the job.',
+                        '<strong>An empty scope sheet goes too.</strong> If the defect was the last one on a draft Remedial Scope sheet that Opscel created for it, and nobody has typed into or quoted that sheet, the empty sheet is removed as well - it can be restored from Deleted sheets for 30 days.'
                     ]
                 },
                 {
@@ -535,8 +609,14 @@ export const fieldServiceGuide: IDocGuide = {
                     title: 'What Queues for Sync',
                     content: `
                         <p class="mb-4">
-                            When offline, all writes (creates, updates, deletes) are queued in your browser's storage. When you reconnect, they sync automatically.
+                            When offline, your changes are queued in your browser's storage. When you reconnect, they sync automatically.
                         </p>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4">
+                            <p class="text-sm text-amber-900">
+                                <strong>One exception - deleting a defect needs a connection.</strong> It is never queued: offline, the Delete this defect dialog says so and its button stays disabled.
+                                Logging, editing and resolving defects still work offline.
+                            </p>
+                        </div>
                         <p class="mb-4"><strong>Synced items:</strong></p>
                     `,
                     bullets: [

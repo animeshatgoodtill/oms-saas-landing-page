@@ -1,49 +1,59 @@
 import { IDocGuide } from '@/types';
 
+const DEF = '/images/docs/defects';
+
+/** A flow diagram: keeps a readable minimum width and scrolls sideways on a phone rather than shrinking its text. */
+const diagram = (src: string, alt: string, caption?: string) =>
+    `<figure class="my-8"><div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0"><img src="${src}" alt="${alt}" class="w-full min-w-[720px] rounded-lg border border-border bg-white" loading="lazy" /></div>${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
+
+const amber = (html: string) =>
+    `<div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4"><p class="text-amber-800">${html}</p></div>`;
+
+const blue = (html: string) =>
+    `<div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4"><p class="text-blue-900">${html}</p></div>`;
+
 export const remedialScopeOfWorksGuide: IDocGuide = {
     slug: 'remedial-scope-of-works',
     title: 'Remedial Scope of Works - Complete Guide',
-    description: 'Turn site defects into customer quotes in one tap. Engineer logs defects, an internal office-only worksheet auto-attaches, office generates bundled quotes.',
-    lastUpdated: '2026-08-30',
+    description: 'How a defect found on site becomes a priced remedial quote: the engineer logs it, an internal office-only Remedial Scope of Works sheet attaches itself and stays in step with the job\'s defects, and the office turns it into one bundled quote.',
+    lastUpdated: '2026-09-24',
     sections: [
         {
             id: 'overview',
-            title: 'Overview',
+            title: 'The 30-Second Version',
             content: `
-                <p class="text-lg text-muted-foreground mb-6">
-                    Fire safety engineers find issues every visit. Capturing them, costing them, and getting back to the customer with a quote shouldn't take three apps and four emails.
+                <p class="mb-4">
+                    Engineers find things that need fixing on almost every visit. When an engineer logs a defect that is <strong>Major</strong> or <strong>Critical</strong>, or ticks <strong>"Quote required for remedial work"</strong>, a draft <strong>Remedial Scope of Works</strong> sheet attaches itself to the job. Its <strong>Defects in Scope</strong> list is a live view of the job's defects, so it keeps up on its own as defects are logged, edited or removed. The engineer adds a short "Details of works required" summary and marks the sheet complete; the office then turns it into one bundled quote, with parts and labour already priced from each defect.
                 </p>
-                <p class="mb-6">
-                    Opscel does it in one flow. The engineer logs a defect → a "Remedial Scope of Works" worksheet auto-appears on the job → they fill in what needs doing, with resourcing estimated per defect → they mark it complete. Back at the office, one click turns the whole scope into a quote with every defect pre-filled as a line item. This worksheet is an internal, office-only document — the customer never sees or signs it; they see and accept the priced quote it produces.
+                <p class="mb-4">
+                    The sheet is an <strong>internal, office-only document</strong>. The customer never sees or signs it - they see and accept the priced quote it produces.
                 </p>
-                <p class="mb-6">
-                    <strong>No paper forms. No retyping. No defects falling between visits.</strong>
-                </p>
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-                    <p class="text-sm text-blue-900">
-                        <strong>💡 Note:</strong> This guide focuses on the <strong>Worksheet Path</strong> for creating remedial quotes. There's also a faster <strong>Dashboard Widget Path</strong> that skips the worksheet and creates quotes directly from defects. <a href="/docs/defects-to-quotation" class="underline hover:no-underline">See Defects to Quotation guide</a> for the dashboard workflow, or read the <a href="#two-paths" class="underline hover:no-underline">Two Paths section</a> below to understand when to use each.
-                    </p>
-                </div>
-            `,
+            `
+                + diagram(
+                    `${DEF}/defect-lifecycle.svg`,
+                    'The journey of a defect: an engineer logs it on the job in the field app, or the office adds it from the job\'s Overview with Add defect on any job status; it shows up on the job\'s Defects card, the site\'s defect register and the job sheet PDF; a Major or Critical or Quote required defect gets a draft Remedial Scope of Works sheet; the office creates a bundled quote, the accepted quote becomes a remedial job, the fault is fixed there and the defect is marked resolved in the register. A separate side branch for a defect raised by mistake: whoever raised it, or the office, deletes it, and it is gone from the job, its job sheets and the register; photos, if included, go to Recently deleted for 30 days, and an empty scope sheet created for it is removed too.',
+                    'One road to a fix, and a side door for a defect raised by mistake.'
+                )
+                + blue('This guide covers the <strong>worksheet path</strong>. There is also a quicker <strong>dashboard path</strong> that skips the worksheet and quotes straight from a job\'s defects - see the <a href="/docs/defects-to-quotation" class="underline hover:no-underline">Defects to Quotation guide</a>, or the <a href="#two-paths" class="underline hover:no-underline">Two Paths</a> section below for when to use each.'),
             subsections: [
                 {
                     title: 'What customers tell us',
                     content: '',
                     bullets: [
-                        '5–10 minutes saved per quote at the office desk (no line-item retyping)',
+                        '5-10 minutes saved per quote at the office desk (no line-item retyping)',
                         'Zero defects lost between site visit and quote',
-                        'Audit trail intact — every defect tied to its quote, every quote tied to its source visit'
+                        'Audit trail intact - every defect tied to its quote, every quote tied to its source visit'
                     ]
                 },
                 {
                     title: 'Key Features',
                     content: '',
                     bullets: [
-                        'Auto-attached worksheets — No manual setup required when defects are logged',
-                        'Live defect sync — Engineers can refresh the worksheet to pull in newly logged defects',
-                        'Internal, office-only — no customer signature; resourcing is estimated per defect, not once for the whole worksheet',
-                        'One-click quotes — Office staff generate bundled quotes for all remedial work instantly',
-                        'Professional output — Quote includes all defects with a summary, asset reference, and severity'
+                        '<strong>Attaches itself</strong> - the first Major, Critical or "Quote required" defect on a job attaches a draft sheet. No manual setup.',
+                        '<strong>Always in step with the defects</strong> - the draft sheet\'s Defects in Scope list is live. There is no refresh button to remember.',
+                        '<strong>Edit in one place</strong> - Add defect and Edit on the sheet write straight to the job\'s defects, so the two never disagree.',
+                        '<strong>Internal, office-only</strong> - no customer signature; parts and a time estimate are captured per defect, not once for the whole sheet.',
+                        '<strong>One-click quote</strong> - the office generates a bundled quote with a heading line, catalogue-priced part lines and a labour line for each defect.'
                     ]
                 }
             ]
@@ -53,59 +63,51 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             title: 'Two Paths for Creating Remedial Quotes',
             content: `
                 <p class="mb-6">
-                    Opscel offers two ways to turn defects into customer quotes. Both are current, valid workflows—the right choice depends on your situation.
+                    Opscel offers two ways to turn defects into customer quotes. Both are current, and both build the quote the same way - the difference is whether an engineer writes a scope summary first.
                 </p>
             `,
             table: {
                 headers: ['Aspect', 'Path A: Dashboard Widget', 'Path B: Worksheet (This Guide)'],
                 rows: [
-                    ['Where', 'Admin dashboard → "Defects Pending Quotes" card', 'Job detail → Documents tab → Remedial Scope worksheet'],
-                    ['Trigger', '"Create Bundled Quote" button — reads from pending defects', '"Generate bundled quote" on the completed worksheet — reads from worksheet items'],
-                    ['Engineer involvement', 'None required — defects logged, office handles rest', 'Engineer fills an internal scope summary and per-defect resourcing on-site'],
-                    ['Speed', 'Faster — one click from dashboard', 'Slower — engineer completes worksheet first'],
-                    ['Detail level', 'Defect descriptions only', 'Full internal scope of works with a summary and per-defect resourcing (no customer sign-off — this worksheet is office-only)'],
-                    ['Best for', 'Quick quotes, straightforward remedial work', 'Complex jobs, customer wants detailed scope confirmed on-site'],
+                    ['Where', 'Dashboard → "Jobs Pending Remedial Quotes" → <strong>Quote</strong> on a job', 'Job page → Documents tab → the completed Remedial Scope of Works row'],
+                    ['What it quotes', 'The job\'s open, unquoted, in-scope defects', 'The job\'s open, unquoted, in-scope defects, read at the moment you click'],
+                    ['Engineer involvement', 'None beyond logging the defects', 'Engineer writes "Details of works required" and marks the sheet complete'],
+                    ['Speed', 'Faster - one click from the dashboard', 'Slower - the sheet has to be completed first'],
+                    ['Quote lines', 'Per defect: a £0 heading line, priced part lines, a labour line', 'The same'],
+                    ['Quote title', '"Remedial Work - &lt;job number&gt;"', 'The first line of "Details of works required" (up to 80 characters), or "Remedial Work - &lt;job number&gt;" if it is blank'],
+                    ['Best for', 'Straightforward remedial work where the defects speak for themselves', 'Jobs where the office wants the engineer\'s written scope before pricing'],
                     ['Documentation', '<a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Defects to Quotation Guide</a>', 'This guide']
                 ]
             },
             subsections: [
                 {
                     title: 'What Happens Automatically vs. Manually',
-                    content: `
-                        <p class="mb-4">Understanding what the system does automatically helps avoid confusion:</p>
-                    `
-                },
-                {
-                    title: '',
-                    content: '',
+                    content: '<p class="mb-4">Knowing which parts the system does for you avoids most of the confusion:</p>',
                     table: {
-                        headers: ['Action', 'Auto', 'Manual'],
+                        headers: ['Action', 'Automatic', 'Manual'],
                         rows: [
-                            ['Remedial Scope worksheet created', '✅ (on defect POST with "Quote required" OR severity = major/critical)', ''],
-                            ['Worksheet seeded with defect items', '✅ (on new sheet)', ''],
-                            ['Draft quotation created', '', '✅ Admin clicks in widget or job sheets'],
-                            ['Quote line items populated', '✅ (pre-filled on creation)', '✅ Admin adds pricing (£)'],
-                            ['Defects cleared from pending-quotes widget', '✅ (on quote creation)', '']
+                            ['Remedial Scope sheet attached', '✅ when a Major, Critical or "Quote required" defect is logged and the job has no draft scope sheet', ''],
+                            ['Defects in Scope list kept up to date', '✅ live, while the sheet is a draft', ''],
+                            ['"Details of works required" summary', '', '✅ engineer (or office) writes it'],
+                            ['Sheet marked complete', '', '✅ engineer or office'],
+                            ['Bundled quote created', '', '✅ office clicks the quote button'],
+                            ['Part and labour prices on the quote', '✅ from your product catalogue and default labour rate', '✅ office reviews and adjusts before sending'],
+                            ['Job leaves the "Jobs Pending Remedial Quotes" widget', '✅ once its in-scope defects are quoted', '']
                         ]
                     }
                 },
                 {
-                    title: 'Important: Quotes Are Not Auto-Created',
-                    content: `
-                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4">
-                            <p class="text-amber-900">
-                                <strong>⚠️ Key Point:</strong> The worksheet auto-creates, but the quote does NOT. This is intentional—engineers don't know pricing, and the office needs to review scope before committing to a number. The admin must click a button to create the quote, but the descriptions and line items are already pre-filled.
-                            </p>
-                        </div>
-                    `
+                    title: 'Quotes Are Never Created Automatically',
+                    content: amber('<strong>The sheet attaches itself, but the quote does not.</strong> That is deliberate: engineers don\'t set prices, and the office needs to review the scope before committing to a number. Someone with quote permission has to click the button - the lines are pre-filled when they do.')
                 },
                 {
-                    title: 'Worksheet Auto-Creation Triggers',
-                    content: 'A Remedial Scope of Works worksheet is automatically created when:',
+                    title: 'What Triggers the Sheet',
+                    content: 'A draft Remedial Scope of Works sheet attaches when a defect is saved that is:',
                     bullets: [
-                        'Engineer checks "Quote required for remedial work" on a defect',
-                        'Defect severity is set to Major or Critical (even if "Quote required" is NOT checked)',
-                        'First qualifying defect is saved—subsequent defects on the same job attach to the existing worksheet'
+                        'Severity <strong>Major</strong> or <strong>Critical</strong>, whether or not "Quote required" is ticked, or',
+                        'Any severity with <strong>"Quote required for remedial work"</strong> ticked',
+                        'If the job already has a <strong>draft</strong> scope sheet, the defect simply appears on that one - no second draft is created',
+                        'If the job\'s scope sheet is already <strong>completed</strong>, the next qualifying defect gets a <strong>fresh draft</strong> sheet (see <a href="#multiple-worksheets" class="text-blue-600 hover:underline">Multiple Worksheets</a>)'
                     ]
                 }
             ]
@@ -115,7 +117,7 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             title: 'The Problem',
             content: `
                 <p class="mb-4">
-                    A typical fire alarm service visit turns up 3–8 things the customer needs to quote for. Today most contractors handle this with paper forms, photos in WhatsApp, and a Monday-morning game of "did anyone email the office about that Tate Modern job?"
+                    A typical fire alarm service visit turns up 3-8 things the customer needs to quote for. Today most contractors handle this with paper forms, photos in WhatsApp, and a Monday-morning game of "did anyone email the office about that Tate Modern job?"
                 </p>
                 <p class="mb-6">
                     The cost is real: defects fall between visits, quotes go out late (or never), and engineers spend 20 minutes after every job re-typing what they already wrote on a clipboard.
@@ -126,61 +128,50 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             id: 'how-it-works',
             title: 'How It Works: The 4-Step Flow',
             content: `
-                <p class="mb-8">
-                    The remedial scope of works process follows a simple four-step workflow that bridges field operations and office administration.
+                <p class="mb-6">
+                    Four steps bridge the field and the office. Only the last one needs someone with quote permission.
                 </p>
-                <div class="my-12 -mx-8 md:-mx-16 lg:-mx-24">
-                    <img
-                        src="/images/docs/remedial-scope-of-works/flow-diagram.svg"
-                        alt="4-step remedial workflow: engineer logs a defect on site with per-defect resourcing, a worksheet auto-attaches, the engineer scopes it internally with no customer signature, and the office generates a bundled quote"
-                        class="w-full rounded-lg border border-border shadow-lg"
-                    />
-                </div>
             `,
             subsections: [
                 {
-                    title: 'Step 1: Engineer Logs Defects On-Site',
-                    content: 'During a service visit (e.g., fire alarm inspection, EICR), the engineer finds issues requiring remedial work.',
+                    title: 'Step 1: Log the Defects',
+                    content: 'During a visit (a fire alarm service, an EICR and so on) the engineer finds issues that need remedial work.',
                     bullets: [
-                        'Open the job in the field PWA',
-                        'Navigate to the Defects section',
-                        'Log each defect with severity (Critical, Major, Minor, Observation), location, and description',
-                        'Check "Quote required for remedial work" (or leave unchecked—Major/Critical defects auto-trigger worksheet creation)',
-                        'Save each defect'
+                        'Open the job in the field app and go to <strong>Defects</strong>',
+                        'Log each defect with its severity - <strong>Observation</strong> (advisory only), <strong>Minor</strong> (next routine visit), <strong>Major</strong> (within 28 days) or <strong>Critical</strong> (immediate action) - plus location, description and photos',
+                        'Tick "Quote required for remedial work" where a quote is needed. Major and Critical defects bring the sheet in without it.',
+                        'For a Major, Critical or quote-required defect, add the <strong>parts</strong> it will need and a <strong>time estimate</strong> (hours, number of engineers, normal or out-of-hours). The office prices these; the customer never sees them.',
+                        'The office can add defects too, from the job\'s Overview → Defects card → <strong>Add defect</strong>, on any job status - including a completed job'
                     ]
                 },
                 {
-                    title: 'Step 2: Worksheet Auto-Attaches',
-                    content: 'As soon as the first qualifying defect is logged (either "Quote required" checked OR severity = Major/Critical), a "Remedial Scope of Works" worksheet automatically appears in the job sheets list.',
+                    title: 'Step 2: The Sheet Attaches Itself',
+                    content: 'As soon as the first qualifying defect is saved, a "Remedial Scope of Works" sheet appears in the job\'s sheets as a <strong>draft</strong>.',
                     bullets: [
-                        'Status: DRAFT (amber badge)',
-                        'Contains "Items seeded from defect" notice',
-                        'Engineer can access it immediately from the job detail page',
-                        'Job also appears in the admin dashboard "Defects Pending Quotes" widget'
+                        'In the field app the engineer sees "Defect added - complete the Remedial Scope sheet so the office can quote"; tapping it opens the sheet',
+                        'Its Defects in Scope list already shows the defect, and every later in-scope defect on the job joins it on its own',
+                        'The job also appears on the dashboard\'s <strong>"Jobs Pending Remedial Quotes"</strong> widget'
                     ]
                 },
                 {
-                    title: 'Step 3: Engineer Scopes It (Internal, Office-Only)',
-                    content: 'The engineer opens the worksheet, reviews the scope, and completes it on-site. This is an internal/office-only document — the customer never sees or signs it; they see and accept the priced quote it later produces.',
+                    title: 'Step 3: Scope It (Internal, Office-Only)',
+                    content: 'The engineer opens the sheet, checks the defects in scope and completes it. The customer never sees or signs this sheet.',
                     bullets: [
-                        'Review auto-imported defects in the "Defects in Scope" section',
-                        'Tap "Refresh from defects" to pull any newly logged defects (edits preserved)',
-                        'Fill in the scope summary and any other information the office needs',
-                        'Resourcing (engineers / days / hours) is estimated per defect, not once for the whole worksheet',
-                        'Mark worksheet as COMPLETE'
+                        'Check each defect card; use <strong>Edit</strong> to correct one, or <strong>Remove from scope</strong> to drop one that doesn\'t belong in this quote',
+                        'Write the <strong>"Details of works required"</strong> summary - the office uses it to build the quote, and its first line becomes the quote title',
+                        'Add anything else the office should know under "Any other information to consider"',
+                        'Mark the sheet complete'
                     ]
                 },
                 {
-                    title: 'Step 4: Office Generates Bundled Quote',
-                    content: 'Once the worksheet is marked complete, office staff manually creates the quote. The quote does NOT auto-create—this is intentional so office can review scope and add pricing.',
+                    title: 'Step 4: The Office Generates the Bundled Quote',
+                    content: 'Once the sheet is complete, someone with quote permission creates the quote from it.',
                     bullets: [
-                        'Navigate to the job detail page → Documents tab',
-                        'Hover over the completed Remedial Scope of Works row',
-                        'Click the green "Generate Bundled Quote" button',
-                        'One quote is created with N line items pre-filled from each defect (descriptions only, £0 prices)',
-                        'Add pricing to each line item, adjust as needed, and send to customer',
-                        'Worksheet row now shows "Quoted" pill with link to the quote',
-                        'Job disappears from "Defects Pending Quotes" dashboard widget'
+                        'Job page → <strong>Documents</strong> tab → hover over the completed Remedial Scope of Works row',
+                        'Click the small receipt icon, <strong>"Generate bundled quote from this scope"</strong>',
+                        'A draft quote is created covering the job\'s open, unquoted, in-scope defects',
+                        'Review the prices, adjust, and send it to the customer',
+                        'The sheet row now shows a link icon, <strong>"View linked quote"</strong>, in place of the receipt icon'
                     ]
                 }
             ]
@@ -188,47 +179,55 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
         {
             id: 'engineer-workflow',
             title: 'For Engineers: Using the Field Worksheet',
-            content: 'The field PWA provides engineers with a streamlined interface for managing remedial work scope during site visits.',
+            content: 'The field app gives engineers everything they need to scope remedial work on site.',
             subsections: [
                 {
                     title: 'Accessing the Worksheet',
-                    content: 'When you log a defect with "Quote required" checked, the worksheet auto-generates:',
+                    content: 'When you log a Major or Critical defect, or tick "Quote required", the sheet is attached for you:',
                     steps: [
-                        { step: 'Open the job in the field PWA', description: '' },
-                        { step: 'Navigate to Job Sheets tab', description: '' },
-                        { step: 'Look for "Remedial Scope of Works" with DRAFT status', description: '' },
+                        { step: 'Tap the "Defect added" message to jump straight to the sheet, or', description: '' },
+                        { step: 'Open the job in the field app and go to its job sheets', description: '' },
+                        { step: 'Look for "Remedial Scope of Works" in draft', description: '' },
                         { step: 'Tap to open', description: '' }
                     ]
                 },
                 {
-                    title: 'Defects in Scope Section',
-                    content: 'This section shows all defects that will be included in the remedial quote. Each row has three visible columns:',
+                    title: 'The Defects in Scope Section',
+                    content: '<p class="mb-4">Every in-scope defect on the job appears here as a <strong>card</strong>, most serious first. Each card shows:</p>',
                     bullets: [
-                        'Summary — what the defect is and what needs doing',
-                        'Asset reference — e.g. "Panel B / Zone 4"',
-                        'Severity — Critical, Major, Minor, or Observation (engineer-editable per row)',
-                        'Blue "Refresh from defects" banner appears when new defects are logged',
-                        'Tap "Refresh" to sync — your manual edits to existing rows are preserved'
+                        'The severity (Critical, Major, Minor or Observation), and a <strong>Quoted</strong> pill once the defect is on a quote',
+                        'A summary - the description, plus the recommended action if there is one',
+                        'The location',
+                        'Up to four photo thumbnails',
+                        'The time estimate (hours, engineers, normal or out-of-hours) and the parts, when the defect has them',
+                        '<strong>Edit</strong> opens the full defect form. Your change is saved to the defect itself, so the job\'s Defects list and this sheet always agree.',
+                        '<strong>Remove from scope</strong> takes the defect off this list only - it stays on the job (see <a href="#scope-in-step" class="text-blue-600 hover:underline">Keeping the Scope in Step</a>)',
+                        '<strong>Add defect</strong>, below the cards, logs a new defect on the job straight from the sheet'
                     ]
                 },
                 {
+                    title: 'Adding Parts to a Defect',
+                    content: '<p>For a Major, Critical or quote-required defect, the defect form has a <strong>Parts</strong> section. The catalogue stays closed until you tap <strong>"Add a part"</strong>, so the form doesn\'t jump about while it loads. Only parts are listed - labour and service items are not offered as defect parts, because labour comes from the time estimate. Adding and editing defects works offline and syncs when you reconnect.</p>'
+                },
+                {
                     title: 'Completing the Worksheet',
-                    content: 'Fill in the required fields before marking complete. This is an internal/office-only worksheet — there is no customer sign-off field:',
+                    content: 'There is no customer sign-off on this sheet. Before it can be marked complete it needs:',
                     bullets: [
-                        'Details of works required — a free-text summary of the remedial work for the office to quote',
-                        'Any other information to consider — access constraints, parts to verify, etc.',
-                        'Resourcing (engineers / days / hours) is captured per defect, not once for the whole worksheet',
-                        'Tap "Mark Complete" when finished'
+                        '<strong>Details of works required</strong> - a free-text summary of the remedial work for the office to quote',
+                        'At least one defect in scope',
+                        'Optional: <strong>Any other information to consider</strong> - access constraints, parts to verify and so on',
+                        'Then tap <strong>Mark Complete</strong>. A completed sheet\'s list is fixed as it stood, and it no longer offers Add defect, Edit or Remove from scope.'
                     ]
                 },
                 {
                     title: 'Best Practices for Engineers',
                     content: '',
                     bullets: [
-                        'Be specific in the defect summary — these appear in the customer quote',
-                        'Always fill in an asset reference (e.g., "Panel B / Zone 4") so the office can locate the item',
-                        'Set severity accurately — it drives what appears where in the quote',
-                        'If you find additional defects after marking complete, log them and the office can manually add to the quote'
+                        'Be specific in the defect description - it becomes the heading line on the customer\'s quote',
+                        'Always fill in the location (e.g. "Panel B / Zone 4") so the office can find the item',
+                        'Set severity accurately - it decides whether the sheet is triggered, and it heads each defect\'s line on the quote',
+                        'Add a time estimate to each defect - without one, the quote has no labour line for it',
+                        'Found something after you marked the sheet complete? Log it as normal. It gets a fresh draft sheet, and if the office hasn\'t generated the quote yet it is included anyway (see <a href="#troubleshooting" class="text-blue-600 hover:underline">Troubleshooting</a>)'
                     ]
                 }
             ]
@@ -236,150 +235,152 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
         {
             id: 'office-workflow',
             title: 'For Office: Generating Bundled Quotes',
-            content: 'Office staff turn completed remedial worksheets into professional quotes with a single click.',
+            content: 'Office staff turn a completed Remedial Scope sheet into a priced quote with one click.',
             subsections: [
                 {
                     title: 'Finding Completed Worksheets',
-                    content: 'Completed Remedial Scope of Works worksheets appear in the job detail view:',
+                    content: 'Completed Remedial Scope of Works sheets are listed on the job page:',
                     steps: [
-                        { step: 'Navigate to the job detail page', description: '' },
-                        { step: 'Scroll to Job Sheets section', description: '' },
-                        { step: 'Look for "Remedial Scope of Works" row with green COMPLETED badge', description: '' },
-                        { step: 'Hover over the row to reveal the "Generate Bundled Quote" button', description: '' }
+                        { step: 'Open the job', description: '' },
+                        { step: 'Go to the Documents tab', description: '' },
+                        { step: 'Find the "Remedial Scope of Works" row marked completed', description: '' },
+                        { step: 'Hover over the row - a small receipt icon, "Generate bundled quote from this scope", appears beside it', description: 'It only shows for users who can create quotes.' }
                     ]
                 },
                 {
                     title: 'Generating the Quote',
-                    content: 'Creating the bundled quote is a one-click operation:',
+                    content: 'Clicking the receipt icon creates one draft quote. At that moment it reads the job\'s <strong>live</strong> defects - every open, unquoted, in-scope defect - so a defect logged after the sheet was completed is included too.',
                     steps: [
-                        { step: 'Click the green "Generate Bundled Quote" button', description: '' },
-                        { step: 'A new quote is created with format "QT-YYYY-NNNN"', description: '' },
-                        { step: 'Quote title: "Remedial Works"', description: '' },
-                        { step: 'Line items: One per defect, carrying its summary and severity', description: '' },
-                        { step: 'Navigate to Quotations to view and edit the draft quote', description: '' }
+                        { step: 'A new draft quote is created, numbered QT-YYYY-NNNN', description: '' },
+                        { step: 'Title: the first line of "Details of works required" (up to 80 characters), or "Remedial Work - <job number>" if that is blank', description: 'The summary and "Any other information to consider" are also copied into the quote\'s internal notes.' },
+                        { step: 'For each defect: a £0 heading line with its severity and description', description: 'For example "[MAJOR] – Smoke detector clogged", with the location and recommended action underneath.' },
+                        { step: 'Then a line for each of its parts, priced from your product catalogue', description: 'A part typed in by hand, or one no longer in the catalogue, comes in at £0 for you to price.' },
+                        { step: 'Then a labour line: hours × engineers at your default labour rate', description: 'Only when the defect has a time estimate.' },
+                        { step: 'Open the quote from Quotations, or with "View linked quote" on the sheet row, to review it', description: '' }
                     ]
                 },
                 {
                     title: 'Worksheet Status After Quoting',
-                    content: 'Once a quote is generated, the worksheet row updates to show the linked quote.',
+                    content: '',
                     bullets: [
-                        'Blue "Quoted" pill appears next to COMPLETED badge',
-                        'Generate Quote button is replaced with a "View Quote" link',
-                        'Clicking the link jumps directly to the quote detail page',
-                        'If the quote is deleted, the Generate Quote button reappears'
+                        'The receipt icon on the sheet row is replaced by a link icon, <strong>"View linked quote"</strong>, that opens the quote',
+                        'Each quoted defect shows a <strong>Quoted</strong> pill on any draft scope sheet and a quote badge on the job\'s Defects card',
+                        'A sheet can be quoted once - a second attempt is refused'
                     ]
                 },
                 {
                     title: 'Editing and Sending the Quote',
-                    content: 'After generation, customize the quote before sending to the customer:',
+                    content: 'The generated quote is a starting point. Before sending:',
                     bullets: [
-                        'Add pricing to each line item',
-                        'Group related defects into single line items if preferred',
-                        'Add or remove line items as needed',
-                        'Include payment terms, validity period, and notes',
+                        'Check the part prices and the labour line; price anything that came in at £0',
+                        'Add, remove or regroup lines as you see fit',
+                        'Set payment terms, validity and notes',
                         'Preview the customer-facing PDF',
-                        'Send to customer via email or customer portal link'
+                        'Send it to the customer by email or portal link'
                     ]
                 },
                 {
                     title: 'Best Practices for Office Staff',
                     content: '',
                     bullets: [
-                        'Review the worksheet details before generating the quote',
-                        'Check that all defects are reasonable and clearly described',
-                        'Add detailed pricing — the defect list is just a starting point',
-                        'Consider labor, materials, access requirements, and contingency',
+                        'Read the "Details of works required" before generating - it sets the quote title',
+                        'Glance at the defect cards while the sheet is still a draft: anything that shouldn\'t be quoted this time can be taken off with Remove from scope',
+                        'Allow for access requirements and contingency the estimate may not cover',
                         'Use consistent pricing for similar defect types'
                     ]
                 }
             ]
         },
         {
-            id: 'refresh-feature',
-            title: 'Refresh from Defects',
-            content: 'The "Refresh from defects" feature keeps the worksheet in sync with newly logged defects without overwriting engineer edits.',
+            id: 'scope-in-step',
+            title: 'Keeping the Scope in Step with Defects',
+            content: '<p class="mb-4">A draft Remedial Scope sheet doesn\'t hold its own copy of the defects - its Defects in Scope list is a <strong>live view of the job\'s defects</strong>. Anything logged, edited or resolved on the job shows up on the sheet, in the office and on the phone. There is no refresh button, and nothing to keep in sync by hand.</p>',
             subsections: [
                 {
-                    title: 'How It Works',
-                    content: 'When new defects are logged after the worksheet is created, a blue banner appears at the top of the Defects in Scope section with a "Refresh" button.',
+                    title: 'Add defect and Edit Write Straight to the Defect',
                     bullets: [
-                        'Pulls any newly logged defects requiring a quote',
-                        'Adds them to the bottom of the items list',
-                        'Preserves manual edits to existing rows',
-                        'New defects are marked with a blue "NEW" badge',
-                        'Only available online (not offline mode)'
+                        '<strong>Add defect</strong> on the sheet creates a real defect on the job - it appears on the job\'s Defects card and the site\'s defect register as well as on the sheet',
+                        '<strong>Edit</strong> opens the same defect form the field app uses, photos, parts and time estimate included, and saves to the defect itself',
+                        'Both are available while the sheet is a <strong>draft</strong>, in the office and in the field app; in the field they also work offline',
+                        'A defect that is <strong>resolved</strong> drops off the list; one already on a quote stays, with a <strong>Quoted</strong> pill'
                     ]
                 },
                 {
-                    title: 'When to Use',
-                    content: 'Refresh is useful when:',
+                    title: 'Remove from Scope vs Delete Defect',
+                    content: '<p class="mb-4">These two look as if they might do the same thing. They don\'t.</p>'
+                        + diagram(
+                            `${DEF}/remove-vs-delete.svg`,
+                            'Two options for a defect on a Remedial Scope sheet: Remove from scope, a grey button on each defect\'s scope row, keeps the defect on the job\'s Defects card, tagged Removed from remedial scope, and on the site\'s defect register, and only takes it off the scope list; Delete defect, a red button reached by editing the defect, erases it from the job, its job sheets and the site\'s defect register, while the audit log keeps a full copy. Use Remove when the defect is real but doesn\'t belong in this scope; use Delete when it was raised by mistake.',
+                            'Remove from scope keeps the defect; Delete defect erases a mistake.'
+                        )
+                },
+                {
+                    mockup: 'scope-remove-vs-delete'
+                },
+                {
+                    table: {
+                        headers: ['', 'Remove from scope', 'Delete defect'],
+                        rows: [
+                            ['Where', 'Grey button with a list icon under each defect card', 'Red button at the foot of the defect form (Edit → Delete defect)'],
+                            ['What happens to the defect', 'Stays on the job\'s Defects card, tagged <strong>"Removed from remedial scope"</strong>, and on the site\'s defect register', 'Erased from the job, its job sheets and the site\'s defect register. The audit log keeps a full copy.'],
+                            ['On the quote', 'Left out of the bundled quote', 'Gone - there is nothing left to quote'],
+                            ['Use it when', 'The defect is real, but doesn\'t belong in this quote', 'It was raised by mistake - the wrong job, or a duplicate'],
+                            ['Can it be undone?', 'The defect is still on the job', 'No. The defect itself can\'t be restored. Its photos, if you ticked to delete them too, can be restored from the job\'s Photos → Recently deleted for 30 days.']
+                        ]
+                    }
+                },
+                {
+                    title: 'Where Delete Defect Is Offered',
                     bullets: [
-                        'Engineer discovers additional defects during the visit',
-                        'Multiple engineers working on the same job log defects separately',
-                        'Defects are logged after initial worksheet review',
-                        'Return visit identifies new issues related to the original scope'
+                        '<strong>Office scope editor</strong> - Edit on a defect card, then Delete defect. Only on a draft sheet, only for a defect that isn\'t on a quote, and only for Super Admin, Admin and Site Manager.',
+                        '<strong>Office job page</strong> - Overview → Defects card, with the bin icon on the row or Edit → Delete defect. Here the person who raised the defect can delete it too.',
+                        '<strong>Field app</strong> - the Remedial Scope sheet\'s Edit has <strong>no</strong> Delete. Open the defect on the job\'s <strong>Defects</strong> screen and choose Delete defect there. Engineers can delete defects they raised themselves; deleting needs a connection.'
                     ]
                 },
                 {
-                    title: 'Important Notes',
-                    content: '',
-                    bullets: [
-                        'Refresh is optional — you can manually add rows instead',
-                        'Once worksheet is marked COMPLETE, refresh is disabled',
-                        'If a quote has been generated, new defects must be added to the quote manually'
-                    ]
+                    title: 'When the Last Defect Goes, So Does the Empty Sheet',
+                    content: '<p class="mb-4">If you delete a defect that was in scope, no in-scope defect is left on the job, and the draft scope sheet was the one <strong>attached automatically</strong> for these defects, that now-empty sheet is removed too - so it isn\'t left on the job waiting to be completed. The message after deleting says "its empty Remedial Scope sheet was removed too (it can be restored from Deleted sheets)". Restore it from the job\'s Documents tab → <strong>Deleted sheets</strong> within 30 days.</p>'
+                        + amber('<strong>A scope sheet is never removed this way if</strong> the office attached it on purpose (from a job template or by assigning it by hand), anyone has typed into it, it has been completed, or it has been quoted. Removing a defect from scope never removes a sheet - only deleting one can.')
                 }
             ]
         },
         {
             id: 'lifecycle',
             title: 'Worksheet and Quote Lifecycle',
-            content: 'Understanding the status flow helps coordinate between field and office teams.',
+            content: 'Understanding the status flow helps coordinate the field and the office.',
             table: {
-                headers: ['Status', 'What It Means', 'Who Can Edit', 'Next Action'],
+                headers: ['Status', 'What It Means', 'Who Can Change It', 'Next Action'],
                 rows: [
-                    ['DRAFT (worksheet)', 'Auto-generated when first defect logged', 'Engineer', 'Fill in scope details and mark complete'],
-                    ['COMPLETED (worksheet)', 'Engineer has finished scoping the work internally', 'Office (can reopen if needed)', 'Generate bundled quote'],
-                    ['Quoted (worksheet)', 'Linked to a quote', 'N/A', 'Send quote to customer'],
-                    ['Draft (quote)', 'Generated but not sent', 'Office', 'Add pricing and send to customer'],
-                    ['Sent (quote)', 'Customer has received quote', 'Office (revisions allowed)', 'Wait for customer approval'],
-                    ['Accepted (quote)', 'Customer approved', 'N/A', 'Schedule remedial work']
+                    ['Draft (sheet)', 'Attached when the first in-scope defect was logged. The Defects in Scope list is live.', 'Anyone with job-edit rights: engineers and office', 'Write the scope summary and mark complete'],
+                    ['Completed (sheet)', 'Scoping is finished; the list on the sheet is fixed as it stood', 'Revert it to draft to make changes', 'Generate the bundled quote'],
+                    ['Quoted (sheet)', 'A completed sheet linked to its quote ("View linked quote")', 'Can\'t be quoted again', 'Send the quote'],
+                    ['Draft (quote)', 'Generated, not yet sent', 'Office', 'Check prices and send to the customer'],
+                    ['Sent (quote)', 'The customer has it', 'Office (revisions allowed)', 'Wait for the customer\'s answer'],
+                    ['Accepted (quote)', 'The customer approved it', '-', 'Schedule the remedial work; mark each defect resolved once it is fixed']
                 ]
             }
         },
         {
             id: 'multiple-worksheets',
             title: 'Multiple Worksheets and Quotes',
-            content: 'A single job can have multiple Remedial Scope of Works worksheets if needed.',
+            content: 'A job can end up with more than one Remedial Scope of Works sheet over its life.',
             subsections: [
                 {
-                    title: 'When Multiple Worksheets Make Sense',
+                    title: 'How a Second Sheet Appears',
                     content: '',
                     bullets: [
-                        'First visit identifies urgent issues → quote immediately',
-                        'Return visit finds additional issues → create second worksheet and quote',
-                        'Different remedial work types (electrical vs fire) → separate worksheets',
-                        'Phased work requiring separate approval stages'
-                    ]
-                },
-                {
-                    title: 'Creating Additional Worksheets',
-                    content: 'To create a second worksheet:',
-                    steps: [
-                        { step: 'Mark the first worksheet as COMPLETE', description: '' },
-                        { step: 'Generate the bundled quote for it', description: '' },
-                        { step: 'Log new defects with "Quote required" checked', description: '' },
-                        { step: 'A second "Remedial Scope of Works" worksheet auto-generates', description: '' },
-                        { step: 'Repeat the process', description: '' }
+                        'While a <strong>draft</strong> scope sheet exists on the job, every new in-scope defect joins it - you never get two drafts side by side',
+                        'Once that sheet is <strong>completed</strong>, the next Major, Critical or "Quote required" defect attaches a <strong>fresh draft</strong> sheet for the next round of quoting',
+                        'Typical case: the first visit is scoped and quoted, and a return visit finds more'
                     ]
                 },
                 {
                     title: 'Important Notes',
                     content: '',
                     bullets: [
-                        'Each worksheet can only be quoted once',
-                        'Once quoted, new defects will NOT auto-attach to the existing worksheet',
-                        'Office staff must manually add new defects to the existing quote or create a second quote'
+                        'Each sheet can be quoted once',
+                        'A quote generated from a sheet includes every open, unquoted, in-scope defect on the job at that moment - including any showing on a newer draft sheet. Those defects then show as Quoted on the draft.',
+                        'A defect that is already on a quote is never added to a second bundled quote'
                     ]
                 }
             ]
@@ -392,64 +393,78 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     title: 'Worksheet Not Appearing',
                     content: '',
                     bullets: [
-                        'Check that defect has "Quote required for remedial work" checked',
-                        'Verify the defect is not already linked to an existing worksheet or quote',
-                        'Ensure the job is active (not cancelled or archived)',
-                        'Refresh the job sheets list'
+                        'Check the defect is Major or Critical, or has "Quote required for remedial work" ticked - Observation and Minor defects without the tick don\'t trigger a sheet',
+                        'If the job already has a draft scope sheet, the defect has joined that one rather than creating another',
+                        'If the job\'s scope sheet vanished after a defect was deleted, it was the empty auto-attached sheet - restore it from Documents → Deleted sheets within 30 days',
+                        'Job status doesn\'t matter: a qualifying defect attaches a sheet on any job, and the office can add defects to a completed job'
                     ]
                 },
                 {
                     title: 'Generate Quote Button Not Showing',
                     content: '',
                     bullets: [
-                        'Worksheet must be marked COMPLETED (not DRAFT)',
-                        'Worksheet must not already be linked to a quote',
-                        'Check user permissions (requires quote-creation access — Super Admin, Admin, Accounts, Contract Manager or Sales Manager; Site Manager and Engineer can complete the worksheet but can\'t generate the quote from it)',
-                        'Hover over the worksheet row — button appears on hover'
+                        'The sheet must be <strong>completed</strong>, not draft',
+                        'The sheet must not already be linked to a quote - if it is, you\'ll see the "View linked quote" link icon instead',
+                        'Hover over the row - the receipt icon is small and only appears on hover',
+                        'Check your role: it needs quote-creation access (Super Admin, Admin, Accounts, Contract Manager or Sales Manager). Site Manager and Engineer can complete the sheet but can\'t generate the quote from it.'
                     ]
                 },
                 {
-                    title: 'Refresh Button Not Appearing',
+                    title: '"No defects pending quotes on this job"',
+                    content: '<p>Every in-scope defect on the job is already quoted, resolved or removed from scope, so there is nothing left for a new quote to include.</p>'
+                },
+                {
+                    title: 'A Defect Is Missing from the Scope',
                     content: '',
                     bullets: [
-                        'No new defects have been logged since worksheet was created',
-                        'All new defects are already in the worksheet',
-                        'Worksheet is already marked COMPLETE (refresh disabled)',
-                        'You are offline (refresh requires network connection)'
+                        'It may have been taken off with <strong>Remove from scope</strong> - on the job\'s Defects card it is tagged "Removed from remedial scope"',
+                        'It is Observation or Minor without "Quote required" ticked',
+                        'It has been resolved',
+                        'It was logged on a different job',
+                        'The sheet is completed - a completed sheet\'s list is fixed. The defect still gets a fresh draft sheet, and is still included if the quote hasn\'t been generated yet.'
                     ]
                 },
                 {
-                    title: 'Missing Defects in Scope',
+                    title: 'The Quote Has Defects the Completed Sheet Doesn\'t List',
                     content: '',
                     bullets: [
-                        'Tap "Refresh from defects" to sync new defects',
-                        'Check that defect has "Quote required" flag enabled',
-                        'Verify defect was logged on the same job',
-                        'If defect was logged after worksheet was marked complete, manually add to quote'
+                        'Expected: the quote reads the job\'s live in-scope defects when you click, not the list fixed on the completed sheet',
+                        'So a defect logged after the sheet was completed is included, as long as it is open and not already quoted',
+                        'Don\'t want it on this quote? Remove its lines from the quote, or take it off the draft sheet with Remove from scope before generating'
                     ]
                 },
                 {
-                    title: 'Quote Generated with Wrong Defects',
-                    content: '',
+                    title: 'Can\'t Delete a Defect',
+                    content: '<p class="mb-4">Delete is for a defect raised by mistake, and it is only allowed while nothing else depends on the defect. The app says why when it refuses:</p>',
                     bullets: [
-                        'The quote pulls defects from the worksheet at the moment of generation',
-                        'If defects were logged after marking complete, they won\'t be included',
-                        'Solution: Edit the quote manually to add missing line items, or reopen worksheet and regenerate'
+                        '<strong>No Delete option at all</strong> - you didn\'t raise it and your role can\'t delete other people\'s defects. Only the person who raised it, or a Super Admin, Admin or Site Manager, can.',
+                        '<strong>It\'s resolved</strong> - resolved defects are part of the site\'s history and show Re-open instead. Re-open it first if it was raised by mistake.',
+                        '<strong>It\'s on a quote</strong> - "This defect is on QT-.... Remove it from the quote first."',
+                        '<strong>A remedial job has been raised for it</strong> - it can\'t be deleted',
+                        '<strong>It was raised from an alarm-monitoring case</strong> - it can\'t be deleted here',
+                        '<strong>It\'s recorded on a completed Remedial Scope sheet</strong> - "Revert that sheet to draft first, then delete the defect."',
+                        '<strong>You\'re offline</strong> - deleting needs a connection; try again once you\'re back online',
+                        '<strong>On the phone, a change to it is still waiting to sync</strong> - delete it once it has synced',
+                        '<strong>You\'re on the Remedial Scope sheet in the field app</strong> - there is no Delete there; use the job\'s Defects screen'
                     ]
+                },
+                {
+                    content: amber('<strong>Logged it on the wrong job?</strong> There is no "move defect". Delete it from the wrong job and add it again on the right one - the office can add it from that job\'s Overview → Defects card → Add defect, even if the job is completed.')
                 }
             ]
         },
         {
             id: 'permissions',
             title: 'Permissions and Roles',
-            content: '<p class="mb-4">This worksheet\'s actions ride two permissions: <code>jobs.edit</code> for logging defects and working the worksheet, and <code>quotes.create</code>/<code>quotes.view</code> for the bundled quote it produces. That split is why some roles can complete the worksheet but not raise the quote from it, and vice versa.</p>',
+            content: '<p class="mb-4">This sheet\'s actions ride two permissions: <code>jobs.edit</code> for logging defects and working the sheet, and <code>quotes.create</code>/<code>quotes.view</code> for the bundled quote it produces. That split is why some roles can complete the sheet but not raise the quote from it, and vice versa. Deleting a defect has its own rule: the person who raised it, or anyone holding <code>jobs.delete</code>.</p>',
             table: {
                 headers: ['Action', 'Super Admin', 'Admin', 'Accounts', 'Contract Manager', 'Sales Manager', 'Site Manager', 'Engineer', 'Viewer'],
                 rows: [
-                    ['Log defects / create &amp; edit worksheet', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
-                    ['Mark worksheet complete', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
+                    ['Log defects / create &amp; edit the sheet', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
+                    ['Mark the sheet complete', '✅', '✅', '❌', '✅', '❌', '✅', '✅', '❌'],
+                    ['Delete a defect', '✅ any', '✅ any', '❌', 'Own only', '❌', '✅ any', 'Own only', '❌'],
                     ['Generate bundled quote', '✅', '✅', '✅', '✅', '✅', '❌', '❌', '❌'],
-                    ['View worksheets', '✅', '✅', '✅', '✅', '✅', '✅', '✅', '❌'],
+                    ['View sheets', '✅', '✅', '✅', '✅', '✅', '✅', '✅', '❌'],
                     ['View the resulting quote', '✅', '✅', '✅', '✅', '✅', '❌', '❌', '✅']
                 ]
             },
@@ -458,11 +473,12 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
                     title: 'Role Notes',
                     content: '',
                     bullets: [
-                        'Accounts can raise and view the bundled quote but cannot touch the worksheet itself (no job-edit access) — the worksheet has to reach COMPLETE via Admin, Contract Manager, Site Manager or an Engineer first',
-                        'Sales Manager owns quoting end-to-end but has no job-edit access, so it can generate and send the bundled quote but cannot log defects or complete the worksheet',
-                        'Site Manager and Engineer can run the whole field side of this (log defects, complete the worksheet) but hold no quoting permission at all — they cannot generate the quote or view it once raised',
-                        'Viewer has neither jobs.view nor quotes.create, so it cannot see this worksheet at all — but it can view the quote once one exists',
-                        'These are the same role permissions used everywhere else in Opscel — see your Team settings to check what a given user\'s role can do'
+                        '<strong>Deleting a defect</strong>: Super Admin, Admin and Site Manager can delete any defect; Contract Manager and Engineer only defects they raised. In the office scope editor, Delete defect is shown only to Super Admin, Admin and Site Manager - a Contract Manager deletes their own from the job\'s Overview → Defects card.',
+                        'Accounts can raise and view the bundled quote but can\'t touch the sheet itself (no job-edit access) - the sheet has to be completed by an Admin, Contract Manager, Site Manager or Engineer first',
+                        'Sales Manager owns quoting end to end but has no job-edit access, so it can generate and send the bundled quote but can\'t log defects or complete the sheet',
+                        'Site Manager and Engineer can run the whole field side (log defects, complete the sheet) but hold no quoting permission - they can\'t generate the quote or view it once raised',
+                        'Viewer can\'t see the sheet, but can view the quote once one exists',
+                        'These are the same role permissions used everywhere else in Opscel - check your Team settings to see what a given user\'s role can do'
                     ]
                 }
             ]
@@ -473,27 +489,17 @@ export const remedialScopeOfWorksGuide: IDocGuide = {
             subsections: [
                 {
                     title: 'Dashboard Widget Path (Alternative)',
-                    content: 'If you prefer a faster workflow without worksheets, use the dashboard widget approach:',
+                    content: 'If you don\'t need the engineer\'s written scope, quote straight from the dashboard:',
                     bullets: [
-                        'Dashboard shows "Jobs Pending Remedial Quotes" widget',
-                        'Click a job card to create a bundled quote directly (no worksheet needed)',
-                        'Less engineer involvement, no on-site scope sign-off',
-                        'Best for straightforward remedial work where scope is clear from defect descriptions',
+                        'The dashboard\'s <strong>"Jobs Pending Remedial Quotes"</strong> widget lists jobs with in-scope defects waiting for a quote',
+                        'Click <strong>Quote</strong> on a job, confirm, and a bundled quote is created for its in-scope defects - no sheet needed',
+                        'The quote is built the same way: heading, part and labour lines per defect',
                         '<a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Learn more: Defects to Quotation Guide</a>'
                     ]
                 },
                 {
-                    title: 'Deficiency Logs (Fire Safety)',
-                    content: 'Fire alarm service certificates include a Deficiency Log section for recording issues found during testing. These deficiencies can also trigger remedial quotes but follow a different workflow.',
-                    bullets: [
-                        'Logged within the Fire Alarm Service Certificate',
-                        'Can be flagged for quote generation',
-                        'Appear in Defects dashboard like other defects'
-                    ]
-                },
-                {
                     title: 'Electrical Defects (EICR Work)',
-                    content: 'There is no separate 1:1 conversion from EICR observation codes (C1/C2/C3/FI) to quote line items. Issues found during EICR work are logged as ordinary job defects (by generic severity — observation, minor, major, or critical) and go through the same bundling flow described in this guide and in the Defects to Quotation guide.',
+                    content: 'Defect severities are Observation, Minor, Major and Critical. They are not the EICR observation codes (C1/C2/C3/FI), which live on the certificate itself, and there is no automatic conversion from those codes to quote lines. Issues found during EICR work that need a quote are logged as ordinary job defects and go through the same flow described here.',
                     bullets: [
                         'Learn more: <a href="/docs/defects-to-quotation" class="text-blue-600 hover:underline">Defects to Quotation Guide</a>'
                     ]

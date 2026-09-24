@@ -4,7 +4,7 @@ export const fieldServiceDetail: IFeatureDetail = {
     slug: 'field-service',
     title: 'Engineers Work in Vans, Not at Desks',
     subtitle: 'Opscel Field Service',
-    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. Opscel brings the office to them—via Telegram or web app, with GPS tracking and photo capture. Complete jobs from the van, get paid faster.',
+    heroDescription: 'Your engineers are on the road, at customer sites, fixing problems. They don\'t have time for paperwork. Opscel brings the office to them through the field web app, with GPS check-in, photo capture and optional Telegram job notifications. Complete jobs from the van, get paid faster.',
     iconId: 'icon-gps-checkin',
     screenshotImage: '/images/ui/05-screen.png',
 
@@ -12,7 +12,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             iconId: 'icon-telegram-bot',
             title: 'Telegram Bot Integration',
-            description: 'No app installs. Your engineers already use Telegram. One-time account linking via 15-minute code, then they get job notifications, check in with GPS, upload photos, and log defects—all from their phone.'
+            description: 'Your engineers already use Telegram. One-time account linking via 15-minute code, then they get job notifications and check-in reminders on their phone. Check-in, photos and defects are done in the field app.'
         },
         {
             iconId: 'icon-gps-checkin',
@@ -31,8 +31,8 @@ export const fieldServiceDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Deficiency Logging from the Field',
-            description: 'Spot a broken fire alarm during service? Log it as a deficiency right there. Take a photo, note severity (Observation, Minor, Major, Critical), recommend a fix. Office gets notification, creates remedial quote.'
+            title: 'Defect Logging from the Field',
+            description: 'Spot a broken fire alarm during service? Log it as a defect right there in the field app. Take a photo, set the severity (Observation, Minor, Major, Critical) and note the remedial action. Once it syncs, it shows on the office job page, and Major, Critical or quote-required defects appear on the dashboard ready to quote.'
         },
         {
             iconId: 'icon-smart-prompt',
@@ -42,7 +42,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             iconId: 'icon-photo-capture',
             title: 'PWA for Non-Telegram Users',
-            description: 'Some engineers don\'t use Telegram. They use the web app (PWA) instead. Same features—GPS check-in, photos, signatures, defects—just browser-based. No app store approval delays.'
+            description: 'Some engineers don\'t use Telegram. The field app (PWA) is where the work happens: GPS check-in, photos, signatures and defects. Telegram is optional and only sends notifications. No app store approval delays.'
         },
         {
             iconId: 'icon-service-history',
@@ -75,7 +75,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             stepNumber: 3,
             title: 'Check In with GPS',
-            description: 'Engineer arrives, taps "Check In" in Telegram or PWA. GPS captures exact location and time.'
+            description: 'Engineer arrives and taps "Check In" in the field app. GPS captures exact location and time.'
         },
         {
             stepNumber: 4,
@@ -93,7 +93,7 @@ export const fieldServiceDetail: IFeatureDetail = {
         {
             persona: 'Field Engineers',
             benefits: [
-                'No app installs—use Telegram you already have or web app',
+                'No app store install - the field app runs in the phone browser',
                 'GPS check-in takes 2 seconds, not 5 minutes of paperwork',
                 'Log job notes right from the van',
                 'See previous visit history before starting work',
@@ -107,7 +107,7 @@ export const fieldServiceDetail: IFeatureDetail = {
             benefits: [
                 'Know exactly where engineers are and when they arrived',
                 'No chasing "Did you finish that job?" questions',
-                'Defect notifications come in immediately—create quotes same day',
+                'Defects show on the job page as soon as they sync, so you can quote the same day',
                 'Actual job duration tracked automatically—accurate quoting',
                 'No missing signatures holding up invoicing',
                 'Service history banner reduces repeat visits'
@@ -186,15 +186,15 @@ export const fieldServiceDetail: IFeatureDetail = {
     faq: [
         {
             question: 'Do engineers need to install an app?',
-            answer: 'No app install required. Engineers can use Telegram (which they likely already have) or access the web app (PWA) from any mobile browser. The PWA works like an app but installs instantly without app store approval.'
+            answer: 'No app store install required. Engineers use the web app (PWA) from any mobile browser, and can link Telegram (which they likely already have) for job notifications. The PWA works like an app but installs instantly without app store approval.'
         },
         {
             question: 'How does Telegram account linking work?',
-            answer: 'Engineer gets a one-time linking code from the Opscel dashboard. They send this code to the Opscel Telegram bot. Account links immediately. Code expires after 15 minutes for security. Once linked, they get job notifications and can check in/out via Telegram.'
+            answer: 'Engineer gets a one-time linking code from the Opscel dashboard. They send this code to the Opscel Telegram bot. Account links immediately. Code expires after 15 minutes for security. Once linked, they get job notifications and check-in reminders via Telegram. Check-in and check-out happen in the field app.'
         },
         {
             question: 'What if an engineer doesn\'t use Telegram?',
-            answer: 'They use the web app (PWA) instead. Same features—GPS check-in, photo uploads, signatures, defect logging—just browser-based. No Telegram account required. Works on any smartphone or tablet.'
+            answer: 'Nothing changes. GPS check-in, photo uploads, signatures and defect logging all happen in the field app (PWA) anyway; Telegram only adds job notifications. No Telegram account required. Works on any smartphone or tablet.'
         },
         {
             question: 'Does GPS tracking work indoors or in basements?',

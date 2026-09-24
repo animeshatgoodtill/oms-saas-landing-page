@@ -148,7 +148,7 @@ export const quotationsDetail: IFeatureDetail = {
         },
         {
             question: 'How do bundled remedial quotes work?',
-            answer: 'Engineer logs multiple defects on a job and flags them for quoting. Office dashboard shows one job card (not separate defects) with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Create Quote" once to generate one bundled quote with all defects itemized professionally. Customer receives one clear proposal instead of five confusing emails. 5x faster than creating individual quotes per defect. See the Defects to Quotation guide for full walkthrough.'
+            answer: 'Engineer logs multiple defects on a job. Major and Critical defects, and any marked "Quote required", are flagged for quoting. The dashboard\'s "Jobs Pending Remedial Quotes" card shows one row per job (not separate defects) with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Quote" once to create one bundled quote with a line per flagged defect, plus any parts and labour recorded for it. Or, on the job page, click "Create Bundled Quote" and tick exactly which defects to include. Customer receives one clear proposal instead of five confusing emails. 5x faster than creating individual quotes per defect. See the Defects to Quotation guide for full walkthrough.'
         },
         {
             question: 'Will I know when customers view my quote?',

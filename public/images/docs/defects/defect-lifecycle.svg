@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" role="img" aria-labelledby="dl1title dl1desc">
+<title id="dl1title">The journey of a defect</title>
+<desc id="dl1desc">The normal path: an engineer logs a defect on the job in the field app, or the office adds one from the job's Overview with Add defect, on any job status, even a completed job. The defect shows up on the job's Defects card, the site's defect register and the job sheet PDF. If it is Major or Critical, or marked Quote required, a draft Remedial Scope of Works sheet is attached. The office quotes it with Create Bundled Quote, the accepted quote becomes a remedial job, the fault is fixed on that job, and the engineer or the office marks the defect resolved in the site's defect register. A separate side branch covers a defect raised by mistake, on the wrong job or as a duplicate: whoever raised it, or the office, deletes it after a confirmation. It is gone from the job, its job sheets and the defect register; photos, if included, go to Recently deleted for 30 days; and an empty scope sheet created for it is removed too. The defect itself cannot be restored. Caption: one road to a fix, and a side door for a defect raised by mistake.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.lane{font-size:11px;letter-spacing:.06em;font-weight:600;fill:#586070;text-transform:uppercase;}
+.title{font-size:14px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11.5px;fill:#586070;}
+.cap{font-size:13px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.chip{fill:#F1F3F5;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+.dash{stroke-dasharray:4 4;}
+</style>
+<defs>
+<marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#586070"/>
+</marker>
+<marker id="arOk" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#15803D"/>
+</marker>
+<marker id="arDel" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+<path d="M0,0 L10,5 L0,10 z" fill="#B42318"/>
+</marker>
+</defs>
+
+<!-- ============ NORMAL PATH ============ -->
+<rect x="16" y="36" width="1008" height="346" fill="#F7F9FB"/>
+<text x="32" y="56" class="lbl lane">The normal path</text>
+
+<!-- sources -->
+<rect x="32" y="76" width="230" height="64" rx="4" class="box"/>
+<text x="48" y="101" class="lbl title">Engineer logs it</text>
+<text x="48" y="120" class="lbl note">Field app, on the job</text>
+
+<rect x="32" y="156" width="230" height="84" rx="4" class="box"/>
+<text x="48" y="181" class="lbl title">Office adds it</text>
+<text x="48" y="200" class="lbl note">Job Overview &#8594; Add defect</text>
+<text x="48" y="216" class="lbl note">any job status, even completed</text>
+
+<path d="M262,108 H280 V158 H298" class="line" marker-end="url(#ar)"/>
+<path d="M262,198 H280 V158 H298" class="line" marker-end="url(#ar)"/>
+
+<!-- shows up on -->
+<rect x="298" y="76" width="214" height="164" rx="4" class="box"/>
+<text x="314" y="100" class="lbl title">Shows up on</text>
+<rect x="314" y="114" width="182" height="30" rx="4" class="chip"/>
+<text x="326" y="134" class="lbl body">Job's Defects card</text>
+<rect x="314" y="152" width="182" height="30" rx="4" class="chip"/>
+<text x="326" y="172" class="lbl body">Site's defect register</text>
+<rect x="314" y="190" width="182" height="30" rx="4" class="chip"/>
+<text x="326" y="210" class="lbl body">Job sheet PDF</text>
+
+<!-- gate -->
+<path d="M512,108 H774" class="line" marker-end="url(#ar)"/>
+<text x="643" y="84" text-anchor="middle" class="lbl note">if Major / Critical,</text>
+<text x="643" y="99" text-anchor="middle" class="lbl note">or Quote required</text>
+
+<rect x="774" y="76" width="234" height="64" rx="4" class="box"/>
+<text x="790" y="101" class="lbl title">Remedial Scope of Works</text>
+<text x="790" y="120" class="lbl note">sheet attached as a draft</text>
+
+<path d="M891,140 V290" class="line" marker-end="url(#ar)"/>
+
+<!-- row 2, right to left -->
+<rect x="774" y="290" width="234" height="72" rx="4" class="box"/>
+<text x="790" y="318" class="lbl title">Office quotes it</text>
+<text x="790" y="337" class="lbl note">Create Bundled Quote</text>
+
+<path d="M774,326 H738" class="line" marker-end="url(#ar)"/>
+
+<rect x="548" y="290" width="190" height="72" rx="4" class="box"/>
+<text x="564" y="318" class="lbl title">Quote accepted</text>
+<text x="564" y="337" class="lbl note">becomes a remedial job</text>
+
+<path d="M548,326 H512" class="line" marker-end="url(#ar)"/>
+
+<rect x="298" y="290" width="214" height="72" rx="4" class="box"/>
+<text x="314" y="318" class="lbl title">Fault fixed</text>
+<text x="314" y="337" class="lbl note">then marked resolved</text>
+
+<path d="M298,326 H262" stroke="#15803D" stroke-width="2" fill="none" marker-end="url(#arOk)"/>
+
+<rect x="32" y="290" width="230" height="72" rx="4" fill="#E4F3E9"/>
+<text x="48" y="318" class="lbl title" style="fill:#15803D;">Resolved</text>
+<text x="48" y="337" class="lbl" style="font-size:11.5px;fill:#15803D;">in the site's defect register</text>
+
+<!-- ============ SIDE BRANCH ============ -->
+<rect x="16" y="402" width="1008" height="178" rx="4" fill="#FFFFFF" stroke="#B42318" stroke-width="1" class="dash"/>
+<text x="32" y="426" class="lbl lane" style="fill:#B42318;">Side branch &#183; raised by mistake</text>
+
+<rect x="32" y="452" width="230" height="82" rx="4" class="box"/>
+<text x="48" y="480" class="lbl title">Raised by mistake?</text>
+<text x="48" y="499" class="lbl note">wrong job, or a duplicate</text>
+
+<path d="M262,493 H298" stroke="#B42318" stroke-width="2" fill="none" marker-end="url(#arDel)"/>
+
+<rect x="298" y="452" width="214" height="82" rx="4" fill="#FBE6E4"/>
+<text x="314" y="480" class="lbl title" style="fill:#B42318;">Delete defect</text>
+<text x="314" y="499" class="lbl note">by whoever raised it,</text>
+<text x="314" y="514" class="lbl note">or the office</text>
+
+<path d="M512,493 H530 V455 H548" class="line" marker-end="url(#ar)"/>
+<path d="M512,493 H548" class="line" marker-end="url(#ar)"/>
+<path d="M512,493 H530 V531 H548" class="line" marker-end="url(#ar)"/>
+
+<rect x="548" y="440" width="460" height="30" rx="4" class="chip"/>
+<text x="562" y="460" class="lbl body">Gone from the job, its job sheets and the defect register</text>
+<rect x="548" y="478" width="460" height="30" rx="4" class="chip"/>
+<text x="562" y="498" class="lbl body">Photos, if included, go to Recently deleted for 30 days</text>
+<rect x="548" y="516" width="460" height="30" rx="4" class="chip"/>
+<text x="562" y="536" class="lbl body">An empty scope sheet created for it is removed too</text>
+
+<text x="32" y="562" class="lbl note">You confirm first. The defect itself can't be restored.</text>
+
+<text x="520" y="616" text-anchor="middle" class="lbl cap">One road to a fix, and a side door for a defect raised by mistake.</text>
+</svg>

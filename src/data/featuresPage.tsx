@@ -73,7 +73,7 @@ export const featureCategories: IFeatureCategory[] = [
             },
             {
                 title: "Works via Telegram (Optional)",
-                description: "No app to install if your engineers use Telegram. They get job notifications, check in, upload photos, log deficiencies—all from a chat app they already have.",
+                description: "If your engineers use Telegram, they can link it to get job notifications and check-in reminders in a chat app they already have. Check-in, photos and defects stay in the field app.",
                 iconId: "icon-telegram-bot"
             }
         ]
@@ -108,6 +108,34 @@ export const featureCategories: IFeatureCategory[] = [
                 title: "Deficiency Logging",
                 description: "Found something that needs fixing? Take a photo, note the severity, recommend the fix. Customer gets a clear summary, you get the follow-on work.",
                 iconId: "icon-deficiency-log"
+            }
+        ]
+    },
+    {
+        title: "Defects & Remedial Quotes",
+        description: "Turn what engineers find on site into priced remedial work, without retyping anything.",
+        iconId: "icon-deficiency-log",
+        detailSlug: "defects",
+        features: [
+            {
+                title: "Log Defects On-Site",
+                description: "Engineers log defects in the field app with photos and a severity: Observation, Minor, Major or Critical. Works offline and syncs when signal returns.",
+                iconId: "icon-photo-capture"
+            },
+            {
+                title: "Remedial Scope Sheet",
+                description: "A Major, Critical or quote-required defect adds a draft Remedial Scope of Works sheet to the job, so the engineer can record hours and parts for the quote.",
+                iconId: "icon-job-workflow"
+            },
+            {
+                title: "One Quote, Many Defects",
+                description: "Tick the defects to include and create one bundled quote, with a line per defect, parts from your catalogue and labour already added.",
+                iconId: "icon-price-tag"
+            },
+            {
+                title: "Site Defect Register",
+                description: "Open defects stay on the site's register until they are resolved, so the next visit can see what is still outstanding.",
+                iconId: "icon-service-history"
             }
         ]
     },

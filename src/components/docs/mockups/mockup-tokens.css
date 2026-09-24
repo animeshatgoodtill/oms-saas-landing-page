@@ -31,7 +31,9 @@
 }
 
 .opscel-mockup button {
-  font: inherit;
+  /* family only: `font: inherit` also reset size/weight and silently beat every
+     Tailwind text-/font- class on mockup buttons. */
+  font-family: inherit;
   cursor: pointer;
 }
 

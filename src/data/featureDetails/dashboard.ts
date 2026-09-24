@@ -37,7 +37,7 @@ export const dashboardDetail: IFeatureDetail = {
         {
             iconId: 'icon-deficiency-log',
             title: 'Jobs Pending Remedial Quotes',
-            description: 'Engineer logged 5 defects? Dashboard shows one job card with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Create Quote" to bundle all defects into one professional quote. 5x faster than individual quotes. Jobs with Critical defects appear first for prioritization.'
+            description: 'Engineer logged 5 defects? Dashboard shows one job card with count and severity badges (e.g., "5 defects: 2 Critical, 3 Major"). Click "Quote" to bundle the defects flagged for quoting (Major, Critical or quote-required) into one quote. 5x faster than individual quotes. Jobs with Critical defects appear first.'
         },
         {
             iconId: 'icon-service-history',
@@ -247,7 +247,7 @@ export const dashboardDetail: IFeatureDetail = {
         {
             eyebrow: 'Defects to Quote',
             title: 'Five Defects. One Quote. One Click.',
-            description: 'The engineer logs what they found. The dashboard bundles it into a priced remedial quote before they have left site.',
+            description: 'The engineer logs what they found. From the dashboard, the office bundles it into one priced remedial quote before they have left site.',
             stat: { value: '5×', label: 'Faster to quote' },
             imageSrc: '/images/features/dashboard/defects-to-quote.webp',
             imageAlt: 'Defect list with critical and major severity tags converting into a priced, ready-to-send remedial quote',

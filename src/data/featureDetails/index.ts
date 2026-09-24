@@ -5,6 +5,7 @@ import { jobsDetail } from './jobs';
 import { customersDetail } from './customers';
 import { certificatesDetail } from './certificates';
 import { quotationsDetail } from './quotations';
+import { defectsDetail } from './defects';
 import { invoicingDetail } from './invoicing';
 import { accountingIntegrationDetail } from './accounting-integration';
 import { assetsDetail } from './assets';
@@ -25,6 +26,7 @@ export const featureDetails: IFeatureDetail[] = [
     remoteMonitoringDetail,
     customersDetail,
     certificatesDetail,
+    defectsDetail,
     quotationsDetail,
     invoicingDetail,
     purchaseOrdersDetail,

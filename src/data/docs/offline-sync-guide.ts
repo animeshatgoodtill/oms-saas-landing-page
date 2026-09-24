@@ -47,7 +47,7 @@ export const offlineSyncGuide: IDocGuide = {
                         '<strong>Photos:</strong> Capture photos with device camera, add captions, assign to categories (before/during/after/defect/completion)',
                         '<strong>Worksheets:</strong> Fill job sheets, complete checklists, input test results — all fields save locally',
                         '<strong>Signatures:</strong> Capture engineer signature, customer signature, approval signatures',
-                        '<strong>Defects:</strong> Log defects with severity (C1/C2/C3/FI), add descriptions, attach photos',
+                        '<strong>Defects:</strong> Log and edit defects with a severity (Observation, Minor, Major or Critical), add descriptions, attach photos. Deleting a defect needs a connection',
                         '<strong>Parts logging:</strong> Record parts used (SKU, quantity, price), ex-VAT totals',
                         '<strong>Job status updates:</strong> Check in, mark in progress, check out (status changes queue)',
                         '<strong>Work summaries:</strong> Write job completion summaries, add internal notes',
@@ -70,7 +70,7 @@ export const offlineSyncGuide: IDocGuide = {
                 {
                     title: 'Operations That Queue (Work Offline)',
                     bullets: [
-                        '<strong>All writes:</strong> Photo uploads, form saves, signature captures, defect creation, parts logging',
+                        '<strong>Most writes:</strong> Photo uploads, form saves, signature captures, adding and editing defects, parts logging',
                         '<strong>Job status changes:</strong> Check-in, check-out, mark complete',
                         '<strong>Work summaries:</strong> Completion notes, internal comments',
                     ],
@@ -83,6 +83,7 @@ export const offlineSyncGuide: IDocGuide = {
                         '<strong>Real-time notifications:</strong> Telegram/Slack notifications don\'t send until online',
                         '<strong>Syncing up to office:</strong> Office staff won\'t see your updates until you sync',
                         '<strong>Viewing other engineers\' updates:</strong> No real-time collaboration offline',
+                        '<strong>Deleting a defect:</strong> The delete dialog says you\'re offline and the button stays disabled until you reconnect. If the defect still has an edit waiting to sync, delete it once that edit has synced',
                     ],
                 },
                 {

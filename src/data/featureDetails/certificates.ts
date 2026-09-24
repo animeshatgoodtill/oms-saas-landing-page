@@ -48,8 +48,8 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Defect-to-Remediation Tracking',
-            description: 'EICR C2 defect recorded → £450 quote generated → Job #1234 created → Minor Works remediation cert issued (linked back to original EICR). Track defects from discovery through completion. Prove to insurers/regulators you followed up.'
+            title: 'Observation-to-Remediation Tracking',
+            description: 'EICR C2 observation recorded → office clicks Create Quote on it → pre-filled remedial quote, linked back to the observation → accepted quote converted to a job → observation marked remediated. Track each observation from discovery through completion. Prove to insurers/regulators you followed up.'
         },
         {
             iconId: 'icon-smart-customer',
@@ -96,8 +96,8 @@ export const certificatesDetail: IFeatureDetail = {
         },
         {
             stepNumber: 3,
-            title: 'Log Defects (EICR)',
-            description: 'Found C1/C2 observations? Log defects with photos, severity ratings. System automatically marks EICR as "Unsatisfactory" if C1/C2 present. Generate remedial quote directly from defects. Track remediation job to completion.'
+            title: 'Record Observations (EICR)',
+            description: 'Found C1/C2 observations? Record each one on the EICR with its code, location and remedial action. The EICR can\'t be issued as "Satisfactory" with C1/C2 present. The office can open a pre-filled remedial quote from any observation in one click. Track the remediation job to completion.'
         },
         {
             stepNumber: 4,
@@ -118,7 +118,7 @@ export const certificatesDetail: IFeatureDetail = {
                 'Reduce liability—certificates validated against BS 7671/BS 5839 before issue, engineers can\'t bypass limits',
                 'Prove compliance—complete audit trail with GPS-tagged signatures for insurance claims and HSE investigations',
                 'Save time—auto-populate certificates from job data, no double entry',
-                'Track remediation—defect-to-quote pipeline ensures C1/C2 observations don\'t fall through cracks',
+                'Track remediation - each C1/C2 observation can be quoted in one click and marked remediated, so none fall through the cracks',
                 'Customer acknowledgment proof—can\'t claim "never received cert", you have timestamp evidence',
                 'Unified platform—CRM + Jobs + Compliance certs in one system, not three separate tools'
             ]
@@ -142,7 +142,7 @@ export const certificatesDetail: IFeatureDetail = {
                 'Mobile-first—complete certificates on-site from tablet/phone, no evening paperwork',
                 'Draft mode—save partial work, complete later, no lost data if signal drops',
                 'GPS signatures—sign on-site, GPS proves you were there, dispute-proof documentation',
-                'Defect logging—take photo of faulty RCD, log C2, remedial quote generates automatically'
+                'Observations to quotes - record a C2 for the faulty RCD on the EICR, and the office can raise a pre-filled remedial quote from it in one click'
             ]
         }
     ],
@@ -194,7 +194,7 @@ export const certificatesDetail: IFeatureDetail = {
             others: 'Some'
         },
         {
-            feature: 'Defect → Quote → Job → Remediation cert pipeline',
+            feature: 'EICR observation → quote → job → remediated tracking',
             opscel: true,
             others: 'No'
         },
@@ -232,8 +232,8 @@ export const certificatesDetail: IFeatureDetail = {
             answer: 'No. Customer portal tracks digital acknowledgment with timestamps. You send secure link (no login needed), customer views certificate, downloads PDF, and digitally acknowledges receipt. System stores: date/time they viewed certificate, date/time they acknowledged, IP address, device used. You have complete proof of delivery. If customer claims "never received", you show them viewing timestamp and acknowledgment record.'
         },
         {
-            question: 'How does defect-to-remediation tracking work for EICRs?',
-            answer: 'EICR inspection finds C2 defect (e.g., faulty RCD). Log defect with photo and severity. System automatically marks EICR as "Unsatisfactory" (can\'t mark "Satisfactory" with C1/C2 present). Generate remedial quote directly from defect (£450 quote created). Customer accepts, office creates Job #1234 for remediation. Engineer completes work, issues Minor Works certificate. Minor Works cert links back to original EICR defect. Complete audit trail from discovery through remediation. Proves to insurers/regulators you followed up.'
+            question: 'How does remediation tracking work for EICRs?',
+            answer: 'EICR inspection finds a C2 (e.g., faulty RCD). Record it as an observation on the EICR with its location and remedial action. The EICR can\'t be issued as "Satisfactory" with C1/C2 present. From the observation, the office clicks Create Quote to open a remedial quote pre-filled with the observation details, and once saved the observation shows as Quoted. Customer accepts, the quote converts to a job for the remedial work, and the engineer issues a Minor Works certificate for it. Mark the observation remediated when the work is done. Quotes are never raised automatically - the office stays in control of what goes to the customer. Job defects (Observation, Minor, Major, Critical) are a separate record from EICR observation codes; see the Defects feature for how those turn into remedial quotes.'
         },
         {
             question: 'What happens if I need to void a certificate?',

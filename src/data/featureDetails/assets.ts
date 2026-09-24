@@ -36,8 +36,8 @@ export const assetsDetail: IFeatureDetail = {
         },
         {
             iconId: 'icon-deficiency-log',
-            title: 'Defect-to-Asset Linking',
-            description: 'EICR finds faulty RCD? Log as C2 defect, attach to the consumer unit asset, create remedial quote. Defect stays linked to asset until resolved. Complete audit trail for compliance.'
+            title: 'Defects in Asset History',
+            description: 'Faulty RCD on the consumer unit? Log it as a defect on the job with a severity (Observation, Minor, Major or Critical) and quote the remedial work from it. Note the defect against the consumer unit on that job, and it shows in the asset\'s service history at the next visit.'
         },
         {
             iconId: 'icon-maintenance-schedule',
@@ -88,7 +88,7 @@ export const assetsDetail: IFeatureDetail = {
             benefits: [
                 'EICR done? The circuits and consumer units you tested are tracked assets now — ready for the next inspection cycle, ready for the report',
                 'Distribution boards, RCDs, MCBs tracked with ratings, install dates, and test history',
-                'Defect-to-remediation trail: C2 defect on asset → remedial quote → job → Minor Works cert, all linked'
+                'Remedial trail: a C2 observation on the EICR opens a pre-filled remedial quote in one click, and the saved quote stays linked to the observation'
             ]
         },
         {
@@ -143,7 +143,7 @@ export const assetsDetail: IFeatureDetail = {
             others: 'No'
         },
         {
-            feature: 'Defect tracking linked to assets',
+            feature: 'Defects noted in asset service history',
             opscel: true,
             others: 'Some'
         },

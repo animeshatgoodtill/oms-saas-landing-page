@@ -69,15 +69,15 @@ export const quotationsGuide: IDocGuide = {
                     content: 'When an engineer logs a defect on a job (severity observation, minor, major, or critical), the office can bundle any unquoted defects on that job into a single draft quote — one heading line per defect, followed by any priced parts and labour the engineer recorded. This is not a 1:1 defect-code conversion (there\'s no separate line-by-line mapping of C1/C2/C3/FI-style codes) — it\'s a bundling step you review and price before sending.',
                 },
                 {
-                    content: 'See the <a href="/docs/defects-to-quotation" class="text-secondary hover:underline">Creating and Linking Quotes to Jobs with Defects guide</a> for the full step-by-step (Create Bundled Quote from the job page, from a custom quote on the job page, or from the dashboard\'s Deficiencies Pending Quotes widget) and how the quote stays linked back to its originating job.',
+                    content: 'See the <a href="/docs/defects-to-quotation" class="text-secondary hover:underline">Creating and Linking Quotes to Jobs with Defects guide</a> for the full step-by-step (Create Bundled Quote from the job page, from a custom quote on the job page, or from the dashboard\'s Jobs Pending Remedial Quotes widget) and how the quote stays linked back to its originating job.',
                 },
                 {
                     title: 'What You Should See',
-                    content: 'The bundled quote is linked to the originating job — the job\'s Defects card shows a "View Quote" badge on each quoted defect, and the quote\'s detail panel shows a "Linked Job" reference back. Once accepted, convert the quote to a job in one click — the details carry over, so there\'s nothing to re-enter.',
+                    content: 'The bundled quote is linked to the originating job — the job\'s Defects card shows a quote badge (e.g. "QT-2026-0097 Draft") on each quoted defect, and the quote\'s detail panel shows a "Linked Job" reference back. Once accepted, convert the quote to a job in one click — the details carry over, so there\'s nothing to re-enter.',
                 },
                 {
                     title: 'For Office Staff',
-                    content: '<em>Tip:</em> When creating remedial quotes, use the "Bundle Defects" option to group similar defects (e.g., all socket replacements) into one line item. This makes quotes cleaner and easier for customers to understand. See the <a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Bundled Remedial Quotes guide</a> for details.',
+                    content: '<em>Tip:</em> On the job page, <strong>Create Bundled Quote</strong> opens a dialog listing the job\'s unresolved, unquoted defects. Major, Critical and quote-required defects are ticked already and the rest are listed unticked, so tick exactly the ones you want, then confirm <strong>Create quote with N defects</strong>. Review and tidy the draft quote before sending. See the <a href="/docs/remedial-scope-of-works" class="text-secondary hover:underline">Bundled Remedial Quotes guide</a> for details.',
                 },
             ],
         },

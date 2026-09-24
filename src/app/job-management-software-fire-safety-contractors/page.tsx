@@ -145,7 +145,7 @@ const FireSafetyContractorsPage: React.FC = () => {
                 Most engineers already use Telegram for chatting. Opscel uses a bot on that same app. No new software needs to be installed on their phones. Account linking takes just a few minutes. Then, job alerts arrive as simple messages.
               </p>
               <p className="text-lg leading-relaxed text-foreground-accent">
-                The bot handles GPS check-ins in two seconds. Engineers snap photos of panels or defects. They can dictate notes instead of typing. Voice capture saves a lot of time in the van. All data syncs to the office in real time.
+                The bot sends job alerts and check-in reminders. The work itself happens in the Opscel field app: GPS check-in in two seconds, photos of panels or defects, and notes dictated instead of typed. Voice capture saves a lot of time in the van. Everything syncs to the office as soon as the phone has signal.
               </p>
             </div>
 
@@ -226,7 +226,7 @@ const FireSafetyContractorsPage: React.FC = () => {
             </div>
 
             <p className="text-lg leading-relaxed text-foreground-accent">
-              The software prevents the issue of bad certificates. You cannot issue a fire alarm service cert if critical defects are marked. It blocks mistakes before they happen. This reduces legal risk for the business owner. It builds a clear audit trail for every single job.
+              The software checks a fire alarm service cert before it is issued. It will not issue one unless the panel, battery and reset tests are recorded as a pass and the service engineer has signed. If defects are marked as found but no details are written, it warns you before you issue. It catches mistakes before they reach the customer. This reduces legal risk for the business owner. It builds a clear audit trail for every single job.
             </p>
           </section>
 

@@ -4,7 +4,7 @@ export const fieldServiceGuide: IDocGuide = {
     slug: 'field-service',
     title: 'Field Service App — Engineer\'s Day',
     description: 'Complete guide to using the Opscel field service PWA for engineers. Learn how to manage jobs, capture work, and sync data offline.',
-    lastUpdated: '2026-09-24',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -209,6 +209,17 @@ export const fieldServiceGuide: IDocGuide = {
                         { step: 'View list of previous visits', description: 'Shows check-in/departure times, engineer name, work summary' },
                         { step: 'Tap a visit to see details', description: 'Photos, defects, parts, and notes from that visit' }
                     ]
+                },
+                {
+                    title: 'Equipment at This Site',
+                    content: `
+                        <p class="mb-4">
+                            Outside of a specific job, <strong>Customers → [Customer] → Sites → [Site]</strong> shows <strong>Equipment at this site</strong>: a read-only list of everything on that site's asset register &mdash; number, type, location, status and when it was last serviced. Search by location, number or serial, and tap a unit to see its details.
+                        </p>
+                        <p class="mb-4">
+                            It reads from the same cached register the scanner and worksheet pre-loading use, so it works offline once the site has been downloaded &mdash; there's nothing to edit here, it's for checking what's on site before or between jobs.
+                        </p>
+                    `
                 }
             ]
         },
@@ -351,7 +362,10 @@ export const fieldServiceGuide: IDocGuide = {
                             Worksheets are the standard forms Opscel attaches to your job &mdash; Fire Alarm Service, Fire Extinguisher Service, Intruder Alarm Zone List, Remedials Scope of Works and others. You don't pick one: the right sheet is already on the job when you open it.
                         </p>
                         <p class="mb-4">
-                            Where the site has an asset register, the equipment list arrives <strong>already filled in</strong>, each row badged as carried over. Confirm those rows rather than re-typing them, and add a row only for equipment that isn't listed. If something listed genuinely isn't there any more, mark it <strong>Missing</strong> rather than deleting the row.
+                            Where the site has an asset register, the equipment list arrives <strong>already filled in</strong>, each row badged as carried over. Tap <strong>✓ Serviced as listed</strong> on a row that's correct as-is — it switches to <strong>Confirmed</strong>, with an <strong>Undo</strong> if you tap it by mistake — or edit the row to record what you actually did. When several rows still need confirming, <strong>Mark remaining N as serviced</strong> confirms the rest of the section in one go (two taps, to be sure). Add a row only for equipment that isn't listed. If something listed genuinely isn't there any more, mark it <strong>Missing / Not Found</strong> rather than deleting the row — a deleted row just goes unrecorded, while Missing / Not Found tells the office and never counts as a service.
+                        </p>
+                        <p class="mb-4">
+                            A worksheet can't be marked complete while a pre-loaded row is still unconfirmed — the section shows <strong>N of M done</strong>, and Mark Complete tells you exactly which row is outstanding and how to resolve it. Sections marked optional (Parts Used, Panel Access Codes, Engineer comments) don't block completion if you leave them empty; every other section does while untouched.
                         </p>
                         <p class="mb-4">
                             Equipment you add isn't on the asset register until the office registers it. That's deliberate &mdash; you can add equipment you find on site, but you can't edit or delete it afterwards, so the office checks new items before they become permanent records.
@@ -475,6 +489,9 @@ export const fieldServiceGuide: IDocGuide = {
                         <p class="mb-4">
                             Record parts and materials used on the job. These feed into invoicing automatically.
                         </p>
+                        <p class="mb-4">
+                            If a worksheet on the job lists parts you haven't added here yet (e.g. extinguisher refills recorded on the Extinguisher Service Worksheet), the Parts screen shows a banner — <em>"Worksheet lists N part line(s) not on this job"</em> — with a <strong>Review</strong> button. Tick which lines to add; nothing on the worksheet changes, and a part already added this way is never added twice.
+                        </p>
                     `,
                     steps: [
                         { step: 'Tap "Parts" from the job hub', description: '' },
@@ -533,6 +550,9 @@ export const fieldServiceGuide: IDocGuide = {
                                 <strong>Important:</strong> The per-visit work summary is the source of truth for PDFs. Write a clear, professional description of what you did today.
                             </p>
                         </div>
+                        <p class="mb-4">
+                            Already written a summary on a completed worksheet? A <strong>Use worksheet summary</strong> button offers it here instead of typing it twice — you can still edit it afterwards. A summary already used on another visit isn't offered again.
+                        </p>
                     `,
                     steps: [
                         { step: 'Tap "Complete Job" or "Work Summary" from the job hub', description: '' },

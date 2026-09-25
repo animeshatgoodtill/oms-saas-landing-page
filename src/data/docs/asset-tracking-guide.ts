@@ -14,7 +14,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'How site equipment gets into Opscel, how it reaches your engineer\'s worksheet on every visit, what the engineer sees on the phone, and how the register stays up to date without anyone typing it twice.',
-    lastUpdated: '2026-09-23',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -114,7 +114,7 @@ export const assetTrackingGuide: IDocGuide = {
                     title: 'What Waits for Review, Even with It On',
                     bullets: [
                         '<strong>New equipment</strong> the engineer added',
-                        'Anything set to <strong>Replace</strong>, <strong>Condemn</strong> or <strong>Missing</strong>',
+                        'Anything set to <strong>Replace</strong> or <strong>Exchange</strong>, <strong>Condemn</strong> (Condemn &amp; Dispose on the extinguisher sheet, Condemn / Decommission on the others), or <strong>Missing / Not Found</strong>',
                         'Anything referencing an asset still awaiting review',
                     ],
                 },
@@ -135,6 +135,9 @@ export const assetTrackingGuide: IDocGuide = {
                         'Click the banner\'s <strong>Register N items</strong> button to open <strong>Review and register</strong>: a per-row table lets you edit each location, fix a parent or existing-asset reference, or skip a row before anything is committed',
                         'The footer totals the run before you confirm it - e.g. <em>&quot;1 new, 5 linking to existing assets, 1 to decommission, 1 to mark missing&quot;</em> - then click <strong>Register</strong> and confirm',
                     ],
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A pre-loaded row the engineer neither confirmed nor changed</strong> - its action is still the pre-loaded default and nothing else on the row was entered - is badged &quot;Not confirmed on site — check before registering&quot; and defaults to <strong>Skip</strong> in the review table; check it before switching it on. Sheets completed before this behaviour shipped carry no confirm stamp at all, so the same badge and default apply to any row left untouched.</p></div>',
                 },
                 {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
@@ -206,7 +209,7 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
+                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>NF</em> - Not found, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
                         + figure(`${IMG}/office-site-assets.webp`, 'The site Assets tab in the office listing the register rows with asset number, type, location and status, and the Print Register button', 'The site\'s register, with Print Register in the toolbar.'),
                 },
                 {
@@ -274,7 +277,7 @@ export const assetTrackingGuide: IDocGuide = {
                     steps: ['Open the asset', 'Set <strong>Status</strong> to <strong>Decommissioned</strong>', 'Save'],
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Delete button does the same thing.</strong> Nothing is removed - the asset is marked decommissioned and keeps its record and history. To reverse it, edit the asset and set the status back.</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Delete button does the same thing.</strong> Nothing is removed - the asset is marked decommissioned and keeps its record and history.</p></div>',
                 },
                 {
                     title: 'What Changes Once Decommissioned',
@@ -284,6 +287,13 @@ export const assetTrackingGuide: IDocGuide = {
                         'Its history is kept, and you can still open it directly',
                         'If it was a panel, its detectors keep their own records',
                     ],
+                },
+                {
+                    title: 'Reinstating a Decommissioned Asset',
+                    content: '<p class="mb-4">Open the asset and choose <strong>Reinstate</strong> (it replaces the Decommission action once an asset is already decommissioned) - it clears the decommissioned date and sets the asset back to Active. A <strong>Status history</strong> card on the asset page records who changed the status and when, so a Decommission-then-Reinstate leaves a visible trail rather than looking like it never happened.</p>',
+                },
+                {
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>A job\'s Action Performed can\'t be hand-edited into or out of Decommissioned, Replaced, or Missing / Not Found.</strong> Once it\'s one of those three, the field is locked (read-only) in that job\'s <strong>Edit Service Details</strong> dialog - editing it there could otherwise misstate the register for work that was never done. Decommission or Reinstate from the <strong>asset\'s own page</strong>; correct a wrong Missing / Not Found the same way - open the asset and set its Status back to Active - not by editing an old job\'s Action Performed.</p></div>',
                 },
             ],
         },
@@ -325,6 +335,14 @@ export const assetTrackingGuide: IDocGuide = {
                     content: 'A zone (or floor, or building) split needs that data on the assets. If the register has none, the card warns you and suggests <strong>Even split</strong>; or set the zones on the assets first - a panel-export import brings them in automatically.',
                 },
                 {
+                    title: 'A device disappeared from an open visit\'s worksheet after another visit of the same contract completed.',
+                    content: 'That\'s the visit reconcile working as intended, not equipment going missing. When a contract visit completes, any other still-open visit of the <strong>same cycle</strong> that lists a unit the completed visit already serviced has that row removed - the row would otherwise show work that is no longer due. The worksheet\'s visit line then reads, for example, <em>&quot;2 items removed - already serviced on JOB-000578&quot;</em>, naming how many and which job. It only ever removes an untouched, pre-loaded row: anything the engineer edited or confirmed, and any worksheet that isn\'t still a draft, is left alone. If an old offline save brings a removed row back, it\'s flagged <em>&quot;Already serviced this cycle on JOB-…&quot;</em> so you can remove it again.',
+                },
+                {
+                    title: 'A pre-loaded row shows "Already serviced this cycle" in amber.',
+                    content: 'The unit is due on this visit but the register shows it was already serviced earlier in the same contract cycle - normally because it was serviced on another visit, or added twice. Remove the row if it genuinely isn\'t due today; the hint excludes work done on the job you\'re currently on, so it never warns about your own visit.',
+                },
+                {
                     title: 'Do my engineers need to do anything different?',
                     content: 'Almost nothing. The equipment list they were already filling in is the register. What changed: fire alarm, extinguisher and intruder alarm service jobs open on their specialised worksheet, and where the site has a register the equipment is already listed - they confirm and record, then sign off as usual.',
                 },
@@ -338,7 +356,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can engineers register assets, or only admins?',
-                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records needs <strong>Asset Edit</strong> (Admin, Contract Manager or Site Manager) - it is not admin-only. Switch on auto-register and routine rows commit themselves too, while new equipment still waits for review.',
+                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records needs <strong>Asset Edit</strong> (Super Admin, Admin, Contract Manager or Site Manager) - it is not admin-only. Switch on auto-register and routine rows commit themselves too, while new equipment still waits for review.',
                 },
                 {
                     title: 'What format is the Asset Register PDF?',

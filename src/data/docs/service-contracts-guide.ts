@@ -4,7 +4,7 @@ export const serviceContractsGuide: IDocGuide = {
     slug: 'service-contracts',
     title: 'Service Contracts & Multi-Site Agreements',
     description: 'Set up recurring service contracts and group multi-site customers into agreements. Learn the three ways to create a contract, how fixed-anchor scheduling works, and how to bulk-create across sites.',
-    lastUpdated: '2026-09-23',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -134,6 +134,14 @@ export const serviceContractsGuide: IDocGuide = {
                 },
                 {
                     content: '<p>See <a href="/docs/worksheets#auto-attach" class="text-secondary hover:underline">Worksheets</a> for which sheet a service type attaches, and <a href="/docs/asset-tracking#which-worksheets" class="text-secondary hover:underline">Asset Tracking</a> for which worksheets record equipment to the register.</p>'
+                },
+                {
+                    title: 'When One Visit Finishes Early, Later Visits Reconcile',
+                    content: '<p class="mb-4">On a visit-planned contract, completing a visit can drop rows from that same cycle\'s <strong>other still-open visits</strong> - if a unit is confirmed serviced on one visit, an untouched, pre-loaded copy of it on another open visit of the same cycle is removed, so nobody visits it twice for work that\'s already done. The affected visit\'s own summary line then says how many rows were removed and which job serviced them. It never touches a row the engineer has edited or confirmed, and never touches a worksheet that isn\'t still a draft.</p>'
+                },
+                {
+                    title: 'Next Service Falls Back to the Contract Schedule',
+                    content: '<p class="mb-4">An asset\'s next-service date (<strong>Next Service</strong> on the register, <strong>Next Service Due</strong> on the asset page) is normally set by hand (on the asset, or via import). When it\'s blank, Opscel now falls back to the <strong>next scheduled visit of an active contract</strong> that covers the asset\'s type at its site, showing the date and linking to that job - so a covered asset reads a sensible next-service date even before anyone has set one explicitly.</p>'
                 },
             ]
         },

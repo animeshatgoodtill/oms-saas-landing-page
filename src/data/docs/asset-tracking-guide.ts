@@ -114,7 +114,7 @@ export const assetTrackingGuide: IDocGuide = {
                     title: 'What Waits for Review, Even with It On',
                     bullets: [
                         '<strong>New equipment</strong> the engineer added',
-                        'Anything set to <strong>Replace</strong>, <strong>Condemn</strong> or <strong>Missing</strong>',
+                        'Anything set to <strong>Replace</strong> or <strong>Exchange</strong>, <strong>Condemn</strong> (Condemn &amp; Dispose on the extinguisher sheet, Condemn / Decommission on the others), or <strong>Missing / Not Found</strong>',
                         'Anything referencing an asset still awaiting review',
                     ],
                 },
@@ -137,7 +137,7 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A row the engineer never explicitly confirmed on site is badged &quot;Not confirmed on site — check before registering&quot;</strong> and defaults to <strong>Skip</strong> in the review table - check it before switching it on. Sheets completed before this behaviour shipped show the same badge and default, since they carry no on-site confirmation to trust.</p></div>',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A pre-loaded row the engineer neither confirmed nor changed</strong> - its action is still the pre-loaded default and nothing else on the row was entered - is badged &quot;Not confirmed on site — check before registering&quot; and defaults to <strong>Skip</strong> in the review table; check it before switching it on. Sheets completed before this behaviour shipped carry no confirm stamp at all, so the same badge and default apply to any row left untouched.</p></div>',
                 },
                 {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
@@ -293,7 +293,7 @@ export const assetTrackingGuide: IDocGuide = {
                     content: '<p class="mb-4">Open the asset and choose <strong>Reinstate</strong> (it replaces the Decommission action once an asset is already decommissioned) - it clears the decommissioned date and sets the asset back to Active. A <strong>Status history</strong> card on the asset page records who changed the status and when, so a Decommission-then-Reinstate leaves a visible trail rather than looking like it never happened.</p>',
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>A job link can\'t be hand-edited into or out of Decommissioned, Replaced, or Missing / Not Found.</strong> Once a job\'s Action Performed is one of those three, it\'s locked (read-only) in that job\'s Edit Service Details dialog - editing it there could otherwise misstate the register for work that was never done. Decommission or Reinstate an asset from its own page; correct a wrong Missing / Not Found by reviewing the worksheet\'s registration, not by editing the old job link.</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>A job\'s Action Performed can\'t be hand-edited into or out of Decommissioned, Replaced, or Missing / Not Found.</strong> Once it\'s one of those three, the field is locked (read-only) in that job\'s <strong>Edit Service Details</strong> dialog - editing it there could otherwise misstate the register for work that was never done. Decommission or Reinstate from the <strong>asset\'s own page</strong>; correct a wrong Missing / Not Found the same way - open the asset and set its Status back to Active - not by editing an old job\'s Action Performed.</p></div>',
                 },
             ],
         },
@@ -336,7 +336,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'A device disappeared from an open visit\'s worksheet after another visit of the same contract completed.',
-                    content: 'That\'s the visit reconcile working as intended, not equipment going missing. When a contract visit completes, any other still-open visit of the <strong>same cycle</strong> that lists a unit the completed visit already serviced has that row removed - the row would otherwise show work that is no longer due. The visit summary and a note on the row say which job serviced it. It only ever removes an untouched, pre-loaded row: anything the engineer edited or confirmed, and any worksheet that isn\'t still a draft, is left alone.',
+                    content: 'That\'s the visit reconcile working as intended, not equipment going missing. When a contract visit completes, any other still-open visit of the <strong>same cycle</strong> that lists a unit the completed visit already serviced has that row removed - the row would otherwise show work that is no longer due. The worksheet\'s visit line then reads, for example, <em>&quot;2 items removed - already serviced on JOB-000578&quot;</em>, naming how many and which job. It only ever removes an untouched, pre-loaded row: anything the engineer edited or confirmed, and any worksheet that isn\'t still a draft, is left alone. If an old offline save brings a removed row back, it\'s flagged <em>&quot;Already serviced this cycle on JOB-…&quot;</em> so you can remove it again.',
                 },
                 {
                     title: 'A pre-loaded row shows "Already serviced this cycle" in amber.',
@@ -356,7 +356,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Can engineers register assets, or only admins?',
-                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records needs <strong>Asset Edit</strong> (Admin, Contract Manager or Site Manager) - it is not admin-only. Switch on auto-register and routine rows commit themselves too, while new equipment still waits for review.',
+                    content: 'Engineers fill the worksheets - that is the data. Committing rows as permanent records needs <strong>Asset Edit</strong> (Super Admin, Admin, Contract Manager or Site Manager) - it is not admin-only. Switch on auto-register and routine rows commit themselves too, while new equipment still waits for review.',
                 },
                 {
                     title: 'What format is the Asset Register PDF?',

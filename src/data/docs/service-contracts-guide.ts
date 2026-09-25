@@ -137,11 +137,11 @@ export const serviceContractsGuide: IDocGuide = {
                 },
                 {
                     title: 'When One Visit Finishes Early, Later Visits Reconcile',
-                    content: '<p class="mb-4">On a visit-planned contract, completing a visit can drop rows from that same cycle\'s <strong>other still-open visits</strong> - if a unit is confirmed serviced on one visit, an untouched, pre-loaded copy of it on another open visit of the same cycle is removed, so nobody visits it twice for work that\'s already done. The affected visit\'s summary and a note on the row say which job served it. It never touches a row the engineer has edited or confirmed, and never touches a worksheet that isn\'t still a draft.</p>'
+                    content: '<p class="mb-4">On a visit-planned contract, completing a visit can drop rows from that same cycle\'s <strong>other still-open visits</strong> - if a unit is confirmed serviced on one visit, an untouched, pre-loaded copy of it on another open visit of the same cycle is removed, so nobody visits it twice for work that\'s already done. The affected visit\'s own summary line then says how many rows were removed and which job serviced them. It never touches a row the engineer has edited or confirmed, and never touches a worksheet that isn\'t still a draft.</p>'
                 },
                 {
                     title: 'Next Service Falls Back to the Contract Schedule',
-                    content: '<p class="mb-4">An asset\'s next-service date (<strong>Next Service</strong> on the register, <strong>Next Service Due</strong> on the asset page) is normally set by hand or by a certificate. When it\'s blank, Opscel now falls back to the <strong>next scheduled visit of an active contract</strong> that covers the asset\'s type at its site, showing the date and linking to that job - so a covered asset reads a sensible next-service date even before anyone has set one explicitly.</p>'
+                    content: '<p class="mb-4">An asset\'s next-service date (<strong>Next Service</strong> on the register, <strong>Next Service Due</strong> on the asset page) is normally set by hand (on the asset, or via import). When it\'s blank, Opscel now falls back to the <strong>next scheduled visit of an active contract</strong> that covers the asset\'s type at its site, showing the date and linking to that job - so a covered asset reads a sensible next-service date even before anyone has set one explicitly.</p>'
                 },
             ]
         },

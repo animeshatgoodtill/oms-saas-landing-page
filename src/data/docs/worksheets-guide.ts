@@ -135,7 +135,7 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'Equipment Already Listed On The Sheet',
-                    content: '<p class="mb-4">If the site has an asset register, the equipment list arrives <strong>already filled in</strong>, with each row badged as carried over. Tap <strong>✓ Serviced as listed</strong> on a row that is correct as-is — it switches to <strong>Confirmed</strong>, with an <strong>Undo</strong> if you tap it by mistake — or edit the row to record what you actually did instead. When several rows still need confirming, a <strong>Mark remaining N as serviced</strong> button confirms the rest of the section in one go (it takes two taps, to be sure). Add a row only for equipment that is not listed.</p><p class="mb-4">It is filtered to the equipment types that worksheet manages, so a fire alarm visit does not arrive carrying every extinguisher on site. If the job has two worksheets, each item appears on one of them only.</p><p class="mb-4">If a listed item genuinely is not at the site any more, mark it <strong>Missing / Not Found</strong> rather than deleting the row — that tells the office to take it off the register (it prints as <strong>Not found</strong> in the asset\'s service history, and never counts as a service), whereas a deleted row simply goes unrecorded.</p><p><strong>A worksheet can\'t be marked complete while a pre-loaded row is still unconfirmed.</strong> Each equipment section shows <strong>N of M done</strong>, and Mark Complete names the row that is still outstanding and how to resolve it: confirm it, change its action (e.g. Missing / Not Found), or remove it.</p>'
+                    content: '<p class="mb-4">If the site has an asset register, the equipment list arrives <strong>already filled in</strong>, with each row badged as carried over. Tap <strong>✓ Serviced as listed</strong> on a row that is correct as-is — it switches to <strong>Confirmed</strong>, with an <strong>Undo</strong> if you tap it by mistake — or edit the row to record what you actually did instead. When several rows still need confirming, a <strong>Mark remaining N as serviced</strong> button confirms the rest of the section in one go (it takes two taps, to be sure). Add a row only for equipment that is not listed.</p><p class="mb-4">It is filtered to the equipment types that worksheet manages, so a fire alarm visit does not arrive carrying every extinguisher on site. If the job has two worksheets, each item appears on one of them only.</p><p class="mb-4">If a listed item genuinely is not at the site any more, mark it <strong>Missing / Not Found</strong> rather than deleting the row — that tells the office to take it off the register (it prints as <strong>Not found</strong> in the asset\'s service history, and never counts as a service), whereas a deleted row simply goes unrecorded.</p><p><strong>A worksheet can\'t be marked complete while a pre-loaded row is still unconfirmed.</strong> Each equipment section shows <strong>N of M done</strong>, and Mark Complete names the row that is still outstanding and how to resolve it: confirm it, change its action (e.g. Missing), or remove it.</p>'
                 },
                 {
                     title: 'The Asset Ref Column',
@@ -146,10 +146,10 @@ export const worksheetsGuide: IDocGuide = {
                     content: '<p>Worksheets are organized into sections defined by the worksheet type. Complete each section before moving to the next:</p>',
                     bullets: [
                         '<strong>Form sections:</strong> Fill all fields, required fields marked with a red asterisk (*)',
-                        '<strong>Equipment sections:</strong> every row needs an outcome — confirmed, actioned or added — before the section counts as done; the tile reads "N of M done"',
+                        '<strong>Equipment sections:</strong> every row must be confirmed or given an action - a newly added row needs an action too - before the section counts as done; the tile reads "N of M done"',
                         '<strong>Photo sections:</strong> Tap "Add Photo" to capture images, add captions',
                         '<strong>Signature sections:</strong> Tap the signature pad to capture signatures',
-                        '<strong>Optional sections</strong> (e.g. Parts Used, Panel Access Codes, Engineer comments) don\'t block Mark Complete when left untouched — a section whose answers print on the certificate or register PDF still does'
+                        '<strong>Optional sections</strong> (e.g. Parts Used, Panel Access Codes, Engineer comments) don\'t block Mark Complete when left untouched — every other section does while untouched'
                     ]
                 },
                 {
@@ -220,11 +220,11 @@ export const worksheetsGuide: IDocGuide = {
                 },
                 {
                     title: 'How Promotion Happens',
-                    content: '<p>On a worksheet type that supports it, anyone with <code>assets.edit</code> access can promote its rows to the Asset Register from the worksheet\'s view page — reviewing the asset details the mapping produced before confirming. This is a per-worksheet action, tier-gated (Business) and permission-gated (<code>assets.edit</code> — Admin, Contract Manager or Site Manager; it is not admin-only), regardless of what the schema declares. A row not confirmed on site (see above) is badged <strong>"Not confirmed on site — check before registering"</strong> and defaults to skipped, so it can\'t register as serviced unreviewed.</p>',
+                    content: '<p>On a worksheet type that supports it, anyone with <code>assets.edit</code> access can promote its rows to the Asset Register from the worksheet\'s view page — reviewing the asset details the mapping produced before confirming. This is a per-worksheet action, tier-gated (Business) and permission-gated (<code>assets.edit</code> — Super Admin, Admin, Contract Manager or Site Manager; it is not admin-only), regardless of what the schema declares. A pre-loaded row the engineer left untouched (action still the default, nothing else entered) is badged <strong>"Not confirmed on site — check before registering"</strong> and defaults to skipped, so it can\'t register as serviced unreviewed.</p>',
                     steps: [
                         'Engineer fills the worksheet on-site, including the section that supports promotion',
                         'Engineer marks the worksheet complete',
-                        'From the completed worksheet, anyone with <code>assets.edit</code> (Admin, Contract Manager or Site Manager) reviews and confirms promotion',
+                        'From the completed worksheet, anyone with <code>assets.edit</code> (Super Admin, Admin, Contract Manager or Site Manager) reviews and confirms promotion',
                         'Assets appear in the Asset Register, linked back to the job and site'
                     ]
                 }

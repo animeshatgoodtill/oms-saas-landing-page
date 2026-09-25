@@ -14,7 +14,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'How the register works underneath: asset statuses, what updates automatically and what waits for review, how a visit plan splits a large site across the year, how coverage is worked out, the pre-loading rules, QR tags, and bulk import including panel exports.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-09-23',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -55,8 +55,8 @@ export const assetLifecycleGuide: IDocGuide = {
                             ['Draft', 'Registered from the field (usually via tag scan) and awaiting office review. Becomes Active when the office commits it. Still pre-loads into worksheets and counts for coverage while in Draft.'],
                             ['Active', 'In service. Appears on the register and the register PDF.'],
                             ['Maintenance', 'Temporarily out of service. Still pre-loads into worksheets and counts for coverage - Opscel keeps asking for it to be serviced.'],
-                            ['Missing', 'The engineer couldn\'t locate it on site. Missing assets stay visible on the register (highlighted), and still pre-load into worksheets and count for coverage, so they\'re never quietly forgotten.'],
-                            ['Decommissioned', 'End of life. Kept for history and compliance, but excluded from field lists, worksheet pre-loading and coverage. The Delete button does exactly this.'],
+                            ['Missing', 'The engineer couldn\'t locate it on site (worksheet action <strong>Missing / Not Found</strong>). Missing assets stay visible on the register (highlighted), and still pre-load into worksheets and count for coverage, so they\'re never quietly forgotten. It prints as <strong>NF</strong> on the register and <strong>Not found</strong> in the asset\'s service history - and, because nobody actually serviced it, it never counts as a service or advances the asset\'s last-service or next-service dates.'],
+                            ['Decommissioned', 'End of life. Kept for history and compliance, but excluded from field lists, worksheet pre-loading and coverage. The Delete button does exactly this. <strong>Reinstate</strong> (on the asset page) reverses it cleanly - it replaces the Decommission action once an asset is already decommissioned, and clears the decommissioned date.'],
                         ],
                     },
                 },
@@ -292,7 +292,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 },
                 {
                     title: 'Second Imports',
-                    content: '<p>Re-importing an updated export from the same panel goes through the same <strong>re-import acknowledgement</strong> as any other bulk import - you will see which existing assets of the incoming types are already on the site before you confirm.</p>',
+                    content: '<p class="mb-4">Re-importing an updated export from the same panel goes through the same <strong>re-import acknowledgement</strong> as any other bulk import - you will see which existing assets of the incoming types are already on the site before you confirm.</p><p>If your devices were named by an import from before <strong>24 September 2026</strong>, their derived names read the device-type\'s internal key (e.g. <em>&quot;detector_multi L1 A1&quot;</em>) rather than the file\'s own word. Re-importing the same file today recognises those as the <strong>same device</strong> under its old name and <strong>renames</strong> it to the current form (e.g. <em>&quot;Multi L1 A1&quot;</em>) instead of creating a duplicate - nothing to do on your side beyond re-running the import.</p>',
                 },
             ],
         },
@@ -332,11 +332,12 @@ export const assetLifecycleGuide: IDocGuide = {
             subsections: [
                 { title: 'Does scanning work offline?', content: '<p>Yes. Tag resolution runs against the cached site register, and new binds queue until you are back in signal.</p>' },
                 { title: 'Does the Asset Service Worksheet replace the Extinguisher or Fire Alarm worksheets?', content: '<p>No. Dedicated worksheets always take precedence for their own equipment; the Asset Service Worksheet covers every other type and acts as a fallback.</p>' },
-                { title: 'Can engineers decommission equipment from the field?', content: '<p>They can mark a row Condemn or Missing on the worksheet - the register change is then held for office review before it applies.</p>' },
+                { title: 'Can engineers decommission equipment from the field?', content: '<p>They can mark a row Condemn &amp; Dispose or Missing / Not Found on the worksheet - the register change is then held for office review before it applies. Once a job link is registered with one of those actions (or Replaced), that link is locked - it can\'t be edited back to a routine action from the job\'s Edit Service Details dialog. To reverse a decommission, use Reinstate on the asset\'s own page.</p>' },
                 { title: 'Does a visit plan change what the engineer can do on site?', content: '<p>No. Every device at the site is still one tap away from the sheet - via the picker or a scan. The plan changes what arrives pre-loaded and how the picker labels the rest.</p>' },
                 { title: 'What if an engineer skips a device on their visit?', content: '<p>It rolls forward to the next visit\'s sheet once this visit is completed, and the last visit of the year loads everything still untested.</p>' },
                 { title: 'Who can manage the register and the visit plan?', content: '<p>Asset management follows your team\'s normal permissions and is available on plans that include Asset Management. Visit plans are edited by whoever can edit the contract.</p>' },
-                { title: 'What happens to an asset\'s history if the asset is decommissioned?', content: '<p>It is retained - decommissioned assets stay on record for compliance; they are just excluded from active field lists, pre-loading and coverage.</p>' },
+                { title: 'What happens to an asset\'s history if the asset is decommissioned?', content: '<p>It is retained - decommissioned assets stay on record for compliance; they are just excluded from active field lists, pre-loading and coverage. The asset page\'s <strong>Status history</strong> card records every status change with who made it and when, so a later Reinstate doesn\'t erase the trail.</p>' },
+                { title: 'Does a "Missing / Not Found" unit count as serviced?', content: '<p>No. It\'s recorded as <strong>Not found</strong> (register mark <strong>NF</strong>) rather than a routine action, and it never counts toward the asset\'s last-service date - a unit nobody could find shouldn\'t look freshly serviced to the next engineer or on the compliance record.</p>' },
                 { title: 'Do I have to remap device types every time I import for the same customer?', content: '<p>No. Save your Device types mapping as a profile the first time, and Opscel offers it again on that customer\'s next import - and the built-in fire-alarm vocabulary already covers the common panel kinds.</p>' },
                 { title: 'Which plan includes bulk asset import?', content: '<p>The plan that includes Asset Management - the Business plan. Starter and Team can still import customers, contacts, addresses and jobs via CSV, just not assets.</p>' },
             ],

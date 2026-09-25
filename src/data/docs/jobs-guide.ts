@@ -4,7 +4,7 @@ export const jobsGuide: IDocGuide = {
     slug: 'jobs',
     title: 'Jobs & Multi-Visit Workflow',
     description: 'Complete guide to creating, scheduling, and managing jobs in Opscel. Learn about job statuses, multi-visit jobs, engineer assignment, and completion workflows.',
-    lastUpdated: '2026-08-21',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -323,7 +323,7 @@ export const jobsGuide: IDocGuide = {
                         'Check-in and check-out GPS (start/end time per visit)',
                         'Photos (tagged to specific visit)',
                         'Defects logged during that visit',
-                        'Parts used on that visit',
+                        'Parts used on that visit (including parts added straight from a completed worksheet — see below)',
                         'Work summary for that day',
                         'Engineer signatures (if multiple visits, one per visit)'
                     ]
@@ -494,6 +494,9 @@ export const jobsGuide: IDocGuide = {
                     title: 'Financial Tab: Estimated vs Actual',
                     content: `
                         <p class="mb-4">Every job's Financial tab shows what it was <strong>Estimated</strong> to be worth and cost, alongside what it <strong>Actually</strong> cost — clocked time plus confirmed supplier invoices. The two are allowed to disagree; the gap is what tells you whether a job made money.</p>
+                        <p class="mb-4">
+                            If a worksheet on the job lists parts not yet on the job's own Parts Used list, the Financial tab offers a <strong>Review</strong> button to add them — tick which lines to bring in, nothing on the worksheet changes, and a part already added this way is never added twice.
+                        </p>
                         <p class="mb-4">
                             <a href="/docs/job-profitability" class="text-blue-600 hover:underline">→ See Job Profitability Guide</a> for exactly where each figure comes from, and what to do when one is blank.
                         </p>

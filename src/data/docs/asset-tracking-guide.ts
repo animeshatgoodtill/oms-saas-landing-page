@@ -14,7 +14,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'How site equipment gets into Opscel, how it reaches your engineer\'s worksheet on every visit, what the engineer sees on the phone, and how the register stays up to date without anyone typing it twice.',
-    lastUpdated: '2026-09-23',
+    lastUpdated: '2026-09-25',
     sections: [
         {
             id: 'overview',
@@ -137,6 +137,9 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A row the engineer never explicitly confirmed on site is badged &quot;Not confirmed on site — check before registering&quot;</strong> and defaults to <strong>Skip</strong> in the review table - check it before switching it on. Sheets completed before this behaviour shipped show the same badge and default, since they carry no on-site confirmation to trust.</p></div>',
+                },
+                {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
                 },
             ],
@@ -206,7 +209,7 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
+                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>NF</em> - Not found, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
                         + figure(`${IMG}/office-site-assets.webp`, 'The site Assets tab in the office listing the register rows with asset number, type, location and status, and the Print Register button', 'The site\'s register, with Print Register in the toolbar.'),
                 },
                 {
@@ -274,7 +277,7 @@ export const assetTrackingGuide: IDocGuide = {
                     steps: ['Open the asset', 'Set <strong>Status</strong> to <strong>Decommissioned</strong>', 'Save'],
                 },
                 {
-                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Delete button does the same thing.</strong> Nothing is removed - the asset is marked decommissioned and keeps its record and history. To reverse it, edit the asset and set the status back.</p></div>',
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>The Delete button does the same thing.</strong> Nothing is removed - the asset is marked decommissioned and keeps its record and history.</p></div>',
                 },
                 {
                     title: 'What Changes Once Decommissioned',
@@ -284,6 +287,13 @@ export const assetTrackingGuide: IDocGuide = {
                         'Its history is kept, and you can still open it directly',
                         'If it was a panel, its detectors keep their own records',
                     ],
+                },
+                {
+                    title: 'Reinstating a Decommissioned Asset',
+                    content: '<p class="mb-4">Open the asset and choose <strong>Reinstate</strong> (it replaces the Decommission action once an asset is already decommissioned) - it clears the decommissioned date and sets the asset back to Active. A <strong>Status history</strong> card on the asset page records who changed the status and when, so a Decommission-then-Reinstate leaves a visible trail rather than looking like it never happened.</p>',
+                },
+                {
+                    content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>A job link can\'t be hand-edited into or out of Decommissioned, Replaced, or Missing / Not Found.</strong> Once a job\'s Action Performed is one of those three, it\'s locked (read-only) in that job\'s Edit Service Details dialog - editing it there could otherwise misstate the register for work that was never done. Decommission or Reinstate an asset from its own page; correct a wrong Missing / Not Found by reviewing the worksheet\'s registration, not by editing the old job link.</p></div>',
                 },
             ],
         },
@@ -323,6 +333,14 @@ export const assetTrackingGuide: IDocGuide = {
                 {
                     title: 'The visit plan put every device on visit 1.',
                     content: 'A zone (or floor, or building) split needs that data on the assets. If the register has none, the card warns you and suggests <strong>Even split</strong>; or set the zones on the assets first - a panel-export import brings them in automatically.',
+                },
+                {
+                    title: 'A device disappeared from an open visit\'s worksheet after another visit of the same contract completed.',
+                    content: 'That\'s the visit reconcile working as intended, not equipment going missing. When a contract visit completes, any other still-open visit of the <strong>same cycle</strong> that lists a unit the completed visit already serviced has that row removed - the row would otherwise show work that is no longer due. The visit summary and a note on the row say which job serviced it. It only ever removes an untouched, pre-loaded row: anything the engineer edited or confirmed, and any worksheet that isn\'t still a draft, is left alone.',
+                },
+                {
+                    title: 'A pre-loaded row shows "Already serviced this cycle" in amber.',
+                    content: 'The unit is due on this visit but the register shows it was already serviced earlier in the same contract cycle - normally because it was serviced on another visit, or added twice. Remove the row if it genuinely isn\'t due today; the hint excludes work done on the job you\'re currently on, so it never warns about your own visit.',
                 },
                 {
                     title: 'Do my engineers need to do anything different?',

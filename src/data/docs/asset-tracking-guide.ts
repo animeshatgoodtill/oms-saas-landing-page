@@ -6,6 +6,10 @@ const LIFE = '/images/docs/asset-lifecycle';
 const figure = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="${src}" alt="${alt}" class="w-full rounded-lg border border-border shadow-lg" loading="lazy" />${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
 
+/** A phone screenshot: a tall portrait image, so it keeps phone width instead of stretching across the page. */
+const phoneFigure = (src: string, alt: string, caption?: string) =>
+    `<figure class="my-8 mx-auto" style="max-width: 300px"><img src="${src}" alt="${alt}" class="w-full rounded-2xl border border-border shadow-lg" loading="lazy" />${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
+
 /** A flow diagram: keeps a readable minimum width and scrolls sideways on a phone rather than shrinking its text. */
 const diagram = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8"><div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0"><img src="${src}" alt="${alt}" class="w-full min-w-[720px] rounded-lg border border-border bg-white" loading="lazy" /></div>${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
@@ -35,6 +39,9 @@ export const assetTrackingGuide: IDocGuide = {
             subsections: [
                 {
                     mockup: 'engineer-journey',
+                },
+                {
+                    content: phoneFigure(`${IMG}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; zone 1 devices ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
                 },
                 {
                     title: 'Three Ways Equipment Lands on a Row',

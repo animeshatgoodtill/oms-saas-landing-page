@@ -41,7 +41,7 @@ export const assetTrackingGuide: IDocGuide = {
                     mockup: 'engineer-journey',
                 },
                 {
-                    content: phoneFigure(`${IMG}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; zone 1 devices ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
+                    content: phoneFigure(`${IMG}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; devices above ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
                 },
                 {
                     title: 'Three Ways Equipment Lands on a Row',
@@ -147,7 +147,7 @@ export const assetTrackingGuide: IDocGuide = {
                     content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A pre-loaded row the engineer neither confirmed nor changed</strong> - its action is still the pre-loaded default and nothing else on the row was entered - is badged &quot;Not confirmed on site — check before registering&quot; and defaults to <strong>Skip</strong> in the review table; check it before switching it on. Sheets completed before this behaviour shipped carry no confirm stamp at all, so the same badge and default apply to any row left untouched.</p></div>',
                 },
                 {
-                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A device recorded as not tested</strong> on the Fire Alarm Service or Asset Service device test list is flagged the same way in this table - <strong>&quot;Not tested - registers, no service&quot;</strong> when the row would still create a new asset, or <strong>&quot;Not tested - no service recorded&quot;</strong> when it only links one already on the register. Either way, registering it does not move the asset\'s last-service date: it stays due for the next visit.</p></div>',
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A device recorded as not tested</strong> on the Fire Alarm Service or Asset Service device test list is also badged in this table (it is not skipped by default) - <strong>&quot;Not tested - registers, no service&quot;</strong> when the row would still create a new asset, or <strong>&quot;Not tested - no service recorded&quot;</strong> when it only links one already on the register. Either way, registering it does not move the asset\'s last-service date: it stays due for the next visit.</p></div>',
                 },
                 {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
@@ -354,7 +354,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Do my engineers need to do anything different?',
-                    content: 'Almost nothing. The equipment list they were already filling in is the register. What changed: fire alarm, extinguisher and intruder alarm service jobs open on their specialised worksheet, and where the site has a register the equipment is already listed - they confirm and record, then sign off as usual. On the Fire Alarm Service and Asset Service worksheets, that list now shows as a compact, one-tap device test list rather than a card per device - the same information, grouped by zone and quicker to work through. <strong>Show as cards</strong> switches back to the old card-per-device view if they prefer it.',
+                    content: 'Almost nothing. The equipment list they were already filling in is the register. What changed: fire alarm, extinguisher and intruder alarm service jobs open on their specialised worksheet, and where the site has a register the equipment is already listed - they confirm and record, then sign off as usual. On the Fire Alarm Service and Asset Service worksheets, that list now shows as a compact, one-tap device test list rather than a card per device - the same information, grouped by zone (or by equipment type on Asset Service) and quicker to work through. <strong>Show as cards</strong> switches back to the old card-per-device view if they prefer it.',
                 },
                 {
                     title: 'What happens if my engineer enters the same item twice?',

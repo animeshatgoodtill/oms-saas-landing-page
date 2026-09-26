@@ -153,8 +153,9 @@ const EngineerJourney: React.FC<EngineerJourneyProps> = ({ initialStep = 'job' }
   // whatever filter, search or selection is live on the Devices screen.
   const jobCounts = useMemo(
     () => ({
-      due: visitDevices.filter((d) => d.status === 'todo').length,
-      done: visitDevices.filter((d) => d.status !== 'todo').length,
+      // Not tested is recorded but not serviced - it stays due, so it counts as Due, never Done.
+      due: visitDevices.filter((d) => d.status === 'todo' || d.status === 'not_tested').length,
+      done: visitDevices.filter((d) => d.status === 'tested' || d.status === 'fault' || d.status === 'missing').length,
       fault: visitDevices.filter((d) => d.status === 'fault').length,
     }),
     [visitDevices]
@@ -818,7 +819,7 @@ const DevicesScreen: React.FC<{
                     setScanOpen(false);
                   }}
                   className="min-h-11 flex-grow rounded text-sm font-semibold"
-                  style={{ background: 'var(--ok-ink)', color: '#fff' }}
+                  style={{ background: 'var(--ok-ink)', color: 'var(--on-accent)' }}
                 >
                   Tested · scan next
                 </button>
@@ -1009,8 +1010,8 @@ const DeviceRowView: React.FC<{
               }}
               aria-hidden="true"
             >
-              {device.status === 'tested' && <CheckIcon size={13} color="#fff" />}
-              {device.status === 'fault' && <FaultIcon size={13} color="#fff" />}
+              {device.status === 'tested' && <CheckIcon size={13} color="var(--on-accent)" />}
+              {device.status === 'fault' && <FaultIcon size={13} color="var(--on-accent)" />}
             </span>
             <RowText device={device} />
             {device.status !== 'todo' && (
@@ -1024,7 +1025,7 @@ const DeviceRowView: React.FC<{
             aria-label={`Open the card: ${device.id}`}
             aria-expanded={open}
             onClick={onToggleOpen}
-            className="flex w-10 flex-shrink-0 items-center justify-center border-l border-[var(--line)]"
+            className="flex w-12 flex-shrink-0 items-center justify-center border-l border-[var(--line)]"
             style={{ color: 'var(--ink2)' }}
           >
             <ChevronIcon open={open} />
@@ -1072,7 +1073,7 @@ const DeviceCard: React.FC<{ device: Device; onSet: (status: DeviceStatus) => vo
       type="button"
       aria-pressed={device.status === 'missing'}
       onClick={() => onSet(device.status === 'missing' ? 'todo' : 'missing')}
-      className="min-h-10 rounded border text-[13px] font-semibold"
+      className="min-h-11 rounded border text-[13px] font-semibold"
       style={
         device.status === 'missing'
           ? { borderColor: 'var(--warn-ink)', background: 'var(--warn-bg)', color: 'var(--warn-ink)' }
@@ -1089,7 +1090,7 @@ const DeviceCard: React.FC<{ device: Device; onSet: (status: DeviceStatus) => vo
         id={`note-${device.id}`}
         type="text"
         placeholder="e.g. head dusty, cleaned"
-        className="min-h-10 rounded border border-[var(--line)] bg-[var(--card)] px-2.5 text-[13px] text-[var(--ink)]"
+        className="min-h-11 rounded border border-[var(--line)] bg-[var(--card)] px-2.5 text-[13px] text-[var(--ink)]"
       />
     </div>
   </div>

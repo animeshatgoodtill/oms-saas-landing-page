@@ -6,6 +6,10 @@ const LIFE = '/images/docs/asset-lifecycle';
 const figure = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8 -mx-8 md:-mx-16 lg:-mx-24"><img src="${src}" alt="${alt}" class="w-full rounded-lg border border-border shadow-lg" loading="lazy" />${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
 
+/** A phone screenshot: a tall portrait image, so it keeps phone width instead of stretching across the page. */
+const phoneFigure = (src: string, alt: string, caption?: string) =>
+    `<figure class="my-8 mx-auto" style="max-width: 300px"><img src="${src}" alt="${alt}" class="w-full rounded-2xl border border-border shadow-lg" loading="lazy" />${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
+
 /** A flow diagram: keeps a readable minimum width and scrolls sideways on a phone rather than shrinking its text. */
 const diagram = (src: string, alt: string, caption?: string) =>
     `<figure class="my-8"><div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0"><img src="${src}" alt="${alt}" class="w-full min-w-[720px] rounded-lg border border-border bg-white" loading="lazy" /></div>${caption ? `<figcaption class="mt-3 text-sm text-muted-foreground text-center">${caption}</figcaption>` : ''}</figure>`;
@@ -14,7 +18,7 @@ export const assetTrackingGuide: IDocGuide = {
     slug: 'asset-tracking',
     title: 'Asset Tracking — Support Guide',
     description: 'How site equipment gets into Opscel, how it reaches your engineer\'s worksheet on every visit, what the engineer sees on the phone, and how the register stays up to date without anyone typing it twice.',
-    lastUpdated: '2026-09-25',
+    lastUpdated: '2026-09-26',
     sections: [
         {
             id: 'overview',
@@ -31,10 +35,13 @@ export const assetTrackingGuide: IDocGuide = {
         {
             id: 'engineer-journey',
             title: '1. What the Engineer Sees',
-            content: '<p class="mb-4">This is the part most offices want to see first, because it is what changed for the people on site. The mockup below is interactive - it follows the Opscel field app on a phone, on a quarterly fire alarm contract at an 88-device site with a <strong>visit plan</strong> of four visits a year.</p>',
+            content: '<p class="mb-4">This is the part most offices want to see first, because it is what changed for the people on site. The mockup below is interactive - it follows the Opscel field app on a phone, on a quarterly fire alarm contract at an 88-device site with a <strong>visit plan</strong> of four visits a year, using the <strong>device test list</strong> the Fire Alarm Service and Asset Service worksheets show their equipment on.</p>',
             subsections: [
                 {
                     mockup: 'engineer-journey',
+                },
+                {
+                    content: phoneFigure(`${IMG}/field-device-test-list.webp`, 'The Fire Alarm Service device test list on an Android phone: 25 of 150 tested with 1 fault and 124 to do; devices above ticked Tested, zone 2 showing 1/25 done with a Mark 24 tested button, one sounder marked Fault and the rest waiting to be tapped', 'The real screen on a phone: tap a row to mark it tested, the arrow opens its card, and a zone can be marked in one go.'),
                 },
                 {
                     title: 'Three Ways Equipment Lands on a Row',
@@ -104,7 +111,7 @@ export const assetTrackingGuide: IDocGuide = {
             id: 'auto-register',
             title: '4. Auto-Register, and What Still Waits for You',
             content: '<p class="mb-4"><strong>Settings → Asset Tracking → &quot;Auto-register on worksheet completion&quot;</strong>. It is <strong>off by default</strong>.</p>'
-                + diagram(`${IMG}/auto-vs-review.svg`, 'A completed worksheet\'s rows split two ways: Service and Service existing rows apply automatically to the register\'s history and condition; Replace, Condemn, Missing and New equipment rows go to the review banner on the customer\'s Assets tab and only reach the register when the office commits them. With the auto-register toggle off, everything waits.', 'Routine rows apply themselves; anything that changes what exists waits for a human.'),
+                + diagram(`${IMG}/auto-vs-review.svg`, 'A completed worksheet\'s rows split two ways: Service and Service existing rows apply automatically to the register\'s history and condition; Replace, Condemn, Missing and New equipment rows go to the review banner on the customer\'s Assets tab and only reach the register when the office commits them. With the auto-register toggle off, everything waits.', 'Routine rows apply themselves; anything that changes what exists waits for a human. On the device test list, a device recorded as not tested writes no service either, and stays due.'),
             subsections: [
                 {
                     title: 'What Auto-Register Commits on Its Own',
@@ -138,6 +145,9 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A pre-loaded row the engineer neither confirmed nor changed</strong> - its action is still the pre-loaded default and nothing else on the row was entered - is badged &quot;Not confirmed on site — check before registering&quot; and defaults to <strong>Skip</strong> in the review table; check it before switching it on. Sheets completed before this behaviour shipped carry no confirm stamp at all, so the same badge and default apply to any row left untouched.</p></div>',
+                },
+                {
+                    content: '<div class="bg-blue-50 border-l-4 border-blue-500 p-4"><p class="text-blue-900"><strong>A device recorded as not tested</strong> on the Fire Alarm Service or Asset Service device test list is also badged in this table (it is not skipped by default) - <strong>&quot;Not tested - registers, no service&quot;</strong> when the row would still create a new asset, or <strong>&quot;Not tested - no service recorded&quot;</strong> when it only links one already on the register. Either way, registering it does not move the asset\'s last-service date: it stays due for the next visit.</p></div>',
                 },
                 {
                     content: '<div class="bg-amber-50 border-l-4 border-amber-500 p-4"><p class="text-amber-800"><strong>Changed your mind?</strong> You have <strong>five minutes</strong> to undo a registration, enforced by the server. Undo decommissions only the assets that run <strong>created</strong> - it will not restore anything the run condemned or marked missing, and it will not unlink an existing asset the run linked to. Re-running a worksheet is always safe: rows already registered are skipped, never duplicated.</p></div>',
@@ -209,7 +219,7 @@ export const assetTrackingGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>NF</em> - Not found, <em>Att</em> - Attended, a visit that recorded the unit without a service). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
+                    content: '<p class="mb-4">There is <strong>one document per register family</strong>, not one per equipment type: extinguishers and fire blankets print on one Fire Extinguisher Register; a fire alarm panel prints on its own Fire Alarm Asset Register, <strong>separate</strong> from its detectors, call points, sounders and beacons, which print on the Fire Alarm Device Register; and so on. The chooser lists only the families the site actually holds, with the types in each.</p><p class="mb-4">A register is a <strong>record</strong>, never hand-annotated: the site\'s address and contact, each asset\'s number, type, size and position, and a service-history grid with <strong>one column per completed job</strong> (date and job number - two jobs can complete on one day) carrying the engineer\'s initials and a mark for what was done (<em>Svc</em>, <em>Inst</em>, <em>Rep</em>, <em>Repl</em>, <em>Cond</em>, <em>NF</em> - Not found, <em>Att</em> - Attended, a visit that recorded the unit without a service, <em>Fault</em> - tested and failed on the device test list). The newest columns are kept and the cut is reported as "N earlier completed jobs not shown".</p>'
                         + figure(`${IMG}/office-site-assets.webp`, 'The site Assets tab in the office listing the register rows with asset number, type, location and status, and the Print Register button', 'The site\'s register, with Print Register in the toolbar.'),
                 },
                 {
@@ -344,7 +354,7 @@ export const assetTrackingGuide: IDocGuide = {
                 },
                 {
                     title: 'Do my engineers need to do anything different?',
-                    content: 'Almost nothing. The equipment list they were already filling in is the register. What changed: fire alarm, extinguisher and intruder alarm service jobs open on their specialised worksheet, and where the site has a register the equipment is already listed - they confirm and record, then sign off as usual.',
+                    content: 'Almost nothing. The equipment list they were already filling in is the register. What changed: fire alarm, extinguisher and intruder alarm service jobs open on their specialised worksheet, and where the site has a register the equipment is already listed - they confirm and record, then sign off as usual. On the Fire Alarm Service and Asset Service worksheets, that list now shows as a compact, one-tap device test list rather than a card per device - the same information, grouped by zone (or by equipment type on Asset Service) and quicker to work through. <strong>Show as cards</strong> switches back to the old card-per-device view if they prefer it.',
                 },
                 {
                     title: 'What happens if my engineer enters the same item twice?',

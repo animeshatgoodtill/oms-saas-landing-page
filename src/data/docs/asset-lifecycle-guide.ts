@@ -14,7 +14,7 @@ export const assetLifecycleGuide: IDocGuide = {
     title: 'Asset Register Deep Dive',
     description: 'How the register works underneath: asset statuses, what updates automatically and what waits for review, how a visit plan splits a large site across the year, how coverage is worked out, the pre-loading rules, QR tags, and bulk import including panel exports.',
     slug: 'asset-lifecycle',
-    lastUpdated: '2026-09-25',
+    lastUpdated: '2026-09-26',
     sections: [
         {
             id: 'overview',
@@ -72,7 +72,7 @@ export const assetLifecycleGuide: IDocGuide = {
             id: 'auto-promotion',
             title: 'How the Register Stays Up to Date',
             content: '<p class="mb-4">When an engineer completes a service worksheet, its equipment rows update the register. Which rows apply on their own and which wait for a person depends on what the row <em>changes</em>:</p>'
-                + diagram(`${TRK}/auto-vs-review.svg`, 'A completed worksheet\'s rows split two ways: Service and Service existing rows apply automatically to the register\'s history and condition; Replace, Condemn, Missing and New equipment rows go to the review banner on the customer\'s Assets tab and only reach the register when the office commits them. With the auto-register toggle off, everything waits.', 'Routine rows apply themselves; anything that changes what exists waits for a human.'),
+                + diagram(`${TRK}/auto-vs-review.svg`, 'A completed worksheet\'s rows split two ways: Service and Service existing rows apply automatically to the register\'s history and condition; Replace, Condemn, Missing and New equipment rows go to the review banner on the customer\'s Assets tab and only reach the register when the office commits them. With the auto-register toggle off, everything waits.', 'Routine rows apply themselves; anything that changes what exists waits for a human. On the device test list, a device recorded as not tested writes no service either, and stays due.'),
             subsections: [
                 {
                     bullets: [
@@ -91,7 +91,19 @@ export const assetLifecycleGuide: IDocGuide = {
                     ],
                 },
                 {
-                    content: '<p>Each equipment row records an action, and the action list is <strong>specific to the worksheet</strong> - the extinguisher worksheet offers <strong>Basic Service</strong>, <strong>Test Discharge</strong>, <strong>Refilled</strong>, <strong>Exchange</strong>, <strong>Condemn &amp; Dispose</strong>, <strong>New / Hire</strong>, <strong>Service Existing</strong> and <strong>Missing / Not Found</strong>; other worksheets carry their own list built the same way. A pre-loaded row arrives as <em>Service Existing</em> (or its equivalent); the engineer\'s own entry on the row - what was done, a quantity, a result - or tapping <strong>✓ Serviced as listed</strong> to confirm it exactly as listed, is what marks it done.</p>',
+                    content: '<p>Each equipment row records an action, and the action list is <strong>specific to the worksheet</strong> - the extinguisher worksheet offers <strong>Basic Service</strong>, <strong>Test Discharge</strong>, <strong>Refilled</strong>, <strong>Exchange</strong>, <strong>Condemn &amp; Dispose</strong>, <strong>New / Hire</strong>, <strong>Service Existing</strong> and <strong>Missing / Not Found</strong>; other worksheets carry their own list built the same way. A pre-loaded row arrives as <em>Service Existing</em> (or its equivalent); the engineer\'s own entry on the row - what was done, a quantity, a result - marks it done. On the <strong>extinguisher worksheet</strong>, and anywhere devices are shown as cards, that confirmation is tapping <strong>✓ Serviced as listed</strong>. On the <strong>Fire Alarm Service and Asset Service worksheets</strong>, their devices show as a <strong>device test list</strong> instead of cards by default - the same confirmation is a single tap on the row (see below).</p>',
+                },
+                {
+                    title: 'The Device Test List (Fire Alarm Service & Asset Service)',
+                    content: '<p class="mb-4">Rather than a card per device, these two worksheets list their equipment as one compact line each - identity, kind and location - grouped by zone and sorted in panel order by default.</p>',
+                    bullets: [
+                        '<strong>Tap a row to mark it tested; tap again to undo.</strong> The arrow on the right always opens the full card, for a fault, a note, or the <strong>Missing</strong> action - a tap on the row itself never sets those.',
+                        'A zone header shows <strong>N/M done</strong> and a <strong>Mark N tested</strong> button for what is left in it - tap it twice to confirm.',
+                        '<strong>Search</strong> by asset number, location or loop address; <strong>filter</strong> by To do, Tested, Faults or Not tested; <strong>sort</strong> by panel order, location A-Z, or to-do first.',
+                        '<strong>Select several devices</strong> to mark them tested, faulty or not tested together - every bulk change can be undone for 5 seconds.',
+                        '<strong>Scan a tag</strong> to jump straight to its row, even offline; a device not on this visit\'s list can still be added in one tap.',
+                        'Prefer the card list? <strong>Show as cards</strong> switches back, and the phone remembers the choice for next time.',
+                    ],
                 },
             ],
         },
@@ -222,7 +234,7 @@ export const assetLifecycleGuide: IDocGuide = {
             title: 'Parent-Child Hierarchy',
             subsections: [
                 {
-                    content: '<p class="mb-4">Fire alarm systems are hierarchical: panel → detectors, call points, sounders. The <strong>Fire Alarm Service Worksheet</strong> records devices against their parent panel, and the register shows the relationship. Devices imported from a panel export onto a site that already has exactly one panel are parented to it automatically.</p><p>The <strong>Asset Service Worksheet</strong> creates standalone (top-level) assets - for panel-and-device hierarchies, use the Fire Alarm worksheet.</p>',
+                    content: '<p class="mb-4">Fire alarm systems are hierarchical: panel → detectors, call points, sounders. The <strong>Fire Alarm Service Worksheet</strong> records devices against their parent panel, and the register shows the relationship. <strong>"Parent panel #" is optional.</strong> A device that came from the site register already belongs to its panel and leaves the field blank. For a device the engineer adds on site, a given row number is checked, but a <strong>blank</strong> one is parented to the site\'s own panel automatically when the site has <strong>exactly one</strong> - with no single panel to default to (none, or more than one), the device registers unparented for the office to fix. Devices imported from a panel export onto a site that already has exactly one panel are parented to it automatically too.</p><p>The <strong>Asset Service Worksheet</strong> creates standalone (top-level) assets - for panel-and-device hierarchies, use the Fire Alarm worksheet.</p>',
                 },
                 {
                     title: 'Fire Alarm Addressing',
@@ -235,7 +247,7 @@ export const assetLifecycleGuide: IDocGuide = {
             title: 'Asset History and the Register PDF',
             subsections: [
                 {
-                    content: '<p class="mb-4">Every serviced row writes a history event on the asset: the action taken, condition, the job\'s completion date, the engineer whose worksheet recorded it, and a link to the job. The field scan panel shows the last three events on site; the full history lives on the asset\'s page in the office.</p><p>A per-site <strong>Asset Register PDF</strong> is available from the site\'s Assets tab - <strong>one document per register family</strong> (extinguishers and blankets together; a panel and its devices together), with type-appropriate columns and a service grid of <strong>one column per completed job</strong>, initials from whoever completed the worksheet, and a mark for what was done. The newest columns are kept and the cut is reported.</p>',
+                    content: '<p class="mb-4">Every serviced row writes a history event on the asset: the action taken, condition, the job\'s completion date, the engineer whose worksheet recorded it, and a link to the job. On the Fire Alarm Service and Asset Service device test list, that event also records the <strong>test result</strong> - pass or fail. A device recorded as <strong>not tested</strong> writes no history event at all, so it is never mistaken for a service and stays due. The field scan panel shows the last three events on site; the full history lives on the asset\'s page in the office.</p><p>A per-site <strong>Asset Register PDF</strong> is available from the site\'s Assets tab - <strong>one document per register family</strong> (extinguishers and blankets together; a panel and its devices together), with type-appropriate columns and a service grid of <strong>one column per completed job</strong>, initials from whoever completed the worksheet, and a mark for what was done - a device tested and <strong>failed</strong> prints as <strong>Fault</strong> rather than an ordinary service tick. The newest columns are kept and the cut is reported.</p>',
                 },
             ],
         },
@@ -334,7 +346,7 @@ export const assetLifecycleGuide: IDocGuide = {
                 { title: 'Does the Asset Service Worksheet replace the Extinguisher or Fire Alarm worksheets?', content: '<p>No. Dedicated worksheets always take precedence for their own equipment; the Asset Service Worksheet covers every other type and acts as a fallback.</p>' },
                 { title: 'Can engineers decommission equipment from the field?', content: '<p>They can select the worksheet\'s condemn option (<strong>Condemn &amp; Dispose</strong> on the extinguisher sheet, <strong>Condemn / Decommission</strong> on the others) or <strong>Missing / Not Found</strong> - the register change is then held for office review before it applies. Once a job\'s Action Performed is registered as one of those (or Replaced), it\'s locked - it can\'t be edited back to a routine action from that job\'s Edit Service Details dialog. Reverse a decommission with Reinstate, or correct a wrong Missing / Not Found by setting Status back to Active - both from the asset\'s own page.</p>' },
                 { title: 'Does a visit plan change what the engineer can do on site?', content: '<p>No. Every device at the site is still one tap away from the sheet - via the picker or a scan. The plan changes what arrives pre-loaded and how the picker labels the rest.</p>' },
-                { title: 'What if an engineer skips a device on their visit?', content: '<p>It rolls forward to the next visit\'s sheet once this visit is completed, and the last visit of the year loads everything still untested.</p>' },
+                { title: 'What if an engineer skips a device on their visit?', content: '<p>An untested device no longer blocks completing the sheet. Marking it complete records those devices as <strong>not tested</strong> rather than serviced - no service date moves, and nothing is written to history for them - so they stay due. They roll forward to the next visit\'s sheet once this visit is completed, and the last visit of the year loads everything still untested.</p>' },
                 { title: 'Who can manage the register and the visit plan?', content: '<p>Asset management follows your team\'s normal permissions and is available on plans that include Asset Management. Visit plans are edited by whoever can edit the contract.</p>' },
                 { title: 'What happens to an asset\'s history if the asset is decommissioned?', content: '<p>It is retained - decommissioned assets stay on record for compliance; they are just excluded from active field lists, pre-loading and coverage. The asset page\'s <strong>Status history</strong> card records every status change with who made it and when, so a later Reinstate doesn\'t erase the trail.</p>' },
                 { title: 'Does a "Missing / Not Found" unit count as serviced?', content: '<p>No. It\'s recorded as <strong>Not found</strong> (register mark <strong>NF</strong>) rather than a routine action, and it never counts toward the asset\'s last-service date - a unit nobody could find shouldn\'t look freshly serviced to the next engineer or on the compliance record.</p>' },

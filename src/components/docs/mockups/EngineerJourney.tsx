@@ -709,7 +709,7 @@ const DevicesScreen: React.FC<{
 
       <div className="flex flex-grow flex-col gap-3 overflow-y-auto px-3 py-2.5">
         {addedRows.length > 0 && (
-          <section className="overflow-hidden rounded border border-[var(--line)] bg-[var(--card)]">
+          <section className="flex-shrink-0 overflow-hidden rounded border border-[var(--line)] bg-[var(--card)]">
             <div className="flex min-h-10 items-center gap-2 border-b border-[var(--line)] bg-[var(--chip)] px-2.5 py-2">
               <span className="text-[13px] font-bold" style={{ fontFamily: 'var(--mockup-font-heading)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Added from register</span>
               <span className="mono flex-grow text-[11px]" style={{ color: 'var(--ink2)' }}>{addedRows.length} device{addedRows.length === 1 ? '' : 's'}</span>
@@ -736,7 +736,7 @@ const DevicesScreen: React.FC<{
           const armed = armedGroup === g.zone;
           const todoIds = g.all.filter((d) => d.status === 'todo').map((d) => d.id);
           return (
-            <section key={g.zone} className="overflow-hidden rounded border border-[var(--line)] bg-[var(--card)]">
+            <section key={g.zone} className="flex-shrink-0 overflow-hidden rounded border border-[var(--line)] bg-[var(--card)]">
               <div className="flex min-h-11 items-center gap-1.5 border-b border-[var(--line)] bg-[var(--chip)] px-2 py-1.5">
                 <button
                   type="button"
@@ -791,7 +791,7 @@ const DevicesScreen: React.FC<{
           );
         })}
 
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-shrink-0 flex-col gap-1.5">
           {collapsedZones.map((c) => (
             <div key={c.zone} className="flex min-h-11 items-center gap-2 rounded border border-[var(--line)] bg-[var(--card)] px-3 py-2" style={{ color: 'var(--ink2)' }}>
               <span className="text-sm font-semibold" style={{ color: 'var(--ink)', fontFamily: 'var(--mockup-font-heading)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Zone {c.zone}</span>

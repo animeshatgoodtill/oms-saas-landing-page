@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 330" role="img" aria-labelledby="lctitle lcdesc">
+<title id="lctitle">From site RAMS to completed job: how a RAMS is versioned and signed off</title>
+<desc id="lcdesc">Seven steps left to right. 1: the site RAMS, approved version 2 with a review-by date. 2: a new job starts from it. 3: the office edits it for this job. 4: Issue RAMS freezes Revision 1. 5: Email RAMS freezes Revision 2 and can include an optional client approval link. 6: each engineer marks Read and understood, per engineer and per version. 7: when the job is completed an At completion revision is saved. Steps 4, 5 and 7 create frozen revisions, drawn with the accent colour.</desc>
+<style>
+.lbl{font-family:Manrope,'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+.title{font-size:13.5px;font-weight:600;fill:#141619;}
+.body{font-size:12.5px;fill:#141619;}
+.note{font-size:11px;fill:#586070;}
+.box{fill:#FFFFFF;stroke:#E1E5EA;stroke-width:1;}
+.acc{fill:#E4EFF7;stroke:#026A9F;stroke-width:1.5;}
+.line{stroke:#586070;stroke-width:1.5;fill:none;}
+.tag{font-size:9.5px;font-weight:600;letter-spacing:.04em;}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#586070"/></marker></defs>
+<rect x="20" y="40" width="220" height="90" rx="4" class="box"/>
+<circle cx="42" cy="64" r="10" fill="#026A9F"/><text x="42" y="68" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">1</text>
+<text x="60" y="68" class="lbl title">Site RAMS</text>
+<text x="36" y="94" class="lbl note">Approved v2, review by date</text>
+<rect x="280" y="40" width="220" height="90" rx="4" class="box"/>
+<circle cx="302" cy="64" r="10" fill="#026A9F"/><text x="302" y="68" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">2</text>
+<text x="320" y="68" class="lbl title">New job starts from it</text>
+<text x="296" y="94" class="lbl note">Copied onto the job</text>
+<rect x="540" y="40" width="220" height="90" rx="4" class="box"/>
+<circle cx="562" cy="64" r="10" fill="#026A9F"/><text x="562" y="68" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">3</text>
+<text x="580" y="68" class="lbl title">Office edits for this job</text>
+<text x="556" y="94" class="lbl note">Hazards, PPE, method</text>
+<rect x="800" y="40" width="220" height="90" rx="4" class="acc"/>
+<circle cx="822" cy="64" r="10" fill="#026A9F"/><text x="822" y="68" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">4</text>
+<text x="840" y="68" class="lbl title">&quot;Issue RAMS&quot;</text>
+<text x="816" y="94" class="lbl note">Freezes Revision 1</text>
+<rect x="800" y="200" width="220" height="90" rx="4" class="acc"/>
+<circle cx="822" cy="224" r="10" fill="#026A9F"/><text x="822" y="228" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">5</text>
+<text x="840" y="228" class="lbl title">&quot;Email RAMS&quot;</text>
+<text x="816" y="254" class="lbl note">Revision 2, optional client</text>
+<text x="816" y="270" class="lbl note">approval link</text>
+<rect x="540" y="200" width="220" height="90" rx="4" class="box"/>
+<circle cx="562" cy="224" r="10" fill="#026A9F"/><text x="562" y="228" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">6</text>
+<text x="580" y="228" class="lbl title">Read &amp; understood</text>
+<text x="556" y="254" class="lbl note">Each engineer, each version</text>
+<rect x="280" y="200" width="220" height="90" rx="4" class="acc"/>
+<circle cx="302" cy="224" r="10" fill="#026A9F"/><text x="302" y="228" text-anchor="middle" class="lbl" style="font-size:11px;font-weight:700;fill:#fff">7</text>
+<text x="320" y="228" class="lbl title">Job completed</text>
+<text x="296" y="254" class="lbl note">&quot;At completion&quot; revision</text>
+<path d="M240,85 H280" class="line" marker-end="url(#ar)"/>
+<path d="M500,85 H540" class="line" marker-end="url(#ar)"/>
+<path d="M760,85 H800" class="line" marker-end="url(#ar)"/>
+<path d="M910,130 V200" class="line" marker-end="url(#ar)"/>
+<path d="M800,245 H760" class="line" marker-end="url(#ar)"/>
+<path d="M540,245 H500" class="line" marker-end="url(#ar)"/>
+<rect x="20" y="170" width="14" height="14" rx="4" class="acc"/><text x="42" y="182" class="lbl note">Frozen revision (a copy you can download)</text>
+<text x="20" y="310" class="lbl note">Editing after a revision shows &quot;Edited since revision N&quot; and asks engineers to read it again.</text>
+</svg>

@@ -28,6 +28,7 @@ import { telegramBotGuide } from './telegram-bot-guide';
 import { migrationAgentGuide } from './migration-agent-guide';
 import { purchaseOrdersGuide } from './purchase-orders-guide';
 import { remoteMonitoringGuide } from './remote-monitoring-guide';
+import { ramsGuide } from './rams-guide';
 
 // All docs guides that follow the IDocGuide data structure (i.e. rendered via
 // DocPageLayout). Invoicing and Accounting Integration are bespoke JSX pages
@@ -44,6 +45,7 @@ export const docGuides: IDocGuide[] = [
     offlineSyncGuide,
     fireSafetyFeaturesGuide,
     worksheetsGuide,
+    ramsGuide,
     certificatesGuide,
     quotationsGuide,
     defectsToQuotationGuide,

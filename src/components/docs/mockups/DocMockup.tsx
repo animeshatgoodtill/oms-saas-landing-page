@@ -8,6 +8,9 @@ import CoveragePanel from './CoveragePanel';
 import DefectDeleteJourney from './DefectDeleteJourney';
 import DefectOfficeCard from './DefectOfficeCard';
 import DefectScopeRemoveVsDelete from './DefectScopeRemoveVsDelete';
+import RamsJobCard from './RamsJobCard';
+import RamsFieldSignoff from './RamsFieldSignoff';
+import RamsClientApproval from './RamsClientApproval';
 
 export type DocMockupName =
   | 'engineer-journey'
@@ -16,7 +19,10 @@ export type DocMockupName =
   | 'coverage-panel'
   | 'defect-delete-journey'
   | 'office-defects-card'
-  | 'scope-remove-vs-delete';
+  | 'scope-remove-vs-delete'
+  | 'rams-job-card'
+  | 'rams-field-signoff'
+  | 'rams-client-approval';
 
 interface DocMockupProps {
   name: DocMockupName;
@@ -38,6 +44,12 @@ const DocMockup: React.FC<DocMockupProps> = ({ name }) => {
       return <DefectOfficeCard />;
     case 'scope-remove-vs-delete':
       return <DefectScopeRemoveVsDelete />;
+    case 'rams-job-card':
+      return <RamsJobCard />;
+    case 'rams-field-signoff':
+      return <RamsFieldSignoff />;
+    case 'rams-client-approval':
+      return <RamsClientApproval />;
     default:
       return null;
   }

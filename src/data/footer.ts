@@ -87,6 +87,10 @@ export const footerDetails: {
             url: "/docs/asset-tracking"
         },
         {
+            text: "RAMS",
+            url: "/docs/rams"
+        },
+        {
             text: "Customer Portal",
             url: "/docs/customer-portal"
         },

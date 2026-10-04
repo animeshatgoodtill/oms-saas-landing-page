@@ -72,6 +72,14 @@ export const documentationGuides: IDocumentationGuideMeta[] = [
         category: 'Field Service',
         icon: 'icon-job-sheet'
     },
+    // Health & Safety
+    {
+        title: 'RAMS — Support Guide',
+        description: 'Risk assessments and method statements: templates, numbered revisions that never change, each engineer\'s read-and-understood, a reviewed RAMS for every site, and client approval by link or portal.',
+        url: '/docs/rams',
+        category: 'Health & Safety',
+        icon: 'icon-compliance-shield'
+    },
     // Worksheets & Checklists
     {
         title: 'Worksheet Authoring & Filling',

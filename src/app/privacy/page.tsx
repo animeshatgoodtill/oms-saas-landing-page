@@ -14,7 +14,7 @@ const PrivacyPage: React.FC = () => {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated="5 September 2026"
+      lastUpdated="8 October 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -26,6 +26,14 @@ const PrivacyPage: React.FC = () => {
         We are registered with the Information Commissioner&apos;s Office (ICO) under registration number{' '}
         <strong>{companyDetails.compliance.icoRegistrationNumber}</strong>.
       </p>
+      <p>
+        If you use a Digital Fire Logbook without an {companyDetails.tradingName} account, please read our{' '}
+        <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>. It explains how the logbook
+        handles your information.
+      </p>
+      {/* SOLICITOR: confirm the roles. For the Digital Fire Logbook, {companyDetails.tradingName} acts as processor
+          for the fire safety company (the controller), as the logbook notice says. For our own account holders we
+          are the controller. Check the two pages stay consistent. */}
       <p>
         <strong>Data Controller:</strong><br />
         {companyDetails.registeredName}<br />
@@ -48,7 +56,7 @@ const PrivacyPage: React.FC = () => {
       <ul>
         <li><strong>Usage Data:</strong> How you interact with our services, features used, and time spent.</li>
         <li><strong>Device Information:</strong> Device type, operating system, browser type, and IP address.</li>
-        <li><strong>Location Data:</strong> Approximate location based on IP address; precise location only with your explicit consent for field services features.</li>
+        <li><strong>Location Data:</strong> Approximate location based on IP address; precise location only with your explicit consent for field services features. The Digital Fire Logbook checks location once, at the moment someone signs an entry. It asks the phone for permission first, to show whether the entry was signed on site. It never tracks anyone, and declining never blocks an entry.</li>
         <li><strong>Cookies:</strong> See our <Link href="/cookies">Cookie Policy</Link> for details.</li>
       </ul>
 
@@ -192,6 +200,40 @@ const PrivacyPage: React.FC = () => {
               <td className="border border-gray-200 px-4 py-2">United States</td>
               <td className="border border-gray-200 px-4 py-2">Standard Contractual Clauses and the UK International Data Transfer Addendum, under Anthropic&apos;s Data Processing Agreement</td>
             </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Vercel Inc.</td>
+              <td className="border border-gray-200 px-4 py-2">Hosting and file storage for the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">Logbook website traffic, photos and signature images</td>
+              <td className="border border-gray-200 px-4 py-2">London, UK</td>
+              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Neon Inc.</td>
+              <td className="border border-gray-200 px-4 py-2">Database for the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">Logbook records, including names, roles and entries</td>
+              <td className="border border-gray-200 px-4 py-2">London, UK</td>
+              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Resend Inc.</td>
+              <td className="border border-gray-200 px-4 py-2">Sending email for the Digital Fire Logbook, such as invitations</td>
+              <td className="border border-gray-200 px-4 py-2">Email addresses and the content of the email</td>
+              <td className="border border-gray-200 px-4 py-2">Ireland (EU)</td>
+              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+            </tr>
+            <tr>
+              <td className="border border-gray-200 px-4 py-2">Sentry (Functional Software Inc.)</td>
+              <td className="border border-gray-200 px-4 py-2">Error monitoring for the Digital Fire Logbook</td>
+              <td className="border border-gray-200 px-4 py-2">Error reports. Logbook request bodies are removed before sending</td>
+              <td className="border border-gray-200 px-4 py-2">Germany (EU)</td>
+              <td className="border border-gray-200 px-4 py-2">UK International Data Transfer Addendum or EU Standard Contractual Clauses with the UK Addendum</td>
+            </tr>
+            {/* OWNER: add The SMS Works Ltd (text messages, UK) and Stripe (logbook billing) only when they go
+                live. Do not list them before then. */}
+            {/* OWNER: verify each new row against the contract and DPA before publishing. This table also looks
+                incomplete for the main app. The main app very likely uses some of these providers too, and others
+                (for example Stack Auth, Stripe, Xero, QuickBooks, Google Analytics). Please review the full list
+                of sub-processors for the main app. */}
           </tbody>
         </table>
       </div>
@@ -221,6 +263,14 @@ const PrivacyPage: React.FC = () => {
         When you close your account, we will delete or anonymise your personal data within 90 days,
         unless retention is required for legal purposes.
       </p>
+      <p>
+        <strong>Fire logbook records are different.</strong> A Digital Fire Logbook is a legal record that belongs
+        to the building. It is kept for as long as the fire safety company uses {companyDetails.tradingName}. If the
+        company leaves, we will arrange for the logbook to be handed over, usually to the building&apos;s Responsible Person, before it is
+        deleted. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
+      </p>
+      {/* SOLICITOR: confirm this retention exception and wording. OWNER: the hand-over is a planned process, not
+          yet a built feature. */}
 
       <h2>8. Your Rights</h2>
       <p>Under UK GDPR, you have the following rights:</p>

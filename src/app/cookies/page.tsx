@@ -14,7 +14,7 @@ const CookiesPage: React.FC = () => {
   return (
     <LegalPage
       title="Cookie Policy"
-      lastUpdated={companyDetails.compliance.lastPolicyUpdate}
+      lastUpdated="8 October 2026"
     >
       <h2>1. What Are Cookies?</h2>
       <p>
@@ -121,6 +121,33 @@ const CookiesPage: React.FC = () => {
           </tr>
         </tbody>
       </table>
+
+      <h3>Digital Fire Logbook (logbook.opscel.com)</h3>
+      <p>
+        The Digital Fire Logbook site at logbook.opscel.com uses one strictly necessary cookie. You cannot opt out
+        of it, because the logbook cannot keep you signed in without it.
+      </p>
+      <table className="w-full border-collapse border border-gray-200 my-4">
+        <thead>
+          <tr className="bg-hero-background">
+            <th className="border border-gray-200 px-4 py-2 text-left">Cookie Name</th>
+            <th className="border border-gray-200 px-4 py-2 text-left">Purpose</th>
+            <th className="border border-gray-200 px-4 py-2 text-left">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border border-gray-200 px-4 py-2">__Host-lb_s</td>
+            <td className="border border-gray-200 px-4 py-2">Keeps a keeper signed in on that device. HttpOnly and Secure</td>
+            <td className="border border-gray-200 px-4 py-2">Up to 30 days, renewed while in use</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        People who open a logbook from its QR sticker get no cookie. There are no analytics or advertising cookies
+        on logbook.opscel.com. See the{' '}
+        <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link> for more.
+      </p>
 
       <h3>2.4 Marketing Cookies</h3>
       <p>

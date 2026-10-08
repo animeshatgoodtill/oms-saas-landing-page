@@ -266,7 +266,7 @@ const PrivacyPage: React.FC = () => {
       <p>
         <strong>Fire logbook records are different.</strong> A Digital Fire Logbook is a legal record that belongs
         to the building. It is kept for as long as the fire safety company uses {companyDetails.tradingName}. If the
-        company leaves, the logbook is handed over, usually to the building&apos;s Responsible Person, before it is
+        company leaves, we will arrange for the logbook to be handed over, usually to the building&apos;s Responsible Person, before it is
         deleted. See the <Link href="/logbook/privacy">Digital Fire Logbook Privacy Notice</Link>.
       </p>
       {/* SOLICITOR: confirm this retention exception and wording. OWNER: the hand-over is a planned process, not

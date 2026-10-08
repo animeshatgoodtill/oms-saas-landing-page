@@ -14,7 +14,7 @@ const LogbookPrivacyPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="29 September 2026">
+    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="8 October 2026">
       <p>
         This notice is for people who use an {companyDetails.tradingName} Digital Fire Logbook without an{' '}
         {companyDetails.tradingName} account: people who keep the logbook for a building, their backups,
@@ -87,6 +87,7 @@ const LogbookPrivacyPage: React.FC = () => {
       <h3>When someone opens the logbook from its QR sticker</h3>
       <ul>
         <li>We record that the logbook was viewed, or that a report was downloaded or checked, and when.</li>
+        <li>Link previews (for example when the link is pasted into a messaging app) can be counted as a view.</li>
         <li>
           <strong>We do not store your IP address or anything that identifies you.</strong>
         </li>
@@ -136,7 +137,11 @@ const LogbookPrivacyPage: React.FC = () => {
               <td className="border border-gray-200 px-4 py-2">
                 <strong>The fire safety company</strong> that keeps the logbook
               </td>
-              <td className="border border-gray-200 px-4 py-2">Everything in it.</td>
+              <td className="border border-gray-200 px-4 py-2">
+                Everything in it. This includes an access history: when the logbook was viewed, exported or checked
+                from the sticker, and when the keeper opened it. The history does not show internet addresses or
+                device details.
+              </td>
             </tr>
             <tr>
               <td className="border border-gray-200 px-4 py-2">
@@ -233,6 +238,12 @@ const LogbookPrivacyPage: React.FC = () => {
         </li>
       </ul>
 
+      {/* OWNER: add when /q saved copies ship (#1055), under "When someone opens the logbook from its QR sticker"
+          or "Who can see what". Suggested wording: "We keep a copy of exactly what the sticker page shows, so
+          inspectors can still read the logbook if the live service is down. Anyone with the sticker link can read
+          that copy at any time, and those reads are not recorded in the access history." Do not publish until
+          the saved copy is live. */}
+
       <h2>Your rights</h2>
       <p>
         You have the right to see your information, to have it corrected, to ask for it to be deleted, to object to
@@ -245,11 +256,18 @@ const LogbookPrivacyPage: React.FC = () => {
           stays visible.
         </li>
         <li>
-          <strong>Deletion:</strong> on request we can remove your name and other personal details from sealed
-          entries. The record then shows &quot;Name removed on request&quot; with the date, and still proves the
-          rest of the logbook is unchanged. We may keep the fact that a check was done where the law requires the
-          building to keep that record.
+          <strong>Deletion:</strong> you can ask for your name and personal details to be removed. Because entries
+          are sealed, we are building a way to do this that keeps the rest of the record provably unchanged. Until
+          then, we will record your request and act on it as soon as we can. We may keep the fact that a check was
+          done where the law requires the building to keep that record.
         </li>
+        {/* OWNER: when erasure ships (opscel-starter-kit #1054) replace the Deletion item above with plain wording
+            along these lines.
+            Removed: name, mobile number, email address, typed and drawn signatures (the images are deleted), the
+            stored location and the device details. Photos are removed only if the person asks. A sealed note
+            "Name removed on request" is added to the record.
+            Kept: what the person wrote in notes and answers stays part of the sealed record. Quotes the fire
+            safety company has already sent to its customer are not changed. */}
       </ul>
       <p>
         To use any of these rights, contact the fire safety company or us at{' '}

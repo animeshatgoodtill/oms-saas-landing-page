@@ -14,7 +14,7 @@ const TermsPage: React.FC = () => {
   return (
     <LegalPage
       title="Terms of Service"
-      lastUpdated={companyDetails.compliance.lastPolicyUpdate}
+      lastUpdated="8 October 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -155,6 +155,40 @@ const TermsPage: React.FC = () => {
         Your use of such services is subject to their respective terms and conditions. We are not responsible
         for the availability or performance of third-party services.
       </p>
+
+      <h2>9A. Digital Fire Logbook</h2>
+      <p>
+        These terms apply if you use the {companyDetails.tradingName} Digital Fire Logbook. They sit alongside the
+        rest of these Terms.
+      </p>
+      {/* SOLICITOR: review this whole section before it goes live. */}
+      <h3>9A.1 People you add</h3>
+      <p>
+        You need a lawful basis to add people to a logbook, such as the building&apos;s keeper, a backup or the
+        Responsible Person. You must keep their details accurate. You must tell them the logbook exists and where
+        to find the{' '}
+        <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>.
+        The invitation email does part of this for you.
+      </p>
+      <h3>9A.2 A record-keeping tool, not advice</h3>
+      <p>
+        The logbook is a record-keeping tool. It helps a site keep the records that BS 5839-1 and BS 5266-1 expect.
+        It does not certify that a building complies with any standard or law. It is not fire safety advice. The
+        fire risk assessment and the Responsible Person&apos;s duties stay with the Responsible Person.
+      </p>
+      <h3>9A.3 If the logbook or a phone is not available</h3>
+      <p>
+        Keep testing when the logbook or a phone is unavailable. The sticker kit includes paper record sheets. You
+        can add checks later with &quot;I did this earlier&quot;.
+      </p>
+      <h3>9A.4 Fire door checks</h3>
+      <p>
+        Fire door checks under the Fire Safety (England) Regulations 2022 are not part of the logbook yet.
+      </p>
+      {/* SOLICITOR: the fire door sentence above simplifies the 2022 Regulations (they apply to buildings with two
+          or more domestic premises, and some checks apply only above 11 m). Confirm the wording. */}
+      {/* OWNER: price deliberately not stated here. Pricing belongs on the pricing page. Billing is not live. Do not
+          add a price until the owner confirms it. */}
 
       <h2>10. Availability and Support</h2>
       <h3>10.1 Service Availability</h3>

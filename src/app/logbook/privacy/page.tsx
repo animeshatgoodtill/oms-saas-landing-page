@@ -14,7 +14,7 @@ const LogbookPrivacyPage: React.FC = () => {
   const privacyEmail = companyDetails.compliance.dataProtectionOfficerEmail;
 
   return (
-    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="8 October 2026">
+    <LegalPage title="Digital Fire Logbook: Privacy Notice" lastUpdated="9 October 2026">
       <p>
         This notice is for people who use an {companyDetails.tradingName} Digital Fire Logbook without an{' '}
         {companyDetails.tradingName} account: people who keep the logbook for a building, their backups,
@@ -256,18 +256,14 @@ const LogbookPrivacyPage: React.FC = () => {
           stays visible.
         </li>
         <li>
-          <strong>Deletion:</strong> you can ask for your name and personal details to be removed. Because entries
-          are sealed, we are building a way to do this that keeps the rest of the record provably unchanged. Until
-          then, we will record your request and act on it as soon as we can. We may keep the fact that a check was
-          done where the law requires the building to keep that record.
+          <strong>Deletion:</strong> once you no longer look after the building&apos;s logbook, you can ask for your
+          name and personal details to be removed. We remove your name, mobile number, email address, your typed and
+          drawn signatures, the stored location and the device details. Photos you added are removed too if you ask.
+          The record then shows &quot;Name removed on request&quot;, and still proves the rest of the logbook is
+          unchanged. What you wrote in your answers and notes stays part of the sealed record, because the building
+          must keep its fire safety records. Quotes the fire safety company has already sent to its customer are not
+          changed.
         </li>
-        {/* OWNER: when erasure ships (opscel-starter-kit #1054) replace the Deletion item above with plain wording
-            along these lines.
-            Removed: name, mobile number, email address, typed and drawn signatures (the images are deleted), the
-            stored location and the device details. Photos are removed only if the person asks. A sealed note
-            "Name removed on request" is added to the record.
-            Kept: what the person wrote in notes and answers stays part of the sealed record. Quotes the fire
-            safety company has already sent to its customer are not changed. */}
       </ul>
       <p>
         To use any of these rights, contact the fire safety company or us at{' '}

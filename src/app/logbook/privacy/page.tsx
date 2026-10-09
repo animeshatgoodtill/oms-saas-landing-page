@@ -258,11 +258,12 @@ const LogbookPrivacyPage: React.FC = () => {
         <li>
           <strong>Deletion:</strong> once you no longer look after the building&apos;s logbook, you can ask for your
           name and personal details to be removed. We remove your name, mobile number, email address, your typed and
-          drawn signatures, the stored location and the device details. Photos you added are removed too if you ask.
-          The record then shows &quot;Name removed on request&quot;, and still proves the rest of the logbook is
-          unchanged. What you wrote in your answers and notes stays part of the sealed record, because the building
-          must keep its fire safety records. Quotes the fire safety company has already sent to its customer are not
-          changed.
+          drawn signatures, the details of where you were when you signed (the record keeps only whether you were on
+          site) and the device details. Photos you added are removed too if you ask. The record then shows &quot;Name
+          removed on request&quot;, and still proves the rest of the logbook is unchanged. What you wrote in your
+          answers, notes and reasons stays part of the sealed record, because the building must keep its fire safety
+          records. Quotes already made from a fault you reported are not changed, and emails or reports already sent
+          or downloaded cannot be recalled.
         </li>
       </ul>
       <p>

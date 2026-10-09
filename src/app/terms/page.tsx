@@ -14,7 +14,7 @@ const TermsPage: React.FC = () => {
   return (
     <LegalPage
       title="Terms of Service"
-      lastUpdated="8 October 2026"
+      lastUpdated="9 October 2026"
     >
       <h2>1. Introduction</h2>
       <p>
@@ -187,6 +187,14 @@ const TermsPage: React.FC = () => {
       </p>
       {/* SOLICITOR: the fire door sentence above simplifies the 2022 Regulations (they apply to buildings with two
           or more domestic premises, and some checks apply only above 11 m). Confirm the wording. */}
+
+      <h3>9A.5 Requests about people in a logbook</h3>
+      <p>
+        If someone asks us to remove their details from a logbook, we tell you and act on your instruction. If you do
+        not answer within 14 days, or you no longer use {companyDetails.tradingName}, you instruct us to handle the
+        request under our erasure policy, as described in the{' '}
+        <Link href="/logbook/privacy" className="text-secondary hover:underline">Digital Fire Logbook Privacy Notice</Link>.
+      </p>
       {/* OWNER: price deliberately not stated here. Pricing belongs on the pricing page. Billing is not live. Do not
           add a price until the owner confirms it. */}
 
